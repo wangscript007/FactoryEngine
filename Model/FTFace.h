@@ -10,7 +10,7 @@ class FTFace : public FTModel
 public:
     enum FaceType
     {
-        Rectangle = 0
+        FTRectangle = 0
     };
     
     typedef std::vector<FTPolygon*>     FTPolygonsVector;

@@ -9,7 +9,7 @@ public:
                             ~FTNode();
     FTNode*                 mpSupernode;
     NodesList               mpSubnodes;
-public:
     void                    AddNode(FTNode* node);
+public:
     virtual void            Render();
 };

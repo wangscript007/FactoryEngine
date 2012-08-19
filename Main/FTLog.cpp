@@ -11,8 +11,8 @@ unsigned int logIfAny =
 //    kFTLogMath
 //    |    
 //    kFTLogEnvinroment
-//    |
-//    kFTLogModel
+    |
+    kFTLogModel
 //    |
 //    kFTLogWorkspace
     |

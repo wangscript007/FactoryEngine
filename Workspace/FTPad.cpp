@@ -10,7 +10,7 @@ void FTPad::Render()
     glEnable(GL_DEPTH_TEST);
     glDepthMask(GL_TRUE);
     glDisable(GL_LIGHTING);
-    glLineWidth(2);
+    glLineWidth(1);
     //
     // grind
     //

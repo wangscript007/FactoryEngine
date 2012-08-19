@@ -2,7 +2,7 @@
 //  Copyright (c) 2012 Dimention. All rights reserved.
 //
 
-class FTWorkspace : FTNode
+class FTWorkspace : public FTNode
 {
 public:
                         FTWorkspace();

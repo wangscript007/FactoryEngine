@@ -7,7 +7,7 @@
 FTFace* FTModelFactory::CreateRectangleFace(O5Vec3 vOrigin, O5Vec3 vSize)
 {
     FTFace* pFace = new FTFace();
-    pFace->m_eType = FTFace::Rectangle;
+    pFace->m_eType = FTFace::FTRectangle;
     pFace->m_vOrigin = vOrigin;
     pFace->m_vSize = vSize;
     return pFace;

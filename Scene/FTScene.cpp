@@ -10,6 +10,7 @@
 //
 FTScene::FTScene()
 {
+    glEnable(GL_NORMALIZE);
     m_pWorkspace = new FTWorkspace();
     m_pCamera = new  FTCamera(FTMakeVec3f(5.0f, 5.0f, 5.0f));
     m_pModelManager = new FTModelManager();
@@ -99,14 +100,16 @@ void FTScene::TurnOnLight(int index)
 //
 void FTScene::CreateFace(FTVec3f vOrigin)
 {
-    m_pModelManager->m_pModelFactory->CreateRectangleFace(O5Vec3(vOrigin.x, vOrigin.y, vOrigin.z),
-                                                          O5Vec3(0.0f, 0.0f, 0.0f));
+    FTFace* pFace = m_pModelManager->m_pModelFactory->CreateRectangleFace(O5Vec3(vOrigin.x, 0.01, vOrigin.z),
+                                                                          O5Vec3(1.0f, 0.0f, 1.0f));
+    m_pWorkspace->AddNode((FTNode*)pFace);
 }
 //
 //
 //
 void FTScene::ChangeFaceSize(FTVec3f vSize)
 {
+    
 }
 
 
