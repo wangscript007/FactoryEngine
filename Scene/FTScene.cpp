@@ -98,11 +98,13 @@ void FTScene::TurnOnLight(int index)
 //
 //
 //
-void FTScene::CreateFace(FTVec3f vOrigin)
+FTFace* FTScene::CreateFace(FTVec3f vOrigin)
 {
     FTFace* pFace = m_pModelManager->m_pModelFactory->CreateRectangleFace(O5Vec3(vOrigin.x, 0.01, vOrigin.z),
-                                                                          O5Vec3(1.0f, 0.0f, 1.0f));
+                                                                          O5Vec3(0.0f, 0.0f, 0.0f));
     m_pWorkspace->AddNode((FTNode*)pFace);
+    return pFace;
+    
 }
 //
 //

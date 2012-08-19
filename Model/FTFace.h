@@ -30,7 +30,6 @@ public:
     FaceType                            m_eType;
     O5Vec3                              m_vOrigin;
     O5Vec3                              m_vSize;
-    
 private:
     
     FTPolygonsVector                    m_vPolygons;

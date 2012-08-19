@@ -29,7 +29,7 @@ public:
     //
     // Model
     //
-    void                CreateFace(FTVec3f vOrigin);
+    FTFace*             CreateFace(FTVec3f vOrigin);
     void                ChangeFaceSize(FTVec3f vSize);
     
 private:
