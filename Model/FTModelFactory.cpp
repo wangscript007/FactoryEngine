@@ -32,7 +32,7 @@ FTModel* FTModelFactory::CreateModel(FTModelType objectType)
     switch (objectType) {
         case kFTModelTypeCube: {
             object = new FTModel();
-            FTVec3d vertices[] = 
+            O5Vec3 vertices[] = 
             {
                 {1,1,1},    {-1,1,1},   {-1,-1,1},  {1,-1,1},           // v0-v1-v2-v3
                 {1,1,1},    {1,-1,1},   {1,-1,-1},  {1,1,-1},           // v0-v3-v4-v5

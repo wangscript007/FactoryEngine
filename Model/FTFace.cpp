@@ -64,14 +64,14 @@ void FTFace::Render()
 // Checks if point is int the same plane with face.
 // Point is in same plane if any three points coordinate in same axes is the same.
 //
-bool FTFace::IsInFacePlane(FTVec3f vec)
+bool FTFace::IsInFacePlane(O5Vec3 vec)
 {
     return true;
 }
 //
 // Checks point in the same plane intersection with face
 //
-bool FTFace::Contains(FTVec3f vec)
+bool FTFace::Contains(O5Vec3 vec)
 {
     
 }

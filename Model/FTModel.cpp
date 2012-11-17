@@ -4,7 +4,7 @@
 
 #include <FactoryEngine.h>
 
-void FTModel::SetVertex(FTVec3d *vertexArray)
+void FTModel::SetVertex(O5Vec3 *vertexArray)
 {
     //int size = sizeof vertexArray / sizeof *vertexArray;
     //mfacesVector.assign(vertexArray, vertexArray + size);

@@ -30,8 +30,8 @@
 //
 // Math
 //
-#include "Math/FTVec.h"
 #include "Math/FTUtils.h"
+#include "Math/FTRect.h"
 //
 // Model
 //

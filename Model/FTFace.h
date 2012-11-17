@@ -13,14 +13,14 @@ public:
     };
     
     typedef std::vector<FTPolygon*>     FTPolygonsVector;
-    typedef std::vector<FTVec3d>        VertextVector;
+    typedef std::vector<O5Vec3>        VertextVector;
 
                                         FTFace();
                                         ~FTFace();
     
     virtual void                        Render();
-    bool                                IsInFacePlane(FTVec3f vec);
-    bool                                Contains(FTVec3f vec);
+    bool                                IsInFacePlane(O5Vec3 vec);
+    bool                                Contains(O5Vec3 vec);
     void                                Cut(FTFace* cutFace);
     
     void                                AddPolygon();

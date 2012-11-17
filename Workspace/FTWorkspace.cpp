@@ -19,10 +19,10 @@ FTWorkspace::~FTWorkspace()
     delete mpHUD;
 }
 
-void FTWorkspace::SetViewportRect(FTRectf rect)
+void FTWorkspace::SetViewportRect(FTRect rect)
 {
     FTLog(kFTLogWorkspace, "");
-    glViewport(rect.origin.x, rect.origin.y, rect.size.x, rect.size.y);
+    glViewport(rect.m_vOrigin.m_fX, rect.m_vOrigin.m_fY, rect.m_vSize.m_fX, rect.m_vSize.m_fY);
 }
 
 void FTWorkspace::Render()

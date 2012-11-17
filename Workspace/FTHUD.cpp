@@ -80,7 +80,7 @@ void FTHUD::RenderIcosahedron()
 {
     // This is the same result as using Vertex3D, just faster to type and
     // can be made const this way
-    static const FTVec3f vertices[]= {
+    static const Vec3 vertices[]= {
         {0, -0.525731, 0.850651},             // vertices[0]
         {0.850651, 0, 0.525731},              // vertices[1]
         {0.850651, 0, -0.525731},             // vertices[2]
@@ -95,7 +95,7 @@ void FTHUD::RenderIcosahedron()
         {0, 0.525731, 0.850651}               // vertices[11]
     };
     
-    static const FTVecf4 colors2[] = {
+    static const Vec4 colors2[] = {
         {1.0, 0.0, 0.0, 1.0},
         {1.0, 0.5, 0.0, 1.0},
         {1.0, 1.0, 0.0, 1.0},
@@ -133,7 +133,7 @@ void FTHUD::RenderIcosahedron()
         4, 8, 0,
     };
     
-    static const FTVec3f normals[] = {
+    static const Vec3 normals[] = {
         {0.000000, -0.417775, 0.675974},
         {0.675973, 0.000000, 0.417775},
         {0.675973, -0.000000, -0.417775},

@@ -16,8 +16,8 @@ public:
     //
     // Camera
     //
-    void                MoveBy(const FTVec2f deltaMove);
-    void                RotateBy(const FTVec2f deltaRotation);
+    void                MoveBy(const O5Vec2 deltaMove);
+    void                RotateBy(const O5Vec2 deltaRotation);
     void                ZoomBy(const GLfloat times);
     void                Look();
     void                Reset();
@@ -29,9 +29,9 @@ public:
     //
     // Model
     //
-    FTFace*             CreateFace(FTVec3f vOrigin);
-    void                ChangeFaceSize(FTVec3f vSize);
-    FTPoint*            CreatePoint(FTVec3f vOrigin);
+    FTFace*             CreateFace(O5Vec3 vOrigin);
+    void                ChangeFaceSize(O5Vec3 vSize);
+    FTPoint*            CreatePoint(O5Vec3 vOrigin);
     
 private:
     

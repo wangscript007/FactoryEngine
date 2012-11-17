@@ -1,43 +1,48 @@
 
 #include <FactoryEngine.h>
 
-FTVec3d FTUtils::WindowFromScene(FTVec3d sceneVec)
+O5Vec3 FTUtils::WindowFromScene(O5Vec3 sceneVec)
 {
-    FTVec3d windowVec;
     GLint viewport[4];                         
     GLdouble modelviewMatrix[16];
     GLdouble projectionMatrix[16];       
     glGetIntegerv (GL_VIEWPORT, viewport);                
     glGetDoublev (GL_MODELVIEW_MATRIX, modelviewMatrix);         
-    glGetDoublev (GL_PROJECTION_MATRIX, projectionMatrix);      
-    gluProject(sceneVec.x, sceneVec.y, sceneVec.z,
+    glGetDoublev (GL_PROJECTION_MATRIX, projectionMatrix);
+    GLdouble x = sceneVec.m_fX;
+    GLdouble y = sceneVec.m_fY;
+    GLdouble z = sceneVec.m_fZ;
+    GLdouble resultX, resultY, resultZ;
+    gluProject(x, y, z,
                modelviewMatrix, projectionMatrix, viewport,
-               &(windowVec.x), &(windowVec.y), &(windowVec.z));
+               &resultX, &resultY, &resultZ);
     
-    return windowVec;
+    return O5Vec3(resultX, resultY, resultZ);
 }
 
-FTVec3d FTUtils::SceneFromWindow(const FTVec3d windowVec)
+O5Vec3 FTUtils::SceneFromWindow(const O5Vec3 windowVec)
 {
-    FTVec3d sceneVec;
     GLint viewport[4];                         
     GLdouble modelviewMatrix[16];
     GLdouble projectionMatrix[16];     
     glGetIntegerv (GL_VIEWPORT, viewport);                
     glGetDoublev (GL_MODELVIEW_MATRIX, modelviewMatrix);         
     glGetDoublev (GL_PROJECTION_MATRIX, projectionMatrix);      
-    GLfloat depth = FTUtils::DepthAtWindowPoint(FTMakeVec2d(windowVec.x, windowVec.y));
-    gluUnProject(windowVec.x, windowVec.y, depth, 
+    GLfloat depth = FTUtils::DepthAtWindowPoint(O5Vec2(windowVec.m_fX, windowVec.m_fY));
+    GLdouble x = windowVec.m_fX;
+    GLdouble y = windowVec.m_fY;
+    GLdouble resultX, resultY, resultZ;
+    gluUnProject(x, y, depth,
                  modelviewMatrix, projectionMatrix, viewport,
-                 &(sceneVec.x), &(sceneVec.y), &(sceneVec.z));
-    return sceneVec;
+                 &resultX, &resultY, &resultZ);
+    return O5Vec3(resultX, resultY, resultZ);
 }
 
-GLfloat FTUtils::DepthAtWindowPoint(const FTVec2d point)
+GLfloat FTUtils::DepthAtWindowPoint(const O5Vec2 point)
 {
     GLfloat depth[2];
-    GLint x = point.x;
-    GLint y = point.y;
+    GLint x = point.m_fX;
+    GLint y = point.m_fY;
     glReadPixels(x, y, 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &depth);
     return depth[0];
 }

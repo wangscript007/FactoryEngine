@@ -14,7 +14,7 @@ class FTModel : public FTNode
 public:
     FTModelType                mtype;
     
-    void                        SetVertex(FTVec3f* vertexArray);
+    void                        SetVertex(O5Vec3* vertexArray);
 private:
 };
 

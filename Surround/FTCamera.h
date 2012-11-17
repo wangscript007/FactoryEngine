@@ -8,17 +8,17 @@ class FTCamera : public FTModel
 {
 public:
                         FTCamera();
-                        FTCamera(const FTVec3f coords);
-    void                MoveBy(const FTVec2f deltaMove);
-    void                RotateBy(const FTVec2f deltaRotation);
+                        FTCamera(const O5Vec3 coords);
+    void                MoveBy(const O5Vec2 deltaMove);
+    void                RotateBy(const O5Vec2 deltaRotation);
     void                ZoomBy(const GLfloat times);
     void                Look();
     void                SetProjectionMode(FTProjectionMode projectionMode);
     void                Reset();
 private:
-    FTVec2f             mvRotated;
-    FTVec2f             mvMoved;
-    FTVec3f             mvCoords;
+    O5Vec2             mvRotated;
+    O5Vec2             mvMoved;
+    O5Vec3             mvCoords;
     FTProjectionMode    mprojectionMode;
     GLdouble             mfZoomFactor;
 };
