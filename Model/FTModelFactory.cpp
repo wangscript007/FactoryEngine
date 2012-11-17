@@ -13,6 +13,17 @@ FTFace* FTModelFactory::CreateRectangleFace(O5Vec3 vOrigin, O5Vec3 vSize)
     return pFace;
 }
 
+FTPoint* FTModelFactory::CreatePoint(O5Vec3 vOrigin)
+{
+    FTPoint* pPoint = new FTPoint();
+    pPoint->SetOrigin(vOrigin);
+    /*
+    pFace->m_vSize = vSize;
+    */
+    return pPoint;
+}
+
+
 // creates object of unit size
 /*
 FTModel* FTModelFactory::CreateModel(FTModelType objectType)

@@ -1,4 +1,9 @@
+
+#pragma once
+
+
 class FTNode;
+
 typedef std::vector <FTNode*> NodesList;
 
 // Controls rendering hierarchy

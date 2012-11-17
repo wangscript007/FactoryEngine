@@ -37,6 +37,8 @@
 //
 #include "Model/FTNode.h"
 #include "Model/FTModel.h"
+#include "Model/FTPoint.h"
+#include "Model/FTLine.h"
 #include "Model/FTPolygon.h"
 #include "Model/FTFace.h"
 #include "Model/FTBody.h"

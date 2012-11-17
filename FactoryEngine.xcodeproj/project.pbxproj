@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6056C57015DC554C008F8E92 /* FTScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6056C56E15DC5522008F8E92 /* FTScene.cpp */; };
+		60D7DC711657D0700051947E /* FTPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC6F1657D0700051947E /* FTPoint.cpp */; };
+		60D7DC721657D0700051947E /* FTPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC701657D0700051947E /* FTPoint.h */; };
+		60D7DC761657D07C0051947E /* FTLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC741657D07C0051947E /* FTLine.cpp */; };
+		60D7DC771657D07C0051947E /* FTLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC751657D07C0051947E /* FTLine.h */; };
 		D10849F11583B4550042E161 /* FTLights.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D10849EF1583B4550042E161 /* FTLights.cpp */; };
 		D10849F21583B4550042E161 /* FTLights.h in Headers */ = {isa = PBXBuildFile; fileRef = D10849F01583B4550042E161 /* FTLights.h */; };
 		D10EF57A15B211E300BC14D5 /* FTModelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D10EF57815B211E300BC14D5 /* FTModelManager.cpp */; };
@@ -159,9 +163,28 @@
 		D1F44F56157FE9D200566119 /* FTHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F54157FE9D200566119 /* FTHUD.h */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		606A7F5E163C0C5400E4F243 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+				"",
+			);
+			script = "";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXFileReference section */
+		60127559163BDB0000E98E34 /* Readme.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Readme.rtf; sourceTree = "<group>"; };
 		6056C56E15DC5522008F8E92 /* FTScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FTScene.cpp; sourceTree = "<group>"; };
 		6056C56F15DC5522008F8E92 /* FTScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTScene.h; sourceTree = "<group>"; };
+		606A7F5C163C0C0700E4F243 /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
+		60D7DC6F1657D0700051947E /* FTPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTPoint.cpp; sourceTree = "<group>"; };
+		60D7DC701657D0700051947E /* FTPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPoint.h; sourceTree = "<group>"; };
+		60D7DC741657D07C0051947E /* FTLine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTLine.cpp; sourceTree = "<group>"; };
+		60D7DC751657D07C0051947E /* FTLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTLine.h; sourceTree = "<group>"; };
 		D10849EF1583B4550042E161 /* FTLights.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTLights.cpp; sourceTree = "<group>"; };
 		D10849F01583B4550042E161 /* FTLights.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTLights.h; sourceTree = "<group>"; };
 		D10EF57815B211E300BC14D5 /* FTModelManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTModelManager.cpp; sourceTree = "<group>"; };
@@ -342,7 +365,9 @@
 		D13DC900157A9F8B00C84006 = {
 			isa = PBXGroup;
 			children = (
+				60127559163BDB0000E98E34 /* Readme.rtf */,
 				D17C76641583BF440083E2B0 /* FactoryEngine.h */,
+				606A7F5C163C0C0700E4F243 /* Documentation */,
 				D1C708B915B3495400D64823 /* External */,
 				D17C766B1583C1580083E2B0 /* Main */,
 				D1E54CA7157BE5120083FB90 /* Math */,
@@ -627,6 +652,10 @@
 				D13D718215AF949100143662 /* FTNode.h */,
 				D1E75033157BC509005C4CCF /* FTModel.cpp */,
 				D1E75034157BC509005C4CCF /* FTModel.h */,
+				60D7DC6F1657D0700051947E /* FTPoint.cpp */,
+				60D7DC701657D0700051947E /* FTPoint.h */,
+				60D7DC741657D07C0051947E /* FTLine.cpp */,
+				60D7DC751657D07C0051947E /* FTLine.h */,
 				D1BB730015B8B8CE00FD5DA6 /* FTPolygon.cpp */,
 				D1BB730115B8B8CE00FD5DA6 /* FTPolygon.h */,
 				D143779D157BCF0200A05B3B /* FTFace.cpp */,
@@ -744,6 +773,8 @@
 				D1CED89E15C3CFD900B9F8B4 /* Vec2.h in Headers */,
 				D1CED8A115C3D06200B9F8B4 /* Color.h in Headers */,
 				D1CED8A515C3D42300B9F8B4 /* Util.h in Headers */,
+				60D7DC721657D0700051947E /* FTPoint.h in Headers */,
+				60D7DC771657D07C0051947E /* FTLine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,6 +790,7 @@
 				D13DC909157A9F8C00C84006 /* Headers */,
 			);
 			buildRules = (
+				606A7F5E163C0C5400E4F243 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -870,6 +902,8 @@
 				D1CED8A315C3D06E00B9F8B4 /* Color.cpp in Sources */,
 				D1CED8A715C3D43800B9F8B4 /* Util.cpp in Sources */,
 				6056C57015DC554C008F8E92 /* FTScene.cpp in Sources */,
+				60D7DC711657D0700051947E /* FTPoint.cpp in Sources */,
+				60D7DC761657D07C0051947E /* FTLine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

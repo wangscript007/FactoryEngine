@@ -38,6 +38,8 @@ typedef struct {
     GLdouble a;
 } FTVecd4;
 
+typedef std::vector<FTVec3d> FTVectors;
+
 typedef struct
 {
     FTVec2f origin;

@@ -1,7 +1,3 @@
-// 
-//  Copyright (c) 2012 Dimention. All rights reserved.
-//
-
 
 #include <FactoryEngine.h>
 
@@ -17,17 +13,6 @@ void FTFace::Render()
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
     glEnableClientState(GL_NORMAL_ARRAY);
-    //
-    //
-    //
-    /*
-    FTLog(kFTLogModel, "------------------------");
-    FTLog(kFTLogModel, "v1 {%f, %f, %f}", m_vOrigin.m_fX,                   m_vOrigin.m_fY,     m_vOrigin.m_fZ);
-    FTLog(kFTLogModel, "v2 {%f, %f, %f}", m_vOrigin.m_fX + m_vSize.m_fX,    m_vOrigin.m_fY,     m_vOrigin.m_fZ);
-    FTLog(kFTLogModel, "v3 {%f, %f, %f}", m_vOrigin.m_fX + m_vSize.m_fX,    m_vOrigin.m_fY,     m_vOrigin.m_fZ + m_vSize.m_fZ);
-    FTLog(kFTLogModel, "v4 {%f, %f, %f}", m_vOrigin.m_fX,                   m_vOrigin.m_fY,     m_vOrigin.m_fZ + m_vSize.m_fZ);
-    FTLog(kFTLogModel, "------------------------");
-    */
     //
     // vertices
     //

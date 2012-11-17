@@ -31,6 +31,7 @@ public:
     //
     FTFace*             CreateFace(FTVec3f vOrigin);
     void                ChangeFaceSize(FTVec3f vSize);
+    FTPoint*            CreatePoint(FTVec3f vOrigin);
     
 private:
     

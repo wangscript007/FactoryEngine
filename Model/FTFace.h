@@ -1,10 +1,9 @@
-// 
-//  Copyright (c) 2012 Dimention. All rights reserved.
-//
 
 //
 // Node: Face should consits of concave polygons array
 //
+#pragma once
+
 class FTFace : public FTModel
 {
 public:
@@ -30,8 +29,8 @@ public:
     FaceType                            m_eType;
     O5Vec3                              m_vOrigin;
     O5Vec3                              m_vSize;
-private:
     
+private:
     FTPolygonsVector                    m_vPolygons;
 };
 

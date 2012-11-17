@@ -109,6 +109,16 @@ FTFace* FTScene::CreateFace(FTVec3f vOrigin)
 //
 //
 //
+FTPoint* FTScene::CreatePoint(FTVec3f vOrigin)
+{
+    FTPoint* pPoint = m_pModelManager->m_pModelFactory->CreatePoint(O5Vec3(vOrigin.x, 0.01, vOrigin.z));
+    m_pWorkspace->AddNode(reinterpret_cast<FTPoint*>(pPoint));
+    return pPoint;
+}
+
+//
+//
+//
 void FTScene::ChangeFaceSize(FTVec3f vSize)
 {
     
