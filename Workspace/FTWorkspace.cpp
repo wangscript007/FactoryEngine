@@ -3,6 +3,7 @@
 //
 
 #include <FactoryEngine.h>
+#include "octree.h"
 
 FTWorkspace::FTWorkspace()
 {

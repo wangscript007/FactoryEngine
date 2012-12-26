@@ -85,9 +85,8 @@ void FTScene::SetProjectionMode(FTProjectionMode projectionMode)
 }
 
 #pragma mark Lights
-//
-//
-//
+
+
 void FTScene::TurnOnLight(int index)
 {
     FTLights::TurnOn(index);
@@ -95,30 +94,32 @@ void FTScene::TurnOnLight(int index)
 
 #pragma mark Model
 
-//
-//
-//
 FTFace* FTScene::CreateFace(O5Vec3 vOrigin)
 {
     FTFace* pFace = m_pModelManager->m_pModelFactory->CreateRectangleFace(O5Vec3(vOrigin.m_fX, 0.01, vOrigin.m_fZ),
                                                                           O5Vec3(0.0f, 0.0f, 0.0f));
-    m_pWorkspace->AddNode((FTNode*)pFace);
+    m_pWorkspace->AddNode(reinterpret_cast<FTFace*>(pFace));
     return pFace;
     
 }
-//
-//
-//
+
+
 FTPoint* FTScene::CreatePoint(O5Vec3 vOrigin)
 {
-    FTPoint* pPoint = m_pModelManager->m_pModelFactory->CreatePoint(O5Vec3(vOrigin.m_fX, 0.01, vOrigin.m_fZ));
+    FTPoint* pPoint = m_pModelManager->m_pModelFactory->CreatePoint(O5Vec3(vOrigin.m_fX, vOrigin.m_fY, vOrigin.m_fZ));
     m_pWorkspace->AddNode(reinterpret_cast<FTPoint*>(pPoint));
     return pPoint;
 }
 
-//
-//
-//
+
+FTLine* FTScene::CreateLine(FTPoint* pStartPoint, FTPoint* pEndPoint)
+{
+    FTLine* pLine = m_pModelManager->m_pModelFactory->CreateLine(pStartPoint, pEndPoint);
+    m_pWorkspace->AddNode(reinterpret_cast<FTLine*>(pLine));
+    return pLine;
+}
+
+
 void FTScene::ChangeFaceSize(O5Vec3 vSize)
 {
     
