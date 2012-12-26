@@ -9,6 +9,7 @@ public:
                         ~FTWorkspace();
     virtual void        Render();
     void                SetViewportRect(FTRect rect);
+    
 private:
     FTPad*              mpPad;
     FTHUD*              mpHUD;

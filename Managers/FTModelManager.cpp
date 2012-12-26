@@ -7,6 +7,7 @@ FTModelManager::FTModelManager()
     m_pModelTreeManager = new FTModelTreeManager();
     m_pRootGroup = new FTGroup();
     m_pModelTreeManager->SetRootNode(m_pRootGroup);
+    
 }
 
 FTModelManager::~FTModelManager()

@@ -14,8 +14,6 @@ void FTPad::Render()
     //
     // grind
     //
-    
-    
     glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
     int linesCount = mfA * mfScale;
     int i;
@@ -65,7 +63,7 @@ void FTPad::Render()
 	
 	// y
     glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
-    glBegin(GL_LINE_LOOP); 
+    glBegin(GL_LINE_LOOP);
 	{
 		glVertex3d(0, 0, 0);
 		glVertex3d(0, a/2, 0);

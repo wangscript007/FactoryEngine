@@ -23,6 +23,12 @@ FTPoint* FTModelFactory::CreatePoint(O5Vec3 vOrigin)
     return pPoint;
 }
 
+FTLine* FTModelFactory::CreateLine(FTPoint* pStartPoint, FTPoint* pEndPoint)
+{
+    FTLine* pLine = new FTLine(pStartPoint, pEndPoint);
+    return pLine;
+}
+
 
 // creates object of unit size
 /*

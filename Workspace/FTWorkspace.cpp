@@ -3,14 +3,15 @@
 //
 
 #include <FactoryEngine.h>
+#include "octree.h"
 
 FTWorkspace::FTWorkspace()
 {
     mpPad = new FTPad();
     mpHUD = new FTHUD();
     
-    AddNode((FTNode*)mpPad);
-    AddNode((FTNode*)mpHUD);
+    AddNode(reinterpret_cast<FTNode*>(mpPad));
+    AddNode(reinterpret_cast<FTNode*>(mpHUD));
 }
 
 FTWorkspace::~FTWorkspace()

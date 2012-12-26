@@ -18,7 +18,7 @@ void FTNode::AddNode(FTNode* node)
 
 void FTNode::Render()
 {
-    for(NodesList::iterator it = mpSubnodes.begin(); it < mpSubnodes.end(); it++)
+    for(TNodesList::iterator it = mpSubnodes.begin(); it < mpSubnodes.end(); it++)
     {
         (*it)->Render();
     }
