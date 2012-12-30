@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include "FTNode.h"
+
 typedef enum {
     kFTModelTypeCube
 } FTModelType;

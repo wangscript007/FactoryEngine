@@ -2,7 +2,7 @@
 // Copyright (c) 2012 On5. All rights reserved.
 //
 
-#include <FactoryEngine.h>
+#include "FTLog.h"
 
 // change log filter by commenting/uncommenting
 unsigned int logIfAny = 

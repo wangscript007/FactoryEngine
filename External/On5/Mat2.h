@@ -8,6 +8,8 @@
 // identity matrix.
 //
 
+#pragma once
+
 class O5_ALIGN(16) O5Mat2
 {
 public:

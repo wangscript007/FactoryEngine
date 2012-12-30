@@ -1,6 +1,8 @@
 
 #pragma once
 
+#include "FTModel.h"
+
 class FTPoint : public FTModel
 {
 public:

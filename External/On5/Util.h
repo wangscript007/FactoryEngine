@@ -2,6 +2,8 @@
 // Copyright (c) 2012 On5. All rights reserved.
 //
 
+#pragma once
+
 const float O5Epsilon = 1.19209e-07f;
 const float O5Pi = 3.14159265f;
 

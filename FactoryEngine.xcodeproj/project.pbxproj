@@ -16,6 +16,7 @@
 		609D89E5168BB1C2003B0D30 /* shareddata.h in Headers */ = {isa = PBXBuildFile; fileRef = 609D89DD168BB1C2003B0D30 /* shareddata.h */; };
 		609D89E6168BB1C2003B0D30 /* tinyvector.h in Headers */ = {isa = PBXBuildFile; fileRef = 609D89DE168BB1C2003B0D30 /* tinyvector.h */; };
 		60A575E71690DDEE0050FAFC /* Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 60A575E61690DDEE0050FAFC /* Prefix.pch */; };
+		60A575FC1690F4140050FAFC /* FTPolygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BB730015B8B8CE00FD5DA6 /* FTPolygon.cpp */; };
 		60CD96C2168C96960018EBAE /* octree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60CD96C1168C96960018EBAE /* octree.cpp */; };
 		60D7DC711657D0700051947E /* FTPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC6F1657D0700051947E /* FTPoint.cpp */; };
 		60D7DC721657D0700051947E /* FTPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC701657D0700051947E /* FTPoint.h */; };
@@ -140,7 +141,6 @@
 		D1A7C3FE15B4C444000EC5CD /* b2WheelJoint.h in Headers */ = {isa = PBXBuildFile; fileRef = D1A7C3A015B4C444000EC5CD /* b2WheelJoint.h */; };
 		D1A7C3FF15B4C444000EC5CD /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A7C3A215B4C444000EC5CD /* b2Rope.cpp */; };
 		D1A7C40015B4C444000EC5CD /* b2Rope.h in Headers */ = {isa = PBXBuildFile; fileRef = D1A7C3A315B4C444000EC5CD /* b2Rope.h */; };
-		D1BB730215B8B8CE00FD5DA6 /* FTPolygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BB730015B8B8CE00FD5DA6 /* FTPolygon.cpp */; };
 		D1BB730315B8B8CE00FD5DA6 /* FTPolygon.h in Headers */ = {isa = PBXBuildFile; fileRef = D1BB730115B8B8CE00FD5DA6 /* FTPolygon.h */; };
 		D1C708C115B36D0E00D64823 /* FTGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1C708BF15B36D0E00D64823 /* FTGroup.cpp */; };
 		D1C708C215B36D0E00D64823 /* FTGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = D1C708C015B36D0E00D64823 /* FTGroup.h */; };
@@ -939,7 +939,6 @@
 				D1A7C3FF15B4C444000EC5CD /* b2Rope.cpp in Sources */,
 				D15D698015B4CECB007D676B /* b2Polygon.cpp in Sources */,
 				D15D698215B4CECB007D676B /* b2Triangle.cpp in Sources */,
-				D1BB730215B8B8CE00FD5DA6 /* FTPolygon.cpp in Sources */,
 				D1CED88A15C3CF6D00B9F8B4 /* Mat2.cpp in Sources */,
 				D1CED88B15C3CF6D00B9F8B4 /* Mat3x2.cpp in Sources */,
 				D1CED88C15C3CF6D00B9F8B4 /* Mat4x4.cpp in Sources */,
@@ -952,6 +951,7 @@
 				60D7DC761657D07C0051947E /* FTLine.cpp in Sources */,
 				60D7DC7A1658308B0051947E /* FTRect.cpp in Sources */,
 				60CD96C2168C96960018EBAE /* octree.cpp in Sources */,
+				60A575FC1690F4140050FAFC /* FTPolygon.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

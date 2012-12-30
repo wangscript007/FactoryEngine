@@ -2,6 +2,8 @@
 // Copyright (c) On5. All rights reserved.
 //
 
+#pragma once
+
 class O5Vec3
 {
 public:

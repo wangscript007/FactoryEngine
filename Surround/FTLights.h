@@ -1,4 +1,8 @@
 
+#pragma once
+
+#include "../Model/FTModel.h"
+
 class FTLights : public FTModel
 {
 public:

@@ -1,4 +1,7 @@
 
+#pragma once
+
+#include "../Model/FTNode.h"
 
 class FTModelTreeManager
 {

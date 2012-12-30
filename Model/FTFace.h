@@ -4,6 +4,10 @@
 //
 #pragma once
 
+#include "FTModel.h"
+
+class  FTPolygon;
+
 class FTFace : public FTModel
 {
 public:

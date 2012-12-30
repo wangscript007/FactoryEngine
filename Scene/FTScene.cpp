@@ -2,7 +2,10 @@
 //  Copyright (c) 2012 Edvinas Sarkus. All rights reserved.
 //
 
-#include <FactoryEngine.h>
+
+#include "FTScene.h"
+#include "FTLights.h"
+
 
 #pragma mark - Super
 //

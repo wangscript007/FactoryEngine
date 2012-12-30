@@ -2,7 +2,7 @@
 // Copyright (c) 2012 On5. All rights reserved.
 //
 
-#include <FactoryEngine.h>
+#include "Color.h"
 
 O5ColorHSL O5ColorHSL::RGB2HSL(const O5Color4f& Color) const
 {

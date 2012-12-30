@@ -1,4 +1,8 @@
 
+#pragma once
+
+#include "../Model/FTNode.h"
+
 class FTHUD : FTNode
 {
 public:

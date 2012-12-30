@@ -3,6 +3,10 @@
 //
 
 #pragma once
+
+#include "FTPoint.h"
+#include "FTFace.h"
+#include "FTLine.h"
 //
 // 
 //

@@ -1,7 +1,12 @@
 //
 //  Copyright (c) 2012 Edvinas Sarkus. All rights reserved.
 //
+#pragma once
 
+#include "../Model/FTFace.h"
+#include "../Workspace/FTWorkspace.h"
+#include "../Surround/FTCamera.h"
+#include "../Managers/FTModelManager.h"
 
 class FTScene
 {

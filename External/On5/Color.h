@@ -2,6 +2,8 @@
 // Copyright (c) 2012 On5. All rights reserved.
 //
 
+#pragma once
+
 class O5_ALIGN(16) O5Color4f
 {
 public:

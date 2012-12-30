@@ -1,6 +1,9 @@
 
 #pragma once
 
+#include "FTModel.h"
+#include "FTPoint.h"
+
 class FTLine : public FTModel
 {
 public:
@@ -12,7 +15,5 @@ public:
 private:
     FTPoint* m_pStartPoint;
     FTPoint* m_pEndPoint;
-    
-    FTRect m_cRect;
 };
 

@@ -1,6 +1,7 @@
 
 
-#include <FactoryEngine.h>
+#include "FTCamera.h"
+#include "FTLog.h"
 
 FTCamera::FTCamera()
 {

@@ -1,6 +1,10 @@
 
 #pragma once
 
+#include "FTNode.h"
+
+class FTFace;
+
 class FTBody : public FTNode
 {
 public:
@@ -8,8 +12,8 @@ public:
     void            Pull(FTFace* baseFace, FTFace* pullFace);
     void            AddFace(FTFace* pFace);
     void            RemoveFace(FTFace* pFace);
-private:
     
+private:
     FTFacesVector   m_vFacesVector;    
 };
 

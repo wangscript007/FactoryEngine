@@ -1,6 +1,8 @@
 //
 // Copyright (c) 2012 On5. All rights reserved.
 //
+#pragma once
+
 #ifdef FTDEBUG 
     #define FTLog(flags, format, ...) FTLogf(__LINE__, __PRETTY_FUNCTION__, flags, format, ##__VA_ARGS__) 
 #else

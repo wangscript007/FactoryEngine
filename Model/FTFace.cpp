@@ -1,5 +1,7 @@
 
-#include <FactoryEngine.h>
+#include "FTFace.h"
+#include "FTLog.h"
+#include "FTPolygon.h"
 
 FTFace::FTFace()
 {

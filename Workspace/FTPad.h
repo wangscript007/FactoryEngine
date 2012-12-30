@@ -1,6 +1,9 @@
 // 
 //  Copyright (c) 2012 Dimention. All rights reserved.
 //
+#pragma once
+
+#include "../Model/FTNode.h"
 
 class FTPad : FTNode
 {

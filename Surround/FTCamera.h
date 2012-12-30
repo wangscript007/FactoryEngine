@@ -1,4 +1,8 @@
 
+#pragma once
+
+#include "../Model/FTModel.h"
+
 typedef enum {
     kFTProjectionModeProjection,
     kFTProjectionModeOrthographic

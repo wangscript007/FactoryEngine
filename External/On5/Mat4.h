@@ -6,6 +6,8 @@
 // 4x4 matrix is useful for homogeneous transformations, mostly for rotations.
 //
 
+#pragma once
+
 class O5_ALIGN(16) O5Mat4
 {
 public:
