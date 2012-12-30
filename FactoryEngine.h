@@ -7,17 +7,6 @@
 #define FTDEBUG
 
 //
-// System
-//
-#include "OpenGL/glu.h"
-#include "OpenGl/gl.h"
-#include <math.h>
-#include "stdio.h"
-#include <vector>
-#include <stdlib.h>
-#include <assert.h>
-#include <iostream>
-//
 // External
 //
 #include "External/Box2D/Box2D.h"

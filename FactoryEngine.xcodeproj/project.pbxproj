@@ -15,6 +15,7 @@
 		609D89E4168BB1C2003B0D30 /* point3d.h in Headers */ = {isa = PBXBuildFile; fileRef = 609D89DB168BB1C2003B0D30 /* point3d.h */; };
 		609D89E5168BB1C2003B0D30 /* shareddata.h in Headers */ = {isa = PBXBuildFile; fileRef = 609D89DD168BB1C2003B0D30 /* shareddata.h */; };
 		609D89E6168BB1C2003B0D30 /* tinyvector.h in Headers */ = {isa = PBXBuildFile; fileRef = 609D89DE168BB1C2003B0D30 /* tinyvector.h */; };
+		60A575E71690DDEE0050FAFC /* Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 60A575E61690DDEE0050FAFC /* Prefix.pch */; };
 		60CD96C2168C96960018EBAE /* octree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60CD96C1168C96960018EBAE /* octree.cpp */; };
 		60D7DC711657D0700051947E /* FTPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC6F1657D0700051947E /* FTPoint.cpp */; };
 		60D7DC721657D0700051947E /* FTPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC701657D0700051947E /* FTPoint.h */; };
@@ -198,6 +199,7 @@
 		609D89DB168BB1C2003B0D30 /* point3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point3d.h; sourceTree = "<group>"; };
 		609D89DD168BB1C2003B0D30 /* shareddata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shareddata.h; sourceTree = "<group>"; };
 		609D89DE168BB1C2003B0D30 /* tinyvector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyvector.h; sourceTree = "<group>"; };
+		60A575E61690DDEE0050FAFC /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		60CD96C1168C96960018EBAE /* octree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = octree.cpp; sourceTree = "<group>"; };
 		60D7DC6F1657D0700051947E /* FTPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTPoint.cpp; sourceTree = "<group>"; };
 		60D7DC701657D0700051947E /* FTPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPoint.h; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 		D17C766B1583C1580083E2B0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				60A575E61690DDEE0050FAFC /* Prefix.pch */,
 				D17C76861584B6010083E2B0 /* FTLog.cpp */,
 				D17C76871584B6010083E2B0 /* FTLog.h */,
 				D17C76AB1584E3900083E2B0 /* FTGLError.h */,
@@ -818,6 +821,7 @@
 				609D89E4168BB1C2003B0D30 /* point3d.h in Headers */,
 				609D89E5168BB1C2003B0D30 /* shareddata.h in Headers */,
 				609D89E6168BB1C2003B0D30 /* tinyvector.h in Headers */,
+				60A575E71690DDEE0050FAFC /* Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1018,6 +1022,8 @@
 				CLANG_X86_VECTOR_INSTRUCTIONS = default;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Main/Prefix.pch;
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/External/Box2D",
@@ -1036,6 +1042,8 @@
 				CLANG_X86_VECTOR_INSTRUCTIONS = default;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Main/Prefix.pch;
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/External/Box2D",
