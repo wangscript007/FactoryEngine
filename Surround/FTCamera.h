@@ -20,10 +20,10 @@ public:
     void                SetProjectionMode(FTProjectionMode projectionMode);
     void                Reset();
 private:
-    O5Vec2             mvRotated;
-    O5Vec2             mvMoved;
-    O5Vec3             mvCoords;
+    O5Vec2              mvRotated;
+    O5Vec2              mvMoved;
+    O5Vec3              mvCoords;
     FTProjectionMode    mprojectionMode;
-    GLdouble             mfZoomFactor;
+    GLdouble            mfZoomFactor;
 };
 

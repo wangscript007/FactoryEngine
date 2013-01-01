@@ -2,13 +2,21 @@
 #pragma once
 
 #include "../Model/FTNode.h"
+#include "FTOctree.h"
 
 class FTModelTreeManager
 {
 public:
-    FTNode*     m_pRootNode;
+    FTModelTreeManager();
+    ~FTModelTreeManager();
+    
     void        SetRootNode(FTNode* pRootNode);
+    
+    FTOctree*   Octree() const { return m_pOctree; }
+
 private:
+    FTNode*     m_pRootNode;
+    FTOctree*   m_pOctree;
     
 };
 

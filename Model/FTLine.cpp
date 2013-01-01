@@ -17,7 +17,7 @@ void FTLine::Render()
     // grind
     //
     glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-    glBegin(GL_LINE_LOOP);
+    glBegin(GL_LINES);
     {
         O5Vec3 startVec = m_pStartPoint->GetOrigin();
         O5Vec3 endVec = m_pEndPoint->GetOrigin();

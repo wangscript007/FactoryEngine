@@ -17,6 +17,10 @@
 		609D89E6168BB1C2003B0D30 /* tinyvector.h in Headers */ = {isa = PBXBuildFile; fileRef = 609D89DE168BB1C2003B0D30 /* tinyvector.h */; };
 		60A575E71690DDEE0050FAFC /* Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 60A575E61690DDEE0050FAFC /* Prefix.pch */; };
 		60A575FC1690F4140050FAFC /* FTPolygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BB730015B8B8CE00FD5DA6 /* FTPolygon.cpp */; };
+		60C41BB01691A80600DD0C09 /* FTOctree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60C41BAE1691A80600DD0C09 /* FTOctree.cpp */; };
+		60C41BB11691A80600DD0C09 /* FTOctree.h in Headers */ = {isa = PBXBuildFile; fileRef = 60C41BAF1691A80600DD0C09 /* FTOctree.h */; };
+		60C41BB41691BF5600DD0C09 /* FTBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60C41BB21691BF5600DD0C09 /* FTBox.cpp */; };
+		60C41BB51691BF5600DD0C09 /* FTBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 60C41BB31691BF5600DD0C09 /* FTBox.h */; };
 		60CD96C2168C96960018EBAE /* octree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60CD96C1168C96960018EBAE /* octree.cpp */; };
 		60D7DC711657D0700051947E /* FTPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC6F1657D0700051947E /* FTPoint.cpp */; };
 		60D7DC721657D0700051947E /* FTPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC701657D0700051947E /* FTPoint.h */; };
@@ -200,6 +204,10 @@
 		609D89DD168BB1C2003B0D30 /* shareddata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shareddata.h; sourceTree = "<group>"; };
 		609D89DE168BB1C2003B0D30 /* tinyvector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyvector.h; sourceTree = "<group>"; };
 		60A575E61690DDEE0050FAFC /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		60C41BAE1691A80600DD0C09 /* FTOctree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTOctree.cpp; sourceTree = "<group>"; };
+		60C41BAF1691A80600DD0C09 /* FTOctree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTOctree.h; sourceTree = "<group>"; };
+		60C41BB21691BF5600DD0C09 /* FTBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTBox.cpp; sourceTree = "<group>"; };
+		60C41BB31691BF5600DD0C09 /* FTBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTBox.h; sourceTree = "<group>"; };
 		60CD96C1168C96960018EBAE /* octree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = octree.cpp; sourceTree = "<group>"; };
 		60D7DC6F1657D0700051947E /* FTPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTPoint.cpp; sourceTree = "<group>"; };
 		60D7DC701657D0700051947E /* FTPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPoint.h; sourceTree = "<group>"; };
@@ -453,6 +461,8 @@
 		D15E6AD9159A4052001261C5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				60C41BAE1691A80600DD0C09 /* FTOctree.cpp */,
+				60C41BAF1691A80600DD0C09 /* FTOctree.h */,
 				D10EF57E15B2146400BC14D5 /* FTModelTreeManager.cpp */,
 				D10EF57F15B2146400BC14D5 /* FTModelTreeManager.h */,
 				D10EF57815B211E300BC14D5 /* FTModelManager.cpp */,
@@ -716,6 +726,8 @@
 				D17C7915158536040083E2B0 /* FTUtils.h */,
 				60D7DC781658308B0051947E /* FTRect.cpp */,
 				60D7DC791658308B0051947E /* FTRect.h */,
+				60C41BB21691BF5600DD0C09 /* FTBox.cpp */,
+				60C41BB31691BF5600DD0C09 /* FTBox.h */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -822,6 +834,8 @@
 				609D89E5168BB1C2003B0D30 /* shareddata.h in Headers */,
 				609D89E6168BB1C2003B0D30 /* tinyvector.h in Headers */,
 				60A575E71690DDEE0050FAFC /* Prefix.pch in Headers */,
+				60C41BB11691A80600DD0C09 /* FTOctree.h in Headers */,
+				60C41BB51691BF5600DD0C09 /* FTBox.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -952,6 +966,8 @@
 				60D7DC7A1658308B0051947E /* FTRect.cpp in Sources */,
 				60CD96C2168C96960018EBAE /* octree.cpp in Sources */,
 				60A575FC1690F4140050FAFC /* FTPolygon.cpp in Sources */,
+				60C41BB01691A80600DD0C09 /* FTOctree.cpp in Sources */,
+				60C41BB41691BF5600DD0C09 /* FTBox.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

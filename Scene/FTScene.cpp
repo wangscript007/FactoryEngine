@@ -17,7 +17,7 @@ FTScene::FTScene()
     m_pWorkspace = new FTWorkspace();
     m_pCamera = new  FTCamera(O5Vec3(5.0f, 5.0f, 5.0f));
     m_pModelManager = new FTModelManager();
-    m_pModelManager->m_pModelTreeManager->SetRootNode((FTNode *)m_pWorkspace);
+    m_pModelManager->ModelTreeManager()->SetRootNode(reinterpret_cast<FTNode*>(m_pWorkspace));
 }
 //
 //
@@ -34,6 +34,7 @@ FTScene::~FTScene()
 void FTScene::Render()
 {
     m_pWorkspace->Render();
+    m_pModelManager->ModelTreeManager()->Octree()->Render();
 }
 //
 //
@@ -99,7 +100,7 @@ void FTScene::TurnOnLight(int index)
 
 FTFace* FTScene::CreateFace(O5Vec3 vOrigin)
 {
-    FTFace* pFace = m_pModelManager->m_pModelFactory->CreateRectangleFace(O5Vec3(vOrigin.m_fX, 0.01, vOrigin.m_fZ),
+    FTFace* pFace = m_pModelManager->ModelFactory()->CreateRectangleFace(O5Vec3(vOrigin.m_fX, 0.01, vOrigin.m_fZ),
                                                                           O5Vec3(0.0f, 0.0f, 0.0f));
     m_pWorkspace->AddNode(reinterpret_cast<FTFace*>(pFace));
     return pFace;
@@ -109,7 +110,7 @@ FTFace* FTScene::CreateFace(O5Vec3 vOrigin)
 
 FTPoint* FTScene::CreatePoint(O5Vec3 vOrigin)
 {
-    FTPoint* pPoint = m_pModelManager->m_pModelFactory->CreatePoint(O5Vec3(vOrigin.m_fX, vOrigin.m_fY, vOrigin.m_fZ));
+    FTPoint* pPoint = m_pModelManager->ModelFactory()->CreatePoint(O5Vec3(vOrigin.m_fX, vOrigin.m_fY, vOrigin.m_fZ));
     m_pWorkspace->AddNode(reinterpret_cast<FTPoint*>(pPoint));
     return pPoint;
 }
@@ -117,7 +118,7 @@ FTPoint* FTScene::CreatePoint(O5Vec3 vOrigin)
 
 FTLine* FTScene::CreateLine(FTPoint* pStartPoint, FTPoint* pEndPoint)
 {
-    FTLine* pLine = m_pModelManager->m_pModelFactory->CreateLine(pStartPoint, pEndPoint);
+    FTLine* pLine = m_pModelManager->ModelFactory()->CreateLine(pStartPoint, pEndPoint);
     m_pWorkspace->AddNode(reinterpret_cast<FTLine*>(pLine));
     return pLine;
 }

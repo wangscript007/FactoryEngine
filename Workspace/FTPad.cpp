@@ -25,7 +25,7 @@ void FTPad::Render()
     GLfloat x = -a2;
     for(i = 0; i <= linesCount; i++) {
         if ((i%((int)mfA/2) != 0)  || (i == 0) || (i == mfA)) {
-            glBegin(GL_LINE_LOOP);
+            glBegin(GL_LINES);
             {
                 glVertex3d(x, 0, -a2);
                 glVertex3d(x, 0, a2);
@@ -40,7 +40,7 @@ void FTPad::Render()
 	GLfloat z = -a2;
     for(i = 0; i <= linesCount; i++) {
         if ((i%((int)mfA/2) != 0) || (i == 0) || (i == mfA)) {
-            glBegin(GL_LINE_LOOP);
+            glBegin(GL_LINES);
             {
                 glVertex3d(-a2, 0, z);
                 glVertex3d(a2, 0, z);
@@ -55,7 +55,7 @@ void FTPad::Render()
     float a = mfA;
 	// x
     glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
-    glBegin(GL_LINE_LOOP); 
+    glBegin(GL_LINES); 
 	{
 		glVertex3d(-a/2, 0, 0);
 		glVertex3d(a/2+1, 0, 0);
@@ -64,7 +64,7 @@ void FTPad::Render()
 	
 	// y
     glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
-    glBegin(GL_LINE_LOOP);
+    glBegin(GL_LINES);
 	{
 		glVertex3d(0, 0, 0);
 		glVertex3d(0, a/2, 0);
@@ -73,7 +73,7 @@ void FTPad::Render()
 	
 	// z
     glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
-    glBegin(GL_LINE_LOOP);
+    glBegin(GL_LINES);
 	{
 		glVertex3d(0, 0, -a/2);
 		glVertex3d(0, 0, a/2+1);
