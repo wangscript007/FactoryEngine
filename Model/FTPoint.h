@@ -12,7 +12,7 @@ public:
     virtual ~FTPoint() {}
     
     void SetOrigin(O5Vec3 vOrigin) { m_vOrigin = vOrigin; }
-    O5Vec3& GetOrigin() { return m_vOrigin; }
+    const O5Vec3& GetOrigin() const { return m_vOrigin; }
     virtual void Render();
     
 private:

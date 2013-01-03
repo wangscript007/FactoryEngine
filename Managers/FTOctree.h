@@ -7,6 +7,7 @@
 class FTOctree
 {
 public:
+    class Node;
     
     struct Vec3 {
         float x, y, z;
@@ -17,9 +18,9 @@ public:
     ~FTOctree();
     
     void Render();
-    
     void InsertPoint(FTPoint* pPoint);
     void RemovePoint(FTPoint* pPoint);
+    Node* NodeContainingPoint(const O5Vec3& vPoint);
     
     enum NodeType { kBranch, kLeaf };
     
@@ -39,19 +40,19 @@ public:
         Node(FTBox sBox);
         ~Node() {};
         
-        virtual void Render();
+        virtual void Render() const;
         NodeType Type() const { return kLeaf; }
         Node* Parent() const { return m_pParent; }
         void SetParent(Node* pParent)  { m_pParent = pParent; }
         FTBox& Box() { return m_sBox; }
         SIndex& Index() { return m_sIndex; }
         void SetIndex(SIndex sIndex) { m_sIndex = sIndex; }
+        Node* NodeContainingPoint(const O5Vec3& vPoint);
         
     protected:
         FTBox m_sBox;
         Node* m_pParent;
         SIndex m_sIndex;
-        
     private:
         
     };
@@ -63,7 +64,7 @@ public:
         Branch(FTBox sBox);
         ~Branch();
         
-        void Render();
+        void Render() const;
         NodeType Type() const { return kBranch; }
         Node* Child(int x, int y, int z) const { return m_pChildrenArray[x][y][z]; };
         void SetChild(int x, int y, int z, Node* pNode);
@@ -82,10 +83,12 @@ public:
         ~Leaf() {};
         
         
-        void Render();
+        void Render() const;
         NodeType Type() const { return kLeaf; }
         void InsertPoint(FTPoint* pPoint);
         void RemovePoint(FTPoint* pPoint);
+        unsigned long Size() const { return m_cPointsList.size(); }
+        
     private:
         TPointsList m_cPointsList;
     };

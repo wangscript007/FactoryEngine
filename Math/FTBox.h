@@ -9,11 +9,11 @@ struct FTBox
     
     FTBox() : m_vCenter(O5Vec3()), m_vHalfDimention(O5Vec3()) {};
     FTBox(O5Vec3 vCenter, O5Vec3 vHalfDimension) : m_vCenter(vCenter), m_vHalfDimention(vHalfDimension) {};
-    bool Containts(O5Vec3& vec);
-    bool Intersects(FTBox& other);
+    bool Contains(const O5Vec3& vec) const;
+    bool Intersects(const FTBox& other) const;
 };
 
-inline bool FTBox::Containts(O5Vec3 &vec)
+inline bool FTBox::Contains(const O5Vec3& vec) const
 {
     if (vec.m_fX < m_vCenter.m_fX - m_vHalfDimention.m_fX) return false;
     if (vec.m_fX > m_vCenter.m_fX + m_vHalfDimention.m_fX) return false;
@@ -27,7 +27,7 @@ inline bool FTBox::Containts(O5Vec3 &vec)
     return true;
 }
 
-inline bool FTBox::Intersects(FTBox& other)
+inline bool FTBox::Intersects(const FTBox& other) const
 {
     if (m_vCenter.m_fX + m_vHalfDimention.m_fX > other.m_vCenter.m_fX - other.m_vHalfDimention.m_fX) return false;
     if (m_vCenter.m_fX - m_vHalfDimention.m_fX > other.m_vCenter.m_fX + other.m_vHalfDimention.m_fX) return false;

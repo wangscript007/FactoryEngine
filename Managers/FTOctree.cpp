@@ -12,16 +12,18 @@ FTOctree::FTOctree(FTBox sBox)
 
 FTOctree::~FTOctree()
 {
+    
 }
+
+
 
 #pragma mark Instance
 
-
-
 void FTOctree::Render()
 {
-    reinterpret_cast<Node*>(m_pRootNode)->Render();
+    static_cast<Node*>(m_pRootNode)->Render();
 }
+
 
 FTOctree::Branch* FTOctree::Split(FTOctree::Leaf *pLeaf)
 {
@@ -59,7 +61,7 @@ FTOctree::Branch* FTOctree::Split(FTOctree::Leaf *pLeaf)
         }
     }
     if (pLeaf->Parent()) {
-        reinterpret_cast<Branch*>(pLeaf->Parent())->SetChild(pLeaf->Index(), pBranch);
+        static_cast<Branch*>(pLeaf->Parent())->SetChild(pLeaf->Index(), pBranch);
         pBranch->SetParent(pLeaf->Parent());
     }
     delete pLeaf;
@@ -73,13 +75,32 @@ void FTOctree::Merge(Branch* pBrach)
 
 void FTOctree::InsertPoint(FTPoint *pPoint)
 {
-    
+    Node* pNode = NodeContainingPoint(pPoint->GetOrigin());
+    assert(pPoint);
+    assert(pNode);
+    assert(pNode->Type() == kLeaf);
+    Leaf* pLeaf = static_cast<Leaf*>(pNode);
+    if (pLeaf->Size() >= m_iMaxCapacity) {
+        pNode = Split(pLeaf);
+        pNode = NodeContainingPoint(pPoint->GetOrigin());
+        assert(pNode);
+        pLeaf = static_cast<Leaf*>(pNode);
+        pLeaf->InsertPoint(pPoint);
+    }
 }
 
 void FTOctree::RemovePoint(FTPoint *pPoint)
 {
     
 }
+
+FTOctree::Node* FTOctree::NodeContainingPoint(const O5Vec3& vPoint)
+{
+    return m_pRootNode->NodeContainingPoint(vPoint);
+}
+
+
+
 
 #pragma mark Node
 
@@ -90,13 +111,35 @@ FTOctree::Node::Node(FTBox sBox)
     
 }
 
-void FTOctree::Node::Render()
+void FTOctree::Node::Render() const
 {
     if (Type() == kLeaf) {
-        reinterpret_cast<Leaf*>(this)->Render();
+        static_cast<const Leaf*>(this)->Render();
     } else {
-        reinterpret_cast<Branch*>(this)->Render();
+        static_cast<const Branch*>(this)->Render();
     }
+}
+
+FTOctree::Node* FTOctree::Node::NodeContainingPoint(const O5Vec3& vPoint)
+{
+    if (m_sBox.Contains(vPoint)) {
+        if (Type() == kBranch) {
+            const Branch* pBranch = static_cast<const Branch*>(this);
+            for(int x = 0; x < 2; x++) {
+                for(int y = 0; y < 2; y++) {
+                    for(int z = 0; z < 2; z++) {
+                        Node* pChild = pBranch->Child(x, y, z);
+                        if (pChild->m_sBox.Contains(vPoint)) {
+                            return pChild->NodeContainingPoint(vPoint);
+                        }
+                    }
+                }
+            }
+        } else {
+            return this;
+        }
+    }
+    return NULL;
 }
 
 
@@ -115,7 +158,7 @@ FTOctree::Branch::Branch(FTBox sBox) : Node(sBox)
 }
 
 
-void FTOctree::Branch::Render()
+void FTOctree::Branch::Render() const
 {
     for(int x = 0; x < 2; x++) {
         for(int y = 0; y < 2; y++) {
@@ -138,9 +181,12 @@ void FTOctree::Branch::SetChild(int x, int y, int z, Node* pNode)
     pNode->SetParent(this);
 }
 
+
+
+
 #pragma mark Leaf
 
-void FTOctree::Leaf::Render()
+void FTOctree::Leaf::Render() const
 {
     const Vec3 vertices[]= {
         // 0
