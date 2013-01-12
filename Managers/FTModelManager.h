@@ -1,9 +1,9 @@
 
 #pragma once
 
-#include "../Model/FTModelFactory.h"
-#include "../Model/FTGroup.h"
-#include "FTModelTreeManager.h"
+#include <Model/FTModelFactory.h>
+#include <Model/FTGroup.h>
+#include <Managers/FTModelTreeManager.h>
 
 class FTModelManager
 {

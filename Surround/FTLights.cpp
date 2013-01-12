@@ -1,5 +1,5 @@
 
-#include "FTLights.h"
+#include <Surround/FTLights.h>
 
 void FTLights::TurnOn(int index)
 {

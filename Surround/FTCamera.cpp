@@ -1,7 +1,7 @@
 
 
-#include "FTCamera.h"
-#include "FTLog.h"
+#include <Surround/FTCamera.h>
+#include <Main/FTLog.h>
 
 FTCamera::FTCamera()
 {

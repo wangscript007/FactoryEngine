@@ -1,8 +1,8 @@
 
 #pragma once
 
-#include "../Model/FTPoint.h"
-#include "../Math/FTBox.h"
+#include <Model/FTPoint.h>
+#include <Math/FTBox.h>
 
 class FTOctree
 {

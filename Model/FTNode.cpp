@@ -1,5 +1,5 @@
 
-#include "FTNode.h"
+#include <Model/FTNode.h>
 
 FTNode::FTNode()
 {

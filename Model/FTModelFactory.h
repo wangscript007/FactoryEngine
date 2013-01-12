@@ -4,9 +4,9 @@
 
 #pragma once
 
-#include "FTPoint.h"
-#include "FTFace.h"
-#include "FTLine.h"
+#include <Model/FTPoint.h>
+#include <Model/FTFace.h>
+#include <Model/FTLine.h>
 //
 // 
 //

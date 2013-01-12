@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "../Model/FTNode.h"
+#include <Model/FTNode.h>
 
 class FTHUD : FTNode
 {

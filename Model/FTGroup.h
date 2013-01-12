@@ -1,6 +1,6 @@
 #pragma once
 
-#include "FTNode.h"
+#include <Model/FTNode.h>
 
 class FTGroup : public FTNode
 {

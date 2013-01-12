@@ -2,8 +2,8 @@
 //  Copyright (c) 2012 Dimention. All rights reserved.
 //
 
-#include "FTPad.h"
-#include "FTLog.h"
+#include <Workspace/FTPad.h>
+#include <Main/FTLog.h>
 
 void FTPad::Render()
 {

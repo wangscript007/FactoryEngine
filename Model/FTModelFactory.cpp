@@ -2,7 +2,7 @@
 //  Copyright (c) 2012 Dimention. All rights reserved.
 //
 
-#include "FTModelFactory.h"
+#include <Model/FTModelFactory.h>
 
 FTFace* FTModelFactory::CreateRectangleFace(O5Vec3 vOrigin, O5Vec3 vSize)
 {

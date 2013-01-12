@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "FTModel.h"
+#include <Model/FTModel.h>
 
 class FTPoint : public FTModel
 {

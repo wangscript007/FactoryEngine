@@ -1,7 +1,7 @@
 
-#include "FTFace.h"
-#include "FTLog.h"
-#include "FTPolygon.h"
+#include <Model/FTFace.h>
+#include <Main/FTLog.h>
+#include <Model/FTPolygon.h>
 
 FTFace::FTFace()
 {

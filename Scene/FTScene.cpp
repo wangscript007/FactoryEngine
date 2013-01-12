@@ -3,8 +3,8 @@
 //
 
 
-#include "FTScene.h"
-#include "FTLights.h"
+#include <Scene/FTScene.h>
+#include <Surround/FTLights.h>
 
 
 #pragma mark - Super

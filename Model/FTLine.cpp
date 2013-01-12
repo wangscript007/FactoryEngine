@@ -1,5 +1,5 @@
 
-#include "FTLine.h"
+#include <Model/FTLine.h>
 
 FTLine::FTLine(FTPoint* pStartPoint, FTPoint* pEndPoint)
     :m_pStartPoint(pStartPoint)

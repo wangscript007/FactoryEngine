@@ -2,9 +2,8 @@
 //  Copyright (c) 2012 Dimention. All rights reserved.
 //
 
-#include "FTWorkspace.h"
-#include "FTLog.h"
-#include "octree.h"
+#include <Workspace/FTWorkspace.h>
+#include <Main/FTLog.h>
 
 FTWorkspace::FTWorkspace()
 {

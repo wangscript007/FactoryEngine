@@ -2,9 +2,9 @@
 //  Copyright (c) 2012 Dimention. All rights reserved.
 //
 
-#include "FTHUD.h"
-#include "FTLog.h"
-#include "FTGLError.h"
+#include <Workspace/FTHUD.h>
+#include <Main/FTLog.h>
+#include <Main/FTGLError.h>
 
 void FTHUD::Render()
 {

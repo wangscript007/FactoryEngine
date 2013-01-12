@@ -1,8 +1,8 @@
 
 #pragma once
 
-#include "FTModel.h"
-#include "FTPoint.h"
+#include <Model/FTModel.h>
+#include <Model/FTPoint.h>
 
 class FTLine : public FTModel
 {

@@ -1,6 +1,6 @@
 
-#include "FTBody.h"
-#include "FTFace.h"
+#include <Model/FTBody.h>
+#include <Model/FTFace.h>
 //
 // Change coordinates of pull face and create n side faces
 //

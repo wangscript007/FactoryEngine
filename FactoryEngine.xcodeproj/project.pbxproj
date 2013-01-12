@@ -191,6 +191,7 @@
 
 /* Begin PBXFileReference section */
 		60127559163BDB0000E98E34 /* Readme.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Readme.rtf; sourceTree = "<group>"; };
+		604E939A16A1C6E700143522 /* fix_includes.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = fix_includes.py; sourceTree = "<group>"; };
 		6056C56E15DC5522008F8E92 /* FTScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FTScene.cpp; sourceTree = "<group>"; };
 		6056C56F15DC5522008F8E92 /* FTScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTScene.h; sourceTree = "<group>"; };
 		606A7F5C163C0C0700E4F243 /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
@@ -381,6 +382,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		604E939816A1C6CF00143522 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				604E939A16A1C6E700143522 /* fix_includes.py */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 		6056C56D15DC5522008F8E92 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +422,7 @@
 				60127559163BDB0000E98E34 /* Readme.rtf */,
 				D17C76641583BF440083E2B0 /* FactoryEngine.h */,
 				606A7F5C163C0C0700E4F243 /* Documentation */,
+				604E939816A1C6CF00143522 /* Scripts */,
 				D1C708B915B3495400D64823 /* External */,
 				D17C766B1583C1580083E2B0 /* Main */,
 				D1E54CA7157BE5120083FB90 /* Math */,

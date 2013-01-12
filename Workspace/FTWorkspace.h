@@ -4,10 +4,10 @@
 
 #pragma once
 
-#include "../Model/FTNode.h"
-#include "../Math/FTRect.h"
-#include "FTPad.h"
-#include "FTHUD.h"
+#include <Model/FTNode.h>
+#include <Math/FTRect.h>
+#include <Workspace/FTPad.h>
+#include <Workspace/FTHUD.h>
 
 class FTWorkspace : public FTNode
 {

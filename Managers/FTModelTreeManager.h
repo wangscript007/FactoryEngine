@@ -1,8 +1,8 @@
 
 #pragma once
 
-#include "../Model/FTNode.h"
-#include "FTOctree.h"
+#include <Model/FTNode.h>
+#include <Managers/FTOctree.h>
 
 class FTModelTreeManager
 {

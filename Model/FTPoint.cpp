@@ -1,5 +1,5 @@
 
-#include "FTPoint.h"
+#include <Model/FTPoint.h>
 
 const float FTPoint::c_fR = 4.0f;
 

@@ -1,6 +1,6 @@
 
-#include "FTOctree.h"
-#include "FTGLError.h"
+#include <Managers/FTOctree.h>
+#include <Main/FTGLError.h>
 
 
 FTOctree::FTOctree(FTBox sBox)
