@@ -13,6 +13,7 @@ public:
     
     FTModelFactory*         ModelFactory() const { return m_pModelFactory; }
     FTModelTreeManager*     ModelTreeManager() const { return  m_pModelTreeManager; }
+    FTPoint*                NearestPointToCenterInSphere(const FTSphere& sSphere) const;
     
 private:
     FTModelFactory*         m_pModelFactory;

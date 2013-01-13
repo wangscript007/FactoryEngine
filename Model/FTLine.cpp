@@ -19,8 +19,8 @@ void FTLine::Render()
     glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
     glBegin(GL_LINES);
     {
-        O5Vec3 startVec = m_pStartPoint->GetOrigin();
-        O5Vec3 endVec = m_pEndPoint->GetOrigin();
+        O5Vec3 startVec = m_pStartPoint->m_vOrigin;
+        O5Vec3 endVec = m_pEndPoint->m_vOrigin;
         glVertex3d(startVec.m_fX,
                    startVec.m_fY,
                    startVec.m_fZ);

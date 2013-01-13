@@ -3,6 +3,13 @@
 //
 
 #include <Model/FTModelFactory.h>
+#include <Managers/FTModelTreeManager.h>
+
+FTModelFactory::FTModelFactory(FTModelTreeManager& rModelTreeManager)
+    :m_rModelTreeManager(rModelTreeManager)
+{
+    
+}
 
 FTFace* FTModelFactory::CreateRectangleFace(O5Vec3 vOrigin, O5Vec3 vSize)
 {
@@ -16,10 +23,8 @@ FTFace* FTModelFactory::CreateRectangleFace(O5Vec3 vOrigin, O5Vec3 vSize)
 FTPoint* FTModelFactory::CreatePoint(O5Vec3 vOrigin)
 {
     FTPoint* pPoint = new FTPoint();
-    pPoint->SetOrigin(vOrigin);
-    /*
-    pFace->m_vSize = vSize;
-    */
+    pPoint->m_vOrigin = vOrigin;
+    m_rModelTreeManager.AddNode(reinterpret_cast<FTNode*>(pPoint));
     return pPoint;
 }
 

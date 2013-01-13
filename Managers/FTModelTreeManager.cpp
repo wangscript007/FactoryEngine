@@ -9,7 +9,7 @@ FTModelTreeManager::FTModelTreeManager()
 
 FTModelTreeManager::~FTModelTreeManager()
 {
-    delete m_pOctree;
+    FT_DELETE(m_pOctree);
 }
 
 #pragma mark Instance
@@ -18,5 +18,16 @@ void FTModelTreeManager::SetRootNode(FTNode *pRootNode)
 {
     m_pRootNode = pRootNode;
 }
+
+void FTModelTreeManager::AddNode(FTNode* pNode)
+{
+    m_pOctree->InsertPoint(static_cast<FTPoint*>(pNode));
+}
+
+void FTModelTreeManager::UpdateNode(FTNode* pNode)
+{
+    //m_pOctree->InsertPoint(static_cast<FTPoint*>(pNode));
+}
+
 
 

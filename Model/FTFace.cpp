@@ -75,7 +75,7 @@ bool FTFace::IsInFacePlane(O5Vec3 vec)
 //
 bool FTFace::Contains(O5Vec3 vec)
 {
-    
+    return false;
 }
 //
 // Adds cut region to face, should divide into convex polygons

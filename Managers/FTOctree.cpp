@@ -28,7 +28,7 @@ void FTOctree::Render()
 FTOctree::Branch* FTOctree::Split(FTOctree::Leaf *pLeaf)
 {
     Branch* pBranch =  new Branch(pLeaf->Box());
-    Leaf* leaf;
+    Leaf* pChildLeaf;
     FTBox sBox = pLeaf->Box();
     O5Vec3 vHalf = O5Vec3(sBox.m_vHalfDimention.m_fX/2.0f,
                           sBox.m_vHalfDimention.m_fY/2.0f,
@@ -55,8 +55,14 @@ FTOctree::Branch* FTOctree::Split(FTOctree::Leaf *pLeaf)
                 } else {
                     vCenter.m_fZ = sBox.m_vCenter.m_fZ - vHalf.m_fZ;
                 }
-                leaf = new Leaf(FTBox(vCenter, vHalf));
-                pBranch->SetChild(x, y, z, leaf);
+                pChildLeaf = new Leaf(FTBox(vCenter, vHalf));
+                TPointsList cPointsList = pChildLeaf->Points();
+                for(auto i = cPointsList.begin(); i != cPointsList.end(); ++i) {
+                    if (pChildLeaf->Box().Contains((*i)->m_vOrigin)) {
+                        pChildLeaf->InsertPoint(*i);
+                    }
+                }
+                pBranch->SetChild(x, y, z, pChildLeaf);
             }
         }
     }
@@ -64,7 +70,7 @@ FTOctree::Branch* FTOctree::Split(FTOctree::Leaf *pLeaf)
         static_cast<Branch*>(pLeaf->Parent())->SetChild(pLeaf->Index(), pBranch);
         pBranch->SetParent(pLeaf->Parent());
     }
-    delete pLeaf;
+    FT_DELETE(pLeaf);
     return pBranch;
 }
 
@@ -75,16 +81,17 @@ void FTOctree::Merge(Branch* pBrach)
 
 void FTOctree::InsertPoint(FTPoint *pPoint)
 {
-    Node* pNode = NodeContainingPoint(pPoint->GetOrigin());
-    assert(pPoint);
-    assert(pNode);
-    assert(pNode->Type() == kLeaf);
-    Leaf* pLeaf = static_cast<Leaf*>(pNode);
-    if (pLeaf->Size() >= m_iMaxCapacity) {
-        pNode = Split(pLeaf);
-        pNode = NodeContainingPoint(pPoint->GetOrigin());
-        assert(pNode);
-        pLeaf = static_cast<Leaf*>(pNode);
+    Node* pNode = NodeContainingPoint(pPoint->m_vOrigin);
+    if (pNode) {
+        assert(pPoint);
+        assert(pNode->Type() == kLeaf);
+        Leaf* pLeaf = static_cast<Leaf*>(pNode);
+        if (pLeaf->Size() >= m_iMaxCapacity) {
+            pNode = Split(pLeaf);
+            pNode = NodeContainingPoint(pPoint->m_vOrigin);
+            assert(pNode);
+            pLeaf = static_cast<Leaf*>(pNode);
+        }
         pLeaf->InsertPoint(pPoint);
     }
 }
@@ -100,6 +107,10 @@ FTOctree::Node* FTOctree::NodeContainingPoint(const O5Vec3& vPoint)
 }
 
 
+void FTOctree::PointsInBox(const FTBox& sBox, std::vector<FTPoint*>& rPointsVector) const
+{
+    m_pRootNode->PointsInBox(sBox, rPointsVector);
+}
 
 
 #pragma mark Node
@@ -107,6 +118,7 @@ FTOctree::Node* FTOctree::NodeContainingPoint(const O5Vec3& vPoint)
 FTOctree::Node::Node(FTBox sBox)
     :m_sBox(sBox)
     ,m_pParent(NULL)
+    ,m_eType(kLeaf)
 {
     
 }
@@ -142,12 +154,36 @@ FTOctree::Node* FTOctree::Node::NodeContainingPoint(const O5Vec3& vPoint)
     return NULL;
 }
 
-
+void FTOctree::Node::PointsInBox(const FTBox& sBox, std::vector<FTPoint*>& rPointsVector) const
+{
+    if (m_sBox.Intersects(sBox)) {
+        if (Type() == kBranch) {
+            const Branch* pBranch = static_cast<const Branch*>(this);
+            for(int x = 0; x < 2; x++) {
+                for(int y = 0; y < 2; y++) {
+                    for(int z = 0; z < 2; z++) {
+                        Node* pChild = pBranch->Child(x, y, z);
+                        if (pChild->m_sBox.Intersects(sBox)) {
+                            return pChild->PointsInBox(sBox, rPointsVector);
+                        }
+                    }
+                }
+            }
+        } else {
+            const Leaf* pLeaf = static_cast<const Leaf*>(this);
+            const TPointsList& rPointsList = pLeaf->Points();
+            for(auto i = rPointsList.begin(); i != rPointsList.end(); ++i) {
+                rPointsVector.push_back(*i);
+            }
+        }
+    }
+}
 
 #pragma mark Branch
 
 FTOctree::Branch::Branch(FTBox sBox) : Node(sBox)
 {
+    m_eType = kBranch;
     for(int x = 0; x < 2; x++) {
         for(int y = 0; y < 2; y++) {
             for(int z = 0; z < 2; z++) {

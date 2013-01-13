@@ -2,12 +2,14 @@
 #pragma once
 
 #include <Model/FTPoint.h>
-#include <Math/FTBox.h>
+#include <Math/FTGeometry.h>
 
 class FTOctree
 {
 public:
     class Node;
+    
+    typedef std::list<FTPoint*> TPointsList;
     
     struct Vec3 {
         float x, y, z;
@@ -21,13 +23,14 @@ public:
     void InsertPoint(FTPoint* pPoint);
     void RemovePoint(FTPoint* pPoint);
     Node* NodeContainingPoint(const O5Vec3& vPoint);
+    void PointsInBox(const FTBox& sBox, std::vector<FTPoint*>& rPointsVector) const;
+
     
     enum NodeType { kBranch, kLeaf };
     
     class Node
     {
     public:
-        typedef std::list<FTPoint*> TPointsList;
         
         struct SIndex {
             int m_iX, m_iY, m_iZ;
@@ -41,18 +44,20 @@ public:
         ~Node() {};
         
         virtual void Render() const;
-        NodeType Type() const { return kLeaf; }
+        NodeType Type() const { return m_eType; }
         Node* Parent() const { return m_pParent; }
         void SetParent(Node* pParent)  { m_pParent = pParent; }
         FTBox& Box() { return m_sBox; }
         SIndex& Index() { return m_sIndex; }
         void SetIndex(SIndex sIndex) { m_sIndex = sIndex; }
         Node* NodeContainingPoint(const O5Vec3& vPoint);
+        void PointsInBox(const FTBox& sBox, std::vector<FTPoint*>& rPointsVector) const;
         
     protected:
         FTBox m_sBox;
         Node* m_pParent;
         SIndex m_sIndex;
+        NodeType m_eType;
     private:
         
     };
@@ -65,7 +70,6 @@ public:
         ~Branch();
         
         void Render() const;
-        NodeType Type() const { return kBranch; }
         Node* Child(int x, int y, int z) const { return m_pChildrenArray[x][y][z]; };
         void SetChild(int x, int y, int z, Node* pNode);
         void SetChild(SIndex& sIndex, Node* pNode);
@@ -79,20 +83,20 @@ public:
     public:
         
         
-        Leaf(FTBox sBox) : Node(sBox) {}
+        Leaf(FTBox sBox) : Node(sBox) { m_eType = kLeaf; }
         ~Leaf() {};
         
         
         void Render() const;
-        NodeType Type() const { return kLeaf; }
         void InsertPoint(FTPoint* pPoint);
         void RemovePoint(FTPoint* pPoint);
         unsigned long Size() const { return m_cPointsList.size(); }
+        const TPointsList& Points() const { return m_cPointsList; }
         
     private:
         TPointsList m_cPointsList;
     };
-
+    
 private:
     FTOctree::Branch* Split(Leaf* pLeaf);
     void Merge(Branch* pBrach);

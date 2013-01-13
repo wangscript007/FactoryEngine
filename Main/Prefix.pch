@@ -3,6 +3,7 @@
 //
 #include "OpenGL/glu.h"
 #include "OpenGl/gl.h"
+#include "FTMacros.h"
 #include "External/On5/Manifest.h"
 #include <math.h>
 #include <stdio.h>

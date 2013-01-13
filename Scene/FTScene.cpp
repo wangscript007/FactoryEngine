@@ -129,4 +129,10 @@ void FTScene::ChangeFaceSize(O5Vec3 vSize)
     
 }
 
+FTPoint* FTScene::NearestPointToCenterInSphere(const FTSphere& sSphere)
+{
+    return m_pModelManager->NearestPointToCenterInSphere(sSphere);
+}
+
+
 
