@@ -24,13 +24,14 @@ void FTHUD::Render()
 void FTHUD::RenderCube()
 {
     // vertex coords array
+    const float k = 5;
     static GLfloat vertices[] =
-    {1,1,1,  -1,1,1,  -1,-1,1,  1,-1,1,        // v0-v1-v2-v3
-        1,1,1,  1,-1,1,  1,-1,-1,  1,1,-1,        // v0-v3-v4-v5
-        1,1,1,  1,1,-1,  -1,1,-1,  -1,1,1,        // v0-v5-v6-v1 TOP
-        -1,1,1,  -1,1,-1,  -1,-1,-1,  -1,-1,1,    // v1-v6-v7-v2
-        -1,-1,-1,  1,-1,-1,  1,-1,1,  -1,-1,1,    // v7-v4-v3-v2
-        1,-1,-1,  -1,-1,-1,  -1,1,-1,  1,1,-1};   // v4-v7-v6-v5
+    {k,k,k,  -k,k,k,  -k,-k,k,  k,-k,k,        // v0-v1-v2-v3
+        k,k,k,  k,-k,k,  k,-k,-k,  k,k,-k,        // v0-v3-v4-v5
+        k,k,k,  k,k,-k,  -k,k,-k,  -k,k,k,        // v0-v5-v6-vk TOP
+        -k,k,k,  -k,k,-k,  -k,-k,-k,  -k,-k,k,    // vk-v6-v7-v2
+        -k,-k,-k,  k,-k,-k,  k,-k,k,  -k,-k,k,    // v7-v4-v3-v2
+        k,-k,-k,  -k,-k,-k,  -k,k,-k,  k,k,-k};   // v4-v7-v6-v5
     
     // normal array4
     static GLfloat normals[] =

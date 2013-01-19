@@ -22,6 +22,7 @@ public:
     void PointsInBox(const FTBox& sBox, std::vector<FTPoint*>& rPointsVector) const {
         m_pOctree->PointsInBox(sBox, rPointsVector);
     }
+    unsigned long Size() { return m_pOctree->Size(); }
     
 private:
     FTNode*     m_pRootNode;

@@ -6,6 +6,9 @@
 FTOctree::FTOctree(FTBox sBox)
     :m_iMaxCapacity(2)
     ,m_iMaxDepth(9)
+    ,m_iSize(0)
+    ,m_bUpdateSize(true)
+
 {
     m_pRootNode = Split(new Leaf(sBox));
 }
@@ -14,8 +17,6 @@ FTOctree::~FTOctree()
 {
     
 }
-
-
 
 #pragma mark Instance
 
@@ -27,18 +28,23 @@ void FTOctree::Render()
 
 FTOctree::Branch* FTOctree::Split(FTOctree::Leaf *pLeaf)
 {
+    if (pLeaf->Depth() >= m_iMaxDepth) {
+        return NULL;
+    }
+    unsigned long iInitialCount = pLeaf->Size();
+    unsigned long iCounter = 0;
+    TPointsList cPointsList = pLeaf->Points();
     Branch* pBranch =  new Branch(pLeaf->Box());
+    if (pLeaf->Parent()) {
+        assert(pLeaf->Parent()->Type() == kBranch);
+        static_cast<Branch*>(pLeaf->Parent())->SetChild(pLeaf->Index(), pBranch);
+    }
     Leaf* pChildLeaf;
     FTBox sBox = pLeaf->Box();
-    O5Vec3 vHalf = O5Vec3(sBox.m_vHalfDimention.m_fX/2.0f,
-                          sBox.m_vHalfDimention.m_fY/2.0f,
-                          sBox.m_vHalfDimention.m_fZ/2.0f);
+    O5Vec3 vHalf = sBox.m_vHalfDimention/2.0f;
     for(int x = 0; x < 2; x++) {
         for(int y = 0; y < 2; y++) {
             for(int z = 0; z < 2; z++) {
-                //
-                // Create leaf and add intersecting points
-                //
                 O5Vec3 vCenter;
                 if (x == 0) {
                     vCenter.m_fX = sBox.m_vCenter.m_fX - vHalf.m_fX;
@@ -46,31 +52,33 @@ FTOctree::Branch* FTOctree::Split(FTOctree::Leaf *pLeaf)
                     vCenter.m_fX = sBox.m_vCenter.m_fX + vHalf.m_fX;
                 }
                 if (y == 0) {
-                    vCenter.m_fY = sBox.m_vCenter.m_fY + vHalf.m_fY;
-                } else {
                     vCenter.m_fY = sBox.m_vCenter.m_fY - vHalf.m_fY;
+                } else {
+                    vCenter.m_fY = sBox.m_vCenter.m_fY + vHalf.m_fY;
                 }
                 if (z == 0) {
-                    vCenter.m_fZ = sBox.m_vCenter.m_fZ + vHalf.m_fZ;
-                } else {
                     vCenter.m_fZ = sBox.m_vCenter.m_fZ - vHalf.m_fZ;
+                } else {
+                    vCenter.m_fZ = sBox.m_vCenter.m_fZ + vHalf.m_fZ;
                 }
                 pChildLeaf = new Leaf(FTBox(vCenter, vHalf));
-                TPointsList cPointsList = pChildLeaf->Points();
                 for(auto i = cPointsList.begin(); i != cPointsList.end(); ++i) {
-                    if (pChildLeaf->Box().Contains((*i)->m_vOrigin)) {
+                    O5Vec3 vOrigin = (*i)->m_vOrigin;
+                    if (pChildLeaf->Box().Contains(vOrigin)) {
                         pChildLeaf->InsertPoint(*i);
+                        iCounter++;
                     }
                 }
                 pBranch->SetChild(x, y, z, pChildLeaf);
+                if (pChildLeaf->Size() > m_iMaxCapacity) {
+                    Split(pChildLeaf);
+                }
             }
         }
     }
-    if (pLeaf->Parent()) {
-        static_cast<Branch*>(pLeaf->Parent())->SetChild(pLeaf->Index(), pBranch);
-        pBranch->SetParent(pLeaf->Parent());
-    }
+    assert(iCounter == iInitialCount);
     FT_DELETE(pLeaf);
+    m_bUpdateSize = true;
     return pBranch;
 }
 
@@ -81,24 +89,22 @@ void FTOctree::Merge(Branch* pBrach)
 
 void FTOctree::InsertPoint(FTPoint *pPoint)
 {
+    assert(pPoint);
     Node* pNode = NodeContainingPoint(pPoint->m_vOrigin);
     if (pNode) {
-        assert(pPoint);
         assert(pNode->Type() == kLeaf);
         Leaf* pLeaf = static_cast<Leaf*>(pNode);
-        if (pLeaf->Size() >= m_iMaxCapacity) {
-            pNode = Split(pLeaf);
-            pNode = NodeContainingPoint(pPoint->m_vOrigin);
-            assert(pNode);
-            pLeaf = static_cast<Leaf*>(pNode);
-        }
         pLeaf->InsertPoint(pPoint);
+        if (pLeaf->Size() > m_iMaxCapacity) {
+            Split(pLeaf);
+        }
     }
+    m_bUpdateSize = true;
 }
 
 void FTOctree::RemovePoint(FTPoint *pPoint)
 {
-    
+    m_bUpdateSize = true;
 }
 
 FTOctree::Node* FTOctree::NodeContainingPoint(const O5Vec3& vPoint)
@@ -112,6 +118,19 @@ void FTOctree::PointsInBox(const FTBox& sBox, std::vector<FTPoint*>& rPointsVect
     m_pRootNode->PointsInBox(sBox, rPointsVector);
 }
 
+unsigned long FTOctree::Size()
+{
+    if (m_bUpdateSize) {
+        m_iSize = m_pRootNode->Size();
+        m_bUpdateSize = false;
+    }
+    return m_iSize;
+}
+
+
+//--------------------------------------------------------------------------------------------------
+// Node
+//--------------------------------------------------------------------------------------------------
 
 #pragma mark Node
 
@@ -119,6 +138,7 @@ FTOctree::Node::Node(FTBox sBox)
     :m_sBox(sBox)
     ,m_pParent(NULL)
     ,m_eType(kLeaf)
+    ,m_iDepth(0)
 {
     
 }
@@ -179,6 +199,11 @@ void FTOctree::Node::PointsInBox(const FTBox& sBox, std::vector<FTPoint*>& rPoin
     }
 }
 
+//--------------------------------------------------------------------------------------------------
+// Branch
+//--------------------------------------------------------------------------------------------------
+
+
 #pragma mark Branch
 
 FTOctree::Branch::Branch(FTBox sBox) : Node(sBox)
@@ -215,10 +240,26 @@ void FTOctree::Branch::SetChild(int x, int y, int z, Node* pNode)
     m_pChildrenArray[x][y][z] = pNode;
     pNode->SetIndex(SIndex(x, y, z));
     pNode->SetParent(this);
+    pNode->SetDepth(m_iDepth+1);
+}
+
+unsigned long FTOctree::Branch::Size() const
+{
+    unsigned long iSize = 0;
+    for(int x = 0; x < 2; x++) {
+        for(int y = 0; y < 2; y++) {
+            for(int z = 0; z < 2; z++) {
+                iSize += Child(x, y, z)->Size();
+            }
+        }
+    }
+    return iSize;
 }
 
 
-
+//--------------------------------------------------------------------------------------------------
+// Leaf
+//--------------------------------------------------------------------------------------------------
 
 #pragma mark Leaf
 

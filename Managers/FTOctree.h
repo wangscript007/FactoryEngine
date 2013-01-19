@@ -20,11 +20,12 @@ public:
     ~FTOctree();
     
     void Render();
+    unsigned long Size();
     void InsertPoint(FTPoint* pPoint);
     void RemovePoint(FTPoint* pPoint);
     Node* NodeContainingPoint(const O5Vec3& vPoint);
     void PointsInBox(const FTBox& sBox, std::vector<FTPoint*>& rPointsVector) const;
-
+    
     
     enum NodeType { kBranch, kLeaf };
     
@@ -44,6 +45,7 @@ public:
         ~Node() {};
         
         virtual void Render() const;
+        virtual unsigned long Size() const { return 0; }
         NodeType Type() const { return m_eType; }
         Node* Parent() const { return m_pParent; }
         void SetParent(Node* pParent)  { m_pParent = pParent; }
@@ -52,12 +54,15 @@ public:
         void SetIndex(SIndex sIndex) { m_sIndex = sIndex; }
         Node* NodeContainingPoint(const O5Vec3& vPoint);
         void PointsInBox(const FTBox& sBox, std::vector<FTPoint*>& rPointsVector) const;
+        void SetDepth(int iDepth) { m_iDepth = iDepth; }
+        int Depth() const { return m_iDepth; }
         
     protected:
         FTBox m_sBox;
         Node* m_pParent;
         SIndex m_sIndex;
         NodeType m_eType;
+        int m_iDepth;
     private:
         
     };
@@ -73,6 +78,7 @@ public:
         Node* Child(int x, int y, int z) const { return m_pChildrenArray[x][y][z]; };
         void SetChild(int x, int y, int z, Node* pNode);
         void SetChild(SIndex& sIndex, Node* pNode);
+        unsigned long Size() const;
     private:
         Node* m_pChildrenArray[2][2][2];
     };
@@ -88,11 +94,10 @@ public:
         
         
         void Render() const;
+        unsigned long Size() const { return m_cPointsList.size(); }
         void InsertPoint(FTPoint* pPoint);
         void RemovePoint(FTPoint* pPoint);
-        unsigned long Size() const { return m_cPointsList.size(); }
         const TPointsList& Points() const { return m_cPointsList; }
-        
     private:
         TPointsList m_cPointsList;
     };
@@ -104,5 +109,7 @@ private:
     Branch* m_pRootNode;
     int m_iMaxCapacity;
     int m_iMaxDepth;
+    bool m_bUpdateSize;
+    unsigned long m_iSize;
 };
 
