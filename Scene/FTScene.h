@@ -39,6 +39,7 @@ public:
     FTPoint*            CreatePoint(O5Vec3 vOrigin);
     FTLine*             CreateLine(FTPoint* pStartPoint, FTPoint* pEndPoint);
     FTPoint*            NearestPointToCenterInSphere(const FTSphere& sSphere);
+    void                UpdateNode(FTNode* pNode);
     unsigned long       Size() { return m_pModelManager->Size(); }
     
 private:

@@ -1,13 +1,14 @@
 
 #pragma once
 
-#include <Model/FTPoint.h>
 #include <Math/FTGeometry.h>
 
+class FTPoint;
 class FTOctree
 {
 public:
     class Node;
+    class Leaf;
     
     typedef std::list<FTPoint*> TPointsList;
     
@@ -22,7 +23,8 @@ public:
     void Render();
     unsigned long Size();
     void InsertPoint(FTPoint* pPoint);
-    void RemovePoint(FTPoint* pPoint);
+    void RemovePoint(FTPoint* pPoint, Leaf* pLeaf = NULL);
+    void UpdatePoint(FTPoint* pPoint);
     Node* NodeContainingPoint(const O5Vec3& vPoint);
     void PointsInBox(const FTBox& sBox, std::vector<FTPoint*>& rPointsVector) const;
     
@@ -72,7 +74,7 @@ public:
     {
     public:
         Branch(FTBox sBox);
-        ~Branch();
+        ~Branch() {};
         
         void Render() const;
         Node* Child(int x, int y, int z) const { return m_pChildrenArray[x][y][z]; };

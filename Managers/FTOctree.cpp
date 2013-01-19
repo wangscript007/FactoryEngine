@@ -1,5 +1,6 @@
 
 #include <Managers/FTOctree.h>
+#include <Model/FTPoint.h>
 #include <Main/FTGLError.h>
 
 
@@ -42,10 +43,10 @@ FTOctree::Branch* FTOctree::Split(FTOctree::Leaf *pLeaf)
     Leaf* pChildLeaf;
     FTBox sBox = pLeaf->Box();
     O5Vec3 vHalf = sBox.m_vHalfDimention/2.0f;
+    O5Vec3 vCenter;
     for(int x = 0; x < 2; x++) {
         for(int y = 0; y < 2; y++) {
             for(int z = 0; z < 2; z++) {
-                O5Vec3 vCenter;
                 if (x == 0) {
                     vCenter.m_fX = sBox.m_vCenter.m_fX - vHalf.m_fX;
                 } else {
@@ -63,8 +64,7 @@ FTOctree::Branch* FTOctree::Split(FTOctree::Leaf *pLeaf)
                 }
                 pChildLeaf = new Leaf(FTBox(vCenter, vHalf));
                 for(auto i = cPointsList.begin(); i != cPointsList.end(); ++i) {
-                    O5Vec3 vOrigin = (*i)->m_vOrigin;
-                    if (pChildLeaf->Box().Contains(vOrigin)) {
+                    if (pChildLeaf->Box().Contains((*i)->m_vOrigin)) {
                         pChildLeaf->InsertPoint(*i);
                         iCounter++;
                     }
@@ -82,9 +82,38 @@ FTOctree::Branch* FTOctree::Split(FTOctree::Leaf *pLeaf)
     return pBranch;
 }
 
-void FTOctree::Merge(Branch* pBrach)
+void FTOctree::Merge(Branch* pBranch)
 {
-    
+    if (pBranch == m_pRootNode) {
+        return;
+    }
+    assert(pBranch->Type() == kBranch);
+    Leaf* pLeaf = new Leaf(pBranch->Box());
+    if (pBranch->Parent()) {
+        assert(pBranch->Parent()->Type() == kBranch);
+        static_cast<Branch*>(pBranch->Parent())->SetChild(pBranch->Index(), pLeaf);
+    }
+    TPointsList cPointsList;
+    Leaf* pChildLeaf;
+    for(int x = 0; x < 2; x++) {
+        for(int y = 0; y < 2; y++) {
+            for(int z = 0; z < 2; z++) {
+                pChildLeaf = static_cast<Leaf*>(pBranch->Child(x, y, z));
+                cPointsList = pChildLeaf->Points();
+                for(auto i = cPointsList.begin(); i != cPointsList.end(); ++i) {
+                    pLeaf->InsertPoint((*i));
+                }
+                FT_DELETE(pChildLeaf);
+            }
+        }
+    }
+    Branch* pParent = static_cast<Branch*>(pBranch->Parent());
+    if (pParent) {
+        if (pParent->Size() <= m_iMaxCapacity) {
+            Merge(pParent);
+        }
+    }
+    FT_DELETE(pBranch);
 }
 
 void FTOctree::InsertPoint(FTPoint *pPoint)
@@ -102,9 +131,39 @@ void FTOctree::InsertPoint(FTPoint *pPoint)
     m_bUpdateSize = true;
 }
 
-void FTOctree::RemovePoint(FTPoint *pPoint)
+void FTOctree::RemovePoint(FTPoint *pPoint, Leaf* pLeaf)
 {
     m_bUpdateSize = true;
+    if (!pLeaf) {
+        Leaf* pLeaf = static_cast<Leaf*>(NodeContainingPoint(pPoint->m_vOrigin));
+        assert(pLeaf);
+    }
+    assert(pLeaf->Type() == kLeaf);
+    pLeaf->RemovePoint(pPoint);
+    Branch* pBranch = static_cast<Branch*>(pLeaf->Parent());
+    assert(pBranch);
+    if (pBranch->Size() <= m_iMaxCapacity) {
+        Merge(pBranch);
+    }
+}
+
+void FTOctree::UpdatePoint(FTPoint* pPoint)
+{
+    Leaf* pLeaf = pPoint->OctreeLeaf();
+    if (pLeaf) {
+        if (pPoint->Active()) {
+            RemovePoint(pPoint, pLeaf);
+        } else {
+            if (!pLeaf->Box().Contains(pPoint->m_vOrigin)) {
+                RemovePoint(pPoint, pLeaf);
+                InsertPoint(pPoint);
+            }
+        }
+    } else {
+        if (!pPoint->Active()) {
+            InsertPoint(pPoint);
+        }
+    }
 }
 
 FTOctree::Node* FTOctree::NodeContainingPoint(const O5Vec3& vPoint)
@@ -184,7 +243,7 @@ void FTOctree::Node::PointsInBox(const FTBox& sBox, std::vector<FTPoint*>& rPoin
                     for(int z = 0; z < 2; z++) {
                         Node* pChild = pBranch->Child(x, y, z);
                         if (pChild->m_sBox.Intersects(sBox)) {
-                            return pChild->PointsInBox(sBox, rPointsVector);
+                            pChild->PointsInBox(sBox, rPointsVector);
                         }
                     }
                 }
@@ -265,6 +324,8 @@ unsigned long FTOctree::Branch::Size() const
 
 void FTOctree::Leaf::Render() const
 {
+    return;
+    
     const Vec3 vertices[]= {
         // 0
         m_sBox.m_vCenter.m_fX - m_sBox.m_vHalfDimention.m_fX,
@@ -322,11 +383,13 @@ void FTOctree::Leaf::Render() const
 void FTOctree::Leaf::InsertPoint(FTPoint* pPoint)
 {
     m_cPointsList.push_back(pPoint);
+    pPoint->SetOctreeLeaf(this);
 }
 
 void FTOctree::Leaf::RemovePoint(FTPoint* pPoint)
 {
     m_cPointsList.remove(pPoint);
+    pPoint->SetOctreeLeaf(NULL);
 }
 
 

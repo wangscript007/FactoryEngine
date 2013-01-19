@@ -1,5 +1,6 @@
 
 #include <Managers/FTModelTreeManager.h>
+#include <Model/FTPoint.h>
 
 
 FTModelTreeManager::FTModelTreeManager()
@@ -26,7 +27,7 @@ void FTModelTreeManager::AddNode(FTNode* pNode)
 
 void FTModelTreeManager::UpdateNode(FTNode* pNode)
 {
-    //m_pOctree->InsertPoint(static_cast<FTPoint*>(pNode));
+    m_pOctree->UpdatePoint(static_cast<FTPoint*>(pNode));
 }
 
 

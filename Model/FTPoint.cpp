@@ -1,9 +1,11 @@
 
 #include <Model/FTPoint.h>
 
-const float FTPoint::c_fR = 4.0f;
+const float FTPoint::c_fR = 5.0f;
 
 FTPoint::FTPoint()
+    :m_pOctreeLeaf(NULL)
+    ,m_bIsActive(false)
 {
     
 }
@@ -24,7 +26,14 @@ void FTPoint::Render()
     glPointSize(c_fR);
     
     glBegin(GL_POINTS);
-        glColor3f(0.95f, 0.207, 0.031f);
+    {
+        if (m_bIsActive) {
+            glColor3f(0.5f, 0.207, 0.031f);
+        } else {
+            glColor3f(0.95f, 0.207, 0.031f);
+        }
+        
         glVertex3f(m_vOrigin.m_fX, m_vOrigin.m_fY, m_vOrigin.m_fZ);
+    }
     glEnd();
 }
