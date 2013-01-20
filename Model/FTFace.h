@@ -16,7 +16,7 @@ public:
         kRectangle = 0
     };
     
-    typedef std::vector<FTPolygon*>     FTPolygonsVector;
+    typedef std::vector<FTPolygon*>    FTPolygonsVector;
     typedef std::vector<O5Vec3>        VertextVector;
 
                                         FTFace();

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6056C57015DC554C008F8E92 /* FTScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6056C56E15DC5522008F8E92 /* FTScene.cpp */; };
+		6091E37516AC554E001DE0A7 /* FTPolyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37316AC554E001DE0A7 /* FTPolyline.cpp */; };
+		6091E37616AC554E001DE0A7 /* FTPolyline.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37416AC554E001DE0A7 /* FTPolyline.h */; };
+		6091E37A16AC6037001DE0A7 /* FTLoopFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37816AC6036001DE0A7 /* FTLoopFinder.cpp */; };
+		6091E37B16AC6037001DE0A7 /* FTLoopFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37916AC6036001DE0A7 /* FTLoopFinder.h */; };
 		609D89DF168BB1C2003B0D30 /* array.h in Headers */ = {isa = PBXBuildFile; fileRef = 609D89D5168BB1C2003B0D30 /* array.h */; };
 		609D89E0168BB1C2003B0D30 /* array2d.h in Headers */ = {isa = PBXBuildFile; fileRef = 609D89D6168BB1C2003B0D30 /* array2d.h */; };
 		609D89E2168BB1C2003B0D30 /* numtraits.h in Headers */ = {isa = PBXBuildFile; fileRef = 609D89D9168BB1C2003B0D30 /* numtraits.h */; };
@@ -196,6 +200,10 @@
 		6056C56E15DC5522008F8E92 /* FTScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FTScene.cpp; sourceTree = "<group>"; };
 		6056C56F15DC5522008F8E92 /* FTScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTScene.h; sourceTree = "<group>"; };
 		606A7F5C163C0C0700E4F243 /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
+		6091E37316AC554E001DE0A7 /* FTPolyline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTPolyline.cpp; sourceTree = "<group>"; };
+		6091E37416AC554E001DE0A7 /* FTPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPolyline.h; sourceTree = "<group>"; };
+		6091E37816AC6036001DE0A7 /* FTLoopFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTLoopFinder.cpp; sourceTree = "<group>"; };
+		6091E37916AC6036001DE0A7 /* FTLoopFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTLoopFinder.h; sourceTree = "<group>"; };
 		609D89D5168BB1C2003B0D30 /* array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = array.h; sourceTree = "<group>"; };
 		609D89D6168BB1C2003B0D30 /* array2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = array2d.h; sourceTree = "<group>"; };
 		609D89D7168BB1C2003B0D30 /* demo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = demo.cpp; sourceTree = "<group>"; };
@@ -717,6 +725,8 @@
 				60D7DC701657D0700051947E /* FTPoint.h */,
 				60D7DC741657D07C0051947E /* FTLine.cpp */,
 				60D7DC751657D07C0051947E /* FTLine.h */,
+				6091E37316AC554E001DE0A7 /* FTPolyline.cpp */,
+				6091E37416AC554E001DE0A7 /* FTPolyline.h */,
 				D1BB730015B8B8CE00FD5DA6 /* FTPolygon.cpp */,
 				D1BB730115B8B8CE00FD5DA6 /* FTPolygon.h */,
 				D143779D157BCF0200A05B3B /* FTFace.cpp */,
@@ -740,6 +750,8 @@
 				60D7DC791658308B0051947E /* FTRect.h */,
 				60C41BB21691BF5600DD0C09 /* FTGeometry.cpp */,
 				60C41BB31691BF5600DD0C09 /* FTGeometry.h */,
+				6091E37816AC6036001DE0A7 /* FTLoopFinder.cpp */,
+				6091E37916AC6036001DE0A7 /* FTLoopFinder.h */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -848,6 +860,8 @@
 				60A575E71690DDEE0050FAFC /* Prefix.pch in Headers */,
 				60C41BB11691A80600DD0C09 /* FTOctree.h in Headers */,
 				60C41BB51691BF5600DD0C09 /* FTGeometry.h in Headers */,
+				6091E37616AC554E001DE0A7 /* FTPolyline.h in Headers */,
+				6091E37B16AC6037001DE0A7 /* FTLoopFinder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -980,6 +994,8 @@
 				60A575FC1690F4140050FAFC /* FTPolygon.cpp in Sources */,
 				60C41BB01691A80600DD0C09 /* FTOctree.cpp in Sources */,
 				60C41BB41691BF5600DD0C09 /* FTGeometry.cpp in Sources */,
+				6091E37516AC554E001DE0A7 /* FTPolyline.cpp in Sources */,
+				6091E37A16AC6037001DE0A7 /* FTLoopFinder.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1057,6 +1073,7 @@
 					"${SRCROOT}/External/Box2D",
 					"${SRCROOT}/External",
 					"${SRCROOT}",
+					"${SRCROOT}/External/boost",
 				);
 				PRODUCT_NAME = FactoryEngine;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1077,6 +1094,7 @@
 					"${SRCROOT}/External/Box2D",
 					"${SRCROOT}/External",
 					"${SRCROOT}",
+					"${SRCROOT}/External/boost",
 				);
 				PRODUCT_NAME = FactoryEngine;
 				USER_HEADER_SEARCH_PATHS = "";
