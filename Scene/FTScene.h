@@ -34,8 +34,8 @@ public:
     //
     // Model
     //
+    void                Select(FTNode* pNode) { m_pModelManager->Select(pNode); }
     FTFace*             CreateFace(O5Vec3 vOrigin);
-    void                ChangeFaceSize(O5Vec3 vSize);
     FTPoint*            CreatePoint(O5Vec3 vOrigin);
     FTLine*             CreateLine(FTPoint* pStartPoint, FTPoint* pEndPoint);
     FTPoint*            NearestPointToCenterInSphere(const FTSphere& sSphere);

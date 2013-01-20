@@ -2,6 +2,7 @@
 #include <Managers/FTModelManager.h>
 
 FTModelManager::FTModelManager()
+    :m_pSelectedNode(NULL)
 {
     m_pModelTreeManager = new FTModelTreeManager();
     m_pModelFactory = new FTModelFactory(*m_pModelTreeManager);
@@ -39,4 +40,36 @@ FTPoint* FTModelManager::NearestPointToCenterInSphere(const FTSphere& sSphere) c
     return pNearestPoint;
 }
 
+void FTModelManager::Select(FTNode* pNode)
+{
+    m_pSelectedNode = pNode;
+}
+
+FTFace* FTModelManager::CreateFace(O5Vec3 vOrigin, FTFace::FaceType eType)
+{
+    assert(m_pSelectedNode);
+    FTFace* pFace = m_pModelFactory->CreateFace(O5Vec3(vOrigin.m_fX, 0.01, vOrigin.m_fZ),
+                                O5Vec3(0.0f, 0.0f, 0.0f),
+                                eType);
+    m_pSelectedNode->AddNode(pFace);
+    return pFace;
+}
+
+FTPoint* FTModelManager::CreatePoint(O5Vec3 vOrigin)
+{
+    assert(m_pSelectedNode);
+    FTPoint* pPoint = m_pModelFactory->CreatePoint(vOrigin);
+    m_pSelectedNode->AddNode(pPoint);
+    m_pModelTreeManager->AddNode(pPoint);
+    return pPoint;
+}
+
+FTLine* FTModelManager::CreateLine(FTPoint* pStartPoint, FTPoint* pEndPoint)
+{
+    assert(m_pSelectedNode);
+    FTLine* pLine = m_pModelFactory->CreateLine(pStartPoint, pEndPoint);
+    m_pSelectedNode->AddNode(pLine);
+    return pLine;
+    
+}
 

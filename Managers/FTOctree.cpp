@@ -16,13 +16,14 @@ FTOctree::FTOctree(FTBox sBox)
 
 FTOctree::~FTOctree()
 {
-    
+    FT_DELETE(m_pRootNode);
 }
 
 #pragma mark Instance
 
 void FTOctree::Render()
 {
+    return;
     static_cast<Node*>(m_pRootNode)->Render();
 }
 
@@ -103,7 +104,6 @@ void FTOctree::Merge(Branch* pBranch)
                 for(auto i = cPointsList.begin(); i != cPointsList.end(); ++i) {
                     pLeaf->InsertPoint((*i));
                 }
-                FT_DELETE(pChildLeaf);
             }
         }
     }
@@ -277,6 +277,17 @@ FTOctree::Branch::Branch(FTBox sBox) : Node(sBox)
     }
 }
 
+FTOctree::Branch::~Branch()
+{
+    for(int x = 0; x < 2; x++) {
+        for(int y = 0; y < 2; y++) {
+            for(int z = 0; z < 2; z++) {
+                FT_DELETE(m_pChildrenArray[x][y][z]);
+            }
+        }
+    }
+}
+
 
 void FTOctree::Branch::Render() const
 {
@@ -324,8 +335,6 @@ unsigned long FTOctree::Branch::Size() const
 
 void FTOctree::Leaf::Render() const
 {
-    return;
-    
     const Vec3 vertices[]= {
         // 0
         m_sBox.m_vCenter.m_fX - m_sBox.m_vHalfDimention.m_fX,

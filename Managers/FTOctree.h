@@ -44,7 +44,7 @@ public:
         
         
         Node(FTBox sBox);
-        ~Node() {};
+        virtual ~Node() {}
         
         virtual void Render() const;
         virtual unsigned long Size() const { return 0; }
@@ -74,7 +74,7 @@ public:
     {
     public:
         Branch(FTBox sBox);
-        ~Branch() {};
+        virtual ~Branch();
         
         void Render() const;
         Node* Child(int x, int y, int z) const { return m_pChildrenArray[x][y][z]; };
@@ -92,7 +92,7 @@ public:
         
         
         Leaf(FTBox sBox) : Node(sBox) { m_eType = kLeaf; }
-        ~Leaf() {};
+        virtual ~Leaf() {}
         
         
         void Render() const;

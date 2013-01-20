@@ -8,12 +8,15 @@ FTNode::FTNode()
 
 FTNode::~FTNode()
 {
+    for(auto i = m_pSubnodes.begin(); i != m_pSubnodes.end(); ++i) {
+        FT_DELETE(*i);
+    }
 }
 
 void FTNode::AddNode(FTNode* pNode)
 {
     m_pSubnodes.push_back(pNode);
-    m_pSupernode = this;
+    pNode->m_pSupernode = this;
 }
 
 void FTNode::RemoveNode(FTNode* pNode)

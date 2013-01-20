@@ -11,6 +11,7 @@ public:
     virtual ~FTLine() {}
     
     virtual void Render();
+    virtual NodeType Type() const { return kLine; }
     void SetEndPoint(FTPoint* pEndPoint) { m_pEndPoint = pEndPoint; }
     void SetStartPoint(FTPoint* pStartPoint) { m_pStartPoint = pStartPoint; }
     FTPoint* StartPoint() const { return m_pStartPoint; }

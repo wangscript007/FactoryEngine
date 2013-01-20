@@ -22,18 +22,25 @@ void FTModelTreeManager::SetRootNode(FTNode *pRootNode)
 
 void FTModelTreeManager::AddNode(FTNode* pNode)
 {
-    m_pOctree->InsertPoint(static_cast<FTPoint*>(pNode));
+    if (pNode->Type() == FTNode::kPoint) {
+        m_pOctree->InsertPoint(static_cast<FTPoint*>(pNode));
+    }
 }
 
 void FTModelTreeManager::UpdateNode(FTNode* pNode)
 {
-    m_pOctree->UpdatePoint(static_cast<FTPoint*>(pNode));
+    if (pNode->Type() == FTNode::kPoint) {
+        m_pOctree->UpdatePoint(static_cast<FTPoint*>(pNode));
+    }
 }
 
 void FTModelTreeManager::RemoveNode(FTNode* pNode)
 {
-    m_pOctree->RemovePoint(static_cast<FTPoint*>(pNode));
+    if (pNode->Type() == FTNode::kPoint) {
+        m_pOctree->RemovePoint(static_cast<FTPoint*>(pNode));
+    }
+    FTNode* pSupernode = pNode->Supernode();
+    assert(pSupernode);
+    pSupernode->RemoveNode(pNode);
 }
-
-
 

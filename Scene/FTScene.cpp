@@ -18,6 +18,7 @@ FTScene::FTScene()
     m_pCamera = new  FTCamera(O5Vec3(5.0f, 5.0f, 5.0f));
     m_pModelManager = new FTModelManager();
     m_pModelManager->ModelTreeManager()->SetRootNode(reinterpret_cast<FTNode*>(m_pWorkspace));
+    Select(m_pWorkspace);
 }
 //
 //
@@ -100,33 +101,19 @@ void FTScene::TurnOnLight(int index)
 
 FTFace* FTScene::CreateFace(O5Vec3 vOrigin)
 {
-    FTFace* pFace = m_pModelManager->ModelFactory()->CreateRectangleFace(O5Vec3(vOrigin.m_fX, 0.01, vOrigin.m_fZ),
-                                                                          O5Vec3(0.0f, 0.0f, 0.0f));
-    m_pWorkspace->AddNode(reinterpret_cast<FTFace*>(pFace));
-    return pFace;
-    
+    return m_pModelManager->CreateFace(vOrigin, FTFace::kRectangle);
 }
 
 
 FTPoint* FTScene::CreatePoint(O5Vec3 vOrigin)
 {
-    FTPoint* pPoint = m_pModelManager->ModelFactory()->CreatePoint(O5Vec3(vOrigin.m_fX, vOrigin.m_fY, vOrigin.m_fZ));
-    m_pWorkspace->AddNode(reinterpret_cast<FTPoint*>(pPoint));
-    return pPoint;
+    return m_pModelManager->CreatePoint(vOrigin);
 }
 
 
 FTLine* FTScene::CreateLine(FTPoint* pStartPoint, FTPoint* pEndPoint)
 {
-    FTLine* pLine = m_pModelManager->ModelFactory()->CreateLine(pStartPoint, pEndPoint);
-    m_pWorkspace->AddNode(reinterpret_cast<FTLine*>(pLine));
-    return pLine;
-}
-
-
-void FTScene::ChangeFaceSize(O5Vec3 vSize)
-{
-    
+    return m_pModelManager->CreateLine(pStartPoint, pEndPoint);
 }
 
 FTPoint* FTScene::NearestPointToCenterInSphere(const FTSphere& sSphere)

@@ -13,7 +13,7 @@ class FTFace : public FTModel
 public:
     enum FaceType
     {
-        FTRectangle = 0
+        kRectangle = 0
     };
     
     typedef std::vector<FTPolygon*>     FTPolygonsVector;
@@ -23,6 +23,7 @@ public:
                                         ~FTFace();
     
     virtual void                        Render();
+    virtual NodeType Type() const { return kFace; }
     bool                                IsInFacePlane(O5Vec3 vec);
     bool                                Contains(O5Vec3 vec);
     void                                Cut(FTFace* cutFace);

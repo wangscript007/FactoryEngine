@@ -18,9 +18,9 @@ public:
     FTModelFactory(FTModelTreeManager& rModelTreeManager);
     ~FTModelFactory() {}
     
-    FTFace*     CreateRectangleFace(O5Vec3 vOrigin, O5Vec3 vSize);
-    FTPoint*    CreatePoint(O5Vec3 vOrigin);
-    FTLine*     CreateLine(FTPoint* pStartPoint, FTPoint* pEndPoint);
+    FTFace*     CreateFace(O5Vec3 vOrigin, O5Vec3 vSize, FTFace::FaceType eType) const;
+    FTPoint*    CreatePoint(O5Vec3 vOrigin) const;
+    FTLine*     CreateLine(FTPoint* pStartPoint, FTPoint* pEndPoint) const;
     
 private:
     FTModelTreeManager& m_rModelTreeManager;

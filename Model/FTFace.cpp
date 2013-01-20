@@ -5,7 +5,7 @@
 
 FTFace::FTFace()
 {
-    m_eType = FTFace::FTRectangle;
+    
 }
 
 
