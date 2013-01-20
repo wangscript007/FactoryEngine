@@ -11,6 +11,10 @@ public:
     virtual ~FTLine() {}
     
     virtual void Render();
+    void SetEndPoint(FTPoint* pEndPoint) { m_pEndPoint = pEndPoint; }
+    void SetStartPoint(FTPoint* pStartPoint) { m_pStartPoint = pStartPoint; }
+    FTPoint* StartPoint() const { return m_pStartPoint; }
+    FTPoint* EndPoint() const { return m_pEndPoint; }
 
 private:
     FTPoint* m_pStartPoint;

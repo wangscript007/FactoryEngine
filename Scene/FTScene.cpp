@@ -134,10 +134,15 @@ FTPoint* FTScene::NearestPointToCenterInSphere(const FTSphere& sSphere)
     return m_pModelManager->NearestPointToCenterInSphere(sSphere);
 }
 
-void  FTScene::UpdateNode(FTNode* pNode)
+void FTScene::UpdateNode(FTNode* pNode)
 {
     m_pModelManager->UpdateNode(pNode);
 }
 
+void FTScene::RemoveNode(FTNode* pNode)
+{
+    m_pModelManager->RemoveNode(pNode);
+    m_pWorkspace->RemoveNode(pNode);
+}
 
 

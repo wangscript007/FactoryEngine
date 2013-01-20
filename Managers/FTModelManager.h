@@ -15,6 +15,7 @@ public:
     FTModelTreeManager*     ModelTreeManager() const { return  m_pModelTreeManager; }
     FTPoint*                NearestPointToCenterInSphere(const FTSphere& sSphere) const;
     void                    UpdateNode(FTNode* pNode) { m_pModelTreeManager->UpdateNode(pNode); }
+    void                    RemoveNode(FTNode* pNode) { m_pModelTreeManager->RemoveNode(pNode); }
     unsigned long           Size() { return m_pModelTreeManager->Size(); }
     
 private:

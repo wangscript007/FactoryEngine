@@ -12,9 +12,10 @@ class FTNode
 public:
                             FTNode();
                             ~FTNode();
-    FTNode*                 mpSupernode;
-    TNodesList              mpSubnodes;
-    void                    AddNode(FTNode* node);
+    FTNode*                 m_pSupernode;
+    TNodesList              m_pSubnodes;
+    void                    AddNode(FTNode* pNode);
+    void                    RemoveNode(FTNode* pMode);
     
 public:
     virtual void            Render();

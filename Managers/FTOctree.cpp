@@ -131,12 +131,11 @@ void FTOctree::InsertPoint(FTPoint *pPoint)
     m_bUpdateSize = true;
 }
 
-void FTOctree::RemovePoint(FTPoint *pPoint, Leaf* pLeaf)
+void FTOctree::RemovePoint(FTPoint *pPoint)
 {
-    m_bUpdateSize = true;
+    Leaf* pLeaf = pPoint->OctreeLeaf();
     if (!pLeaf) {
-        Leaf* pLeaf = static_cast<Leaf*>(NodeContainingPoint(pPoint->m_vOrigin));
-        assert(pLeaf);
+        return;
     }
     assert(pLeaf->Type() == kLeaf);
     pLeaf->RemovePoint(pPoint);
@@ -145,6 +144,7 @@ void FTOctree::RemovePoint(FTPoint *pPoint, Leaf* pLeaf)
     if (pBranch->Size() <= m_iMaxCapacity) {
         Merge(pBranch);
     }
+    m_bUpdateSize = true;
 }
 
 void FTOctree::UpdatePoint(FTPoint* pPoint)
@@ -152,10 +152,10 @@ void FTOctree::UpdatePoint(FTPoint* pPoint)
     Leaf* pLeaf = pPoint->OctreeLeaf();
     if (pLeaf) {
         if (pPoint->Active()) {
-            RemovePoint(pPoint, pLeaf);
+            RemovePoint(pPoint);
         } else {
             if (!pLeaf->Box().Contains(pPoint->m_vOrigin)) {
-                RemovePoint(pPoint, pLeaf);
+                RemovePoint(pPoint);
                 InsertPoint(pPoint);
             }
         }

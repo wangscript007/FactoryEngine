@@ -10,16 +10,24 @@ FTNode::~FTNode()
 {
 }
 
-void FTNode::AddNode(FTNode* node)
+void FTNode::AddNode(FTNode* pNode)
 {
-    mpSubnodes.push_back(node);
-    mpSupernode = this;
+    m_pSubnodes.push_back(pNode);
+    m_pSupernode = this;
+}
+
+void FTNode::RemoveNode(FTNode* pNode)
+{
+    auto i = std::find(m_pSubnodes.begin(), m_pSubnodes.end(), pNode);
+    if (i != m_pSubnodes.end()) {
+        m_pSubnodes.erase(i);
+    }
 }
 
 void FTNode::Render()
 {
-    for(TNodesList::iterator it = mpSubnodes.begin(); it < mpSubnodes.end(); it++)
+    for(auto i = m_pSubnodes.begin(); i != m_pSubnodes.end(); ++i)
     {
-        (*it)->Render();
+        (*i)->Render();
     }
 }

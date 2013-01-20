@@ -23,7 +23,7 @@ public:
     void Render();
     unsigned long Size();
     void InsertPoint(FTPoint* pPoint);
-    void RemovePoint(FTPoint* pPoint, Leaf* pLeaf = NULL);
+    void RemovePoint(FTPoint* pPoint);
     void UpdatePoint(FTPoint* pPoint);
     Node* NodeContainingPoint(const O5Vec3& vPoint);
     void PointsInBox(const FTBox& sBox, std::vector<FTPoint*>& rPointsVector) const;

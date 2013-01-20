@@ -40,6 +40,7 @@ public:
     FTLine*             CreateLine(FTPoint* pStartPoint, FTPoint* pEndPoint);
     FTPoint*            NearestPointToCenterInSphere(const FTSphere& sSphere);
     void                UpdateNode(FTNode* pNode);
+    void                RemoveNode(FTNode* pNode);
     unsigned long       Size() { return m_pModelManager->Size(); }
     
 private:

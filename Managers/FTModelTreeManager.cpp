@@ -30,5 +30,10 @@ void FTModelTreeManager::UpdateNode(FTNode* pNode)
     m_pOctree->UpdatePoint(static_cast<FTPoint*>(pNode));
 }
 
+void FTModelTreeManager::RemoveNode(FTNode* pNode)
+{
+    m_pOctree->RemovePoint(static_cast<FTPoint*>(pNode));
+}
+
 
 
