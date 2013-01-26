@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6047DB9316B46A890012286F /* FTRectangleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6047DB9116B46A890012286F /* FTRectangleInteraction.cpp */; };
+		6047DB9416B46A890012286F /* FTRectangleInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 6047DB9216B46A890012286F /* FTRectangleInteraction.h */; };
 		6056C57015DC554C008F8E92 /* FTScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6056C56E15DC5522008F8E92 /* FTScene.cpp */; };
 		6091E37516AC554E001DE0A7 /* FTPolyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37316AC554E001DE0A7 /* FTPolyline.cpp */; };
 		6091E37616AC554E001DE0A7 /* FTPolyline.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37416AC554E001DE0A7 /* FTPolyline.h */; };
@@ -195,6 +197,8 @@
 
 /* Begin PBXFileReference section */
 		60127559163BDB0000E98E34 /* Readme.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Readme.rtf; sourceTree = "<group>"; };
+		6047DB9116B46A890012286F /* FTRectangleInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTRectangleInteraction.cpp; sourceTree = "<group>"; };
+		6047DB9216B46A890012286F /* FTRectangleInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTRectangleInteraction.h; sourceTree = "<group>"; };
 		604E939A16A1C6E700143522 /* fix_includes.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = fix_includes.py; sourceTree = "<group>"; };
 		604E93D116A1D14C00143522 /* FTMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTMacros.h; sourceTree = "<group>"; };
 		6056C56E15DC5522008F8E92 /* FTScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FTScene.cpp; sourceTree = "<group>"; };
@@ -391,6 +395,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6047DB8F16B46A5D0012286F /* Interaction */ = {
+			isa = PBXGroup;
+			children = (
+				6047DB9116B46A890012286F /* FTRectangleInteraction.cpp */,
+				6047DB9216B46A890012286F /* FTRectangleInteraction.h */,
+			);
+			path = Interaction;
+			sourceTree = "<group>";
+		};
 		604E939816A1C6CF00143522 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +449,7 @@
 				D17C766B1583C1580083E2B0 /* Main */,
 				D1E54CA7157BE5120083FB90 /* Math */,
 				D1DFC003157BC15000F9E371 /* Model */,
+				6047DB8F16B46A5D0012286F /* Interaction */,
 				D1954A3C1581337F00820436 /* Surround */,
 				D13DC914157AA03200C84006 /* Workspace */,
 				D15E6AD9159A4052001261C5 /* Managers */,
@@ -862,6 +876,7 @@
 				60C41BB51691BF5600DD0C09 /* FTGeometry.h in Headers */,
 				6091E37616AC554E001DE0A7 /* FTPolyline.h in Headers */,
 				6091E37B16AC6037001DE0A7 /* FTLoopFinder.h in Headers */,
+				6047DB9416B46A890012286F /* FTRectangleInteraction.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,6 +1011,7 @@
 				60C41BB41691BF5600DD0C09 /* FTGeometry.cpp in Sources */,
 				6091E37516AC554E001DE0A7 /* FTPolyline.cpp in Sources */,
 				6091E37A16AC6037001DE0A7 /* FTLoopFinder.cpp in Sources */,
+				6047DB9316B46A890012286F /* FTRectangleInteraction.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

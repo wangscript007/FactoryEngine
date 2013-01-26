@@ -6,7 +6,10 @@
 
 #include <Model/FTModel.h>
 
-class  FTPolygon;
+
+class FTPolygon;
+class FTLine;
+class FTPoint;
 
 class FTFace : public FTModel
 {
@@ -15,9 +18,9 @@ public:
     {
         kRectangle = 0
     };
-    
-    typedef std::vector<FTPolygon*>    FTPolygonsVector;
-    typedef std::vector<O5Vec3>        VertextVector;
+    typedef std::vector<FTPolygon*>     PolygonsVector;
+    typedef std::vector<FTPoint*>       PointsVector;
+    typedef std::vector<FTLine*>        LinesVector;
 
                                         FTFace();
                                         ~FTFace();
@@ -30,12 +33,22 @@ public:
     
     void                                AddPolygon();
     void                                RemovePolygon();
+    void                                AddPoint(FTPoint* pPoint);
+    void                                AddLine(FTLine* pLine);
     
     FaceType                            m_eType;
-    O5Vec3                              m_vOrigin;
-    O5Vec3                              m_vSize;
+    
+    void                                SetSize(const O5Vec3 vSize);
+    const O5Vec3&                       Size() const { return m_vSize; }
+    void                                SetOrigin(const O5Vec3 vOrigin);
+    const O5Vec3&                       Origin() const { return m_vOrigin; }
+    
     
 private:
-    FTPolygonsVector                    m_vPolygons;
+    PolygonsVector                      m_vPolygons;
+    LinesVector                         m_vLinesVector;
+    PointsVector                        m_vPointsVector;
+    O5Vec3                              m_vOrigin;
+    O5Vec3                              m_vSize;
 };
 

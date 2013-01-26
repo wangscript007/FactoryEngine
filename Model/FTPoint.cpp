@@ -3,12 +3,22 @@
 
 const float FTPoint::c_fR = 5.0f;
 
+
 FTPoint::FTPoint()
     :m_pOctreeLeaf(NULL)
     ,m_bIsActive(false)
 {
     
 }
+
+FTPoint::FTPoint(O5Vec3 vOrigin)
+:m_vOrigin(vOrigin)
+{
+    FTPoint();
+}
+
+
+
 
 #pragma mark - Instance
 

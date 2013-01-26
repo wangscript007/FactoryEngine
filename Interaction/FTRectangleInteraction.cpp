@@ -1,18 +1,8 @@
 
-#include <Model/FTFace.h>
-#include <Main/FTLog.h>
-#include <Model/FTPolygon.h>
-#include "FTLine.h"
+#include <Interaction/FTRectangleInteraction.h>
 
-FTFace::FTFace()
+void FTRectangleInteraction::Render()
 {
-    
-}
-
-
-void FTFace::Render()
-{
-    FTLog(kFTLogModel, "render");
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
     glEnableClientState(GL_NORMAL_ARRAY);
@@ -41,7 +31,7 @@ void FTFace::Render()
     static GLubyte indices1[] = {3,2,1,0};
     static GLubyte indices2[] = {0,1,2,3};
     
-        
+    
     
     glVertexPointer(3, GL_FLOAT, 0, vertices);
     glColorPointer(3, GL_FLOAT, 0, colors);
@@ -55,55 +45,32 @@ void FTFace::Render()
     //
     glNormalPointer(GL_FLOAT, 0, normals2);
     glDrawElements(GL_QUADS, 4, GL_UNSIGNED_BYTE, indices2);
-
+    
     
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);
     glDisableClientState(GL_NORMAL_ARRAY);
 }
 
-#pragma mark - Instance
+#pragma mark Instance
 
-void FTFace::SetSize(const O5Vec3 vSize)
+void FTRectangleInteraction::Begin()
+{
+    
+}
+
+void FTRectangleInteraction::End()
+{
+    
+}
+
+void FTRectangleInteraction::SetSize(const O5Vec3 vSize)
 {
     m_vSize = vSize;
 }
 
-void FTFace::SetOrigin(const O5Vec3 vOrigin)
+void FTRectangleInteraction::SetOrigin(const O5Vec3 vOrigin)
 {
     m_vOrigin = vOrigin;
-}
-
-
-void FTFace::AddPoint(FTPoint* pPoint)
-{
-    m_vPointsVector.push_back(pPoint);
-}
-
-void FTFace::AddLine(FTLine* pLine)
-{
-    m_vLinesVector.push_back(pLine);
-}
-//
-// Checks if point is int the same plane with face.
-// Point is in same plane if any three points coordinate in same axes is the same.
-//
-bool FTFace::IsInFacePlane(O5Vec3 vec)
-{
-    return true;
-}
-//
-// Checks point in the same plane intersection with face
-//
-bool FTFace::Contains(O5Vec3 vec)
-{
-    return false;
-}
-//
-// Adds cut region to face, should divide into convex polygons
-//
-void FTFace::Cut(FTFace *cutFace)
-{
-    
 }
 

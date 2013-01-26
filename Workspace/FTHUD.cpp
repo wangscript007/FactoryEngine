@@ -24,7 +24,7 @@ void FTHUD::Render()
 void FTHUD::RenderCube()
 {
     // vertex coords array
-    const float k = 5;
+    const float k = 1;
     static GLfloat vertices[] =
     {k,k,k,  -k,k,k,  -k,-k,k,  k,-k,k,        // v0-v1-v2-v3
         k,k,k,  k,-k,k,  k,-k,-k,  k,k,-k,        // v0-v3-v4-v5

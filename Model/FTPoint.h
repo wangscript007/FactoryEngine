@@ -8,8 +8,8 @@ class FTPoint : public FTModel
 {
 public:
     static const float c_fR;
-    
     FTPoint();
+    FTPoint(O5Vec3 vOrigin);
     virtual ~FTPoint() {}
     
     O5Vec3 m_vOrigin;
