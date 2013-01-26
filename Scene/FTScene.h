@@ -7,6 +7,7 @@
 #include <Workspace/FTWorkspace.h>
 #include <Surround/FTCamera.h>
 #include <Managers/FTModelManager.h>
+#include <Managers/FTInteractionManager.h>
 
 class FTScene
 {
@@ -43,11 +44,14 @@ public:
     void                RemoveNode(FTNode* pNode);
     unsigned long       Size() { return m_pModelManager->Size(); }
     
+    FTInteractionManager* InteractionManager() const { return m_pInteractionManager; }
+    
 private:
     
     FTWorkspace*        m_pWorkspace;
     FTCamera*           m_pCamera;
     FTModelManager*     m_pModelManager;
+    FTInteractionManager* m_pInteractionManager;
     
 };
 

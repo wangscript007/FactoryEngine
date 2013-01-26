@@ -8,8 +8,16 @@ FTLine::FTLine(FTPoint* pStartPoint, FTPoint* pEndPoint)
 
 #pragma mark - Instance
 
+
 void FTLine::Render()
 {
+    FTNode::Render();
+    if (m_pStartPoint) {
+        m_pStartPoint->Render();
+    }
+    if (m_pEndPoint) {
+        m_pEndPoint->Render();
+    }
     glDisable(GL_DEPTH_TEST);
     glDisable(GL_LIGHTING);
     glLineWidth(1);

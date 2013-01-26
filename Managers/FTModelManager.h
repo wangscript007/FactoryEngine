@@ -17,10 +17,12 @@ public:
     void                    UpdateNode(FTNode* pNode) { m_pModelTreeManager->UpdateNode(pNode); }
     void                    RemoveNode(FTNode* pNode) { m_pModelTreeManager->RemoveNode(pNode); }
     void                    Select(FTNode* pNode);
+    FTNode*                 SelectedNode() const { return m_pSelectedNode; }
     unsigned long           Size() { return m_pModelTreeManager->Size(); }
     //
     // Creating
     //
+    FTFace*                 CreateRectangle(const O5Vec3& vOrigin, const O5Vec3& vSize) const;
     FTFace*                 CreateFace(O5Vec3 vOrigin, FTFace::FaceType eType);
     FTPoint*                CreatePoint(O5Vec3 vOrigin);
     FTLine*                 CreateLine(FTPoint* pStartPoint, FTPoint* pEndPoint);

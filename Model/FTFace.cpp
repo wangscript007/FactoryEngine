@@ -12,54 +12,31 @@ FTFace::FTFace()
 
 void FTFace::Render()
 {
+    
+    FTNode::Render();
+    glEnable(GL_DEPTH_TEST);
     FTLog(kFTLogModel, "render");
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_COLOR_ARRAY);
-    glEnableClientState(GL_NORMAL_ARRAY);
     //
     // vertices
-    //
-    GLfloat vertices[] =
-    {
-        m_vOrigin.m_fX,                  m_vOrigin.m_fY,             m_vOrigin.m_fZ,
-        m_vOrigin.m_fX + m_vSize.m_fX,   m_vOrigin.m_fY,             m_vOrigin.m_fZ,
-        m_vOrigin.m_fX + m_vSize.m_fX ,  m_vOrigin.m_fY,             m_vOrigin.m_fZ + m_vSize.m_fZ,
-        m_vOrigin.m_fX,                  m_vOrigin.m_fY,             m_vOrigin.m_fZ + m_vSize.m_fZ
-    };
-    //
-    // normals
-    //
-    static GLfloat normals1[] = {0,1,0,  0,1,0,  0,1,0,  0,1,0};             // v0-v1-v2-v3
-    static GLfloat normals2[] = {0,-1,0,  0,-1,0,  0,-1,0,  0,-1,0};             // v0-v1-v2-v3
-    //
-    // colors
-    //
-    static GLfloat colors[] = {1,0,0,  1,0,0,  1,0,0,  1,0,0};
-    //
-    // indices
-    //
-    static GLubyte indices1[] = {3,2,1,0};
-    static GLubyte indices2[] = {0,1,2,3};
     
-        
-    
-    glVertexPointer(3, GL_FLOAT, 0, vertices);
-    glColorPointer(3, GL_FLOAT, 0, colors);
-    //
-    // Top
-    //
-    glNormalPointer(GL_FLOAT, 0, normals1);
-    glDrawElements(GL_QUADS, 4, GL_UNSIGNED_BYTE, indices1);
-    //
-    // Bottom
-    //
-    glNormalPointer(GL_FLOAT, 0, normals2);
-    glDrawElements(GL_QUADS, 4, GL_UNSIGNED_BYTE, indices2);
+    glBegin(GL_POLYGON);
+    for(auto i = m_vPointsVector.begin(); i != m_vPointsVector.end(); ++i) {
+        glColor3f(0.5f,0.5f,0.5f);
+        glNormal3f(0,-1,0);
+        glVertex3f((*i)->m_vOrigin.m_fX, (*i)->m_vOrigin.m_fY, (*i)->m_vOrigin.m_fZ);
+    }
+    glEnd();
+    glBegin(GL_POLYGON);
+    for(int i = m_vPointsVector.size() - 1; i >= 0; i--) {
+        glColor3f(0.5f,0.5f,0.5f);
+        glNormal3f(0,1,0);
+        glVertex3f(m_vPointsVector[i]->m_vOrigin.m_fX,
+                   m_vPointsVector[i]->m_vOrigin.m_fY,
+                   m_vPointsVector[i]->m_vOrigin.m_fZ);
+    }
+    glEnd();
 
     
-    glDisableClientState(GL_VERTEX_ARRAY);
-    glDisableClientState(GL_COLOR_ARRAY);
-    glDisableClientState(GL_NORMAL_ARRAY);
 }
 
 #pragma mark - Instance
@@ -83,6 +60,7 @@ void FTFace::AddPoint(FTPoint* pPoint)
 void FTFace::AddLine(FTLine* pLine)
 {
     m_vLinesVector.push_back(pLine);
+    AddNode(pLine);
 }
 //
 // Checks if point is int the same plane with face.

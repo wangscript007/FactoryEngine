@@ -13,7 +13,7 @@ FTModelFactory::FTModelFactory(FTModelTreeManager& rModelTreeManager)
     
 }
 
-FTFace* FTModelFactory::CreateRectangle(O5Vec3 vOrigin, O5Vec3 vSize) const
+FTFace* FTModelFactory::CreateRectangle(const O5Vec3& vOrigin, const O5Vec3& vSize) const
 {
     std::vector<FTPoint*> vPointsVector;
     vPointsVector.push_back(new FTPoint(O5Vec3(vOrigin.m_fX, vOrigin.m_fY, vOrigin.m_fZ)));
@@ -47,7 +47,7 @@ FTFace* FTModelFactory::CreatePolygon(std::vector<FTPoint*>& vPointsVector) cons
     FTFace* pFace = new FTFace();
     for(int i = 0; i < vPointsVector.size(); i++) {
         pFace->AddPoint(vPointsVector[i]);
-        if ((i > 0) && (i%2 == 0)) {
+        if (i > 0) {
             pFace->AddLine(CreateLine(vPointsVector[i], vPointsVector[i-1]));
         }
     }

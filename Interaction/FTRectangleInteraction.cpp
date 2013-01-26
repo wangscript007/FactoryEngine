@@ -1,8 +1,14 @@
 
 #include <Interaction/FTRectangleInteraction.h>
+#include <Managers/FTModelManager.h>
+
+FTRectangleInteraction::FTRectangleInteraction(FTModelManager& rModelManager)
+    :m_rModelManager(rModelManager)
+{}
 
 void FTRectangleInteraction::Render()
 {
+    glDisable(GL_DEPTH_TEST);
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
     glEnableClientState(GL_NORMAL_ARRAY);
@@ -56,12 +62,14 @@ void FTRectangleInteraction::Render()
 
 void FTRectangleInteraction::Begin()
 {
-    
+    m_rModelManager.SelectedNode()->AddNode(this);
+    m_vSize = O5Vec3();
 }
 
 void FTRectangleInteraction::End()
 {
-    
+    m_rModelManager.CreateRectangle(m_vOrigin, m_vSize);
+    m_rModelManager.SelectedNode()->RemoveNode(this);
 }
 
 void FTRectangleInteraction::SetSize(const O5Vec3 vSize)

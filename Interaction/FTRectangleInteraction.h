@@ -1,10 +1,15 @@
-#include <Model/FTNode.h>
+
 
 #pragma once
+
+#include <Model/FTNode.h>
+
+class  FTModelManager;
 
 class FTRectangleInteraction : public FTNode
 {
 public:
+    FTRectangleInteraction(FTModelManager& rModelManager);
     virtual ~FTRectangleInteraction() {}
     
     void Render();
@@ -18,5 +23,6 @@ public:
 private:
     O5Vec3 m_vOrigin;
     O5Vec3 m_vSize;
+    FTModelManager& m_rModelManager;
 };
 

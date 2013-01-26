@@ -18,6 +18,8 @@ FTScene::FTScene()
     m_pCamera = new  FTCamera(O5Vec3(5.0f, 5.0f, 5.0f));
     m_pModelManager = new FTModelManager();
     m_pModelManager->ModelTreeManager()->SetRootNode(reinterpret_cast<FTNode*>(m_pWorkspace));
+    m_pInteractionManager = new FTInteractionManager(*m_pModelManager);
+    
     Select(m_pWorkspace);
 }
 //
@@ -25,7 +27,10 @@ FTScene::FTScene()
 //
 FTScene::~FTScene()
 {
-    
+    FT_DELETE(m_pWorkspace);
+    FT_DELETE(m_pCamera);
+    FT_DELETE(m_pModelManager);
+    FT_DELETE(m_pInteractionManager);
 }
 
 #pragma mark Workspace

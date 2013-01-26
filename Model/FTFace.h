@@ -18,16 +18,16 @@ public:
     {
         kRectangle = 0
     };
-    typedef std::vector<FTPolygon*>     PolygonsVector;
-    typedef std::vector<FTPoint*>       PointsVector;
-    typedef std::vector<FTLine*>        LinesVector;
+    typedef std::vector<FTPolygon*>     TPolygonsVector;
+    typedef std::vector<FTPoint*>       TPointsVector;
+    typedef std::vector<FTLine*>        TLinesVector;
 
                                         FTFace();
                                         ~FTFace();
     
     virtual void                        Render();
     virtual NodeType Type() const { return kFace; }
-    bool                                IsInFacePlane(O5Vec3 vec);
+    bool                                 IsInFacePlane(O5Vec3 vec);
     bool                                Contains(O5Vec3 vec);
     void                                Cut(FTFace* cutFace);
     
@@ -43,11 +43,11 @@ public:
     void                                SetOrigin(const O5Vec3 vOrigin);
     const O5Vec3&                       Origin() const { return m_vOrigin; }
     
-    
+    const TPointsVector&                 PointsVector() const { return m_vPointsVector; }
 private:
-    PolygonsVector                      m_vPolygons;
-    LinesVector                         m_vLinesVector;
-    PointsVector                        m_vPointsVector;
+    TPolygonsVector                      m_vPolygons;
+    TLinesVector                         m_vLinesVector;
+    TPointsVector                        m_vPointsVector;
     O5Vec3                              m_vOrigin;
     O5Vec3                              m_vSize;
 };

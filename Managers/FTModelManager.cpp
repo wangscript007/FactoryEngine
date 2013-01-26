@@ -45,6 +45,19 @@ void FTModelManager::Select(FTNode* pNode)
     m_pSelectedNode = pNode;
 }
 
+FTFace* FTModelManager::CreateRectangle(const O5Vec3& vOrigin, const O5Vec3& vSize) const
+{
+    assert(m_pSelectedNode);
+    FTFace* pFace = m_pModelFactory->CreateRectangle(vOrigin, vSize);
+    m_pSelectedNode->AddNode(pFace);
+    const FTFace::TPointsVector& rPointsVector = pFace->PointsVector();
+    for(auto i = rPointsVector.begin(); i != rPointsVector.end(); ++i) {
+        m_pModelTreeManager->AddNode(*i);
+    }
+    return pFace;
+}
+
+
 FTFace* FTModelManager::CreateFace(O5Vec3 vOrigin, FTFace::FaceType eType)
 {
     assert(m_pSelectedNode);
