@@ -24,5 +24,6 @@ private:
     O5Vec3 m_vOrigin;
     O5Vec3 m_vSize;
     FTModelManager& m_rModelManager;
+    bool m_bActive;
 };
 

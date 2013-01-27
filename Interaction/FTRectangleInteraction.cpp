@@ -4,11 +4,13 @@
 
 FTRectangleInteraction::FTRectangleInteraction(FTModelManager& rModelManager)
     :m_rModelManager(rModelManager)
+    ,m_bActive(false)
 {}
 
 void FTRectangleInteraction::Render()
 {
     glDisable(GL_DEPTH_TEST);
+    glDisable(GL_CULL_FACE);
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
     glEnableClientState(GL_NORMAL_ARRAY);
@@ -25,33 +27,21 @@ void FTRectangleInteraction::Render()
     //
     // normals
     //
-    static GLfloat normals1[] = {0,1,0,  0,1,0,  0,1,0,  0,1,0};             // v0-v1-v2-v3
-    static GLfloat normals2[] = {0,-1,0,  0,-1,0,  0,-1,0,  0,-1,0};             // v0-v1-v2-v3
+    static GLfloat normals[] = {0,1,0,  0,1,0,  0,1,0,  0,1,0};             // v0-v1-v2-v3
     //
     // colors
     //
-    static GLfloat colors[] = {1,0,0,  1,0,0,  1,0,0,  1,0,0};
+    static GLfloat colors[] = {1,0,0,  0.5,0,0,  1,0,0,  0.5,0,0};
     //
     // indices
     //
-    static GLubyte indices1[] = {3,2,1,0};
-    static GLubyte indices2[] = {0,1,2,3};
-    
-    
+    static GLubyte indices[] = {3,2,1,0};
     
     glVertexPointer(3, GL_FLOAT, 0, vertices);
     glColorPointer(3, GL_FLOAT, 0, colors);
-    //
-    // Top
-    //
-    glNormalPointer(GL_FLOAT, 0, normals1);
-    glDrawElements(GL_QUADS, 4, GL_UNSIGNED_BYTE, indices1);
-    //
-    // Bottom
-    //
-    glNormalPointer(GL_FLOAT, 0, normals2);
-    glDrawElements(GL_QUADS, 4, GL_UNSIGNED_BYTE, indices2);
     
+    glNormalPointer(GL_FLOAT, 0, normals);
+    glDrawElements(GL_QUADS, 4, GL_UNSIGNED_BYTE, indices);
     
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);
@@ -62,14 +52,18 @@ void FTRectangleInteraction::Render()
 
 void FTRectangleInteraction::Begin()
 {
+    m_bActive = true;
     m_rModelManager.SelectedNode()->AddNode(this);
     m_vSize = O5Vec3();
 }
 
 void FTRectangleInteraction::End()
 {
-    m_rModelManager.CreateRectangle(m_vOrigin, m_vSize);
-    m_rModelManager.SelectedNode()->RemoveNode(this);
+    if (m_bActive) {
+        m_bActive = false;
+        m_rModelManager.CreateRectangle(m_vOrigin, m_vSize);
+        m_rModelManager.SelectedNode()->RemoveNode(this);
+    }
 }
 
 void FTRectangleInteraction::SetSize(const O5Vec3 vSize)
