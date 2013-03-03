@@ -53,7 +53,7 @@ void FTLineInteraction::Step()
         }
         if (!m_pEndPoint) {
             m_pEndPoint = m_rModelManager.CreatePoint(m_vEnd);
-        }l
+        };
         m_rModelManager.CreateLine(m_pStartPoint, m_pEndPoint);
         m_pStartPoint = m_pEndPoint;
         m_pEndPoint = NULL;

@@ -1,7 +1,6 @@
 
 #include <Model/FTFace.h>
 #include <Main/FTLog.h>
-#include <Model/FTPolygon.h>
 #include "FTLine.h"
 
 FTFace::FTFace()
@@ -12,22 +11,17 @@ FTFace::FTFace()
 
 void FTFace::Render()
 {
-    
     FTNode::Render();
-    //glEnable(GL_DEPTH_TEST);
     glDisable(GL_DEPTH_TEST);
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glDisable(GL_CULL_FACE);
-    
-    FTLog(kFTLogModel, "render");
-    //
-    // vertices
-    
     glBegin(GL_POLYGON);
-    glColor3f(0.5f,0.5f,0.5f);
-    glNormal3f(0,-1,0);
-    for(auto i = m_vPointsVector.begin(); i != m_vPointsVector.end(); ++i) {
-        glVertex3f((*i)->m_vOrigin.m_fX, (*i)->m_vOrigin.m_fY, (*i)->m_vOrigin.m_fZ);
+    {
+        glColor3f(0.5f,0.5f,0.5f);
+        glNormal3f(0,-1,0);
+        for(auto i = m_vPointsVector.begin(); i != m_vPointsVector.end(); ++i) {
+            glVertex3f((*i)->m_vOrigin.m_fX, (*i)->m_vOrigin.m_fY, (*i)->m_vOrigin.m_fZ);
+        }
     }
     glEnd();
     

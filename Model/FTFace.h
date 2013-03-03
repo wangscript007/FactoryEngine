@@ -27,7 +27,7 @@ public:
     
     virtual void                        Render();
     virtual NodeType Type() const { return kFace; }
-    bool                                 IsInFacePlane(O5Vec3 vec);
+    bool                                IsInFacePlane(O5Vec3 vec);
     bool                                Contains(O5Vec3 vec);
     void                                Cut(FTFace* cutFace);
     
@@ -43,11 +43,12 @@ public:
     void                                SetOrigin(const O5Vec3 vOrigin);
     const O5Vec3&                       Origin() const { return m_vOrigin; }
     
-    const TPointsVector&                 PointsVector() const { return m_vPointsVector; }
+    const TPointsVector&                PointsVector() const { return m_vPointsVector; }
+    
 private:
-    TPolygonsVector                      m_vPolygons;
-    TLinesVector                         m_vLinesVector;
-    TPointsVector                        m_vPointsVector;
+    TPolygonsVector                     m_vPolygons;
+    TLinesVector                        m_vLinesVector;
+    TPointsVector                       m_vPointsVector;
     O5Vec3                              m_vOrigin;
     O5Vec3                              m_vSize;
 };

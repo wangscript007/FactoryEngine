@@ -1,7 +1,9 @@
 
 #pragma once
 
-class FTRect
+#include <Math/FTPolygon.h>
+
+class FTRect : public FTPolygon
 {
 public:
     O5Vec2 m_vOrigin;

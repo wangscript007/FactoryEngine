@@ -2,6 +2,8 @@
 
 #pragma once
 
+enum FTAxis { kAxisX, kAxisY, kAxisZ };
+
 struct FTBox
 {
     O5Vec3 m_vCenter;
@@ -75,5 +77,13 @@ inline bool FTSphere::Containts(const O5Vec3& vec) const
 {
     return (m_vCenter - vec).Length() < m_fRadius;
 }
+
+
+struct FTRectangle3
+{
+    O5Vec3 m_vOrigin;
+    O5Vec3 m_vA;
+    O5Vec3 m_vB;
+};
 
 

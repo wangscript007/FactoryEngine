@@ -3,26 +3,29 @@
 #pragma once
 
 #include <Model/FTNode.h>
+#include <Math/FTGeometry.h>
+#include <Math/FTPolygon.h>
 
 class  FTModelManager;
 
 class FTRectangleInteraction : public FTNode
 {
 public:
+    
+    
     FTRectangleInteraction(FTModelManager& rModelManager);
     virtual ~FTRectangleInteraction() {}
     
     void Render();
     void Begin();
     void End();
-    void SetSize(const O5Vec3 vSize);
-    const O5Vec3& Size() const { return m_vSize; }
-    void SetOrigin(const O5Vec3 vOrigin);
-    const O5Vec3& Origin() const { return m_vOrigin; }
+    void SetOrigin(const O5Vec3& vOrigin);
+    void SetCurrent(const O5Vec3& vCurrent);
+    
     
 private:
-    O5Vec3 m_vOrigin;
-    O5Vec3 m_vSize;
+    FTPolygon m_cPolygon;
+    FTRectangle3 m_sRect3;
     FTModelManager& m_rModelManager;
     bool m_bActive;
 };
