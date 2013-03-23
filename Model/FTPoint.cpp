@@ -47,3 +47,8 @@ void FTPoint::Render()
     }
     glEnd();
 }
+
+void FTPoint::Transform(O5Mat4& m4Transformation)
+{
+    m_vOrigin *= m4Transformation;
+}

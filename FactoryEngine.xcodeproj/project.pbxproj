@@ -10,10 +10,14 @@
 		6011C37816D0EE9100CD34F9 /* FTPolygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6011C37616D0EE9100CD34F9 /* FTPolygon.cpp */; };
 		6011C37916D0EE9100CD34F9 /* FTPolygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 6011C37716D0EE9100CD34F9 /* FTPolygon.h */; };
 		6047DB9316B46A890012286F /* FTRectangleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6047DB9116B46A890012286F /* FTRectangleInteraction.cpp */; };
-		6047DB9416B46A890012286F /* FTRectangleInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 6047DB9216B46A890012286F /* FTRectangleInteraction.h */; };
 		6047DB9716B480CB0012286F /* FTInteractionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6047DB9516B480CB0012286F /* FTInteractionManager.cpp */; };
 		6047DB9816B480CB0012286F /* FTInteractionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6047DB9616B480CB0012286F /* FTInteractionManager.h */; };
 		6056C57015DC554C008F8E92 /* FTScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6056C56E15DC5522008F8E92 /* FTScene.cpp */; };
+		605CD4FC16FDE992005CCAA2 /* FTMoveInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605CD4FA16FDE992005CCAA2 /* FTMoveInteraction.cpp */; };
+		605CD4FD16FDE992005CCAA2 /* FTMoveInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 605CD4FB16FDE992005CCAA2 /* FTMoveInteraction.h */; };
+		605CD4FE16FDF820005CCAA2 /* FTLineInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60F2406C16B5BCA700291ED0 /* FTLineInteraction.cpp */; };
+		605CD4FF16FDF824005CCAA2 /* FTRectangleInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 6047DB9216B46A890012286F /* FTRectangleInteraction.h */; };
+		605CD50016FDF833005CCAA2 /* b2Settings.h in Headers */ = {isa = PBXBuildFile; fileRef = D1A7C36215B4C444000EC5CD /* b2Settings.h */; };
 		6091E37516AC554E001DE0A7 /* FTPolyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37316AC554E001DE0A7 /* FTPolyline.cpp */; };
 		6091E37616AC554E001DE0A7 /* FTPolyline.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37416AC554E001DE0A7 /* FTPolyline.h */; };
 		6091E37A16AC6037001DE0A7 /* FTLoopFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37816AC6036001DE0A7 /* FTLoopFinder.cpp */; };
@@ -37,7 +41,6 @@
 		60D7DC771657D07C0051947E /* FTLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC751657D07C0051947E /* FTLine.h */; };
 		60D7DC7A1658308B0051947E /* FTRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC781658308B0051947E /* FTRect.cpp */; };
 		60D7DC7B1658308B0051947E /* FTRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC791658308B0051947E /* FTRect.h */; };
-		60F2406E16B5BCA700291ED0 /* FTLineInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60F2406C16B5BCA700291ED0 /* FTLineInteraction.cpp */; };
 		60F2406F16B5BCA700291ED0 /* FTLineInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F2406D16B5BCA700291ED0 /* FTLineInteraction.h */; };
 		D10849F11583B4550042E161 /* FTLights.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D10849EF1583B4550042E161 /* FTLights.cpp */; };
 		D10849F21583B4550042E161 /* FTLights.h in Headers */ = {isa = PBXBuildFile; fileRef = D10849F01583B4550042E161 /* FTLights.h */; };
@@ -94,7 +97,6 @@
 		D1A7C3C015B4C444000EC5CD /* b2Math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A7C35F15B4C444000EC5CD /* b2Math.cpp */; };
 		D1A7C3C115B4C444000EC5CD /* b2Math.h in Headers */ = {isa = PBXBuildFile; fileRef = D1A7C36015B4C444000EC5CD /* b2Math.h */; };
 		D1A7C3C215B4C444000EC5CD /* b2Settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A7C36115B4C444000EC5CD /* b2Settings.cpp */; };
-		D1A7C3C315B4C444000EC5CD /* b2Settings.h in Headers */ = {isa = PBXBuildFile; fileRef = D1A7C36215B4C444000EC5CD /* b2Settings.h */; };
 		D1A7C3C415B4C444000EC5CD /* b2StackAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A7C36315B4C444000EC5CD /* b2StackAllocator.cpp */; };
 		D1A7C3C515B4C444000EC5CD /* b2StackAllocator.h in Headers */ = {isa = PBXBuildFile; fileRef = D1A7C36415B4C444000EC5CD /* b2StackAllocator.h */; };
 		D1A7C3C615B4C444000EC5CD /* b2Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A7C36515B4C444000EC5CD /* b2Timer.cpp */; };
@@ -211,6 +213,8 @@
 		604E93D116A1D14C00143522 /* FTMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTMacros.h; sourceTree = "<group>"; };
 		6056C56E15DC5522008F8E92 /* FTScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FTScene.cpp; sourceTree = "<group>"; };
 		6056C56F15DC5522008F8E92 /* FTScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTScene.h; sourceTree = "<group>"; };
+		605CD4FA16FDE992005CCAA2 /* FTMoveInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTMoveInteraction.cpp; sourceTree = "<group>"; };
+		605CD4FB16FDE992005CCAA2 /* FTMoveInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTMoveInteraction.h; sourceTree = "<group>"; };
 		606A7F5C163C0C0700E4F243 /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
 		6091E37316AC554E001DE0A7 /* FTPolyline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTPolyline.cpp; sourceTree = "<group>"; };
 		6091E37416AC554E001DE0A7 /* FTPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPolyline.h; sourceTree = "<group>"; };
@@ -412,6 +416,8 @@
 				6047DB9216B46A890012286F /* FTRectangleInteraction.h */,
 				60F2406C16B5BCA700291ED0 /* FTLineInteraction.cpp */,
 				60F2406D16B5BCA700291ED0 /* FTLineInteraction.h */,
+				605CD4FA16FDE992005CCAA2 /* FTMoveInteraction.cpp */,
+				605CD4FB16FDE992005CCAA2 /* FTMoveInteraction.h */,
 			);
 			path = Interaction;
 			sourceTree = "<group>";
@@ -833,7 +839,6 @@
 				D1A7C3BE15B4C444000EC5CD /* b2Draw.h in Headers */,
 				D1A7C3BF15B4C444000EC5CD /* b2GrowableStack.h in Headers */,
 				D1A7C3C115B4C444000EC5CD /* b2Math.h in Headers */,
-				D1A7C3C315B4C444000EC5CD /* b2Settings.h in Headers */,
 				D1A7C3C515B4C444000EC5CD /* b2StackAllocator.h in Headers */,
 				D1A7C3C715B4C444000EC5CD /* b2Timer.h in Headers */,
 				D1A7C3C915B4C444000EC5CD /* b2Body.h in Headers */,
@@ -891,10 +896,12 @@
 				60C41BB51691BF5600DD0C09 /* FTGeometry.h in Headers */,
 				6091E37616AC554E001DE0A7 /* FTPolyline.h in Headers */,
 				6091E37B16AC6037001DE0A7 /* FTLoopFinder.h in Headers */,
-				6047DB9416B46A890012286F /* FTRectangleInteraction.h in Headers */,
 				6047DB9816B480CB0012286F /* FTInteractionManager.h in Headers */,
 				60F2406F16B5BCA700291ED0 /* FTLineInteraction.h in Headers */,
 				6011C37916D0EE9100CD34F9 /* FTPolygon.h in Headers */,
+				605CD4FD16FDE992005CCAA2 /* FTMoveInteraction.h in Headers */,
+				605CD4FF16FDF824005CCAA2 /* FTRectangleInteraction.h in Headers */,
+				605CD50016FDF833005CCAA2 /* b2Settings.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1030,8 +1037,9 @@
 				6091E37A16AC6037001DE0A7 /* FTLoopFinder.cpp in Sources */,
 				6047DB9316B46A890012286F /* FTRectangleInteraction.cpp in Sources */,
 				6047DB9716B480CB0012286F /* FTInteractionManager.cpp in Sources */,
-				60F2406E16B5BCA700291ED0 /* FTLineInteraction.cpp in Sources */,
 				6011C37816D0EE9100CD34F9 /* FTPolygon.cpp in Sources */,
+				605CD4FC16FDE992005CCAA2 /* FTMoveInteraction.cpp in Sources */,
+				605CD4FE16FDF820005CCAA2 /* FTLineInteraction.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,4 +1,5 @@
 
+#include <Model/FTPoint.h>
 #include <Model/FTNode.h>
 
 FTNode::FTNode()
@@ -32,5 +33,17 @@ void FTNode::Render()
     for(auto i = m_pSubnodes.begin(); i != m_pSubnodes.end(); ++i)
     {
         (*i)->Render();
+    }
+}
+
+void FTNode::Transform(O5Mat4& m4Transformation)
+{
+    for (auto i = Points()->begin(); i != Points()->end(); ++i) {
+        (*i)->Transform(m4Transformation);
+    }
+    
+    for(auto i = m_pSubnodes.begin(); i != m_pSubnodes.end(); ++i)
+    {
+        (*i)->Transform(m4Transformation);
     }
 }

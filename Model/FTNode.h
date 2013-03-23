@@ -3,6 +3,7 @@
 
 
 class FTNode;
+class FTPoint;
 
 typedef std::vector <FTNode*> TNodesList;
 
@@ -27,6 +28,8 @@ public:
     void                    AddNode(FTNode* pNode);
     void                    RemoveNode(FTNode* pMode);
     FTNode*                 Supernode() const { return m_pSupernode; }
+    void                    Transform(O5Mat4& m4Transformation);
+    virtual std::vector<FTPoint*>* Points() const { return NULL; }
     
 private:
     FTNode*                 m_pSupernode;
