@@ -1,7 +1,8 @@
 
 #include <Model/FTFace.h>
+#include <Model/FTLine.h>
+#include <Model/FTPoint.h>
 #include <Main/FTLog.h>
-#include "FTLine.h"
 
 FTFace::FTFace()
 {
@@ -71,5 +72,12 @@ bool FTFace::Contains(O5Vec3 vec)
 void FTFace::Cut(FTFace *cutFace)
 {
     
+}
+
+void FTFace::Transform(O5Mat4& m4Transformation)
+{
+    for(auto i = m_vPointsVector.begin(); i != m_vPointsVector.end(); ++i) {
+        (*i)->Transform(m4Transformation);
+    }
 }
 

@@ -26,7 +26,8 @@ public:
                                         ~FTFace();
     
     virtual void                        Render();
-    virtual NodeType Type() const { return kFace; }
+    virtual NodeType                    Type() const { return kFace; }
+    virtual void                        Transform(O5Mat4& m4Transformation);
     bool                                IsInFacePlane(O5Vec3 vec);
     bool                                Contains(O5Vec3 vec);
     void                                Cut(FTFace* cutFace);

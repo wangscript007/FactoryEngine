@@ -21,9 +21,7 @@ void FTLine::Render()
     glDisable(GL_DEPTH_TEST);
     glDisable(GL_LIGHTING);
     glLineWidth(1);
-    //
-    // grind
-    //
+
     glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
     glBegin(GL_LINES);
     {
@@ -37,6 +35,12 @@ void FTLine::Render()
                    endVec.m_fZ);
     }
     glEnd();
+}
+
+void FTLine::Transform(const O5Mat4& m4Transformation)
+{
+    m_pStartPoint->Transform(m4Transformation);
+    m_pEndPoint->Transform(m4Transformation);
 }
 
 

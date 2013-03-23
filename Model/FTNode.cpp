@@ -36,12 +36,8 @@ void FTNode::Render()
     }
 }
 
-void FTNode::Transform(O5Mat4& m4Transformation)
-{
-    for (auto i = Points()->begin(); i != Points()->end(); ++i) {
-        (*i)->Transform(m4Transformation);
-    }
-    
+void FTNode::Transform(const O5Mat4& m4Transformation)
+{    
     for(auto i = m_pSubnodes.begin(); i != m_pSubnodes.end(); ++i)
     {
         (*i)->Transform(m4Transformation);

@@ -11,10 +11,12 @@ public:
     virtual ~FTMoveInteraction() {}
     void Render();
     
-    void SetMotion(O5Vec3 vMotion);
+    void SetStart(O5Vec3 vStart);
+    void SetEnd(O5Vec3 vEnd);
     
 private:
-    O5Vec3 m_vMotion;
+    O5Vec3 m_vStart;
+    O5Vec3 m_vEnd;
     FTNode* m_pNode;
     FTModelManager& m_rModelManager;
     bool m_bActive;

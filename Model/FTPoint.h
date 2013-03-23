@@ -16,11 +16,12 @@ public:
     
     virtual void Render();
     virtual NodeType Type() const { return kPoint; }
+    virtual void Transform(const O5Mat4& m4Transformation);
     FTOctree::Leaf* OctreeLeaf() const { return m_pOctreeLeaf; }
     void SetOctreeLeaf(FTOctree::Leaf* pLeaf) { m_pOctreeLeaf = pLeaf; }
     void SetActive(bool bActive) { m_bIsActive = bActive; }
     bool Active() const { return m_bIsActive; }
-    void Transform(O5Mat4& m4Transformation);
+    
     
 private:
     FTOctree::Leaf* m_pOctreeLeaf;

@@ -82,6 +82,8 @@ FTLine* FTModelManager::CreateLine(FTPoint* pStartPoint, FTPoint* pEndPoint)
     assert(m_pSelectedNode);
     FTLine* pLine = m_pModelFactory->CreateLine(pStartPoint, pEndPoint);
     m_pSelectedNode->AddNode(pLine);
+    m_pSelectedNode = pLine;
+    
     return pLine;
     
 }

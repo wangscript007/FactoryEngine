@@ -28,7 +28,7 @@ public:
     void                    AddNode(FTNode* pNode);
     void                    RemoveNode(FTNode* pMode);
     FTNode*                 Supernode() const { return m_pSupernode; }
-    void                    Transform(O5Mat4& m4Transformation);
+    virtual void            Transform(const O5Mat4& m4Transformation);
     virtual std::vector<FTPoint*>* Points() const { return NULL; }
     
 private:

@@ -16,6 +16,7 @@ public:
     void SetStartPoint(FTPoint* pStartPoint) { m_pStartPoint = pStartPoint; }
     FTPoint* StartPoint() const { return m_pStartPoint; }
     FTPoint* EndPoint() const { return m_pEndPoint; }
+    virtual void Transform(const O5Mat4& m4Transformation);
 
 private:
     FTPoint* m_pStartPoint;

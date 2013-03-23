@@ -1,5 +1,6 @@
 
 #include <Model/FTPoint.h>
+#include <Main/FTLog.h>
 
 const float FTPoint::c_fR = 5.0f;
 
@@ -17,8 +18,11 @@ FTPoint::FTPoint(O5Vec3 vOrigin)
     FTPoint();
 }
 
-
-
+void FTPoint::Transform(const O5Mat4& m4Transformation)
+{
+    m_vOrigin *= m4Transformation;
+    FTLog(kFTLogModel, "[%f, %f, %f]", m_vOrigin.m_fX, m_vOrigin.m_fY, m_vOrigin.m_fZ);
+}
 
 #pragma mark - Instance
 
@@ -48,7 +52,3 @@ void FTPoint::Render()
     glEnd();
 }
 
-void FTPoint::Transform(O5Mat4& m4Transformation)
-{
-    m_vOrigin *= m4Transformation;
-}
