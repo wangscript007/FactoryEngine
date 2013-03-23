@@ -4,11 +4,11 @@
 
 O5Mat4 FTTransformation::Move(const O5Vec3& vMotion)
 {
-    O5Mat4 m = O5Mat4::Identity;
-    m[3][0] = vMotion.m_fX;
-    m[3][1] = vMotion.m_fY;
-    m[3][2] = vMotion.m_fZ;
-    return m;
+    return O5Mat4(O5Vec4(1.0, 0.0f, 0.0f, 0.0f),
+                  O5Vec4(0.0f, 1.0, 0.0f, 0.0f),
+                  O5Vec4(0.0f, 0.0f, 1.0, 0.0f),
+                  O5Vec4(vMotion.m_fX, vMotion.m_fY, vMotion.m_fZ, 1.0f)
+                  );
 }
 
 O5Mat4 FTTransformation::Rotate(const O5Vec3& vRadians)
@@ -36,6 +36,14 @@ O5Mat4 FTTransformation::Rotate(const O5Vec3& vRadians)
     mz[1][0] = sz;
     mz[0][1] = -sz;
     mz[1][1] = cz;
-    return my;
+    return mx*my*mz;
 }
 
+O5Mat4 FTTransformation::Scale(const O5Vec3& vScale)
+{
+    return O5Mat4(O5Vec4(vScale.m_fX, 0.0f, 0.0f, 0.0f),
+                  O5Vec4(0.0f, vScale.m_fY, 0.0f, 0.0f),
+                  O5Vec4(0.0f, 0.0f, vScale.m_fZ, 0.0f),
+                  O5Vec4(0.0f, 0.0f, 0.0f, 1.0f)
+                  );
+}

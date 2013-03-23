@@ -33,6 +33,8 @@
 		60A4ED5D16FE14E30083DCD2 /* FTTransformation.h in Headers */ = {isa = PBXBuildFile; fileRef = 60A4ED5B16FE14E30083DCD2 /* FTTransformation.h */; };
 		60A4ED6016FE28BA0083DCD2 /* FTRotationInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED5E16FE28BA0083DCD2 /* FTRotationInteraction.cpp */; };
 		60A4ED6116FE28BA0083DCD2 /* FTRotationInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60A4ED5F16FE28BA0083DCD2 /* FTRotationInteraction.h */; };
+		60A4ED6716FE59D50083DCD2 /* FTScaleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED6516FE59D40083DCD2 /* FTScaleInteraction.cpp */; };
+		60A4ED6816FE59D50083DCD2 /* FTScaleInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60A4ED6616FE59D40083DCD2 /* FTScaleInteraction.h */; };
 		60A575E71690DDEE0050FAFC /* Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 60A575E61690DDEE0050FAFC /* Prefix.pch */; };
 		60C41BB01691A80600DD0C09 /* FTOctree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60C41BAE1691A80600DD0C09 /* FTOctree.cpp */; };
 		60C41BB11691A80600DD0C09 /* FTOctree.h in Headers */ = {isa = PBXBuildFile; fileRef = 60C41BAF1691A80600DD0C09 /* FTOctree.h */; };
@@ -237,6 +239,8 @@
 		60A4ED5B16FE14E30083DCD2 /* FTTransformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTTransformation.h; sourceTree = "<group>"; };
 		60A4ED5E16FE28BA0083DCD2 /* FTRotationInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTRotationInteraction.cpp; sourceTree = "<group>"; };
 		60A4ED5F16FE28BA0083DCD2 /* FTRotationInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTRotationInteraction.h; sourceTree = "<group>"; };
+		60A4ED6516FE59D40083DCD2 /* FTScaleInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTScaleInteraction.cpp; sourceTree = "<group>"; };
+		60A4ED6616FE59D40083DCD2 /* FTScaleInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTScaleInteraction.h; sourceTree = "<group>"; };
 		60A575E61690DDEE0050FAFC /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		60C41BAE1691A80600DD0C09 /* FTOctree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTOctree.cpp; sourceTree = "<group>"; };
 		60C41BAF1691A80600DD0C09 /* FTOctree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTOctree.h; sourceTree = "<group>"; };
@@ -428,6 +432,8 @@
 				605CD4FB16FDE992005CCAA2 /* FTMoveInteraction.h */,
 				60A4ED5E16FE28BA0083DCD2 /* FTRotationInteraction.cpp */,
 				60A4ED5F16FE28BA0083DCD2 /* FTRotationInteraction.h */,
+				60A4ED6516FE59D40083DCD2 /* FTScaleInteraction.cpp */,
+				60A4ED6616FE59D40083DCD2 /* FTScaleInteraction.h */,
 			);
 			path = Interaction;
 			sourceTree = "<group>";
@@ -916,6 +922,7 @@
 				605CD50016FDF833005CCAA2 /* b2Settings.h in Headers */,
 				60A4ED5D16FE14E30083DCD2 /* FTTransformation.h in Headers */,
 				60A4ED6116FE28BA0083DCD2 /* FTRotationInteraction.h in Headers */,
+				60A4ED6816FE59D50083DCD2 /* FTScaleInteraction.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1056,6 +1063,7 @@
 				605CD4FE16FDF820005CCAA2 /* FTLineInteraction.cpp in Sources */,
 				60A4ED5C16FE14E30083DCD2 /* FTTransformation.cpp in Sources */,
 				60A4ED6016FE28BA0083DCD2 /* FTRotationInteraction.cpp in Sources */,
+				60A4ED6716FE59D50083DCD2 /* FTScaleInteraction.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
