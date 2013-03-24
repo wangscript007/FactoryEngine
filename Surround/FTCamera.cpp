@@ -79,7 +79,7 @@ void FTCamera::SetProjectionMode(FTProjectionMode projectionMode)
         case kFTProjectionModeOrthographic:
             glMatrixMode(GL_PROJECTION);
             glLoadIdentity();
-            glOrtho(-1, 1, -1, 1, 2.0f, 100.0); // is zFar is larger may crash       
+            glOrtho(-5, 1, -1, 1, 2.0f, 100.0); // is zFar is larger may crash
             //glOrtho(-mfZoomFactor, mfZoomFactor, -mfZoomFactor, mfZoomFactor, 0.0f, 100.0); // is zFar is larger may crash       
             break;
     }

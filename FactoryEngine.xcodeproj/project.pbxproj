@@ -47,6 +47,10 @@
 		60D7DC771657D07C0051947E /* FTLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC751657D07C0051947E /* FTLine.h */; };
 		60D7DC7A1658308B0051947E /* FTRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC781658308B0051947E /* FTRect.cpp */; };
 		60D7DC7B1658308B0051947E /* FTRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC791658308B0051947E /* FTRect.h */; };
+		60E4FF5116FF1F6600EEAA5A /* FTInteractionAssistant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60E4FF4F16FF1F6600EEAA5A /* FTInteractionAssistant.cpp */; };
+		60E4FF5216FF1F6600EEAA5A /* FTInteractionAssistant.h in Headers */ = {isa = PBXBuildFile; fileRef = 60E4FF5016FF1F6600EEAA5A /* FTInteractionAssistant.h */; };
+		60E4FF5516FF586F00EEAA5A /* FTMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60E4FF5316FF586F00EEAA5A /* FTMath.cpp */; };
+		60E4FF5616FF586F00EEAA5A /* FTMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 60E4FF5416FF586F00EEAA5A /* FTMath.h */; };
 		60F2406F16B5BCA700291ED0 /* FTLineInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F2406D16B5BCA700291ED0 /* FTLineInteraction.h */; };
 		D10849F11583B4550042E161 /* FTLights.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D10849EF1583B4550042E161 /* FTLights.cpp */; };
 		D10849F21583B4550042E161 /* FTLights.h in Headers */ = {isa = PBXBuildFile; fileRef = D10849F01583B4550042E161 /* FTLights.h */; };
@@ -253,6 +257,10 @@
 		60D7DC751657D07C0051947E /* FTLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTLine.h; sourceTree = "<group>"; };
 		60D7DC781658308B0051947E /* FTRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTRect.cpp; sourceTree = "<group>"; };
 		60D7DC791658308B0051947E /* FTRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTRect.h; sourceTree = "<group>"; };
+		60E4FF4F16FF1F6600EEAA5A /* FTInteractionAssistant.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTInteractionAssistant.cpp; sourceTree = "<group>"; };
+		60E4FF5016FF1F6600EEAA5A /* FTInteractionAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTInteractionAssistant.h; sourceTree = "<group>"; };
+		60E4FF5316FF586F00EEAA5A /* FTMath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTMath.cpp; sourceTree = "<group>"; };
+		60E4FF5416FF586F00EEAA5A /* FTMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTMath.h; sourceTree = "<group>"; };
 		60F2406C16B5BCA700291ED0 /* FTLineInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FTLineInteraction.cpp; sourceTree = "<group>"; };
 		60F2406D16B5BCA700291ED0 /* FTLineInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTLineInteraction.h; sourceTree = "<group>"; };
 		60FD3CFA16DA3C65001F789D /* cpp_convention.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = cpp_convention.py; sourceTree = "<group>"; };
@@ -434,6 +442,8 @@
 				60A4ED5F16FE28BA0083DCD2 /* FTRotationInteraction.h */,
 				60A4ED6516FE59D40083DCD2 /* FTScaleInteraction.cpp */,
 				60A4ED6616FE59D40083DCD2 /* FTScaleInteraction.h */,
+				60E4FF4F16FF1F6600EEAA5A /* FTInteractionAssistant.cpp */,
+				60E4FF5016FF1F6600EEAA5A /* FTInteractionAssistant.h */,
 			);
 			path = Interaction;
 			sourceTree = "<group>";
@@ -806,6 +816,8 @@
 				6091E37916AC6036001DE0A7 /* FTLoopFinder.h */,
 				60A4ED5A16FE14E30083DCD2 /* FTTransformation.cpp */,
 				60A4ED5B16FE14E30083DCD2 /* FTTransformation.h */,
+				60E4FF5316FF586F00EEAA5A /* FTMath.cpp */,
+				60E4FF5416FF586F00EEAA5A /* FTMath.h */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -923,6 +935,8 @@
 				60A4ED5D16FE14E30083DCD2 /* FTTransformation.h in Headers */,
 				60A4ED6116FE28BA0083DCD2 /* FTRotationInteraction.h in Headers */,
 				60A4ED6816FE59D50083DCD2 /* FTScaleInteraction.h in Headers */,
+				60E4FF5216FF1F6600EEAA5A /* FTInteractionAssistant.h in Headers */,
+				60E4FF5616FF586F00EEAA5A /* FTMath.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1064,6 +1078,8 @@
 				60A4ED5C16FE14E30083DCD2 /* FTTransformation.cpp in Sources */,
 				60A4ED6016FE28BA0083DCD2 /* FTRotationInteraction.cpp in Sources */,
 				60A4ED6716FE59D50083DCD2 /* FTScaleInteraction.cpp in Sources */,
+				60E4FF5116FF1F6600EEAA5A /* FTInteractionAssistant.cpp in Sources */,
+				60E4FF5516FF586F00EEAA5A /* FTMath.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
