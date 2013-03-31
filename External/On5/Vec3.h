@@ -7,6 +7,10 @@
 class O5Vec3
 {
 public:
+    static const O5Vec3 X;
+    static const O5Vec3 Y;
+    static const O5Vec3 Z;
+    
     float   m_fX;
     float   m_fY;
     float   m_fZ;
@@ -40,11 +44,39 @@ public:
     void        Set(float fX, float fY, float fZ) {m_fX = fX; m_fY = fY; m_fZ = fZ;}
     float       Distance(const O5Vec3& other) const {return (*this - other).Length();}
     float       Length() const {return std::sqrt(m_fX * m_fX + m_fY * m_fY + m_fZ * m_fZ);}
+    float       Angle(const O5Vec3& other) const { return acosf(*this * other) / (Length() + other.Length()); }
+    float       ProjectionIn(const O5Vec3& other) { return Length() * cosf(Angle(other)); }
     O5Vec3      Bezier(const O5Vec3& vB, const O5Vec3& vC, const O5Vec3& vD, float fT) const;
     O5Vec3      Lerp(const O5Vec3& vB, float fT) const {return O5Vec3(O5Lerp(m_fX, vB.m_fX, fT), O5Lerp(m_fY, vB.m_fY, fT), O5Lerp(m_fZ, vB.m_fZ, fT));}
     float       Normalize();
     void        Zero() {m_fX = 0.0f; m_fY = 0.0f; m_fZ = 0.0f;}
+    float       Max() const;
+    float       Min() const;
+    
 };
+
+inline float O5Vec3::Max() const
+{
+    float fMax = (*this)[0];
+    for(int i = 1; i < 3; i++) {
+        if ((*this)[i] > fMax) {
+            fMax = (*this)[i];
+        }
+    }
+    return fMax;
+}
+
+inline float O5Vec3::Min() const
+{
+    float fMin = (*this)[0];
+    for(int i = 1; i < 3; i++) {
+        if ((*this)[i] > fMin) {
+            fMin = (*this)[i];
+        }
+    }
+    return fMin;
+}
+
 
 inline O5Vec3 O5Vec3::Bezier(const O5Vec3& vB, const O5Vec3& vC, const O5Vec3& vD, float fT) const
 {

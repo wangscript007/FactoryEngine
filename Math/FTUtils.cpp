@@ -1,7 +1,7 @@
 
 #include <Math/FTUtils.h>
 
-O5Vec3 FTUtils::WindowFromScene(O5Vec3 sceneVec)
+O5Vec3 FTUtils::Viewport(O5Vec3 sceneVec)
 {
     GLint viewport[4];                         
     GLdouble modelviewMatrix[16];
@@ -20,7 +20,7 @@ O5Vec3 FTUtils::WindowFromScene(O5Vec3 sceneVec)
     return O5Vec3(resultX, resultY, resultZ);
 }
 
-O5Vec3 FTUtils::SceneFromWindow(const O5Vec3 windowVec)
+O5Vec3 FTUtils::Scene(const O5Vec3 windowVec)
 {
     GLint viewport[4];                         
     GLdouble modelviewMatrix[16];

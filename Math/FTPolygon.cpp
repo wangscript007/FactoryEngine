@@ -10,7 +10,6 @@ void FTPolygon::Rotate(O5Vec3& vAngle)
 
 void FTPolygon::Translate(O5Vec3& vOffset)
 {
-    
 }
 
 void FTPolygon::Scale(O5Vec3& vOffset)

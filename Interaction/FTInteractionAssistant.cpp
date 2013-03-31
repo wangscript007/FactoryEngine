@@ -6,44 +6,34 @@
 
 const float FTInteractionAssistant::c_fSensitivity = 20.0f;
 
-O5Vec3 FTInteractionAssistant::AxisAlignedViewport(const O5Vec3& vStartScene, const O5Vec3& vEndViewport) const
+O5Vec3 FTInteractionAssistant::AxisAlignedViewport(const O5Vec3& vStartScene,
+                                                   const O5Vec3& vEndViewport) const
 {
-    O5Vec3 vStartViewport = FTUtils::WindowFromScene(vStartScene);
-    O5Vec3 vCurrentViewport = vEndViewport - vStartViewport;
-    float fLength = FTMath::VectorLength(vCurrentViewport);
+    O5Vec3 vStart = FTUtils::Viewport(vStartScene);
+    O5Vec3 vCurrent = vEndViewport - vStart;
+    O5Vec3 vAxisX = FTUtils::Viewport(O5Vec3::X);
+    O5Vec3 vAxisY = FTUtils::Viewport(O5Vec3::Y);
+    O5Vec3 vAxisZ = FTUtils::Viewport(O5Vec3::Z);
+    O5Vec3 vPerp;
+    //
+    // Finding perpendiculars to axis aligned vectors
+    //
+    float fLength = vCurrent.Length();
+    vPerp.m_fX = tanf(vAxisX.Angle(vCurrent)) * fLength;
+    vPerp.m_fY = tanf(vAxisY.Angle(vCurrent)) * fLength;
+    vPerp.m_fZ = tanf(vAxisZ.Angle(vCurrent)) * fLength;
     
-    O5Vec3 vAxisViewportX, vAxisViewportY, vAxisViewportZ;
-    float fAngle, x, y, z;
-    vAxisViewportX = FTUtils::WindowFromScene(O5Vec3(1.0f ,0.0f, 0.0f));
-    fAngle = FTMath::AngleBetweenVectors(vAxisViewportX, vCurrentViewport);
-    x = tanf(fAngle)*fLength;
+    float fMin = vPerp.Min();
     
-    vAxisViewportY = FTUtils::WindowFromScene(O5Vec3(0.0f ,1.0f, 0.0f));
-    fAngle = FTMath::AngleBetweenVectors(vAxisViewportY, vCurrentViewport);
-    y = tanf(fAngle)*fLength;
-    
-    vAxisViewportZ = FTUtils::WindowFromScene(O5Vec3(0.0f ,0.0f, 1.0f));
-    fAngle = FTMath::AngleBetweenVectors(vAxisViewportZ, vCurrentViewport);
-    z = tanf(fAngle)*fLength;
-    
-    FTAxis eAxis = x < y ? (x < z ? kAxisX : (y < z ? kAxisY : kAxisZ)) : (y < z ? kAxisY : (x < z ? kAxisX : kAxisZ));
-    
-    switch (eAxis) {
-        case kAxisX : {
-            if (x <= c_fSensitivity) {
-                return vStartViewport + O5Vec3(FTMath::ProjectionInVector(vCurrentViewport, vAxisViewportX), 0.0f, 0.0f);
-            }
-        } break;
-        case kAxisY : {
-            if (y <= c_fSensitivity) {
-                return vStartViewport + O5Vec3(0.0f, FTMath::ProjectionInVector(vCurrentViewport, vAxisViewportY), 0.0f);
-            }
-        } break;
-        case kAxisZ : {
-            if (z <= c_fSensitivity) {
-                return vStartViewport + O5Vec3(0.0f, 0.0f, FTMath::ProjectionInVector(vCurrentViewport, vAxisViewportX));
-            }
-        } break;
+    if (fMin < c_fSensitivity) {
+        O5Vec3 vProjection;
+        if      (fMin == vPerp.m_fX) vProjection = O5Vec3::X * vCurrent.ProjectionIn(vAxisX);
+        else if (fMin == vPerp.m_fY) vProjection = O5Vec3::X * vCurrent.ProjectionIn(vAxisY);
+        else if (fMin == vPerp.m_fZ) vProjection = O5Vec3::X * vCurrent.ProjectionIn(vAxisZ);
+        return vStart + vProjection;
     }
+    //
+    // Unchanged
+    //
     return vEndViewport;
 }
