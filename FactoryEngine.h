@@ -4,51 +4,51 @@
 //
 // Macros
 //
-#define FTDEBUG
+#define DEBUG
 
 #include "External/Box2D/Box2D.h"
 #include "External/On5/Manifest.h"
 //
 // Main
 //
-#include "Main/FTGLError.h"
-#include "Main/FTLog.h"
+#include "Main/GLError.h"
+#include "Main/Log.h"
 //
 // Math
 //
-#include "Math/FTUtils.h"
-#include "Math/FTRect.h"
+#include "Math/Utils.h"
+#include "Math/Rect.h"
 //
 // Model
 //
-#include "Model/FTNode.h"
-#include "Model/FTModel.h"
-#include "Model/FTPoint.h"
-#include "Model/FTLine.h"
-//#include "Model/FTPolygon.h"
-#include "Model/FTFace.h"
-#include "Model/FTBody.h"
-#include "Model/FTGroup.h"
-#include "Model/FTModelFactory.h"
+#include "Model/Node.h"
+#include "Model/Model.h"
+#include "Model/Point.h"
+#include "Model/Line.h"
+//#include "Model/Polygon.h"
+#include "Model/Face.h"
+#include "Model/Body.h"
+#include "Model/Group.h"
+#include "Model/ModelFactory.h"
 
 //
 // Surround
 //
-#include "Surround/FTCamera.h"
-#include "Surround/FTLights.h"
+#include "Surround/Camera.h"
+#include "Surround/Lights.h"
 //
 // Workspace
 //
-#include "Workspace/FTPad.h"
-#include "Workspace/FTHUD.h"
-#include "Workspace/FTWorkspace.h"
+#include "Workspace/Pad.h"
+#include "Workspace/HUD.h"
+#include "Workspace/Workspace.h"
 //
 // Managers
 //
-#include "Managers/FTModelTreeManager.h"
-#include "Managers/FTModelManager.h"
+#include "Managers/ModelTreeManager.h"
+#include "Managers/ModelManager.h"
 //
 // Scene
 //
-#include "Scene/FTScene.h"
+#include "Scene/Scene.h"
 

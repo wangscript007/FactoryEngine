@@ -2,7 +2,7 @@
 import parsing
 
 # print 'Argument:', sys.argv[1]
-linestring = open('/Users/Edvinas/Dropbox/Factory/Source/FactoryEngine/Model/FTFace.h', 'r').read()
+linestring = open('/Users/Edvinas/Dropbox/Factory/Source/FactoryEngine/Model/Face.h', 'r').read()
 keywords = ['class', 'enum', 'struct', 'typedef']
 parser = parsing.Parsing(linestring)
 print parser.keywordBlock(keywords[0], '}')
