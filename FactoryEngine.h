@@ -6,18 +6,56 @@
 //
 #define DEBUG
 
+#include <cassert>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <cmath>
+#include <ctime>
+#include <iostream>
+#include <iomanip>
+#include <sstream>
+#include <vector>
+#include <map>
+#include <list>
+#include <utility>
+#include <algorithm>
+#include <queue>
+#include "OpenGL/glu.h"
+#include "OpenGl/gl.h"
+
+
 #include "External/Box2D/Box2D.h"
-#include "External/On5/Manifest.h"
+//
+// Platform macros.
+//
+#define O5_ALIGN(n) __attribute__((aligned(n)))
+
+typedef unsigned char           O5Byte;             // 1 byte
+typedef unsigned short int      O5Word;             // 2 bytes
+typedef unsigned int            O5Doubleword;       // 4 bytes
+typedef unsigned long long int  O5Quadrupleword;    // 8 bytes
 //
 // Main
 //
+
 #include "Main/GLError.h"
 #include "Main/Log.h"
 //
 // Math
 //
+#include "Math/Util.h"
+#include "Math/Color.h"
+#include "Math/Vec2.h"
+#include "Math/Vec3.h"
+#include "Math/Vec4.h"
+#include "Math/Mat2.h"
+#include "Math/Mat3x2.h"
+#include "Math/Mat4.h"
+#include "Math/Frame.h"
 #include "Math/Utils.h"
 #include "Math/Rect.h"
+
 //
 // Model
 //
