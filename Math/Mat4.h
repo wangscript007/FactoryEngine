@@ -8,7 +8,7 @@
 
 #pragma once
 
-namespace Factory {
+namespace ftr {
 
 class _ALIGN(16) Mat4
 {

@@ -3,7 +3,7 @@
 #include <Model/Point.h>
 #include <Main/GLError.h>
 
-namespace Factory {
+namespace ftr {
 
 Octree::Octree(Box sBox)
     :m_iMaxCapacity(2)
@@ -44,8 +44,8 @@ Octree::Branch* Octree::Split(Octree::Leaf *pLeaf)
     }
     Leaf* pChildLeaf;
     Box sBox = pLeaf->Box();
-    Factory::Vec3 vHalf = sBox.m_vHalfDimention/2.0f;
-    Factory::Vec3 vCenter;
+    ftr::Vec3 vHalf = sBox.m_vHalfDimention/2.0f;
+    ftr::Vec3 vCenter;
     for(int x = 0; x < 2; x++) {
         for(int y = 0; y < 2; y++) {
             for(int z = 0; z < 2; z++) {
@@ -194,7 +194,7 @@ unsigned long Octree::Size()
 
 #pragma mark Node
 
-Octree::Node::Node(Factory::Box sBox)
+Octree::Node::Node(ftr::Box sBox)
     :m_sBox(sBox)
     ,m_pParent(NULL)
     ,m_eType(kLeaf)

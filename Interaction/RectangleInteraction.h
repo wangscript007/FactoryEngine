@@ -6,7 +6,7 @@
 #include <Math/Geometry.h>
 #include <Math/Polygon.h>
 
-namespace Factory {
+namespace ftr {
 
 class  ModelManager;
 

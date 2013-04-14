@@ -5,7 +5,7 @@
 #include <Model/Group.h>
 #include <Managers/ModelTreeManager.h>
 
-namespace Factory {
+namespace ftr {
 
 class ModelManager
 {

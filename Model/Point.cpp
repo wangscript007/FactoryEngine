@@ -3,7 +3,7 @@
 #include <Main/Log.h>
 
 
-namespace Factory {
+namespace ftr {
 
 const float Point::c_fR = 5.0f;
 

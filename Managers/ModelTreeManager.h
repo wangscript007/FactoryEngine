@@ -5,7 +5,7 @@
 #include <Model/Node.h>
 #include <Managers/Octree.h>
 
-namespace Factory {
+namespace ftr {
 //
 // Manages model tree
 //
@@ -29,7 +29,7 @@ public:
     
 private:
     Node*     m_pRootNode;
-    Factory::Octree*   m_pOctree;
+    ftr::Octree*   m_pOctree;
 };
 
 }

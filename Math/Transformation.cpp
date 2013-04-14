@@ -1,7 +1,7 @@
 
 #include <Math/Transformation.h>
 
-namespace Factory {
+namespace ftr {
 
 Mat4 Transformation::Move(const Vec3& vMotion)
 {

@@ -1,7 +1,7 @@
 
 #include <Surround/Lights.h>
 
-namespace Factory {
+namespace ftr {
 
 void Lights::TurnOn(int index)
 {

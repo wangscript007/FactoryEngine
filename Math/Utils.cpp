@@ -2,7 +2,7 @@
 #include <Math/Utils.h>
 
 
-namespace Factory {
+namespace ftr {
 
 Vec3 Utils::Viewport(Vec3 sceneVec)
 {

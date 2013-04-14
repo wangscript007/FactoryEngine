@@ -4,7 +4,7 @@
 #include <Model/Model.h>
 #include <Model/Point.h>
 
-namespace Factory {
+namespace ftr {
 
 class Line : public Model
 {

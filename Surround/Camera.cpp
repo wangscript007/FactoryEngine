@@ -3,7 +3,7 @@
 #include <Surround/Camera.h>
 #include <Main/Log.h>
 
-namespace Factory {
+namespace ftr {
 
 Camera::Camera()
 {

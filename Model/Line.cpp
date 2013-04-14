@@ -1,7 +1,7 @@
 
 #include <Model/Line.h>
 
-namespace Factory {
+namespace ftr {
 
 Line::Line(Point* pStartPoint, Point* pEndPoint)
     :m_pStartPoint(pStartPoint)

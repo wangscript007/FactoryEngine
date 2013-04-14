@@ -3,7 +3,7 @@
 //
 #pragma once
 
-namespace Factory {
+namespace ftr {
 
 class Vec2
 {

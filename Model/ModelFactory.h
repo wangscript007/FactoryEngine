@@ -8,7 +8,7 @@
 #include <Model/Face.h>
 #include <Model/Line.h>
 
-namespace Factory {
+namespace ftr {
 
 class ModelTreeManager;
 //

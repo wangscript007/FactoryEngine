@@ -5,7 +5,7 @@
 #include <Workspace/Pad.h>
 #include <Main/Log.h>
 
-namespace Factory {
+namespace ftr {
 
 void Pad::Render()
 {

@@ -6,7 +6,7 @@
 #include <Model/Point.h>
 #include <Managers/ModelTreeManager.h>
 
-namespace Factory {
+namespace ftr {
 
 ModelFactory::ModelFactory(ModelTreeManager& rModelTreeManager)
     :m_rModelTreeManager(rModelTreeManager)

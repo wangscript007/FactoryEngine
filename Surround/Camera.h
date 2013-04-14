@@ -5,7 +5,7 @@
 
 
 
-namespace Factory {
+namespace ftr {
 
 typedef enum {
     kProjectionModeProjection,

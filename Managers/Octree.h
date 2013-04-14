@@ -3,7 +3,7 @@
 
 #include <Math/Geometry.h>
 
-namespace Factory {
+namespace ftr {
 
 class Point;
     
@@ -58,12 +58,12 @@ public:
         SIndex& Index() { return m_sIndex; }
         void SetIndex(SIndex sIndex) { m_sIndex = sIndex; }
         Node* NodeContainingPoint(const Vec3& vPoint);
-        void PointsInBox(const Factory::Box& sBox, std::vector<Point*>& rPointsVector) const;
+        void PointsInBox(const ftr::Box& sBox, std::vector<Point*>& rPointsVector) const;
         void SetDepth(int iDepth) { m_iDepth = iDepth; }
         int Depth() const { return m_iDepth; }
         
     protected:
-        Factory::Box m_sBox;
+        ftr::Box m_sBox;
         Node* m_pParent;
         SIndex m_sIndex;
         NodeType m_eType;

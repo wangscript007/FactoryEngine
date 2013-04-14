@@ -4,7 +4,7 @@
 #include <Model/Node.h>
 #include <Model/Point.h>
 
-namespace Factory {
+namespace ftr {
 
 class Polyline : Model
 {

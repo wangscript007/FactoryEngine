@@ -2,7 +2,7 @@
 #include <Interaction/RectangleInteraction.h>
 #include <Managers/ModelManager.h>
 
-namespace Factory {
+namespace ftr {
 
 RectangleInteraction::RectangleInteraction(ModelManager& rModelManager)
     :m_rModelManager(rModelManager)

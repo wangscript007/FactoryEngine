@@ -4,7 +4,7 @@
 #include <Model/Point.h>
 #include <Main/Log.h>
 
-namespace Factory {
+namespace ftr {
 
 Face::Face()
 {

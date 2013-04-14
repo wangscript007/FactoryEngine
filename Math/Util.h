@@ -4,7 +4,7 @@
 
 #pragma once
 
-namespace Factory { namespace Util {
+namespace ftr { namespace Util {
 
 const float Epsilon = 1.19209e-07f;
 const float Pi = 3.14159265f;

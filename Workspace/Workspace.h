@@ -9,7 +9,7 @@
 #include <Workspace/Pad.h>
 #include <Workspace/HUD.h>
 
-namespace Factory {
+namespace ftr {
 
 class Workspace : public Node
 {

@@ -6,7 +6,7 @@
 
 #include <Model/Model.h>
 
-namespace Factory {
+namespace ftr {
 
 class Polygon;
 class Line;

@@ -5,7 +5,7 @@
 
 #include <Math/Geometry.h>
 
-namespace Factory {
+namespace ftr {
 
 class Polygon
 {

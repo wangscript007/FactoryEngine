@@ -3,7 +3,7 @@
 #include <Math/Utils.h>
 #include <Math/Geometry.h>
 
-namespace Factory {
+namespace ftr {
 
 const float InteractionAssistant::c_fSensitivity = 20.0f;
 

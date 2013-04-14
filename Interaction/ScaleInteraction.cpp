@@ -3,7 +3,7 @@
 #include <Managers/ModelManager.h>
 #include <Math/Transformation.h>
 
-namespace Factory {
+namespace ftr {
 
 
 ScaleInteraction::ScaleInteraction(ModelManager& rModelManager)

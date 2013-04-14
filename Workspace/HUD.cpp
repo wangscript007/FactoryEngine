@@ -6,7 +6,7 @@
 #include <Main/Log.h>
 #include <Main/GLError.h>
 
-namespace Factory {
+namespace ftr {
 
 void HUD::Render()
 {

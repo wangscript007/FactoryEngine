@@ -4,7 +4,7 @@
 
 #include "Vec3.h"
 
-namespace Factory {
+namespace ftr {
 
 const Mat3x2  Mat3x2::Identity(Mat2::Identity, Vec2(0.0f, 0.0f));
 

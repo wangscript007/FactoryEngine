@@ -3,7 +3,7 @@
 //
 #include <Math/Polygon.h>
 
-namespace Factory {
+namespace ftr {
 
 void Polygon::Rotate(Vec3& vAngle)
 {

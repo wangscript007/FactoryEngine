@@ -3,7 +3,7 @@
 
 #include <Model/Model.h>
 
-namespace Factory {
+namespace ftr {
 
 class Lights : public Model
 {

@@ -4,7 +4,7 @@
 
 #include "Vec2.h"
 
-namespace Factory {
+namespace ftr {
 
 Vec2::Vec2(const Vec3& other): m_fX(other.m_fX), m_fY(other.m_fY)
 {

@@ -2,11 +2,11 @@
 #include <Managers/ModelTreeManager.h>
 #include <Model/Point.h>
 
-namespace Factory {
+namespace ftr {
 
 ModelTreeManager::ModelTreeManager()
 {
-    m_pOctree = new Factory::Octree(Box(Vec3(0.0f, 0.0f, 0.0f), Vec3(8.0f, 8.0f, 8.0f)));
+    m_pOctree = new ftr::Octree(Box(Vec3(0.0f, 0.0f, 0.0f), Vec3(8.0f, 8.0f, 8.0f)));
 }
 
 ModelTreeManager::~ModelTreeManager()

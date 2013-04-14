@@ -8,7 +8,7 @@
 // identity matrix.
 //
 
-namespace Factory {
+namespace ftr {
 
 #pragma once
 

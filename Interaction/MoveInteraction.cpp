@@ -3,7 +3,7 @@
 #include <Managers/ModelManager.h>
 #include <Math/Transformation.h>
 
-namespace Factory {
+namespace ftr {
 
 MoveInteraction::MoveInteraction(ModelManager& rModelManager)
 :m_rModelManager(rModelManager)

@@ -7,7 +7,7 @@
 // translate and reconstruct, perform transformations by multiplying it by 2x2
 // matrix, test intersections.
 //
-namespace Factory {
+namespace ftr {
 
 class _ALIGN(16) Frame
 {

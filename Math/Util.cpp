@@ -5,7 +5,7 @@
 
 #include "Util.h"
 
-namespace Factory { namespace Util {
+namespace ftr { namespace Util {
 
 std::string Escape (const char* pszFormat)
 {

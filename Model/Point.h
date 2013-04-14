@@ -4,7 +4,7 @@
 #include <Model/Model.h>
 #include <Managers/Octree.h>
 
-namespace Factory {
+namespace ftr {
 
 class Point : public Model
 {

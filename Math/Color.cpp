@@ -4,7 +4,7 @@
 
 #include "Color.h"
 
-namespace Factory {
+namespace ftr {
 
 ColorHSL ColorHSL::RGB2HSL(const Color4f& Color) const
 {

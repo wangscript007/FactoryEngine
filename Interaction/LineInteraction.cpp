@@ -3,7 +3,7 @@
 #include <Interaction/LineInteraction.h>
 #include <Managers/ModelManager.h>
 
-namespace Factory {
+namespace ftr {
 
 LineInteraction::LineInteraction(ModelManager& rModelManager)
     :m_rModelManager(rModelManager)

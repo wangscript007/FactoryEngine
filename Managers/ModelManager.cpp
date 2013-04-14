@@ -1,7 +1,7 @@
 
 #include <Managers/ModelManager.h>
 
-namespace Factory {
+namespace ftr {
 
 ModelManager::ModelManager()
     :m_pSelectedNode(NULL)

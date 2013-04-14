@@ -2,7 +2,7 @@
 
 #pragma once
 
-namespace Factory {
+namespace ftr {
 
 enum Axis { kAxisX, kAxisY, kAxisZ };
 
@@ -72,7 +72,7 @@ inline bool Sphere::Intersects(const struct Box& box) const
 
 inline Box Sphere::Box() const
 {
-    return Factory::Box(m_vCenter, Vec3(m_fRadius, m_fRadius, m_fRadius));
+    return ftr::Box(m_vCenter, Vec3(m_fRadius, m_fRadius, m_fRadius));
 }
 
 inline bool Sphere::Containts(const Vec3& vec) const

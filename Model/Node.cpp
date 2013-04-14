@@ -2,7 +2,7 @@
 #include <Model/Point.h>
 #include <Model/Node.h>
 
-namespace Factory {
+namespace ftr {
     
 Node::Node()
 {

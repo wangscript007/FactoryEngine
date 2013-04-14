@@ -7,7 +7,7 @@
 #include <Interaction/RotationInteraction.h>
 #include <Interaction/ScaleInteraction.h>
 
-namespace Factory {
+namespace ftr {
 
 InteractionManager::InteractionManager(ModelManager& rModelManager)
     :m_rModelManager(rModelManager)

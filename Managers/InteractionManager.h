@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace Factory {
+namespace ftr {
 
 class RectangleInteraction;
 class LineInteraction;

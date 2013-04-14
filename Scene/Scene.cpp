@@ -6,7 +6,7 @@
 #include <Scene/Scene.h>
 #include <Surround/Lights.h>
 
-namespace Factory {
+namespace ftr {
 
 
 #pragma mark - Super

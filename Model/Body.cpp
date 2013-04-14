@@ -2,7 +2,7 @@
 #include <Model/Body.h>
 #include <Model/Face.h>
 
-namespace Factory {
+namespace ftr {
 //
 // Change coordinates of pull face and create n side faces
 //

@@ -5,7 +5,7 @@
 #include <Workspace/Workspace.h>
 #include <Main/Log.h>
 
-namespace Factory {
+namespace ftr {
 
 Workspace::Workspace()
 {

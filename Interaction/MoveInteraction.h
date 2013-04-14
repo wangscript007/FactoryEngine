@@ -2,7 +2,7 @@
 
 #include <Model/Node.h>
 
-namespace Factory {
+namespace ftr {
 
 class ModelManager;
 

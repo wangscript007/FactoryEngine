@@ -11,7 +11,7 @@
 #include <Managers/ModelManager.h>
 #include <Managers/InteractionManager.h>
 
-namespace Factory {
+namespace ftr {
 
 class Scene
 {

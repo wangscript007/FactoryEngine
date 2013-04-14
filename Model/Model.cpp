@@ -4,7 +4,7 @@
 
 #include <Model/Model.h>
 
-namespace Factory {
+namespace ftr {
 
 void Model::SetVertex(Vec3 *vertexArray)
 {
