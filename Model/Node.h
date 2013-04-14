@@ -29,7 +29,7 @@ public:
     void                    AddNode(Node* pNode);
     void                    RemoveNode(Node* pMode);
     Node*                 Supernode() const { return m_pSupernode; }
-    virtual void            Transform(const O5Mat4& m4Transformation);
+    virtual void            Transform(const Mat4& m4Transformation);
     virtual std::vector<Point*>* Points() const { return NULL; }
     
 private:

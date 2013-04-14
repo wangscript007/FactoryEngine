@@ -40,8 +40,8 @@ void LineInteraction::Begin()
         m_rModelManager.SelectedNode()->AddNode(this);
         m_pEndPoint = NULL;
         m_pStartPoint = NULL;
-        m_vEnd = O5Vec3();
-        m_vStart = O5Vec3();
+        m_vEnd = Vec3();
+        m_vStart = Vec3();
     }
 }
 
@@ -68,7 +68,7 @@ void LineInteraction::End()
     m_bActive = false;
 }
 
-void LineInteraction::SetEnd(O5Vec3 vEnd)
+void LineInteraction::SetEnd(Vec3 vEnd)
 {
     Point* pNearPoint = m_rModelManager.NearestPointToCenterInSphere(Sphere(vEnd, 0.5f));
     if (pNearPoint) {
@@ -80,7 +80,7 @@ void LineInteraction::SetEnd(O5Vec3 vEnd)
     }
 }
 
-void LineInteraction::SetStart(O5Vec3 vStart)
+void LineInteraction::SetStart(Vec3 vStart)
 {
     Point* pNearPoint = m_rModelManager.NearestPointToCenterInSphere(Sphere(vStart, 0.5f));
     if (pNearPoint) {

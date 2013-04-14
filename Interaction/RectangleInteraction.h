@@ -21,8 +21,8 @@ public:
     void Render();
     void Begin();
     void End();
-    void SetOrigin(const O5Vec3& vOrigin);
-    void SetCurrent(const O5Vec3& vCurrent);
+    void SetOrigin(const Vec3& vOrigin);
+    void SetCurrent(const Vec3& vCurrent);
     
     
 private:

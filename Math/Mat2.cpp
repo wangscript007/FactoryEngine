@@ -4,5 +4,9 @@
 
 #include "Mat2.h"
 
-const O5Mat2    O5Mat2::Zero(O5Vec2(0.0f, 0.0f), O5Vec2(0.0f, 0.0f));
-const O5Mat2    O5Mat2::Identity(O5Vec2(1.0f, 0.0f), O5Vec2(0.0f, 1.0f));
+namespace Factory {
+
+const Mat2    Mat2::Zero(Vec2(0.0f, 0.0f), Vec2(0.0f, 0.0f));
+const Mat2    Mat2::Identity(Vec2(1.0f, 0.0f), Vec2(0.0f, 1.0f));
+    
+}

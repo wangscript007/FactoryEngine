@@ -17,12 +17,12 @@ void RotationInteraction::Render()
 
 #pragma mark Instance
 
-void RotationInteraction::SetStart(O5Vec3 vStart)
+void RotationInteraction::SetStart(Vec3 vStart)
 {
     m_vStart = vStart;
 }
 
-void RotationInteraction::SetEnd(O5Vec3 vEnd)
+void RotationInteraction::SetEnd(Vec3 vEnd)
 {
     m_vEnd = vEnd;
     assert(m_rModelManager.SelectedNode()->Type() == Node::kLine);

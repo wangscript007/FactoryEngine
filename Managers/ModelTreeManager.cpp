@@ -6,7 +6,7 @@ namespace Factory {
 
 ModelTreeManager::ModelTreeManager()
 {
-    m_pOctree = new Factory::Octree(Box(O5Vec3(0.0f, 0.0f, 0.0f), O5Vec3(8.0f, 8.0f, 8.0f)));
+    m_pOctree = new Factory::Octree(Box(Vec3(0.0f, 0.0f, 0.0f), Vec3(8.0f, 8.0f, 8.0f)));
 }
 
 ModelTreeManager::~ModelTreeManager()

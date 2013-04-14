@@ -17,14 +17,14 @@ public:
     void Begin();
     void Step();
     void End();
-    void SetStart(O5Vec3 vStart);
-    void SetEnd(O5Vec3 vEnd);
+    void SetStart(Vec3 vStart);
+    void SetEnd(Vec3 vEnd);
     
     
 private:
     ModelManager& m_rModelManager;
-    O5Vec3 m_vStart;
-    O5Vec3 m_vEnd;
+    Vec3 m_vStart;
+    Vec3 m_vEnd;
     bool m_bActive;
     Point* m_pStartPoint;
     Point* m_pEndPoint;

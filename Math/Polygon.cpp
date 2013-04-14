@@ -5,16 +5,16 @@
 
 namespace Factory {
 
-void Polygon::Rotate(O5Vec3& vAngle)
+void Polygon::Rotate(Vec3& vAngle)
 {
     
 }
 
-void Polygon::Translate(O5Vec3& vOffset)
+void Polygon::Translate(Vec3& vOffset)
 {
 }
 
-void Polygon::Scale(O5Vec3& vOffset)
+void Polygon::Scale(Vec3& vOffset)
 {
     
 }

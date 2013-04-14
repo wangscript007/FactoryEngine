@@ -28,9 +28,9 @@ public:
     
     virtual void                        Render();
     virtual NodeType                    Type() const { return kFace; }
-    virtual void                        Transform(O5Mat4& m4Transformation);
-    bool                                IsInFacePlane(O5Vec3 vec);
-    bool                                Contains(O5Vec3 vec);
+    virtual void                        Transform(Mat4& m4Transformation);
+    bool                                IsInFacePlane(Vec3 vec);
+    bool                                Contains(Vec3 vec);
     void                                Cut(Face* cutFace);
     
     void                                AddPolygon();
@@ -40,10 +40,10 @@ public:
     
     FaceType                            m_eType;
     
-    void                                SetSize(const O5Vec3 vSize);
-    const O5Vec3&                       Size() const { return m_vSize; }
-    void                                SetOrigin(const O5Vec3 vOrigin);
-    const O5Vec3&                       Origin() const { return m_vOrigin; }
+    void                                SetSize(const Vec3 vSize);
+    const Vec3&                       Size() const { return m_vSize; }
+    void                                SetOrigin(const Vec3 vOrigin);
+    const Vec3&                       Origin() const { return m_vOrigin; }
     
     const TPointsVector&                PointsVector() const { return m_vPointsVector; }
     
@@ -51,8 +51,8 @@ private:
     TPolygonsVector                     m_vPolygons;
     TLinesVector                        m_vLinesVector;
     TPointsVector                       m_vPointsVector;
-    O5Vec3                              m_vOrigin;
-    O5Vec3                              m_vSize;
+    Vec3                              m_vOrigin;
+    Vec3                              m_vSize;
 };
 
 }

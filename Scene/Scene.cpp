@@ -17,7 +17,7 @@ Scene::Scene()
 {
     glEnable(GL_NORMALIZE);
     m_pWorkspace = new Workspace();
-    m_pCamera = new  Camera(O5Vec3(5.0f, 5.0f, 5.0f));
+    m_pCamera = new  Camera(Vec3(5.0f, 5.0f, 5.0f));
     m_pModelManager = new ModelManager();
     m_pModelManager->ModelTreeManager()->SetRootNode(reinterpret_cast<Node*>(m_pWorkspace));
     m_pInteractionManager = new class InteractionManager(*m_pModelManager);
@@ -56,14 +56,14 @@ void Scene::SetViewportRect(int x, int y, int width, int height)
 //
 //
 //
-void Scene::MoveBy(const O5Vec2 deltaMove)
+void Scene::MoveBy(const Vec2 deltaMove)
 {
     m_pCamera->MoveBy(deltaMove);
 }
 //
 //
 //
-void Scene::RotateBy(const O5Vec2 deltaRotation)
+void Scene::RotateBy(const Vec2 deltaRotation)
 {
     m_pCamera->RotateBy(deltaRotation);
 }
@@ -106,13 +106,13 @@ void Scene::TurnOnLight(int index)
 
 #pragma mark Model
 
-Face* Scene::CreateFace(O5Vec3 vOrigin)
+Face* Scene::CreateFace(Vec3 vOrigin)
 {
     return m_pModelManager->CreateFace(vOrigin, Face::kRectangle);
 }
 
 
-Point* Scene::CreatePoint(O5Vec3 vOrigin)
+Point* Scene::CreatePoint(Vec3 vOrigin)
 {
     return m_pModelManager->CreatePoint(vOrigin);
 }

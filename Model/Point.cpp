@@ -15,13 +15,13 @@ Point::Point()
     
 }
 
-Point::Point(O5Vec3 vOrigin)
+Point::Point(Vec3 vOrigin)
 :m_vOrigin(vOrigin)
 {
     Point();
 }
 
-void Point::Transform(const O5Mat4& m4Transformation)
+void Point::Transform(const Mat4& m4Transformation)
 {
     m_vOrigin *= m4Transformation;
     Log(kLogModel, "[%f, %f, %f]", m_vOrigin.m_fX, m_vOrigin.m_fY, m_vOrigin.m_fZ);

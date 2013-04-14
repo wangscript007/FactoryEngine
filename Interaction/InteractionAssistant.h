@@ -9,7 +9,7 @@ public:
     static const float c_fSensitivity;
     
     virtual ~InteractionAssistant() {}
-    O5Vec3 AxisAlignedViewport(const O5Vec3& vStartScene, const O5Vec3& vEndViewport) const;
+    Vec3 AxisAlignedViewport(const Vec3& vStartScene, const Vec3& vEndViewport) const;
     
 private:
 };

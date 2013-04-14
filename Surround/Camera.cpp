@@ -10,7 +10,7 @@ Camera::Camera()
     Reset();
 }
 
-Camera::Camera(const O5Vec3 coords)
+Camera::Camera(const Vec3 coords)
 {
     Camera();
     mvCoords = coords;   
@@ -18,12 +18,12 @@ Camera::Camera(const O5Vec3 coords)
 
 void Camera::Reset()
 {
-    mvRotated = mvMoved = O5Vec2(0.0f, 0.0f);
-    mvCoords = O5Vec3(5.0f, 5.0f, 5.0f);
+    mvRotated = mvMoved = Vec2(0.0f, 0.0f);
+    mvCoords = Vec3(5.0f, 5.0f, 5.0f);
     mfZoomFactor = 1.0f;
     mprojectionMode = kProjectionModeProjection;
-    mvRotated = O5Vec2(0.0f, 0.0f);
-    mvMoved = O5Vec2(0.0f, 0.0f);
+    mvRotated = Vec2(0.0f, 0.0f);
+    mvMoved = Vec2(0.0f, 0.0f);
 }
 
 void Camera::Look()
@@ -42,13 +42,13 @@ void Camera::Look()
     Log(kLogEnvinroment, "corrds: %f %f %f", mvCoords.m_fX, mvCoords.m_fY, mvCoords.m_fZ);
 }
 
-void Camera::MoveBy(const O5Vec2 deltaMove)
+void Camera::MoveBy(const Vec2 deltaMove)
 {
     mvMoved.m_fX += deltaMove.m_fX;
     mvMoved.m_fY += deltaMove.m_fY;
 }
 
-void Camera::RotateBy(const O5Vec2 deltaRotation)
+void Camera::RotateBy(const Vec2 deltaRotation)
 {
     mvRotated.m_fX += deltaRotation.m_fX;
     mvRotated.m_fY += deltaRotation.m_fY;

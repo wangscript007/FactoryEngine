@@ -11,14 +11,14 @@ class Point : public Model
 public:
     static const float c_fR;
     Point();
-    Point(O5Vec3 vOrigin);
+    Point(Vec3 vOrigin);
     virtual ~Point() {}
     
-    O5Vec3 m_vOrigin;
+    Vec3 m_vOrigin;
     
     virtual void Render();
     virtual NodeType Type() const { return kPoint; }
-    virtual void Transform(const O5Mat4& m4Transformation);
+    virtual void Transform(const Mat4& m4Transformation);
     Octree::Leaf* OctreeLeaf() const { return m_pOctreeLeaf; }
     void SetOctreeLeaf(Octree::Leaf* pLeaf) { m_pOctreeLeaf = pLeaf; }
     void SetActive(bool bActive) { m_bIsActive = bActive; }

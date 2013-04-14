@@ -29,12 +29,12 @@
 //
 // Platform macros.
 //
-#define O5_ALIGN(n) __attribute__((aligned(n)))
+#define _ALIGN(n) __attribute__((aligned(n)))
 
-typedef unsigned char           O5Byte;             // 1 byte
-typedef unsigned short int      O5Word;             // 2 bytes
-typedef unsigned int            O5Doubleword;       // 4 bytes
-typedef unsigned long long int  O5Quadrupleword;    // 8 bytes
+typedef unsigned char           Byte;             // 1 byte
+typedef unsigned short int      Word;             // 2 bytes
+typedef unsigned int            Doubleword;       // 4 bytes
+typedef unsigned long long int  Quadrupleword;    // 8 bytes
 //
 // Main
 //

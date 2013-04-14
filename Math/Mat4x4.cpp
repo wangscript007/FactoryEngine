@@ -4,7 +4,11 @@
 
 #include "Mat4.h"
 
-const O5Mat4    O5Mat4::Zero(O5Vec4(0.0f, 0.0f, 0.0f, 0.0f), O5Vec4(0.0f, 0.0f, 0.0f, 0.0f), O5Vec4(0.0f, 0.0f, 0.0f, 0.0f), O5Vec4(0.0f, 0.0f, 0.0f, 0.0f));
-const O5Mat4    O5Mat4::Identity(O5Vec4(1.0f, 0.0f, 0.0f, 0.0f), O5Vec4(0.0f, 1.0f, 0.0f, 0.0f), O5Vec4(0.0f, 0.0f, 1.0f, 0.0f), O5Vec4(0.0f, 0.0f, 0.0f, 1.0f));
+namespace Factory {
+
+const Mat4    Mat4::Zero(Vec4(0.0f, 0.0f, 0.0f, 0.0f), Vec4(0.0f, 0.0f, 0.0f, 0.0f), Vec4(0.0f, 0.0f, 0.0f, 0.0f), Vec4(0.0f, 0.0f, 0.0f, 0.0f));
+const Mat4    Mat4::Identity(Vec4(1.0f, 0.0f, 0.0f, 0.0f), Vec4(0.0f, 1.0f, 0.0f, 0.0f), Vec4(0.0f, 0.0f, 1.0f, 0.0f), Vec4(0.0f, 0.0f, 0.0f, 1.0f));
+    
+}
 
 

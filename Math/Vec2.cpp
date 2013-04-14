@@ -4,15 +4,17 @@
 
 #include "Vec2.h"
 
-O5Vec2::O5Vec2(const O5Vec3& other): m_fX(other.m_fX), m_fY(other.m_fY)
+namespace Factory {
+
+Vec2::Vec2(const Vec3& other): m_fX(other.m_fX), m_fY(other.m_fY)
 {
 }
 
-O5Vec2::O5Vec2(const O5Vec4& other): m_fX(other.m_fX), m_fY(other.m_fY)
+Vec2::Vec2(const Vec4& other): m_fX(other.m_fX), m_fY(other.m_fY)
 {
 }
 
-O5Vec2& O5Vec2::operator=(const O5Vec3& other)
+Vec2& Vec2::operator=(const Vec3& other)
 {
     m_fX = other.m_fX;
     m_fY = other.m_fY;
@@ -20,10 +22,12 @@ O5Vec2& O5Vec2::operator=(const O5Vec3& other)
     return *this;
 }
 
-O5Vec2& O5Vec2::operator=(const O5Vec4& other)
+Vec2& Vec2::operator=(const Vec4& other)
 {
     m_fX = other.m_fX;
     m_fY = other.m_fY;
 
     return *this;
+}
+
 }

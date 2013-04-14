@@ -44,8 +44,8 @@ Octree::Branch* Octree::Split(Octree::Leaf *pLeaf)
     }
     Leaf* pChildLeaf;
     Box sBox = pLeaf->Box();
-    O5Vec3 vHalf = sBox.m_vHalfDimention/2.0f;
-    O5Vec3 vCenter;
+    Factory::Vec3 vHalf = sBox.m_vHalfDimention/2.0f;
+    Factory::Vec3 vCenter;
     for(int x = 0; x < 2; x++) {
         for(int y = 0; y < 2; y++) {
             for(int z = 0; z < 2; z++) {
@@ -167,7 +167,7 @@ void Octree::UpdatePoint(Point* pPoint)
     }
 }
 
-Octree::Node* Octree::NodeContainingPoint(const O5Vec3& vPoint)
+Octree::Node* Octree::NodeContainingPoint(const Vec3& vPoint)
 {
     return m_pRootNode->NodeContainingPoint(vPoint);
 }
@@ -212,7 +212,7 @@ void Octree::Node::Render() const
     }
 }
 
-Octree::Node* Octree::Node::NodeContainingPoint(const O5Vec3& vPoint)
+Octree::Node* Octree::Node::NodeContainingPoint(const Vec3& vPoint)
 {
     if (m_sBox.Contains(vPoint)) {
         if (Type() == kBranch) {
@@ -336,7 +336,7 @@ unsigned long Octree::Branch::Size() const
 
 void Octree::Leaf::Render() const
 {
-    const Vec3 vertices[]= {
+    const Vertice3 vertices[]= {
         // 0
         m_sBox.m_vCenter.m_fX - m_sBox.m_vHalfDimention.m_fX,
         m_sBox.m_vCenter.m_fY - m_sBox.m_vHalfDimention.m_fY,

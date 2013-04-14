@@ -10,15 +10,15 @@ namespace Factory {
 class Polygon
 {
 public:
-    void Rotate(O5Vec3& vAngle);
-    void Translate(O5Vec3& vOffset);
-    void Scale(O5Vec3& vOffset);
+    void Rotate(Vec3& vAngle);
+    void Translate(Vec3& vOffset);
+    void Scale(Vec3& vOffset);
     void Reset();
     
 private:
-    O5Mat4 m_mMatrix;
-    O5Vec3 m_vLocal;
-    O5Vec3 m_vWorld;
+    Mat4 m_mMatrix;
+    Vec3 m_vLocal;
+    Vec3 m_vWorld;
 };
 
 }

@@ -38,7 +38,7 @@ void Node::Render()
     }
 }
 
-void Node::Transform(const O5Mat4& m4Transformation)
+void Node::Transform(const Mat4& m4Transformation)
 {    
     for(auto i = m_pSubnodes.begin(); i != m_pSubnodes.end(); ++i)
     {

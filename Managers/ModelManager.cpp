@@ -47,7 +47,7 @@ void ModelManager::Select(Node* pNode)
     m_pSelectedNode = pNode;
 }
 
-Face* ModelManager::CreateRectangle(const O5Vec3& vOrigin, const O5Vec3& vSize) const
+Face* ModelManager::CreateRectangle(const Vec3& vOrigin, const Vec3& vSize) const
 {
     assert(m_pSelectedNode);
     Face* pFace = m_pModelFactory->CreateRectangle(vOrigin, vSize);
@@ -60,17 +60,17 @@ Face* ModelManager::CreateRectangle(const O5Vec3& vOrigin, const O5Vec3& vSize) 
 }
 
 
-Face* ModelManager::CreateFace(O5Vec3 vOrigin, Face::FaceType eType)
+Face* ModelManager::CreateFace(Vec3 vOrigin, Face::FaceType eType)
 {
     assert(m_pSelectedNode);
-    Face* pFace = m_pModelFactory->CreateFace(O5Vec3(vOrigin.m_fX, 0.01, vOrigin.m_fZ),
-                                O5Vec3(0.0f, 0.0f, 0.0f),
+    Face* pFace = m_pModelFactory->CreateFace(Vec3(vOrigin.m_fX, 0.01, vOrigin.m_fZ),
+                                Vec3(0.0f, 0.0f, 0.0f),
                                 eType);
     m_pSelectedNode->AddNode(pFace);
     return pFace;
 }
 
-Point* ModelManager::CreatePoint(O5Vec3 vOrigin)
+Point* ModelManager::CreatePoint(Vec3 vOrigin)
 {
     assert(m_pSelectedNode);
     Point* pPoint = m_pModelFactory->CreatePoint(vOrigin);

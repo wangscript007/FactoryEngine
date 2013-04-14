@@ -7,15 +7,15 @@ namespace Factory {
 
 const float InteractionAssistant::c_fSensitivity = 20.0f;
 
-O5Vec3 InteractionAssistant::AxisAlignedViewport(const O5Vec3& vStartScene,
-                                                   const O5Vec3& vEndViewport) const
+Vec3 InteractionAssistant::AxisAlignedViewport(const Vec3& vStartScene,
+                                                   const Vec3& vEndViewport) const
 {
-    O5Vec3 vStart = Utils::Viewport(vStartScene);
-    O5Vec3 vCurrent = vEndViewport - vStart;
-    O5Vec3 vAxisX = Utils::Viewport(O5Vec3::X);
-    O5Vec3 vAxisY = Utils::Viewport(O5Vec3::Y);
-    O5Vec3 vAxisZ = Utils::Viewport(O5Vec3::Z);
-    O5Vec3 vPerp;
+    Vec3 vStart = Utils::Viewport(vStartScene);
+    Vec3 vCurrent = vEndViewport - vStart;
+    Vec3 vAxisX = Utils::Viewport(Vec3::X);
+    Vec3 vAxisY = Utils::Viewport(Vec3::Y);
+    Vec3 vAxisZ = Utils::Viewport(Vec3::Z);
+    Vec3 vPerp;
     //
     // Finding perpendiculars to axis aligned vectors
     //
@@ -27,10 +27,10 @@ O5Vec3 InteractionAssistant::AxisAlignedViewport(const O5Vec3& vStartScene,
     float fMin = vPerp.Min();
     
     if (fMin < c_fSensitivity) {
-        O5Vec3 vProjection;
-        if      (fMin == vPerp.m_fX) vProjection = O5Vec3::X * vCurrent.ProjectionIn(vAxisX);
-        else if (fMin == vPerp.m_fY) vProjection = O5Vec3::X * vCurrent.ProjectionIn(vAxisY);
-        else if (fMin == vPerp.m_fZ) vProjection = O5Vec3::X * vCurrent.ProjectionIn(vAxisZ);
+        Vec3 vProjection;
+        if      (fMin == vPerp.m_fX) vProjection = Vec3::X * vCurrent.ProjectionIn(vAxisX);
+        else if (fMin == vPerp.m_fY) vProjection = Vec3::X * vCurrent.ProjectionIn(vAxisY);
+        else if (fMin == vPerp.m_fZ) vProjection = Vec3::X * vCurrent.ProjectionIn(vAxisZ);
         return vStart + vProjection;
     }
     //

@@ -3,18 +3,18 @@
 
 namespace Factory {
 
-O5Mat4 Transformation::Move(const O5Vec3& vMotion)
+Mat4 Transformation::Move(const Vec3& vMotion)
 {
-    return O5Mat4(O5Vec4(1.0, 0.0f, 0.0f, 0.0f),
-                  O5Vec4(0.0f, 1.0, 0.0f, 0.0f),
-                  O5Vec4(0.0f, 0.0f, 1.0, 0.0f),
-                  O5Vec4(vMotion.m_fX, vMotion.m_fY, vMotion.m_fZ, 1.0f)
+    return Mat4(Vec4(1.0, 0.0f, 0.0f, 0.0f),
+                  Vec4(0.0f, 1.0, 0.0f, 0.0f),
+                  Vec4(0.0f, 0.0f, 1.0, 0.0f),
+                  Vec4(vMotion.m_fX, vMotion.m_fY, vMotion.m_fZ, 1.0f)
                   );
 }
 
-O5Mat4 Transformation::Rotate(const O5Vec3& vRadians)
+Mat4 Transformation::Rotate(const Vec3& vRadians)
 {
-    O5Mat4 mx = O5Mat4::Identity;
+    Mat4 mx = Mat4::Identity;
     float cx = cosf(vRadians.m_fX);
     float sx = sinf(vRadians.m_fX);
     mx[1][1] = cx;
@@ -22,7 +22,7 @@ O5Mat4 Transformation::Rotate(const O5Vec3& vRadians)
     mx[1][2] = -sx;
     mx[2][2] = cx;
     
-    O5Mat4 my = O5Mat4::Identity;
+    Mat4 my = Mat4::Identity;
     float cy = cosf(vRadians.m_fY);
     float sy = sinf(vRadians.m_fY);
     my[0][0] = cy;
@@ -30,7 +30,7 @@ O5Mat4 Transformation::Rotate(const O5Vec3& vRadians)
     my[0][2] = sy;
     my[2][2] = cy;
     
-    O5Mat4 mz = O5Mat4::Identity;
+    Mat4 mz = Mat4::Identity;
     float cz = cosf(vRadians.m_fZ);
     float sz = sinf(vRadians.m_fZ);
     mz[0][0] = cz;
@@ -40,12 +40,12 @@ O5Mat4 Transformation::Rotate(const O5Vec3& vRadians)
     return mx*my*mz;
 }
 
-O5Mat4 Transformation::Scale(const O5Vec3& vScale)
+Mat4 Transformation::Scale(const Vec3& vScale)
 {
-    return O5Mat4(O5Vec4(vScale.m_fX, 0.0f, 0.0f, 0.0f),
-                  O5Vec4(0.0f, vScale.m_fY, 0.0f, 0.0f),
-                  O5Vec4(0.0f, 0.0f, vScale.m_fZ, 0.0f),
-                  O5Vec4(0.0f, 0.0f, 0.0f, 1.0f)
+    return Mat4(Vec4(vScale.m_fX, 0.0f, 0.0f, 0.0f),
+                  Vec4(0.0f, vScale.m_fY, 0.0f, 0.0f),
+                  Vec4(0.0f, 0.0f, vScale.m_fZ, 0.0f),
+                  Vec4(0.0f, 0.0f, 0.0f, 1.0f)
                   );
 }
 

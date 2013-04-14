@@ -4,5 +4,9 @@
 
 #include "Mat3x2.h"
 
-const O5Mat3x2  O5Mat3x2::Zero(O5Mat2::Zero, O5Vec2(0.0f, 0.0f));
-const O5Mat3x2  O5Mat3x2::Identity(O5Mat2::Identity, O5Vec2(0.0f, 0.0f));
+namespace Factory {
+
+const Mat3x2  Mat3x2::Zero(Mat2::Zero, Vec2(0.0f, 0.0f));
+const Mat3x2  Mat3x2::Identity(Mat2::Identity, Vec2(0.0f, 0.0f));
+    
+}

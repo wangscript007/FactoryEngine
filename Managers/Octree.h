@@ -15,7 +15,7 @@ public:
     
     typedef std::list<Point*> TPointsList;
     
-    struct Vec3 {
+    struct Vertice3 {
         float x, y, z;
     };
     
@@ -28,7 +28,7 @@ public:
     void InsertPoint(Point* pPoint);
     void RemovePoint(Point* pPoint);
     void UpdatePoint(Point* pPoint);
-    Node* NodeContainingPoint(const O5Vec3& vPoint);
+    Node* NodeContainingPoint(const Vec3& vPoint);
     void PointsInBox(const Box& sBox, std::vector<Point*>& rPointsVector) const;
     
     
@@ -57,7 +57,7 @@ public:
         Box& Box() { return m_sBox; }
         SIndex& Index() { return m_sIndex; }
         void SetIndex(SIndex sIndex) { m_sIndex = sIndex; }
-        Node* NodeContainingPoint(const O5Vec3& vPoint);
+        Node* NodeContainingPoint(const Vec3& vPoint);
         void PointsInBox(const Factory::Box& sBox, std::vector<Point*>& rPointsVector) const;
         void SetDepth(int iDepth) { m_iDepth = iDepth; }
         int Depth() const { return m_iDepth; }

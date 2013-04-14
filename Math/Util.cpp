@@ -5,12 +5,12 @@
 
 #include "Util.h"
 
-using namespace std;
+namespace Factory { namespace Util {
 
-string O5Escape (const char* pszFormat)
+std::string Escape (const char* pszFormat)
 {
     size_t l = strlen(pszFormat);
-    string  s;
+    std::string  s;
     for(int i = 0; i < l; i++)
         if(pszFormat[i] == '\\')
             i++;
@@ -21,23 +21,25 @@ string O5Escape (const char* pszFormat)
     return s;
 }
 
-string O5Number (int iNumber)
+std::string Number (int iNumber)
 {
     std::stringstream ssText;
     ssText << iNumber;
     return ssText.str();
 }
 
-string O5Number (float fNumber)
+std::string Number (float fNumber)
 {
     std::stringstream ssText;
     ssText << fNumber;
     return ssText.str();
 }
 
-string O5Number (double fNumber)
+std::string Number (double fNumber)
 {
     std::stringstream ssText;
     ssText << fNumber;
     return ssText.str();
 }
+
+}}

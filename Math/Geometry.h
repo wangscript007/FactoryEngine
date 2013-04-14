@@ -8,16 +8,16 @@ enum Axis { kAxisX, kAxisY, kAxisZ };
 
 struct Box
 {
-    O5Vec3 m_vCenter;
-    O5Vec3 m_vHalfDimention;
+    Vec3 m_vCenter;
+    Vec3 m_vHalfDimention;
     
-    Box() : m_vCenter(O5Vec3()), m_vHalfDimention(O5Vec3()) {};
-    Box(O5Vec3 vCenter, O5Vec3 vHalfDimension) : m_vCenter(vCenter), m_vHalfDimention(vHalfDimension) {};
-    bool Contains(const O5Vec3& vec) const;
+    Box() : m_vCenter(Vec3()), m_vHalfDimention(Vec3()) {};
+    Box(Vec3 vCenter, Vec3 vHalfDimension) : m_vCenter(vCenter), m_vHalfDimention(vHalfDimension) {};
+    bool Contains(const Vec3& vec) const;
     bool Intersects(const Box& other) const;
 };
 
-inline bool Box::Contains(const O5Vec3& vec) const
+inline bool Box::Contains(const Vec3& vec) const
 {
     if (vec.m_fX <= m_vCenter.m_fX - m_vHalfDimention.m_fX) return false;
     if (vec.m_fX > m_vCenter.m_fX + m_vHalfDimention.m_fX) return false;
@@ -50,11 +50,11 @@ inline bool Box::Intersects(const Box& other) const
 
 struct Sphere
 {
-    O5Vec3 m_vCenter;
+    Vec3 m_vCenter;
     float m_fRadius;
-    Sphere(O5Vec3 vCenter, float fRadius) : m_vCenter(vCenter), m_fRadius(fRadius) {};
+    Sphere(Vec3 vCenter, float fRadius) : m_vCenter(vCenter), m_fRadius(fRadius) {};
     bool Intersects(const Box& box) const;
-    bool Containts(const O5Vec3& vec) const;
+    bool Containts(const Vec3& vec) const;
     Box Box() const;
 };
 
@@ -72,21 +72,22 @@ inline bool Sphere::Intersects(const struct Box& box) const
 
 inline Box Sphere::Box() const
 {
-    return Factory::Box(m_vCenter, O5Vec3(m_fRadius, m_fRadius, m_fRadius));
+    return Factory::Box(m_vCenter, Vec3(m_fRadius, m_fRadius, m_fRadius));
 }
 
-inline bool Sphere::Containts(const O5Vec3& vec) const
+inline bool Sphere::Containts(const Vec3& vec) const
 {
     return (m_vCenter - vec).Length() < m_fRadius;
 }
 
-}
 
 struct Rectangle3
 {
-    O5Vec3 m_vOrigin;
-    O5Vec3 m_vA;
-    O5Vec3 m_vB;
+    Vec3 m_vOrigin;
+    Vec3 m_vA;
+    Vec3 m_vB;
 };
+    
+}
 
 

@@ -8,42 +8,44 @@
 
 #pragma once
 
-class O5_ALIGN(16) O5Mat4
+namespace Factory {
+
+class _ALIGN(16) Mat4
 {
 public:
-    static const O5Mat4 Zero;
-    static const O5Mat4 Identity;
+    static const Mat4 Zero;
+    static const Mat4 Identity;
 
-    O5Vec4              m_vX;
-    O5Vec4              m_vY;
-    O5Vec4              m_vZ;
-    O5Vec4              m_vW;
+    Vec4              m_vX;
+    Vec4              m_vY;
+    Vec4              m_vZ;
+    Vec4              m_vW;
 
-                        O5Mat4(): m_vX(1.0f, 0.0f, 0.0f, 0.0f), m_vY(0.0f, 1.0f, 0.0f, 0.0f), m_vZ(0.0f, 0.0f, 1.0f, 0.0f), m_vW(0.0f, 0.0f, 0.0f, 1.0f) {}
-                        O5Mat4(const O5Mat4& other): m_vX(other.m_vX), m_vY(other.m_vY), m_vZ(other.m_vZ), m_vW(other.m_vW) {}
-                        O5Mat4(const O5Vec4& vX, const O5Vec4& vY, const O5Vec4& vZ, const O5Vec4& vW): m_vX(vX), m_vY(vY), m_vZ(vZ), m_vW(vW) {}
+                        Mat4(): m_vX(1.0f, 0.0f, 0.0f, 0.0f), m_vY(0.0f, 1.0f, 0.0f, 0.0f), m_vZ(0.0f, 0.0f, 1.0f, 0.0f), m_vW(0.0f, 0.0f, 0.0f, 1.0f) {}
+                        Mat4(const Mat4& other): m_vX(other.m_vX), m_vY(other.m_vY), m_vZ(other.m_vZ), m_vW(other.m_vW) {}
+                        Mat4(const Vec4& vX, const Vec4& vY, const Vec4& vZ, const Vec4& vW): m_vX(vX), m_vY(vY), m_vZ(vZ), m_vW(vW) {}
 
-    O5Mat4              operator-() const {return O5Mat4(-m_vX, -m_vY, -m_vZ, -m_vW);}
-    O5Mat4              operator-(const O5Mat4& other) const {return O5Mat4(m_vX - other.m_vX, m_vY - other.m_vY, m_vZ - other.m_vZ, m_vW - other.m_vW);}
-    O5Mat4              operator+(const O5Mat4& other) const {return O5Mat4(m_vX + other.m_vX, m_vY + other.m_vY, m_vZ + other.m_vZ, m_vW + other.m_vW);}
-    O5Mat4&             operator=(const O5Mat4& other) {m_vX = other.m_vX; m_vY = other.m_vY; m_vZ = other.m_vZ; m_vW = other.m_vW; return *this;}
-    O5Mat4&             operator+=(const O5Mat4& other) {m_vX += other.m_vX; m_vY += other.m_vY; m_vZ += other.m_vZ; m_vW += other.m_vW; return *this;}
-    O5Mat4&             operator-=(const O5Mat4& other) {m_vX -= other.m_vX; m_vY -= other.m_vY; m_vZ -= other.m_vZ; m_vW -= other.m_vW; return *this;}
-    O5Mat4&             operator*=(float value) {m_vX *= value; m_vY *= value; m_vZ *= value; m_vW *= value; return *this;}
-    O5Mat4              operator*(float value) const {return O5Mat4(m_vX * value, m_vY * value, m_vZ * value, m_vW * value);}
-    O5Mat4&             operator*=(const O5Mat4& other);
-    O5Mat4              operator*(const O5Mat4& other) const;
-    const O5Vec4&       operator[](int index) const {return (&m_vX)[index];}
-    O5Vec4&             operator[](int index) {return (&m_vX)[index];}
-    bool                operator==(const O5Mat4& other) const {return m_vX == other.m_vX && m_vY == other.m_vY && m_vZ == other.m_vZ && m_vW == other.m_vW;}
-    bool                operator!=(const O5Mat4& other) const {return m_vX != other.m_vX || m_vY != other.m_vY || m_vZ != other.m_vZ || m_vW != other.m_vW;}
+    Mat4              operator-() const {return Mat4(-m_vX, -m_vY, -m_vZ, -m_vW);}
+    Mat4              operator-(const Mat4& other) const {return Mat4(m_vX - other.m_vX, m_vY - other.m_vY, m_vZ - other.m_vZ, m_vW - other.m_vW);}
+    Mat4              operator+(const Mat4& other) const {return Mat4(m_vX + other.m_vX, m_vY + other.m_vY, m_vZ + other.m_vZ, m_vW + other.m_vW);}
+    Mat4&             operator=(const Mat4& other) {m_vX = other.m_vX; m_vY = other.m_vY; m_vZ = other.m_vZ; m_vW = other.m_vW; return *this;}
+    Mat4&             operator+=(const Mat4& other) {m_vX += other.m_vX; m_vY += other.m_vY; m_vZ += other.m_vZ; m_vW += other.m_vW; return *this;}
+    Mat4&             operator-=(const Mat4& other) {m_vX -= other.m_vX; m_vY -= other.m_vY; m_vZ -= other.m_vZ; m_vW -= other.m_vW; return *this;}
+    Mat4&             operator*=(float value) {m_vX *= value; m_vY *= value; m_vZ *= value; m_vW *= value; return *this;}
+    Mat4              operator*(float value) const {return Mat4(m_vX * value, m_vY * value, m_vZ * value, m_vW * value);}
+    Mat4&             operator*=(const Mat4& other);
+    Mat4              operator*(const Mat4& other) const;
+    const Vec4&       operator[](int index) const {return (&m_vX)[index];}
+    Vec4&             operator[](int index) {return (&m_vX)[index];}
+    bool                operator==(const Mat4& other) const {return m_vX == other.m_vX && m_vY == other.m_vY && m_vZ == other.m_vZ && m_vW == other.m_vW;}
+    bool                operator!=(const Mat4& other) const {return m_vX != other.m_vX || m_vY != other.m_vY || m_vZ != other.m_vZ || m_vW != other.m_vW;}
 
-    void                Set(const O5Vec4& vX, const O5Vec4& vY, const O5Vec4& vZ, const O5Vec4& vW) {m_vX = vX; m_vY = vY; m_vZ = vZ; m_vW = vW;}
+    void                Set(const Vec4& vX, const Vec4& vY, const Vec4& vZ, const Vec4& vW) {m_vX = vX; m_vY = vY; m_vZ = vZ; m_vW = vW;}
     void                Orthonormalize();
-    O5Mat4              Transpose() const;
+    Mat4              Transpose() const;
 };
 
-inline O5Mat4 O5Mat4::operator*(const O5Mat4& other) const
+inline Mat4 Mat4::operator*(const Mat4& other) const
 {
     //
     // Row 0.
@@ -77,13 +79,13 @@ inline O5Mat4 O5Mat4::operator*(const O5Mat4& other) const
     float fO = m_vW[0] * other.m_vX[2] + m_vW[1] * other.m_vY[2] + m_vW[2] * other.m_vZ[2] + m_vW[3] * other.m_vW[2];
     float fP = m_vW[0] * other.m_vX[3] + m_vW[1] * other.m_vY[3] + m_vW[2] * other.m_vZ[3] + m_vW[3] * other.m_vW[3];
 
-    return O5Mat4(O5Vec4(fA, fB, fC, fD),
-        O5Vec4(fE, fF, fG, fH),
-        O5Vec4(fI, fJ, fK, fL),
-        O5Vec4(fM, fN, fO, fP));
+    return Mat4(Vec4(fA, fB, fC, fD),
+        Vec4(fE, fF, fG, fH),
+        Vec4(fI, fJ, fK, fL),
+        Vec4(fM, fN, fO, fP));
 }
 
-inline O5Mat4& O5Mat4::operator*=(const O5Mat4& other)
+inline Mat4& Mat4::operator*=(const Mat4& other)
 {
     //
     // Row 0.
@@ -152,23 +154,23 @@ inline O5Mat4& O5Mat4::operator*=(const O5Mat4& other)
     return *this;
 }
 
-inline O5Vec3 operator*(const O5Vec3& vector, const O5Mat4& matrix)
+inline Vec3 operator*(const Vec3& vector, const Mat4& matrix)
 {
-    return O5Vec3(
+    return Vec3(
         vector[0] * matrix[0][0] + vector[1] * matrix[1][0] + vector[2] * matrix[2][0] + matrix[3][0],
         vector[0] * matrix[0][1] + vector[1] * matrix[1][1] + vector[2] * matrix[2][1] + matrix[3][1],
         vector[0] * matrix[0][2] + vector[1] * matrix[1][2] + vector[2] * matrix[2][2] + matrix[3][2]);
 }
 
-inline O5Vec3 operator*(const O5Mat4& matrix, const O5Vec3& vector)
+inline Vec3 operator*(const Mat4& matrix, const Vec3& vector)
 {
-    return O5Vec3(
+    return Vec3(
         vector[0] * matrix[0][0] + vector[1] * matrix[1][0] + vector[2] * matrix[2][0] + matrix[3][0],
         vector[0] * matrix[0][1] + vector[1] * matrix[1][1] + vector[2] * matrix[2][1] + matrix[3][1],
         vector[0] * matrix[0][2] + vector[1] * matrix[1][2] + vector[2] * matrix[2][2] + matrix[3][2]);
 }
 
-inline O5Vec3& O5Vec3::operator*=(const O5Mat4& matrix)
+inline Vec3& Vec3::operator*=(const Mat4& matrix)
 {
     float fX = m_fX;
     float fY = m_fY;
@@ -181,7 +183,7 @@ inline O5Vec3& O5Vec3::operator*=(const O5Mat4& matrix)
     return *this;
 }
 
-inline O5Vec4& O5Vec4::operator*=(const O5Mat4& matrix)
+inline Vec4& Vec4::operator*=(const Mat4& matrix)
 {
     float fX = m_fX;
     float fY = m_fY;
@@ -196,25 +198,25 @@ inline O5Vec4& O5Vec4::operator*=(const O5Mat4& matrix)
     return *this;
 }
 
-inline O5Vec4 operator*(const O5Vec4& vector, const O5Mat4& matrix)
+inline Vec4 operator*(const Vec4& vector, const Mat4& matrix)
 {
-    return O5Vec4(
+    return Vec4(
         vector[0] * matrix[0][0] + vector[1] * matrix[1][0] + vector[2] * matrix[2][0] + vector[3] * matrix[3][0],
         vector[0] * matrix[0][1] + vector[1] * matrix[1][1] + vector[2] * matrix[2][1] + vector[3] * matrix[3][1],
         vector[0] * matrix[0][2] + vector[1] * matrix[1][2] + vector[2] * matrix[2][2] + vector[3] * matrix[3][2],
         vector[0] * matrix[0][3] + vector[1] * matrix[1][3] + vector[2] * matrix[2][3] + vector[3] * matrix[3][3]);
 }
 
-inline O5Vec4 operator*(const O5Mat4& matrix, const O5Vec4& vector)
+inline Vec4 operator*(const Mat4& matrix, const Vec4& vector)
 {
-    return O5Vec4(
+    return Vec4(
         vector[0] * matrix[0][0] + vector[1] * matrix[1][0] + vector[2] * matrix[2][0] + vector[3] * matrix[3][0],
         vector[0] * matrix[0][1] + vector[1] * matrix[1][1] + vector[2] * matrix[2][1] + vector[3] * matrix[3][1],
         vector[0] * matrix[0][2] + vector[1] * matrix[1][2] + vector[2] * matrix[2][2] + vector[3] * matrix[3][2],
         vector[0] * matrix[0][3] + vector[1] * matrix[1][3] + vector[2] * matrix[2][3] + vector[3] * matrix[3][3]);
 }
 
-inline void O5Mat4::Orthonormalize()
+inline void Mat4::Orthonormalize()
 {
     //
     // Right.
@@ -224,20 +226,22 @@ inline void O5Mat4::Orthonormalize()
     //
     // Forward.
     //
-    m_vZ = O5Vec3(m_vX[0], m_vX[1], m_vX[2]) ^ O5Vec3(m_vY[0], m_vY[1], m_vY[2]);
+    m_vZ = Vec3(m_vX[0], m_vX[1], m_vX[2]) ^ Vec3(m_vY[0], m_vY[1], m_vY[2]);
     m_vZ.Normalize();
 
     //
     // Up.
     //
-    m_vY = O5Vec3(m_vZ[0], m_vZ[1], m_vZ[2]) ^ O5Vec3(m_vX[0], m_vX[1], m_vX[2]);
+    m_vY = Vec3(m_vZ[0], m_vZ[1], m_vZ[2]) ^ Vec3(m_vX[0], m_vX[1], m_vX[2]);
     m_vY.Normalize();
 }
 
-inline O5Mat4 O5Mat4::Transpose() const
+inline Mat4 Mat4::Transpose() const
 {
-    return O5Mat4(O5Vec4(m_vX[0], m_vY[0], m_vZ[0], m_vW[0]),
-        O5Vec4(m_vX[1], m_vY[1], m_vZ[1], m_vW[1]),
-        O5Vec4(m_vX[2], m_vY[2], m_vZ[2], m_vW[2]),
-        O5Vec4(m_vX[3], m_vY[3], m_vZ[3], m_vW[3]));
+    return Mat4(Vec4(m_vX[0], m_vY[0], m_vZ[0], m_vW[0]),
+        Vec4(m_vX[1], m_vY[1], m_vZ[1], m_vW[1]),
+        Vec4(m_vX[2], m_vY[2], m_vZ[2], m_vW[2]),
+        Vec4(m_vX[3], m_vY[3], m_vZ[3], m_vW[3]));
+}
+
 }

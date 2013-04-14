@@ -6,7 +6,7 @@
 
 namespace Factory {
 
-void Model::SetVertex(O5Vec3 *vertexArray)
+void Model::SetVertex(Vec3 *vertexArray)
 {
     //int size = sizeof vertexArray / sizeof *vertexArray;
     //mfacesVector.assign(vertexArray, vertexArray + size);

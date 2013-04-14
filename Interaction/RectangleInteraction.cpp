@@ -47,7 +47,7 @@ void RectangleInteraction::Begin()
 {
     m_bActive = true;
     m_rModelManager.SelectedNode()->AddNode(this);
-    m_sRect3.m_vA = O5Vec3();
+    m_sRect3.m_vA = Vec3();
 }
 
 void RectangleInteraction::End()
@@ -59,18 +59,18 @@ void RectangleInteraction::End()
     }
 }
 
-void RectangleInteraction::SetOrigin(const O5Vec3& vOrigin)
+void RectangleInteraction::SetOrigin(const Vec3& vOrigin)
 {
     m_sRect3.m_vOrigin = vOrigin;
 }
 
-void RectangleInteraction::SetCurrent(const O5Vec3& vCurrent)
+void RectangleInteraction::SetCurrent(const Vec3& vCurrent)
 {
     //
     //  If both origin and current are on the same face crade parralel to face
     //  else ignore minimum axis
     m_sRect3.m_vA = vCurrent;
-    O5Vec3 vDiff = m_sRect3.m_vOrigin - m_sRect3.m_vA;
+    Vec3 vDiff = m_sRect3.m_vOrigin - m_sRect3.m_vA;
     const float x = abs(vDiff.m_fX);
     const float y = abs(vDiff.m_fY);
     const float z = abs(vDiff.m_fZ);

@@ -27,8 +27,8 @@ void Line::Render()
     glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
     glBegin(GL_LINES);
     {
-        O5Vec3 startVec = m_pStartPoint->m_vOrigin;
-        O5Vec3 endVec = m_pEndPoint->m_vOrigin;
+        Vec3 startVec = m_pStartPoint->m_vOrigin;
+        Vec3 endVec = m_pEndPoint->m_vOrigin;
         glVertex3d(startVec.m_fX,
                    startVec.m_fY,
                    startVec.m_fZ);
@@ -39,7 +39,7 @@ void Line::Render()
     glEnd();
 }
 
-void Line::Transform(const O5Mat4& m4Transformation)
+void Line::Transform(const Mat4& m4Transformation)
 {
     m_pStartPoint->Transform(m4Transformation);
     m_pEndPoint->Transform(m4Transformation);

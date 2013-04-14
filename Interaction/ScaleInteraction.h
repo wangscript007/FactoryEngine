@@ -13,12 +13,12 @@ public:
     virtual ~ScaleInteraction() {}
     void Render();
     
-    void SetStart(O5Vec3 vStart);
-    void SetEnd(O5Vec3 vEnd);
+    void SetStart(Vec3 vStart);
+    void SetEnd(Vec3 vEnd);
     
 private:
-    O5Vec3 m_vStart;
-    O5Vec3 m_vEnd;
+    Vec3 m_vStart;
+    Vec3 m_vEnd;
     Node* m_pNode;
     ModelManager& m_rModelManager;
     bool m_bActive;

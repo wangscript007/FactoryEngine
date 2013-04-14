@@ -4,7 +4,7 @@
 
 namespace Factory {
 
-O5Vec3 Utils::Viewport(O5Vec3 sceneVec)
+Vec3 Utils::Viewport(Vec3 sceneVec)
 {
     GLint viewport[4];                         
     GLdouble modelviewMatrix[16];
@@ -20,10 +20,10 @@ O5Vec3 Utils::Viewport(O5Vec3 sceneVec)
                modelviewMatrix, projectionMatrix, viewport,
                &resultX, &resultY, &resultZ);
     
-    return O5Vec3(resultX, resultY, resultZ);
+    return Vec3(resultX, resultY, resultZ);
 }
 
-O5Vec3 Utils::Scene(const O5Vec3 windowVec)
+Vec3 Utils::Scene(const Vec3 windowVec)
 {
     GLint viewport[4];                         
     GLdouble modelviewMatrix[16];
@@ -31,17 +31,17 @@ O5Vec3 Utils::Scene(const O5Vec3 windowVec)
     glGetIntegerv (GL_VIEWPORT, viewport);                
     glGetDoublev (GL_MODELVIEW_MATRIX, modelviewMatrix);         
     glGetDoublev (GL_PROJECTION_MATRIX, projectionMatrix);      
-    GLfloat depth = Utils::DepthAtWindowPoint(O5Vec2(windowVec.m_fX, windowVec.m_fY));
+    GLfloat depth = Utils::DepthAtWindowPoint(Vec2(windowVec.m_fX, windowVec.m_fY));
     GLdouble x = windowVec.m_fX;
     GLdouble y = windowVec.m_fY;
     GLdouble resultX, resultY, resultZ;
     gluUnProject(x, y, depth,
                  modelviewMatrix, projectionMatrix, viewport,
                  &resultX, &resultY, &resultZ);
-    return O5Vec3(resultX, resultY, resultZ);
+    return Vec3(resultX, resultY, resultZ);
 }
 
-GLfloat Utils::DepthAtWindowPoint(const O5Vec2 point)
+GLfloat Utils::DepthAtWindowPoint(const Vec2 point)
 {
     GLfloat depth[2];
     GLint x = point.m_fX;

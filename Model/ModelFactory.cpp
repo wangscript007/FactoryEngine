@@ -14,17 +14,17 @@ ModelFactory::ModelFactory(ModelTreeManager& rModelTreeManager)
     
 }
 
-Face* ModelFactory::CreateRectangle(const O5Vec3& vOrigin, const O5Vec3& vSize) const
+Face* ModelFactory::CreateRectangle(const Vec3& vOrigin, const Vec3& vSize) const
 {
     std::vector<Point*> vPointsVector;
-    vPointsVector.push_back(new Point(O5Vec3(vOrigin.m_fX, vOrigin.m_fY, vOrigin.m_fZ)));
-    vPointsVector.push_back(new Point(O5Vec3(vOrigin.m_fX + vSize.m_fX, vOrigin.m_fY, vOrigin.m_fZ)));
-    vPointsVector.push_back(new Point(O5Vec3(vOrigin.m_fX + vSize.m_fX, vOrigin.m_fY, vOrigin.m_fZ + vSize.m_fZ)));
-    vPointsVector.push_back(new Point(O5Vec3(vOrigin.m_fX, vOrigin.m_fY, vOrigin.m_fZ + vSize.m_fZ)));
+    vPointsVector.push_back(new Point(Vec3(vOrigin.m_fX, vOrigin.m_fY, vOrigin.m_fZ)));
+    vPointsVector.push_back(new Point(Vec3(vOrigin.m_fX + vSize.m_fX, vOrigin.m_fY, vOrigin.m_fZ)));
+    vPointsVector.push_back(new Point(Vec3(vOrigin.m_fX + vSize.m_fX, vOrigin.m_fY, vOrigin.m_fZ + vSize.m_fZ)));
+    vPointsVector.push_back(new Point(Vec3(vOrigin.m_fX, vOrigin.m_fY, vOrigin.m_fZ + vSize.m_fZ)));
     return CreatePolygon(vPointsVector);
 }
 
-Face* ModelFactory::CreateCircle(O5Vec3 vOrigin, float fRadius, int iCount) const
+Face* ModelFactory::CreateCircle(Vec3 vOrigin, float fRadius, int iCount) const
 {
     Point* pPoint;
     std::vector<Point*> vPointsVector;
@@ -37,7 +37,7 @@ Face* ModelFactory::CreateCircle(O5Vec3 vOrigin, float fRadius, int iCount) cons
         fX = fRadius*cosf(fRadAngle);
         fY = fRadius*sinf(fRadAngle);
         pPoint = new Point();
-        pPoint->m_vOrigin = O5Vec3(fX, fY, fZ);
+        pPoint->m_vOrigin = Vec3(fX, fY, fZ);
         vPointsVector.push_back(pPoint);
     }
     return CreatePolygon(vPointsVector);
@@ -58,7 +58,7 @@ Face* ModelFactory::CreatePolygon(std::vector<Point*>& vPointsVector) const
     return pFace;
 }
 
-Face* ModelFactory::CreateFace(O5Vec3 vOrigin, O5Vec3 vSize, Face::FaceType eType) const
+Face* ModelFactory::CreateFace(Vec3 vOrigin, Vec3 vSize, Face::FaceType eType) const
 {
     switch (eType) {
         case Face::kRectangle : {
@@ -73,7 +73,7 @@ Face* ModelFactory::CreateFace(O5Vec3 vOrigin, O5Vec3 vSize, Face::FaceType eTyp
     return NULL;
 }
 
-Point* ModelFactory::CreatePoint(O5Vec3 vOrigin) const
+Point* ModelFactory::CreatePoint(Vec3 vOrigin) const
 {
     Point* pPoint = new Point();
     pPoint->m_vOrigin = vOrigin;

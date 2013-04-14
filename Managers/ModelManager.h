@@ -24,9 +24,9 @@ public:
     //
     // Creating
     //
-    Face*                 CreateRectangle(const O5Vec3& vOrigin, const O5Vec3& vSize) const;
-    Face*                 CreateFace(O5Vec3 vOrigin, Face::FaceType eType);
-    Point*                CreatePoint(O5Vec3 vOrigin);
+    Face*                 CreateRectangle(const Vec3& vOrigin, const Vec3& vSize) const;
+    Face*                 CreateFace(Vec3 vOrigin, Face::FaceType eType);
+    Point*                CreatePoint(Vec3 vOrigin);
     Line*                 CreateLine(Point* pStartPoint, Point* pEndPoint);
     
 private:

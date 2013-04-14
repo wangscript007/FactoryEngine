@@ -32,12 +32,12 @@ void Face::Render()
 
 #pragma mark - Instance
 
-void Face::SetSize(const O5Vec3 vSize)
+void Face::SetSize(const Vec3 vSize)
 {
     m_vSize = vSize;
 }
 
-void Face::SetOrigin(const O5Vec3 vOrigin)
+void Face::SetOrigin(const Vec3 vOrigin)
 {
     m_vOrigin = vOrigin;
 }
@@ -57,14 +57,14 @@ void Face::AddLine(Line* pLine)
 // Checks if point is int the same plane with face.
 // Point is in same plane if any three points coordinate in same axes is the same.
 //
-bool Face::IsInFacePlane(O5Vec3 vec)
+bool Face::IsInFacePlane(Vec3 vec)
 {
     return true;
 }
 //
 // Checks point in the same plane intersection with face
 //
-bool Face::Contains(O5Vec3 vec)
+bool Face::Contains(Vec3 vec)
 {
     return false;
 }
@@ -76,7 +76,7 @@ void Face::Cut(Face *cutFace)
     
 }
 
-void Face::Transform(O5Mat4& m4Transformation)
+void Face::Transform(Mat4& m4Transformation)
 {
     for(auto i = m_vPointsVector.begin(); i != m_vPointsVector.end(); ++i) {
         (*i)->Transform(m4Transformation);
