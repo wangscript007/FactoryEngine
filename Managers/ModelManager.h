@@ -30,8 +30,8 @@ public:
     Line*                 CreateLine(Point* pStartPoint, Point* pEndPoint);
     
 private:
-    ModelFactory*         m_pModelFactory;
-    ModelTreeManager*     m_pModelTreeManager;
+    class ModelFactory*         m_pModelFactory;
+    class ModelTreeManager*     m_pModelTreeManager;
     Group*                m_pRootGroup;
     Node*                 m_pSelectedNode;
 };

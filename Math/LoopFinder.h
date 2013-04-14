@@ -8,4 +8,5 @@ class LoopFinder
 public:
     virtual ~LoopFinder() {}
 };
+}
 

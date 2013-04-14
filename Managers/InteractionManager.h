@@ -1,6 +1,8 @@
 
 #pragma once
 
+namespace Factory {
+
 class RectangleInteraction;
 class LineInteraction;
 class MoveInteraction;
@@ -8,7 +10,7 @@ class RotationInteraction;
 class ScaleInteraction;
 class ModelManager;
 
-namespace Factory {
+
 
 class InteractionManager
 {
@@ -23,11 +25,11 @@ public:
     ScaleInteraction* ScaleInteraction() const { return m_pScaleInteraction; }
     
 private:
-    RectangleInteraction* m_pRectangleInteraction;
-    LineInteraction* m_pLineInteraction;
-    MoveInteraction* m_pMoveInteraction;
-    RotationInteraction* m_pRotationInteraction;
-    ScaleInteraction* m_pScaleInteraction;
+    class RectangleInteraction* m_pRectangleInteraction;
+    class LineInteraction* m_pLineInteraction;
+    class MoveInteraction* m_pMoveInteraction;
+    class RotationInteraction* m_pRotationInteraction;
+    class ScaleInteraction* m_pScaleInteraction;
     ModelManager& m_rModelManager;
 };
 

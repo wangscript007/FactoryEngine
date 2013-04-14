@@ -58,7 +58,7 @@ struct Sphere
     Box Box() const;
 };
 
-inline bool Sphere::Intersects(const Box& box) const
+inline bool Sphere::Intersects(const struct Box& box) const
 {
     /*
     closest.x = box.leftx;
@@ -72,7 +72,7 @@ inline bool Sphere::Intersects(const Box& box) const
 
 inline Box Sphere::Box() const
 {
-    return Box(m_vCenter, O5Vec3(m_fRadius, m_fRadius, m_fRadius));
+    return Factory::Box(m_vCenter, O5Vec3(m_fRadius, m_fRadius, m_fRadius));
 }
 
 inline bool Sphere::Containts(const O5Vec3& vec) const

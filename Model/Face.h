@@ -12,8 +12,6 @@ class Polygon;
 class Line;
 class Point;
 
-namespace Factory {
-
 class Face : public Model
 {
 public:

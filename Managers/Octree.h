@@ -6,6 +6,7 @@
 namespace Factory {
 
 class Point;
+    
 class Octree
 {
 public:
@@ -57,12 +58,12 @@ public:
         SIndex& Index() { return m_sIndex; }
         void SetIndex(SIndex sIndex) { m_sIndex = sIndex; }
         Node* NodeContainingPoint(const O5Vec3& vPoint);
-        void PointsInBox(const Box& sBox, std::vector<Point*>& rPointsVector) const;
+        void PointsInBox(const Factory::Box& sBox, std::vector<Point*>& rPointsVector) const;
         void SetDepth(int iDepth) { m_iDepth = iDepth; }
         int Depth() const { return m_iDepth; }
         
     protected:
-        Box m_sBox;
+        Factory::Box m_sBox;
         Node* m_pParent;
         SIndex m_sIndex;
         NodeType m_eType;
@@ -75,7 +76,7 @@ public:
     class Branch : public Node
     {
     public:
-        Branch(Box sBox);
+        Branch(struct Box sBox);
         virtual ~Branch();
         
         void Render() const;
@@ -93,7 +94,7 @@ public:
     public:
         
         
-        Leaf(Box sBox) : Node(sBox) { m_eType = kLeaf; }
+        Leaf(struct Box sBox) : Node(sBox) { m_eType = kLeaf; }
         virtual ~Leaf() {}
         
         

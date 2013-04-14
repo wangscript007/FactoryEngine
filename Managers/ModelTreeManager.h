@@ -1,11 +1,11 @@
 
 #pragma once
 
-namespace Factory {
 
 #include <Model/Node.h>
 #include <Managers/Octree.h>
 
+namespace Factory {
 //
 // Manages model tree
 //
@@ -29,7 +29,7 @@ public:
     
 private:
     Node*     m_pRootNode;
-    Octree*   m_pOctree;
+    Factory::Octree*   m_pOctree;
 };
 
 }

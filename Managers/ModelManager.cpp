@@ -6,8 +6,8 @@ namespace Factory {
 ModelManager::ModelManager()
     :m_pSelectedNode(NULL)
 {
-    m_pModelTreeManager = new ModelTreeManager();
-    m_pModelFactory = new ModelFactory(*m_pModelTreeManager);
+    m_pModelTreeManager = new class ModelTreeManager();
+    m_pModelFactory = new class ModelFactory(*m_pModelTreeManager);
     m_pRootGroup = new Group();
     m_pModelTreeManager->SetRootNode(m_pRootGroup);
     

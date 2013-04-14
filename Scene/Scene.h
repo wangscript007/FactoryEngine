@@ -3,6 +3,8 @@
 //
 #pragma once
 
+
+
 #include <Model/Face.h>
 #include <Workspace/Workspace.h>
 #include <Surround/Camera.h>
@@ -53,7 +55,7 @@ private:
     Workspace*        m_pWorkspace;
     Camera*           m_pCamera;
     ModelManager*     m_pModelManager;
-    InteractionManager* m_pInteractionManager;
+    class InteractionManager* m_pInteractionManager;
     
 };
 

@@ -23,3 +23,5 @@ void Polygon::Reset()
 {
     //m_mMatrix.Identity
 }
+    
+}

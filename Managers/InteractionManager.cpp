@@ -12,11 +12,11 @@ namespace Factory {
 InteractionManager::InteractionManager(ModelManager& rModelManager)
     :m_rModelManager(rModelManager)
 {
-    m_pRectangleInteraction = new RectangleInteraction(m_rModelManager);
-    m_pLineInteraction = new LineInteraction(m_rModelManager);
-    m_pMoveInteraction = new MoveInteraction(m_rModelManager);
-    m_pRotationInteraction = new RotationInteraction(m_rModelManager);
-    m_pScaleInteraction = new ScaleInteraction(m_rModelManager);
+    m_pRectangleInteraction = new class RectangleInteraction(m_rModelManager);
+    m_pLineInteraction = new class LineInteraction(m_rModelManager);
+    m_pMoveInteraction = new class MoveInteraction(m_rModelManager);
+    m_pRotationInteraction = new class RotationInteraction(m_rModelManager);
+    m_pScaleInteraction = new class ScaleInteraction(m_rModelManager);
 }
 
 InteractionManager::~InteractionManager()

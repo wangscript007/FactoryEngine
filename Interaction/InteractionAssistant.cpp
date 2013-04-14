@@ -1,6 +1,5 @@
 
 #include <Interaction/InteractionAssistant.h>
-#include <Math/Math.h>
 #include <Math/Utils.h>
 #include <Math/Geometry.h>
 

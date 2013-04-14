@@ -20,7 +20,7 @@ Scene::Scene()
     m_pCamera = new  Camera(O5Vec3(5.0f, 5.0f, 5.0f));
     m_pModelManager = new ModelManager();
     m_pModelManager->ModelTreeManager()->SetRootNode(reinterpret_cast<Node*>(m_pWorkspace));
-    m_pInteractionManager = new InteractionManager(*m_pModelManager);
+    m_pInteractionManager = new class InteractionManager(*m_pModelManager);
     
     Select(m_pWorkspace);
 }

@@ -194,7 +194,7 @@ unsigned long Octree::Size()
 
 #pragma mark Node
 
-Octree::Node::Node(Box sBox)
+Octree::Node::Node(Factory::Box sBox)
     :m_sBox(sBox)
     ,m_pParent(NULL)
     ,m_eType(kLeaf)
@@ -234,7 +234,7 @@ Octree::Node* Octree::Node::NodeContainingPoint(const O5Vec3& vPoint)
     return NULL;
 }
 
-void Octree::Node::PointsInBox(const Box& sBox, std::vector<Point*>& rPointsVector) const
+void Octree::Node::PointsInBox(const struct Box& sBox, std::vector<Point*>& rPointsVector) const
 {
     if (m_sBox.Intersects(sBox)) {
         if (Type() == kBranch) {
@@ -266,7 +266,7 @@ void Octree::Node::PointsInBox(const Box& sBox, std::vector<Point*>& rPointsVect
 
 #pragma mark Branch
 
-Octree::Branch::Branch(Box sBox) : Node(sBox)
+Octree::Branch::Branch(struct Box sBox) : Node(sBox)
 {
     m_eType = kBranch;
     for(int x = 0; x < 2; x++) {

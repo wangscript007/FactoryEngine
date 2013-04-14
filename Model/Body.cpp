@@ -22,4 +22,3 @@ void Body::RemoveFace(Face *pFace)
 }
 
 }
-

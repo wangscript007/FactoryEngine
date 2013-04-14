@@ -2,8 +2,7 @@
 #include <Math/Utils.h>
 
 
-
-
+namespace Factory {
 
 O5Vec3 Utils::Viewport(O5Vec3 sceneVec)
 {
@@ -126,3 +125,4 @@ void mouse( int button, int state, int x, int y )
  }
  */
 
+}
