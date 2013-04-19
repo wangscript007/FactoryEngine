@@ -6,18 +6,18 @@
 namespace ftr {
 
 Octree::Octree(Box sBox)
-    :m_iMaxCapacity(2)
-    ,m_iMaxDepth(9)
-    ,m_iSize(0)
-    ,m_bUpdateSize(true)
+    :mMaxCapacity(2)
+    ,mMaxDepth(9)
+    ,mSize(0)
+    ,mUpdateSize(true)
 
 {
-    m_pRootNode = Split(new Leaf(sBox));
+    mRootNode = Split(new Leaf(sBox));
 }
 
 Octree::~Octree()
 {
-    FT_DELETE(m_pRootNode);
+    FT_DELETE(mRootNode);
 }
 
 #pragma mark Instance
@@ -25,137 +25,137 @@ Octree::~Octree()
 void Octree::Render()
 {
     return;
-    static_cast<Node*>(m_pRootNode)->Render();
+    static_cast<Node*>(mRootNode)->Render();
 }
 
 
-Octree::Branch* Octree::Split(Octree::Leaf *pLeaf)
+Octree::Branch* Octree::Split(Octree::Leaf *leaf)
 {
-    if (pLeaf->Depth() >= m_iMaxDepth) {
+    if (leaf->Depth() >= mMaxDepth) {
         return NULL;
     }
-    unsigned long iInitialCount = pLeaf->Size();
+    unsigned long iInitialCount = leaf->Size();
     unsigned long iCounter = 0;
-    TPointsList cPointsList = pLeaf->Points();
-    Branch* pBranch =  new Branch(pLeaf->Box());
-    if (pLeaf->Parent()) {
-        assert(pLeaf->Parent()->Type() == kBranch);
-        static_cast<Branch*>(pLeaf->Parent())->SetChild(pLeaf->Index(), pBranch);
+    TPointsList cPointsList = leaf->Points();
+    Branch* branch =  new Branch(leaf->Box());
+    if (leaf->Parent()) {
+        assert(leaf->Parent()->Type() == kBranch);
+        static_cast<Branch*>(leaf->Parent())->setChild(leaf->Index(), branch);
     }
-    Leaf* pChildLeaf;
-    Box sBox = pLeaf->Box();
-    ftr::Vec3 vHalf = sBox.m_vHalfDimention/2.0f;
+    Leaf* childLeaf;
+    Box sBox = leaf->Box();
+    ftr::Vec3 half = sBox.mHalfDimention/2.0f;
     ftr::Vec3 vCenter;
     for(int x = 0; x < 2; x++) {
         for(int y = 0; y < 2; y++) {
             for(int z = 0; z < 2; z++) {
                 if (x == 0) {
-                    vCenter.mX = sBox.m_vCenter.mX - vHalf.mX;
+                    vCenter.mX = sBox.mCenter.mX - half.mX;
                 } else {
-                    vCenter.mX = sBox.m_vCenter.mX + vHalf.mX;
+                    vCenter.mX = sBox.mCenter.mX + half.mX;
                 }
                 if (y == 0) {
-                    vCenter.mY = sBox.m_vCenter.mY - vHalf.mY;
+                    vCenter.mY = sBox.mCenter.mY - half.mY;
                 } else {
-                    vCenter.mY = sBox.m_vCenter.mY + vHalf.mY;
+                    vCenter.mY = sBox.mCenter.mY + half.mY;
                 }
                 if (z == 0) {
-                    vCenter.mZ = sBox.m_vCenter.mZ - vHalf.mZ;
+                    vCenter.mZ = sBox.mCenter.mZ - half.mZ;
                 } else {
-                    vCenter.mZ = sBox.m_vCenter.mZ + vHalf.mZ;
+                    vCenter.mZ = sBox.mCenter.mZ + half.mZ;
                 }
-                pChildLeaf = new Leaf(Box(vCenter, vHalf));
+                childLeaf = new Leaf(Box(vCenter, half));
                 for(auto i = cPointsList.begin(); i != cPointsList.end(); ++i) {
-                    if (pChildLeaf->Box().Contains((*i)->m_vOrigin)) {
-                        pChildLeaf->InsertPoint(*i);
+                    if (childLeaf->Box().Contains((*i)->mOrigin)) {
+                        childLeaf->InsertPoint(*i);
                         iCounter++;
                     }
                 }
-                pBranch->SetChild(x, y, z, pChildLeaf);
-                if (pChildLeaf->Size() > m_iMaxCapacity) {
-                    Split(pChildLeaf);
+                branch->setChild(x, y, z, childLeaf);
+                if (childLeaf->Size() > mMaxCapacity) {
+                    Split(childLeaf);
                 }
             }
         }
     }
     assert(iCounter == iInitialCount);
-    FT_DELETE(pLeaf);
-    m_bUpdateSize = true;
-    return pBranch;
+    FT_DELETE(leaf);
+    mUpdateSize = true;
+    return branch;
 }
 
-void Octree::Merge(Branch* pBranch)
+void Octree::Merge(Branch* branch)
 {
-    if (pBranch == m_pRootNode) {
+    if (branch == mRootNode) {
         return;
     }
-    assert(pBranch->Type() == kBranch);
-    Leaf* pLeaf = new Leaf(pBranch->Box());
-    if (pBranch->Parent()) {
-        assert(pBranch->Parent()->Type() == kBranch);
-        static_cast<Branch*>(pBranch->Parent())->SetChild(pBranch->Index(), pLeaf);
+    assert(branch->Type() == kBranch);
+    Leaf* leaf = new Leaf(branch->Box());
+    if (branch->Parent()) {
+        assert(branch->Parent()->Type() == kBranch);
+        static_cast<Branch*>(branch->Parent())->setChild(branch->Index(), leaf);
     }
     TPointsList cPointsList;
-    Leaf* pChildLeaf;
+    Leaf* childLeaf;
     for(int x = 0; x < 2; x++) {
         for(int y = 0; y < 2; y++) {
             for(int z = 0; z < 2; z++) {
-                pChildLeaf = static_cast<Leaf*>(pBranch->Child(x, y, z));
-                cPointsList = pChildLeaf->Points();
+                childLeaf = static_cast<Leaf*>(branch->Child(x, y, z));
+                cPointsList = childLeaf->Points();
                 for(auto i = cPointsList.begin(); i != cPointsList.end(); ++i) {
-                    pLeaf->InsertPoint((*i));
+                    leaf->InsertPoint((*i));
                 }
             }
         }
     }
-    Branch* pParent = static_cast<Branch*>(pBranch->Parent());
+    Branch* pParent = static_cast<Branch*>(branch->Parent());
     if (pParent) {
-        if (pParent->Size() <= m_iMaxCapacity) {
+        if (pParent->Size() <= mMaxCapacity) {
             Merge(pParent);
         }
     }
-    FT_DELETE(pBranch);
+    FT_DELETE(branch);
 }
 
 void Octree::InsertPoint(Point *pPoint)
 {
     assert(pPoint);
-    Node* pNode = NodeContainingPoint(pPoint->m_vOrigin);
+    Node* pNode = NodeContainingPoint(pPoint->mOrigin);
     if (pNode) {
         assert(pNode->Type() == kLeaf);
-        Leaf* pLeaf = static_cast<Leaf*>(pNode);
-        pLeaf->InsertPoint(pPoint);
-        if (pLeaf->Size() > m_iMaxCapacity) {
-            Split(pLeaf);
+        Leaf* leaf = static_cast<Leaf*>(pNode);
+        leaf->InsertPoint(pPoint);
+        if (leaf->Size() > mMaxCapacity) {
+            Split(leaf);
         }
     }
-    m_bUpdateSize = true;
+    mUpdateSize = true;
 }
 
 void Octree::RemovePoint(Point *pPoint)
 {
-    Leaf* pLeaf = pPoint->OctreeLeaf();
-    if (!pLeaf) {
+    Leaf* leaf = pPoint->OctreeLeaf();
+    if (!leaf) {
         return;
     }
-    assert(pLeaf->Type() == kLeaf);
-    pLeaf->RemovePoint(pPoint);
-    Branch* pBranch = static_cast<Branch*>(pLeaf->Parent());
-    assert(pBranch);
-    if (pBranch->Size() <= m_iMaxCapacity) {
-        Merge(pBranch);
+    assert(leaf->Type() == kLeaf);
+    leaf->RemovePoint(pPoint);
+    Branch* branch = static_cast<Branch*>(leaf->Parent());
+    assert(branch);
+    if (branch->Size() <= mMaxCapacity) {
+        Merge(branch);
     }
-    m_bUpdateSize = true;
+    mUpdateSize = true;
 }
 
 void Octree::UpdatePoint(Point* pPoint)
 {
-    Leaf* pLeaf = pPoint->OctreeLeaf();
-    if (pLeaf) {
+    Leaf* leaf = pPoint->OctreeLeaf();
+    if (leaf) {
         if (pPoint->Active()) {
             RemovePoint(pPoint);
         } else {
-            if (!pLeaf->Box().Contains(pPoint->m_vOrigin)) {
+            if (!leaf->Box().Contains(pPoint->mOrigin)) {
                 RemovePoint(pPoint);
                 InsertPoint(pPoint);
             }
@@ -167,24 +167,24 @@ void Octree::UpdatePoint(Point* pPoint)
     }
 }
 
-Octree::Node* Octree::NodeContainingPoint(const Vec3& vPoint)
+Octree::Node* Octree::NodeContainingPoint(const Vec3& point)
 {
-    return m_pRootNode->NodeContainingPoint(vPoint);
+    return mRootNode->NodeContainingPoint(point);
 }
 
 
-void Octree::PointsInBox(const Box& sBox, std::vector<Point*>& rPointsVector) const
+void Octree::PointsInBox(const Box& sBox, std::vector<Point*>& pointsVector) const
 {
-    m_pRootNode->PointsInBox(sBox, rPointsVector);
+    mRootNode->PointsInBox(sBox, pointsVector);
 }
 
 unsigned long Octree::Size()
 {
-    if (m_bUpdateSize) {
-        m_iSize = m_pRootNode->Size();
-        m_bUpdateSize = false;
+    if (mUpdateSize) {
+        mSize = mRootNode->Size();
+        mUpdateSize = false;
     }
-    return m_iSize;
+    return mSize;
 }
 
 
@@ -195,10 +195,10 @@ unsigned long Octree::Size()
 #pragma mark Node
 
 Octree::Node::Node(ftr::Box sBox)
-    :m_sBox(sBox)
-    ,m_pParent(NULL)
+    :mBox(sBox)
+    ,mParent(NULL)
     ,m_eType(kLeaf)
-    ,m_iDepth(0)
+    ,mDepth(0)
 {
     
 }
@@ -212,17 +212,17 @@ void Octree::Node::Render() const
     }
 }
 
-Octree::Node* Octree::Node::NodeContainingPoint(const Vec3& vPoint)
+Octree::Node* Octree::Node::NodeContainingPoint(const Vec3& point)
 {
-    if (m_sBox.Contains(vPoint)) {
+    if (mBox.Contains(point)) {
         if (Type() == kBranch) {
-            const Branch* pBranch = static_cast<const Branch*>(this);
+            const Branch* branch = static_cast<const Branch*>(this);
             for(int x = 0; x < 2; x++) {
                 for(int y = 0; y < 2; y++) {
                     for(int z = 0; z < 2; z++) {
-                        Node* pChild = pBranch->Child(x, y, z);
-                        if (pChild->m_sBox.Contains(vPoint)) {
-                            return pChild->NodeContainingPoint(vPoint);
+                        Node* child = branch->Child(x, y, z);
+                        if (child->mBox.Contains(point)) {
+                            return child->NodeContainingPoint(point);
                         }
                     }
                 }
@@ -234,26 +234,26 @@ Octree::Node* Octree::Node::NodeContainingPoint(const Vec3& vPoint)
     return NULL;
 }
 
-void Octree::Node::PointsInBox(const struct Box& sBox, std::vector<Point*>& rPointsVector) const
+void Octree::Node::PointsInBox(const struct Box& sBox, std::vector<Point*>& pointsVector) const
 {
-    if (m_sBox.Intersects(sBox)) {
+    if (mBox.Intersects(sBox)) {
         if (Type() == kBranch) {
-            const Branch* pBranch = static_cast<const Branch*>(this);
+            const Branch* branch = static_cast<const Branch*>(this);
             for(int x = 0; x < 2; x++) {
                 for(int y = 0; y < 2; y++) {
                     for(int z = 0; z < 2; z++) {
-                        Node* pChild = pBranch->Child(x, y, z);
-                        if (pChild->m_sBox.Intersects(sBox)) {
-                            pChild->PointsInBox(sBox, rPointsVector);
+                        Node* child = branch->Child(x, y, z);
+                        if (child->mBox.Intersects(sBox)) {
+                            child->PointsInBox(sBox, pointsVector);
                         }
                     }
                 }
             }
         } else {
-            const Leaf* pLeaf = static_cast<const Leaf*>(this);
-            const TPointsList& rPointsList = pLeaf->Points();
-            for(auto i = rPointsList.begin(); i != rPointsList.end(); ++i) {
-                rPointsVector.push_back(*i);
+            const Leaf* leaf = static_cast<const Leaf*>(this);
+            const TPointsList& pointsList = leaf->Points();
+            for(auto i = pointsList.begin(); i != pointsList.end(); ++i) {
+                pointsVector.push_back(*i);
             }
         }
     }
@@ -272,7 +272,7 @@ Octree::Branch::Branch(struct Box sBox) : Node(sBox)
     for(int x = 0; x < 2; x++) {
         for(int y = 0; y < 2; y++) {
             for(int z = 0; z < 2; z++) {
-                m_pChildrenArray[x][y][z] = NULL;
+                mChildrenArray[x][y][z] = NULL;
             }
         }
     }
@@ -283,7 +283,7 @@ Octree::Branch::~Branch()
     for(int x = 0; x < 2; x++) {
         for(int y = 0; y < 2; y++) {
             for(int z = 0; z < 2; z++) {
-                FT_DELETE(m_pChildrenArray[x][y][z]);
+                FT_DELETE(mChildrenArray[x][y][z]);
             }
         }
     }
@@ -301,30 +301,30 @@ void Octree::Branch::Render() const
     }
 }
 
-void Octree::Branch::SetChild(SIndex& sIndex, Node* pNode)
+void Octree::Branch::setChild(SIndex& sIndex, Node* pNode)
 {
-    SetChild(sIndex.m_iX, sIndex.m_iY, sIndex.m_iZ, pNode);
+    setChild(sIndex.mX, sIndex.mY, sIndex.mZ, pNode);
 }
 
-void Octree::Branch::SetChild(int x, int y, int z, Node* pNode)
+void Octree::Branch::setChild(int x, int y, int z, Node* pNode)
 {
-    m_pChildrenArray[x][y][z] = pNode;
-    pNode->SetIndex(SIndex(x, y, z));
-    pNode->SetParent(this);
-    pNode->SetDepth(m_iDepth+1);
+    mChildrenArray[x][y][z] = pNode;
+    pNode->setIndex(SIndex(x, y, z));
+    pNode->setParent(this);
+    pNode->setDepth(mDepth+1);
 }
 
 unsigned long Octree::Branch::Size() const
 {
-    unsigned long iSize = 0;
+    unsigned long size = 0;
     for(int x = 0; x < 2; x++) {
         for(int y = 0; y < 2; y++) {
             for(int z = 0; z < 2; z++) {
-                iSize += Child(x, y, z)->Size();
+                size += Child(x, y, z)->Size();
             }
         }
     }
-    return iSize;
+    return size;
 }
 
 
@@ -338,37 +338,37 @@ void Octree::Leaf::Render() const
 {
     const Vertice3 vertices[]= {
         // 0
-        m_sBox.m_vCenter.mX - m_sBox.m_vHalfDimention.mX,
-        m_sBox.m_vCenter.mY - m_sBox.m_vHalfDimention.mY,
-        m_sBox.m_vCenter.mZ + m_sBox.m_vHalfDimention.mZ,
+        mBox.mCenter.mX - mBox.mHalfDimention.mX,
+        mBox.mCenter.mY - mBox.mHalfDimention.mY,
+        mBox.mCenter.mZ + mBox.mHalfDimention.mZ,
         // 1
-        m_sBox.m_vCenter.mX - m_sBox.m_vHalfDimention.mX,
-        m_sBox.m_vCenter.mY + m_sBox.m_vHalfDimention.mY,
-        m_sBox.m_vCenter.mZ + m_sBox.m_vHalfDimention.mZ,
+        mBox.mCenter.mX - mBox.mHalfDimention.mX,
+        mBox.mCenter.mY + mBox.mHalfDimention.mY,
+        mBox.mCenter.mZ + mBox.mHalfDimention.mZ,
         // 2
-        m_sBox.m_vCenter.mX + m_sBox.m_vHalfDimention.mX,
-        m_sBox.m_vCenter.mY + m_sBox.m_vHalfDimention.mY,
-        m_sBox.m_vCenter.mZ + m_sBox.m_vHalfDimention.mZ,
+        mBox.mCenter.mX + mBox.mHalfDimention.mX,
+        mBox.mCenter.mY + mBox.mHalfDimention.mY,
+        mBox.mCenter.mZ + mBox.mHalfDimention.mZ,
         // 3
-        m_sBox.m_vCenter.mX + m_sBox.m_vHalfDimention.mX,
-        m_sBox.m_vCenter.mY - m_sBox.m_vHalfDimention.mY,
-        m_sBox.m_vCenter.mZ + m_sBox.m_vHalfDimention.mZ,
+        mBox.mCenter.mX + mBox.mHalfDimention.mX,
+        mBox.mCenter.mY - mBox.mHalfDimention.mY,
+        mBox.mCenter.mZ + mBox.mHalfDimention.mZ,
         // 4
-        m_sBox.m_vCenter.mX - m_sBox.m_vHalfDimention.mX,
-        m_sBox.m_vCenter.mY - m_sBox.m_vHalfDimention.mY,
-        m_sBox.m_vCenter.mZ - m_sBox.m_vHalfDimention.mZ,
+        mBox.mCenter.mX - mBox.mHalfDimention.mX,
+        mBox.mCenter.mY - mBox.mHalfDimention.mY,
+        mBox.mCenter.mZ - mBox.mHalfDimention.mZ,
         // 5
-        m_sBox.m_vCenter.mX - m_sBox.m_vHalfDimention.mX,
-        m_sBox.m_vCenter.mY + m_sBox.m_vHalfDimention.mY,
-        m_sBox.m_vCenter.mZ - m_sBox.m_vHalfDimention.mZ,
+        mBox.mCenter.mX - mBox.mHalfDimention.mX,
+        mBox.mCenter.mY + mBox.mHalfDimention.mY,
+        mBox.mCenter.mZ - mBox.mHalfDimention.mZ,
         // 6
-        m_sBox.m_vCenter.mX + m_sBox.m_vHalfDimention.mX,
-        m_sBox.m_vCenter.mY + m_sBox.m_vHalfDimention.mY,
-        m_sBox.m_vCenter.mZ - m_sBox.m_vHalfDimention.mZ,
+        mBox.mCenter.mX + mBox.mHalfDimention.mX,
+        mBox.mCenter.mY + mBox.mHalfDimention.mY,
+        mBox.mCenter.mZ - mBox.mHalfDimention.mZ,
         // 7
-        m_sBox.m_vCenter.mX + m_sBox.m_vHalfDimention.mX,
-        m_sBox.m_vCenter.mY - m_sBox.m_vHalfDimention.mY,
-        m_sBox.m_vCenter.mZ - m_sBox.m_vHalfDimention.mZ,
+        mBox.mCenter.mX + mBox.mHalfDimention.mX,
+        mBox.mCenter.mY - mBox.mHalfDimention.mY,
+        mBox.mCenter.mZ - mBox.mHalfDimention.mZ,
     };
     
     static const GLubyte indices[] = {
@@ -392,14 +392,14 @@ void Octree::Leaf::Render() const
 
 void Octree::Leaf::InsertPoint(Point* pPoint)
 {
-    m_cPointsList.push_back(pPoint);
-    pPoint->SetOctreeLeaf(this);
+    mPointsList.push_back(pPoint);
+    pPoint->setOctreeLeaf(this);
 }
 
 void Octree::Leaf::RemovePoint(Point* pPoint)
 {
-    m_cPointsList.remove(pPoint);
-    pPoint->SetOctreeLeaf(NULL);
+    mPointsList.remove(pPoint);
+    pPoint->setOctreeLeaf(NULL);
 }
 
 }

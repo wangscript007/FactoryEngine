@@ -6,43 +6,43 @@ namespace ftr {
 
 ModelTreeManager::ModelTreeManager()
 {
-    m_pOctree = new ftr::Octree(Box(Vec3(0.0f, 0.0f, 0.0f), Vec3(8.0f, 8.0f, 8.0f)));
+    mOctree = new ftr::Octree(Box(Vec3(0.0f, 0.0f, 0.0f), Vec3(8.0f, 8.0f, 8.0f)));
 }
 
 ModelTreeManager::~ModelTreeManager()
 {
-    FT_DELETE(m_pOctree);
+    FT_DELETE(mOctree);
 }
 
 #pragma mark Instance
 
-void ModelTreeManager::SetRootNode(Node *pRootNode)
+void ModelTreeManager::setRootNode(Node *pRootNode)
 {
-    m_pRootNode = pRootNode;
+    mRootNode = pRootNode;
 }
 
 void ModelTreeManager::AddNode(Node* pNode)
 {
     if (pNode->Type() == Node::kPoint) {
-        m_pOctree->InsertPoint(static_cast<Point*>(pNode));
+        mOctree->InsertPoint(static_cast<Point*>(pNode));
     }
 }
 
 void ModelTreeManager::UpdateNode(Node* pNode)
 {
     if (pNode->Type() == Node::kPoint) {
-        m_pOctree->UpdatePoint(static_cast<Point*>(pNode));
+        mOctree->UpdatePoint(static_cast<Point*>(pNode));
     }
 }
 
 void ModelTreeManager::RemoveNode(Node* pNode)
 {
     if (pNode->Type() == Node::kPoint) {
-        m_pOctree->RemovePoint(static_cast<Point*>(pNode));
+        mOctree->RemovePoint(static_cast<Point*>(pNode));
     }
-    Node* pSupernode = pNode->Supernode();
-    assert(pSupernode);
-    pSupernode->RemoveNode(pNode);
+    Node* supernode = pNode->Supernode();
+    assert(supernode);
+    supernode->RemoveNode(pNode);
 }
 
 }

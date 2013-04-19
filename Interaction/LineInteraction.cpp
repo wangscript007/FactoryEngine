@@ -5,11 +5,11 @@
 
 namespace ftr {
 
-LineInteraction::LineInteraction(ModelManager& rModelManager)
-    :m_rModelManager(rModelManager)
-    ,m_bActive(false)
-    ,m_pStartPoint(NULL)
-    ,m_pEndPoint(NULL)
+LineInteraction::LineInteraction(ModelManager& modelManager)
+    :mModelManager(modelManager)
+    ,mActive(false)
+    ,mStartPoint(NULL)
+    ,mEndPoint(NULL)
 {}
 
 #pragma mark Instance
@@ -23,72 +23,72 @@ void LineInteraction::Render()
     glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
     glBegin(GL_LINES);
     {
-        glVertex3d(m_vStart.mX,
-                   m_vStart.mY,
-                   m_vStart.mZ);
-        glVertex3d(m_vEnd.mX,
-                   m_vEnd.mY,
-                   m_vEnd.mZ);
+        glVertex3d(mStart.mX,
+                   mStart.mY,
+                   mStart.mZ);
+        glVertex3d(mEnd.mX,
+                   mEnd.mY,
+                   mEnd.mZ);
     }
     glEnd();
 }
 
 void LineInteraction::Begin()
 {
-    if (!m_bActive) {
-        m_bActive = true;
-        m_rModelManager.SelectedNode()->AddNode(this);
-        m_pEndPoint = NULL;
-        m_pStartPoint = NULL;
-        m_vEnd = Vec3();
-        m_vStart = Vec3();
+    if (!mActive) {
+        mActive = true;
+        mModelManager.SelectedNode()->AddNode(this);
+        mEndPoint = NULL;
+        mStartPoint = NULL;
+        mEnd = Vec3();
+        mStart = Vec3();
     }
 }
 
 void LineInteraction::Step()
 {
-    if (m_bActive) {
-        m_bActive = false;
-        m_rModelManager.SelectedNode()->RemoveNode(this);
-        if (!m_pStartPoint) {
-            m_pStartPoint = m_rModelManager.CreatePoint(m_vStart);
+    if (mActive) {
+        mActive = false;
+        mModelManager.SelectedNode()->RemoveNode(this);
+        if (!mStartPoint) {
+            mStartPoint = mModelManager.CreatePoint(mStart);
         }
-        if (!m_pEndPoint) {
-            m_pEndPoint = m_rModelManager.CreatePoint(m_vEnd);
+        if (!mEndPoint) {
+            mEndPoint = mModelManager.CreatePoint(mEnd);
         };
-        m_rModelManager.CreateLine(m_pStartPoint, m_pEndPoint);
-        m_pStartPoint = m_pEndPoint;
-        m_pEndPoint = NULL;
+        mModelManager.CreateLine(mStartPoint, mEndPoint);
+        mStartPoint = mEndPoint;
+        mEndPoint = NULL;
         
     }
 }
 
 void LineInteraction::End()
 {
-    m_bActive = false;
+    mActive = false;
 }
 
-void LineInteraction::SetEnd(Vec3 vEnd)
+void LineInteraction::setEnd(Vec3 end)
 {
-    Point* pNearPoint = m_rModelManager.NearestPointToCenterInSphere(Sphere(vEnd, 0.5f));
+    Point* pNearPoint = mModelManager.NearestPointToCenterInSphere(Sphere(end, 0.5f));
     if (pNearPoint) {
-        m_vEnd = pNearPoint->m_vOrigin;
-        m_pEndPoint = pNearPoint;
+        mEnd = pNearPoint->mOrigin;
+        mEndPoint = pNearPoint;
     } else {
-        m_vEnd = vEnd;
-        m_pEndPoint = NULL;
+        mEnd = end;
+        mEndPoint = NULL;
     }
 }
 
-void LineInteraction::SetStart(Vec3 vStart)
+void LineInteraction::setStart(Vec3 start)
 {
-    Point* pNearPoint = m_rModelManager.NearestPointToCenterInSphere(Sphere(vStart, 0.5f));
+    Point* pNearPoint = mModelManager.NearestPointToCenterInSphere(Sphere(start, 0.5f));
     if (pNearPoint) {
-        m_vStart = pNearPoint->m_vOrigin;
-        m_pStartPoint = pNearPoint;
+        mStart = pNearPoint->mOrigin;
+        mStartPoint = pNearPoint;
     } else {
-        m_vStart = vStart;
-        m_pStartPoint = NULL;
+        mStart = start;
+        mStartPoint = NULL;
     }
 }
     

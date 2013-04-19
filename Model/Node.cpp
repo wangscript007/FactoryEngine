@@ -11,28 +11,28 @@ Node::Node()
 
 Node::~Node()
 {
-    for(auto i = m_pSubnodes.begin(); i != m_pSubnodes.end(); ++i) {
+    for(auto i = mSubnodes.begin(); i != mSubnodes.end(); ++i) {
         FT_DELETE(*i);
     }
 }
 
 void Node::AddNode(Node* pNode)
 {
-    m_pSubnodes.push_back(pNode);
-    pNode->m_pSupernode = this;
+    mSubnodes.push_back(pNode);
+    pNode->mSupernode = this;
 }
 
 void Node::RemoveNode(Node* pNode)
 {
-    auto i = std::find(m_pSubnodes.begin(), m_pSubnodes.end(), pNode);
-    if (i != m_pSubnodes.end()) {
-        m_pSubnodes.erase(i);
+    auto i = std::find(mSubnodes.begin(), mSubnodes.end(), pNode);
+    if (i != mSubnodes.end()) {
+        mSubnodes.erase(i);
     }
 }
 
 void Node::Render()
 {
-    for(auto i = m_pSubnodes.begin(); i != m_pSubnodes.end(); ++i)
+    for(auto i = mSubnodes.begin(); i != mSubnodes.end(); ++i)
     {
         (*i)->Render();
     }
@@ -40,7 +40,7 @@ void Node::Render()
 
 void Node::Transform(const Mat4& m4Transformation)
 {    
-    for(auto i = m_pSubnodes.begin(); i != m_pSubnodes.end(); ++i)
+    for(auto i = mSubnodes.begin(); i != mSubnodes.end(); ++i)
     {
         (*i)->Transform(m4Transformation);
     }

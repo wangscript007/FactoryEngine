@@ -9,23 +9,23 @@
 
 namespace ftr {
 
-InteractionManager::InteractionManager(ModelManager& rModelManager)
-    :m_rModelManager(rModelManager)
+InteractionManager::InteractionManager(ModelManager& modelManager)
+    :mModelManager(modelManager)
 {
-    m_pRectangleInteraction = new class RectangleInteraction(m_rModelManager);
-    m_pLineInteraction = new class LineInteraction(m_rModelManager);
-    m_pMoveInteraction = new class MoveInteraction(m_rModelManager);
-    m_pRotationInteraction = new class RotationInteraction(m_rModelManager);
-    m_pScaleInteraction = new class ScaleInteraction(m_rModelManager);
+    mRectangleInteraction = new class RectangleInteraction(mModelManager);
+    mLineInteraction = new class LineInteraction(mModelManager);
+    mMoveInteraction = new class MoveInteraction(mModelManager);
+    mRotationInteraction = new class RotationInteraction(mModelManager);
+    mScaleInteraction = new class ScaleInteraction(mModelManager);
 }
 
 InteractionManager::~InteractionManager()
 {
-    FT_DELETE(m_pRectangleInteraction);
-    FT_DELETE(m_pLineInteraction);
-    FT_DELETE(m_pMoveInteraction);
-    FT_DELETE(m_pRotationInteraction);
-    FT_DELETE(m_pScaleInteraction);
+    FT_DELETE(mRectangleInteraction);
+    FT_DELETE(mLineInteraction);
+    FT_DELETE(mMoveInteraction);
+    FT_DELETE(mRotationInteraction);
+    FT_DELETE(mScaleInteraction);
 }
 
 }

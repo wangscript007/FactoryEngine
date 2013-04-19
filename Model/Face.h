@@ -36,23 +36,23 @@ public:
     void                                AddPolygon();
     void                                RemovePolygon();
     void                                AddPoint(Point* pPoint);
-    void                                AddLine(Line* pLine);
+    void                                AddLine(Line* line);
     
     FaceType                            m_eType;
     
-    void                                SetSize(const Vec3 vSize);
-    const Vec3&                       Size() const { return m_vSize; }
-    void                                SetOrigin(const Vec3 vOrigin);
-    const Vec3&                       Origin() const { return m_vOrigin; }
+    void                                setSize(const Vec3 size);
+    const Vec3&                       Size() const { return mSize; }
+    void                                setOrigin(const Vec3 origin);
+    const Vec3&                       Origin() const { return mOrigin; }
     
-    const TPointsVector&                PointsVector() const { return m_vPointsVector; }
+    const TPointsVector&                PointsVector() const { return mPointsVector; }
     
 private:
-    TPolygonsVector                     m_vPolygons;
-    TLinesVector                        m_vLinesVector;
-    TPointsVector                       m_vPointsVector;
-    Vec3                              m_vOrigin;
-    Vec3                              m_vSize;
+    TPolygonsVector                     mPolygons;
+    TLinesVector                        mLinesVector;
+    TPointsVector                       mPointsVector;
+    Vec3                              mOrigin;
+    Vec3                              mSize;
 };
 
 }

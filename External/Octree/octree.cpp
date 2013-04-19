@@ -143,7 +143,7 @@ const T& Octree<T,AS>::emptyValue() const
 }
 
 /**
- * Sets the value of empty nodes to \a emptyValue.
+ * sets the value of empty nodes to \a emptyValue.
  * \see setEmptyValue()
  */
 template< typename T, int AS >
@@ -300,7 +300,7 @@ T& Octree<T,AS>::operator() ( int x, int y, int z )
 }
 
 /**
- * Sets the value of the node at (\a x, \a y, \a z) to \a value. If \a value is
+ * sets the value of the node at (\a x, \a y, \a z) to \a value. If \a value is
  * the empty value, the node is erased. Otherwise, the node is created if it did
  * not already exist and its value is set to \a value.
  */

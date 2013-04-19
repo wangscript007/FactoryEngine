@@ -6,9 +6,9 @@
 namespace ftr {
 
 
-ScaleInteraction::ScaleInteraction(ModelManager& rModelManager)
-:m_rModelManager(rModelManager)
-,m_bActive(false)
+ScaleInteraction::ScaleInteraction(ModelManager& modelManager)
+:mModelManager(modelManager)
+,mActive(false)
 {}
 
 void ScaleInteraction::Render()
@@ -18,22 +18,22 @@ void ScaleInteraction::Render()
 
 #pragma mark Instance
 
-void ScaleInteraction::SetStart(Vec3 vStart)
+void ScaleInteraction::setStart(Vec3 start)
 {
-    m_vStart = vStart;
+    mStart = start;
 }
 
-void ScaleInteraction::SetEnd(Vec3 vEnd)
+void ScaleInteraction::setEnd(Vec3 end)
 {
-    m_vEnd = vEnd;
-    assert(m_rModelManager.SelectedNode()->Type() == Node::kLine);
-    Vec3 vScale = m_vEnd - m_vStart;
-    vScale.mX = std::min(std::max(vScale.mX, 1.0f), 2.0f);
-    vScale.mY = std::min(std::max(vScale.mY, 1.0f), 2.0f);
-    vScale.mZ = std::min(std::max(vScale.mZ, 1.0f), 2.0f);
-    vScale.Set(0.99f, 1.001f, 1.001f);
-    m_rModelManager.SelectedNode()->Transform(Transformation::Scale(vScale));
-    m_vStart = vEnd;
+    mEnd = end;
+    assert(mModelManager.SelectedNode()->Type() == Node::kLine);
+    Vec3 scale = mEnd - mStart;
+    scale.mX = std::min(std::max(scale.mX, 1.0f), 2.0f);
+    scale.mY = std::min(std::max(scale.mY, 1.0f), 2.0f);
+    scale.mZ = std::min(std::max(scale.mZ, 1.0f), 2.0f);
+    scale.set(0.99f, 1.001f, 1.001f);
+    mModelManager.SelectedNode()->Transform(Transformation::Scale(scale));
+    mStart = end;
 }
     
 }

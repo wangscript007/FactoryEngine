@@ -5,9 +5,9 @@
 
 namespace ftr {
 
-RotationInteraction::RotationInteraction(ModelManager& rModelManager)
-:m_rModelManager(rModelManager)
-,m_bActive(false)
+RotationInteraction::RotationInteraction(ModelManager& modelManager)
+:mModelManager(modelManager)
+,mActive(false)
 {}
 
 void RotationInteraction::Render()
@@ -17,17 +17,17 @@ void RotationInteraction::Render()
 
 #pragma mark Instance
 
-void RotationInteraction::SetStart(Vec3 vStart)
+void RotationInteraction::setStart(Vec3 start)
 {
-    m_vStart = vStart;
+    mStart = start;
 }
 
-void RotationInteraction::SetEnd(Vec3 vEnd)
+void RotationInteraction::setEnd(Vec3 end)
 {
-    m_vEnd = vEnd;
-    assert(m_rModelManager.SelectedNode()->Type() == Node::kLine);
-    m_rModelManager.SelectedNode()->Transform(Transformation::Rotate(m_vEnd - m_vStart));
-    m_vStart = vEnd;
+    mEnd = end;
+    assert(mModelManager.SelectedNode()->Type() == Node::kLine);
+    mModelManager.SelectedNode()->Transform(Transformation::Rotate(mEnd - mStart));
+    mStart = end;
 }
 
 }

@@ -15,22 +15,22 @@ class ModelManager;
 class InteractionManager
 {
 public:
-    InteractionManager(ModelManager& rModelManager);
+    InteractionManager(ModelManager& modelManager);
     virtual ~InteractionManager();
     
-    RectangleInteraction* RectangleInteraction() const { return m_pRectangleInteraction; }
-    LineInteraction* LineInteraction() const { return m_pLineInteraction; }
-    MoveInteraction* MoveInteraction() const { return m_pMoveInteraction; }
-    RotationInteraction* RotationInteraction() const { return m_pRotationInteraction; }
-    ScaleInteraction* ScaleInteraction() const { return m_pScaleInteraction; }
+    RectangleInteraction* RectangleInteraction() const { return mRectangleInteraction; }
+    LineInteraction* LineInteraction() const { return mLineInteraction; }
+    MoveInteraction* MoveInteraction() const { return mMoveInteraction; }
+    RotationInteraction* RotationInteraction() const { return mRotationInteraction; }
+    ScaleInteraction* ScaleInteraction() const { return mScaleInteraction; }
     
 private:
-    class RectangleInteraction* m_pRectangleInteraction;
-    class LineInteraction* m_pLineInteraction;
-    class MoveInteraction* m_pMoveInteraction;
-    class RotationInteraction* m_pRotationInteraction;
-    class ScaleInteraction* m_pScaleInteraction;
-    ModelManager& m_rModelManager;
+    class RectangleInteraction* mRectangleInteraction;
+    class LineInteraction* mLineInteraction;
+    class MoveInteraction* mMoveInteraction;
+    class RotationInteraction* mRotationInteraction;
+    class ScaleInteraction* mScaleInteraction;
+    ModelManager& mModelManager;
 };
 
 }

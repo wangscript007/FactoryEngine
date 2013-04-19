@@ -5,9 +5,9 @@
 
 namespace ftr {
 
-MoveInteraction::MoveInteraction(ModelManager& rModelManager)
-:m_rModelManager(rModelManager)
-,m_bActive(false)
+MoveInteraction::MoveInteraction(ModelManager& modelManager)
+:mModelManager(modelManager)
+,mActive(false)
 {}
 
 void MoveInteraction::Render()
@@ -17,17 +17,17 @@ void MoveInteraction::Render()
 
 #pragma mark Instance
 
-void MoveInteraction::SetStart(Vec3 vStart)
+void MoveInteraction::setStart(Vec3 start)
 {
-    m_vStart = vStart;
+    mStart = start;
 }
 
-void MoveInteraction::SetEnd(Vec3 vEnd)
+void MoveInteraction::setEnd(Vec3 end)
 {
-    m_vEnd = vEnd;
-    assert(m_rModelManager.SelectedNode()->Type() == Node::kLine);
-    m_rModelManager.SelectedNode()->Transform(Transformation::Move(m_vEnd - m_vStart));
-    m_vStart = vEnd;
+    mEnd = end;
+    assert(mModelManager.SelectedNode()->Type() == Node::kLine);
+    mModelManager.SelectedNode()->Transform(Transformation::Move(mEnd - mStart));
+    mStart = end;
 }
 
 }

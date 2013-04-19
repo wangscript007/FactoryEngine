@@ -9,19 +9,19 @@ class ModelManager;
 class MoveInteraction : public Node
 {
 public:
-    MoveInteraction(ModelManager& rModelManager);
+    MoveInteraction(ModelManager& modelManager);
     virtual ~MoveInteraction() {}
     void Render();
     
-    void SetStart(Vec3 vStart);
-    void SetEnd(Vec3 vEnd);
+    void setStart(Vec3 start);
+    void setEnd(Vec3 end);
     
 private:
-    Vec3 m_vStart;
-    Vec3 m_vEnd;
-    Node* m_pNode;
-    ModelManager& m_rModelManager;
-    bool m_bActive;
+    Vec3 mStart;
+    Vec3 mEnd;
+    Node* mNode;
+    ModelManager& mModelManager;
+    bool mActive;
 };
     
 }

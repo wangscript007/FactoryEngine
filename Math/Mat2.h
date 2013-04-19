@@ -18,54 +18,54 @@ public:
     static const Mat2 Zero;
     static const Mat2 Identity;
 
-    Vec2              m_vX;
-    Vec2              m_vY;
+    Vec2              mX;
+    Vec2              mY;
 
-                        Mat2(): m_vX(1.0f, 0.0f), m_vY(0.0f, 1.0f) {}
-                        Mat2(const Mat2& other): m_vX(other.m_vX), m_vY(other.m_vY) {}
-                        Mat2(const Vec2& vX, const Vec2& vY): m_vX(vX), m_vY(vY) {}
+                        Mat2(): mX(1.0f, 0.0f), mY(0.0f, 1.0f) {}
+                        Mat2(const Mat2& other): mX(other.mX), mY(other.mY) {}
+                        Mat2(const Vec2& vX, const Vec2& vY): mX(vX), mY(vY) {}
 
-    Mat2              operator-() const {return Mat2(-m_vX, -m_vY);}
-    Mat2              operator-(const Mat2& other) const {return Mat2(m_vX - other.m_vX, m_vY - other.m_vY);}
-    Mat2              operator+(const Mat2& other) const {return Mat2(m_vX + other.m_vX, m_vY + other.m_vY);}
-    Mat2&             operator=(const Mat2& other) {m_vX = other.m_vX; m_vY = other.m_vY; return *this;}
-    Mat2&             operator+=(const Mat2& other) {m_vX += other.m_vX; m_vY += other.m_vY; return *this;}
-    Mat2&             operator-=(const Mat2& other) {m_vX -= other.m_vX; m_vY -= other.m_vY; return *this;}
-    Mat2&             operator*=(float value) {m_vX *= value; m_vY *= value; return *this;}
-    Mat2              operator*(float value) const {return Mat2(m_vX * value, m_vY * value);}
+    Mat2              operator-() const {return Mat2(-mX, -mY);}
+    Mat2              operator-(const Mat2& other) const {return Mat2(mX - other.mX, mY - other.mY);}
+    Mat2              operator+(const Mat2& other) const {return Mat2(mX + other.mX, mY + other.mY);}
+    Mat2&             operator=(const Mat2& other) {mX = other.mX; mY = other.mY; return *this;}
+    Mat2&             operator+=(const Mat2& other) {mX += other.mX; mY += other.mY; return *this;}
+    Mat2&             operator-=(const Mat2& other) {mX -= other.mX; mY -= other.mY; return *this;}
+    Mat2&             operator*=(float value) {mX *= value; mY *= value; return *this;}
+    Mat2              operator*(float value) const {return Mat2(mX * value, mY * value);}
     Mat2&             operator*=(const Mat2& other);
     Mat2              operator*(const Mat2& other) const;
-    const Vec2&       operator[](int index) const {return (&m_vX)[index];}
-    Vec2&             operator[](int index) {return (&m_vX)[index];}
-    bool                operator==(const Mat2& other) const {return m_vX == other.m_vX && m_vY == other.m_vY;}
-    bool                operator!=(const Mat2& other) const {return m_vX != other.m_vX || m_vY != other.m_vY;}
+    const Vec2&       operator[](int index) const {return (&mX)[index];}
+    Vec2&             operator[](int index) {return (&mX)[index];}
+    bool                operator==(const Mat2& other) const {return mX == other.mX && mY == other.mY;}
+    bool                operator!=(const Mat2& other) const {return mX != other.mX || mY != other.mY;}
 
-    void                Set(const Vec2& vX, const Vec2& vY) {m_vX = vX; m_vY = vY;}
-    Mat2              Transpose() const {return Mat2(Vec2(m_vX[0], m_vY[0]), Vec2(m_vX[1], m_vY[1]));}
+    void                set(const Vec2& vX, const Vec2& vY) {mX = vX; mY = vY;}
+    Mat2              Transpose() const {return Mat2(Vec2(mX[0], mY[0]), Vec2(mX[1], mY[1]));}
     Mat2              Rotate(float fAngle) const;
 };
 
 inline Mat2 Mat2::operator*(const Mat2& other) const
 {
-    float fA = m_vX[0] * other[0][0] + m_vX[1] * other[1][0];
-    float fB = m_vX[0] * other[0][1] + m_vX[1] * other[1][1];
-    float fC = m_vY[0] * other[0][0] + m_vY[1] * other[1][0];
-    float fD = m_vY[0] * other[0][1] + m_vY[1] * other[1][1];
+    float fA = mX[0] * other[0][0] + mX[1] * other[1][0];
+    float fB = mX[0] * other[0][1] + mX[1] * other[1][1];
+    float fC = mY[0] * other[0][0] + mY[1] * other[1][0];
+    float fD = mY[0] * other[0][1] + mY[1] * other[1][1];
 
     return Mat2(Vec2(fA, fB), Vec2(fC, fD));
 }
 
 inline Mat2& Mat2::operator*=(const Mat2& other)
 {
-    float fA = m_vX[0] * other[0][0] + m_vX[1] * other[1][0];
-    float fB = m_vX[0] * other[0][1] + m_vX[1] * other[1][1];
-    float fC = m_vY[0] * other[0][0] + m_vY[1] * other[1][0];
-    float fD = m_vY[0] * other[0][1] + m_vY[1] * other[1][1];
+    float fA = mX[0] * other[0][0] + mX[1] * other[1][0];
+    float fB = mX[0] * other[0][1] + mX[1] * other[1][1];
+    float fC = mY[0] * other[0][0] + mY[1] * other[1][0];
+    float fD = mY[0] * other[0][1] + mY[1] * other[1][1];
 
-    m_vX[0] = fA;
-    m_vX[1] = fB;
-    m_vY[0] = fC;
-    m_vY[1] = fD;
+    mX[0] = fA;
+    mX[1] = fB;
+    mY[0] = fC;
+    mY[1] = fD;
 
     return *this;
 }
@@ -85,21 +85,21 @@ inline Mat2 Mat2::Rotate(float fAngle) const
     float fAlpha = std::cos(fAngle);
     float fBeta = std::sin(fAngle);
 
-    float fA = m_vX[0] * fAlpha - m_vX[1] * fBeta;
-    float fB = m_vX[1] * fAlpha + m_vX[0] * fBeta;
-    float fC = m_vY[0] * fAlpha - m_vY[1] * fBeta;
-    float fD = m_vY[1] * fAlpha + m_vY[0] * fBeta;
+    float fA = mX[0] * fAlpha - mX[1] * fBeta;
+    float fB = mX[1] * fAlpha + mX[0] * fBeta;
+    float fC = mY[0] * fAlpha - mY[1] * fBeta;
+    float fD = mY[1] * fAlpha + mY[0] * fBeta;
 
     return Mat2(Vec2(fA, fB), Vec2(fC, fD));
 }
 
 inline Vec2& Vec2::operator*=(const Mat2& matrix)
 {
-    float fX = mX;
-    float fY = mY;
+    float x = mX;
+    float y = mY;
 
-    mX = fX * matrix[0][0] + fY * matrix[1][0];
-    mY = fX * matrix[0][1] + fY * matrix[1][1];
+    mX = x * matrix[0][0] + y * matrix[1][0];
+    mY = x * matrix[0][1] + y * matrix[1][1];
 
     return *this;
 }

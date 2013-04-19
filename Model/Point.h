@@ -11,23 +11,23 @@ class Point : public Model
 public:
     static const float c_fR;
     Point();
-    Point(Vec3 vOrigin);
+    Point(Vec3 origin);
     virtual ~Point() {}
     
-    Vec3 m_vOrigin;
+    Vec3 mOrigin;
     
     virtual void Render();
     virtual NodeType Type() const { return kPoint; }
     virtual void Transform(const Mat4& m4Transformation);
-    Octree::Leaf* OctreeLeaf() const { return m_pOctreeLeaf; }
-    void SetOctreeLeaf(Octree::Leaf* pLeaf) { m_pOctreeLeaf = pLeaf; }
-    void SetActive(bool bActive) { m_bIsActive = bActive; }
-    bool Active() const { return m_bIsActive; }
+    Octree::Leaf* OctreeLeaf() const { return mOctreeLeaf; }
+    void setOctreeLeaf(Octree::Leaf* leaf) { mOctreeLeaf = leaf; }
+    void setActive(bool active) { mIsActive = active; }
+    bool Active() const { return mIsActive; }
     
     
 private:
-    Octree::Leaf* m_pOctreeLeaf;
-    bool m_bIsActive;
+    Octree::Leaf* mOctreeLeaf;
+    bool mIsActive;
 };
     
 }

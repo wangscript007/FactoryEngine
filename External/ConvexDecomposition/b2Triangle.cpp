@@ -47,7 +47,7 @@ b2Triangle::~b2Triangle(){
 	delete[] y;
 }
 
-void b2Triangle::Set(const b2Triangle& toMe) {
+void b2Triangle::set(const b2Triangle& toMe) {
 	for (int32 i=0; i<3; ++i) {
 		x[i] = toMe.x[i];
 		y[i] = toMe.y[i];

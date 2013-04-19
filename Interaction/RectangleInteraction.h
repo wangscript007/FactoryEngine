@@ -15,21 +15,21 @@ class RectangleInteraction : public Node
 public:
     
     
-    RectangleInteraction(ModelManager& rModelManager);
+    RectangleInteraction(ModelManager& modelManager);
     virtual ~RectangleInteraction() {}
     
     void Render();
     void Begin();
     void End();
-    void SetOrigin(const Vec3& vOrigin);
-    void SetCurrent(const Vec3& vCurrent);
+    void setOrigin(const Vec3& origin);
+    void setCurrent(const Vec3& vCurrent);
     
     
 private:
-    Polygon m_cPolygon;
-    Rectangle3 m_sRect3;
-    ModelManager& m_rModelManager;
-    bool m_bActive;
+    Polygon mPolygon;
+    Rectangle3 mRect3;
+    ModelManager& mModelManager;
+    bool mActive;
 };
     
 }

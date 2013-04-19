@@ -8,13 +8,13 @@ namespace ftr {
 class Rect : public Polygon
 {
 public:
-    Vec2 m_vOrigin;
-    Vec2 m_vSize;
+    Vec2 mOrigin;
+    Vec2 mSize;
     
-    Rect() : m_vOrigin(Vec2()), m_vSize(Vec2()) {}
-    Rect(const Vec2 vOrigin, const Vec2 vSize) : m_vOrigin(vOrigin), m_vSize(vSize) {}
-    Rect(const float fX, const float fY, const float fWidth, const float fHeight)
-    : m_vOrigin(Vec2(fX, fY)), m_vSize(Vec2(fWidth, fHeight)) {}
+    Rect() : mOrigin(Vec2()), mSize(Vec2()) {}
+    Rect(const Vec2 origin, const Vec2 size) : mOrigin(origin), mSize(size) {}
+    Rect(const float x, const float y, const float width, const float fHeight)
+    : mOrigin(Vec2(x, y)), mSize(Vec2(width, fHeight)) {}
 };
 
 }

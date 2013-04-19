@@ -17,7 +17,7 @@ public:
                         Workspace();
                         ~Workspace();
     virtual void        Render();
-    void                SetViewportRect(Rect rect);
+    void                setViewportRect(Rect rect);
     
 private:
     Pad*              mpPad;

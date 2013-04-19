@@ -22,8 +22,8 @@ void Face::Render()
     {
         glColor3f(0.5f,0.5f,0.5f);
         glNormal3f(0,-1,0);
-        for(auto i = m_vPointsVector.begin(); i != m_vPointsVector.end(); ++i) {
-            glVertex3f((*i)->m_vOrigin.mX, (*i)->m_vOrigin.mY, (*i)->m_vOrigin.mZ);
+        for(auto i = mPointsVector.begin(); i != mPointsVector.end(); ++i) {
+            glVertex3f((*i)->mOrigin.mX, (*i)->mOrigin.mY, (*i)->mOrigin.mZ);
         }
     }
     glEnd();
@@ -32,26 +32,26 @@ void Face::Render()
 
 #pragma mark - Instance
 
-void Face::SetSize(const Vec3 vSize)
+void Face::setSize(const Vec3 size)
 {
-    m_vSize = vSize;
+    mSize = size;
 }
 
-void Face::SetOrigin(const Vec3 vOrigin)
+void Face::setOrigin(const Vec3 origin)
 {
-    m_vOrigin = vOrigin;
+    mOrigin = origin;
 }
 
 
 void Face::AddPoint(Point* pPoint)
 {
-    m_vPointsVector.push_back(pPoint);
+    mPointsVector.push_back(pPoint);
 }
 
-void Face::AddLine(Line* pLine)
+void Face::AddLine(Line* line)
 {
-    m_vLinesVector.push_back(pLine);
-    AddNode(pLine);
+    mLinesVector.push_back(line);
+    AddNode(line);
 }
 //
 // Checks if point is int the same plane with face.
@@ -78,7 +78,7 @@ void Face::Cut(Face *cutFace)
 
 void Face::Transform(Mat4& m4Transformation)
 {
-    for(auto i = m_vPointsVector.begin(); i != m_vPointsVector.end(); ++i) {
+    for(auto i = mPointsVector.begin(); i != mPointsVector.end(); ++i) {
         (*i)->Transform(m4Transformation);
     }
 }

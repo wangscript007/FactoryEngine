@@ -16,31 +16,31 @@ public:
     static const Mat4 Zero;
     static const Mat4 Identity;
 
-    Vec4              m_vX;
-    Vec4              m_vY;
-    Vec4              m_vZ;
-    Vec4              m_vW;
+    Vec4              mX;
+    Vec4              mY;
+    Vec4              mZ;
+    Vec4              mW;
 
-                        Mat4(): m_vX(1.0f, 0.0f, 0.0f, 0.0f), m_vY(0.0f, 1.0f, 0.0f, 0.0f), m_vZ(0.0f, 0.0f, 1.0f, 0.0f), m_vW(0.0f, 0.0f, 0.0f, 1.0f) {}
-                        Mat4(const Mat4& other): m_vX(other.m_vX), m_vY(other.m_vY), m_vZ(other.m_vZ), m_vW(other.m_vW) {}
-                        Mat4(const Vec4& vX, const Vec4& vY, const Vec4& vZ, const Vec4& vW): m_vX(vX), m_vY(vY), m_vZ(vZ), m_vW(vW) {}
+                        Mat4(): mX(1.0f, 0.0f, 0.0f, 0.0f), mY(0.0f, 1.0f, 0.0f, 0.0f), mZ(0.0f, 0.0f, 1.0f, 0.0f), mW(0.0f, 0.0f, 0.0f, 1.0f) {}
+                        Mat4(const Mat4& other): mX(other.mX), mY(other.mY), mZ(other.mZ), mW(other.mW) {}
+                        Mat4(const Vec4& vX, const Vec4& vY, const Vec4& vZ, const Vec4& vW): mX(vX), mY(vY), mZ(vZ), mW(vW) {}
 
-    Mat4              operator-() const {return Mat4(-m_vX, -m_vY, -m_vZ, -m_vW);}
-    Mat4              operator-(const Mat4& other) const {return Mat4(m_vX - other.m_vX, m_vY - other.m_vY, m_vZ - other.m_vZ, m_vW - other.m_vW);}
-    Mat4              operator+(const Mat4& other) const {return Mat4(m_vX + other.m_vX, m_vY + other.m_vY, m_vZ + other.m_vZ, m_vW + other.m_vW);}
-    Mat4&             operator=(const Mat4& other) {m_vX = other.m_vX; m_vY = other.m_vY; m_vZ = other.m_vZ; m_vW = other.m_vW; return *this;}
-    Mat4&             operator+=(const Mat4& other) {m_vX += other.m_vX; m_vY += other.m_vY; m_vZ += other.m_vZ; m_vW += other.m_vW; return *this;}
-    Mat4&             operator-=(const Mat4& other) {m_vX -= other.m_vX; m_vY -= other.m_vY; m_vZ -= other.m_vZ; m_vW -= other.m_vW; return *this;}
-    Mat4&             operator*=(float value) {m_vX *= value; m_vY *= value; m_vZ *= value; m_vW *= value; return *this;}
-    Mat4              operator*(float value) const {return Mat4(m_vX * value, m_vY * value, m_vZ * value, m_vW * value);}
+    Mat4              operator-() const {return Mat4(-mX, -mY, -mZ, -mW);}
+    Mat4              operator-(const Mat4& other) const {return Mat4(mX - other.mX, mY - other.mY, mZ - other.mZ, mW - other.mW);}
+    Mat4              operator+(const Mat4& other) const {return Mat4(mX + other.mX, mY + other.mY, mZ + other.mZ, mW + other.mW);}
+    Mat4&             operator=(const Mat4& other) {mX = other.mX; mY = other.mY; mZ = other.mZ; mW = other.mW; return *this;}
+    Mat4&             operator+=(const Mat4& other) {mX += other.mX; mY += other.mY; mZ += other.mZ; mW += other.mW; return *this;}
+    Mat4&             operator-=(const Mat4& other) {mX -= other.mX; mY -= other.mY; mZ -= other.mZ; mW -= other.mW; return *this;}
+    Mat4&             operator*=(float value) {mX *= value; mY *= value; mZ *= value; mW *= value; return *this;}
+    Mat4              operator*(float value) const {return Mat4(mX * value, mY * value, mZ * value, mW * value);}
     Mat4&             operator*=(const Mat4& other);
     Mat4              operator*(const Mat4& other) const;
-    const Vec4&       operator[](int index) const {return (&m_vX)[index];}
-    Vec4&             operator[](int index) {return (&m_vX)[index];}
-    bool                operator==(const Mat4& other) const {return m_vX == other.m_vX && m_vY == other.m_vY && m_vZ == other.m_vZ && m_vW == other.m_vW;}
-    bool                operator!=(const Mat4& other) const {return m_vX != other.m_vX || m_vY != other.m_vY || m_vZ != other.m_vZ || m_vW != other.m_vW;}
+    const Vec4&       operator[](int index) const {return (&mX)[index];}
+    Vec4&             operator[](int index) {return (&mX)[index];}
+    bool                operator==(const Mat4& other) const {return mX == other.mX && mY == other.mY && mZ == other.mZ && mW == other.mW;}
+    bool                operator!=(const Mat4& other) const {return mX != other.mX || mY != other.mY || mZ != other.mZ || mW != other.mW;}
 
-    void                Set(const Vec4& vX, const Vec4& vY, const Vec4& vZ, const Vec4& vW) {m_vX = vX; m_vY = vY; m_vZ = vZ; m_vW = vW;}
+    void                set(const Vec4& vX, const Vec4& vY, const Vec4& vZ, const Vec4& vW) {mX = vX; mY = vY; mZ = vZ; mW = vW;}
     void                Orthonormalize();
     Mat4              Transpose() const;
 };
@@ -50,39 +50,39 @@ inline Mat4 Mat4::operator*(const Mat4& other) const
     //
     // Row 0.
     //
-    float fA = m_vX[0] * other.m_vX[0] + m_vX[1] * other.m_vY[0] + m_vX[2] * other.m_vZ[0] + m_vX[3] * other.m_vW[0];
-    float fB = m_vX[0] * other.m_vX[1] + m_vX[1] * other.m_vY[1] + m_vX[2] * other.m_vZ[1] + m_vX[3] * other.m_vW[1];
-    float fC = m_vX[0] * other.m_vX[2] + m_vX[1] * other.m_vY[2] + m_vX[2] * other.m_vZ[2] + m_vX[3] * other.m_vW[2];
-    float fD = m_vX[0] * other.m_vX[3] + m_vX[1] * other.m_vY[3] + m_vX[2] * other.m_vZ[3] + m_vX[3] * other.m_vW[3];
+    float fA = mX[0] * other.mX[0] + mX[1] * other.mY[0] + mX[2] * other.mZ[0] + mX[3] * other.mW[0];
+    float fB = mX[0] * other.mX[1] + mX[1] * other.mY[1] + mX[2] * other.mZ[1] + mX[3] * other.mW[1];
+    float fC = mX[0] * other.mX[2] + mX[1] * other.mY[2] + mX[2] * other.mZ[2] + mX[3] * other.mW[2];
+    float fD = mX[0] * other.mX[3] + mX[1] * other.mY[3] + mX[2] * other.mZ[3] + mX[3] * other.mW[3];
 
     //
     // Row 1.
     //
-    float fE = m_vY[0] * other.m_vX[0] + m_vY[1] * other.m_vY[0] + m_vY[2] * other.m_vZ[0] + m_vY[3] * other.m_vW[0];
-    float fF = m_vY[0] * other.m_vX[1] + m_vY[1] * other.m_vY[1] + m_vY[2] * other.m_vZ[1] + m_vY[3] * other.m_vW[1];
-    float fG = m_vY[0] * other.m_vX[2] + m_vY[1] * other.m_vY[2] + m_vY[2] * other.m_vZ[2] + m_vY[3] * other.m_vW[2];
-    float fH = m_vY[0] * other.m_vX[3] + m_vY[1] * other.m_vY[3] + m_vY[2] * other.m_vZ[3] + m_vY[3] * other.m_vW[3];
+    float fE = mY[0] * other.mX[0] + mY[1] * other.mY[0] + mY[2] * other.mZ[0] + mY[3] * other.mW[0];
+    float fF = mY[0] * other.mX[1] + mY[1] * other.mY[1] + mY[2] * other.mZ[1] + mY[3] * other.mW[1];
+    float fG = mY[0] * other.mX[2] + mY[1] * other.mY[2] + mY[2] * other.mZ[2] + mY[3] * other.mW[2];
+    float fH = mY[0] * other.mX[3] + mY[1] * other.mY[3] + mY[2] * other.mZ[3] + mY[3] * other.mW[3];
 
     //
     // Row 2.
     //
-    float fI = m_vZ[0] * other.m_vX[0] + m_vZ[1] * other.m_vY[0] + m_vZ[2] * other.m_vZ[0] + m_vZ[3] * other.m_vW[0];
-    float fJ = m_vZ[0] * other.m_vX[1] + m_vZ[1] * other.m_vY[1] + m_vZ[2] * other.m_vZ[1] + m_vZ[3] * other.m_vW[1];
-    float fK = m_vZ[0] * other.m_vX[2] + m_vZ[1] * other.m_vY[2] + m_vZ[2] * other.m_vZ[2] + m_vZ[3] * other.m_vW[2];
-    float fL = m_vZ[0] * other.m_vX[3] + m_vZ[1] * other.m_vY[3] + m_vZ[2] * other.m_vZ[3] + m_vZ[3] * other.m_vW[3];
+    float fI = mZ[0] * other.mX[0] + mZ[1] * other.mY[0] + mZ[2] * other.mZ[0] + mZ[3] * other.mW[0];
+    float fJ = mZ[0] * other.mX[1] + mZ[1] * other.mY[1] + mZ[2] * other.mZ[1] + mZ[3] * other.mW[1];
+    float k = mZ[0] * other.mX[2] + mZ[1] * other.mY[2] + mZ[2] * other.mZ[2] + mZ[3] * other.mW[2];
+    float fL = mZ[0] * other.mX[3] + mZ[1] * other.mY[3] + mZ[2] * other.mZ[3] + mZ[3] * other.mW[3];
 
     //
     // Row 3.
     //
-    float fM = m_vW[0] * other.m_vX[0] + m_vW[1] * other.m_vY[0] + m_vW[2] * other.m_vZ[0] + m_vW[3] * other.m_vW[0];
-    float fN = m_vW[0] * other.m_vX[1] + m_vW[1] * other.m_vY[1] + m_vW[2] * other.m_vZ[1] + m_vW[3] * other.m_vW[1];
-    float fO = m_vW[0] * other.m_vX[2] + m_vW[1] * other.m_vY[2] + m_vW[2] * other.m_vZ[2] + m_vW[3] * other.m_vW[2];
-    float fP = m_vW[0] * other.m_vX[3] + m_vW[1] * other.m_vY[3] + m_vW[2] * other.m_vZ[3] + m_vW[3] * other.m_vW[3];
+    float m = mW[0] * other.mX[0] + mW[1] * other.mY[0] + mW[2] * other.mZ[0] + mW[3] * other.mW[0];
+    float fN = mW[0] * other.mX[1] + mW[1] * other.mY[1] + mW[2] * other.mZ[1] + mW[3] * other.mW[1];
+    float fO = mW[0] * other.mX[2] + mW[1] * other.mY[2] + mW[2] * other.mZ[2] + mW[3] * other.mW[2];
+    float fP = mW[0] * other.mX[3] + mW[1] * other.mY[3] + mW[2] * other.mZ[3] + mW[3] * other.mW[3];
 
     return Mat4(Vec4(fA, fB, fC, fD),
         Vec4(fE, fF, fG, fH),
-        Vec4(fI, fJ, fK, fL),
-        Vec4(fM, fN, fO, fP));
+        Vec4(fI, fJ, k, fL),
+        Vec4(m, fN, fO, fP));
 }
 
 inline Mat4& Mat4::operator*=(const Mat4& other)
@@ -90,66 +90,66 @@ inline Mat4& Mat4::operator*=(const Mat4& other)
     //
     // Row 0.
     //
-    float fA = m_vX[0] * other.m_vX[0] + m_vX[1] * other.m_vY[0] + m_vX[2] * other.m_vZ[0] + m_vX[3] * other.m_vW[0];
-    float fB = m_vX[0] * other.m_vX[1] + m_vX[1] * other.m_vY[1] + m_vX[2] * other.m_vZ[1] + m_vX[3] * other.m_vW[1];
-    float fC = m_vX[0] * other.m_vX[2] + m_vX[1] * other.m_vY[2] + m_vX[2] * other.m_vZ[2] + m_vX[3] * other.m_vW[2];
-    float fD = m_vX[0] * other.m_vX[3] + m_vX[1] * other.m_vY[3] + m_vX[2] * other.m_vZ[3] + m_vX[3] * other.m_vW[3];
+    float fA = mX[0] * other.mX[0] + mX[1] * other.mY[0] + mX[2] * other.mZ[0] + mX[3] * other.mW[0];
+    float fB = mX[0] * other.mX[1] + mX[1] * other.mY[1] + mX[2] * other.mZ[1] + mX[3] * other.mW[1];
+    float fC = mX[0] * other.mX[2] + mX[1] * other.mY[2] + mX[2] * other.mZ[2] + mX[3] * other.mW[2];
+    float fD = mX[0] * other.mX[3] + mX[1] * other.mY[3] + mX[2] * other.mZ[3] + mX[3] * other.mW[3];
 
     //
     // Row 1.
     //
-    float fE = m_vY[0] * other.m_vX[0] + m_vY[1] * other.m_vY[0] + m_vY[2] * other.m_vZ[0] + m_vY[3] * other.m_vW[0];
-    float fF = m_vY[0] * other.m_vX[1] + m_vY[1] * other.m_vY[1] + m_vY[2] * other.m_vZ[1] + m_vY[3] * other.m_vW[1];
-    float fG = m_vY[0] * other.m_vX[2] + m_vY[1] * other.m_vY[2] + m_vY[2] * other.m_vZ[2] + m_vY[3] * other.m_vW[2];
-    float fH = m_vY[0] * other.m_vX[3] + m_vY[1] * other.m_vY[3] + m_vY[2] * other.m_vZ[3] + m_vY[3] * other.m_vW[3];
+    float fE = mY[0] * other.mX[0] + mY[1] * other.mY[0] + mY[2] * other.mZ[0] + mY[3] * other.mW[0];
+    float fF = mY[0] * other.mX[1] + mY[1] * other.mY[1] + mY[2] * other.mZ[1] + mY[3] * other.mW[1];
+    float fG = mY[0] * other.mX[2] + mY[1] * other.mY[2] + mY[2] * other.mZ[2] + mY[3] * other.mW[2];
+    float fH = mY[0] * other.mX[3] + mY[1] * other.mY[3] + mY[2] * other.mZ[3] + mY[3] * other.mW[3];
 
     //
     // Row 2.
     //
-    float fI = m_vZ[0] * other.m_vX[0] + m_vZ[1] * other.m_vY[0] + m_vZ[2] * other.m_vZ[0] + m_vZ[3] * other.m_vW[0];
-    float fJ = m_vZ[0] * other.m_vX[1] + m_vZ[1] * other.m_vY[1] + m_vZ[2] * other.m_vZ[1] + m_vZ[3] * other.m_vW[1];
-    float fK = m_vZ[0] * other.m_vX[2] + m_vZ[1] * other.m_vY[2] + m_vZ[2] * other.m_vZ[2] + m_vZ[3] * other.m_vW[2];
-    float fL = m_vZ[0] * other.m_vX[3] + m_vZ[1] * other.m_vY[3] + m_vZ[2] * other.m_vZ[3] + m_vZ[3] * other.m_vW[3];
+    float fI = mZ[0] * other.mX[0] + mZ[1] * other.mY[0] + mZ[2] * other.mZ[0] + mZ[3] * other.mW[0];
+    float fJ = mZ[0] * other.mX[1] + mZ[1] * other.mY[1] + mZ[2] * other.mZ[1] + mZ[3] * other.mW[1];
+    float k = mZ[0] * other.mX[2] + mZ[1] * other.mY[2] + mZ[2] * other.mZ[2] + mZ[3] * other.mW[2];
+    float fL = mZ[0] * other.mX[3] + mZ[1] * other.mY[3] + mZ[2] * other.mZ[3] + mZ[3] * other.mW[3];
 
     //
     // Row 3.
     //
-    float fM = m_vW[0] * other.m_vX[0] + m_vW[1] * other.m_vY[0] + m_vW[2] * other.m_vZ[0] + m_vW[3] * other.m_vW[0];
-    float fN = m_vW[0] * other.m_vX[1] + m_vW[1] * other.m_vY[1] + m_vW[2] * other.m_vZ[1] + m_vW[3] * other.m_vW[1];
-    float fO = m_vW[0] * other.m_vX[2] + m_vW[1] * other.m_vY[2] + m_vW[2] * other.m_vZ[2] + m_vW[3] * other.m_vW[2];
-    float fP = m_vW[0] * other.m_vX[3] + m_vW[1] * other.m_vY[3] + m_vW[2] * other.m_vZ[3] + m_vW[3] * other.m_vW[3];
+    float m = mW[0] * other.mX[0] + mW[1] * other.mY[0] + mW[2] * other.mZ[0] + mW[3] * other.mW[0];
+    float fN = mW[0] * other.mX[1] + mW[1] * other.mY[1] + mW[2] * other.mZ[1] + mW[3] * other.mW[1];
+    float fO = mW[0] * other.mX[2] + mW[1] * other.mY[2] + mW[2] * other.mZ[2] + mW[3] * other.mW[2];
+    float fP = mW[0] * other.mX[3] + mW[1] * other.mY[3] + mW[2] * other.mZ[3] + mW[3] * other.mW[3];
 
     //
     // Row 0.
     //
-    m_vX[0] = fA;
-    m_vX[1] = fB;
-    m_vX[2] = fC;
-    m_vX[3] = fD;
+    mX[0] = fA;
+    mX[1] = fB;
+    mX[2] = fC;
+    mX[3] = fD;
 
     //
     // Row 1.
     //
-    m_vY[0] = fE;
-    m_vY[1] = fF;
-    m_vY[2] = fG;
-    m_vY[3] = fH;
+    mY[0] = fE;
+    mY[1] = fF;
+    mY[2] = fG;
+    mY[3] = fH;
 
     //
     // Row 2.
     //
-    m_vZ[0] = fI;
-    m_vZ[1] = fJ;
-    m_vZ[2] = fK;
-    m_vZ[3] = fL;
+    mZ[0] = fI;
+    mZ[1] = fJ;
+    mZ[2] = k;
+    mZ[3] = fL;
 
     //
     // Row 3.
     //
-    m_vW[0] = fM;
-    m_vW[1] = fN;
-    m_vW[2] = fO;
-    m_vW[3] = fP;
+    mW[0] = m;
+    mW[1] = fN;
+    mW[2] = fO;
+    mW[3] = fP;
 
     return *this;
 }
@@ -172,28 +172,28 @@ inline Vec3 operator*(const Mat4& matrix, const Vec3& vector)
 
 inline Vec3& Vec3::operator*=(const Mat4& matrix)
 {
-    float fX = mX;
-    float fY = mY;
-    float fZ = mZ;
+    float x = mX;
+    float y = mY;
+    float z = mZ;
 
-    mX = fX * matrix[0][0] + fY * matrix[1][0] + fZ * matrix[2][0] + matrix[3][0];
-    mY = fX * matrix[0][1] + fY * matrix[1][1] + fZ * matrix[2][1] + matrix[3][1];
-    mZ = fX * matrix[0][2] + fY * matrix[1][2] + fZ * matrix[2][2] + matrix[3][2];
+    mX = x * matrix[0][0] + y * matrix[1][0] + z * matrix[2][0] + matrix[3][0];
+    mY = x * matrix[0][1] + y * matrix[1][1] + z * matrix[2][1] + matrix[3][1];
+    mZ = x * matrix[0][2] + y * matrix[1][2] + z * matrix[2][2] + matrix[3][2];
 
     return *this;
 }
 
 inline Vec4& Vec4::operator*=(const Mat4& matrix)
 {
-    float fX = mX;
-    float fY = mY;
-    float fZ = mZ;
-    float fW = mW;
+    float x = mX;
+    float y = mY;
+    float z = mZ;
+    float w = mW;
 
-    mX = fX * matrix[0][0] + fY * matrix[1][0] + fZ * matrix[2][0] + fW * matrix[3][0];
-    mY = fX * matrix[0][1] + fY * matrix[1][1] + fZ * matrix[2][1] + fW * matrix[3][1];
-    mZ = fX * matrix[0][2] + fY * matrix[1][2] + fZ * matrix[2][2] + fW * matrix[3][2];
-    mW = fX * matrix[0][3] + fY * matrix[1][3] + fZ * matrix[2][3] + fW * matrix[3][3];
+    mX = x * matrix[0][0] + y * matrix[1][0] + z * matrix[2][0] + w * matrix[3][0];
+    mY = x * matrix[0][1] + y * matrix[1][1] + z * matrix[2][1] + w * matrix[3][1];
+    mZ = x * matrix[0][2] + y * matrix[1][2] + z * matrix[2][2] + w * matrix[3][2];
+    mW = x * matrix[0][3] + y * matrix[1][3] + z * matrix[2][3] + w * matrix[3][3];
 
     return *this;
 }
@@ -221,27 +221,27 @@ inline void Mat4::Orthonormalize()
     //
     // Right.
     //
-    m_vX.Normalize();
+    mX.Normalize();
 
     //
     // Forward.
     //
-    m_vZ = Vec3(m_vX[0], m_vX[1], m_vX[2]) ^ Vec3(m_vY[0], m_vY[1], m_vY[2]);
-    m_vZ.Normalize();
+    mZ = Vec3(mX[0], mX[1], mX[2]) ^ Vec3(mY[0], mY[1], mY[2]);
+    mZ.Normalize();
 
     //
     // Up.
     //
-    m_vY = Vec3(m_vZ[0], m_vZ[1], m_vZ[2]) ^ Vec3(m_vX[0], m_vX[1], m_vX[2]);
-    m_vY.Normalize();
+    mY = Vec3(mZ[0], mZ[1], mZ[2]) ^ Vec3(mX[0], mX[1], mX[2]);
+    mY.Normalize();
 }
 
 inline Mat4 Mat4::Transpose() const
 {
-    return Mat4(Vec4(m_vX[0], m_vY[0], m_vZ[0], m_vW[0]),
-        Vec4(m_vX[1], m_vY[1], m_vZ[1], m_vW[1]),
-        Vec4(m_vX[2], m_vY[2], m_vZ[2], m_vW[2]),
-        Vec4(m_vX[3], m_vY[3], m_vZ[3], m_vW[3]));
+    return Mat4(Vec4(mX[0], mY[0], mZ[0], mW[0]),
+        Vec4(mX[1], mY[1], mZ[1], mW[1]),
+        Vec4(mX[2], mY[2], mZ[2], mW[2]),
+        Vec4(mX[3], mY[3], mZ[3], mW[3]));
 }
 
 }

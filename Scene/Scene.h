@@ -22,7 +22,7 @@ public:
     // Workspace
     //
     void                Render();
-    void                SetViewportRect(int x, int y, int width, int height);
+    void                setViewportRect(int x, int y, int width, int height);
     //
     // Camera
     //
@@ -31,7 +31,7 @@ public:
     void                ZoomBy(const GLfloat times);
     void                Look();
     void                Reset();
-    void                SetProjectionMode(ProjectionMode projectionMode);
+    void                setProjectionMode(ProjectionMode projectionMode);
     //
     // Lights           
     //
@@ -39,23 +39,23 @@ public:
     //
     // Model
     //
-    void                Select(Node* pNode) { m_pModelManager->Select(pNode); }
-    Face*               CreateFace(const Vec3& vOrigin);
-    Point*              CreatePoint(const Vec3& vOrigin);
-    Line*               CreateLine(Point* pStartPoint, Point* pEndPoint);
+    void                Select(Node* pNode) { mModelManager->Select(pNode); }
+    Face*               CreateFace(const Vec3& origin);
+    Point*              CreatePoint(const Vec3& origin);
+    Line*               CreateLine(Point* startPoint, Point* endPoint);
     Point*              NearestPointToCenterInSphere(const Sphere& sSphere);
     void                UpdateNode(Node* pNode);
     void                RemoveNode(Node* pNode);
-    unsigned long       Size() { return m_pModelManager->Size(); }
+    unsigned long       Size() { return mModelManager->Size(); }
     
-    InteractionManager* InteractionManager() const { return m_pInteractionManager; }
+    InteractionManager* InteractionManager() const { return mInteractionManager; }
     
 private:
     
-    Workspace*        m_pWorkspace;
-    Camera*           m_pCamera;
-    ModelManager*     m_pModelManager;
-    class InteractionManager* m_pInteractionManager;
+    Workspace*        mWorkspace;
+    Camera*           mCamera;
+    ModelManager*     mModelManager;
+    class InteractionManager* mInteractionManager;
     
 };
 

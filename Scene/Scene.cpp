@@ -16,23 +16,23 @@ namespace ftr {
 Scene::Scene()
 {
     glEnable(GL_NORMALIZE);
-    m_pWorkspace = new Workspace();
-    m_pCamera = new  Camera(Vec3(5.0f, 5.0f, 5.0f));
-    m_pModelManager = new ModelManager();
-    m_pModelManager->ModelTreeManager()->SetRootNode(reinterpret_cast<Node*>(m_pWorkspace));
-    m_pInteractionManager = new class InteractionManager(*m_pModelManager);
+    mWorkspace = new Workspace();
+    mCamera = new  Camera(Vec3(5.0f, 5.0f, 5.0f));
+    mModelManager = new ModelManager();
+    mModelManager->ModelTreeManager()->setRootNode(reinterpret_cast<Node*>(mWorkspace));
+    mInteractionManager = new class InteractionManager(*mModelManager);
     
-    Select(m_pWorkspace);
+    Select(mWorkspace);
 }
 //
 //
 //
 Scene::~Scene()
 {
-    FT_DELETE(m_pWorkspace);
-    FT_DELETE(m_pCamera);
-    FT_DELETE(m_pModelManager);
-    FT_DELETE(m_pInteractionManager);
+    FT_DELETE(mWorkspace);
+    FT_DELETE(mCamera);
+    FT_DELETE(mModelManager);
+    FT_DELETE(mInteractionManager);
 }
 
 #pragma mark Workspace
@@ -41,15 +41,15 @@ Scene::~Scene()
 //
 void Scene::Render()
 {
-    m_pWorkspace->Render();
-    m_pModelManager->ModelTreeManager()->Octree()->Render();
+    mWorkspace->Render();
+    mModelManager->ModelTreeManager()->Octree()->Render();
 }
 //
 //
 //
-void Scene::SetViewportRect(int x, int y, int width, int height)
+void Scene::setViewportRect(int x, int y, int width, int height)
 {
-    m_pWorkspace->SetViewportRect(Rect(x, y, width, height));
+    mWorkspace->setViewportRect(Rect(x, y, width, height));
 }
 
 #pragma mark Camera
@@ -58,42 +58,42 @@ void Scene::SetViewportRect(int x, int y, int width, int height)
 //
 void Scene::MoveBy(const Vec2& deltaMove)
 {
-    m_pCamera->MoveBy(deltaMove);
+    mCamera->MoveBy(deltaMove);
 }
 //
 //
 //
 void Scene::RotateBy(const Vec2& deltaRotation)
 {
-    m_pCamera->RotateBy(deltaRotation);
+    mCamera->RotateBy(deltaRotation);
 }
 //
 //
 //
 void Scene::ZoomBy(const GLfloat times)
 {
-    m_pCamera->ZoomBy(times);
+    mCamera->ZoomBy(times);
 }
 //
 //
 //
 void Scene::Look()
 {
-    m_pCamera->Look();
+    mCamera->Look();
 }
 //
 //
 //
 void Scene::Reset()
 {
-    m_pCamera->Reset();
+    mCamera->Reset();
 }
 //
 //
 //
-void Scene::SetProjectionMode(ProjectionMode projectionMode)
+void Scene::setProjectionMode(ProjectionMode projectionMode)
 {
-    m_pCamera->setProjectionMode(projectionMode);
+    mCamera->setProjectionMode(projectionMode);
 }
 
 #pragma mark Lights
@@ -106,37 +106,37 @@ void Scene::TurnOnLight(int index)
 
 #pragma mark Model
 
-Face* Scene::CreateFace(const Vec3& vOrigin)
+Face* Scene::CreateFace(const Vec3& origin)
 {
-    return m_pModelManager->CreateFace(vOrigin, Face::kRectangle);
+    return mModelManager->CreateFace(origin, Face::kRectangle);
 }
 
 
-Point* Scene::CreatePoint(const Vec3& vOrigin)
+Point* Scene::CreatePoint(const Vec3& origin)
 {
-    return m_pModelManager->CreatePoint(vOrigin);
+    return mModelManager->CreatePoint(origin);
 }
 
 
-Line* Scene::CreateLine(Point* pStartPoint, Point* pEndPoint)
+Line* Scene::CreateLine(Point* startPoint, Point* endPoint)
 {
-    return m_pModelManager->CreateLine(pStartPoint, pEndPoint);
+    return mModelManager->CreateLine(startPoint, endPoint);
 }
 
 Point* Scene::NearestPointToCenterInSphere(const Sphere& sSphere)
 {
-    return m_pModelManager->NearestPointToCenterInSphere(sSphere);
+    return mModelManager->NearestPointToCenterInSphere(sSphere);
 }
 
 void Scene::UpdateNode(Node* pNode)
 {
-    m_pModelManager->UpdateNode(pNode);
+    mModelManager->UpdateNode(pNode);
 }
 
 void Scene::RemoveNode(Node* pNode)
 {
-    m_pModelManager->RemoveNode(pNode);
-    m_pWorkspace->RemoveNode(pNode);
+    mModelManager->RemoveNode(pNode);
+    mWorkspace->RemoveNode(pNode);
 }
 
 }

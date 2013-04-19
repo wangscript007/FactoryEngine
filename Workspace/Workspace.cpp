@@ -22,10 +22,10 @@ Workspace::~Workspace()
     delete mpHUD;
 }
 
-void Workspace::SetViewportRect(Rect rect)
+void Workspace::setViewportRect(Rect rect)
 {
     Log(kLogWorkspace, "");
-    glViewport(rect.m_vOrigin.mX, rect.m_vOrigin.mY, rect.m_vSize.mX, rect.m_vSize.mY);
+    glViewport(rect.mOrigin.mX, rect.mOrigin.mY, rect.mSize.mX, rect.mSize.mY);
 }
 
 void Workspace::Render()

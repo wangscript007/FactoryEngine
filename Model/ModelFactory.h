@@ -17,18 +17,18 @@ class ModelTreeManager;
 class ModelFactory
 {
 public:
-    ModelFactory(ModelTreeManager& rModelTreeManager);
+    ModelFactory(ModelTreeManager& modelTreeManager);
     ~ModelFactory() {}
     
-    Face*     CreateRectangle(const Vec3& vOrigin, const Vec3& vSize) const;
-    Face*     CreateCircle(Vec3 vOrigin, float fRadius, int iCount) const;
-    Face*     CreatePolygon(std::vector<Point*>& vPointsVector) const;
-    Face*     CreateFace(Vec3 vOrigin, Vec3 vSize, Face::FaceType eType) const;
-    Point*    CreatePoint(Vec3 vOrigin) const;
-    Line*     CreateLine(Point* pStartPoint, Point* pEndPoint) const;
+    Face*     CreateRectangle(const Vec3& origin, const Vec3& size) const;
+    Face*     CreateCircle(Vec3 origin, float radius, int iCount) const;
+    Face*     CreatePolygon(std::vector<Point*>& pointsVector) const;
+    Face*     CreateFace(Vec3 origin, Vec3 size, Face::FaceType eType) const;
+    Point*    CreatePoint(Vec3 origin) const;
+    Line*     CreateLine(Point* startPoint, Point* endPoint) const;
     
 private:
-    ModelTreeManager& m_rModelTreeManager;
+    ModelTreeManager& mModelTreeManager;
 };
 
 }

@@ -12,106 +12,106 @@ namespace ftr {
 class _ALIGN(16) Frame
 {
 public:
-    Vec2          m_vMin;
-    Vec2          m_vMax;
+    Vec2          mMin;
+    Vec2          mMax;
 
                     Frame() {}
-                    Frame(const Frame& other): m_vMin(other.m_vMin), m_vMax(other.m_vMax) {}
-                    Frame(const Vec2& vMin, const Vec2& vMax): m_vMin(vMin), m_vMax(vMax) {}
+                    Frame(const Frame& other): mMin(other.mMin), mMax(other.mMax) {}
+                    Frame(const Vec2& min, const Vec2& max): mMin(min), mMax(max) {}
 
-    Frame         operator-(const Vec2& vPos) const {return Frame(m_vMin - vPos, m_vMax - vPos);}
-    Frame         operator+(const Vec2& vPos) const {return Frame(m_vMin + vPos, m_vMax + vPos);}
-    Frame&        operator+=(const Vec2& vPos);
-    Frame&        operator-=(const Vec2& vPos);
+    Frame         operator-(const Vec2& pos) const {return Frame(mMin - pos, mMax - pos);}
+    Frame         operator+(const Vec2& pos) const {return Frame(mMin + pos, mMax + pos);}
+    Frame&        operator+=(const Vec2& pos);
+    Frame&        operator-=(const Vec2& pos);
     Frame&        operator=(const Frame& other);
     Frame&        operator*=(const Mat2& matrix);
-    Frame         operator*(float fX) const {return Frame(m_vMin * fX, m_vMax * fX);}
-    Frame&        operator*=(float fX);
-    Vec2&         operator[](int index) {return (&m_vMin)[index];}
-    const Vec2&   operator[](int index) const {return (&m_vMin)[index];}
-    bool            operator==(const Frame& other) const {return m_vMin == other.m_vMin && m_vMax == other.m_vMax;}
-    bool            operator!=(const Frame& other) const {return m_vMin != other.m_vMin || m_vMax != other.m_vMax;}
+    Frame         operator*(float x) const {return Frame(mMin * x, mMax * x);}
+    Frame&        operator*=(float x);
+    Vec2&         operator[](int index) {return (&mMin)[index];}
+    const Vec2&   operator[](int index) const {return (&mMin)[index];}
+    bool            operator==(const Frame& other) const {return mMin == other.mMin && mMax == other.mMax;}
+    bool            operator!=(const Frame& other) const {return mMin != other.mMin || mMax != other.mMax;}
 
-    void            Set(const Vec2& vMin, const Vec2& vMax);
-    float           GetWidth() const {return m_vMax.mX - m_vMin.mX;}
-    float           GetHeight() const {return m_vMax.mY - m_vMin.mY;}
-    void            SetWidth(float fWidth) {m_vMax.mX = m_vMin.mX + fWidth;}
-    void            SetHeight(float fHeight) {m_vMax.mY = m_vMin.mY + fHeight;}
-    void            SetPosition(const Vec2& vPos);
-    void            Scale(const Vec2& vScale);
-    const Vec2&   GetPosition() const {return m_vMin;}
-    void            SetExtent(const Vec2& vExtent);
+    void            set(const Vec2& min, const Vec2& max);
+    float           GetWidth() const {return mMax.mX - mMin.mX;}
+    float           GetHeight() const {return mMax.mY - mMin.mY;}
+    void            setWidth(float width) {mMax.mX = mMin.mX + width;}
+    void            setHeight(float fHeight) {mMax.mY = mMin.mY + fHeight;}
+    void            setPosition(const Vec2& pos);
+    void            Scale(const Vec2& scale);
+    const Vec2&   GetPosition() const {return mMin;}
+    void            setExtent(const Vec2& extent);
     Vec2          GetExtent() const {return Vec2(GetWidth(), GetHeight());}
-    bool            Intersect(const Vec2& vPoint) const;
+    bool            Intersect(const Vec2& point) const;
     bool            Intersect(const Frame& other) const {return Intersect(other[0]) && Intersect(other[1]);}
     bool            Overlap(const Frame& other) const;
-    Vec2          Center() const {return (m_vMin + m_vMax) * 0.5f;}
+    Vec2          Center() const {return (mMin + mMax) * 0.5f;}
     Mat3x2        Orthographic() const;
 };
 
 inline Frame& Frame::operator=(const Frame& other)
 {
-    m_vMin = other.m_vMin;
-    m_vMax = other.m_vMax;
+    mMin = other.mMin;
+    mMax = other.mMax;
     return *this;
 }
 
-inline Frame& Frame::operator-=(const Vec2& vPos)
+inline Frame& Frame::operator-=(const Vec2& pos)
 {
-    m_vMin -= vPos;
-    m_vMax -= vPos;
+    mMin -= pos;
+    mMax -= pos;
     return *this;
 }
 
-inline Frame& Frame::operator+=(const Vec2& vPos)
+inline Frame& Frame::operator+=(const Vec2& pos)
 {
-    m_vMin += vPos;
-    m_vMax += vPos;
+    mMin += pos;
+    mMax += pos;
     return *this;
 }
 
-inline void Frame::Set(const Vec2& vMin, const Vec2& vMax)
+inline void Frame::set(const Vec2& min, const Vec2& max)
 {
-    m_vMin = vMin;
-    m_vMax = vMax;
+    mMin = min;
+    mMax = max;
 }
 
-inline void Frame::SetExtent(const Vec2& vExtent)
+inline void Frame::setExtent(const Vec2& extent)
 {
-    SetWidth(vExtent[0]);
-    SetHeight(vExtent[1]);
+    setWidth(extent[0]);
+    setHeight(extent[1]);
 }
 
-inline void Frame::SetPosition(const Vec2& vPos)
+inline void Frame::setPosition(const Vec2& pos)
 {
-    float fWidth = GetWidth();
+    float width = GetWidth();
     float fHeight = GetHeight();
-    m_vMin = vPos;
-    m_vMax[0] = vPos[0] + fWidth;
-    m_vMax[1] = vPos[1] + fHeight;
+    mMin = pos;
+    mMax[0] = pos[0] + width;
+    mMax[1] = pos[1] + fHeight;
 }
 
-inline void Frame::Scale(const Vec2& vScale)
+inline void Frame::Scale(const Vec2& scale)
 {
-    SetWidth(GetWidth() * vScale[0]);
-    SetHeight(GetHeight() * vScale[1]);
+    setWidth(GetWidth() * scale[0]);
+    setHeight(GetHeight() * scale[1]);
 }
 
-inline bool Frame::Intersect(const Vec2& vPoint) const
+inline bool Frame::Intersect(const Vec2& point) const
 {
-    if(vPoint[0] < m_vMin[0])
+    if(point[0] < mMin[0])
     {
         return false;
     }
-    if(vPoint[1] < m_vMin[1])
+    if(point[1] < mMin[1])
     {
         return false;
     }
-    if(vPoint[0] > m_vMax[0])
+    if(point[0] > mMax[0])
     {
         return false;
     }
-    if(vPoint[1] > m_vMax[1])
+    if(point[1] > mMax[1])
     {
         return false;   
     }
@@ -145,23 +145,23 @@ inline Frame operator*(const Frame& frame, const Mat2& matrix)
     return Frame(frame[0] * matrix, frame[1] * matrix);
 }
 
-inline Frame& Frame::operator*=(float fX)
+inline Frame& Frame::operator*=(float x)
 {
-    m_vMin *= fX;
-    m_vMax *= fX;
+    mMin *= x;
+    mMax *= x;
     return *this;
 }
 
 inline Frame& Frame::operator*=(const Mat2& matrix)
 {
-    m_vMin *= matrix;
-    m_vMax *= matrix;
+    mMin *= matrix;
+    mMax *= matrix;
     return *this;
 }
 
 inline Mat3x2 Frame::Orthographic() const
 {
-    return Mat3x2(Mat2(Vec2(2.0f / GetWidth(), 0.0f), Vec2(0.0f, 2.0f / (m_vMin[1] - m_vMax[1]))), Vec2((m_vMin[0] + m_vMax[0]) / (m_vMin[0] - m_vMax[0]), (m_vMin[1] + m_vMax[1]) / GetHeight()));
+    return Mat3x2(Mat2(Vec2(2.0f / GetWidth(), 0.0f), Vec2(0.0f, 2.0f / (mMin[1] - mMax[1]))), Vec2((mMin[0] + mMax[0]) / (mMin[0] - mMax[0]), (mMin[1] + mMax[1]) / GetHeight()));
 }
 
 }

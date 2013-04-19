@@ -18,7 +18,7 @@ class Model : public Node
 public:
     ModelType                 m_eType;
     
-    void                        SetVertex(Vec3* vertexArray);
+    void                        setVertex(Vec3* vertexArray);
     virtual NodeType Type() const { return kNone; }
 private:
 };

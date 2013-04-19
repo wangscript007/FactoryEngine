@@ -3,9 +3,9 @@
 
 namespace ftr {
 
-Line::Line(Point* pStartPoint, Point* pEndPoint)
-    :m_pStartPoint(pStartPoint)
-    ,m_pEndPoint(pEndPoint)
+Line::Line(Point* startPoint, Point* endPoint)
+    :mStartPoint(startPoint)
+    ,mEndPoint(endPoint)
 {}
 
 #pragma mark - Instance
@@ -14,11 +14,11 @@ Line::Line(Point* pStartPoint, Point* pEndPoint)
 void Line::Render()
 {
     Node::Render();
-    if (m_pStartPoint) {
-        m_pStartPoint->Render();
+    if (mStartPoint) {
+        mStartPoint->Render();
     }
-    if (m_pEndPoint) {
-        m_pEndPoint->Render();
+    if (mEndPoint) {
+        mEndPoint->Render();
     }
     glDisable(GL_DEPTH_TEST);
     glDisable(GL_LIGHTING);
@@ -27,8 +27,8 @@ void Line::Render()
     glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
     glBegin(GL_LINES);
     {
-        Vec3 startVec = m_pStartPoint->m_vOrigin;
-        Vec3 endVec = m_pEndPoint->m_vOrigin;
+        Vec3 startVec = mStartPoint->mOrigin;
+        Vec3 endVec = mEndPoint->mOrigin;
         glVertex3d(startVec.mX,
                    startVec.mY,
                    startVec.mZ);
@@ -41,8 +41,8 @@ void Line::Render()
 
 void Line::Transform(const Mat4& m4Transformation)
 {
-    m_pStartPoint->Transform(m4Transformation);
-    m_pEndPoint->Transform(m4Transformation);
+    mStartPoint->Transform(m4Transformation);
+    mEndPoint->Transform(m4Transformation);
 }
     
 }

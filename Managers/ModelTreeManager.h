@@ -15,21 +15,21 @@ public:
     ModelTreeManager();
     ~ModelTreeManager();
     
-    void        SetRootNode(Node* pRootNode);
+    void        setRootNode(Node* pRootNode);
     
-    Octree*   Octree() const { return m_pOctree; }
+    Octree*   Octree() const { return mOctree; }
     void        AddNode(Node* pNode);
     void        UpdateNode(Node* pNode);
     void        RemoveNode(Node* pNode);
     
-    void PointsInBox(const Box& sBox, std::vector<Point*>& rPointsVector) const {
-        m_pOctree->PointsInBox(sBox, rPointsVector);
+    void PointsInBox(const Box& sBox, std::vector<Point*>& pointsVector) const {
+        mOctree->PointsInBox(sBox, pointsVector);
     }
-    unsigned long Size() { return m_pOctree->Size(); }
+    unsigned long Size() { return mOctree->Size(); }
     
 private:
-    Node*     m_pRootNode;
-    ftr::Octree*   m_pOctree;
+    Node*     mRootNode;
+    ftr::Octree*   mOctree;
 };
 
 }

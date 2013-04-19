@@ -13,7 +13,7 @@ public:
     virtual ~Polyline() {}
     
 private:
-    TPoinsVector m_cPointsVector;
+    TPoinsVector mPointsVector;
 };
     
 }

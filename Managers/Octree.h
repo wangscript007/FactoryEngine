@@ -28,8 +28,8 @@ public:
     void InsertPoint(Point* pPoint);
     void RemovePoint(Point* pPoint);
     void UpdatePoint(Point* pPoint);
-    Node* NodeContainingPoint(const Vec3& vPoint);
-    void PointsInBox(const Box& sBox, std::vector<Point*>& rPointsVector) const;
+    Node* NodeContainingPoint(const Vec3& point);
+    void PointsInBox(const Box& sBox, std::vector<Point*>& pointsVector) const;
     
     
     enum NodeType { kBranch, kLeaf };
@@ -39,10 +39,10 @@ public:
     public:
         
         struct SIndex {
-            int m_iX, m_iY, m_iZ;
-            SIndex() :m_iX(0), m_iY(0), m_iZ(0) {}
+            int mX, mY, mZ;
+            SIndex() :mX(0), mY(0), mZ(0) {}
             SIndex(const int iX, const int iY, const int iZ)
-            :m_iX(iX), m_iY(iY), m_iZ(iZ) {}
+            :mX(iX), mY(iY), mZ(iZ) {}
         };
         
         
@@ -52,22 +52,22 @@ public:
         virtual void Render() const;
         virtual unsigned long Size() const { return 0; }
         NodeType Type() const { return m_eType; }
-        Node* Parent() const { return m_pParent; }
-        void SetParent(Node* pParent)  { m_pParent = pParent; }
-        Box& Box() { return m_sBox; }
-        SIndex& Index() { return m_sIndex; }
-        void SetIndex(SIndex sIndex) { m_sIndex = sIndex; }
-        Node* NodeContainingPoint(const Vec3& vPoint);
-        void PointsInBox(const ftr::Box& sBox, std::vector<Point*>& rPointsVector) const;
-        void SetDepth(int iDepth) { m_iDepth = iDepth; }
-        int Depth() const { return m_iDepth; }
+        Node* Parent() const { return mParent; }
+        void setParent(Node* pParent)  { mParent = pParent; }
+        Box& Box() { return mBox; }
+        SIndex& Index() { return mIndex; }
+        void setIndex(SIndex sIndex) { mIndex = sIndex; }
+        Node* NodeContainingPoint(const Vec3& point);
+        void PointsInBox(const ftr::Box& sBox, std::vector<Point*>& pointsVector) const;
+        void setDepth(int iDepth) { mDepth = iDepth; }
+        int Depth() const { return mDepth; }
         
     protected:
-        ftr::Box m_sBox;
-        Node* m_pParent;
-        SIndex m_sIndex;
+        ftr::Box mBox;
+        Node* mParent;
+        SIndex mIndex;
         NodeType m_eType;
-        int m_iDepth;
+        int mDepth;
     private:
         
     };
@@ -80,12 +80,12 @@ public:
         virtual ~Branch();
         
         void Render() const;
-        Node* Child(int x, int y, int z) const { return m_pChildrenArray[x][y][z]; };
-        void SetChild(int x, int y, int z, Node* pNode);
-        void SetChild(SIndex& sIndex, Node* pNode);
+        Node* Child(int x, int y, int z) const { return mChildrenArray[x][y][z]; };
+        void setChild(int x, int y, int z, Node* pNode);
+        void setChild(SIndex& sIndex, Node* pNode);
         unsigned long Size() const;
     private:
-        Node* m_pChildrenArray[2][2][2];
+        Node* mChildrenArray[2][2][2];
     };
     
     
@@ -99,23 +99,23 @@ public:
         
         
         void Render() const;
-        unsigned long Size() const { return m_cPointsList.size(); }
+        unsigned long Size() const { return mPointsList.size(); }
         void InsertPoint(Point* pPoint);
         void RemovePoint(Point* pPoint);
-        const TPointsList& Points() const { return m_cPointsList; }
+        const TPointsList& Points() const { return mPointsList; }
     private:
-        TPointsList m_cPointsList;
+        TPointsList mPointsList;
     };
     
 private:
-    Octree::Branch* Split(Leaf* pLeaf);
-    void Merge(Branch* pBrach);
+    Octree::Branch* Split(Leaf* leaf);
+    void Merge(Branch* brach);
     
-    Branch* m_pRootNode;
-    int m_iMaxCapacity;
-    int m_iMaxDepth;
-    bool m_bUpdateSize;
-    unsigned long m_iSize;
+    Branch* mRootNode;
+    int mMaxCapacity;
+    int mMaxDepth;
+    bool mUpdateSize;
+    unsigned long mSize;
 };
     
 }

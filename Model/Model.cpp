@@ -6,7 +6,7 @@
 
 namespace ftr {
 
-void Model::SetVertex(Vec3 *vertexArray)
+void Model::setVertex(Vec3 *vertexArray)
 {
     //int size = sizeof vertexArray / sizeof *vertexArray;
     //mfacesVector.assign(vertexArray, vertexArray + size);

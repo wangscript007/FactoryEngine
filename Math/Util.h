@@ -24,9 +24,9 @@ inline float Lerp(float x, float y, float t)
     return x + t * (y - x);
 }
 
-inline float Clamp(float fValue, float fMin, float fMax)
+inline float Clamp(float fValue, float min, float max)
 {
-    return ( fValue < fMin ? fMin : (fValue > fMax ? fMax : fValue) );
+    return ( fValue < min ? min : (fValue > max ? max : fValue) );
 }
 
 inline float Maximum(float fA, float fB)
@@ -102,9 +102,9 @@ inline float Radian(float fDegree)
     return (fDegree/180.0f)*Pi;
 }
 
-inline float Degree(float fRadian)
+inline float Degree(float radian)
 {
-    return (fRadian/Pi)*180.0f;
+    return (radian/Pi)*180.0f;
 }
     
 }}

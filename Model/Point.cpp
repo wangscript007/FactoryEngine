@@ -9,22 +9,22 @@ const float Point::c_fR = 5.0f;
 
 
 Point::Point()
-    :m_pOctreeLeaf(NULL)
-    ,m_bIsActive(false)
+    :mOctreeLeaf(NULL)
+    ,mIsActive(false)
 {
     
 }
 
-Point::Point(Vec3 vOrigin)
-:m_vOrigin(vOrigin)
+Point::Point(Vec3 origin)
+:mOrigin(origin)
 {
     Point();
 }
 
 void Point::Transform(const Mat4& m4Transformation)
 {
-    m_vOrigin *= m4Transformation;
-    Log(kLogModel, "[%f, %f, %f]", m_vOrigin.mX, m_vOrigin.mY, m_vOrigin.mZ);
+    mOrigin *= m4Transformation;
+    Log(kLogModel, "[%f, %f, %f]", mOrigin.mX, mOrigin.mY, mOrigin.mZ);
 }
 
 #pragma mark - Instance
@@ -44,13 +44,13 @@ void Point::Render()
     
     glBegin(GL_POINTS);
     {
-        if (m_bIsActive) {
+        if (mIsActive) {
             glColor3f(0.5f, 0.207, 0.031f);
         } else {
             glColor3f(0.95f, 0.207, 0.031f);
         }
         
-        glVertex3f(m_vOrigin.mX, m_vOrigin.mY, m_vOrigin.mZ);
+        glVertex3f(mOrigin.mX, mOrigin.mY, mOrigin.mZ);
     }
     glEnd();
 }

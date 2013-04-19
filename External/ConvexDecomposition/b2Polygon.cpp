@@ -196,7 +196,7 @@ void b2Polygon::MergeParallelEdges(float32 tolerance) {
 b2Vec2* b2Polygon::GetVertexVecs() {
         b2Vec2* out = new b2Vec2[nVertices];
         for (int32 i = 0; i < nVertices; ++i) {
-            out[i].Set(x[i], y[i]);
+            out[i].set(x[i], y[i]);
         }
         return out;
 }
@@ -211,7 +211,7 @@ b2Polygon::b2Polygon(b2Triangle& t) {
 	}
 }
 	
-void b2Polygon::Set(const b2Polygon& p) {
+void b2Polygon::set(const b2Polygon& p) {
         if (nVertices != p.nVertices){
 			nVertices = p.nVertices;
 			if (x) delete[] x;
@@ -259,7 +259,7 @@ bool b2Polygon::IsConvex() {
  */
 static b2Vec2 PolyCentroid(const b2Vec2* vs, int32 count)
 {
-	b2Vec2 c; c.Set(0.0f, 0.0f);
+	b2Vec2 c; c.set(0.0f, 0.0f);
 	float32 area = 0.0f;
 
 	const float32 inv3 = 1.0f / 3.0f;
@@ -311,7 +311,7 @@ bool b2Polygon::IsUsable(bool printErrors){
 	b2Vec2* normals = new b2Vec2[nVertices];
 	b2Vec2* vertices = new b2Vec2[nVertices];
 	for (int32 i = 0; i < nVertices; ++i){
-		vertices[i].Set(x[i],y[i]);
+		vertices[i].set(x[i],y[i]);
 		int32 i1 = i;
 		int32 i2 = i + 1 < nVertices ? i + 1 : 0;
 		b2Vec2 edge(x[i2]-x[i1],y[i2]-y[i1]);
@@ -540,7 +540,7 @@ void b2Polygon::AddTo(b2FixtureDef& pd) {
 		
     }
 	
-	polyShape->Set((const b2Vec2*)vecsToAdd, ind+1);
+	polyShape->set((const b2Vec2*)vecsToAdd, ind+1);
 	pd.shape = polyShape;
 	
     delete[] vecs;
@@ -589,7 +589,7 @@ bool ResolvePinchPoint(const b2Polygon& pin, b2Polygon& poutA, b2Polygon& poutB)
 			yA[i] = pin.y[ind];
 		}
 		b2Polygon tempA(xA,yA,sizeA);
-		poutA.Set(tempA);
+		poutA.set(tempA);
 		delete[] xA;
 		delete[] yA;
 		
@@ -601,8 +601,8 @@ bool ResolvePinchPoint(const b2Polygon& pin, b2Polygon& poutA, b2Polygon& poutB)
 			xB[i] = pin.x[ind];
 			yB[i] = pin.y[ind];
 		}
-		b2Polygon tempB(xB,yB,sizeB);
-		poutB.Set(tempB);
+		b2Polygon temb(xB,yB,sizeB);
+		poutB.set(temb);
 		//printf("Size of a: %d, size of b: %d\n",sizeA,sizeB);
 		delete[] xB;
 		delete[] yB;
@@ -640,23 +640,23 @@ int32 TriangulatePolygon(float32* xv, float32* yv, int32 vNum, b2Triangle* resul
             return 0;
 
 		//Recurse and split on pinch points
-		b2Polygon pA,pB;
+		b2Polygon pA,b;
 		b2Polygon pin(xv,yv,vNum);
-		if (ResolvePinchPoint(pin,pA,pB)){
+		if (ResolvePinchPoint(pin,pA,b)){
 			b2Triangle* mergeA = new b2Triangle[pA.nVertices];
-			b2Triangle* mergeB = new b2Triangle[pB.nVertices];
+			b2Triangle* mergeB = new b2Triangle[b.nVertices];
 			int32 nA = TriangulatePolygon(pA.x,pA.y,pA.nVertices,mergeA);
-			int32 nB = TriangulatePolygon(pB.x,pB.y,pB.nVertices,mergeB);
+			int32 nB = TriangulatePolygon(b.x,b.y,b.nVertices,mergeB);
 			if (nA==-1 || nB==-1){
 				delete[] mergeA;
 				delete[] mergeB;
 				return -1;
 			}
 			for (int32 i=0; i<nA; ++i){
-				results[i].Set(mergeA[i]);
+				results[i].set(mergeA[i]);
 			}
 			for (int32 i=0; i<nB; ++i){
-				results[nA+i].Set(mergeB[i]);
+				results[nA+i].set(mergeB[i]);
 			}
 			delete[] mergeA;
 			delete[] mergeB;
@@ -721,7 +721,7 @@ int32 TriangulatePolygon(float32* xv, float32* yv, int32 vNum, b2Triangle* resul
 					printf("Please submit this dump to ewjordan at Box2d forums\n");
 				}
 				for (int32 i = 0; i < bufferSize; i++) {
-					results[i].Set(buffer[i]);
+					results[i].set(buffer[i]);
 				}
 		
 				delete[] buffer;
@@ -748,7 +748,7 @@ int32 TriangulatePolygon(float32* xv, float32* yv, int32 vNum, b2Triangle* resul
             int32 under = (earIndex == 0) ? (vNum) : (earIndex - 1);
             int32 over = (earIndex == vNum) ? 0 : (earIndex + 1);
             b2Triangle toAdd = b2Triangle(xrem[earIndex], yrem[earIndex], xrem[over], yrem[over], xrem[under], yrem[under]);
-            buffer[bufferSize].Set(toAdd);
+            buffer[bufferSize].set(toAdd);
             ++bufferSize;
 			
             // - replace the old list with the new one
@@ -760,7 +760,7 @@ int32 TriangulatePolygon(float32* xv, float32* yv, int32 vNum, b2Triangle* resul
 		
         b2Triangle toAdd = b2Triangle(xrem[1], yrem[1], xrem[2], yrem[2],
 								  xrem[0], yrem[0]);
-        buffer[bufferSize].Set(toAdd);
+        buffer[bufferSize].set(toAdd);
         ++bufferSize;
 		
         delete[] xrem;
@@ -769,7 +769,7 @@ int32 TriangulatePolygon(float32* xv, float32* yv, int32 vNum, b2Triangle* resul
         b2Assert(bufferSize == xremLength-2);
 		
         for (int32 i = 0; i < bufferSize; i++) {
-            results[i].Set(buffer[i]);
+            results[i].set(buffer[i]);
         }
 		
         delete[] buffer;
@@ -841,7 +841,7 @@ int32 PolygonizeTriangles(b2Triangle* triangulated, int32 triangulatedLength, b2
                             continue;
 						}
                         if (newP->IsConvex()) { //Or should it be IsUsable?  Maybe re-write IsConvex to apply the angle threshold from Box2d
-                            poly.Set(*newP);
+                            poly.set(*newP);
 							delete newP;
 							newP = NULL;
                             covered[index] = 1;
@@ -855,7 +855,7 @@ int32 PolygonizeTriangles(b2Triangle* triangulated, int32 triangulatedLength, b2
 						//If identical points are present, a triangle gets
 						//borked by the MergeParallelEdges function, hence
 						//the vertex number check
-						if (poly.nVertices >= 3) polys[polyIndex].Set(poly);
+						if (poly.nVertices >= 3) polys[polyIndex].set(poly);
 						//else printf("Skipping corrupt poly\n");
 					}
                     if (poly.nVertices >= 3) polyIndex++; //Must be outside (polyIndex < polysLength) test
@@ -956,7 +956,7 @@ int32 DecomposeConvex(b2Polygon* p, b2Polygon* results, int32 maxPolys) {
         if (p->IsCCW()) {
 			//printf("It is ccw \n");
 			b2Polygon tempP;
-			tempP.Set(*p);
+			tempP.set(*p);
 			ReversePolygon(tempP.x, tempP.y, tempP.nVertices);
 			nTri = TriangulatePolygon(tempP.x, tempP.y, tempP.nVertices, triangulated);
 //			ReversePolygon(p->x, p->y, p->nVertices); //reset orientation

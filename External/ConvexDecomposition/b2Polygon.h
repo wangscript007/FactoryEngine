@@ -58,7 +58,7 @@ public:
 	void MergeParallelEdges(float32 tolerance);
     b2Vec2* GetVertexVecs();
     b2Polygon(b2Triangle& t);
-    void Set(const b2Polygon& p);
+    void set(const b2Polygon& p);
     bool IsConvex();
 	bool IsCCW();
 	bool IsUsable(bool printError);

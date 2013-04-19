@@ -17,7 +17,7 @@ public:
     void            RemoveFace(Face* pFace);
     
 private:
-    FacesVector   m_vFacesVector;    
+    FacesVector   mFacesVector;    
 };
 
 }
