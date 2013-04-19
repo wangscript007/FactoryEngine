@@ -26,8 +26,8 @@ public:
     //
     // Camera
     //
-    void                MoveBy(const Vec2 deltaMove);
-    void                RotateBy(const Vec2 deltaRotation);
+    void                MoveBy(const Vec2& deltaMove);
+    void                RotateBy(const Vec2& deltaRotation);
     void                ZoomBy(const GLfloat times);
     void                Look();
     void                Reset();
@@ -40,10 +40,10 @@ public:
     // Model
     //
     void                Select(Node* pNode) { m_pModelManager->Select(pNode); }
-    Face*             CreateFace(Vec3 vOrigin);
-    Point*            CreatePoint(Vec3 vOrigin);
-    Line*             CreateLine(Point* pStartPoint, Point* pEndPoint);
-    Point*            NearestPointToCenterInSphere(const Sphere& sSphere);
+    Face*               CreateFace(const Vec3& vOrigin);
+    Point*              CreatePoint(const Vec3& vOrigin);
+    Line*               CreateLine(Point* pStartPoint, Point* pEndPoint);
+    Point*              NearestPointToCenterInSphere(const Sphere& sSphere);
     void                UpdateNode(Node* pNode);
     void                RemoveNode(Node* pNode);
     unsigned long       Size() { return m_pModelManager->Size(); }

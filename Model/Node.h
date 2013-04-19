@@ -28,12 +28,12 @@ public:
     virtual NodeType        Type() const { return kNone; }
     void                    AddNode(Node* pNode);
     void                    RemoveNode(Node* pMode);
-    Node*                 Supernode() const { return m_pSupernode; }
+    Node*                   Supernode() const { return m_pSupernode; }
     virtual void            Transform(const Mat4& m4Transformation);
     virtual std::vector<Point*>* Points() const { return NULL; }
     
 private:
-    Node*                 m_pSupernode;
+    Node*                   m_pSupernode;
     TNodesList              m_pSubnodes;
 };
 

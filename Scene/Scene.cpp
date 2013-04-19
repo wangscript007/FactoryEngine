@@ -56,14 +56,14 @@ void Scene::SetViewportRect(int x, int y, int width, int height)
 //
 //
 //
-void Scene::MoveBy(const Vec2 deltaMove)
+void Scene::MoveBy(const Vec2& deltaMove)
 {
     m_pCamera->MoveBy(deltaMove);
 }
 //
 //
 //
-void Scene::RotateBy(const Vec2 deltaRotation)
+void Scene::RotateBy(const Vec2& deltaRotation)
 {
     m_pCamera->RotateBy(deltaRotation);
 }
@@ -93,7 +93,7 @@ void Scene::Reset()
 //
 void Scene::SetProjectionMode(ProjectionMode projectionMode)
 {
-    m_pCamera->SetProjectionMode(projectionMode);
+    m_pCamera->setProjectionMode(projectionMode);
 }
 
 #pragma mark Lights
@@ -106,13 +106,13 @@ void Scene::TurnOnLight(int index)
 
 #pragma mark Model
 
-Face* Scene::CreateFace(Vec3 vOrigin)
+Face* Scene::CreateFace(const Vec3& vOrigin)
 {
     return m_pModelManager->CreateFace(vOrigin, Face::kRectangle);
 }
 
 
-Point* Scene::CreatePoint(Vec3 vOrigin)
+Point* Scene::CreatePoint(const Vec3& vOrigin)
 {
     return m_pModelManager->CreatePoint(vOrigin);
 }
