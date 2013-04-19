@@ -12,9 +12,9 @@ Vec3 Utils::Viewport(Vec3 sceneVec)
     glGetIntegerv (GL_VIEWPORT, viewport);                
     glGetDoublev (GL_MODELVIEW_MATRIX, modelviewMatrix);         
     glGetDoublev (GL_PROJECTION_MATRIX, projectionMatrix);
-    GLdouble x = sceneVec.m_fX;
-    GLdouble y = sceneVec.m_fY;
-    GLdouble z = sceneVec.m_fZ;
+    GLdouble x = sceneVec.mX;
+    GLdouble y = sceneVec.mY;
+    GLdouble z = sceneVec.mZ;
     GLdouble resultX, resultY, resultZ;
     gluProject(x, y, z,
                modelviewMatrix, projectionMatrix, viewport,
@@ -31,9 +31,9 @@ Vec3 Utils::Scene(const Vec3 windowVec)
     glGetIntegerv (GL_VIEWPORT, viewport);                
     glGetDoublev (GL_MODELVIEW_MATRIX, modelviewMatrix);         
     glGetDoublev (GL_PROJECTION_MATRIX, projectionMatrix);      
-    GLfloat depth = Utils::DepthAtWindowPoint(Vec2(windowVec.m_fX, windowVec.m_fY));
-    GLdouble x = windowVec.m_fX;
-    GLdouble y = windowVec.m_fY;
+    GLfloat depth = Utils::DepthAtWindowPoint(Vec2(windowVec.mX, windowVec.mY));
+    GLdouble x = windowVec.mX;
+    GLdouble y = windowVec.mY;
     GLdouble resultX, resultY, resultZ;
     gluUnProject(x, y, depth,
                  modelviewMatrix, projectionMatrix, viewport,
@@ -44,8 +44,8 @@ Vec3 Utils::Scene(const Vec3 windowVec)
 GLfloat Utils::DepthAtWindowPoint(const Vec2 point)
 {
     GLfloat depth[2];
-    GLint x = point.m_fX;
-    GLint y = point.m_fY;
+    GLint x = point.mX;
+    GLint y = point.mY;
     glReadPixels(x, y, 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &depth);
     return depth[0];
 }

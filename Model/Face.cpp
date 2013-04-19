@@ -23,7 +23,7 @@ void Face::Render()
         glColor3f(0.5f,0.5f,0.5f);
         glNormal3f(0,-1,0);
         for(auto i = m_vPointsVector.begin(); i != m_vPointsVector.end(); ++i) {
-            glVertex3f((*i)->m_vOrigin.m_fX, (*i)->m_vOrigin.m_fY, (*i)->m_vOrigin.m_fZ);
+            glVertex3f((*i)->m_vOrigin.mX, (*i)->m_vOrigin.mY, (*i)->m_vOrigin.mZ);
         }
     }
     glEnd();

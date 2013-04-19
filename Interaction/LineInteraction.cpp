@@ -23,12 +23,12 @@ void LineInteraction::Render()
     glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
     glBegin(GL_LINES);
     {
-        glVertex3d(m_vStart.m_fX,
-                   m_vStart.m_fY,
-                   m_vStart.m_fZ);
-        glVertex3d(m_vEnd.m_fX,
-                   m_vEnd.m_fY,
-                   m_vEnd.m_fZ);
+        glVertex3d(m_vStart.mX,
+                   m_vStart.mY,
+                   m_vStart.mZ);
+        glVertex3d(m_vEnd.mX,
+                   m_vEnd.mY,
+                   m_vEnd.mZ);
     }
     glEnd();
 }

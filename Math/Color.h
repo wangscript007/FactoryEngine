@@ -9,26 +9,26 @@ namespace ftr {
 class _ALIGN(16) Color4f
 {
 public:
-    float           m_fR;
-    float           m_fG;
-    float           m_fB;
-    float           m_fA;
+    float           mR;
+    float           mG;
+    float           mB;
+    float           mA;
 
-    explicit        Color4f(float fR = 0.0f, float fG = 0.0f, float fB = 0.0f, float fA = 1.0f): m_fR(fR), m_fG(fG), m_fB(fB), m_fA(fA) {}
+    explicit        Color4f(float fR = 0.0f, float fG = 0.0f, float fB = 0.0f, float fA = 1.0f): mR(fR), mG(fG), mB(fB), mA(fA) {}
                     Color4f(Byte bR, Byte bG, Byte bB, Byte bA = 255) {Set(bR, bG, bB, bA);}
-                    Color4f(const Color4f& other): m_fR(other.m_fR), m_fG(other.m_fG), m_fB(other.m_fB), m_fA(other.m_fA) {}
+                    Color4f(const Color4f& other): mR(other.mR), mG(other.mG), mB(other.mB), mA(other.mA) {}
     explicit        Color4f(const class Color4b& other);
 
-    Color4f&      operator=(const Color4f& other) {Set(other.m_fR, other.m_fG, other.m_fB, other.m_fA); return *this;}
+    Color4f&      operator=(const Color4f& other) {Set(other.mR, other.mG, other.mB, other.mA); return *this;}
     Color4f&      operator=(const class Color4b& other);
-    float&          operator[](int index) {return (&m_fR)[index];}
-    float           operator[](int index) const {return (&m_fR)[index];}
-    Color4f       operator*(float fValue) const {return Color4f(m_fR * fValue, m_fG * fValue, m_fB * fValue, m_fA * fValue);}
+    float&          operator[](int index) {return (&mR)[index];}
+    float           operator[](int index) const {return (&mR)[index];}
+    Color4f       operator*(float fValue) const {return Color4f(mR * fValue, mG * fValue, mB * fValue, mA * fValue);}
 
-    void            Set(float fR, float fG, float fB, float fA = 1.0f) {m_fR = fR; m_fG = fG; m_fB = fB; m_fA = fA;}
+    void            Set(float fR, float fG, float fB, float fA = 1.0f) {mR = fR; mG = fG; mB = fB; mA = fA;}
     void            Set(Byte bR, Byte bG, Byte bB, Byte bA = 255);
-    float*          Pointer() {return &m_fR;}
-    const float*    Pointer() const {return &m_fR;}
+    float*          Pointer() {return &mR;}
+    const float*    Pointer() const {return &mR;}
 };
 
 class _ALIGN(4) Color4b
@@ -68,20 +68,20 @@ inline Color4f& Color4f::operator=(const Color4b& other)
 
 inline void Color4f::Set(Byte bR, Byte bG, Byte bB, Byte bA)
 {
-    m_fR = static_cast<float>(bR) * 0.003921568627451f;
-    m_fG = static_cast<float>(bG) * 0.003921568627451f;
-    m_fB = static_cast<float>(bB) * 0.003921568627451f;
-    m_fA = static_cast<float>(bA) * 0.003921568627451f;
+    mR = static_cast<float>(bR) * 0.003921568627451f;
+    mG = static_cast<float>(bG) * 0.003921568627451f;
+    mB = static_cast<float>(bB) * 0.003921568627451f;
+    mA = static_cast<float>(bA) * 0.003921568627451f;
 }
 
 inline Color4b::Color4b(const Color4f& other)
 {
-    Set(other.m_fR, other.m_fG, other.m_fB, other.m_fA);
+    Set(other.mR, other.mG, other.mB, other.mA);
 }
 
 inline Color4b& Color4b::operator=(const Color4f& other)
 {
-    Set(other.m_fR, other.m_fG, other.m_fB, other.m_fA);
+    Set(other.mR, other.mG, other.mB, other.mA);
     return *this;
 }
 
@@ -96,8 +96,8 @@ inline void Color4b::Set(float fR, float fG, float fB, float fA)
 class ColorHSL
 {
 public:
-                    ColorHSL(): m_fH(0.0f), m_fS(0.0f), m_fL(0.0f) {};
-                    ColorHSL(float fH, float fS, float fL) : m_fH(fH), m_fS(fS), m_fL(fL) {};
+                    ColorHSL(): mH(0.0f), mS(0.0f), mL(0.0f) {};
+                    ColorHSL(float fH, float fS, float fL) : mH(fH), mS(fS), mL(fL) {};
     
     ColorHSL      RGB2HSL(const Color4f& Color) const;
     ColorHSL      RGB2HSL(const Color4b& Color) const;
@@ -108,17 +108,17 @@ public:
     Color4f       HSL2RGB(const ColorHSL& Color) const;
     Color4f       HSL2RGB(float fH, float fS, float fL) const;
  
-    float&          operator[](Byte bIndex) {return (&m_fH)[bIndex];}
-    float           operator[](Byte bIndex) const {return (&m_fH)[bIndex];}
+    float&          operator[](Byte bIndex) {return (&mH)[bIndex];}
+    float           operator[](Byte bIndex) const {return (&mH)[bIndex];}
  
-    float*          Pointer() {return &m_fH;}
-    const float*    Pointer() const {return &m_fH;}
+    float*          Pointer() {return &mH;}
+    const float*    Pointer() const {return &mH;}
     
     float           Hue2RGB(float fP, float fQ, float fT) const;
 
-    float           m_fH;
-    float           m_fS;
-    float           m_fL;
+    float           mH;
+    float           mS;
+    float           mL;
 };
 
 inline ColorHSL ColorHSL::RGB2HSL(const Color4b &Color) const
@@ -149,8 +149,8 @@ inline Color4f ColorHSL::HSL2RGB() const
 class ColorHSV
 {
 public:
-                    ColorHSV() : m_fH(0.0f),m_fS(0.0f),m_fV(0.0) {};
-                    ColorHSV(float fH, float fS, float fV) : m_fH(fH), m_fS(fS), m_fV(fV) {};
+                    ColorHSV() : mH(0.0f),mS(0.0f),mV(0.0) {};
+                    ColorHSV(float fH, float fS, float fV) : mH(fH), mS(fS), mV(fV) {};
     
     ColorHSV      RGB2HSV(const Color4f& Color) const;
     ColorHSV      RGB2HSV(const Color4b& Color) const;
@@ -161,15 +161,15 @@ public:
     Color4f       HSV2RGB(const ColorHSV& Color) const;
     Color4f       HSV2RGB(float fH, float fS, float fV) const;
     
-    float&          operator[](Byte bIndex) {return (&m_fH)[bIndex];}
-    float           operator[](Byte bIndex) const {return (&m_fH)[bIndex];}
+    float&          operator[](Byte bIndex) {return (&mH)[bIndex];}
+    float           operator[](Byte bIndex) const {return (&mH)[bIndex];}
 
-    float*          Pointer() {return &m_fH;}
-    const float*    Pointer() const {return &m_fH;}
+    float*          Pointer() {return &mH;}
+    const float*    Pointer() const {return &mH;}
     
-    float           m_fH;
-    float           m_fS;
-    float           m_fV;
+    float           mH;
+    float           mS;
+    float           mV;
 };
 
 inline ColorHSV ColorHSV::RGB2HSV(const Color4b& Color) const

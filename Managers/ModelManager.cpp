@@ -32,7 +32,7 @@ Point* ModelManager::NearestPointToCenterInSphere(const Sphere& sSphere) const
     float fDistance;
     for(auto i = cPointsVector.begin(); i != cPointsVector.end(); ++i) {
         fDistance = (sSphere.m_vCenter - (*i)->m_vOrigin).Length();
-        if (fDistance < sSphere.m_fRadius) {
+        if (fDistance < sSphere.mRadius) {
             if (fDistance < fNearestPointDistance) {
                 pNearestPoint = *i;
                 fNearestPointDistance = fDistance;
@@ -63,7 +63,7 @@ Face* ModelManager::CreateRectangle(const Vec3& vOrigin, const Vec3& vSize) cons
 Face* ModelManager::CreateFace(Vec3 vOrigin, Face::FaceType eType)
 {
     assert(m_pSelectedNode);
-    Face* pFace = m_pModelFactory->CreateFace(Vec3(vOrigin.m_fX, 0.01, vOrigin.m_fZ),
+    Face* pFace = m_pModelFactory->CreateFace(Vec3(vOrigin.mX, 0.01, vOrigin.mZ),
                                 Vec3(0.0f, 0.0f, 0.0f),
                                 eType);
     m_pSelectedNode->AddNode(pFace);

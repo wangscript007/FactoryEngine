@@ -32,34 +32,34 @@ void Camera::Look()
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     
-    gluLookAt(mCoords.m_fX, mCoords.m_fY, mCoords.m_fZ, 0, 0, 0, 0, 1, 0);
-    glTranslatef(mMoved.m_fX, mMoved.m_fY, -mMoved.m_fX);
-    glRotatef(mRotated.m_fX, 1, 0, -1);
-    glRotatef(mRotated.m_fY, 0, 1, 0);
+    gluLookAt(mCoords.mX, mCoords.mY, mCoords.mZ, 0, 0, 0, 0, 1, 0);
+    glTranslatef(mMoved.mX, mMoved.mY, -mMoved.mX);
+    glRotatef(mRotated.mX, 1, 0, -1);
+    glRotatef(mRotated.mY, 0, 1, 0);
 }
 
 void Camera::MoveBy(const Vec2 deltaMove)
 {
-    mMoved.m_fX += deltaMove.m_fX;
-    mMoved.m_fY += deltaMove.m_fY;
+    mMoved.mX += deltaMove.mX;
+    mMoved.mY += deltaMove.mY;
 }
 
 void Camera::RotateBy(const Vec2 deltaRotation)
 {
-    mRotated.m_fX += deltaRotation.m_fX;
-    mRotated.m_fY += deltaRotation.m_fY;
+    mRotated.mX += deltaRotation.mX;
+    mRotated.mY += deltaRotation.mY;
     double ip;
-    modf(mRotated.m_fX/360, &ip);
-    mRotated.m_fX = mRotated.m_fX - ip*360;
-    modf(mRotated.m_fY/360, &ip);
-    mRotated.m_fY = mRotated.m_fY - ip*360;
+    modf(mRotated.mX/360, &ip);
+    mRotated.mX = mRotated.mX - ip*360;
+    modf(mRotated.mY/360, &ip);
+    mRotated.mY = mRotated.mY - ip*360;
 }
 
 void Camera::ZoomBy(const GLfloat times)
 {
-    mCoords.m_fX *= times;
-    mCoords.m_fY *= times;
-    mCoords.m_fZ *= times;
+    mCoords.mX *= times;
+    mCoords.mY *= times;
+    mCoords.mZ *= times;
 }
 
 void Camera::setProjectionMode(ProjectionMode projectionMode)

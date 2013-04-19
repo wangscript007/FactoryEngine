@@ -50,19 +50,19 @@ Octree::Branch* Octree::Split(Octree::Leaf *pLeaf)
         for(int y = 0; y < 2; y++) {
             for(int z = 0; z < 2; z++) {
                 if (x == 0) {
-                    vCenter.m_fX = sBox.m_vCenter.m_fX - vHalf.m_fX;
+                    vCenter.mX = sBox.m_vCenter.mX - vHalf.mX;
                 } else {
-                    vCenter.m_fX = sBox.m_vCenter.m_fX + vHalf.m_fX;
+                    vCenter.mX = sBox.m_vCenter.mX + vHalf.mX;
                 }
                 if (y == 0) {
-                    vCenter.m_fY = sBox.m_vCenter.m_fY - vHalf.m_fY;
+                    vCenter.mY = sBox.m_vCenter.mY - vHalf.mY;
                 } else {
-                    vCenter.m_fY = sBox.m_vCenter.m_fY + vHalf.m_fY;
+                    vCenter.mY = sBox.m_vCenter.mY + vHalf.mY;
                 }
                 if (z == 0) {
-                    vCenter.m_fZ = sBox.m_vCenter.m_fZ - vHalf.m_fZ;
+                    vCenter.mZ = sBox.m_vCenter.mZ - vHalf.mZ;
                 } else {
-                    vCenter.m_fZ = sBox.m_vCenter.m_fZ + vHalf.m_fZ;
+                    vCenter.mZ = sBox.m_vCenter.mZ + vHalf.mZ;
                 }
                 pChildLeaf = new Leaf(Box(vCenter, vHalf));
                 for(auto i = cPointsList.begin(); i != cPointsList.end(); ++i) {
@@ -338,37 +338,37 @@ void Octree::Leaf::Render() const
 {
     const Vertice3 vertices[]= {
         // 0
-        m_sBox.m_vCenter.m_fX - m_sBox.m_vHalfDimention.m_fX,
-        m_sBox.m_vCenter.m_fY - m_sBox.m_vHalfDimention.m_fY,
-        m_sBox.m_vCenter.m_fZ + m_sBox.m_vHalfDimention.m_fZ,
+        m_sBox.m_vCenter.mX - m_sBox.m_vHalfDimention.mX,
+        m_sBox.m_vCenter.mY - m_sBox.m_vHalfDimention.mY,
+        m_sBox.m_vCenter.mZ + m_sBox.m_vHalfDimention.mZ,
         // 1
-        m_sBox.m_vCenter.m_fX - m_sBox.m_vHalfDimention.m_fX,
-        m_sBox.m_vCenter.m_fY + m_sBox.m_vHalfDimention.m_fY,
-        m_sBox.m_vCenter.m_fZ + m_sBox.m_vHalfDimention.m_fZ,
+        m_sBox.m_vCenter.mX - m_sBox.m_vHalfDimention.mX,
+        m_sBox.m_vCenter.mY + m_sBox.m_vHalfDimention.mY,
+        m_sBox.m_vCenter.mZ + m_sBox.m_vHalfDimention.mZ,
         // 2
-        m_sBox.m_vCenter.m_fX + m_sBox.m_vHalfDimention.m_fX,
-        m_sBox.m_vCenter.m_fY + m_sBox.m_vHalfDimention.m_fY,
-        m_sBox.m_vCenter.m_fZ + m_sBox.m_vHalfDimention.m_fZ,
+        m_sBox.m_vCenter.mX + m_sBox.m_vHalfDimention.mX,
+        m_sBox.m_vCenter.mY + m_sBox.m_vHalfDimention.mY,
+        m_sBox.m_vCenter.mZ + m_sBox.m_vHalfDimention.mZ,
         // 3
-        m_sBox.m_vCenter.m_fX + m_sBox.m_vHalfDimention.m_fX,
-        m_sBox.m_vCenter.m_fY - m_sBox.m_vHalfDimention.m_fY,
-        m_sBox.m_vCenter.m_fZ + m_sBox.m_vHalfDimention.m_fZ,
+        m_sBox.m_vCenter.mX + m_sBox.m_vHalfDimention.mX,
+        m_sBox.m_vCenter.mY - m_sBox.m_vHalfDimention.mY,
+        m_sBox.m_vCenter.mZ + m_sBox.m_vHalfDimention.mZ,
         // 4
-        m_sBox.m_vCenter.m_fX - m_sBox.m_vHalfDimention.m_fX,
-        m_sBox.m_vCenter.m_fY - m_sBox.m_vHalfDimention.m_fY,
-        m_sBox.m_vCenter.m_fZ - m_sBox.m_vHalfDimention.m_fZ,
+        m_sBox.m_vCenter.mX - m_sBox.m_vHalfDimention.mX,
+        m_sBox.m_vCenter.mY - m_sBox.m_vHalfDimention.mY,
+        m_sBox.m_vCenter.mZ - m_sBox.m_vHalfDimention.mZ,
         // 5
-        m_sBox.m_vCenter.m_fX - m_sBox.m_vHalfDimention.m_fX,
-        m_sBox.m_vCenter.m_fY + m_sBox.m_vHalfDimention.m_fY,
-        m_sBox.m_vCenter.m_fZ - m_sBox.m_vHalfDimention.m_fZ,
+        m_sBox.m_vCenter.mX - m_sBox.m_vHalfDimention.mX,
+        m_sBox.m_vCenter.mY + m_sBox.m_vHalfDimention.mY,
+        m_sBox.m_vCenter.mZ - m_sBox.m_vHalfDimention.mZ,
         // 6
-        m_sBox.m_vCenter.m_fX + m_sBox.m_vHalfDimention.m_fX,
-        m_sBox.m_vCenter.m_fY + m_sBox.m_vHalfDimention.m_fY,
-        m_sBox.m_vCenter.m_fZ - m_sBox.m_vHalfDimention.m_fZ,
+        m_sBox.m_vCenter.mX + m_sBox.m_vHalfDimention.mX,
+        m_sBox.m_vCenter.mY + m_sBox.m_vHalfDimention.mY,
+        m_sBox.m_vCenter.mZ - m_sBox.m_vHalfDimention.mZ,
         // 7
-        m_sBox.m_vCenter.m_fX + m_sBox.m_vHalfDimention.m_fX,
-        m_sBox.m_vCenter.m_fY - m_sBox.m_vHalfDimention.m_fY,
-        m_sBox.m_vCenter.m_fZ - m_sBox.m_vHalfDimention.m_fZ,
+        m_sBox.m_vCenter.mX + m_sBox.m_vHalfDimention.mX,
+        m_sBox.m_vCenter.mY - m_sBox.m_vHalfDimention.mY,
+        m_sBox.m_vCenter.mZ - m_sBox.m_vHalfDimention.mZ,
     };
     
     static const GLubyte indices[] = {

@@ -29,12 +29,12 @@ void Line::Render()
     {
         Vec3 startVec = m_pStartPoint->m_vOrigin;
         Vec3 endVec = m_pEndPoint->m_vOrigin;
-        glVertex3d(startVec.m_fX,
-                   startVec.m_fY,
-                   startVec.m_fZ);
-        glVertex3d(endVec.m_fX,
-                   endVec.m_fY,
-                   endVec.m_fZ);
+        glVertex3d(startVec.mX,
+                   startVec.mY,
+                   startVec.mZ);
+        glVertex3d(endVec.mX,
+                   endVec.mY,
+                   endVec.mZ);
     }
     glEnd();
 }

@@ -9,41 +9,41 @@ namespace ftr {
 class _ALIGN(16) Vec4
 {
 public:
-    float       m_fX;
-    float       m_fY;
-    float       m_fZ;
-    float       m_fW;
+    float       mX;
+    float       mY;
+    float       mZ;
+    float       mW;
 
-                Vec4(): m_fX(0.0f), m_fY(0.0f), m_fZ(0.0f), m_fW(0.0f) {}
-                Vec4(const Vec4& other): m_fX(other.m_fX), m_fY(other.m_fY), m_fZ(other.m_fZ), m_fW(other.m_fW) {}
-    explicit    Vec4(const Vec2& other): m_fX(other.m_fX), m_fY(other.m_fY), m_fZ(0.0f), m_fW(0.0f) {}
-    explicit    Vec4(const Vec3& other): m_fX(other.m_fX), m_fY(other.m_fY), m_fZ(other.m_fZ), m_fW(0.0f) {}
-                Vec4(float fX, float fY, float fZ, float fW): m_fX(fX), m_fY(fY), m_fZ(fZ), m_fW(fW) {}
+                Vec4(): mX(0.0f), mY(0.0f), mZ(0.0f), mW(0.0f) {}
+                Vec4(const Vec4& other): mX(other.mX), mY(other.mY), mZ(other.mZ), mW(other.mW) {}
+    explicit    Vec4(const Vec2& other): mX(other.mX), mY(other.mY), mZ(0.0f), mW(0.0f) {}
+    explicit    Vec4(const Vec3& other): mX(other.mX), mY(other.mY), mZ(other.mZ), mW(0.0f) {}
+                Vec4(float fX, float fY, float fZ, float fW): mX(fX), mY(fY), mZ(fZ), mW(fW) {}
 
-    Vec4      operator-() const {return Vec4(-m_fX, -m_fY, -m_fZ, -m_fW);}
-    float       operator*(const Vec4& other) const {return m_fX * other.m_fX + m_fY * other.m_fY + m_fZ * other.m_fZ + m_fW * other.m_fW;} // Dot product.
-    Vec4      operator-(const Vec4& other) const {return Vec4(m_fX - other.m_fX, m_fY - other.m_fY, m_fZ - other.m_fZ, m_fW - other.m_fW);}
-    Vec4      operator+(const Vec4& other) const {return Vec4(m_fX + other.m_fX, m_fY + other.m_fY, m_fZ + other.m_fZ, m_fW + other.m_fW);}
-    Vec4&     operator=(const Vec4& other) {m_fX = other.m_fX; m_fY = other.m_fY; m_fZ = other.m_fZ; m_fW = other.m_fW; return *this;}
-    Vec4&     operator=(const Vec3& other) {m_fX = other.m_fX; m_fY = other.m_fY; m_fZ = other.m_fZ; m_fW = 0.0f; return *this;}
-    Vec4&     operator=(const Vec2& other) {m_fX = other.m_fX; m_fY = other.m_fY; m_fZ = 0.0f; m_fW = 0.0f; return *this;}
-    Vec4&     operator+=(const Vec4& other) {m_fX += other.m_fX; m_fY += other.m_fY; m_fZ += other.m_fZ; m_fW += other.m_fW; return *this;}
-    Vec4&     operator-=(const Vec4& other) {m_fX -= other.m_fX; m_fY -= other.m_fY; m_fZ -= other.m_fZ; m_fW -= other.m_fW; return *this;}
-    Vec4&     operator*=(float value) {m_fX *= value; m_fY *= value; m_fZ *= value; m_fW *= value; return *this;}
-    Vec4      operator*(float value) const {return Vec4(m_fX * value, m_fY * value, m_fZ * value, m_fW * value);}
-    Vec4&     operator/=(float value) {m_fX /= value; m_fY /= value; m_fZ /= value; m_fW /= value; return *this;}
-    Vec4      operator/(float value) const {return Vec4(m_fX / value, m_fY / value, m_fZ / value, m_fW / value);}
+    Vec4      operator-() const {return Vec4(-mX, -mY, -mZ, -mW);}
+    float       operator*(const Vec4& other) const {return mX * other.mX + mY * other.mY + mZ * other.mZ + mW * other.mW;} // Dot product.
+    Vec4      operator-(const Vec4& other) const {return Vec4(mX - other.mX, mY - other.mY, mZ - other.mZ, mW - other.mW);}
+    Vec4      operator+(const Vec4& other) const {return Vec4(mX + other.mX, mY + other.mY, mZ + other.mZ, mW + other.mW);}
+    Vec4&     operator=(const Vec4& other) {mX = other.mX; mY = other.mY; mZ = other.mZ; mW = other.mW; return *this;}
+    Vec4&     operator=(const Vec3& other) {mX = other.mX; mY = other.mY; mZ = other.mZ; mW = 0.0f; return *this;}
+    Vec4&     operator=(const Vec2& other) {mX = other.mX; mY = other.mY; mZ = 0.0f; mW = 0.0f; return *this;}
+    Vec4&     operator+=(const Vec4& other) {mX += other.mX; mY += other.mY; mZ += other.mZ; mW += other.mW; return *this;}
+    Vec4&     operator-=(const Vec4& other) {mX -= other.mX; mY -= other.mY; mZ -= other.mZ; mW -= other.mW; return *this;}
+    Vec4&     operator*=(float value) {mX *= value; mY *= value; mZ *= value; mW *= value; return *this;}
+    Vec4      operator*(float value) const {return Vec4(mX * value, mY * value, mZ * value, mW * value);}
+    Vec4&     operator/=(float value) {mX /= value; mY /= value; mZ /= value; mW /= value; return *this;}
+    Vec4      operator/(float value) const {return Vec4(mX / value, mY / value, mZ / value, mW / value);}
     Vec4&     operator*=(const class Mat4& matrix);
-    float       operator[](int index) const {return (&m_fX)[index];}
-    float&      operator[](int index) {return (&m_fX)[index];}
-    bool        operator==(const Vec4& other) const {return Util::Approximately(m_fX, other.m_fX) && Util::Approximately(m_fY, other.m_fY) && Util::Approximately(m_fZ, other.m_fZ) && Util::Approximately(m_fW, other.m_fW);}
-    bool        operator!=(const Vec4& other) const {return !Util::Approximately(m_fX, other.m_fX) || !Util::Approximately(m_fY, other.m_fY) || !Util::Approximately(m_fZ, other.m_fZ) || !Util::Approximately(m_fW, other.m_fW);}
+    float       operator[](int index) const {return (&mX)[index];}
+    float&      operator[](int index) {return (&mX)[index];}
+    bool        operator==(const Vec4& other) const {return Util::Approximately(mX, other.mX) && Util::Approximately(mY, other.mY) && Util::Approximately(mZ, other.mZ) && Util::Approximately(mW, other.mW);}
+    bool        operator!=(const Vec4& other) const {return !Util::Approximately(mX, other.mX) || !Util::Approximately(mY, other.mY) || !Util::Approximately(mZ, other.mZ) || !Util::Approximately(mW, other.mW);}
 
-    void        Set(float fX, float fY, float fZ, float fW) {m_fX = fX; m_fY = fY; m_fZ = fZ; m_fW = fW;}
+    void        Set(float fX, float fY, float fZ, float fW) {mX = fX; mY = fY; mZ = fZ; mW = fW;}
     float       Distance(const Vec4& other) const {return (*this - other).Length();}
-    float       Length() const {return std::sqrt(m_fX * m_fX + m_fY * m_fY + m_fZ * m_fZ + m_fW * m_fW);}
+    float       Length() const {return std::sqrt(mX * mX + mY * mY + mZ * mZ + mW * mW);}
     float       Normalize();
-    void        Zero() {m_fX = 0.0f; m_fY = 0.0f; m_fZ = 0.0f; m_fW = 0.0f;}
+    void        Zero() {mX = 0.0f; mY = 0.0f; mZ = 0.0f; mW = 0.0f;}
 };
 
 inline float Vec4::Normalize()
@@ -52,10 +52,10 @@ inline float Vec4::Normalize()
 
     if(length > 0.0f)
     {
-        m_fX /= length;
-        m_fY /= length;
-        m_fZ /= length;
-        m_fW /= length;
+        mX /= length;
+        mY /= length;
+        mZ /= length;
+        mW /= length;
     }
 
     return length;

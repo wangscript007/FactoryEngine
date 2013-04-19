@@ -19,28 +19,28 @@ struct Box
 
 inline bool Box::Contains(const Vec3& vec) const
 {
-    if (vec.m_fX <= m_vCenter.m_fX - m_vHalfDimention.m_fX) return false;
-    if (vec.m_fX > m_vCenter.m_fX + m_vHalfDimention.m_fX) return false;
+    if (vec.mX <= m_vCenter.mX - m_vHalfDimention.mX) return false;
+    if (vec.mX > m_vCenter.mX + m_vHalfDimention.mX) return false;
     
-    if (vec.m_fY <= m_vCenter.m_fY - m_vHalfDimention.m_fY) return false;
-    if (vec.m_fY > m_vCenter.m_fY + m_vHalfDimention.m_fY) return false;
+    if (vec.mY <= m_vCenter.mY - m_vHalfDimention.mY) return false;
+    if (vec.mY > m_vCenter.mY + m_vHalfDimention.mY) return false;
     
-    if (vec.m_fZ <= m_vCenter.m_fZ - m_vHalfDimention.m_fZ) return false;
-    if (vec.m_fZ > m_vCenter.m_fZ + m_vHalfDimention.m_fZ) return false;
+    if (vec.mZ <= m_vCenter.mZ - m_vHalfDimention.mZ) return false;
+    if (vec.mZ > m_vCenter.mZ + m_vHalfDimention.mZ) return false;
         
     return true;
 }
 
 inline bool Box::Intersects(const Box& other) const
 {
-    if (m_vCenter.m_fX + m_vHalfDimention.m_fX <= other.m_vCenter.m_fX - other.m_vHalfDimention.m_fX) return false;
-    if (m_vCenter.m_fX - m_vHalfDimention.m_fX > other.m_vCenter.m_fX + other.m_vHalfDimention.m_fX) return false;
+    if (m_vCenter.mX + m_vHalfDimention.mX <= other.m_vCenter.mX - other.m_vHalfDimention.mX) return false;
+    if (m_vCenter.mX - m_vHalfDimention.mX > other.m_vCenter.mX + other.m_vHalfDimention.mX) return false;
     
-    if (m_vCenter.m_fY + m_vHalfDimention.m_fY <= other.m_vCenter.m_fY - other.m_vHalfDimention.m_fY) return false;
-    if (m_vCenter.m_fY - m_vHalfDimention.m_fY > other.m_vCenter.m_fY + other.m_vHalfDimention.m_fY) return false;
+    if (m_vCenter.mY + m_vHalfDimention.mY <= other.m_vCenter.mY - other.m_vHalfDimention.mY) return false;
+    if (m_vCenter.mY - m_vHalfDimention.mY > other.m_vCenter.mY + other.m_vHalfDimention.mY) return false;
     
-    if (m_vCenter.m_fZ + m_vHalfDimention.m_fZ <= other.m_vCenter.m_fZ - other.m_vHalfDimention.m_fZ) return false;
-    if (m_vCenter.m_fZ - m_vHalfDimention.m_fZ > other.m_vCenter.m_fZ + other.m_vHalfDimention.m_fZ) return false;
+    if (m_vCenter.mZ + m_vHalfDimention.mZ <= other.m_vCenter.mZ - other.m_vHalfDimention.mZ) return false;
+    if (m_vCenter.mZ - m_vHalfDimention.mZ > other.m_vCenter.mZ + other.m_vHalfDimention.mZ) return false;
 
     return true; // boxes overlap
 
@@ -51,8 +51,8 @@ inline bool Box::Intersects(const Box& other) const
 struct Sphere
 {
     Vec3 m_vCenter;
-    float m_fRadius;
-    Sphere(Vec3 vCenter, float fRadius) : m_vCenter(vCenter), m_fRadius(fRadius) {};
+    float mRadius;
+    Sphere(Vec3 vCenter, float fRadius) : m_vCenter(vCenter), mRadius(fRadius) {};
     bool Intersects(const Box& box) const;
     bool Containts(const Vec3& vec) const;
     Box Box() const;
@@ -72,12 +72,12 @@ inline bool Sphere::Intersects(const struct Box& box) const
 
 inline Box Sphere::Box() const
 {
-    return ftr::Box(m_vCenter, Vec3(m_fRadius, m_fRadius, m_fRadius));
+    return ftr::Box(m_vCenter, Vec3(mRadius, mRadius, mRadius));
 }
 
 inline bool Sphere::Containts(const Vec3& vec) const
 {
-    return (m_vCenter - vec).Length() < m_fRadius;
+    return (m_vCenter - vec).Length() < mRadius;
 }
 
 

@@ -20,17 +20,17 @@ Vec3 InteractionAssistant::AxisAlignedViewport(const Vec3& vStartScene,
     // Finding perpendiculars to axis aligned vectors
     //
     float fLength = vCurrent.Length();
-    vPerp.m_fX = tanf(vAxisX.Angle(vCurrent)) * fLength;
-    vPerp.m_fY = tanf(vAxisY.Angle(vCurrent)) * fLength;
-    vPerp.m_fZ = tanf(vAxisZ.Angle(vCurrent)) * fLength;
+    vPerp.mX = tanf(vAxisX.Angle(vCurrent)) * fLength;
+    vPerp.mY = tanf(vAxisY.Angle(vCurrent)) * fLength;
+    vPerp.mZ = tanf(vAxisZ.Angle(vCurrent)) * fLength;
     
     float fMin = vPerp.Min();
     
     if (fMin < c_fSensitivity) {
         Vec3 vProjection;
-        if      (fMin == vPerp.m_fX) vProjection = Vec3::X * vCurrent.ProjectionIn(vAxisX);
-        else if (fMin == vPerp.m_fY) vProjection = Vec3::X * vCurrent.ProjectionIn(vAxisY);
-        else if (fMin == vPerp.m_fZ) vProjection = Vec3::X * vCurrent.ProjectionIn(vAxisZ);
+        if      (fMin == vPerp.mX) vProjection = Vec3::X * vCurrent.ProjectionIn(vAxisX);
+        else if (fMin == vPerp.mY) vProjection = Vec3::X * vCurrent.ProjectionIn(vAxisY);
+        else if (fMin == vPerp.mZ) vProjection = Vec3::X * vCurrent.ProjectionIn(vAxisZ);
         return vStart + vProjection;
     }
     //

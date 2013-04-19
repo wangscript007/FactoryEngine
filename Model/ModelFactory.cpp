@@ -17,10 +17,10 @@ ModelFactory::ModelFactory(ModelTreeManager& rModelTreeManager)
 Face* ModelFactory::CreateRectangle(const Vec3& vOrigin, const Vec3& vSize) const
 {
     std::vector<Point*> vPointsVector;
-    vPointsVector.push_back(new Point(Vec3(vOrigin.m_fX, vOrigin.m_fY, vOrigin.m_fZ)));
-    vPointsVector.push_back(new Point(Vec3(vOrigin.m_fX + vSize.m_fX, vOrigin.m_fY, vOrigin.m_fZ)));
-    vPointsVector.push_back(new Point(Vec3(vOrigin.m_fX + vSize.m_fX, vOrigin.m_fY, vOrigin.m_fZ + vSize.m_fZ)));
-    vPointsVector.push_back(new Point(Vec3(vOrigin.m_fX, vOrigin.m_fY, vOrigin.m_fZ + vSize.m_fZ)));
+    vPointsVector.push_back(new Point(Vec3(vOrigin.mX, vOrigin.mY, vOrigin.mZ)));
+    vPointsVector.push_back(new Point(Vec3(vOrigin.mX + vSize.mX, vOrigin.mY, vOrigin.mZ)));
+    vPointsVector.push_back(new Point(Vec3(vOrigin.mX + vSize.mX, vOrigin.mY, vOrigin.mZ + vSize.mZ)));
+    vPointsVector.push_back(new Point(Vec3(vOrigin.mX, vOrigin.mY, vOrigin.mZ + vSize.mZ)));
     return CreatePolygon(vPointsVector);
 }
 
@@ -31,7 +31,7 @@ Face* ModelFactory::CreateCircle(Vec3 vOrigin, float fRadius, int iCount) const
     float fRadAngleStep = M_2_PI/((float)iCount);
     float fRadAngle = 0;
     float fX, fY;
-    float fZ = vOrigin.m_fZ;
+    float fZ = vOrigin.mZ;
     for(int i = 0; i < iCount; i++) {
         fRadAngle += fRadAngleStep;
         fX = fRadius*cosf(fRadAngle);

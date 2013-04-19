@@ -33,10 +33,10 @@ public:
     bool            operator!=(const Frame& other) const {return m_vMin != other.m_vMin || m_vMax != other.m_vMax;}
 
     void            Set(const Vec2& vMin, const Vec2& vMax);
-    float           GetWidth() const {return m_vMax.m_fX - m_vMin.m_fX;}
-    float           GetHeight() const {return m_vMax.m_fY - m_vMin.m_fY;}
-    void            SetWidth(float fWidth) {m_vMax.m_fX = m_vMin.m_fX + fWidth;}
-    void            SetHeight(float fHeight) {m_vMax.m_fY = m_vMin.m_fY + fHeight;}
+    float           GetWidth() const {return m_vMax.mX - m_vMin.mX;}
+    float           GetHeight() const {return m_vMax.mY - m_vMin.mY;}
+    void            SetWidth(float fWidth) {m_vMax.mX = m_vMin.mX + fWidth;}
+    void            SetHeight(float fHeight) {m_vMax.mY = m_vMin.mY + fHeight;}
     void            SetPosition(const Vec2& vPos);
     void            Scale(const Vec2& vScale);
     const Vec2&   GetPosition() const {return m_vMin;}

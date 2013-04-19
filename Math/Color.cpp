@@ -8,8 +8,8 @@ namespace ftr {
 
 ColorHSL ColorHSL::RGB2HSL(const Color4f& Color) const
 {
-    float fMax = Util::Maximum(Util::Maximum(Color.m_fR, Color.m_fG),Color.m_fB);
-    float fMin = Util::Minimum(Util::Minimum(Color.m_fR, Color.m_fG),Color.m_fB);
+    float fMax = Util::Maximum(Util::Maximum(Color.mR, Color.mG),Color.mB);
+    float fMin = Util::Minimum(Util::Minimum(Color.mR, Color.mG),Color.mB);
     
     if(fMax == fMin)
     {
@@ -26,19 +26,19 @@ ColorHSL ColorHSL::RGB2HSL(const Color4f& Color) const
     
     fS = fL > 0.5f ? (fD/(2.0f-fMax-fMin)) : (fD/(fMax+fMin));
     
-    if(fMax == Color.m_fR)
+    if(fMax == Color.mR)
     {
-        return ColorHSL(((Color.m_fG-Color.m_fB)/fD + (Color.m_fG < Color.m_fB ? 6.0f : 0.0f))/6.0f, fS, fL);
+        return ColorHSL(((Color.mG-Color.mB)/fD + (Color.mG < Color.mB ? 6.0f : 0.0f))/6.0f, fS, fL);
     }
     
-    if(fMax == Color.m_fG)
+    if(fMax == Color.mG)
     {
-        return ColorHSL(((Color.m_fB-Color.m_fR)/fD + 2.0f)/6.0f, fS, fL);
+        return ColorHSL(((Color.mB-Color.mR)/fD + 2.0f)/6.0f, fS, fL);
     }
     
-    if(fMax == Color.m_fB)
+    if(fMax == Color.mB)
     {
-        return ColorHSL(((Color.m_fR-Color.m_fG)/fD + 4.0f)/6.0f, fS, fL);
+        return ColorHSL(((Color.mR-Color.mG)/fD + 4.0f)/6.0f, fS, fL);
     }
     
     return ColorHSL(fH,fS,fL);
@@ -46,16 +46,16 @@ ColorHSL ColorHSL::RGB2HSL(const Color4f& Color) const
 
 Color4f ColorHSL::HSL2RGB(const ColorHSL& Color) const
 {
-    if(Color.m_fS == 0.0f)
+    if(Color.mS == 0.0f)
     {
-        return Color4f(Color.m_fL,Color.m_fL,Color.m_fL);
+        return Color4f(Color.mL,Color.mL,Color.mL);
     }
     
-    float fQ = Color.m_fL < 0.5 ? (Color.m_fL*(1.0f+Color.m_fS)) : (Color.m_fL+Color.m_fS-Color.m_fL*Color.m_fS);
+    float fQ = Color.mL < 0.5 ? (Color.mL*(1.0f+Color.mS)) : (Color.mL+Color.mS-Color.mL*Color.mS);
     
-    float fP = 2.0f * Color.m_fL - fQ;
+    float fP = 2.0f * Color.mL - fQ;
     
-    return Color4f(Hue2RGB(fP, fQ, Color.m_fH+1.0f/3.0f), Hue2RGB(fP, fQ, Color.m_fH), Hue2RGB(fP, fQ, Color.m_fH-1.0f/3.0f));
+    return Color4f(Hue2RGB(fP, fQ, Color.mH+1.0f/3.0f), Hue2RGB(fP, fQ, Color.mH), Hue2RGB(fP, fQ, Color.mH-1.0f/3.0f));
 }
 
 float ColorHSL::Hue2RGB(float fP, float fQ, float fT) const
@@ -72,8 +72,8 @@ float ColorHSL::Hue2RGB(float fP, float fQ, float fT) const
 
 ColorHSV ColorHSV::RGB2HSV(const Color4f &Color) const
 {
-    float fMax = Util::Maximum(Util::Maximum(Color.m_fR, Color.m_fG),Color.m_fB);
-    float fMin = Util::Minimum(Util::Minimum(Color.m_fR, Color.m_fG),Color.m_fB);
+    float fMax = Util::Maximum(Util::Maximum(Color.mR, Color.mG),Color.mB);
+    float fMin = Util::Minimum(Util::Minimum(Color.mR, Color.mG),Color.mB);
     
     if(fMax == fMin)
     {
@@ -87,19 +87,19 @@ ColorHSV ColorHSV::RGB2HSV(const Color4f &Color) const
     float fH = fMax;
     float fV = fMax;
     
-    if(fMax == Color.m_fR)
+    if(fMax == Color.mR)
     {
-        return ColorHSV((Color.m_fG - Color.m_fB)/fD + (Color.m_fG < Color.m_fB ? 6.0f : 0.0f)/6.0f,fS,fV);
+        return ColorHSV((Color.mG - Color.mB)/fD + (Color.mG < Color.mB ? 6.0f : 0.0f)/6.0f,fS,fV);
     }
     
-    if(fMax == Color.m_fG)
+    if(fMax == Color.mG)
     {
-        return ColorHSV(((Color.m_fB - Color.m_fR)/fD + 2.0f)/6.0f,fS,fV);
+        return ColorHSV(((Color.mB - Color.mR)/fD + 2.0f)/6.0f,fS,fV);
     }
     
-    if(fMax == Color.m_fR)
+    if(fMax == Color.mR)
     {
-        return ColorHSV(((Color.m_fR-Color.m_fG)/fD + 4.0f)/6.0f,fS,fV);
+        return ColorHSV(((Color.mR-Color.mG)/fD + 4.0f)/6.0f,fS,fV);
     }
     
     return ColorHSV(fH,fS,fV);
@@ -111,21 +111,21 @@ Color4f ColorHSV::HSV2RGB(const ColorHSV& Color) const
     float fG = 0.0f;
     float fB = 0.0f;
     
-    Byte bIndex = floorf(Color.m_fH*6.0f);
+    Byte bIndex = floorf(Color.mH*6.0f);
     
-    float fF = Color.m_fH * 6.0f - bIndex;
-    float fP = Color.m_fV * (1.0f - Color.m_fS);
-    float fQ = Color.m_fV * (1.0f - fF * Color.m_fS);
-    float fT = Color.m_fV * (1.0f - (1.0f - fF) * Color.m_fS);
+    float fF = Color.mH * 6.0f - bIndex;
+    float fP = Color.mV * (1.0f - Color.mS);
+    float fQ = Color.mV * (1.0f - fF * Color.mS);
+    float fT = Color.mV * (1.0f - (1.0f - fF) * Color.mS);
     
     switch(bIndex%6)
     {
-        case 0:{fR = Color.m_fV; fG = fT; fB = fP;} break;
-        case 1:{fR = fQ; fG = Color.m_fV; fB = fP;} break;
-        case 2:{fR = fP; fG = Color.m_fV; fB = fT;} break;
-        case 3:{fR = fP; fG = fQ; fB = Color.m_fV;} break;
-        case 4:{fR = fT; fG = fP; fB = Color.m_fV;} break;
-        case 5:{fR = Color.m_fV; fG = fP; fB = fQ;} break;
+        case 0:{fR = Color.mV; fG = fT; fB = fP;} break;
+        case 1:{fR = fQ; fG = Color.mV; fB = fP;} break;
+        case 2:{fR = fP; fG = Color.mV; fB = fT;} break;
+        case 3:{fR = fP; fG = fQ; fB = Color.mV;} break;
+        case 4:{fR = fT; fG = fP; fB = Color.mV;} break;
+        case 5:{fR = Color.mV; fG = fP; fB = fQ;} break;
     }
     
     return Color4f(fR, fG, fB);

@@ -95,11 +95,11 @@ inline Mat2 Mat2::Rotate(float fAngle) const
 
 inline Vec2& Vec2::operator*=(const Mat2& matrix)
 {
-    float fX = m_fX;
-    float fY = m_fY;
+    float fX = mX;
+    float fY = mY;
 
-    m_fX = fX * matrix[0][0] + fY * matrix[1][0];
-    m_fY = fX * matrix[0][1] + fY * matrix[1][1];
+    mX = fX * matrix[0][0] + fY * matrix[1][0];
+    mY = fX * matrix[0][1] + fY * matrix[1][1];
 
     return *this;
 }

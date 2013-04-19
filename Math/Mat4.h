@@ -172,28 +172,28 @@ inline Vec3 operator*(const Mat4& matrix, const Vec3& vector)
 
 inline Vec3& Vec3::operator*=(const Mat4& matrix)
 {
-    float fX = m_fX;
-    float fY = m_fY;
-    float fZ = m_fZ;
+    float fX = mX;
+    float fY = mY;
+    float fZ = mZ;
 
-    m_fX = fX * matrix[0][0] + fY * matrix[1][0] + fZ * matrix[2][0] + matrix[3][0];
-    m_fY = fX * matrix[0][1] + fY * matrix[1][1] + fZ * matrix[2][1] + matrix[3][1];
-    m_fZ = fX * matrix[0][2] + fY * matrix[1][2] + fZ * matrix[2][2] + matrix[3][2];
+    mX = fX * matrix[0][0] + fY * matrix[1][0] + fZ * matrix[2][0] + matrix[3][0];
+    mY = fX * matrix[0][1] + fY * matrix[1][1] + fZ * matrix[2][1] + matrix[3][1];
+    mZ = fX * matrix[0][2] + fY * matrix[1][2] + fZ * matrix[2][2] + matrix[3][2];
 
     return *this;
 }
 
 inline Vec4& Vec4::operator*=(const Mat4& matrix)
 {
-    float fX = m_fX;
-    float fY = m_fY;
-    float fZ = m_fZ;
-    float fW = m_fW;
+    float fX = mX;
+    float fY = mY;
+    float fZ = mZ;
+    float fW = mW;
 
-    m_fX = fX * matrix[0][0] + fY * matrix[1][0] + fZ * matrix[2][0] + fW * matrix[3][0];
-    m_fY = fX * matrix[0][1] + fY * matrix[1][1] + fZ * matrix[2][1] + fW * matrix[3][1];
-    m_fZ = fX * matrix[0][2] + fY * matrix[1][2] + fZ * matrix[2][2] + fW * matrix[3][2];
-    m_fW = fX * matrix[0][3] + fY * matrix[1][3] + fZ * matrix[2][3] + fW * matrix[3][3];
+    mX = fX * matrix[0][0] + fY * matrix[1][0] + fZ * matrix[2][0] + fW * matrix[3][0];
+    mY = fX * matrix[0][1] + fY * matrix[1][1] + fZ * matrix[2][1] + fW * matrix[3][1];
+    mZ = fX * matrix[0][2] + fY * matrix[1][2] + fZ * matrix[2][2] + fW * matrix[3][2];
+    mW = fX * matrix[0][3] + fY * matrix[1][3] + fZ * matrix[2][3] + fW * matrix[3][3];
 
     return *this;
 }

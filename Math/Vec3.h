@@ -13,45 +13,45 @@ public:
     static const Vec3 Y;
     static const Vec3 Z;
     
-    float   m_fX;
-    float   m_fY;
-    float   m_fZ;
+    float   mX;
+    float   mY;
+    float   mZ;
 
-                Vec3(): m_fX(0.0f), m_fY(0.0f), m_fZ(0.0f) {}
-                Vec3(const Vec3& other): m_fX(other.m_fX), m_fY(other.m_fY), m_fZ(other.m_fZ) {}
-    explicit    Vec3(const Vec2& other): m_fX(other.m_fX), m_fY(other.m_fY), m_fZ(0.0f) {}
+                Vec3(): mX(0.0f), mY(0.0f), mZ(0.0f) {}
+                Vec3(const Vec3& other): mX(other.mX), mY(other.mY), mZ(other.mZ) {}
+    explicit    Vec3(const Vec2& other): mX(other.mX), mY(other.mY), mZ(0.0f) {}
     explicit    Vec3(const class Vec4& other);
-                Vec3(float fX, float fY, float fZ): m_fX(fX), m_fY(fY), m_fZ(fZ) {}
+                Vec3(float fX, float fY, float fZ): mX(fX), mY(fY), mZ(fZ) {}
 
-    Vec3      operator-() const {return Vec3(-m_fX, -m_fY, -m_fZ);}
-    float       operator*(const Vec3& other) const {return m_fX * other.m_fX + m_fY * other.m_fY + m_fZ * other.m_fZ;} // Dot product.
+    Vec3      operator-() const {return Vec3(-mX, -mY, -mZ);}
+    float       operator*(const Vec3& other) const {return mX * other.mX + mY * other.mY + mZ * other.mZ;} // Dot product.
     Vec3      operator^(const Vec3& other) const; // Cross product.
-    Vec3      operator-(const Vec3& other) const {return Vec3(m_fX - other.m_fX, m_fY - other.m_fY, m_fZ - other.m_fZ);}
-    Vec3      operator+(const Vec3& other) const {return Vec3(m_fX + other.m_fX, m_fY + other.m_fY, m_fZ + other.m_fZ);}
-    Vec3&     operator=(const Vec3& other) {m_fX = other.m_fX; m_fY = other.m_fY; m_fZ = other.m_fZ; return *this;}
-    Vec3&     operator=(const Vec2& other) {m_fX = other.m_fX; m_fY = other.m_fY; m_fZ = 0.0f; return *this;}
+    Vec3      operator-(const Vec3& other) const {return Vec3(mX - other.mX, mY - other.mY, mZ - other.mZ);}
+    Vec3      operator+(const Vec3& other) const {return Vec3(mX + other.mX, mY + other.mY, mZ + other.mZ);}
+    Vec3&     operator=(const Vec3& other) {mX = other.mX; mY = other.mY; mZ = other.mZ; return *this;}
+    Vec3&     operator=(const Vec2& other) {mX = other.mX; mY = other.mY; mZ = 0.0f; return *this;}
     Vec3&     operator=(const class Vec4& other);
-    Vec3&     operator+=(const Vec3& other) {m_fX += other.m_fX; m_fY += other.m_fY; m_fZ += other.m_fZ; return *this;}
-    Vec3&     operator-=(const Vec3& other) {m_fX -= other.m_fX; m_fY -= other.m_fY; m_fZ -= other.m_fZ; return *this;}
-    Vec3&     operator*=(float value) {m_fX *= value; m_fY *= value; m_fZ *= value; return *this;}
-    Vec3      operator*(float value) const {return Vec3(m_fX * value, m_fY * value, m_fZ * value);}
-    Vec3&     operator/=(float value) {m_fX /= value; m_fY /= value; m_fZ /= value; return *this;}
-    Vec3      operator/(float value) const {return Vec3(m_fX / value, m_fY / value, m_fZ / value);}
+    Vec3&     operator+=(const Vec3& other) {mX += other.mX; mY += other.mY; mZ += other.mZ; return *this;}
+    Vec3&     operator-=(const Vec3& other) {mX -= other.mX; mY -= other.mY; mZ -= other.mZ; return *this;}
+    Vec3&     operator*=(float value) {mX *= value; mY *= value; mZ *= value; return *this;}
+    Vec3      operator*(float value) const {return Vec3(mX * value, mY * value, mZ * value);}
+    Vec3&     operator/=(float value) {mX /= value; mY /= value; mZ /= value; return *this;}
+    Vec3      operator/(float value) const {return Vec3(mX / value, mY / value, mZ / value);}
     Vec3&     operator*=(const class Mat4& matrix);
-    float       operator[](int index) const {return (&m_fX)[index];}
-    float&      operator[](int index) {return (&m_fX)[index];}
-    bool        operator==(const Vec3& other) const {return Util::Approximately(m_fX, other.m_fX) && Util::Approximately(m_fY, other.m_fY) && Util::Approximately(m_fZ, other.m_fZ);}
-    bool        operator!=(const Vec3& other) const {return !Util::Approximately(m_fX, other.m_fX) || !Util::Approximately(m_fY, other.m_fY) || !Util::Approximately(m_fZ, other.m_fZ);}
+    float       operator[](int index) const {return (&mX)[index];}
+    float&      operator[](int index) {return (&mX)[index];}
+    bool        operator==(const Vec3& other) const {return Util::Approximately(mX, other.mX) && Util::Approximately(mY, other.mY) && Util::Approximately(mZ, other.mZ);}
+    bool        operator!=(const Vec3& other) const {return !Util::Approximately(mX, other.mX) || !Util::Approximately(mY, other.mY) || !Util::Approximately(mZ, other.mZ);}
 
-    void        Set(float fX, float fY, float fZ) {m_fX = fX; m_fY = fY; m_fZ = fZ;}
+    void        Set(float fX, float fY, float fZ) {mX = fX; mY = fY; mZ = fZ;}
     float       Distance(const Vec3& other) const {return (*this - other).Length();}
-    float       Length() const {return std::sqrt(m_fX * m_fX + m_fY * m_fY + m_fZ * m_fZ);}
+    float       Length() const {return std::sqrt(mX * mX + mY * mY + mZ * mZ);}
     float       Angle(const Vec3& other) const { return acosf(*this * other) / (Length() + other.Length()); }
     float       ProjectionIn(const Vec3& other) { return Length() * cosf(Angle(other)); }
     Vec3      Bezier(const Vec3& vB, const Vec3& vC, const Vec3& vD, float fT) const;
-    Vec3      Lerp(const Vec3& vB, float fT) const {return Vec3(Util::Lerp(m_fX, vB.m_fX, fT), Util::Lerp(m_fY, vB.m_fY, fT), Util::Lerp(m_fZ, vB.m_fZ, fT));}
+    Vec3      Lerp(const Vec3& vB, float fT) const {return Vec3(Util::Lerp(mX, vB.mX, fT), Util::Lerp(mY, vB.mY, fT), Util::Lerp(mZ, vB.mZ, fT));}
     float       Normalize();
-    void        Zero() {m_fX = 0.0f; m_fY = 0.0f; m_fZ = 0.0f;}
+    void        Zero() {mX = 0.0f; mY = 0.0f; mZ = 0.0f;}
     float       Max() const;
     float       Min() const;
     
@@ -82,14 +82,14 @@ inline float Vec3::Min() const
 
 inline Vec3 Vec3::Bezier(const Vec3& vB, const Vec3& vC, const Vec3& vD, float fT) const
 {
-    return Vec3(Util::Bezier(m_fX, vB.m_fX, vC.m_fX, vD.m_fX, fT), Util::Bezier(m_fY, vB.m_fY, vC.m_fY, vD.m_fY, fT), Util::Bezier(m_fZ, vB.m_fZ, vC.m_fZ, vD.m_fZ, fT));
+    return Vec3(Util::Bezier(mX, vB.mX, vC.mX, vD.mX, fT), Util::Bezier(mY, vB.mY, vC.mY, vD.mY, fT), Util::Bezier(mZ, vB.mZ, vC.mZ, vD.mZ, fT));
 }
 
 inline Vec3 Vec3::operator^(const Vec3& other) const
 {
-    float fX = m_fY * other.m_fZ - m_fZ * other.m_fY;
-    float fY = m_fZ * other.m_fX - m_fX * other.m_fZ;
-    float fZ = m_fX * other.m_fY - m_fY * other.m_fX;
+    float fX = mY * other.mZ - mZ * other.mY;
+    float fY = mZ * other.mX - mX * other.mZ;
+    float fZ = mX * other.mY - mY * other.mX;
 
     return Vec3(fX, fY, fZ);
 }
@@ -100,9 +100,9 @@ inline float Vec3::Normalize()
 
     if(length > 0.0f)
     {
-        m_fX /= length;
-        m_fY /= length;
-        m_fZ /= length;
+        mX /= length;
+        mY /= length;
+        mZ /= length;
     }
 
     return length;

@@ -24,7 +24,7 @@ Point::Point(Vec3 vOrigin)
 void Point::Transform(const Mat4& m4Transformation)
 {
     m_vOrigin *= m4Transformation;
-    Log(kLogModel, "[%f, %f, %f]", m_vOrigin.m_fX, m_vOrigin.m_fY, m_vOrigin.m_fZ);
+    Log(kLogModel, "[%f, %f, %f]", m_vOrigin.mX, m_vOrigin.mY, m_vOrigin.mZ);
 }
 
 #pragma mark - Instance
@@ -50,7 +50,7 @@ void Point::Render()
             glColor3f(0.95f, 0.207, 0.031f);
         }
         
-        glVertex3f(m_vOrigin.m_fX, m_vOrigin.m_fY, m_vOrigin.m_fZ);
+        glVertex3f(m_vOrigin.mX, m_vOrigin.mY, m_vOrigin.mZ);
     }
     glEnd();
 }

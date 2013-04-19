@@ -25,7 +25,7 @@ Workspace::~Workspace()
 void Workspace::SetViewportRect(Rect rect)
 {
     Log(kLogWorkspace, "");
-    glViewport(rect.m_vOrigin.m_fX, rect.m_vOrigin.m_fY, rect.m_vSize.m_fX, rect.m_vSize.m_fY);
+    glViewport(rect.m_vOrigin.mX, rect.m_vOrigin.mY, rect.m_vSize.mX, rect.m_vSize.mY);
 }
 
 void Workspace::Render()

@@ -6,26 +6,26 @@
 
 namespace ftr {
 
-Vec2::Vec2(const Vec3& other): m_fX(other.m_fX), m_fY(other.m_fY)
+Vec2::Vec2(const Vec3& other): mX(other.mX), mY(other.mY)
 {
 }
 
-Vec2::Vec2(const Vec4& other): m_fX(other.m_fX), m_fY(other.m_fY)
+Vec2::Vec2(const Vec4& other): mX(other.mX), mY(other.mY)
 {
 }
 
 Vec2& Vec2::operator=(const Vec3& other)
 {
-    m_fX = other.m_fX;
-    m_fY = other.m_fY;
+    mX = other.mX;
+    mY = other.mY;
 
     return *this;
 }
 
 Vec2& Vec2::operator=(const Vec4& other)
 {
-    m_fX = other.m_fX;
-    m_fY = other.m_fY;
+    mX = other.mX;
+    mY = other.mY;
 
     return *this;
 }

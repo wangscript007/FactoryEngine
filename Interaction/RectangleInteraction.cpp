@@ -20,10 +20,10 @@ void RectangleInteraction::Render()
     glEnableClientState(GL_NORMAL_ARRAY);
     GLfloat vertices[] =
     {
-        m_vOrigin.m_fX,                  m_vOrigin.m_fY,             m_vOrigin.m_fZ,
-        m_vOrigin.m_fX + m_vSize.m_fX,   m_vOrigin.m_fY,             m_vOrigin.m_fZ,
-        m_vOrigin.m_fX + m_vSize.m_fX ,  m_vOrigin.m_fY,             m_vOrigin.m_fZ + m_vSize.m_fZ,
-        m_vOrigin.m_fX,                  m_vOrigin.m_fY,             m_vOrigin.m_fZ + m_vSize.m_fZ
+        m_vOrigin.mX,                  m_vOrigin.mY,             m_vOrigin.mZ,
+        m_vOrigin.mX + m_vSize.mX,   m_vOrigin.mY,             m_vOrigin.mZ,
+        m_vOrigin.mX + m_vSize.mX ,  m_vOrigin.mY,             m_vOrigin.mZ + m_vSize.mZ,
+        m_vOrigin.mX,                  m_vOrigin.mY,             m_vOrigin.mZ + m_vSize.mZ
     };
     static GLfloat normals[] = {0,1,0,  0,1,0,  0,1,0,  0,1,0};            
     static GLfloat colors[] = {1,0,0,  0.5,0,0,  1,0,0,  0.5,0,0};
@@ -71,9 +71,9 @@ void RectangleInteraction::SetCurrent(const Vec3& vCurrent)
     //  else ignore minimum axis
     m_sRect3.m_vA = vCurrent;
     Vec3 vDiff = m_sRect3.m_vOrigin - m_sRect3.m_vA;
-    const float x = abs(vDiff.m_fX);
-    const float y = abs(vDiff.m_fY);
-    const float z = abs(vDiff.m_fZ);
+    const float x = abs(vDiff.mX);
+    const float y = abs(vDiff.mY);
+    const float z = abs(vDiff.mZ);
     Axis eAxis = x < y ? (x < z ? kAxisX : (y < z ? kAxisY : kAxisZ)) : (y < z ? kAxisY : (x < z ? kAxisX : kAxisZ));
     switch (eAxis) {
         case kAxisX : {
