@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		6011C37816D0EE9100CD34F9 /* Polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6011C37616D0EE9100CD34F9 /* Polygon.cpp */; };
 		6011C37916D0EE9100CD34F9 /* Polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 6011C37716D0EE9100CD34F9 /* Polygon.h */; };
+		6021AFBC17230800001EAEBE /* BundleRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFBB17230800001EAEBE /* BundleRenderer.cpp */; };
+		6021AFBF17230E82001EAEBE /* RenderBundle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFBD17230E82001EAEBE /* RenderBundle.cpp */; };
+		6021AFC017230E82001EAEBE /* RenderBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFBE17230E82001EAEBE /* RenderBundle.h */; };
+		6021AFC717232B8F001EAEBE /* PrimitiveRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFC517232B8E001EAEBE /* PrimitiveRenderer.cpp */; };
+		6021AFC817232B8F001EAEBE /* PrimitiveRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFC617232B8F001EAEBE /* PrimitiveRenderer.h */; };
 		6047DB9316B46A890012286F /* RectangleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6047DB9116B46A890012286F /* RectangleInteraction.cpp */; };
 		6056C57015DC554C008F8E92 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6056C56E15DC5522008F8E92 /* Scene.cpp */; };
 		605CD4FC16FDE992005CCAA2 /* MoveInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605CD4FA16FDE992005CCAA2 /* MoveInteraction.cpp */; };
@@ -52,8 +57,7 @@
 		60D7457F17228E100062CDF1 /* InteractionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7457E17228E100062CDF1 /* InteractionManager.cpp */; };
 		60D7458217228EB70062CDF1 /* Octree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7458017228EB70062CDF1 /* Octree.cpp */; };
 		60D7458317228EB70062CDF1 /* Octree.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7458117228EB70062CDF1 /* Octree.h */; };
-		60D74587172299390062CDF1 /* Framebuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D74585172299390062CDF1 /* Framebuffer.cpp */; };
-		60D74588172299390062CDF1 /* Framebuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D74586172299390062CDF1 /* Framebuffer.h */; };
+		60D74588172299390062CDF1 /* BundleRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D74586172299390062CDF1 /* BundleRenderer.h */; };
 		60D7458B1722994B0062CDF1 /* Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D745891722994B0062CDF1 /* Primitive.cpp */; };
 		60D7458C1722994B0062CDF1 /* Primitive.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7458A1722994B0062CDF1 /* Primitive.h */; };
 		60D7DC711657D0700051947E /* PointNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC6F1657D0700051947E /* PointNode.cpp */; };
@@ -113,6 +117,11 @@
 		6011C37616D0EE9100CD34F9 /* Polygon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Polygon.cpp; sourceTree = "<group>"; };
 		6011C37716D0EE9100CD34F9 /* Polygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polygon.h; sourceTree = "<group>"; };
 		60127559163BDB0000E98E34 /* Readme.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Readme.rtf; sourceTree = "<group>"; };
+		6021AFBB17230800001EAEBE /* BundleRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BundleRenderer.cpp; sourceTree = "<group>"; };
+		6021AFBD17230E82001EAEBE /* RenderBundle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderBundle.cpp; sourceTree = "<group>"; };
+		6021AFBE17230E82001EAEBE /* RenderBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderBundle.h; sourceTree = "<group>"; };
+		6021AFC517232B8E001EAEBE /* PrimitiveRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PrimitiveRenderer.cpp; sourceTree = "<group>"; };
+		6021AFC617232B8F001EAEBE /* PrimitiveRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimitiveRenderer.h; sourceTree = "<group>"; };
 		6047DB9116B46A890012286F /* RectangleInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleInteraction.cpp; sourceTree = "<group>"; };
 		6047DB9216B46A890012286F /* RectangleInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleInteraction.h; sourceTree = "<group>"; };
 		604E939A16A1C6E700143522 /* fix_includes.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = fix_includes.py; sourceTree = "<group>"; };
@@ -160,8 +169,7 @@
 		60D7457E17228E100062CDF1 /* InteractionManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InteractionManager.cpp; sourceTree = "<group>"; };
 		60D7458017228EB70062CDF1 /* Octree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Octree.cpp; sourceTree = "<group>"; };
 		60D7458117228EB70062CDF1 /* Octree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Octree.h; sourceTree = "<group>"; };
-		60D74585172299390062CDF1 /* Framebuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Framebuffer.cpp; sourceTree = "<group>"; };
-		60D74586172299390062CDF1 /* Framebuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framebuffer.h; sourceTree = "<group>"; };
+		60D74586172299390062CDF1 /* BundleRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BundleRenderer.h; sourceTree = "<group>"; };
 		60D745891722994B0062CDF1 /* Primitive.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Primitive.cpp; sourceTree = "<group>"; };
 		60D7458A1722994B0062CDF1 /* Primitive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Primitive.h; sourceTree = "<group>"; };
 		60D7DC6F1657D0700051947E /* PointNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointNode.cpp; sourceTree = "<group>"; };
@@ -266,10 +274,14 @@
 		60D74584172298B30062CDF1 /* Render */ = {
 			isa = PBXGroup;
 			children = (
-				60D74585172299390062CDF1 /* Framebuffer.cpp */,
-				60D74586172299390062CDF1 /* Framebuffer.h */,
 				60D745891722994B0062CDF1 /* Primitive.cpp */,
 				60D7458A1722994B0062CDF1 /* Primitive.h */,
+				6021AFC517232B8E001EAEBE /* PrimitiveRenderer.cpp */,
+				6021AFC617232B8F001EAEBE /* PrimitiveRenderer.h */,
+				60D74586172299390062CDF1 /* BundleRenderer.h */,
+				6021AFBB17230800001EAEBE /* BundleRenderer.cpp */,
+				6021AFBD17230E82001EAEBE /* RenderBundle.cpp */,
+				6021AFBE17230E82001EAEBE /* RenderBundle.h */,
 			);
 			path = Render;
 			sourceTree = "<group>";
@@ -481,8 +493,10 @@
 				60D7457B17228D4B0062CDF1 /* ModelTreeManager.h in Headers */,
 				60D7457D17228DC40062CDF1 /* InteractionManager.h in Headers */,
 				60D7458317228EB70062CDF1 /* Octree.h in Headers */,
-				60D74588172299390062CDF1 /* Framebuffer.h in Headers */,
+				60D74588172299390062CDF1 /* BundleRenderer.h in Headers */,
 				60D7458C1722994B0062CDF1 /* Primitive.h in Headers */,
+				6021AFC017230E82001EAEBE /* RenderBundle.h in Headers */,
+				6021AFC817232B8F001EAEBE /* PrimitiveRenderer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,8 +590,10 @@
 				60D7457A17228D4B0062CDF1 /* ModelTreeManager.cpp in Sources */,
 				60D7457F17228E100062CDF1 /* InteractionManager.cpp in Sources */,
 				60D7458217228EB70062CDF1 /* Octree.cpp in Sources */,
-				60D74587172299390062CDF1 /* Framebuffer.cpp in Sources */,
 				60D7458B1722994B0062CDF1 /* Primitive.cpp in Sources */,
+				6021AFBC17230800001EAEBE /* BundleRenderer.cpp in Sources */,
+				6021AFBF17230E82001EAEBE /* RenderBundle.cpp in Sources */,
+				6021AFC717232B8F001EAEBE /* PrimitiveRenderer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

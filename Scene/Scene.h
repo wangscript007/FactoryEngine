@@ -16,37 +16,37 @@ namespace ftr {
 class Scene
 {
 public:
-                        Scene();
-                        ~Scene();
+                      Scene();
+                      ~Scene();
     //
     // Workspace
     //
-    void                Render();
-    void                setViewportRect(int x, int y, int width, int height);
+    void              Render();
+    void              setViewportRect(int x, int y, int width, int height);
     //
     // Camera
     //
-    void                MoveBy(const Vec2& deltaMove);
-    void                RotateBy(const Vec2& deltaRotation);
-    void                ZoomBy(const GLfloat times);
-    void                Look();
-    void                Reset();
-    void                setProjectionMode(ProjectionMode projectionMode);
+    void              MoveBy(const Vec2& deltaMove);
+    void              RotateBy(const Vec2& deltaRotation);
+    void              ZoomBy(const GLfloat times);
+    void              Look();
+    void              Reset();
+    void              setProjectionMode(ProjectionMode projectionMode);
     //
     // Lights           
     //
-    void                TurnOnLight(int index);
+    void              TurnOnLight(int index);
     //
     // Model
     //
-    void                Select(Node* pNode) { mModelManager->Select(pNode); }
-    FaceNode*               CreateFace(const Vec3& origin);
-    PointNode*              CreatePoint(const Vec3& origin);
-    LineNode*               CreateLine(PointNode* startPoint, PointNode* endPoint);
-    PointNode*              NearestPointToCenterInSphere(const Sphere& sSphere);
-    void                UpdateNode(Node* pNode);
-    void                RemoveNode(Node* pNode);
-    unsigned long       Size() { return mModelManager->Size(); }
+    void              Select(Node* pNode) { mModelManager->Select(pNode); }
+    FaceNode*         CreateFace(const Vec3& origin);
+    PointNode*        CreatePoint(const Vec3& origin);
+    LineNode*         CreateLine(PointNode* startPoint, PointNode* endPoint);
+    PointNode*        NearestPointToCenterInSphere(const Sphere& sSphere);
+    void              UpdateNode(Node* pNode);
+    void              RemoveNode(Node* pNode);
+    unsigned long     Size() { return mModelManager->Size(); }
     
     InteractionManager* InteractionManager() const { return mInteractionManager; }
     
