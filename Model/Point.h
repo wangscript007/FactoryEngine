@@ -2,7 +2,7 @@
 #pragma once
 
 #include <Model/Model.h>
-#include <Managers/Octree.h>
+#include <Model/Octree.h>
 
 namespace ftr {
 

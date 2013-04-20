@@ -1,5 +1,5 @@
 
-#include <Managers/ModelTreeManager.h>
+#include <Model/ModelTreeManager.h>
 #include <Model/Point.h>
 
 namespace ftr {

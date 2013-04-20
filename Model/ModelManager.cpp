@@ -1,5 +1,5 @@
 
-#include <Managers/ModelManager.h>
+#include <Model/ModelManager.h>
 
 namespace ftr {
 

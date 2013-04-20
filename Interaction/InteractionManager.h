@@ -10,8 +10,6 @@ class RotationInteraction;
 class ScaleInteraction;
 class ModelManager;
 
-
-
 class InteractionManager
 {
 public:

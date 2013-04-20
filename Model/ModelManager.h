@@ -3,7 +3,7 @@
 
 #include <Model/ModelFactory.h>
 #include <Model/Group.h>
-#include <Managers/ModelTreeManager.h>
+#include <Model/ModelTreeManager.h>
 
 namespace ftr {
 
@@ -37,4 +37,3 @@ private:
 };
     
 }
-

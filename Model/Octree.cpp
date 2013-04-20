@@ -1,5 +1,5 @@
 
-#include <Managers/Octree.h>
+#include <Model/Octree.h>
 #include <Model/Point.h>
 #include <Main/GLError.h>
 

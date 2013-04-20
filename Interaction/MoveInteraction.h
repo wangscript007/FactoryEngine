@@ -11,8 +11,8 @@ class MoveInteraction : public Node
 public:
     MoveInteraction(ModelManager& modelManager);
     virtual ~MoveInteraction() {}
-    void Render();
     
+    void Render();
     void setStart(Vec3 start);
     void setEnd(Vec3 end);
     

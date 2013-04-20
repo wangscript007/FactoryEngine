@@ -1,7 +1,7 @@
 
 #include <Model/Point.h>
 #include <Interaction/LineInteraction.h>
-#include <Managers/ModelManager.h>
+#include <Model/ModelManager.h>
 
 namespace ftr {
 

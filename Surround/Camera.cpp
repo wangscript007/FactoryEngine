@@ -65,7 +65,6 @@ void Camera::ZoomBy(const GLfloat times)
 void Camera::setProjectionMode(ProjectionMode projectionMode)
 {
     mProjectionMode = projectionMode;
-    
     switch (projectionMode) {
         case kProjectionModeProjection:
             glMatrixMode(GL_PROJECTION);

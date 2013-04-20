@@ -4,7 +4,6 @@
 //
 // Macros
 //
-#define DEBUG
 
 #include <cassert>
 #include <cstdio>
@@ -63,7 +62,6 @@ typedef unsigned long long int  Quadrupleword;    // 8 bytes
 #include "Model/Model.h"
 #include "Model/Point.h"
 #include "Model/Line.h"
-//#include "Model/Polygon.h"
 #include "Model/Face.h"
 #include "Model/Body.h"
 #include "Model/Group.h"
@@ -83,8 +81,8 @@ typedef unsigned long long int  Quadrupleword;    // 8 bytes
 //
 // Managers
 //
-#include "Managers/ModelTreeManager.h"
-#include "Managers/ModelManager.h"
+#include "Model/ModelTreeManager.h"
+#include "Model/ModelManager.h"
 //
 // Scene
 //

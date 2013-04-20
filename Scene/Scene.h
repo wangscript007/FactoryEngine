@@ -8,8 +8,8 @@
 #include <Model/Face.h>
 #include <Workspace/Workspace.h>
 #include <Surround/Camera.h>
-#include <Managers/ModelManager.h>
-#include <Managers/InteractionManager.h>
+#include <Model/ModelManager.h>
+#include <Interaction/InteractionManager.h>
 
 namespace ftr {
 
