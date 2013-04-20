@@ -20,20 +20,20 @@ public:
     explicit    Vec4(const Vec3& other): mX(other.mX), mY(other.mY), mZ(other.mZ), mW(0.0f) {}
                 Vec4(float x, float y, float z, float w): mX(x), mY(y), mZ(z), mW(w) {}
 
-    Vec4      operator-() const {return Vec4(-mX, -mY, -mZ, -mW);}
+    Vec4        operator-() const {return Vec4(-mX, -mY, -mZ, -mW);}
     float       operator*(const Vec4& other) const {return mX * other.mX + mY * other.mY + mZ * other.mZ + mW * other.mW;} // Dot product.
-    Vec4      operator-(const Vec4& other) const {return Vec4(mX - other.mX, mY - other.mY, mZ - other.mZ, mW - other.mW);}
-    Vec4      operator+(const Vec4& other) const {return Vec4(mX + other.mX, mY + other.mY, mZ + other.mZ, mW + other.mW);}
-    Vec4&     operator=(const Vec4& other) {mX = other.mX; mY = other.mY; mZ = other.mZ; mW = other.mW; return *this;}
-    Vec4&     operator=(const Vec3& other) {mX = other.mX; mY = other.mY; mZ = other.mZ; mW = 0.0f; return *this;}
-    Vec4&     operator=(const Vec2& other) {mX = other.mX; mY = other.mY; mZ = 0.0f; mW = 0.0f; return *this;}
-    Vec4&     operator+=(const Vec4& other) {mX += other.mX; mY += other.mY; mZ += other.mZ; mW += other.mW; return *this;}
-    Vec4&     operator-=(const Vec4& other) {mX -= other.mX; mY -= other.mY; mZ -= other.mZ; mW -= other.mW; return *this;}
-    Vec4&     operator*=(float value) {mX *= value; mY *= value; mZ *= value; mW *= value; return *this;}
-    Vec4      operator*(float value) const {return Vec4(mX * value, mY * value, mZ * value, mW * value);}
-    Vec4&     operator/=(float value) {mX /= value; mY /= value; mZ /= value; mW /= value; return *this;}
-    Vec4      operator/(float value) const {return Vec4(mX / value, mY / value, mZ / value, mW / value);}
-    Vec4&     operator*=(const class Mat4& matrix);
+    Vec4        operator-(const Vec4& other) const {return Vec4(mX - other.mX, mY - other.mY, mZ - other.mZ, mW - other.mW);}
+    Vec4        operator+(const Vec4& other) const {return Vec4(mX + other.mX, mY + other.mY, mZ + other.mZ, mW + other.mW);}
+    Vec4&       operator=(const Vec4& other) {mX = other.mX; mY = other.mY; mZ = other.mZ; mW = other.mW; return *this;}
+    Vec4&       operator=(const Vec3& other) {mX = other.mX; mY = other.mY; mZ = other.mZ; mW = 0.0f; return *this;}
+    Vec4&       operator=(const Vec2& other) {mX = other.mX; mY = other.mY; mZ = 0.0f; mW = 0.0f; return *this;}
+    Vec4&       operator+=(const Vec4& other) {mX += other.mX; mY += other.mY; mZ += other.mZ; mW += other.mW; return *this;}
+    Vec4&       operator-=(const Vec4& other) {mX -= other.mX; mY -= other.mY; mZ -= other.mZ; mW -= other.mW; return *this;}
+    Vec4&       operator*=(float value) {mX *= value; mY *= value; mZ *= value; mW *= value; return *this;}
+    Vec4        operator*(float value) const {return Vec4(mX * value, mY * value, mZ * value, mW * value);}
+    Vec4&       operator/=(float value) {mX /= value; mY /= value; mZ /= value; mW /= value; return *this;}
+    Vec4        operator/(float value) const {return Vec4(mX / value, mY / value, mZ / value, mW / value);}
+    Vec4&       operator*=(const class Mat4& matrix);
     float       operator[](int index) const {return (&mX)[index];}
     float&      operator[](int index) {return (&mX)[index];}
     bool        operator==(const Vec4& other) const {return Util::Approximately(mX, other.mX) && Util::Approximately(mY, other.mY) && Util::Approximately(mZ, other.mZ) && Util::Approximately(mW, other.mW);}

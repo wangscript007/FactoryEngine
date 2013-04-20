@@ -12,4 +12,4 @@ void Model::setVertex(Vec3 *vertexArray)
     //mfacesVector.assign(vertexArray, vertexArray + size);
 }
 
-}
+} 

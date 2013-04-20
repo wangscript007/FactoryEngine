@@ -12,7 +12,7 @@ struct Box
     Vec3 mHalfDimention;
     
     Box() : mCenter(Vec3()), mHalfDimention(Vec3()) {};
-    Box(Vec3 vCenter, Vec3 halfDimension) : mCenter(vCenter), mHalfDimention(halfDimension) {};
+    Box(Vec3 center, Vec3 halfDimension) : mCenter(center), mHalfDimention(halfDimension) {};
     bool Contains(const Vec3& vec) const;
     bool Intersects(const Box& other) const;
 };
@@ -52,7 +52,7 @@ struct Sphere
 {
     Vec3 mCenter;
     float mRadius;
-    Sphere(Vec3 vCenter, float radius) : mCenter(vCenter), mRadius(radius) {};
+    Sphere(Vec3 center, float radius) : mCenter(center), mRadius(radius) {};
     bool Intersects(const Box& box) const;
     bool Containts(const Vec3& vec) const;
     Box Box() const;

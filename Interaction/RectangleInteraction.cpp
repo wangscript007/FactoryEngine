@@ -64,12 +64,12 @@ void RectangleInteraction::setOrigin(const Vec3& origin)
     mRect3.mOrigin = origin;
 }
 
-void RectangleInteraction::setCurrent(const Vec3& vCurrent)
+void RectangleInteraction::setCurrent(const Vec3& current)
 {
     //
     //  If both origin and current are on the same face crade parralel to face
     //  else ignore minimum axis
-    mRect3.mA = vCurrent;
+    mRect3.mA = current;
     Vec3 vDiff = mRect3.mOrigin - mRect3.mA;
     const float x = abs(vDiff.mX);
     const float y = abs(vDiff.mY);

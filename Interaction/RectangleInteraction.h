@@ -22,7 +22,7 @@ public:
     void Begin();
     void End();
     void setOrigin(const Vec3& origin);
-    void setCurrent(const Vec3& vCurrent);
+    void setCurrent(const Vec3& current);
     
     
 private:

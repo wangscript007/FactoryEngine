@@ -48,7 +48,7 @@ public:
     float       Length() const {return std::sqrt(mX * mX + mY * mY + mZ * mZ);}
     float       Angle(const Vec3& other) const { return acosf(*this * other) / (Length() + other.Length()); }
     float       ProjectionIn(const Vec3& other) { return Length() * cosf(Angle(other)); }
-    Vec3      Bezier(const Vec3& b, const Vec3& vC, const Vec3& vD, float fT) const;
+    Vec3      Bezier(const Vec3& b, const Vec3& c, const Vec3& vD, float fT) const;
     Vec3      Lerp(const Vec3& b, float fT) const {return Vec3(Util::Lerp(mX, b.mX, fT), Util::Lerp(mY, b.mY, fT), Util::Lerp(mZ, b.mZ, fT));}
     float       Normalize();
     void        Zero() {mX = 0.0f; mY = 0.0f; mZ = 0.0f;}
@@ -80,9 +80,9 @@ inline float Vec3::Min() const
 }
 
 
-inline Vec3 Vec3::Bezier(const Vec3& b, const Vec3& vC, const Vec3& vD, float fT) const
+inline Vec3 Vec3::Bezier(const Vec3& b, const Vec3& c, const Vec3& vD, float fT) const
 {
-    return Vec3(Util::Bezier(mX, b.mX, vC.mX, vD.mX, fT), Util::Bezier(mY, b.mY, vC.mY, vD.mY, fT), Util::Bezier(mZ, b.mZ, vC.mZ, vD.mZ, fT));
+    return Vec3(Util::Bezier(mX, b.mX, c.mX, vD.mX, fT), Util::Bezier(mY, b.mY, c.mY, vD.mY, fT), Util::Bezier(mZ, b.mZ, c.mZ, vD.mZ, fT));
 }
 
 inline Vec3 Vec3::operator^(const Vec3& other) const

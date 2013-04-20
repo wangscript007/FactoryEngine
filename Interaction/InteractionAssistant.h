@@ -6,7 +6,7 @@ namespace ftr {
 class InteractionAssistant
 {
 public:
-    static const float c_fSensitivity;
+    static const float kSensitivity;
     
     virtual ~InteractionAssistant() {}
     Vec3 AxisAlignedViewport(const Vec3& startScene, const Vec3& endViewport) const;

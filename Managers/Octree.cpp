@@ -45,26 +45,26 @@ Octree::Branch* Octree::Split(Octree::Leaf *leaf)
     Leaf* childLeaf;
     Box sBox = leaf->Box();
     ftr::Vec3 half = sBox.mHalfDimention/2.0f;
-    ftr::Vec3 vCenter;
+    ftr::Vec3 center;
     for(int x = 0; x < 2; x++) {
         for(int y = 0; y < 2; y++) {
             for(int z = 0; z < 2; z++) {
                 if (x == 0) {
-                    vCenter.mX = sBox.mCenter.mX - half.mX;
+                    center.mX = sBox.mCenter.mX - half.mX;
                 } else {
-                    vCenter.mX = sBox.mCenter.mX + half.mX;
+                    center.mX = sBox.mCenter.mX + half.mX;
                 }
                 if (y == 0) {
-                    vCenter.mY = sBox.mCenter.mY - half.mY;
+                    center.mY = sBox.mCenter.mY - half.mY;
                 } else {
-                    vCenter.mY = sBox.mCenter.mY + half.mY;
+                    center.mY = sBox.mCenter.mY + half.mY;
                 }
                 if (z == 0) {
-                    vCenter.mZ = sBox.mCenter.mZ - half.mZ;
+                    center.mZ = sBox.mCenter.mZ - half.mZ;
                 } else {
-                    vCenter.mZ = sBox.mCenter.mZ + half.mZ;
+                    center.mZ = sBox.mCenter.mZ + half.mZ;
                 }
-                childLeaf = new Leaf(Box(vCenter, half));
+                childLeaf = new Leaf(Box(center, half));
                 for(auto i = cPointsList.begin(); i != cPointsList.end(); ++i) {
                     if (childLeaf->Box().Contains((*i)->mOrigin)) {
                         childLeaf->InsertPoint(*i);
