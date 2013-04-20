@@ -4,11 +4,11 @@
 namespace ftr {
     
 class Node;
-class Point;
+class PointNode;
 
-typedef std::vector <Node*> TNodesList;
+typedef std::vector <Node*> NodesList;
 
-// Controls rendering hierarchy
+// Scene tree element
 class Node
 {
 public:
@@ -30,11 +30,11 @@ public:
     void                    RemoveNode(Node* pMode);
     Node*                   Supernode() const { return mSupernode; }
     virtual void            Transform(const Mat4& m4Transformation);
-    virtual std::vector<Point*>* Points() const { return NULL; }
+    virtual std::vector<PointNode*>* PointNodes() const { return NULL; }
     
 private:
     Node*                   mSupernode;
-    TNodesList              mSubnodes;
+    NodesList               mSubnodes;
 };
 
 }

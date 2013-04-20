@@ -6,7 +6,7 @@
 namespace ftr {
 
 class ModelManager;
-class Point;
+class PointNode;
 
 class LineInteraction : public Node
 {
@@ -26,8 +26,8 @@ private:
     Vec3 mStart;
     Vec3 mEnd;
     bool mActive;
-    Point* mStartPoint;
-    Point* mEndPoint;
+    PointNode* mStartPoint;
+    PointNode* mEndPoint;
 
 };
 

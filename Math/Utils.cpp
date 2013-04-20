@@ -109,7 +109,7 @@ void mouse( int button, int state, int x, int y )
  glGetDoublev (GL_MODELVIEW_MATRIX, mvmatrix);               // Get Actual Model View Matrix
  glGetDoublev (GL_PROJECTION_MATRIX, projmatrix);            // Get Actual Projection Matrix
  
- // This Asks OGL To Guess The 2D Position Of A 3D Point Inside The Viewport
+ // This Asks OGL To Guess The 2D Position Of A 3D PointNode Inside The Viewport
  gluProject(p.x, p.y, p.z, mvmatrix, projmatrix, viewport, &winx, &winy, &winz);
  flareZ = winz;
  

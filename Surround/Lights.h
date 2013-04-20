@@ -1,11 +1,11 @@
 
 #pragma once
 
-#include <Model/Model.h>
+#include <Model/Node.h>
 
 namespace ftr {
 
-class Lights : public Model
+class Lights : public Node
 {
 public:
     static void TurnOn(int index);

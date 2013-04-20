@@ -1,6 +1,6 @@
 
 #include <Model/Octree.h>
-#include <Model/Point.h>
+#include <Model/PointNode.h>
 #include <Main/GLError.h>
 
 namespace ftr {
@@ -36,7 +36,7 @@ Octree::Branch* Octree::Split(Octree::Leaf *leaf)
     }
     unsigned long iInitialCount = leaf->Size();
     unsigned long iCounter = 0;
-    TPointsList cPointsList = leaf->Points();
+    TPointsList cPointsList = leaf->PointNodes();
     Branch* branch =  new Branch(leaf->Box());
     if (leaf->Parent()) {
         assert(leaf->Parent()->Type() == kBranch);
@@ -101,7 +101,7 @@ void Octree::Merge(Branch* branch)
         for(int y = 0; y < 2; y++) {
             for(int z = 0; z < 2; z++) {
                 childLeaf = static_cast<Leaf*>(branch->Child(x, y, z));
-                cPointsList = childLeaf->Points();
+                cPointsList = childLeaf->PointNodes();
                 for(auto i = cPointsList.begin(); i != cPointsList.end(); ++i) {
                     leaf->InsertPoint((*i));
                 }
@@ -117,7 +117,7 @@ void Octree::Merge(Branch* branch)
     FT_DELETE(branch);
 }
 
-void Octree::InsertPoint(Point *pPoint)
+void Octree::InsertPoint(PointNode *pPoint)
 {
     assert(pPoint);
     Node* pNode = NodeContainingPoint(pPoint->mOrigin);
@@ -132,7 +132,7 @@ void Octree::InsertPoint(Point *pPoint)
     mUpdateSize = true;
 }
 
-void Octree::RemovePoint(Point *pPoint)
+void Octree::RemovePoint(PointNode *pPoint)
 {
     Leaf* leaf = pPoint->OctreeLeaf();
     if (!leaf) {
@@ -148,7 +148,7 @@ void Octree::RemovePoint(Point *pPoint)
     mUpdateSize = true;
 }
 
-void Octree::UpdatePoint(Point* pPoint)
+void Octree::UpdatePoint(PointNode* pPoint)
 {
     Leaf* leaf = pPoint->OctreeLeaf();
     if (leaf) {
@@ -173,9 +173,9 @@ Octree::Node* Octree::NodeContainingPoint(const Vec3& point)
 }
 
 
-void Octree::PointsInBox(const Box& sBox, std::vector<Point*>& pointsVector) const
+void Octree::PointNodesInBox(const Box& sBox, std::vector<PointNode*>& pointsVector) const
 {
-    mRootNode->PointsInBox(sBox, pointsVector);
+    mRootNode->PointNodesInBox(sBox, pointsVector);
 }
 
 unsigned long Octree::Size()
@@ -234,7 +234,7 @@ Octree::Node* Octree::Node::NodeContainingPoint(const Vec3& point)
     return NULL;
 }
 
-void Octree::Node::PointsInBox(const struct Box& sBox, std::vector<Point*>& pointsVector) const
+void Octree::Node::PointNodesInBox(const struct Box& sBox, std::vector<PointNode*>& pointsVector) const
 {
     if (mBox.Intersects(sBox)) {
         if (Type() == kBranch) {
@@ -244,14 +244,14 @@ void Octree::Node::PointsInBox(const struct Box& sBox, std::vector<Point*>& poin
                     for(int z = 0; z < 2; z++) {
                         Node* child = branch->Child(x, y, z);
                         if (child->mBox.Intersects(sBox)) {
-                            child->PointsInBox(sBox, pointsVector);
+                            child->PointNodesInBox(sBox, pointsVector);
                         }
                     }
                 }
             }
         } else {
             const Leaf* leaf = static_cast<const Leaf*>(this);
-            const TPointsList& pointsList = leaf->Points();
+            const TPointsList& pointsList = leaf->PointNodes();
             for(auto i = pointsList.begin(); i != pointsList.end(); ++i) {
                 pointsVector.push_back(*i);
             }
@@ -390,13 +390,13 @@ void Octree::Leaf::Render() const
 }
 
 
-void Octree::Leaf::InsertPoint(Point* pPoint)
+void Octree::Leaf::InsertPoint(PointNode* pPoint)
 {
     mPointsList.push_back(pPoint);
     pPoint->setOctreeLeaf(this);
 }
 
-void Octree::Leaf::RemovePoint(Point* pPoint)
+void Octree::Leaf::RemovePoint(PointNode* pPoint)
 {
     mPointsList.remove(pPoint);
     pPoint->setOctreeLeaf(NULL);

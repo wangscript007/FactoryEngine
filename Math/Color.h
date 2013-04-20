@@ -27,8 +27,8 @@ public:
 
     void            set(float r, float fG, float fB, float fA = 1.0f) {mR = r; mG = fG; mB = fB; mA = fA;}
     void            set(Byte bR, Byte bG, Byte bB, Byte a = 255);
-    float*          Pointer() {return &mR;}
-    const float*    Pointer() const {return &mR;}
+    float*          PointNodeer() {return &mR;}
+    const float*    PointNodeer() const {return &mR;}
 };
 
 class _ALIGN(4) Color4b
@@ -51,8 +51,8 @@ public:
 
     void            set(float r, float fG, float fB, float fA = 1.0f);
     void            set(Byte bR, Byte bG, Byte bB, Byte a = 255) {mR = bR; mG = bG; mB = bB; mA = a;}
-    Byte*         Pointer() {return &mR;}
-    const Byte*   Pointer() const {return &mR;}
+    Byte*         PointNodeer() {return &mR;}
+    const Byte*   PointNodeer() const {return &mR;}
 };
 
 inline Color4f::Color4f(const Color4b& other)
@@ -111,8 +111,8 @@ public:
     float&          operator[](Byte index) {return (&mH)[index];}
     float           operator[](Byte index) const {return (&mH)[index];}
  
-    float*          Pointer() {return &mH;}
-    const float*    Pointer() const {return &mH;}
+    float*          PointNodeer() {return &mH;}
+    const float*    PointNodeer() const {return &mH;}
     
     float           Hue2RGB(float fP, float fQ, float fT) const;
 
@@ -164,8 +164,8 @@ public:
     float&          operator[](Byte index) {return (&mH)[index];}
     float           operator[](Byte index) const {return (&mH)[index];}
 
-    float*          Pointer() {return &mH;}
-    const float*    Pointer() const {return &mH;}
+    float*          PointNodeer() {return &mH;}
+    const float*    PointNodeer() const {return &mH;}
     
     float           mH;
     float           mS;

@@ -46,8 +46,6 @@ inline bool Box::Intersects(const Box& other) const
 
 }
 
-
-
 struct Sphere
 {
     Vec3 mCenter;

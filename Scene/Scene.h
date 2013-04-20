@@ -5,7 +5,7 @@
 
 
 
-#include <Model/Face.h>
+#include <Model/FaceNode.h>
 #include <Workspace/Workspace.h>
 #include <Surround/Camera.h>
 #include <Model/ModelManager.h>
@@ -40,10 +40,10 @@ public:
     // Model
     //
     void                Select(Node* pNode) { mModelManager->Select(pNode); }
-    Face*               CreateFace(const Vec3& origin);
-    Point*              CreatePoint(const Vec3& origin);
-    Line*               CreateLine(Point* startPoint, Point* endPoint);
-    Point*              NearestPointToCenterInSphere(const Sphere& sSphere);
+    FaceNode*               CreateFace(const Vec3& origin);
+    PointNode*              CreatePoint(const Vec3& origin);
+    LineNode*               CreateLine(PointNode* startPoint, PointNode* endPoint);
+    PointNode*              NearestPointToCenterInSphere(const Sphere& sSphere);
     void                UpdateNode(Node* pNode);
     void                RemoveNode(Node* pNode);
     unsigned long       Size() { return mModelManager->Size(); }

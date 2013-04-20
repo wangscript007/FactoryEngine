@@ -3,7 +3,7 @@
 //
 
 #include <Model/ModelFactory.h>
-#include <Model/Point.h>
+#include <Model/PointNode.h>
 #include <Model/ModelTreeManager.h>
 
 namespace ftr {
@@ -14,20 +14,20 @@ ModelFactory::ModelFactory(ModelTreeManager& modelTreeManager)
     
 }
 
-Face* ModelFactory::CreateRectangle(const Vec3& origin, const Vec3& size) const
+FaceNode* ModelFactory::CreateRectangle(const Vec3& origin, const Vec3& size) const
 {
-    std::vector<Point*> pointsVector;
-    pointsVector.push_back(new Point(Vec3(origin.mX, origin.mY, origin.mZ)));
-    pointsVector.push_back(new Point(Vec3(origin.mX + size.mX, origin.mY, origin.mZ)));
-    pointsVector.push_back(new Point(Vec3(origin.mX + size.mX, origin.mY, origin.mZ + size.mZ)));
-    pointsVector.push_back(new Point(Vec3(origin.mX, origin.mY, origin.mZ + size.mZ)));
+    std::vector<PointNode*> pointsVector;
+    pointsVector.push_back(new PointNode(Vec3(origin.mX, origin.mY, origin.mZ)));
+    pointsVector.push_back(new PointNode(Vec3(origin.mX + size.mX, origin.mY, origin.mZ)));
+    pointsVector.push_back(new PointNode(Vec3(origin.mX + size.mX, origin.mY, origin.mZ + size.mZ)));
+    pointsVector.push_back(new PointNode(Vec3(origin.mX, origin.mY, origin.mZ + size.mZ)));
     return CreatePolygon(pointsVector);
 }
 
-Face* ModelFactory::CreateCircle(Vec3 origin, float radius, int iCount) const
+FaceNode* ModelFactory::CreateCircle(Vec3 origin, float radius, int iCount) const
 {
-    Point* pPoint;
-    std::vector<Point*> pointsVector;
+    PointNode* pPoint;
+    std::vector<PointNode*> pointsVector;
     float radAngleStep = M_2_PI/((float)iCount);
     float radAngle = 0;
     float x, y;
@@ -36,16 +36,16 @@ Face* ModelFactory::CreateCircle(Vec3 origin, float radius, int iCount) const
         radAngle += radAngleStep;
         x = radius*cosf(radAngle);
         y = radius*sinf(radAngle);
-        pPoint = new Point();
+        pPoint = new PointNode();
         pPoint->mOrigin = Vec3(x, y, z);
         pointsVector.push_back(pPoint);
     }
     return CreatePolygon(pointsVector);
 }
 
-Face* ModelFactory::CreatePolygon(std::vector<Point*>& pointsVector) const
+FaceNode* ModelFactory::CreatePolygon(std::vector<PointNode*>& pointsVector) const
 {
-    Face* pFace = new Face();
+    FaceNode* pFace = new FaceNode();
     for(int i = 0; i < pointsVector.size(); i++) {
         pFace->AddPoint(pointsVector[i]);
         if (i > 0) {
@@ -58,12 +58,12 @@ Face* ModelFactory::CreatePolygon(std::vector<Point*>& pointsVector) const
     return pFace;
 }
 
-Face* ModelFactory::CreateFace(Vec3 origin, Vec3 size, Face::FaceType eType) const
+FaceNode* ModelFactory::CreateFace(Vec3 origin, Vec3 size, FaceNode::FaceType eType) const
 {
     switch (eType) {
-        case Face::kRectangle : {
-            Face* pFace = new Face();
-            pFace->m_eType = Face::kRectangle;
+        case FaceNode::kRectangle : {
+            FaceNode* pFace = new FaceNode();
+            pFace->m_eType = FaceNode::kRectangle;
             pFace->setOrigin(origin);
             pFace->setSize(size);
             return pFace;
@@ -73,16 +73,16 @@ Face* ModelFactory::CreateFace(Vec3 origin, Vec3 size, Face::FaceType eType) con
     return NULL;
 }
 
-Point* ModelFactory::CreatePoint(Vec3 origin) const
+PointNode* ModelFactory::CreatePoint(Vec3 origin) const
 {
-    Point* pPoint = new Point();
+    PointNode* pPoint = new PointNode();
     pPoint->mOrigin = origin;
     return pPoint;
 }
 
-Line* ModelFactory::CreateLine(Point* startPoint, Point* endPoint) const
+LineNode* ModelFactory::CreateLine(PointNode* startPoint, PointNode* endPoint) const
 {
-    Line* line = new Line(startPoint, endPoint);
+    LineNode* line = new LineNode(startPoint, endPoint);
     return line;
 }
 

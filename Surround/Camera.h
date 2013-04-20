@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include <Model/Model.h>
+#include <Model/Node.h>
 
 
 
@@ -12,7 +12,7 @@ typedef enum {
     kProjectionModeOrthographic
 } ProjectionMode;
 
-class Camera : public Model
+class Camera : public Node
 {
 public:
     Camera();

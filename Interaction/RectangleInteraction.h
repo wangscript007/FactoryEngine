@@ -12,9 +12,7 @@ class  ModelManager;
 
 class RectangleInteraction : public Node
 {
-public:
-    
-    
+public:   
     RectangleInteraction(ModelManager& modelManager);
     virtual ~RectangleInteraction() {}
     
@@ -23,7 +21,6 @@ public:
     void End();
     void setOrigin(const Vec3& origin);
     void setCurrent(const Vec3& current);
-    
     
 private:
     Polygon mPolygon;

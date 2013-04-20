@@ -1,9 +1,9 @@
 
-#include <Model/Line.h>
+#include <Model/LineNode.h>
 
 namespace ftr {
 
-Line::Line(Point* startPoint, Point* endPoint)
+LineNode::LineNode(PointNode* startPoint, PointNode* endPoint)
     :mStartPoint(startPoint)
     ,mEndPoint(endPoint)
 {}
@@ -11,7 +11,7 @@ Line::Line(Point* startPoint, Point* endPoint)
 #pragma mark - Instance
 
 
-void Line::Render()
+void LineNode::Render()
 {
     Node::Render();
     if (mStartPoint) {
@@ -39,7 +39,7 @@ void Line::Render()
     glEnd();
 }
 
-void Line::Transform(const Mat4& m4Transformation)
+void LineNode::Transform(const Mat4& m4Transformation)
 {
     mStartPoint->Transform(m4Transformation);
     mEndPoint->Transform(m4Transformation);

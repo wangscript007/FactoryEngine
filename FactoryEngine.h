@@ -59,12 +59,11 @@ typedef unsigned long long int  Quadrupleword;    // 8 bytes
 // Model
 //
 #include "Model/Node.h"
-#include "Model/Model.h"
-#include "Model/Point.h"
-#include "Model/Line.h"
-#include "Model/Face.h"
-#include "Model/Body.h"
-#include "Model/Group.h"
+#include "Model/PointNode.h"
+#include "Model/LineNode.h"
+#include "Model/FaceNode.h"
+#include "Model/BodyNode.h"
+#include "Model/GroupNode.h"
 #include "Model/ModelFactory.h"
 
 //

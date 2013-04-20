@@ -1,6 +1,6 @@
 
 #include <Model/ModelTreeManager.h>
-#include <Model/Point.h>
+#include <Model/PointNode.h>
 
 namespace ftr {
 
@@ -24,21 +24,21 @@ void ModelTreeManager::setRootNode(Node *pRootNode)
 void ModelTreeManager::AddNode(Node* pNode)
 {
     if (pNode->Type() == Node::kPoint) {
-        mOctree->InsertPoint(static_cast<Point*>(pNode));
+        mOctree->InsertPoint(static_cast<PointNode*>(pNode));
     }
 }
 
 void ModelTreeManager::UpdateNode(Node* pNode)
 {
     if (pNode->Type() == Node::kPoint) {
-        mOctree->UpdatePoint(static_cast<Point*>(pNode));
+        mOctree->UpdatePoint(static_cast<PointNode*>(pNode));
     }
 }
 
 void ModelTreeManager::RemoveNode(Node* pNode)
 {
     if (pNode->Type() == Node::kPoint) {
-        mOctree->RemovePoint(static_cast<Point*>(pNode));
+        mOctree->RemovePoint(static_cast<PointNode*>(pNode));
     }
     Node* supernode = pNode->Supernode();
     assert(supernode);

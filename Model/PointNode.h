@@ -1,18 +1,18 @@
 
 #pragma once
 
-#include <Model/Model.h>
+#include <Model/Node.h>
 #include <Model/Octree.h>
 
 namespace ftr {
 
-class Point : public Model
+class PointNode : public Node
 {
 public:
     static const float c_fR;
-    Point();
-    Point(Vec3 origin);
-    virtual ~Point() {}
+    PointNode();
+    PointNode(Vec3 origin);
+    virtual ~PointNode() {}
     
     Vec3 mOrigin;
     

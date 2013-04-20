@@ -22,12 +22,12 @@ ModelManager::~ModelManager()
 
 #pragma mark - Instance
 
-Point* ModelManager::NearestPointToCenterInSphere(const Sphere& sSphere) const
+PointNode* ModelManager::NearestPointToCenterInSphere(const Sphere& sSphere) const
 {
-    std::vector<Point*> cPointsVector;
+    std::vector<PointNode*> cPointsVector;
     Box sBox = sSphere.Box();
-    mModelTreeManager->PointsInBox(sBox, cPointsVector);
-    Point* pNearestPoint = NULL;
+    mModelTreeManager->PointNodesInBox(sBox, cPointsVector);
+    PointNode* pNearestPoint = NULL;
     float fNearestPointDistance = MAXFLOAT;
     float fDistance;
     for(auto i = cPointsVector.begin(); i != cPointsVector.end(); ++i) {
@@ -47,12 +47,12 @@ void ModelManager::Select(Node* pNode)
     mSelectedNode = pNode;
 }
 
-Face* ModelManager::CreateRectangle(const Vec3& origin, const Vec3& size) const
+FaceNode* ModelManager::CreateRectangle(const Vec3& origin, const Vec3& size) const
 {
     assert(mSelectedNode);
-    Face* pFace = mModelFactory->CreateRectangle(origin, size);
+    FaceNode* pFace = mModelFactory->CreateRectangle(origin, size);
     mSelectedNode->AddNode(pFace);
-    const Face::TPointsVector& pointsVector = pFace->PointsVector();
+    const FaceNode::TPointsVector& pointsVector = pFace->PointNodesVector();
     for(auto i = pointsVector.begin(); i != pointsVector.end(); ++i) {
         mModelTreeManager->AddNode(*i);
     }
@@ -60,29 +60,29 @@ Face* ModelManager::CreateRectangle(const Vec3& origin, const Vec3& size) const
 }
 
 
-Face* ModelManager::CreateFace(Vec3 origin, Face::FaceType eType)
+FaceNode* ModelManager::CreateFace(Vec3 origin, FaceNode::FaceType eType)
 {
     assert(mSelectedNode);
-    Face* pFace = mModelFactory->CreateFace(Vec3(origin.mX, 0.01, origin.mZ),
+    FaceNode* pFace = mModelFactory->CreateFace(Vec3(origin.mX, 0.01, origin.mZ),
                                 Vec3(0.0f, 0.0f, 0.0f),
                                 eType);
     mSelectedNode->AddNode(pFace);
     return pFace;
 }
 
-Point* ModelManager::CreatePoint(Vec3 origin)
+PointNode* ModelManager::CreatePoint(Vec3 origin)
 {
     assert(mSelectedNode);
-    Point* pPoint = mModelFactory->CreatePoint(origin);
+    PointNode* pPoint = mModelFactory->CreatePoint(origin);
     mSelectedNode->AddNode(pPoint);
     mModelTreeManager->AddNode(pPoint);
     return pPoint;
 }
 
-Line* ModelManager::CreateLine(Point* startPoint, Point* endPoint)
+LineNode* ModelManager::CreateLine(PointNode* startPoint, PointNode* endPoint)
 {
     assert(mSelectedNode);
-    Line* line = mModelFactory->CreateLine(startPoint, endPoint);
+    LineNode* line = mModelFactory->CreateLine(startPoint, endPoint);
     mSelectedNode->AddNode(line);
     mSelectedNode = line;
     

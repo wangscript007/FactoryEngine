@@ -1,18 +1,18 @@
 
 //
-// Node: Face should consits of concave polygons array
+// Node: FaceNode should consits of concave polygons array
 //
 #pragma once
 
-#include <Model/Model.h>
+#include <Model/Node.h>
 
 namespace ftr {
 
 class Polygon;
-class Line;
-class Point;
+class LineNode;
+class PointNode;
 
-class Face : public Model
+class FaceNode : public Node
 {
 public:
     enum FaceType
@@ -20,23 +20,23 @@ public:
         kRectangle = 0
     };
     typedef std::vector<Polygon*>     TPolygonsVector;
-    typedef std::vector<Point*>       TPointsVector;
-    typedef std::vector<Line*>        TLinesVector;
+    typedef std::vector<PointNode*>       TPointsVector;
+    typedef std::vector<LineNode*>        TLinesVector;
 
-                                        Face();
-                                        ~Face();
+                                        FaceNode();
+                                        ~FaceNode();
     
     virtual void                        Render();
     virtual NodeType                    Type() const { return kFace; }
     virtual void                        Transform(Mat4& m4Transformation);
     bool                                IsInFacePlane(Vec3 vec);
     bool                                Contains(Vec3 vec);
-    void                                Cut(Face* cutFace);
+    void                                Cut(FaceNode* cutFace);
     
     void                                AddPolygon();
     void                                RemovePolygon();
-    void                                AddPoint(Point* pPoint);
-    void                                AddLine(Line* line);
+    void                                AddPoint(PointNode* pPoint);
+    void                                AddLine(LineNode* line);
     
     FaceType                            m_eType;
     
@@ -45,7 +45,7 @@ public:
     void                                setOrigin(const Vec3 origin);
     const Vec3&                       Origin() const { return mOrigin; }
     
-    const TPointsVector&                PointsVector() const { return mPointsVector; }
+    const TPointsVector&                PointNodesVector() const { return mPointsVector; }
     
 private:
     TPolygonsVector                     mPolygons;

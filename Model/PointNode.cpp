@@ -1,27 +1,27 @@
 
-#include <Model/Point.h>
+#include <Model/PointNode.h>
 #include <Main/Log.h>
 
 
 namespace ftr {
 
-const float Point::c_fR = 5.0f;
+const float PointNode::c_fR = 5.0f;
 
 
-Point::Point()
+PointNode::PointNode()
     :mOctreeLeaf(NULL)
     ,mIsActive(false)
 {
     
 }
 
-Point::Point(Vec3 origin)
+PointNode::PointNode(Vec3 origin)
 :mOrigin(origin)
 {
-    Point();
+    PointNode();
 }
 
-void Point::Transform(const Mat4& m4Transformation)
+void PointNode::Transform(const Mat4& m4Transformation)
 {
     mOrigin *= m4Transformation;
     Log(kLogModel, "[%f, %f, %f]", mOrigin.mX, mOrigin.mY, mOrigin.mZ);
@@ -32,7 +32,7 @@ void Point::Transform(const Mat4& m4Transformation)
 //
 // Renders cicle at point position
 //
-void Point::Render()
+void PointNode::Render()
 {
     glEnable(GL_POINT_SMOOTH);
     glEnable(GL_BLEND);

@@ -22,8 +22,8 @@ public:
     void        UpdateNode(Node* pNode);
     void        RemoveNode(Node* pNode);
     
-    void PointsInBox(const Box& sBox, std::vector<Point*>& pointsVector) const {
-        mOctree->PointsInBox(sBox, pointsVector);
+    void PointNodesInBox(const Box& sBox, std::vector<PointNode*>& pointsVector) const {
+        mOctree->PointNodesInBox(sBox, pointsVector);
     }
     unsigned long Size() { return mOctree->Size(); }
     

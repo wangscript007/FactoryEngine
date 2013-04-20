@@ -5,7 +5,7 @@
 
 namespace ftr {
 
-class Point;
+class PointNode;
     
 class Octree
 {
@@ -13,7 +13,7 @@ public:
     class Node;
     class Leaf;
     
-    typedef std::list<Point*> TPointsList;
+    typedef std::list<PointNode*> TPointsList;
     
     struct Vertice3 {
         float x, y, z;
@@ -25,11 +25,11 @@ public:
     
     void Render();
     unsigned long Size();
-    void InsertPoint(Point* pPoint);
-    void RemovePoint(Point* pPoint);
-    void UpdatePoint(Point* pPoint);
+    void InsertPoint(PointNode* pPoint);
+    void RemovePoint(PointNode* pPoint);
+    void UpdatePoint(PointNode* pPoint);
     Node* NodeContainingPoint(const Vec3& point);
-    void PointsInBox(const Box& sBox, std::vector<Point*>& pointsVector) const;
+    void PointNodesInBox(const Box& sBox, std::vector<PointNode*>& pointsVector) const;
     
     
     enum NodeType { kBranch, kLeaf };
@@ -58,7 +58,7 @@ public:
         SIndex& Index() { return mIndex; }
         void setIndex(SIndex sIndex) { mIndex = sIndex; }
         Node* NodeContainingPoint(const Vec3& point);
-        void PointsInBox(const ftr::Box& sBox, std::vector<Point*>& pointsVector) const;
+        void PointNodesInBox(const ftr::Box& sBox, std::vector<PointNode*>& pointsVector) const;
         void setDepth(int iDepth) { mDepth = iDepth; }
         int Depth() const { return mDepth; }
         
@@ -100,9 +100,9 @@ public:
         
         void Render() const;
         unsigned long Size() const { return mPointsList.size(); }
-        void InsertPoint(Point* pPoint);
-        void RemovePoint(Point* pPoint);
-        const TPointsList& Points() const { return mPointsList; }
+        void InsertPoint(PointNode* pPoint);
+        void RemovePoint(PointNode* pPoint);
+        const TPointsList& PointNodes() const { return mPointsList; }
     private:
         TPointsList mPointsList;
     };

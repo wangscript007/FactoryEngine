@@ -1,5 +1,5 @@
 
-#include <Model/Point.h>
+#include <Model/PointNode.h>
 #include <Interaction/LineInteraction.h>
 #include <Model/ModelManager.h>
 
@@ -70,7 +70,7 @@ void LineInteraction::End()
 
 void LineInteraction::setEnd(Vec3 end)
 {
-    Point* pNearPoint = mModelManager.NearestPointToCenterInSphere(Sphere(end, 0.5f));
+    PointNode* pNearPoint = mModelManager.NearestPointToCenterInSphere(Sphere(end, 0.5f));
     if (pNearPoint) {
         mEnd = pNearPoint->mOrigin;
         mEndPoint = pNearPoint;
@@ -82,7 +82,7 @@ void LineInteraction::setEnd(Vec3 end)
 
 void LineInteraction::setStart(Vec3 start)
 {
-    Point* pNearPoint = mModelManager.NearestPointToCenterInSphere(Sphere(start, 0.5f));
+    PointNode* pNearPoint = mModelManager.NearestPointToCenterInSphere(Sphere(start, 0.5f));
     if (pNearPoint) {
         mStart = pNearPoint->mOrigin;
         mStartPoint = pNearPoint;

@@ -19,16 +19,16 @@ public:
                     Frame(const Frame& other): mMin(other.mMin), mMax(other.mMax) {}
                     Frame(const Vec2& min, const Vec2& max): mMin(min), mMax(max) {}
 
-    Frame         operator-(const Vec2& pos) const {return Frame(mMin - pos, mMax - pos);}
-    Frame         operator+(const Vec2& pos) const {return Frame(mMin + pos, mMax + pos);}
-    Frame&        operator+=(const Vec2& pos);
-    Frame&        operator-=(const Vec2& pos);
-    Frame&        operator=(const Frame& other);
-    Frame&        operator*=(const Mat2& matrix);
-    Frame         operator*(float x) const {return Frame(mMin * x, mMax * x);}
-    Frame&        operator*=(float x);
-    Vec2&         operator[](int index) {return (&mMin)[index];}
-    const Vec2&   operator[](int index) const {return (&mMin)[index];}
+    Frame           operator-(const Vec2& pos) const {return Frame(mMin - pos, mMax - pos);}
+    Frame           operator+(const Vec2& pos) const {return Frame(mMin + pos, mMax + pos);}
+    Frame&          operator+=(const Vec2& pos);
+    Frame&          operator-=(const Vec2& pos);
+    Frame&          operator=(const Frame& other);
+    Frame&          operator*=(const Mat2& matrix);
+    Frame           operator*(float x) const {return Frame(mMin * x, mMax * x);}
+    Frame&          operator*=(float x);
+    Vec2&           operator[](int index) {return (&mMin)[index];}
+    const Vec2&     operator[](int index) const {return (&mMin)[index];}
     bool            operator==(const Frame& other) const {return mMin == other.mMin && mMax == other.mMax;}
     bool            operator!=(const Frame& other) const {return mMin != other.mMin || mMax != other.mMax;}
 
@@ -39,14 +39,14 @@ public:
     void            setHeight(float fHeight) {mMax.mY = mMin.mY + fHeight;}
     void            setPosition(const Vec2& pos);
     void            Scale(const Vec2& scale);
-    const Vec2&   GetPosition() const {return mMin;}
+    const Vec2&     GetPosition() const {return mMin;}
     void            setExtent(const Vec2& extent);
-    Vec2          GetExtent() const {return Vec2(GetWidth(), GetHeight());}
+    Vec2            GetExtent() const {return Vec2(GetWidth(), GetHeight());}
     bool            Intersect(const Vec2& point) const;
     bool            Intersect(const Frame& other) const {return Intersect(other[0]) && Intersect(other[1]);}
     bool            Overlap(const Frame& other) const;
-    Vec2          Center() const {return (mMin + mMax) * 0.5f;}
-    Mat3x2        Orthographic() const;
+    Vec2            Center() const {return (mMin + mMax) * 0.5f;}
+    Mat3x2          Orthographic() const;
 };
 
 inline Frame& Frame::operator=(const Frame& other)

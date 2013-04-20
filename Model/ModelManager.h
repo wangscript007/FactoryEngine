@@ -2,7 +2,7 @@
 #pragma once
 
 #include <Model/ModelFactory.h>
-#include <Model/Group.h>
+#include <Model/GroupNode.h>
 #include <Model/ModelTreeManager.h>
 
 namespace ftr {
@@ -15,7 +15,7 @@ public:
     
     ModelFactory*         ModelFactory() const { return mModelFactory; }
     ModelTreeManager*     ModelTreeManager() const { return  mModelTreeManager; }
-    Point*                NearestPointToCenterInSphere(const Sphere& sSphere) const;
+    PointNode*                NearestPointToCenterInSphere(const Sphere& sSphere) const;
     void                    UpdateNode(Node* pNode) { mModelTreeManager->UpdateNode(pNode); }
     void                    RemoveNode(Node* pNode) { mModelTreeManager->RemoveNode(pNode); }
     void                    Select(Node* pNode);
@@ -24,10 +24,10 @@ public:
     //
     // Creating
     //
-    Face*                 CreateRectangle(const Vec3& origin, const Vec3& size) const;
-    Face*                 CreateFace(Vec3 origin, Face::FaceType eType);
-    Point*                CreatePoint(Vec3 origin);
-    Line*                 CreateLine(Point* startPoint, Point* endPoint);
+    FaceNode*                 CreateRectangle(const Vec3& origin, const Vec3& size) const;
+    FaceNode*                 CreateFace(Vec3 origin, FaceNode::FaceType eType);
+    PointNode*                CreatePoint(Vec3 origin);
+    LineNode*                 CreateLine(PointNode* startPoint, PointNode* endPoint);
     
 private:
     class ModelFactory*         mModelFactory;

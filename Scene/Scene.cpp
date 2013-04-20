@@ -106,24 +106,24 @@ void Scene::TurnOnLight(int index)
 
 #pragma mark Model
 
-Face* Scene::CreateFace(const Vec3& origin)
+FaceNode* Scene::CreateFace(const Vec3& origin)
 {
-    return mModelManager->CreateFace(origin, Face::kRectangle);
+    return mModelManager->CreateFace(origin, FaceNode::kRectangle);
 }
 
 
-Point* Scene::CreatePoint(const Vec3& origin)
+PointNode* Scene::CreatePoint(const Vec3& origin)
 {
     return mModelManager->CreatePoint(origin);
 }
 
 
-Line* Scene::CreateLine(Point* startPoint, Point* endPoint)
+LineNode* Scene::CreateLine(PointNode* startPoint, PointNode* endPoint)
 {
     return mModelManager->CreateLine(startPoint, endPoint);
 }
 
-Point* Scene::NearestPointToCenterInSphere(const Sphere& sSphere)
+PointNode* Scene::NearestPointToCenterInSphere(const Sphere& sSphere)
 {
     return mModelManager->NearestPointToCenterInSphere(sSphere);
 }
