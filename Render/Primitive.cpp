@@ -10,5 +10,14 @@ char* Primitive::renderData() {
     return mRenderData;
 }
     
+char* LinePrimitive::Primitive::CreateRenderData()
+{
+    LinePrimitive::Data* data = reinterpret_cast<LinePrimitive::Data*>(new char[sizeof(data)]);
+    data->indices[0] = 0;
+    data->indices[1] = 1;
+    
+    return reinterpret_cast<char*>(data);
+}
+    
     
 }

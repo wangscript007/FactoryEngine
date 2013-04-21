@@ -14,6 +14,8 @@
 		6021AFC017230E82001EAEBE /* RenderBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFBE17230E82001EAEBE /* RenderBundle.h */; };
 		6021AFC717232B8F001EAEBE /* PrimitiveRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFC517232B8E001EAEBE /* PrimitiveRenderer.cpp */; };
 		6021AFC817232B8F001EAEBE /* PrimitiveRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFC617232B8F001EAEBE /* PrimitiveRenderer.h */; };
+		6021AFCB172332F6001EAEBE /* LineRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFC9172332F6001EAEBE /* LineRenderer.cpp */; };
+		6021AFCC172332F6001EAEBE /* LineRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFCA172332F6001EAEBE /* LineRenderer.h */; };
 		6047DB9316B46A890012286F /* RectangleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6047DB9116B46A890012286F /* RectangleInteraction.cpp */; };
 		6056C57015DC554C008F8E92 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6056C56E15DC5522008F8E92 /* Scene.cpp */; };
 		605CD4FC16FDE992005CCAA2 /* MoveInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605CD4FA16FDE992005CCAA2 /* MoveInteraction.cpp */; };
@@ -122,6 +124,8 @@
 		6021AFBE17230E82001EAEBE /* RenderBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderBundle.h; sourceTree = "<group>"; };
 		6021AFC517232B8E001EAEBE /* PrimitiveRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PrimitiveRenderer.cpp; sourceTree = "<group>"; };
 		6021AFC617232B8F001EAEBE /* PrimitiveRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimitiveRenderer.h; sourceTree = "<group>"; };
+		6021AFC9172332F6001EAEBE /* LineRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineRenderer.cpp; sourceTree = "<group>"; };
+		6021AFCA172332F6001EAEBE /* LineRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineRenderer.h; sourceTree = "<group>"; };
 		6047DB9116B46A890012286F /* RectangleInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleInteraction.cpp; sourceTree = "<group>"; };
 		6047DB9216B46A890012286F /* RectangleInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleInteraction.h; sourceTree = "<group>"; };
 		604E939A16A1C6E700143522 /* fix_includes.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = fix_includes.py; sourceTree = "<group>"; };
@@ -282,6 +286,8 @@
 				6021AFBB17230800001EAEBE /* BundleRenderer.cpp */,
 				6021AFBD17230E82001EAEBE /* RenderBundle.cpp */,
 				6021AFBE17230E82001EAEBE /* RenderBundle.h */,
+				6021AFC9172332F6001EAEBE /* LineRenderer.cpp */,
+				6021AFCA172332F6001EAEBE /* LineRenderer.h */,
 			);
 			path = Render;
 			sourceTree = "<group>";
@@ -497,6 +503,7 @@
 				60D7458C1722994B0062CDF1 /* Primitive.h in Headers */,
 				6021AFC017230E82001EAEBE /* RenderBundle.h in Headers */,
 				6021AFC817232B8F001EAEBE /* PrimitiveRenderer.h in Headers */,
+				6021AFCC172332F6001EAEBE /* LineRenderer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +601,7 @@
 				6021AFBC17230800001EAEBE /* BundleRenderer.cpp in Sources */,
 				6021AFBF17230E82001EAEBE /* RenderBundle.cpp in Sources */,
 				6021AFC717232B8F001EAEBE /* PrimitiveRenderer.cpp in Sources */,
+				6021AFCB172332F6001EAEBE /* LineRenderer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

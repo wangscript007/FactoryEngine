@@ -9,7 +9,12 @@ namespace ftr {
 class PrimitiveRenderer
 {
 public:
+    PrimitiveRenderer();
     virtual ~PrimitiveRenderer() {}
+    
+    virtual void Begin() = 0;
+    virtual void Render(Primitive& primitive) = 0;
+    virtual void End() = 0;
 };
     
 }
