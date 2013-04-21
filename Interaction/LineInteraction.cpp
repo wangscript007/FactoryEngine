@@ -14,9 +14,9 @@ LineInteraction::LineInteraction(ModelManager& modelManager)
 
 #pragma mark Instance
 
-void LineInteraction::Render()
+void LineInteraction::Render(RenderBundle& renderBundle)
 {
-    Node::Render();
+    Node::Render(renderBundle);
     glDisable(GL_DEPTH_TEST);
     glDisable(GL_LIGHTING);
     glLineWidth(1);

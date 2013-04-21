@@ -9,11 +9,13 @@ class LinePrimitive;
 class LineRenderer : public PrimitiveRenderer
 {
 public:
-    LineRenderer();
+    LineRenderer() {}
     virtual ~LineRenderer() {}
     virtual void Begin();
-    virtual void Render(LinePrimitive& primitive);
+    virtual void Render(Primitive& primitive);
     virtual void End();
+    
+    virtual Primitive::Type type() const { return Primitive::kLine; }
 };
 
 }

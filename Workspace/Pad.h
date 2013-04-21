@@ -11,7 +11,7 @@ class Pad : Node
 {
 public:
                 Pad() : mfA(16.0f), mfScale(1.0f) {};
-    void        Render();
+    void        Render(RenderBundle& renderBundle);
     GLfloat     mfA;
     GLfloat     mfScale;
 };

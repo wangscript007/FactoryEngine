@@ -10,7 +10,7 @@ char* Primitive::renderData() {
     return mRenderData;
 }
     
-char* LinePrimitive::Primitive::CreateRenderData()
+char* LinePrimitive::CreateRenderData()
 {
     LinePrimitive::Data* data = reinterpret_cast<LinePrimitive::Data*>(new char[sizeof(data)]);
     data->indices[0] = 0;

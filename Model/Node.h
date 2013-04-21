@@ -1,6 +1,8 @@
 
 #pragma once
 
+#include <Render/RenderBundle.h>
+
 namespace ftr {
     
 class Node;
@@ -24,7 +26,7 @@ public:
                             Node();
                             ~Node();
     
-    virtual void            Render();
+    virtual void            Render(RenderBundle& renderBundle);
     virtual NodeType        Type() const { return kNone; }
     void                    AddNode(Node* pNode);
     void                    RemoveNode(Node* pMode);

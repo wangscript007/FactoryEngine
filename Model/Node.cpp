@@ -30,11 +30,11 @@ void Node::RemoveNode(Node* pNode)
     }
 }
 
-void Node::Render()
+void Node::Render(RenderBundle& renderBundle)
 {
     for(auto i = mSubnodes.begin(); i != mSubnodes.end(); ++i)
     {
-        (*i)->Render();
+        (*i)->Render(renderBundle);
     }
 }
 

@@ -28,10 +28,10 @@ void Workspace::setViewportRect(Rect rect)
     glViewport(rect.mOrigin.mX, rect.mOrigin.mY, rect.mSize.mX, rect.mSize.mY);
 }
 
-void Workspace::Render()
+void Workspace::Render(RenderBundle& renderBundle)
 {    
     Log(kLogWorkspace, "");
-    Node::Render();
+    Node::Render(renderBundle);
     glFinish();
 }
 

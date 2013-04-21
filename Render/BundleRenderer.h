@@ -5,6 +5,7 @@
 namespace ftr {
     
 class RenderBundle;
+class PrimitiveRenderer;
     
 class Primitive;
 //
@@ -18,6 +19,12 @@ public:
     
     void Render(RenderBundle& renderBundle);
     
+    
+private:
+    void AddRenderer(PrimitiveRenderer* primitiveRenderer);
+    
+    typedef std::unordered_map<int, PrimitiveRenderer*> RenderersMap;
+    RenderersMap mRenderersMap;
 };
 
 } // ftr

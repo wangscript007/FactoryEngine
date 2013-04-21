@@ -16,7 +16,7 @@ class Workspace : public Node
 public:
                         Workspace();
                         ~Workspace();
-    virtual void        Render();
+    virtual void        Render(RenderBundle& renderBundle);
     void                setViewportRect(Rect rect);
     
 private:

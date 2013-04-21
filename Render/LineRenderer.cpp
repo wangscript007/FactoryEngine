@@ -9,7 +9,7 @@ void LineRenderer::Begin()
     glEnableClientState(GL_VERTEX_ARRAY);
 }
     
-void LineRenderer::Render(LinePrimitive& primitive)
+void LineRenderer::Render(Primitive& primitive)
 {
     if (primitive.isInvalid()) return;
     

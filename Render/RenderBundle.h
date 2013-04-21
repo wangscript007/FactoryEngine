@@ -10,11 +10,15 @@ namespace ftr {
 class RenderBundle
 {
 public:
+    typedef std::vector<Primitive*> PrimitivesVector;
+    
     virtual ~RenderBundle() {}
     
     void AddPrimitive(Primitive& primitive);
+    PrimitivesVector& PrimitivesOfType(Primitive::Type type);
+    
 private:
-    typedef std::vector<Primitive*> PrimitivesVector;
+    
     typedef std::unordered_map<int, PrimitivesVector> PrimitivesMap;
     
     PrimitivesMap mPrimitivesMap;

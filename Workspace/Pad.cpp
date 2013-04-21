@@ -7,7 +7,7 @@
 
 namespace ftr {
 
-void Pad::Render()
+void Pad::Render(RenderBundle& renderBundle)
 {
     Log(kLogWorkspace, "");
     glEnable(GL_DEPTH_TEST);

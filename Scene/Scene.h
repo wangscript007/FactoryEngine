@@ -13,6 +13,9 @@
 
 namespace ftr {
 
+class RenderBundle;
+class BundleRenderer;
+    
 class Scene
 {
 public:
@@ -55,6 +58,9 @@ private:
     Workspace*        mWorkspace;
     Camera*           mCamera;
     ModelManager*     mModelManager;
+    
+    RenderBundle*     mRenderBundle;
+    BundleRenderer*   mBundleRenderer;
     class InteractionManager* mInteractionManager;
     
 };

@@ -16,7 +16,7 @@ public:
     
     Vec3 mOrigin;
     
-    virtual void Render();
+    virtual void Render(RenderBundle& renderBundle);
     virtual NodeType Type() const { return kPoint; }
     virtual void Transform(const Mat4& m4Transformation);
     Octree::Leaf* OctreeLeaf() const { return mOctreeLeaf; }

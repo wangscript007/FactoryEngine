@@ -33,7 +33,7 @@ public:
     bool isInvalid() const { return mIsInvalid; }
     
 protected:
-    virtual char* CreateRenderData() = 0;
+    virtual char* CreateRenderData() { return NULL; };
 
 private:
     bool mIsInvalid;

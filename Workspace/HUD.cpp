@@ -8,7 +8,7 @@
 
 namespace ftr {
 
-void HUD::Render()
+void HUD::Render(RenderBundle& renderBundle)
 {
     Log(kLogWorkspace, "");
     glEnable(GL_CULL_FACE);

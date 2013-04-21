@@ -16,7 +16,7 @@ public:
         float x, y, z;
     };
     
-    void Render();
+    void Render(RenderBundle& renderBundle);
     void RenderCube();
     void RenderIcosahedron();
     void RenderDesktop();

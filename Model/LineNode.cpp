@@ -11,14 +11,14 @@ LineNode::LineNode(PointNode* startPoint, PointNode* endPoint)
 #pragma mark - Instance
 
 
-void LineNode::Render()
+void LineNode::Render(RenderBundle& renderBundle)
 {
-    Node::Render();
+    Node::Render(renderBundle);
     if (mStartPoint) {
-        mStartPoint->Render();
+        mStartPoint->Render(renderBundle);
     }
     if (mEndPoint) {
-        mEndPoint->Render();
+        mEndPoint->Render(renderBundle);
     }
     glDisable(GL_DEPTH_TEST);
     glDisable(GL_LIGHTING);
