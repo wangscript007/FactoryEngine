@@ -13,20 +13,29 @@ BundleRenderer::BundleRenderer()
     
 void BundleRenderer::AddRenderer(PrimitiveRenderer* primitiveRenderer)
 {
-    mRenderersMap[primitiveRenderer->type()] = primitiveRenderer;
+    mRenderersVector.push_back(primitiveRenderer);
+    
 }
     
 BundleRenderer::~BundleRenderer()
 {
-    for(auto i = mRenderersMap.begin(); i != mRenderersMap.end(); ++i) {
-        FT_DELETE(i->second);
+    for(int i = 0; i < mRenderersVector.size(); ++i) {
+        FT_DELETE(mRenderersVector[i]);
     }
-    mRenderersMap.clear();
+    mRenderersVector.clear();
 }
     
 void BundleRenderer::Render(RenderBundle& renderBundle)
 {
-    
+    RenderBundle::PrimitivesVector primitivesVector;
+    for(int i = 0; i < mRenderersVector.size(); ++i) {
+        primitivesVector = renderBundle.PrimitivesOfType(mRenderersVector[i]->type());
+        mRenderersVector[i]->Begin();
+        for (int j = 0; j < primitivesVector.size(); j++) {
+            mRenderersVector[i]->Render(*primitivesVector[j]);
+        }
+        mRenderersVector[i]->End();
+    }
 }
     
     

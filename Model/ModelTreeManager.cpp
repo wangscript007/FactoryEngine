@@ -6,7 +6,7 @@ namespace ftr {
 
 ModelTreeManager::ModelTreeManager()
 {
-    mOctree = new ftr::Octree(Box(Vec3(0.0f, 0.0f, 0.0f), Vec3(8.0f, 8.0f, 8.0f)));
+    mOctree = new ftr::Octree(Box(Vec3(0.0f, 0.0f, 0.0f), Vec3(20.0f, 20.0f, 20.0f)));
 }
 
 ModelTreeManager::~ModelTreeManager()

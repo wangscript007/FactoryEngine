@@ -23,8 +23,8 @@ public:
 private:
     void AddRenderer(PrimitiveRenderer* primitiveRenderer);
     
-    typedef std::unordered_map<int, PrimitiveRenderer*> RenderersMap;
-    RenderersMap mRenderersMap;
+    typedef std::vector<PrimitiveRenderer*> RenderersVector;
+    RenderersVector mRenderersVector;
 };
 
 } // ftr

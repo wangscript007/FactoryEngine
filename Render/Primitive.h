@@ -35,9 +35,10 @@ public:
 protected:
     virtual char* CreateRenderData() { return NULL; };
 
+    char* mRenderData;
 private:
     bool mIsInvalid;
-    char* mRenderData;
+    
 };
 
 
@@ -55,11 +56,13 @@ public:
         GLubyte indices[2];
     };
     
-    LinePrimitive();
+    LinePrimitive() {}
     virtual ~LinePrimitive() {}
     
     Type type() const { return kLine; }
-    
+    Vec3 mBegin;
+    Vec3 mEnd;
+    Color4f color;
 protected:
     char* CreateRenderData();
     

@@ -69,12 +69,12 @@ void Camera::setProjectionMode(ProjectionMode projectionMode)
         case kProjectionModeProjection:
             glMatrixMode(GL_PROJECTION);
             glLoadIdentity();
-            glFrustum(-1, 1, -1, 1, 2.0f, 100.0); 
+            glFrustum(-1, 1, -1, 1, 2.0f, 2000.0);
             break;
         case kProjectionModeOrthographic:
             glMatrixMode(GL_PROJECTION);
             glLoadIdentity();
-            glOrtho(-5, 1, -1, 1, 2.0f, 100.0);
+            glOrtho(-5, 1, -1, 1, 2.0f, 2000.0);
             break;
     }
 }

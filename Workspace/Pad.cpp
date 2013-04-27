@@ -9,17 +9,12 @@ namespace ftr {
 
 void Pad::Render(RenderBundle& renderBundle)
 {
-    Log(kLogWorkspace, "");
-    glEnable(GL_DEPTH_TEST);
-    glDepthMask(GL_TRUE);
-    glDisable(GL_LIGHTING);
-    glLineWidth(1);
-    //
-    // grind
-    //
-    glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+    static int count = 0;
+    if (count != 0) return;
+    
     int linesCount = mfA * mfScale;
     int i;
+    int index = 0;
     GLfloat a2 = mfA/2;
     //
     // along x axis
@@ -27,12 +22,11 @@ void Pad::Render(RenderBundle& renderBundle)
     GLfloat x = -a2;
     for(i = 0; i <= linesCount; i++) {
         if ((i%((int)mfA/2) != 0)  || (i == 0) || (i == mfA)) {
-            glBegin(GL_LINES);
-            {
-                glVertex3d(x, 0, -a2);
-                glVertex3d(x, 0, a2);
-            }
-            glEnd();
+            linePrimitive[index].mBegin.set(x, 0, -a2);
+            linePrimitive[index].mEnd.set(x, 0, a2);
+            linePrimitive[index].color.set(1.0f, 1.0f, 1.0f);
+            renderBundle.AddPrimitive(linePrimitive[index++]);
+            ;
         }
 		x += mfScale;
     }
@@ -42,12 +36,10 @@ void Pad::Render(RenderBundle& renderBundle)
 	GLfloat z = -a2;
     for(i = 0; i <= linesCount; i++) {
         if ((i%((int)mfA/2) != 0) || (i == 0) || (i == mfA)) {
-            glBegin(GL_LINES);
-            {
-                glVertex3d(-a2, 0, z);
-                glVertex3d(a2, 0, z);
-            }
-            glEnd();
+            linePrimitive[index].mBegin.set(-a2, 0, z);
+            linePrimitive[index].mEnd.set(a2, 0, z);
+            linePrimitive[index].color.set(1.0f, 1.0f, 1.0f);
+            renderBundle.AddPrimitive(linePrimitive[index++]);
         }
 		z += mfScale;
 	}
@@ -56,31 +48,23 @@ void Pad::Render(RenderBundle& renderBundle)
     //
     float a = mfA;
 	// x
-    glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
-    glBegin(GL_LINES); 
-	{
-		glVertex3d(-a/2, 0, 0);
-		glVertex3d(a/2+1, 0, 0);
-	}
-	glEnd();
-	
-	// y
-    glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
-    glBegin(GL_LINES);
-	{
-		glVertex3d(0, 0, 0);
-		glVertex3d(0, a/2, 0);
-	}
-	glEnd();
-	
-	// z
-    glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
-    glBegin(GL_LINES);
-	{
-		glVertex3d(0, 0, -a/2);
-		glVertex3d(0, 0, a/2+1);
-	}
-	glEnd();
+    linePrimitive[index].mBegin.set(-a/2, 0, 0);
+    linePrimitive[index].mEnd.set(a/2+1, 0, 0);
+    linePrimitive[index].color.set(1.0f, 0.0f, 0.0f);
+    renderBundle.AddPrimitive(linePrimitive[index++]);
+    // y
+    linePrimitive[index].mBegin.set(0, 0, 0);
+    linePrimitive[index].mEnd.set(0, a/2, 0);
+    linePrimitive[index].color.set(0.0f, 1.0f, 0.0f);
+    renderBundle.AddPrimitive(linePrimitive[index++]);
+    // z
+    linePrimitive[index].mBegin.set(0, 0, -a/2);
+    linePrimitive[index].mEnd.set(0, 0, a/2+1);
+    linePrimitive[index].color.set(0.0f, 0.0f, 1.0f);
+    renderBundle.AddPrimitive(linePrimitive[index++]);
+    if (count == 0) {
+        count++;
+    }
 }
 
 }

@@ -2,6 +2,7 @@
 #pragma once
 
 #include <Render/RenderBundle.h>
+#include <Render/Primitive.h>
 
 namespace ftr {
     

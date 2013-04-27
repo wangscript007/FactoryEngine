@@ -10,10 +10,12 @@ namespace ftr {
 class Pad : Node
 {
 public:
-                Pad() : mfA(16.0f), mfScale(1.0f) {};
-    void        Render(RenderBundle& renderBundle);
-    GLfloat     mfA;
-    GLfloat     mfScale;
+    Pad() : mfA(50.0f), mfScale(1.0f) {};
+    void Render(RenderBundle& renderBundle);
+    GLfloat mfA;
+    GLfloat mfScale;
+    
+    LinePrimitive linePrimitive[200];
 };
     
 }

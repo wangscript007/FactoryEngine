@@ -170,11 +170,15 @@ void HUD::RenderIcosahedron()
 
 void HUD::RenderDesktop()
 {
-    GLfloat a = 10;
+    glEnable(GL_DEPTH_TEST);
+    glDepthMask(GL_TRUE);
+    GLfloat a = 20;
     glEnable(GL_BLEND);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    glDisable(GL_CULL_FACE);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glBegin(GL_QUADS);
-        glColor4f(0.0, 1.0, 0.0, 0.0);
+        glColor4f(1.0, 0.0, 0.0, 0.0);
         glVertex3f(-a,  0.0,    a);
         glVertex3f(a,   0.0,    a);
         glVertex3f(a,   0.0,    -a);
