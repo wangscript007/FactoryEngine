@@ -10,27 +10,19 @@ LineInteraction::LineInteraction(ModelManager& modelManager)
     ,mActive(false)
     ,mStartPoint(NULL)
     ,mEndPoint(NULL)
-{}
+{
+
+}
 
 #pragma mark Instance
 
 void LineInteraction::Render(RenderBundle& renderBundle)
 {
     Node::Render(renderBundle);
-    glDisable(GL_DEPTH_TEST);
-    glDisable(GL_LIGHTING);
-    glLineWidth(1);
-    glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-    glBegin(GL_LINES);
-    {
-        glVertex3d(mStart.mX,
-                   mStart.mY,
-                   mStart.mZ);
-        glVertex3d(mEnd.mX,
-                   mEnd.mY,
-                   mEnd.mZ);
-    }
-    glEnd();
+    linePrimitive.mBegin = mStart;
+    linePrimitive.mEnd = mEnd;
+    linePrimitive.color.set(1.0f, 1.0f, 1.0f);
+    renderBundle.AddPrimitive(linePrimitive);
 }
 
 void LineInteraction::Begin()

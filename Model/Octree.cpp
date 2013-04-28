@@ -24,7 +24,7 @@ Octree::~Octree()
 
 void Octree::Render()
 {
- //   return;
+    return;
     glEnable(GL_BLEND);
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     static_cast<Node*>(mRootNode)->Render();

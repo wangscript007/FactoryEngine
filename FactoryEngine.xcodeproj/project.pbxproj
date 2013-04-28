@@ -38,6 +38,10 @@
 		605F1D1F171AE4CA00C8E4CC /* Vec3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605F1D0F171AE4CA00C8E4CC /* Vec3.cpp */; };
 		605F1D20171AE4CA00C8E4CC /* Vec3.h in Headers */ = {isa = PBXBuildFile; fileRef = 605F1D10171AE4CA00C8E4CC /* Vec3.h */; };
 		605F1D21171AE4CA00C8E4CC /* Vec4.h in Headers */ = {isa = PBXBuildFile; fileRef = 605F1D11171AE4CA00C8E4CC /* Vec4.h */; };
+		607BFB11172C7F3500357B47 /* PolygonRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */; };
+		607BFB12172C7F3500357B47 /* PolygonRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 607BFB10172C7F3500357B47 /* PolygonRenderer.h */; };
+		607BFB15172C838200357B47 /* RectangleRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB13172C838100357B47 /* RectangleRenderer.cpp */; };
+		607BFB16172C838200357B47 /* RectangleRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 607BFB14172C838200357B47 /* RectangleRenderer.h */; };
 		6091E37516AC554E001DE0A7 /* PolylineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37316AC554E001DE0A7 /* PolylineNode.cpp */; };
 		6091E37616AC554E001DE0A7 /* PolylineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37416AC554E001DE0A7 /* PolylineNode.h */; };
 		6091E37A16AC6037001DE0A7 /* LoopFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37816AC6036001DE0A7 /* LoopFinder.cpp */; };
@@ -151,6 +155,10 @@
 		605F1D10171AE4CA00C8E4CC /* Vec3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vec3.h; sourceTree = "<group>"; };
 		605F1D11171AE4CA00C8E4CC /* Vec4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vec4.h; sourceTree = "<group>"; };
 		606A7F5C163C0C0700E4F243 /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
+		607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolygonRenderer.cpp; sourceTree = "<group>"; };
+		607BFB10172C7F3500357B47 /* PolygonRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonRenderer.h; sourceTree = "<group>"; };
+		607BFB13172C838100357B47 /* RectangleRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleRenderer.cpp; sourceTree = "<group>"; };
+		607BFB14172C838200357B47 /* RectangleRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleRenderer.h; sourceTree = "<group>"; };
 		6090C57E1711AE2400F23DBB /* rename.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = rename.py; sourceTree = "<group>"; };
 		6091E37316AC554E001DE0A7 /* PolylineNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolylineNode.cpp; sourceTree = "<group>"; };
 		6091E37416AC554E001DE0A7 /* PolylineNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolylineNode.h; sourceTree = "<group>"; };
@@ -288,6 +296,10 @@
 				6021AFBE17230E82001EAEBE /* RenderBundle.h */,
 				6021AFC9172332F6001EAEBE /* LineRenderer.cpp */,
 				6021AFCA172332F6001EAEBE /* LineRenderer.h */,
+				607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */,
+				607BFB10172C7F3500357B47 /* PolygonRenderer.h */,
+				607BFB13172C838100357B47 /* RectangleRenderer.cpp */,
+				607BFB14172C838200357B47 /* RectangleRenderer.h */,
 			);
 			path = Render;
 			sourceTree = "<group>";
@@ -504,6 +516,8 @@
 				6021AFC017230E82001EAEBE /* RenderBundle.h in Headers */,
 				6021AFC817232B8F001EAEBE /* PrimitiveRenderer.h in Headers */,
 				6021AFCC172332F6001EAEBE /* LineRenderer.h in Headers */,
+				607BFB12172C7F3500357B47 /* PolygonRenderer.h in Headers */,
+				607BFB16172C838200357B47 /* RectangleRenderer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +616,8 @@
 				6021AFBF17230E82001EAEBE /* RenderBundle.cpp in Sources */,
 				6021AFC717232B8F001EAEBE /* PrimitiveRenderer.cpp in Sources */,
 				6021AFCB172332F6001EAEBE /* LineRenderer.cpp in Sources */,
+				607BFB11172C7F3500357B47 /* PolygonRenderer.cpp in Sources */,
+				607BFB15172C838200357B47 /* RectangleRenderer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

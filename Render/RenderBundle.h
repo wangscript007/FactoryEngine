@@ -15,6 +15,7 @@ public:
     virtual ~RenderBundle() {}
     
     void AddPrimitive(Primitive& primitive);
+    void Clear();
     PrimitivesVector& PrimitivesOfType(Primitive::Type type);
     
 private:

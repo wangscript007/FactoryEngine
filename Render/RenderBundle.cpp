@@ -13,4 +13,9 @@ RenderBundle::PrimitivesVector& RenderBundle::PrimitivesOfType(Primitive::Type t
     return mPrimitivesMap[static_cast<int>(type)];
 }
     
+void RenderBundle::Clear()
+{
+    mPrimitivesMap.clear();
+}
+    
 }

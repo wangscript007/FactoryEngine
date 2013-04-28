@@ -20,23 +20,11 @@ void LineNode::Render(RenderBundle& renderBundle)
     if (mEndPoint) {
         mEndPoint->Render(renderBundle);
     }
-    glDisable(GL_DEPTH_TEST);
-    glDisable(GL_LIGHTING);
-    glLineWidth(1);
-
-    glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-    glBegin(GL_LINES);
-    {
-        Vec3 startVec = mStartPoint->mOrigin;
-        Vec3 endVec = mEndPoint->mOrigin;
-        glVertex3d(startVec.mX,
-                   startVec.mY,
-                   startVec.mZ);
-        glVertex3d(endVec.mX,
-                   endVec.mY,
-                   endVec.mZ);
-    }
-    glEnd();
+    
+    linePrimitive.mBegin = mStartPoint->mOrigin;
+    linePrimitive.mEnd = mEndPoint->mOrigin;
+    linePrimitive.color.set(1.0f, 1.0f, 1.0f);
+    renderBundle.AddPrimitive(linePrimitive);
 }
 
 void LineNode::Transform(const Mat4& m4Transformation)

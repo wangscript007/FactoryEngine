@@ -17,9 +17,11 @@ public:
     };
     
     void Render(RenderBundle& renderBundle);
-    void RenderCube();
-    void RenderIcosahedron();
-    void RenderDesktop();
+    void RenderDesktop(RenderBundle& renderBundle);
+    
+private:
+    RectanglePrimitive rectanglePrimitive[6];
+    RectanglePrimitive desktopPrimitive;
 };
 
 }

@@ -20,7 +20,6 @@ public:
     void setStart(Vec3 start);
     void setEnd(Vec3 end);
     
-    
 private:
     ModelManager& mModelManager;
     Vec3 mStart;
@@ -28,6 +27,7 @@ private:
     bool mActive;
     PointNode* mStartPoint;
     PointNode* mEndPoint;
+    LinePrimitive linePrimitive;
 
 };
 

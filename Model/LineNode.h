@@ -21,6 +21,7 @@ public:
     virtual void Transform(const Mat4& m4Transformation);
 
 private:
+    LinePrimitive linePrimitive;
     PointNode* mStartPoint;
     PointNode* mEndPoint;
 };

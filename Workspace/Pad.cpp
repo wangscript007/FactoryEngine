@@ -9,9 +9,6 @@ namespace ftr {
 
 void Pad::Render(RenderBundle& renderBundle)
 {
-    static int count = 0;
-    if (count != 0) return;
-    
     int linesCount = mfA * mfScale;
     int i;
     int index = 0;
@@ -62,9 +59,6 @@ void Pad::Render(RenderBundle& renderBundle)
     linePrimitive[index].mEnd.set(0, 0, a/2+1);
     linePrimitive[index].color.set(0.0f, 0.0f, 1.0f);
     renderBundle.AddPrimitive(linePrimitive[index++]);
-    if (count == 0) {
-        count++;
-    }
 }
 
 }

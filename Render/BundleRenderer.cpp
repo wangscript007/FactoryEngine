@@ -3,12 +3,14 @@
 #include <Render/Primitive.h>
 #include <Render/RenderBundle.h>
 #include <Render/LineRenderer.h>
+#include <Render/RectangleRenderer.h>
 
 namespace ftr {
     
 BundleRenderer::BundleRenderer()
 {
     AddRenderer(reinterpret_cast<PrimitiveRenderer*>(new LineRenderer()));
+    AddRenderer(reinterpret_cast<RectangleRenderer*>(new RectangleRenderer()));
 }
     
 void BundleRenderer::AddRenderer(PrimitiveRenderer* primitiveRenderer)
@@ -36,6 +38,7 @@ void BundleRenderer::Render(RenderBundle& renderBundle)
         }
         mRenderersVector[i]->End();
     }
+    renderBundle.Clear();
 }
     
     

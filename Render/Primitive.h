@@ -13,7 +13,7 @@ public:
         kNone = 0,
         kLine,
         kPoint,
-        kRect,
+        kRectangle,
         kTriangle,
         kPolygon
     };
@@ -44,6 +44,7 @@ private:
 
 struct Vertex {
     Vec3 vec;
+    Vec3 normal;
     Color4f color;
 };
     
@@ -69,6 +70,53 @@ protected:
 private:
     
 };
+    
+    
+class RectanglePrimitive : public Primitive
+{
+public:
+    struct Data {
+        Vertex vertices[4];
+        GLubyte indices[4];
+    };
+    
+    RectanglePrimitive() {}
+    virtual ~RectanglePrimitive() {}
+    
+    Type type() const { return kRectangle; }
+    Vec3 mVec[4];
+    Color4f color;
+protected:
+    char* CreateRenderData();
+    
+private:
+    
+};
+
+    
+class PolygonPrimitive : public Primitive
+{
+public:
+    struct Data {
+        Vertex vertices[4];
+        GLubyte indices[4];
+    };
+    
+    PolygonPrimitive() {}
+    virtual ~PolygonPrimitive() {}
+    
+    Type type() const { return kPolygon; }
+    Vec3 mNormal;
+    Vec3 mCenter;
+    Vec2 mSize;
+    Color4f color;
+protected:
+    char* CreateRenderData();
+    
+private:
+    
+};
+
 
 }
 

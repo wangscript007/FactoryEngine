@@ -24,7 +24,6 @@ PointNode::PointNode(Vec3 origin)
 void PointNode::Transform(const Mat4& m4Transformation)
 {
     mOrigin *= m4Transformation;
-    Log(kLogModel, "[%f, %f, %f]", mOrigin.mX, mOrigin.mY, mOrigin.mZ);
 }
 
 #pragma mark - Instance
@@ -49,7 +48,6 @@ void PointNode::Render(RenderBundle& renderBundle)
         } else {
             glColor3f(0.95f, 0.207, 0.031f);
         }
-        
         glVertex3f(mOrigin.mX, mOrigin.mY, mOrigin.mZ);
     }
     glEnd();
