@@ -90,6 +90,7 @@ protected:
     char* CreateRenderData();
     
 private:
+    void AssignSurfaceNormals(RectanglePrimitive::Data* data);
     
 };
 

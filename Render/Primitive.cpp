@@ -34,12 +34,31 @@ char* RectanglePrimitive::CreateRenderData()
     data->vertices[1].vec = mVec[1];
     data->vertices[2].vec = mVec[2];
     data->vertices[3].vec = mVec[3];
-    //data->vertices[3].vec = mVec[0] + (mVec[1] - mVec[2]);
     data->vertices[0].color = color;
     data->vertices[1].color = color;
     data->vertices[2].color = color;
     data->vertices[3].color = color;
+    AssignSurfaceNormals(data);
     return reinterpret_cast<char*>(data);
+}
+    
+void RectanglePrimitive::AssignSurfaceNormals(RectanglePrimitive::Data* data)
+{
+    Vec3 normal;
+    normal.Zero();
+    static const int vertexCount = 4;
+    for (int i = 0; i < vertexCount; i++) {
+        Vec3& current = data->vertices[i].vec;
+        Vec3& next = data->vertices[(i+1)%vertexCount].vec;
+        normal.mX = normal.mX + (current.mY - next.mY) * (current.mZ + next.mZ);
+        normal.mY = normal.mY + (current.mZ - next.mZ) * (current.mX + next.mX);
+        normal.mZ = normal.mZ + (current.mX - next.mX) * (current.mY + next.mY);
+    }
+    normal.Normalize();
+    for (int i = 0; i < vertexCount; i++) {
+        data->vertices[i].normal = normal;
+    }
+
 }
 
     

@@ -7,7 +7,7 @@ void RectangleRenderer::Begin()
 {
     glEnable(GL_DEPTH_TEST);
     glDepthMask(GL_TRUE);
-    glDisable(GL_LIGHTING);
+    glEnable(GL_LIGHTING);
 }
 
 void RectangleRenderer::Render(Primitive& primitive)
