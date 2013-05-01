@@ -8,20 +8,21 @@
 #include <Math/Rect.h>
 #include <Workspace/Pad.h>
 #include <Workspace/HUD.h>
+#include <Render/Layer.h>
 
 namespace ftr {
 
 class Workspace : public Node
 {
 public:
-                        Workspace();
-                        ~Workspace();
-    virtual void        Render(RenderBundle& renderBundle);
-    void                setViewportRect(Rect rect);
+    Workspace();
+    ~Workspace();
+    virtual void Render(Layer& layer);
+    void setViewportRect(Rect rect);
     
 private:
-    Pad*              mpPad;
-    HUD*              mpHUD;
+    Pad* mPad;
+    HUD* mHUD;
 };
 
 }

@@ -5,8 +5,8 @@
 
 #include <Scene/Scene.h>
 #include <Surround/Lights.h>
-#include <Render/RenderBundle.h>
-#include <Render/BundleRenderer.h>
+#include <Render/Layer.h>
+#include <Render/LayerRenderer.h>
 
 
 namespace ftr {
@@ -25,8 +25,8 @@ Scene::Scene()
     mModelManager->ModelTreeManager()->setRootNode(reinterpret_cast<Node*>(mWorkspace));
     mInteractionManager = new class InteractionManager(*mModelManager);
     
-    mBundleRenderer = new BundleRenderer();
-    mRenderBundle = new RenderBundle();
+    mLayerRenderer = new LayerRenderer();
+    mLayer = new Layer();
     
     Select(mWorkspace);
 }
@@ -39,8 +39,8 @@ Scene::~Scene()
     FT_DELETE(mCamera);
     FT_DELETE(mModelManager);
     FT_DELETE(mInteractionManager);
-    FT_DELETE(mBundleRenderer);
-    FT_DELETE(mRenderBundle);
+    FT_DELETE(mLayerRenderer);
+    FT_DELETE(mLayer);
 }
 
 #pragma mark Workspace
@@ -49,8 +49,8 @@ Scene::~Scene()
 //
 void Scene::Render()
 {
-    mWorkspace->Render(*mRenderBundle);
-    mBundleRenderer->Render(*mRenderBundle);
+    mWorkspace->Render(*mLayer);
+    mLayerRenderer->Render(*mLayer);
     mModelManager->ModelTreeManager()->Octree()->Render();
 }
 //

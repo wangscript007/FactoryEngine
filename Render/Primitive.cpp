@@ -11,6 +11,20 @@ char* Primitive::renderData() {
     return mRenderData;
 }
     
+void Primitive::setOption(Option option, bool value)
+{
+    if (value) {
+        mOptions |= static_cast<unsigned int>(option);
+    } else {
+        mOptions &= ~(static_cast<unsigned int>(option));
+    }
+}
+    
+    
+    
+    
+    
+    
 char* LinePrimitive::CreateRenderData()
 {
     LinePrimitive::Data* data = reinterpret_cast<LinePrimitive::Data*>(new char[sizeof(LinePrimitive::Data)]);
@@ -22,6 +36,14 @@ char* LinePrimitive::CreateRenderData()
     data->vertices[1].color = color;
     return reinterpret_cast<char*>(data);
 }
+    
+    
+RectanglePrimitive::RectanglePrimitive()
+{
+    setOption(kUseLighting, true);
+    setOption(kUseDepth, true);
+}
+    
     
 char* RectanglePrimitive::CreateRenderData()
 {
@@ -61,6 +83,10 @@ void RectanglePrimitive::AssignSurfaceNormals(RectanglePrimitive::Data* data)
 
 }
 
+    
+    
+    
+    
     
 char* PolygonPrimitive::CreateRenderData()
 {

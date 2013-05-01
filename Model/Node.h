@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include <Render/RenderBundle.h>
+#include <Render/Layer.h>
 #include <Render/Primitive.h>
 
 namespace ftr {
@@ -27,7 +27,7 @@ public:
                             Node();
                             ~Node();
     
-    virtual void            Render(RenderBundle& renderBundle);
+    virtual void            Render(Layer& layer);
     virtual NodeType        Type() const { return kNone; }
     void                    AddNode(Node* pNode);
     void                    RemoveNode(Node* pMode);

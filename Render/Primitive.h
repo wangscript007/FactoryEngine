@@ -11,14 +11,22 @@ class Primitive
 public:
     enum Type {
         kNone = 0,
-        kLine,
         kPoint,
+        kLine,
         kRectangle,
         kTriangle,
         kPolygon
     };
     
-    Primitive(): mIsInvalid(true) {}
+    enum Option {
+        kUseNone           = 0,
+        kUseDepth          = 1 << 1,
+        kUseBlend          = 1 << 2,
+        kUseLighting       = 1 << 3
+    };
+    
+    
+    Primitive(): mIsInvalid(true), mOptions(kUseNone) {}
     virtual ~Primitive() {
         if(mRenderData) {
             delete[] mRenderData;
@@ -31,6 +39,8 @@ public:
     virtual Type type() const { return kNone; }
     char* renderData();
     bool isInvalid() const { return mIsInvalid; }
+    void setOption(Option option, bool value);
+    bool option(Option option) const { return (mOptions & static_cast<unsigned int>(option)) != 0; }
     
 protected:
     virtual char* CreateRenderData() { return NULL; };
@@ -38,6 +48,7 @@ protected:
     char* mRenderData;
 private:
     bool mIsInvalid;
+    unsigned int mOptions;
     
 };
 
@@ -80,7 +91,7 @@ public:
         GLubyte indices[4];
     };
     
-    RectanglePrimitive() {}
+    RectanglePrimitive();
     virtual ~RectanglePrimitive() {}
     
     Type type() const { return kRectangle; }

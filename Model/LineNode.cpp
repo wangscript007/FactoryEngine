@@ -11,20 +11,20 @@ LineNode::LineNode(PointNode* startPoint, PointNode* endPoint)
 #pragma mark - Instance
 
 
-void LineNode::Render(RenderBundle& renderBundle)
+void LineNode::Render(Layer& layer)
 {
-    Node::Render(renderBundle);
+    Node::Render(layer);
     if (mStartPoint) {
-        mStartPoint->Render(renderBundle);
+        mStartPoint->Render(layer);
     }
     if (mEndPoint) {
-        mEndPoint->Render(renderBundle);
+        mEndPoint->Render(layer);
     }
     
     linePrimitive.mBegin = mStartPoint->mOrigin;
     linePrimitive.mEnd = mEndPoint->mOrigin;
     linePrimitive.color.set(1.0f, 1.0f, 1.0f);
-    renderBundle.AddPrimitive(linePrimitive);
+    layer.AddPrimitive(linePrimitive);
 }
 
 void LineNode::Transform(const Mat4& m4Transformation)

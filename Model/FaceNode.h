@@ -26,7 +26,7 @@ public:
                                         FaceNode();
                                         ~FaceNode();
     
-    virtual void                        Render(RenderBundle& renderBundle);
+    virtual void                        Render(Layer& layer);
     virtual NodeType                    Type() const { return kFace; }
     virtual void                        Transform(Mat4& m4Transformation);
     bool                                IsInFacePlane(Vec3 vec);

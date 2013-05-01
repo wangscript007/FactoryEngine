@@ -4,8 +4,9 @@
 
 namespace ftr {
     
-void PolygonRenderer::Begin()
+void PolygonRenderer::Begin(Primitive& primitive)
 {
+    PrimitiveRenderer::Begin(primitive);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_LIGHTING);
     glDepthMask(GL_TRUE);
@@ -24,9 +25,9 @@ void PolygonRenderer::Render(Primitive& primitive)
     glDisableClientState(GL_COLOR_ARRAY);
 }   
 
-void PolygonRenderer::End()
+void PolygonRenderer::End(Primitive& primitive)
 {
-    
+    PrimitiveRenderer::End(primitive);
 }
     
 }

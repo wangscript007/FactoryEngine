@@ -31,7 +31,7 @@ void PointNode::Transform(const Mat4& m4Transformation)
 //
 // Renders cicle at point position
 //
-void PointNode::Render(RenderBundle& renderBundle)
+void PointNode::Render(Layer& layer)
 {
     glEnable(GL_POINT_SMOOTH);
     glEnable(GL_BLEND);

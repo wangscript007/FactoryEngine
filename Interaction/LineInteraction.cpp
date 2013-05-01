@@ -16,13 +16,13 @@ LineInteraction::LineInteraction(ModelManager& modelManager)
 
 #pragma mark Instance
 
-void LineInteraction::Render(RenderBundle& renderBundle)
+void LineInteraction::Render(Layer& layer)
 {
-    Node::Render(renderBundle);
+    Node::Render(layer);
     linePrimitive.mBegin = mStart;
     linePrimitive.mEnd = mEnd;
     linePrimitive.color.set(1.0f, 1.0f, 1.0f);
-    renderBundle.AddPrimitive(linePrimitive);
+    layer.AddPrimitive(linePrimitive);
 }
 
 void LineInteraction::Begin()

@@ -12,9 +12,9 @@ FaceNode::FaceNode()
 }
 
 
-void FaceNode::Render(RenderBundle& renderBundle)
+void FaceNode::Render(Layer& layer)
 {
-    Node::Render(renderBundle);
+    Node::Render(layer);
     glDisable(GL_DEPTH_TEST);
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glDisable(GL_CULL_FACE);

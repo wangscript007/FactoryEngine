@@ -12,9 +12,9 @@ class RectangleRenderer : public PrimitiveRenderer
 public:
     RectangleRenderer() {}
     virtual ~RectangleRenderer() {}
-    virtual void Begin();
+    virtual void Begin(Primitive& primitive);
     virtual void Render(Primitive& primitive);
-    virtual void End();
+    virtual void End(Primitive& primitive);
     
     virtual Primitive::Type type() const { return Primitive::kRectangle; }
 };

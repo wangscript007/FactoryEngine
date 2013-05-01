@@ -4,12 +4,9 @@
 
 namespace ftr {
     
-void LineRenderer::Begin()
+void LineRenderer::Begin(Primitive& primitive)
 {
-    glEnable(GL_DEPTH_TEST);
-    glDepthMask(GL_TRUE);
-    glDisable(GL_LIGHTING);
-    glLineWidth(1);
+    PrimitiveRenderer::Begin(primitive);
     
     
 }
@@ -27,9 +24,9 @@ void LineRenderer::Render(Primitive& primitive)
     glDisableClientState(GL_COLOR_ARRAY);
 }
 
-void LineRenderer::End()
+void LineRenderer::End(Primitive& primitive)
 {
-    
+    PrimitiveRenderer::End(primitive);
 }
 
 }

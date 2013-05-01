@@ -9,17 +9,17 @@ namespace ftr {
 
 Workspace::Workspace()
 {
-    mpPad = new Pad();
-    mpHUD = new HUD();
+    mPad = new Pad();
+    mHUD = new HUD();
     
-    AddNode(reinterpret_cast<Node*>(mpPad));
-    AddNode(reinterpret_cast<Node*>(mpHUD));
+    AddNode(reinterpret_cast<Node*>(mPad));
+    AddNode(reinterpret_cast<Node*>(mHUD));
 }
 
 Workspace::~Workspace()
 {
-    delete mpPad;
-    delete mpHUD;
+    FT_DELETE(mPad);
+    FT_DELETE(mHUD);
 }
 
 void Workspace::setViewportRect(Rect rect)
@@ -28,10 +28,10 @@ void Workspace::setViewportRect(Rect rect)
     glViewport(rect.mOrigin.mX, rect.mOrigin.mY, rect.mSize.mX, rect.mSize.mY);
 }
 
-void Workspace::Render(RenderBundle& renderBundle)
+void Workspace::Render(Layer& layer)
 {    
     Log(kLogWorkspace, "");
-    Node::Render(renderBundle);
+    Node::Render(layer);
     glFinish();
 }
 

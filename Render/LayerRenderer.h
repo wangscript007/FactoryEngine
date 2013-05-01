@@ -4,20 +4,20 @@
 
 namespace ftr {
     
-class RenderBundle;
+class Layer;
 class PrimitiveRenderer;
     
 class Primitive;
 //
 // Renders budle of primitives
 //
-class BundleRenderer
+class LayerRenderer
 {
 public:
-             BundleRenderer();
-    virtual ~BundleRenderer();
+             LayerRenderer();
+    virtual ~LayerRenderer();
     
-    void Render(RenderBundle& renderBundle);
+    void Render(Layer& layer);
     
     
 private:
@@ -25,6 +25,7 @@ private:
     
     typedef std::vector<PrimitiveRenderer*> RenderersVector;
     RenderersVector mRenderersVector;
+    int mDepth;
 };
 
 } // ftr

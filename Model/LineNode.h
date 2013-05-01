@@ -12,7 +12,7 @@ public:
     LineNode(PointNode* startPoint, PointNode* endPoint);
     virtual ~LineNode() {}
     
-    virtual void Render(RenderBundle& renderBundle);
+    virtual void Render(Layer& layer);
     virtual NodeType Type() const { return kLine; }
     void setEndPoint(PointNode* endPoint) { mEndPoint = endPoint; }
     void setStartPoint(PointNode* startPoint) { mStartPoint = startPoint; }

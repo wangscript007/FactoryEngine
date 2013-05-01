@@ -1,25 +1,26 @@
 
-#include <Render/BundleRenderer.h>
+#include <Render/LayerRenderer.h>
 #include <Render/Primitive.h>
-#include <Render/RenderBundle.h>
+#include <Render/Layer.h>
 #include <Render/LineRenderer.h>
 #include <Render/RectangleRenderer.h>
 
 namespace ftr {
     
-BundleRenderer::BundleRenderer()
+LayerRenderer::LayerRenderer()
+    : mDepth(0)
 {
     AddRenderer(reinterpret_cast<PrimitiveRenderer*>(new LineRenderer()));
     AddRenderer(reinterpret_cast<RectangleRenderer*>(new RectangleRenderer()));
 }
     
-void BundleRenderer::AddRenderer(PrimitiveRenderer* primitiveRenderer)
+void LayerRenderer::AddRenderer(PrimitiveRenderer* primitiveRenderer)
 {
     mRenderersVector.push_back(primitiveRenderer);
     
 }
     
-BundleRenderer::~BundleRenderer()
+LayerRenderer::~LayerRenderer()
 {
     for(int i = 0; i < mRenderersVector.size(); ++i) {
         FT_DELETE(mRenderersVector[i]);
@@ -27,18 +28,19 @@ BundleRenderer::~BundleRenderer()
     mRenderersVector.clear();
 }
     
-void BundleRenderer::Render(RenderBundle& renderBundle)
+void LayerRenderer::Render(Layer& layer)
 {
-    RenderBundle::PrimitivesVector primitivesVector;
+    Layer::PrimitivesVector primitivesVector;
     for(int i = 0; i < mRenderersVector.size(); ++i) {
-        primitivesVector = renderBundle.PrimitivesOfType(mRenderersVector[i]->type());
-        mRenderersVector[i]->Begin();
+        primitivesVector = layer.PrimitivesOfType(mRenderersVector[i]->type());
         for (int j = 0; j < primitivesVector.size(); j++) {
+            mRenderersVector[i]->Begin(*primitivesVector[j]);
             mRenderersVector[i]->Render(*primitivesVector[j]);
+            mRenderersVector[i]->End(*primitivesVector[j]);
         }
-        mRenderersVector[i]->End();
+        
     }
-    renderBundle.Clear();
+    layer.Clear();
 }
     
     

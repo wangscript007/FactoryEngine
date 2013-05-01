@@ -16,8 +16,8 @@ public:
         float x, y, z;
     };
     
-    void Render(RenderBundle& renderBundle);
-    void RenderDesktop(RenderBundle& renderBundle);
+    void Render(Layer& layer);
+    void RenderDesktop(Layer& layer);
     
 private:
     RectanglePrimitive rectanglePrimitive[6];

@@ -3,11 +3,9 @@
 
 namespace ftr {
     
-void RectangleRenderer::Begin()
+void RectangleRenderer::Begin(Primitive& primitive)
 {
-    glEnable(GL_DEPTH_TEST);
-    glDepthMask(GL_TRUE);
-    glEnable(GL_LIGHTING);
+    PrimitiveRenderer::Begin(primitive);
 }
 
 void RectangleRenderer::Render(Primitive& primitive)
@@ -26,8 +24,9 @@ void RectangleRenderer::Render(Primitive& primitive)
     glDisableClientState(GL_NORMAL_ARRAY);
 }
 
-void RectangleRenderer::End()
-{    
+void RectangleRenderer::End(Primitive& primitive)
+{
+    PrimitiveRenderer::End(primitive);
 }
     
 }

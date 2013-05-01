@@ -13,7 +13,7 @@ class LineInteraction : public Node
 public:
     LineInteraction(ModelManager& modelManager);
     virtual ~LineInteraction() {}
-    void Render(RenderBundle& renderBundle);
+    void Render(Layer& layer);
     void Begin();
     void Step();
     void End();
