@@ -7,31 +7,45 @@
 
 namespace ftr {
 
-Workspace::Workspace()
+Workspace::Workspace(Layer* layer)
 {
+    glEnable(GL_NORMALIZE);
+    
     mPad = new Pad();
     mHUD = new HUD();
     
-    AddNode(reinterpret_cast<Node*>(mPad));
-    AddNode(reinterpret_cast<Node*>(mHUD));
+    mHudLayer = new Layer();
+    mPadLayer = new Layer();
+    mModelLayer = new Layer();
+    
+    mPadLayer->setDepth(1);
+    mHudLayer->setDepth(2);
+    mModelLayer->setDepth(3);
+    
+    layer->AddSublayer(mHudLayer);
+    layer->AddSublayer(mPadLayer);
+    layer->AddSublayer(mModelLayer);
 }
 
 Workspace::~Workspace()
 {
     FT_DELETE(mPad);
     FT_DELETE(mHUD);
+    FT_DELETE(mHudLayer);
+    FT_DELETE(mPadLayer);
+    FT_DELETE(mModelLayer);
 }
 
 void Workspace::setViewportRect(Rect rect)
 {
-    Log(kLogWorkspace, "");
     glViewport(rect.mOrigin.mX, rect.mOrigin.mY, rect.mSize.mX, rect.mSize.mY);
 }
 
 void Workspace::Render(Layer& layer)
-{    
-    Log(kLogWorkspace, "");
-    Node::Render(layer);
+{
+    Node::Render(*mModelLayer);
+    mPad->Render(*mPadLayer);
+    mHUD->Render(*mHudLayer);
     glFinish();
 }
 

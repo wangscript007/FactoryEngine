@@ -15,7 +15,7 @@ namespace ftr {
 class Workspace : public Node
 {
 public:
-    Workspace();
+    Workspace(Layer* layer);
     ~Workspace();
     virtual void Render(Layer& layer);
     void setViewportRect(Rect rect);
@@ -23,6 +23,9 @@ public:
 private:
     Pad* mPad;
     HUD* mHUD;
+    Layer* mHudLayer;
+    Layer* mPadLayer;
+    Layer* mModelLayer;
 };
 
 }

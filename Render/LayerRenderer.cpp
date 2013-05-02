@@ -38,9 +38,17 @@ void LayerRenderer::Render(Layer& layer)
             mRenderersVector[i]->Render(*primitivesVector[j]);
             mRenderersVector[i]->End(*primitivesVector[j]);
         }
-        
     }
+    RenderSublayersRecursively(layer);
     layer.Clear();
+}
+    
+void LayerRenderer::RenderSublayersRecursively(Layer &layer)
+{
+    Layer::LayersVector sublayers = layer.sublayers();
+    for (int i = 0; i < sublayers.size(); ++i) {
+        Render(*sublayers[i]);
+    }
 }
     
     

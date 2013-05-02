@@ -4,7 +4,8 @@
 namespace ftr {
     
 Layer::Layer()
-    : mDepth(0)
+    : mDepth(0),
+    mParent(NULL)
 {
     
 }
@@ -26,17 +27,29 @@ void Layer::Clear()
     
 void Layer::AddSublayer(Layer* layer)
 {
-
+    mSublayers.push_back(layer);
+    OrderSublayers();
 }
     
 void Layer::RemoveSublayer(Layer* layer)
 {
-    
+    auto it = std::find(mSublayers.begin(), mSublayers.end(), layer);
+    if (it != mSublayers.end()) {
+        mSublayers.erase(it);
+    }
 }
     
 void Layer::setDepth(int depth)
 {
+    mDepth = depth;
+    if (mParent) {
+        mParent->OrderSublayers();
+    }
+}
     
+void Layer::OrderSublayers()
+{
+    std::sort(mSublayers.begin(), mSublayers.end(), mComparison);
 }
     
 }

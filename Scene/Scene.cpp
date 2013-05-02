@@ -18,15 +18,18 @@ namespace ftr {
 //
 Scene::Scene()
 {
-    glEnable(GL_NORMALIZE);
-    mWorkspace = new Workspace();
+    
+    
+    mLayerRenderer = new LayerRenderer();
+    mLayer = new Layer();
+    
+    mWorkspace = new Workspace(mLayer);
     mCamera = new  Camera(Vec3(5.0f, 5.0f, 5.0f));
     mModelManager = new ModelManager();
     mModelManager->ModelTreeManager()->setRootNode(reinterpret_cast<Node*>(mWorkspace));
     mInteractionManager = new class InteractionManager(*mModelManager);
     
-    mLayerRenderer = new LayerRenderer();
-    mLayer = new Layer();
+    
     
     Select(mWorkspace);
 }

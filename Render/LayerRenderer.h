@@ -6,10 +6,9 @@ namespace ftr {
     
 class Layer;
 class PrimitiveRenderer;
-    
 class Primitive;
 //
-// Renders budle of primitives
+// Renders layer primitives
 //
 class LayerRenderer
 {
@@ -21,6 +20,7 @@ public:
     
     
 private:
+    void RenderSublayersRecursively(Layer& layer);
     void AddRenderer(PrimitiveRenderer* primitiveRenderer);
     
     typedef std::vector<PrimitiveRenderer*> RenderersVector;

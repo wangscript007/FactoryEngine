@@ -22,15 +22,26 @@ public:
     void RemoveSublayer(Layer* layer);
     PrimitivesVector& PrimitivesOfType(Primitive::Type type);
     void setDepth(int depth);
-    
+    const LayersVector& sublayers() { return mSublayers; }
 private:
     
     typedef std::unordered_map<int, PrimitivesVector> PrimitivesMap;
+    void OrderSublayers();
     
     PrimitivesMap mPrimitivesMap;
     LayersVector mSublayers;
     Layer* mParent;
     int mDepth;
+    
+    struct Comparison
+    {
+        bool operator()(const Layer* a, const Layer* b)
+        {
+            return a->mDepth > b->mDepth;
+        }
+    };
+    Comparison mComparison;
+
 };
 
 }
