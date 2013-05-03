@@ -58,7 +58,30 @@ struct Vertex {
     Vec3 normal;
     Color4f color;
 };
+
     
+class PointPrimitive : public Primitive
+{
+public:
+    struct Data {
+        Vertex vertices[1];
+        GLubyte indices[1];
+    };
+    
+    PointPrimitive() {}
+    virtual ~PointPrimitive() {}
+    
+    Type type() const { return kPoint; }
+    Vec3 mPosition;
+    Color4f mColor;
+    
+protected:
+    char* CreateRenderData();
+    
+private:
+    
+};
+
     
 class LinePrimitive : public Primitive
 {

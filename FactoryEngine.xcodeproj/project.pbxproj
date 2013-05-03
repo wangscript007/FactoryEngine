@@ -42,6 +42,10 @@
 		607BFB12172C7F3500357B47 /* PolygonRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 607BFB10172C7F3500357B47 /* PolygonRenderer.h */; };
 		607BFB15172C838200357B47 /* RectangleRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB13172C838100357B47 /* RectangleRenderer.cpp */; };
 		607BFB16172C838200357B47 /* RectangleRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 607BFB14172C838200357B47 /* RectangleRenderer.h */; };
+		6086605A173436E500E67B54 /* Bounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60866058173436E500E67B54 /* Bounds.cpp */; };
+		6086605B173436E500E67B54 /* Bounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 60866059173436E500E67B54 /* Bounds.h */; };
+		6086605E17343C5400E67B54 /* PointRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6086605C17343C5400E67B54 /* PointRenderer.cpp */; };
+		6086605F17343C5400E67B54 /* PointRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6086605D17343C5400E67B54 /* PointRenderer.h */; };
 		6091E37516AC554E001DE0A7 /* PolylineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37316AC554E001DE0A7 /* PolylineNode.cpp */; };
 		6091E37616AC554E001DE0A7 /* PolylineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37416AC554E001DE0A7 /* PolylineNode.h */; };
 		6091E37A16AC6037001DE0A7 /* LoopFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37816AC6036001DE0A7 /* LoopFinder.cpp */; };
@@ -159,6 +163,10 @@
 		607BFB10172C7F3500357B47 /* PolygonRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonRenderer.h; sourceTree = "<group>"; };
 		607BFB13172C838100357B47 /* RectangleRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleRenderer.cpp; sourceTree = "<group>"; };
 		607BFB14172C838200357B47 /* RectangleRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleRenderer.h; sourceTree = "<group>"; };
+		60866058173436E500E67B54 /* Bounds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bounds.cpp; sourceTree = "<group>"; };
+		60866059173436E500E67B54 /* Bounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bounds.h; sourceTree = "<group>"; };
+		6086605C17343C5400E67B54 /* PointRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointRenderer.cpp; sourceTree = "<group>"; };
+		6086605D17343C5400E67B54 /* PointRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointRenderer.h; sourceTree = "<group>"; };
 		6090C57E1711AE2400F23DBB /* rename.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = rename.py; sourceTree = "<group>"; };
 		6091E37316AC554E001DE0A7 /* PolylineNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolylineNode.cpp; sourceTree = "<group>"; };
 		6091E37416AC554E001DE0A7 /* PolylineNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolylineNode.h; sourceTree = "<group>"; };
@@ -300,6 +308,8 @@
 				607BFB10172C7F3500357B47 /* PolygonRenderer.h */,
 				607BFB13172C838100357B47 /* RectangleRenderer.cpp */,
 				607BFB14172C838200357B47 /* RectangleRenderer.h */,
+				6086605C17343C5400E67B54 /* PointRenderer.cpp */,
+				6086605D17343C5400E67B54 /* PointRenderer.h */,
 			);
 			path = Render;
 			sourceTree = "<group>";
@@ -342,6 +352,8 @@
 				D1F44F54157FE9D200566119 /* HUD.h */,
 				D1F44F4A157FE79600566119 /* Workspace.cpp */,
 				D1F44F4B157FE79600566119 /* Workspace.h */,
+				60866058173436E500E67B54 /* Bounds.cpp */,
+				60866059173436E500E67B54 /* Bounds.h */,
 			);
 			path = Workspace;
 			sourceTree = "<group>";
@@ -518,6 +530,8 @@
 				6021AFCC172332F6001EAEBE /* LineRenderer.h in Headers */,
 				607BFB12172C7F3500357B47 /* PolygonRenderer.h in Headers */,
 				607BFB16172C838200357B47 /* RectangleRenderer.h in Headers */,
+				6086605B173436E500E67B54 /* Bounds.h in Headers */,
+				6086605F17343C5400E67B54 /* PointRenderer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +632,8 @@
 				6021AFCB172332F6001EAEBE /* LineRenderer.cpp in Sources */,
 				607BFB11172C7F3500357B47 /* PolygonRenderer.cpp in Sources */,
 				607BFB15172C838200357B47 /* RectangleRenderer.cpp in Sources */,
+				6086605A173436E500E67B54 /* Bounds.cpp in Sources */,
+				6086605E17343C5400E67B54 /* PointRenderer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

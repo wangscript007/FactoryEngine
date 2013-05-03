@@ -22,7 +22,14 @@ void Primitive::setOption(Option option, bool value)
     
     
     
-    
+char* PointPrimitive::CreateRenderData()
+{
+    PointPrimitive::Data* data = reinterpret_cast<PointPrimitive::Data*>(new char[sizeof(PointPrimitive::Data)]);
+    data->indices[0] = 0;
+    data->vertices[0].vec = mPosition;
+    data->vertices[0].color = mColor;
+    return reinterpret_cast<char*>(data);
+}
     
     
 char* LinePrimitive::CreateRenderData()

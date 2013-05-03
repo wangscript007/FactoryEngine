@@ -28,6 +28,7 @@ public:
 private:
     Octree::Leaf* mOctreeLeaf;
     bool mIsActive;
+    PointPrimitive primitive;
 };
     
 }

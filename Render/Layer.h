@@ -37,7 +37,7 @@ private:
     {
         bool operator()(const Layer* a, const Layer* b)
         {
-            return a->mDepth > b->mDepth;
+            return a->mDepth < b->mDepth;
         }
     };
     Comparison mComparison;

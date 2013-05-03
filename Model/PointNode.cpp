@@ -33,24 +33,11 @@ void PointNode::Transform(const Mat4& m4Transformation)
 //
 void PointNode::Render(Layer& layer)
 {
-    glEnable(GL_POINT_SMOOTH);
-    glEnable(GL_BLEND);
-    glDisable(GL_LIGHTING);
-    glDisable(GL_DEPTH_TEST);
-    
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glPointSize(c_fR);
-    
-    glBegin(GL_POINTS);
-    {
-        if (mIsActive) {
-            glColor3f(0.5f, 0.207, 0.031f);
-        } else {
-            glColor3f(0.95f, 0.207, 0.031f);
-        }
-        glVertex3f(mOrigin.mX, mOrigin.mY, mOrigin.mZ);
-    }
-    glEnd();
+    Node::Render(layer);
+    primitive.mPosition = mOrigin;
+    primitive.mColor.set(1.0f, 0.0f, 0.0f, 1.0f);
+    primitive.setOption(Primitive::kUseDepth, false);
+    layer.AddPrimitive(primitive);
 }
     
 }

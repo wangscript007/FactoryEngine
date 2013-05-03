@@ -8,6 +8,7 @@
 #include <Math/Rect.h>
 #include <Workspace/Pad.h>
 #include <Workspace/HUD.h>
+#include <Workspace/Bounds.h>
 #include <Render/Layer.h>
 
 namespace ftr {
@@ -23,8 +24,10 @@ public:
 private:
     Pad* mPad;
     HUD* mHUD;
+    Bounds* mBounds;
     Layer* mHudLayer;
     Layer* mPadLayer;
+    Layer* mBoundsLayer;
     Layer* mModelLayer;
 };
 

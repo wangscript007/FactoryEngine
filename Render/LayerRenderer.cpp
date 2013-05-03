@@ -2,6 +2,7 @@
 #include <Render/LayerRenderer.h>
 #include <Render/Primitive.h>
 #include <Render/Layer.h>
+#include <Render/PointRenderer.h>
 #include <Render/LineRenderer.h>
 #include <Render/RectangleRenderer.h>
 
@@ -10,8 +11,9 @@ namespace ftr {
 LayerRenderer::LayerRenderer()
     : mDepth(0)
 {
-    AddRenderer(reinterpret_cast<PrimitiveRenderer*>(new LineRenderer()));
-    AddRenderer(reinterpret_cast<RectangleRenderer*>(new RectangleRenderer()));
+    AddRenderer(new PointRenderer());
+    AddRenderer(new LineRenderer());
+    AddRenderer(new RectangleRenderer());
 }
     
 void LayerRenderer::AddRenderer(PrimitiveRenderer* primitiveRenderer)

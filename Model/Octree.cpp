@@ -24,11 +24,7 @@ Octree::~Octree()
 
 void Octree::Render()
 {
-    return;
-    glEnable(GL_BLEND);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     static_cast<Node*>(mRootNode)->Render();
-    glDisable(GL_BLEND);
 }
 
 
@@ -380,15 +376,13 @@ void Octree::Leaf::Render() const
         0, 4,   1, 5,   2, 6,   3, 7
     };
 
-    glDisable(GL_DEPTH_TEST);
-    glDisable(GL_LIGHTING);
     glLineWidth(1);
     glColor4f(0.0f, 1.0f, 0.0f, 0.1f);
     
     glEnableClientState(GL_VERTEX_ARRAY);
     glVertexPointer(3, GL_FLOAT, 0, vertices);
     glDrawElements(GL_LINES, 24, GL_UNSIGNED_BYTE, indices);
-    GetError();
+    //GetError();
     glDisableClientState(GL_VERTEX_ARRAY);
 }
 

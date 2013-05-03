@@ -13,16 +13,20 @@ Workspace::Workspace(Layer* layer)
     
     mPad = new Pad();
     mHUD = new HUD();
+    mBounds = new Bounds();
     
     mHudLayer = new Layer();
     mPadLayer = new Layer();
+    mBoundsLayer = new Layer();
     mModelLayer = new Layer();
     
     mPadLayer->setDepth(1);
-    mHudLayer->setDepth(2);
-    mModelLayer->setDepth(3);
+    mBoundsLayer->setDepth(2);
+    mHudLayer->setDepth(3);
+    mModelLayer->setDepth(4);
     
     layer->AddSublayer(mHudLayer);
+    layer->AddSublayer(mBoundsLayer);
     layer->AddSublayer(mPadLayer);
     layer->AddSublayer(mModelLayer);
 }
@@ -31,9 +35,11 @@ Workspace::~Workspace()
 {
     FT_DELETE(mPad);
     FT_DELETE(mHUD);
+    FT_DELETE(mBounds);
     FT_DELETE(mHudLayer);
     FT_DELETE(mPadLayer);
     FT_DELETE(mModelLayer);
+    FT_DELETE(mBoundsLayer);
 }
 
 void Workspace::setViewportRect(Rect rect)
@@ -43,9 +49,11 @@ void Workspace::setViewportRect(Rect rect)
 
 void Workspace::Render(Layer& layer)
 {
-    Node::Render(*mModelLayer);
+    
     mPad->Render(*mPadLayer);
     mHUD->Render(*mHudLayer);
+    mBounds->Render(*mBoundsLayer);
+    Node::Render(*mModelLayer);
     glFinish();
 }
 
