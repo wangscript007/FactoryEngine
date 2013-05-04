@@ -291,6 +291,13 @@
 			path = Scene;
 			sourceTree = "<group>";
 		};
+		608D6FFB17351E62000A92F7 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
 		60D74584172298B30062CDF1 /* Render */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +332,7 @@
 				D17C766B1583C1580083E2B0 /* Main */,
 				D1E54CA7157BE5120083FB90 /* Math */,
 				60D74584172298B30062CDF1 /* Render */,
+				608D6FFB17351E62000A92F7 /* Shaders */,
 				D1DFC003157BC15000F9E371 /* Model */,
 				6047DB8F16B46A5D0012286F /* Interaction */,
 				D1954A3C1581337F00820436 /* Surround */,
@@ -654,10 +662,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

@@ -1,6 +1,6 @@
 
 
-#ifdef  FT_DEBUG
+#ifdef DEBUG
 
 #define GetError( )\
         {\

@@ -4,13 +4,14 @@
 
 #include <Workspace/Workspace.h>
 #include <Main/Log.h>
+#include <Main/GLError.h>
 
 namespace ftr {
 
 Workspace::Workspace(Layer* layer)
 {
     glEnable(GL_NORMALIZE);
-    
+    GetError();
     mPad = new Pad();
     mHUD = new HUD();
     mBounds = new Bounds();

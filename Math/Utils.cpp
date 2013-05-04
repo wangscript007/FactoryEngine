@@ -6,7 +6,7 @@ namespace ftr {
 
 Vec3 Utils::Viewport(Vec3 sceneVec)
 {
-    GLint viewport[4];                         
+    GLint viewport[4];
     GLdouble modelviewMatrix[16];
     GLdouble projectionMatrix[16];       
     glGetIntegerv (GL_VIEWPORT, viewport);                
