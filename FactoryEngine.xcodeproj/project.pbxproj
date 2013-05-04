@@ -50,8 +50,6 @@
 		608D70041735754A000A92F7 /* ShadersManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 608D70021735754A000A92F7 /* ShadersManager.h */; };
 		608D700717357571000A92F7 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D700517357571000A92F7 /* Shader.cpp */; };
 		608D700817357571000A92F7 /* Shader.h in Headers */ = {isa = PBXBuildFile; fileRef = 608D700617357571000A92F7 /* Shader.h */; };
-		608D700B1735758D000A92F7 /* ShaderFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D70091735758D000A92F7 /* ShaderFactory.cpp */; };
-		608D700C1735758D000A92F7 /* ShaderFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 608D700A1735758D000A92F7 /* ShaderFactory.h */; };
 		608D700F17357A46000A92F7 /* ShadersProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D700D17357A46000A92F7 /* ShadersProgram.cpp */; };
 		608D701017357A46000A92F7 /* ShadersProgram.h in Headers */ = {isa = PBXBuildFile; fileRef = 608D700E17357A46000A92F7 /* ShadersProgram.h */; };
 		608D701317357B3C000A92F7 /* ShadersLibrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D701117357B3C000A92F7 /* ShadersLibrary.cpp */; };
@@ -181,8 +179,6 @@
 		608D70021735754A000A92F7 /* ShadersManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadersManager.h; sourceTree = "<group>"; };
 		608D700517357571000A92F7 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		608D700617357571000A92F7 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
-		608D70091735758D000A92F7 /* ShaderFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderFactory.cpp; sourceTree = "<group>"; };
-		608D700A1735758D000A92F7 /* ShaderFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderFactory.h; sourceTree = "<group>"; };
 		608D700D17357A46000A92F7 /* ShadersProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadersProgram.cpp; sourceTree = "<group>"; };
 		608D700E17357A46000A92F7 /* ShadersProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadersProgram.h; sourceTree = "<group>"; };
 		608D701117357B3C000A92F7 /* ShadersLibrary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadersLibrary.cpp; sourceTree = "<group>"; };
@@ -320,8 +316,6 @@
 				608D701217357B3C000A92F7 /* ShadersLibrary.h */,
 				608D700517357571000A92F7 /* Shader.cpp */,
 				608D700617357571000A92F7 /* Shader.h */,
-				608D70091735758D000A92F7 /* ShaderFactory.cpp */,
-				608D700A1735758D000A92F7 /* ShaderFactory.h */,
 				608D700D17357A46000A92F7 /* ShadersProgram.cpp */,
 				608D700E17357A46000A92F7 /* ShadersProgram.h */,
 			);
@@ -572,7 +566,6 @@
 				6086605F17343C5400E67B54 /* PointRenderer.h in Headers */,
 				608D70041735754A000A92F7 /* ShadersManager.h in Headers */,
 				608D700817357571000A92F7 /* Shader.h in Headers */,
-				608D700C1735758D000A92F7 /* ShaderFactory.h in Headers */,
 				608D701017357A46000A92F7 /* ShadersProgram.h in Headers */,
 				608D701417357B3C000A92F7 /* ShadersLibrary.h in Headers */,
 			);
@@ -679,7 +672,6 @@
 				6086605E17343C5400E67B54 /* PointRenderer.cpp in Sources */,
 				608D70031735754A000A92F7 /* ShadersManager.cpp in Sources */,
 				608D700717357571000A92F7 /* Shader.cpp in Sources */,
-				608D700B1735758D000A92F7 /* ShaderFactory.cpp in Sources */,
 				608D700F17357A46000A92F7 /* ShadersProgram.cpp in Sources */,
 				608D701317357B3C000A92F7 /* ShadersLibrary.cpp in Sources */,
 			);
