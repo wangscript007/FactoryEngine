@@ -46,6 +46,16 @@
 		6086605B173436E500E67B54 /* Bounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 60866059173436E500E67B54 /* Bounds.h */; };
 		6086605E17343C5400E67B54 /* PointRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6086605C17343C5400E67B54 /* PointRenderer.cpp */; };
 		6086605F17343C5400E67B54 /* PointRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6086605D17343C5400E67B54 /* PointRenderer.h */; };
+		608D70031735754A000A92F7 /* ShadersManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D70011735754A000A92F7 /* ShadersManager.cpp */; };
+		608D70041735754A000A92F7 /* ShadersManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 608D70021735754A000A92F7 /* ShadersManager.h */; };
+		608D700717357571000A92F7 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D700517357571000A92F7 /* Shader.cpp */; };
+		608D700817357571000A92F7 /* Shader.h in Headers */ = {isa = PBXBuildFile; fileRef = 608D700617357571000A92F7 /* Shader.h */; };
+		608D700B1735758D000A92F7 /* ShaderFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D70091735758D000A92F7 /* ShaderFactory.cpp */; };
+		608D700C1735758D000A92F7 /* ShaderFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 608D700A1735758D000A92F7 /* ShaderFactory.h */; };
+		608D700F17357A46000A92F7 /* ShadersProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D700D17357A46000A92F7 /* ShadersProgram.cpp */; };
+		608D701017357A46000A92F7 /* ShadersProgram.h in Headers */ = {isa = PBXBuildFile; fileRef = 608D700E17357A46000A92F7 /* ShadersProgram.h */; };
+		608D701317357B3C000A92F7 /* ShadersLibrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D701117357B3C000A92F7 /* ShadersLibrary.cpp */; };
+		608D701417357B3C000A92F7 /* ShadersLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 608D701217357B3C000A92F7 /* ShadersLibrary.h */; };
 		6091E37516AC554E001DE0A7 /* PolylineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37316AC554E001DE0A7 /* PolylineNode.cpp */; };
 		6091E37616AC554E001DE0A7 /* PolylineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37416AC554E001DE0A7 /* PolylineNode.h */; };
 		6091E37A16AC6037001DE0A7 /* LoopFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37816AC6036001DE0A7 /* LoopFinder.cpp */; };
@@ -167,6 +177,16 @@
 		60866059173436E500E67B54 /* Bounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bounds.h; sourceTree = "<group>"; };
 		6086605C17343C5400E67B54 /* PointRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointRenderer.cpp; sourceTree = "<group>"; };
 		6086605D17343C5400E67B54 /* PointRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointRenderer.h; sourceTree = "<group>"; };
+		608D70011735754A000A92F7 /* ShadersManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadersManager.cpp; sourceTree = "<group>"; };
+		608D70021735754A000A92F7 /* ShadersManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadersManager.h; sourceTree = "<group>"; };
+		608D700517357571000A92F7 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
+		608D700617357571000A92F7 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		608D70091735758D000A92F7 /* ShaderFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderFactory.cpp; sourceTree = "<group>"; };
+		608D700A1735758D000A92F7 /* ShaderFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderFactory.h; sourceTree = "<group>"; };
+		608D700D17357A46000A92F7 /* ShadersProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadersProgram.cpp; sourceTree = "<group>"; };
+		608D700E17357A46000A92F7 /* ShadersProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadersProgram.h; sourceTree = "<group>"; };
+		608D701117357B3C000A92F7 /* ShadersLibrary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadersLibrary.cpp; sourceTree = "<group>"; };
+		608D701217357B3C000A92F7 /* ShadersLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadersLibrary.h; sourceTree = "<group>"; };
 		6090C57E1711AE2400F23DBB /* rename.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = rename.py; sourceTree = "<group>"; };
 		6091E37316AC554E001DE0A7 /* PolylineNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolylineNode.cpp; sourceTree = "<group>"; };
 		6091E37416AC554E001DE0A7 /* PolylineNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolylineNode.h; sourceTree = "<group>"; };
@@ -291,11 +311,21 @@
 			path = Scene;
 			sourceTree = "<group>";
 		};
-		608D6FFB17351E62000A92F7 /* Shaders */ = {
+		608D70001735738C000A92F7 /* Shading */ = {
 			isa = PBXGroup;
 			children = (
+				608D70011735754A000A92F7 /* ShadersManager.cpp */,
+				608D70021735754A000A92F7 /* ShadersManager.h */,
+				608D701117357B3C000A92F7 /* ShadersLibrary.cpp */,
+				608D701217357B3C000A92F7 /* ShadersLibrary.h */,
+				608D700517357571000A92F7 /* Shader.cpp */,
+				608D700617357571000A92F7 /* Shader.h */,
+				608D70091735758D000A92F7 /* ShaderFactory.cpp */,
+				608D700A1735758D000A92F7 /* ShaderFactory.h */,
+				608D700D17357A46000A92F7 /* ShadersProgram.cpp */,
+				608D700E17357A46000A92F7 /* ShadersProgram.h */,
 			);
-			path = Shaders;
+			path = Shading;
 			sourceTree = "<group>";
 		};
 		60D74584172298B30062CDF1 /* Render */ = {
@@ -331,8 +361,8 @@
 				D1C708B915B3495400D64823 /* External */,
 				D17C766B1583C1580083E2B0 /* Main */,
 				D1E54CA7157BE5120083FB90 /* Math */,
+				608D70001735738C000A92F7 /* Shading */,
 				60D74584172298B30062CDF1 /* Render */,
-				608D6FFB17351E62000A92F7 /* Shaders */,
 				D1DFC003157BC15000F9E371 /* Model */,
 				6047DB8F16B46A5D0012286F /* Interaction */,
 				D1954A3C1581337F00820436 /* Surround */,
@@ -540,6 +570,11 @@
 				607BFB16172C838200357B47 /* RectangleRenderer.h in Headers */,
 				6086605B173436E500E67B54 /* Bounds.h in Headers */,
 				6086605F17343C5400E67B54 /* PointRenderer.h in Headers */,
+				608D70041735754A000A92F7 /* ShadersManager.h in Headers */,
+				608D700817357571000A92F7 /* Shader.h in Headers */,
+				608D700C1735758D000A92F7 /* ShaderFactory.h in Headers */,
+				608D701017357A46000A92F7 /* ShadersProgram.h in Headers */,
+				608D701417357B3C000A92F7 /* ShadersLibrary.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +677,11 @@
 				607BFB15172C838200357B47 /* RectangleRenderer.cpp in Sources */,
 				6086605A173436E500E67B54 /* Bounds.cpp in Sources */,
 				6086605E17343C5400E67B54 /* PointRenderer.cpp in Sources */,
+				608D70031735754A000A92F7 /* ShadersManager.cpp in Sources */,
+				608D700717357571000A92F7 /* Shader.cpp in Sources */,
+				608D700B1735758D000A92F7 /* ShaderFactory.cpp in Sources */,
+				608D700F17357A46000A92F7 /* ShadersProgram.cpp in Sources */,
+				608D701317357B3C000A92F7 /* ShadersLibrary.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
