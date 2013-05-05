@@ -10,8 +10,7 @@ ShadersManager::~ShadersManager()
     
 void ShadersManager::Clear()
 {
-    ShadersLibrary::SourceMap sourceMap = library.sourceMap();
-    for (auto it = sourceMap.begin(); it != sourceMap.end(); ++it) {
+    for (auto it = mShadersMap.begin(); it != mShadersMap.end(); ++it) {
         Shader* shader = (*it).second;
         FT_DELETE(shader);
     }

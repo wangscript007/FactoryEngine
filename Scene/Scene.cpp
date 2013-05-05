@@ -29,7 +29,8 @@ Scene::Scene()
     mModelManager->ModelTreeManager()->setRootNode(reinterpret_cast<Node*>(mWorkspace));
     mInteractionManager = new class InteractionManager(*mModelManager);
     
-    
+    mShadersManager = new ShadersManager();
+    mShadersLibrary = new ShadersLibrary();
     
     Select(mWorkspace);
 }
@@ -44,6 +45,8 @@ Scene::~Scene()
     FT_DELETE(mInteractionManager);
     FT_DELETE(mLayerRenderer);
     FT_DELETE(mLayer);
+    FT_DELETE(mShadersManager);
+    FT_DELETE(mShadersLibrary);
 }
 
 #pragma mark Workspace
@@ -114,6 +117,13 @@ void Scene::setProjectionMode(ProjectionMode projectionMode)
 void Scene::TurnOnLight(int index)
 {
     Lights::TurnOn(index);
+}
+    
+#pragma mark Shading
+    
+void Scene::AddShader(const std::string& name, const std::string& source, GLenum type)
+{
+    mShadersLibrary->Add(name, source, type);
 }
 
 #pragma mark Model

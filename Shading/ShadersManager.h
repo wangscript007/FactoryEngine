@@ -17,8 +17,7 @@ public:
     void LinkProgram();
     void Clear();
     
-private:
-    
+private:ShadersManager*   mShadersManager;
     ShadersMap mShadersMap;
     ShadersProgram mShadersProgram;
 };

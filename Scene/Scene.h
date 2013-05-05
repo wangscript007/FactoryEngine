@@ -10,6 +10,8 @@
 #include <Surround/Camera.h>
 #include <Model/ModelManager.h>
 #include <Interaction/InteractionManager.h>
+#include <Shading/ShadersManager.h>
+#include <Shading/ShadersLibrary.h>
 
 namespace ftr {
 
@@ -40,6 +42,10 @@ public:
     //
     void              TurnOnLight(int index);
     //
+    // Shaders
+    //
+    void              AddShader(const std::string& name, const std::string& source, GLenum type);
+    //
     // Model
     //
     void              Select(Node* pNode) { mModelManager->Select(pNode); }
@@ -58,6 +64,8 @@ private:
     Workspace*        mWorkspace;
     Camera*           mCamera;
     ModelManager*     mModelManager;
+    ShadersManager*   mShadersManager;
+    ShadersLibrary*   mShadersLibrary;
     
     Layer*           mLayer;
     LayerRenderer*   mLayerRenderer;
