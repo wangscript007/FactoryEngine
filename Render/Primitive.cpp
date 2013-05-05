@@ -68,6 +68,12 @@ char* RectanglePrimitive::CreateRenderData()
     data->vertices[2].color = color;
     data->vertices[3].color = color;
     AssignSurfaceNormals(data);
+    
+    glGenBuffers(1, &mVertexBufferId);
+    glBindBuffer(GL_ARRAY_BUFFER, mVertexBufferId);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(RectanglePrimitive::Data), data, GL_STATIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    
     return reinterpret_cast<char*>(data);
 }
     

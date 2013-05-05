@@ -9,6 +9,7 @@
 #include <Workspace/Pad.h>
 #include <Workspace/HUD.h>
 #include <Workspace/Bounds.h>
+#include <Workspace/TestRectangle.h>
 #include <Render/Layer.h>
 
 namespace ftr {
@@ -25,10 +26,13 @@ private:
     Pad* mPad;
     HUD* mHUD;
     Bounds* mBounds;
+    TestRectangle* mTestRactangle;
+    
     Layer* mHudLayer;
     Layer* mPadLayer;
     Layer* mBoundsLayer;
     Layer* mModelLayer;
+    Layer* mTestLayer;
 };
 
 }

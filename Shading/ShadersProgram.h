@@ -13,8 +13,11 @@ public:
     
     void AttachShader(const Shader& shader);
     void Link();
+    void Activate();
+    void Deactivate();
     
     GLint status() const { return mStatus; }
+    
     
 private:
     typedef std::vector<GLuint> AttachedVector;

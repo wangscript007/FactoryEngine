@@ -3,6 +3,12 @@
 
 namespace ftr {
     
+ShadersManager::ShadersManager()
+    :mShadersProgram(NULL)
+{
+    
+}
+    
 ShadersManager::~ShadersManager()
 {
     Clear();
@@ -15,6 +21,7 @@ void ShadersManager::Clear()
         FT_DELETE(shader);
     }
     mShadersMap.clear();
+    FT_DELETE(mShadersProgram);
 }
     
 void ShadersManager::CreateShadersFromLibrary(const ShadersLibrary& library)
@@ -37,11 +44,16 @@ void ShadersManager::CompileShaders()
     
 void ShadersManager::LinkProgram()
 {
+    if (mShadersProgram) {
+        FT_DELETE(mShadersProgram);
+        assert(false);
+    }
+    mShadersProgram = new ShadersProgram();
     for (auto it = mShadersMap.begin(); it != mShadersMap.end(); ++it) {
         Shader* shader = (*it).second;
-        mShadersProgram.AttachShader(*shader);
+        mShadersProgram->AttachShader(*shader);
     }
-    mShadersProgram.Link();
+    mShadersProgram->Link();
 }
 
 }

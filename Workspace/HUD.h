@@ -5,7 +5,7 @@
 
 namespace ftr {
 
-class HUD : Node
+class HUD : public Node
 {
 public:    
     void Render(Layer& layer);

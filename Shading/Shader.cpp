@@ -6,12 +6,13 @@ namespace ftr {
 Shader::Shader(const Data& data)
 :mName(data.name), mSource(data.source), mType(data.type)
 {
-    
+    assert((mType == GL_FRAGMENT_SHADER) || (mType == GL_VERTEX_SHADER));
 }
     
 void Shader::Compile()
 {
     mId = glCreateShader(mType);
+    assert(mId != 0);
     const char* source = mSource.c_str();
     glShaderSource(mId, 1, &source, NULL);
     glCompileShader(mId);
@@ -40,6 +41,8 @@ void Shader::CheckCompileStatus()
         
         assert(false);
     }
+    
+    
 }
     
 }

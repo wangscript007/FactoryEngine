@@ -41,12 +41,15 @@ public:
     bool isInvalid() const { return mIsInvalid; }
     void setOption(Option option, bool value);
     bool option(Option option) const { return (mOptions & static_cast<unsigned int>(option)) != 0; }
+    GLuint vertexBufferId() const { return mVertexBufferId; }
     
 protected:
-    virtual char* CreateRenderData() { return NULL; };
-
+    virtual char* CreateRenderData() { return NULL; }
+    GLuint mVertexBufferId;
     char* mRenderData;
+    
 private:
+    
     bool mIsInvalid;
     unsigned int mOptions;
     

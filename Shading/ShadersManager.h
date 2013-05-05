@@ -10,16 +10,18 @@ class ShadersManager
 {
 public:
     typedef std::map<std::string, Shader*> ShadersMap;
-    
+    ShadersManager();
     virtual ~ShadersManager();
     void CreateShadersFromLibrary(const ShadersLibrary& library);
     void CompileShaders();
     void LinkProgram();
     void Clear();
     
-private:ShadersManager*   mShadersManager;
+    ShadersProgram* shadersProgram() { return mShadersProgram; }
+    
+private:
     ShadersMap mShadersMap;
-    ShadersProgram mShadersProgram;
+    ShadersProgram* mShadersProgram;
 };
 
 }

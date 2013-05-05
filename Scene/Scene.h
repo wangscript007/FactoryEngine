@@ -45,6 +45,7 @@ public:
     // Shaders
     //
     void              AddShader(const std::string& name, const std::string& source, GLenum type);
+    void              PrepareShadersProgram();
     //
     // Model
     //

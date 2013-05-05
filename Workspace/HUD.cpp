@@ -3,8 +3,6 @@
 //
 
 #include <Workspace/HUD.h>
-#include <Main/Log.h>
-#include <Main/GLError.h>
 
 namespace ftr {
 

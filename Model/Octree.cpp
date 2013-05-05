@@ -24,6 +24,7 @@ Octree::~Octree()
 
 void Octree::Render()
 {
+    return;
     static_cast<Node*>(mRootNode)->Render();
 }
 

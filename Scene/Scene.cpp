@@ -13,9 +13,6 @@ namespace ftr {
 
 
 #pragma mark - Super
-//
-//
-//
 Scene::Scene()
 {
     
@@ -34,9 +31,6 @@ Scene::Scene()
     
     Select(mWorkspace);
 }
-//
-//
-//
 Scene::~Scene()
 {
     FT_DELETE(mWorkspace);
@@ -50,62 +44,45 @@ Scene::~Scene()
 }
 
 #pragma mark Workspace
-//
-//
-//
+
 void Scene::Render()
 {
-    mWorkspace->Render(*mLayer);
-    mLayerRenderer->Render(*mLayer);
-    mModelManager->ModelTreeManager()->Octree()->Render();
+    mShadersManager->shadersProgram()->Activate();
+    //mWorkspace->Render(*mLayer);
+    //mLayerRenderer->Render(*mLayer);
+    //mModelManager->ModelTreeManager()->Octree()->Render();
+    
+    mShadersManager->shadersProgram()->Deactivate();
 }
-//
-//
-//
 void Scene::setViewportRect(int x, int y, int width, int height)
 {
     mWorkspace->setViewportRect(Rect(x, y, width, height));
 }
 
 #pragma mark Camera
-//
-//
-//
+    //
+    //
+    //
 void Scene::MoveBy(const Vec2& deltaMove)
 {
     mCamera->MoveBy(deltaMove);
 }
-//
-//
-//
 void Scene::RotateBy(const Vec2& deltaRotation)
 {
     mCamera->RotateBy(deltaRotation);
 }
-//
-//
-//
 void Scene::ZoomBy(const GLfloat times)
 {
     mCamera->ZoomBy(times);
 }
-//
-//
-//
 void Scene::Look()
 {
     mCamera->Look();
 }
-//
-//
-//
 void Scene::Reset()
 {
     mCamera->Reset();
 }
-//
-//
-//
 void Scene::setProjectionMode(ProjectionMode projectionMode)
 {
     mCamera->setProjectionMode(projectionMode);
@@ -124,6 +101,13 @@ void Scene::TurnOnLight(int index)
 void Scene::AddShader(const std::string& name, const std::string& source, GLenum type)
 {
     mShadersLibrary->Add(name, source, type);
+}
+    
+void Scene::PrepareShadersProgram()
+{
+    mShadersManager->CreateShadersFromLibrary(*mShadersLibrary);
+    mShadersManager->CompileShaders();
+    mShadersManager->LinkProgram();
 }
 
 #pragma mark Model

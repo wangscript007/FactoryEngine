@@ -11,7 +11,7 @@ void RectangleRenderer::Begin(Primitive& primitive)
 void RectangleRenderer::Render(Primitive& primitive)
 {
     RectanglePrimitive::Data* data = reinterpret_cast<RectanglePrimitive::Data*>(primitive.renderData());
-    
+    /*
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
     glEnableClientState(GL_NORMAL_ARRAY);
@@ -22,6 +22,18 @@ void RectangleRenderer::Render(Primitive& primitive)
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);
     glDisableClientState(GL_NORMAL_ARRAY);
+     */
+    
+    glBindBuffer(GL_ARRAY_BUFFER, primitive.vertexBufferId());
+    glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
+    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void*)48);
+    glDrawArrays(GL_QUADS, 0, 4);
+    glDisableVertexAttribArray(0);
+    glDisableVertexAttribArray(1);
+    
+    
 }
 
 void RectangleRenderer::End(Primitive& primitive)
