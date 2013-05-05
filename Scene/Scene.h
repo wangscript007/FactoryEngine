@@ -46,6 +46,8 @@ public:
     //
     void              AddShader(const std::string& name, const std::string& source, GLenum type);
     void              PrepareShadersProgram();
+    void              ActivateProgram();
+    void              DeactivateProgram();
     //
     // Model
     //

@@ -1,5 +1,6 @@
 
 #include <Render/Primitive.h>
+#include <Main/GLError.h>
 
 namespace ftr {
 
@@ -55,30 +56,26 @@ RectanglePrimitive::RectanglePrimitive()
 char* RectanglePrimitive::CreateRenderData()
 {
     RectanglePrimitive::Data* data = reinterpret_cast<RectanglePrimitive::Data*>(new char[sizeof(RectanglePrimitive::Data)]);
-    data->indices[0] = 0;
-    data->indices[1] = 1;
-    data->indices[2] = 2;
-    data->indices[3] = 3;
-    data->vertices[0].vec = mVec[0];
-    data->vertices[1].vec = mVec[1];
-    data->vertices[2].vec = mVec[2];
-    data->vertices[3].vec = mVec[3];
-    data->vertices[0].color = color;
-    data->vertices[1].color = color;
-    data->vertices[2].color = color;
-    data->vertices[3].color = color;
-    AssignSurfaceNormals(data);
+    
+    data->vertices[0] = mVec[0];
+    data->vertices[1] = mVec[1];
+    data->vertices[2] = mVec[2];
+    //data->vertices[3] = mVec[3];
+    
     
     glGenBuffers(1, &mVertexBufferId);
     glBindBuffer(GL_ARRAY_BUFFER, mVertexBufferId);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(RectanglePrimitive::Data), data, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(RectanglePrimitive::Data), data->vertices, GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+    assert(glIsBuffer(mVertexBufferId));
+    GetError();
     
     return reinterpret_cast<char*>(data);
 }
     
 void RectanglePrimitive::AssignSurfaceNormals(RectanglePrimitive::Data* data)
 {
+    /*
     Vec3 normal;
     normal.Zero();
     static const int vertexCount = 4;
@@ -93,6 +90,7 @@ void RectanglePrimitive::AssignSurfaceNormals(RectanglePrimitive::Data* data)
     for (int i = 0; i < vertexCount; i++) {
         data->vertices[i].normal = normal;
     }
+    */
 
 }
 

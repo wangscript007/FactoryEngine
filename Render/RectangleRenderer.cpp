@@ -1,11 +1,12 @@
 #include <Render/RectangleRenderer.h>
 #include <Render/Primitive.h>
+#include <Main/GLError.h>
 
 namespace ftr {
     
 void RectangleRenderer::Begin(Primitive& primitive)
 {
-    PrimitiveRenderer::Begin(primitive);
+    //PrimitiveRenderer::Begin(primitive);
 }
 
 void RectangleRenderer::Render(Primitive& primitive)
@@ -24,21 +25,23 @@ void RectangleRenderer::Render(Primitive& primitive)
     glDisableClientState(GL_NORMAL_ARRAY);
      */
     
+    assert(primitive.vertexBufferId() > 0);
     glBindBuffer(GL_ARRAY_BUFFER, primitive.vertexBufferId());
+    GetError();
     glEnableVertexAttribArray(0);
-    glEnableVertexAttribArray(1);
+    GetError();
     glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
-    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void*)48);
-    glDrawArrays(GL_QUADS, 0, 4);
+    GetError();
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    GetError();
     glDisableVertexAttribArray(0);
-    glDisableVertexAttribArray(1);
-    
+    GetError();
     
 }
 
 void RectangleRenderer::End(Primitive& primitive)
 {
-    PrimitiveRenderer::End(primitive);
+    //PrimitiveRenderer::End(primitive);
 }
     
 }

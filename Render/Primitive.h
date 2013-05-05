@@ -113,8 +113,7 @@ class RectanglePrimitive : public Primitive
 {
 public:
     struct Data {
-        Vertex vertices[4];
-        GLubyte indices[4];
+        Vec4 vertices[3];
     };
     
     RectanglePrimitive();

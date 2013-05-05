@@ -48,12 +48,23 @@ Scene::~Scene()
 void Scene::Render()
 {
     mShadersManager->shadersProgram()->Activate();
-    //mWorkspace->Render(*mLayer);
-    //mLayerRenderer->Render(*mLayer);
+    mWorkspace->Render(*mLayer);
+    mLayerRenderer->Render(*mLayer);
     //mModelManager->ModelTreeManager()->Octree()->Render();
     
     mShadersManager->shadersProgram()->Deactivate();
 }
+    
+void Scene::ActivateProgram()
+{
+    mShadersManager->shadersProgram()->Activate();
+}
+    
+void Scene::DeactivateProgram()
+{
+    mShadersManager->shadersProgram()->Deactivate();
+}
+    
 void Scene::setViewportRect(int x, int y, int width, int height)
 {
     mWorkspace->setViewportRect(Rect(x, y, width, height));

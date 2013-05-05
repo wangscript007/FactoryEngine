@@ -16,14 +16,12 @@ void PrimitiveRenderer::Begin(Primitive& primitive)
     if (primitive.option(Primitive::kUseBlend)) {
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    } else {
-        
     }
 }
     
 void PrimitiveRenderer::End(Primitive& primitive)
 {
-    GetError();
+    //GetError();
     glDisable(GL_BLEND);
     glDisable(GL_LIGHTING);
     glDisable(GL_DEPTH_TEST);

@@ -9,7 +9,7 @@ namespace ftr {
 
 Workspace::Workspace(Layer* layer)
 {
-    glEnable(GL_NORMALIZE);
+    //glEnable(GL_NORMALIZE);
     GetError();
     mPad = new Pad();
     mHUD = new HUD();
@@ -28,10 +28,10 @@ Workspace::Workspace(Layer* layer)
     mModelLayer->setDepth(4);
     mTestLayer->setDepth(5);
     
-    layer->AddSublayer(mHudLayer);
-    layer->AddSublayer(mBoundsLayer);
-    layer->AddSublayer(mPadLayer);
-    layer->AddSublayer(mModelLayer);
+    //layer->AddSublayer(mHudLayer);
+    //layer->AddSublayer(mBoundsLayer);
+    //layer->AddSublayer(mPadLayer);
+    //layer->AddSublayer(mModelLayer);
     layer->AddSublayer(mTestLayer);
 }
 
@@ -60,7 +60,7 @@ void Workspace::Render(Layer& layer)
     //mHUD->Render(*mHudLayer);
     //mBounds->Render(*mBoundsLayer);
     //Node::Render(*mModelLayer);
-    glFinish();
+    //glFinish();
 }
 
 }

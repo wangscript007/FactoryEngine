@@ -6,6 +6,7 @@ namespace ftr {
 
 Vec3 Utils::Viewport(Vec3 sceneVec)
 {
+    return Vec3();
     GLint viewport[4];
     GLdouble modelviewMatrix[16];
     GLdouble projectionMatrix[16];       
@@ -25,6 +26,7 @@ Vec3 Utils::Viewport(Vec3 sceneVec)
 
 Vec3 Utils::Scene(const Vec3 windowVec)
 {
+    return Vec3();
     GLint viewport[4];                         
     GLdouble modelviewMatrix[16];
     GLdouble projectionMatrix[16];     
