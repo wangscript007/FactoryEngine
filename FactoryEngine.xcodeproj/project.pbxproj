@@ -190,6 +190,8 @@
 		6091E37416AC554E001DE0A7 /* PolylineNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolylineNode.h; sourceTree = "<group>"; };
 		6091E37816AC6036001DE0A7 /* LoopFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoopFinder.cpp; sourceTree = "<group>"; };
 		6091E37916AC6036001DE0A7 /* LoopFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopFinder.h; sourceTree = "<group>"; };
+		6097E8EC17381AA50070F9FC /* Tutorial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tutorial.cpp; sourceTree = "<group>"; };
+		6097E8ED17381AA50070F9FC /* Tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tutorial.h; sourceTree = "<group>"; };
 		60A4ED5A16FE14E30083DCD2 /* Transformation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transformation.cpp; sourceTree = "<group>"; };
 		60A4ED5B16FE14E30083DCD2 /* Transformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transformation.h; sourceTree = "<group>"; };
 		60A4ED5E16FE28BA0083DCD2 /* RotationInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RotationInteraction.cpp; sourceTree = "<group>"; };
@@ -434,6 +436,8 @@
 			isa = PBXGroup;
 			children = (
 				D15D697B15B4CECB007D676B /* ConvexDecomposition */,
+				6097E8EC17381AA50070F9FC /* Tutorial.cpp */,
+				6097E8ED17381AA50070F9FC /* Tutorial.h */,
 			);
 			path = External;
 			sourceTree = "<group>";

@@ -29,6 +29,7 @@ void ShadersProgram::AttachShader(const Shader& shader)
 void ShadersProgram::Link()
 {
     assert(attachedVector.size() > 0);
+    glBindFragDataLocation(mId, 0, "outputF");
     glLinkProgram(mId);
     CheckLinkStatus();
     DetachShaders();

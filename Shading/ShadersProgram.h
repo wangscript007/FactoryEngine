@@ -15,7 +15,8 @@ public:
     void Link();
     void Activate();
     void Deactivate();
-    
+    GLuint AttributeLocation(const std::string& name) { return glGetAttribLocation(mId, name.c_str()); }
+    GLuint UniformLocation(const std::string& name) { return glGetUniformLocation(mId, name.c_str()); }
     GLint status() const { return mStatus; }
     
     

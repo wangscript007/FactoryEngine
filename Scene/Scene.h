@@ -46,6 +46,8 @@ public:
     //
     void              AddShader(const std::string& name, const std::string& source, GLenum type);
     void              PrepareShadersProgram();
+    GLuint            ShaderAttributeLocation(const std::string& name);
+    GLuint            ShaderUniformLocation(const std::string& name);
     void              ActivateProgram();
     void              DeactivateProgram();
     //

@@ -120,6 +120,17 @@ void Scene::PrepareShadersProgram()
     mShadersManager->CompileShaders();
     mShadersManager->LinkProgram();
 }
+    
+GLuint Scene::ShaderAttributeLocation(const std::string& name)
+{
+    return mShadersManager->shadersProgram()->AttributeLocation(name);
+}
+    
+GLuint Scene::ShaderUniformLocation(const std::string& name)
+{
+    return mShadersManager->shadersProgram()->UniformLocation(name);
+}
+
 
 #pragma mark Model
 
