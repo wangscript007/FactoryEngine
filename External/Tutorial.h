@@ -3,6 +3,7 @@
  Simple GLSL 1.5 Demo
  
  www.lighthouse3d.com
+ http://www.lighthouse3d.com/cg-topics/code-samples/opengl-3-3-glsl-1-5-sample/
  
  */
 
