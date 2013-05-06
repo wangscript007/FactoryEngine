@@ -58,6 +58,8 @@
 		6091E37616AC554E001DE0A7 /* PolylineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37416AC554E001DE0A7 /* PolylineNode.h */; };
 		6091E37A16AC6037001DE0A7 /* LoopFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37816AC6036001DE0A7 /* LoopFinder.cpp */; };
 		6091E37B16AC6037001DE0A7 /* LoopFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37916AC6036001DE0A7 /* LoopFinder.h */; };
+		6097E8F3173834E80070F9FC /* TutorialHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6097E8F1173834E80070F9FC /* TutorialHelper.cpp */; };
+		6097E8F4173834E80070F9FC /* TutorialHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6097E8F2173834E80070F9FC /* TutorialHelper.h */; };
 		60A4ED5C16FE14E30083DCD2 /* Transformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED5A16FE14E30083DCD2 /* Transformation.cpp */; };
 		60A4ED5D16FE14E30083DCD2 /* Transformation.h in Headers */ = {isa = PBXBuildFile; fileRef = 60A4ED5B16FE14E30083DCD2 /* Transformation.h */; };
 		60A4ED6016FE28BA0083DCD2 /* RotationInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED5E16FE28BA0083DCD2 /* RotationInteraction.cpp */; };
@@ -192,6 +194,8 @@
 		6091E37916AC6036001DE0A7 /* LoopFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopFinder.h; sourceTree = "<group>"; };
 		6097E8EC17381AA50070F9FC /* Tutorial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tutorial.cpp; sourceTree = "<group>"; };
 		6097E8ED17381AA50070F9FC /* Tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tutorial.h; sourceTree = "<group>"; };
+		6097E8F1173834E80070F9FC /* TutorialHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TutorialHelper.cpp; sourceTree = "<group>"; };
+		6097E8F2173834E80070F9FC /* TutorialHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialHelper.h; sourceTree = "<group>"; };
 		60A4ED5A16FE14E30083DCD2 /* Transformation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transformation.cpp; sourceTree = "<group>"; };
 		60A4ED5B16FE14E30083DCD2 /* Transformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transformation.h; sourceTree = "<group>"; };
 		60A4ED5E16FE28BA0083DCD2 /* RotationInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RotationInteraction.cpp; sourceTree = "<group>"; };
@@ -438,6 +442,8 @@
 				D15D697B15B4CECB007D676B /* ConvexDecomposition */,
 				6097E8EC17381AA50070F9FC /* Tutorial.cpp */,
 				6097E8ED17381AA50070F9FC /* Tutorial.h */,
+				6097E8F1173834E80070F9FC /* TutorialHelper.cpp */,
+				6097E8F2173834E80070F9FC /* TutorialHelper.h */,
 			);
 			path = External;
 			sourceTree = "<group>";
@@ -579,6 +585,7 @@
 				608D701017357A46000A92F7 /* ShadersProgram.h in Headers */,
 				608D701417357B3C000A92F7 /* ShadersLibrary.h in Headers */,
 				60F6D99017368DB500935A76 /* TestRectangle.h in Headers */,
+				6097E8F4173834E80070F9FC /* TutorialHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,6 +693,7 @@
 				608D700F17357A46000A92F7 /* ShadersProgram.cpp in Sources */,
 				608D701317357B3C000A92F7 /* ShadersLibrary.cpp in Sources */,
 				60F6D98F17368DB500935A76 /* TestRectangle.cpp in Sources */,
+				6097E8F3173834E80070F9FC /* TutorialHelper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
