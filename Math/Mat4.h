@@ -15,7 +15,13 @@ class _ALIGN(16) Mat4
 public:
     static const Mat4 Zero;
     static const Mat4 Identity;
-
+    /*
+     rows [row][column]
+     [0][0], [0][1], [0][2], [0][3]
+     [1][0], [1][1], [1][2], [1][3]
+     [2][0], [2][1], [2][2], [2][3]
+     [3][0], [3][1], [3][2], [3][3]
+    */
     Vec4              mX;
     Vec4              mY;
     Vec4              mZ;

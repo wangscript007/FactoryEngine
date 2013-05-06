@@ -71,9 +71,7 @@ void Scene::setViewportRect(int x, int y, int width, int height)
 }
 
 #pragma mark Camera
-    //
-    //
-    //
+    
 void Scene::MoveBy(const Vec2& deltaMove)
 {
     mCamera->MoveBy(deltaMove);
@@ -86,14 +84,12 @@ void Scene::ZoomBy(const GLfloat times)
 {
     mCamera->ZoomBy(times);
 }
-void Scene::Look()
-{
-    mCamera->Look();
-}
+
 void Scene::Reset()
 {
     mCamera->Reset();
 }
+    
 void Scene::setProjectionMode(ProjectionMode projectionMode)
 {
     mCamera->setProjectionMode(projectionMode);
