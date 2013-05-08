@@ -22,7 +22,7 @@
 #include <algorithm>
 #include <queue>
 #include "OpenGL/glu.h"
-#include "OpenGl/gl.h"
+#include "OpenGl/gl3.h"
 
 
 #include "External/Box2D/Box2D.h"

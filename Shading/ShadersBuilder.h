@@ -6,12 +6,12 @@
 
 namespace ftr {
 
-class ShadersManager
+class ShadersBuilder
 {
 public:
     typedef std::map<std::string, Shader*> ShadersMap;
-    ShadersManager();
-    virtual ~ShadersManager();
+    ShadersBuilder();
+    virtual ~ShadersBuilder();
     void CreateShadersFromLibrary(const ShadersLibrary& library);
     void CompileShaders();
     void LinkProgram();

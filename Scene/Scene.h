@@ -10,7 +10,7 @@
 #include <Surround/Camera.h>
 #include <Model/ModelManager.h>
 #include <Interaction/InteractionManager.h>
-#include <Shading/ShadersManager.h>
+#include <Shading/ShadersBuilder.h>
 #include <Shading/ShadersLibrary.h>
 
 namespace ftr {
@@ -69,7 +69,7 @@ private:
     Workspace*        mWorkspace;
     Camera*           mCamera;
     ModelManager*     mModelManager;
-    ShadersManager*   mShadersManager;
+    ShadersBuilder*   mShadersBuilder;
     ShadersLibrary*   mShadersLibrary;
     
     Layer*           mLayer;

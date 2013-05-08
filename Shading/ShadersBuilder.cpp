@@ -1,20 +1,20 @@
 
-#include <Shading/ShadersManager.h>
+#include <Shading/ShadersBuilder.h>
 
 namespace ftr {
     
-ShadersManager::ShadersManager()
+ShadersBuilder::ShadersBuilder()
     :mShadersProgram(NULL)
 {
     
 }
     
-ShadersManager::~ShadersManager()
+ShadersBuilder::~ShadersBuilder()
 {
     Clear();
 }
     
-void ShadersManager::Clear()
+void ShadersBuilder::Clear()
 {
     for (auto it = mShadersMap.begin(); it != mShadersMap.end(); ++it) {
         Shader* shader = (*it).second;
@@ -24,7 +24,7 @@ void ShadersManager::Clear()
     FT_DELETE(mShadersProgram);
 }
     
-void ShadersManager::CreateShadersFromLibrary(const ShadersLibrary& library)
+void ShadersBuilder::CreateShadersFromLibrary(const ShadersLibrary& library)
 {
     ShadersLibrary::SourceMap sourceMap = library.sourceMap();
     for (auto it = sourceMap.begin(); it != sourceMap.end(); ++it) {
@@ -34,7 +34,7 @@ void ShadersManager::CreateShadersFromLibrary(const ShadersLibrary& library)
     }
 }
     
-void ShadersManager::CompileShaders()
+void ShadersBuilder::CompileShaders()
 {
     for (auto it = mShadersMap.begin(); it != mShadersMap.end(); ++it) {
         Shader* shader = (*it).second;
@@ -42,7 +42,7 @@ void ShadersManager::CompileShaders()
     }
 }
     
-void ShadersManager::LinkProgram()
+void ShadersBuilder::LinkProgram()
 {
     if (mShadersProgram) {
         FT_DELETE(mShadersProgram);

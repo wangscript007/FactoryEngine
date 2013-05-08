@@ -2,6 +2,7 @@
 #pragma once
 
 #include <Model/Node.h>
+#include <Shading/ShadersInput.h>
 
 
 
@@ -30,10 +31,13 @@ public:
     void Ortho(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble near, GLdouble far);
     const Mat4* matrix();
     
+    void setShadersInput(ShadersInput* shadersInput) { mShadersInput = shadersInput; }
+    
 private:
     Mat4 mMatrix;
     Mat4 mProjectionMatrix;
     ProjectionMode mProjectionMode;
+    ShadersInput* mShadersInput;
 };
     
 }

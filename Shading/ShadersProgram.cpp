@@ -6,7 +6,13 @@ namespace ftr {
 ShadersProgram::ShadersProgram()
 {
     mId = glCreateProgram();
+    mShadersInput = new ShadersInput(mId);
     assert(mId != 0);
+}
+    
+ShadersProgram:: ~ShadersProgram()
+{
+    FT_DELETE(mShadersInput);
 }
     
 void ShadersProgram::Activate()
@@ -29,17 +35,18 @@ void ShadersProgram::AttachShader(const Shader& shader)
 void ShadersProgram::Link()
 {
     assert(attachedVector.size() > 0);
-    glBindFragDataLocation(mId, 0, "outputF");
+    mShadersInput->BindOutput();
     glLinkProgram(mId);
     CheckLinkStatus();
     DetachShaders();
+    mShadersInput->Init();
 }
     
 void ShadersProgram::CheckLinkStatus()
 {
     glGetProgramiv(mId, GL_LINK_STATUS, &mStatus);
-    if (mStatus == GL_FALSE)
-    {
+    
+    if (mStatus == GL_FALSE) {
         GLint infoLogLength;
         glGetProgramiv(mId, GL_INFO_LOG_LENGTH, &infoLogLength);
         GLchar *strInfoLog = new GLchar[infoLogLength + 1];
@@ -57,6 +64,6 @@ void ShadersProgram::DetachShaders()
     }
     attachedVector.clear();
 }
-    
+        
 }
 

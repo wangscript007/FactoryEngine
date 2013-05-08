@@ -13,6 +13,7 @@ namespace ftr {
 
 
 #pragma mark - Super
+    
 Scene::Scene()
 {
     
@@ -26,7 +27,7 @@ Scene::Scene()
     mModelManager->ModelTreeManager()->setRootNode(reinterpret_cast<Node*>(mWorkspace));
     mInteractionManager = new class InteractionManager(*mModelManager);
     
-    mShadersManager = new ShadersManager();
+    mShadersBuilder = new ShadersBuilder();
     mShadersLibrary = new ShadersLibrary();
     
     Select(mWorkspace);
@@ -39,7 +40,7 @@ Scene::~Scene()
     FT_DELETE(mInteractionManager);
     FT_DELETE(mLayerRenderer);
     FT_DELETE(mLayer);
-    FT_DELETE(mShadersManager);
+    FT_DELETE(mShadersBuilder);
     FT_DELETE(mShadersLibrary);
 }
 
@@ -47,22 +48,22 @@ Scene::~Scene()
 
 void Scene::Render()
 {
-    mShadersManager->shadersProgram()->Activate();
+    mShadersBuilder->shadersProgram()->Activate();
     mWorkspace->Render(*mLayer);
     mLayerRenderer->Render(*mLayer);
     //mModelManager->ModelTreeManager()->Octree()->Render();
     
-    mShadersManager->shadersProgram()->Deactivate();
+    mShadersBuilder->shadersProgram()->Deactivate();
 }
     
 void Scene::ActivateProgram()
 {
-    mShadersManager->shadersProgram()->Activate();
+    mShadersBuilder->shadersProgram()->Activate();
 }
     
 void Scene::DeactivateProgram()
 {
-    mShadersManager->shadersProgram()->Deactivate();
+    mShadersBuilder->shadersProgram()->Deactivate();
 }
     
 void Scene::setViewportRect(int x, int y, int width, int height)
@@ -112,19 +113,21 @@ void Scene::AddShader(const std::string& name, const std::string& source, GLenum
     
 void Scene::PrepareShadersProgram()
 {
-    mShadersManager->CreateShadersFromLibrary(*mShadersLibrary);
-    mShadersManager->CompileShaders();
-    mShadersManager->LinkProgram();
+    mShadersBuilder->CreateShadersFromLibrary(*mShadersLibrary);
+    mShadersBuilder->CompileShaders();
+    mShadersBuilder->LinkProgram();
 }
     
 GLuint Scene::ShaderAttributeLocation(const std::string& name)
 {
-    return mShadersManager->shadersProgram()->AttributeLocation(name);
+    ShadersInput* input = mShadersBuilder->shadersProgram()->shaderInput();
+    return input->AttributeLocation(name);
 }
     
 GLuint Scene::ShaderUniformLocation(const std::string& name)
 {
-    return mShadersManager->shadersProgram()->UniformLocation(name);
+    ShadersInput* input = mShadersBuilder->shadersProgram()->shaderInput();
+    return input->UniformLocation(name);
 }
 
 
