@@ -49,7 +49,16 @@ public:
     void                set(const Vec4& vX, const Vec4& vY, const Vec4& vZ, const Vec4& vW) {mX = vX; mY = vY; mZ = vZ; mW = vW;}
     void                Orthonormalize();
     Mat4              Transpose() const;
+    void              setArray(float* a);
 };
+    
+inline void Mat4::setArray(float* a)
+{
+    mX[0] = a[0]; mX[1] = a[1]; mX[2] = a[2]; mX[3] = a[3];
+    mY[0] = a[4]; mY[1] = a[5]; mY[2] = a[6]; mY[3] = a[7];
+    mZ[0] = a[8]; mZ[1] = a[9]; mZ[2] = a[10]; mZ[3] = a[11];
+    mW[0] = a[12]; mW[1] = a[13]; mW[2] = a[14]; mW[3] = a[15];
+}
 
 inline Mat4 Mat4::operator*(const Mat4& other) const
 {

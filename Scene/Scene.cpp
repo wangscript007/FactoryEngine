@@ -116,6 +116,7 @@ void Scene::PrepareShadersProgram()
     mShadersBuilder->CreateShadersFromLibrary(*mShadersLibrary);
     mShadersBuilder->CompileShaders();
     mShadersBuilder->LinkProgram();
+    mCamera->setShadersInput(mShadersBuilder->shadersProgram()->shaderInput());
 }
     
 GLuint Scene::ShaderAttributeLocation(const std::string& name)

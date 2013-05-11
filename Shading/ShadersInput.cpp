@@ -32,5 +32,12 @@ void ShadersInput::InputProjectionMatrix(Mat4* matrix)
     glUniformMatrix4fv(mInput.projMatrix,  1, false, m);
 }
     
+void ShadersInput::InputViewMatrix(Mat4* matrix)
+{
+    GLfloat* m = reinterpret_cast<GLfloat*>(matrix);
+    glUniformMatrix4fv(mInput.viewMatrix,  1, false, m);
+}
+
+    
 }
 

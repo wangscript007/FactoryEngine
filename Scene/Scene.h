@@ -63,6 +63,7 @@ public:
     unsigned long     Size() { return mModelManager->Size(); }
     
     InteractionManager* InteractionManager() const { return mInteractionManager; }
+    Camera*           camera() const { return mCamera; }
     
 private:
     

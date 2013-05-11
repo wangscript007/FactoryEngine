@@ -29,7 +29,9 @@ public:
     void Projection(float fov, float ratio, float nearP, float farP);
     void Frustum(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble near, GLdouble far);
     void Ortho(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble near, GLdouble far);
-    const Mat4* matrix();
+    void LookAt(const Vec3& eye, const Vec3& center, const Vec3& up);
+    
+    Mat4* matrix() { return &mMatrix; }
     
     void setShadersInput(ShadersInput* shadersInput) { mShadersInput = shadersInput; }
     

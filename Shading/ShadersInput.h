@@ -22,6 +22,7 @@ public:
     GLuint UniformLocation(const std::string& name) const;
     
     void InputProjectionMatrix(Mat4* matrix);
+    void InputViewMatrix(Mat4* matrix);
 private:
     
     
