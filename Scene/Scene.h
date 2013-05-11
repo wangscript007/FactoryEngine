@@ -35,8 +35,7 @@ public:
     void              RotateBy(const Vec2& deltaRotation);
     void              ZoomBy(const GLfloat times);
     void              Look();
-    void              Reset();
-    void              setProjectionMode(ProjectionMode projectionMode);
+    void              setProjection(Projection projectionMode);
     //
     // Lights           
     //

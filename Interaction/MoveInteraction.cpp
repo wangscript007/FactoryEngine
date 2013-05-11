@@ -26,7 +26,7 @@ void MoveInteraction::setEnd(Vec3 end)
 {
     mEnd = end;
     assert(mModelManager.SelectedNode()->Type() == Node::kLine);
-    mModelManager.SelectedNode()->Transform(Transformation::Move(mEnd - mStart));
+    mModelManager.SelectedNode()->Transform(Transformation::Translate(mEnd - mStart));
     mStart = end;
 }
 

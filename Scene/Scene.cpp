@@ -23,6 +23,7 @@ Scene::Scene()
     
     mWorkspace = new Workspace(mLayer);
     mCamera = new  Camera(Vec3(5.0f, 5.0f, 5.0f));
+    mCamera->setProjection(kProjectionOrthographic);
     mModelManager = new ModelManager();
     mModelManager->ModelTreeManager()->setRootNode(reinterpret_cast<Node*>(mWorkspace));
     mInteractionManager = new class InteractionManager(*mModelManager);
@@ -86,14 +87,14 @@ void Scene::ZoomBy(const GLfloat times)
     mCamera->ZoomBy(times);
 }
 
-void Scene::Reset()
+void Scene::Look()
 {
-    mCamera->Reset();
+    mCamera->Look();
 }
     
-void Scene::setProjectionMode(ProjectionMode projectionMode)
+void Scene::setProjection(Projection projectionMode)
 {
-    mCamera->setProjectionMode(projectionMode);
+    mCamera->setProjection(projectionMode);
 }
 
 #pragma mark Lights
