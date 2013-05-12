@@ -11,7 +11,7 @@ void RectangleRenderer::Begin(Primitive& primitive)
 
 void RectangleRenderer::Render(Primitive& primitive)
 {
-    RectanglePrimitive::Data* data = reinterpret_cast<RectanglePrimitive::Data*>(primitive.renderData());
+    RectanglePrimitive::Data* data = reinterpret_cast<RectanglePrimitive::Data*>(primitive.renderData(mShadersInput));
     
 }
 

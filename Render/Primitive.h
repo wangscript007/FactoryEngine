@@ -1,8 +1,9 @@
 
 #pragma once
 
+#include <Shading/ShadersInput.h>
+
 namespace ftr {
-        
 //
 // Formats primitive data for GL
 //
@@ -37,14 +38,14 @@ public:
     void Invalidate() { mIsInvalid = true; }
     
     virtual Type type() const { return kNone; }
-    char* renderData();
+    char* renderData(ShadersInput& shadersInput);
     bool isInvalid() const { return mIsInvalid; }
     void setOption(Option option, bool value);
     bool option(Option option) const { return (mOptions & static_cast<unsigned int>(option)) != 0; }
     GLuint vertexArrayObjectId() const { return mVertexArrayObjectId; }
     
 protected:
-    virtual char* CreateRenderData() { return NULL; }
+    virtual char* CreateRenderData(ShadersInput& shadersInput) { return NULL; }
     GLuint mVertexArrayObjectId;
     char* mRenderData;
     
@@ -57,8 +58,8 @@ private:
 
 
 struct Vertex {
-    Vec3 vec;
-    Vec3 normal;
+    Vec4 vec;
+    Vec4 normal;
     Color4f color;
 };
 
@@ -90,7 +91,8 @@ class LinePrimitive : public Primitive
 {
 public:
     struct Data {
-        Vertex vertices[2];
+        Vec4 vertices[2];
+        Color4f colors[2];
     };
     
     LinePrimitive() {}
@@ -101,7 +103,7 @@ public:
     Vec3 mEnd;
     Color4f color;
 protected:
-    char* CreateRenderData();
+    char* CreateRenderData(ShadersInput& shadersInput);
     
 private:
     
@@ -122,7 +124,7 @@ public:
     Vec3 mVec[4];
     Color4f color;
 protected:
-    char* CreateRenderData();
+    char* CreateRenderData(ShadersInput& shadersInput);
     
 private:
     void AssignSurfaceNormals(RectanglePrimitive::Data* data);
@@ -147,7 +149,7 @@ public:
     Vec2 mSize;
     Color4f color;
 protected:
-    char* CreateRenderData();
+    char* CreateRenderData(ShadersInput& shadersInput);
     
 private:
     

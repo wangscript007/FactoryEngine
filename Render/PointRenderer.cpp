@@ -12,7 +12,7 @@ void PointRenderer::Begin(Primitive& primitive)
 
 void PointRenderer::Render(Primitive& primitive)
 {
-    PointPrimitive::Data* data = reinterpret_cast<PointPrimitive::Data*>(primitive.renderData());
+    PointPrimitive::Data* data = reinterpret_cast<PointPrimitive::Data*>(primitive.renderData(mShadersInput));
     
 }
 

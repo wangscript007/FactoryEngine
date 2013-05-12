@@ -9,7 +9,6 @@ class PointPrimitive;
 class PointRenderer : public PrimitiveRenderer
 {
 public:
-    PointRenderer() {}
     virtual ~PointRenderer() {}
     virtual void Begin(Primitive& primitive);
     virtual void Render(Primitive& primitive);

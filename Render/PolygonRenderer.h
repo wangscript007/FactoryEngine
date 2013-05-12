@@ -8,7 +8,6 @@ namespace ftr {
 class PolygonRenderer : public PrimitiveRenderer
 {
 public:
-    PolygonRenderer() {}
     virtual ~PolygonRenderer() {}
     virtual void Begin(Primitive& primitive);
     virtual void Render(Primitive& primitive);

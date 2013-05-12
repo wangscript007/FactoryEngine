@@ -7,13 +7,14 @@ namespace ftr {
 class Layer;
 class PrimitiveRenderer;
 class Primitive;
+class ShadersInput;
 //
 // Renders layer primitives
 //
 class LayerRenderer
 {
 public:
-             LayerRenderer();
+             LayerRenderer(ShadersInput& shadersInput);
     virtual ~LayerRenderer();
     
     void Render(Layer& layer);

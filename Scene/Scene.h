@@ -23,6 +23,7 @@ class Scene
 public:
                       Scene();
                       ~Scene();
+    void              Prepare();
     //
     // Workspace
     //
@@ -45,9 +46,10 @@ public:
     //
     void              AddShader(const std::string& name, const std::string& source, GLenum type);
     void              PrepareShadersProgram();
+    void              ActivateProgram();
     GLuint            ShaderAttributeLocation(const std::string& name);
     GLuint            ShaderUniformLocation(const std::string& name);
-    void              ActivateProgram();
+
     void              DeactivateProgram();
     //
     // Model
@@ -74,8 +76,7 @@ private:
     
     Layer*           mLayer;
     LayerRenderer*   mLayerRenderer;
-    class InteractionManager* mInteractionManager;
-    
+    class InteractionManager* mInteractionManager;    
 };
 
 }

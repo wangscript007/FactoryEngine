@@ -3,13 +3,14 @@
 #pragma once
 
 #include <Render/Primitive.h>
+#include <Shading/ShadersInput.h>
 
 namespace ftr {
 
 class PrimitiveRenderer
 {
 public:
-    PrimitiveRenderer() {}
+    PrimitiveRenderer(ShadersInput& shadersInput) : mShadersInput(shadersInput) {}
     virtual ~PrimitiveRenderer() {}
     
     virtual void Begin(Primitive& primitive);
@@ -17,6 +18,9 @@ public:
     virtual void End(Primitive& primitive);
     
     virtual Primitive::Type type() const { return Primitive::kNone; }
+    
+protected:
+    ShadersInput mShadersInput;
 };
     
 }

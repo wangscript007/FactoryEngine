@@ -17,7 +17,7 @@ public:
                 Vec4(): mX(0.0f), mY(0.0f), mZ(0.0f), mW(0.0f) {}
                 Vec4(const Vec4& other): mX(other.mX), mY(other.mY), mZ(other.mZ), mW(other.mW) {}
     explicit    Vec4(const Vec2& other): mX(other.mX), mY(other.mY), mZ(0.0f), mW(0.0f) {}
-    explicit    Vec4(const Vec3& other): mX(other.mX), mY(other.mY), mZ(other.mZ), mW(0.0f) {}
+    explicit    Vec4(const Vec3& other): mX(other.mX), mY(other.mY), mZ(other.mZ), mW(1.0f) {}
                 Vec4(float x, float y, float z, float w): mX(x), mY(y), mZ(z), mW(w) {}
 
     Vec4        operator-() const {return Vec4(-mX, -mY, -mZ, -mW);}

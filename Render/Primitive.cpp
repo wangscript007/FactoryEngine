@@ -4,9 +4,9 @@
 
 namespace ftr {
 
-char* Primitive::renderData() {
+char* Primitive::renderData(ShadersInput& shadersInput) {
     if (mIsInvalid) {
-        mRenderData = CreateRenderData();
+        mRenderData = CreateRenderData(shadersInput);
         mIsInvalid = false;
     }
     return mRenderData;
@@ -33,36 +33,33 @@ char* PointPrimitive::CreateRenderData()
 }
     
     
-char* LinePrimitive::CreateRenderData()
+char* LinePrimitive::CreateRenderData(ShadersInput& shadersInput)
 {
-    LinePrimitive::Data* data = reinterpret_cast<LinePrimitive::Data*>(new char[sizeof(LinePrimitive::Data)]);
-    data->vertices[0].vec = mBegin;
-    data->vertices[1].vec = mEnd;
-    data->vertices[0].color = color;
-    data->vertices[1].color = color;
+    const GLuint colorLoc = shadersInput.colorLocation();
+    const GLuint vertexLoc = shadersInput.vertexLocation();
     
-    //
-    // This VAO is for the Axis
-    //
+    LinePrimitive::Data* data = reinterpret_cast<LinePrimitive::Data*>(new char[sizeof(LinePrimitive::Data)]);
+    data->vertices[0] = Vec4(mBegin);
+    data->vertices[1] = Vec4(mEnd);
+    data->colors[0] = color;
+    data->colors[1] = color;
+    
     glGenVertexArrays(1, &mVertexArrayObjectId);
-    /*
-    glBindVertexArray(vao[2]);
+    glBindVertexArray(mVertexArrayObjectId);
     // Generate two slots for the vertex and color buffers
+    GLuint buffers[2];
     glGenBuffers(2, buffers);
     // bind buffer for vertices and copy data into buffer
     glBindBuffer(GL_ARRAY_BUFFER, buffers[0]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(verticesAxis), verticesAxis, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vec4)*2, data->vertices, GL_STATIC_DRAW);
     glEnableVertexAttribArray(vertexLoc);
     glVertexAttribPointer(vertexLoc, 4, GL_FLOAT, 0, 0, 0);
     
     // bind buffer for colors and copy data into buffer
     glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(colorAxis), colorAxis, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Color4f)*2, data->colors, GL_STATIC_DRAW);
     glEnableVertexAttribArray(colorLoc);
     glVertexAttribPointer(colorLoc, 4, GL_FLOAT, 0, 0, 0);
-    */
-    
-    
     return reinterpret_cast<char*>(data);
 }
     
@@ -74,7 +71,7 @@ RectanglePrimitive::RectanglePrimitive()
 }
     
     
-char* RectanglePrimitive::CreateRenderData()
+char* RectanglePrimitive::CreateRenderData(ShadersInput& shadersInput)
 {
     RectanglePrimitive::Data* data = reinterpret_cast<RectanglePrimitive::Data*>(new char[sizeof(RectanglePrimitive::Data)]);
     
@@ -82,9 +79,6 @@ char* RectanglePrimitive::CreateRenderData()
     data->vertices[1] = mVec[1];
     data->vertices[2] = mVec[2];
     //data->vertices[3] = mVec[3];
-    
-
-    
     return reinterpret_cast<char*>(data);
 }
     
@@ -114,7 +108,7 @@ void RectanglePrimitive::AssignSurfaceNormals(RectanglePrimitive::Data* data)
     
     
     
-char* PolygonPrimitive::CreateRenderData()
+char* PolygonPrimitive::CreateRenderData(ShadersInput& shadersInput)
 {
     PolygonPrimitive::Data* data = reinterpret_cast<PolygonPrimitive::Data*>(new char[sizeof(PolygonPrimitive::Data)]);
     data->indices[0] = 0;

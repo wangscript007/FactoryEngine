@@ -14,25 +14,20 @@ namespace ftr {
 
 #pragma mark - Super
     
-Scene::Scene()
+Scene::Scene() :
+    mShadersBuilder(NULL),
+    mLayerRenderer(NULL),
+    mCamera(NULL)
 {
-    
-    
-    mLayerRenderer = new LayerRenderer();
-    mLayer = new Layer();
-    
-    mWorkspace = new Workspace(mLayer);
-    mCamera = new  Camera(Vec3(0.0f, 0.0f, 30.0f));
-    mCamera->setProjection(kProjectionPerspective);
-    mModelManager = new ModelManager();
-    mModelManager->ModelTreeManager()->setRootNode(reinterpret_cast<Node*>(mWorkspace));
-    mInteractionManager = new class InteractionManager(*mModelManager);
-    
-    mShadersBuilder = new ShadersBuilder();
     mShadersLibrary = new ShadersLibrary();
-    
-    Select(mWorkspace);
+    mLayer = new Layer();
+    mWorkspace = new Workspace(mLayer);
+    mModelManager = new ModelManager();
+    mInteractionManager = new class InteractionManager(*mModelManager);
+    mModelManager->ModelTreeManager()->setRootNode(reinterpret_cast<Node*>(mWorkspace));
+    mModelManager->Select(mWorkspace);
 }
+    
 Scene::~Scene()
 {
     FT_DELETE(mWorkspace);
@@ -43,6 +38,25 @@ Scene::~Scene()
     FT_DELETE(mLayer);
     FT_DELETE(mShadersBuilder);
     FT_DELETE(mShadersLibrary);
+}
+    
+void Scene::Prepare()
+{
+    assert(mShadersBuilder == NULL);
+    mShadersBuilder = new ShadersBuilder();
+    mShadersBuilder->CreateShadersFromLibrary(*mShadersLibrary);
+    mShadersBuilder->CompileShaders();
+    mShadersBuilder->LinkProgram();
+    mShadersBuilder->shadersProgram()->Activate();
+    
+    mCamera = new  Camera(Vec3(0.0f, 0.0f, 30.0f));
+    mCamera->setProjection(kProjectionPerspective);
+    ShadersInput* shadersInput = mShadersBuilder->shadersProgram()->shaderInput();
+    mCamera->setShadersInput(shadersInput);
+    
+    mLayerRenderer = new LayerRenderer(*shadersInput);
+    
+    
 }
 
 #pragma mark Workspace
@@ -111,28 +125,19 @@ void Scene::AddShader(const std::string& name, const std::string& source, GLenum
 {
     mShadersLibrary->Add(name, source, type);
 }
-    
-void Scene::PrepareShadersProgram()
-{
-    mShadersBuilder->CreateShadersFromLibrary(*mShadersLibrary);
-    mShadersBuilder->CompileShaders();
-    mShadersBuilder->LinkProgram();
-    mCamera->setShadersInput(mShadersBuilder->shadersProgram()->shaderInput());
-}
-    
+
 GLuint Scene::ShaderAttributeLocation(const std::string& name)
 {
     ShadersInput* input = mShadersBuilder->shadersProgram()->shaderInput();
     return input->AttributeLocation(name);
 }
-    
+
 GLuint Scene::ShaderUniformLocation(const std::string& name)
 {
     ShadersInput* input = mShadersBuilder->shadersProgram()->shaderInput();
     return input->UniformLocation(name);
 }
-
-
+    
 #pragma mark Model
 
 FaceNode* Scene::CreateFace(const Vec3& origin)

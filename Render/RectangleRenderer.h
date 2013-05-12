@@ -10,7 +10,6 @@ class RectanglePrimitive;
 class RectangleRenderer : public PrimitiveRenderer
 {
 public:
-    RectangleRenderer() {}
     virtual ~RectangleRenderer() {}
     virtual void Begin(Primitive& primitive);
     virtual void Render(Primitive& primitive);

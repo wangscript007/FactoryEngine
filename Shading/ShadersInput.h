@@ -23,13 +23,15 @@ public:
     GLuint AttributeLocation(const std::string& name) const;
     GLuint UniformLocation(const std::string& name) const;
     
+    GLuint colorLocation() const { return mInput.color; }
+    GLuint vertexLocation() const { return mInput.vertex; }
+    
     void InputProjectionMatrix(Mat4* matrix);
     void InputViewMatrix(Mat4* matrix);
     void InputRotationMatrix(Mat4* matrix);
     void InputTranslationMatrix(Mat4* matrix);
+    
 private:
-    
-    
     GLuint mProgramId;
     Input mInput;
 };

@@ -13,7 +13,7 @@ void PolygonRenderer::Begin(Primitive& primitive)
 
 void PolygonRenderer::Render(Primitive& primitive)
 {
-    PolygonPrimitive::Data* data = reinterpret_cast<PolygonPrimitive::Data*>(primitive.renderData());
+    PolygonPrimitive::Data* data = reinterpret_cast<PolygonPrimitive::Data*>(primitive.renderData(mShadersInput));
     
 }   
 
