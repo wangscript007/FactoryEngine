@@ -21,9 +21,6 @@
 #include <utility>
 #include <algorithm>
 #include <queue>
-#include "OpenGL/glu.h"
-#include "OpenGl/gl3.h"
-
 
 #include "External/Box2D/Box2D.h"
 //
@@ -43,6 +40,7 @@ typedef unsigned long long int  Quadrupleword;    // 8 bytes
 //
 #include "Main/GLError.h"
 #include "Main/Log.h"
+#include "Main/Macros.h"
 //
 // Math
 //

@@ -11,9 +11,9 @@ namespace ftr {
 LayerRenderer::LayerRenderer()
     : mDepth(0)
 {
-    AddRenderer(new PointRenderer());
+    //AddRenderer(new PointRenderer());
     AddRenderer(new LineRenderer());
-    AddRenderer(new RectangleRenderer());
+    //AddRenderer(new RectangleRenderer());
 }
     
 void LayerRenderer::AddRenderer(PrimitiveRenderer* primitiveRenderer)

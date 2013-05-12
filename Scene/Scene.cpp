@@ -49,12 +49,12 @@ Scene::~Scene()
 
 void Scene::Render()
 {
-    mShadersBuilder->shadersProgram()->Activate();
+    //mShadersBuilder->shadersProgram()->Activate();
     mWorkspace->Render(*mLayer);
     mLayerRenderer->Render(*mLayer);
     //mModelManager->ModelTreeManager()->Octree()->Render();
     
-    mShadersBuilder->shadersProgram()->Deactivate();
+    //mShadersBuilder->shadersProgram()->Deactivate();
 }
     
 void Scene::ActivateProgram()

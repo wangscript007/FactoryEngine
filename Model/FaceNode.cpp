@@ -18,15 +18,6 @@ void FaceNode::Render(Layer& layer)
     glDisable(GL_DEPTH_TEST);
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glDisable(GL_CULL_FACE);
-    glBegin(GL_POLYGON);
-    {
-        glColor3f(0.5f,0.5f,0.5f);
-        glNormal3f(0,-1,0);
-        for(auto i = mPointsVector.begin(); i != mPointsVector.end(); ++i) {
-            glVertex3f((*i)->mOrigin.mX, (*i)->mOrigin.mY, (*i)->mOrigin.mZ);
-        }
-    }
-    glEnd();
     
 }
 

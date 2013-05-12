@@ -30,7 +30,7 @@ Workspace::Workspace(Layer* layer)
     
     //layer->AddSublayer(mHudLayer);
     //layer->AddSublayer(mBoundsLayer);
-    //layer->AddSublayer(mPadLayer);
+    layer->AddSublayer(mPadLayer);
     //layer->AddSublayer(mModelLayer);
     layer->AddSublayer(mTestLayer);
 }
@@ -48,15 +48,10 @@ Workspace::~Workspace()
     FT_DELETE(mTestLayer);
 }
 
-void Workspace::setViewportRect(Rect rect)
-{
-    glViewport(rect.mOrigin.mX, rect.mOrigin.mY, rect.mSize.mX, rect.mSize.mY);
-}
-
 void Workspace::Render(Layer& layer)
 {
     mTestRactangle->Render(*mTestLayer);
-    //mPad->Render(*mPadLayer);
+    mPad->Render(*mPadLayer);
     //mHUD->Render(*mHudLayer);
     //mBounds->Render(*mBoundsLayer);
     //Node::Render(*mModelLayer);

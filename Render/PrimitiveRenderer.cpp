@@ -6,9 +6,8 @@ namespace ftr {
     
 void PrimitiveRenderer::Begin(Primitive& primitive)
 {
-    
     if (primitive.option(Primitive::kUseLighting)) {
-        glEnable(GL_LIGHTING);
+        //glEnable(GL_LIGHTING);
     }
     if (primitive.option(Primitive::kUseDepth)) {
         glEnable(GL_DEPTH_TEST);
@@ -17,13 +16,16 @@ void PrimitiveRenderer::Begin(Primitive& primitive)
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     }
+    
 }
     
 void PrimitiveRenderer::End(Primitive& primitive)
 {
-    //GetError();
+    
     glDisable(GL_BLEND);
-    glDisable(GL_LIGHTING);
+    GetError();
+    //glDisable(GL_LIGHTING);
+    GetError();
     glDisable(GL_DEPTH_TEST);
 }
 

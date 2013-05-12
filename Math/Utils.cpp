@@ -4,43 +4,15 @@
 
 namespace ftr {
 
+    
 Vec3 Utils::Viewport(Vec3 sceneVec)
 {
     return Vec3();
-    GLint viewport[4];
-    GLdouble modelviewMatrix[16];
-    GLdouble projectionMatrix[16];       
-    glGetIntegerv (GL_VIEWPORT, viewport);                
-    glGetDoublev (GL_MODELVIEW_MATRIX, modelviewMatrix);         
-    glGetDoublev (GL_PROJECTION_MATRIX, projectionMatrix);
-    GLdouble x = sceneVec.mX;
-    GLdouble y = sceneVec.mY;
-    GLdouble z = sceneVec.mZ;
-    GLdouble resultX, resultY, resultZ;
-    gluProject(x, y, z,
-               modelviewMatrix, projectionMatrix, viewport,
-               &resultX, &resultY, &resultZ);
-    
-    return Vec3(resultX, resultY, resultZ);
 }
 
 Vec3 Utils::Scene(const Vec3 windowVec)
 {
     return Vec3();
-    GLint viewport[4];                         
-    GLdouble modelviewMatrix[16];
-    GLdouble projectionMatrix[16];     
-    glGetIntegerv (GL_VIEWPORT, viewport);                
-    glGetDoublev (GL_MODELVIEW_MATRIX, modelviewMatrix);         
-    glGetDoublev (GL_PROJECTION_MATRIX, projectionMatrix);      
-    GLfloat depth = Utils::DepthAtWindowPoint(Vec2(windowVec.mX, windowVec.mY));
-    GLdouble x = windowVec.mX;
-    GLdouble y = windowVec.mY;
-    GLdouble resultX, resultY, resultZ;
-    gluUnProject(x, y, depth,
-                 modelviewMatrix, projectionMatrix, viewport,
-                 &resultX, &resultY, &resultZ);
-    return Vec3(resultX, resultY, resultZ);
 }
 
 GLfloat Utils::DepthAtWindowPoint(const Vec2 point)

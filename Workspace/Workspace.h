@@ -20,7 +20,6 @@ public:
     Workspace(Layer* layer);
     ~Workspace();
     virtual void Render(Layer& layer);
-    void setViewportRect(Rect rect);
     
 private:
     Pad* mPad;

@@ -41,11 +41,11 @@ public:
     bool isInvalid() const { return mIsInvalid; }
     void setOption(Option option, bool value);
     bool option(Option option) const { return (mOptions & static_cast<unsigned int>(option)) != 0; }
-    GLuint vertexBufferId() const { return mVertexBufferId; }
+    GLuint vertexArrayObjectId() const { return mVertexArrayObjectId; }
     
 protected:
     virtual char* CreateRenderData() { return NULL; }
-    GLuint mVertexBufferId;
+    GLuint mVertexArrayObjectId;
     char* mRenderData;
     
 private:
@@ -91,7 +91,6 @@ class LinePrimitive : public Primitive
 public:
     struct Data {
         Vertex vertices[2];
-        GLubyte indices[2];
     };
     
     LinePrimitive() {}

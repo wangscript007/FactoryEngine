@@ -36,12 +36,33 @@ char* PointPrimitive::CreateRenderData()
 char* LinePrimitive::CreateRenderData()
 {
     LinePrimitive::Data* data = reinterpret_cast<LinePrimitive::Data*>(new char[sizeof(LinePrimitive::Data)]);
-    data->indices[0] = 0;
-    data->indices[1] = 1;
     data->vertices[0].vec = mBegin;
     data->vertices[1].vec = mEnd;
     data->vertices[0].color = color;
     data->vertices[1].color = color;
+    
+    //
+    // This VAO is for the Axis
+    //
+    glGenVertexArrays(1, &mVertexArrayObjectId);
+    /*
+    glBindVertexArray(vao[2]);
+    // Generate two slots for the vertex and color buffers
+    glGenBuffers(2, buffers);
+    // bind buffer for vertices and copy data into buffer
+    glBindBuffer(GL_ARRAY_BUFFER, buffers[0]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(verticesAxis), verticesAxis, GL_STATIC_DRAW);
+    glEnableVertexAttribArray(vertexLoc);
+    glVertexAttribPointer(vertexLoc, 4, GL_FLOAT, 0, 0, 0);
+    
+    // bind buffer for colors and copy data into buffer
+    glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(colorAxis), colorAxis, GL_STATIC_DRAW);
+    glEnableVertexAttribArray(colorLoc);
+    glVertexAttribPointer(colorLoc, 4, GL_FLOAT, 0, 0, 0);
+    */
+    
+    
     return reinterpret_cast<char*>(data);
 }
     
@@ -62,13 +83,7 @@ char* RectanglePrimitive::CreateRenderData()
     data->vertices[2] = mVec[2];
     //data->vertices[3] = mVec[3];
     
-    
-    glGenBuffers(1, &mVertexBufferId);
-    glBindBuffer(GL_ARRAY_BUFFER, mVertexBufferId);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(RectanglePrimitive::Data), data->vertices, GL_STATIC_DRAW);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    assert(glIsBuffer(mVertexBufferId));
-    GetError();
+
     
     return reinterpret_cast<char*>(data);
 }
