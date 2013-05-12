@@ -7,7 +7,7 @@
 
 namespace ftr {
     
-const float Camera::kViewportScale = 1.0f;
+const float Camera::kViewportScale = 0.3f;
 
 Camera::Camera(const Vec3& eyePosition)
     :mShadersInput(NULL)

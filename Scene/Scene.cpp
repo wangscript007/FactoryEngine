@@ -22,7 +22,7 @@ Scene::Scene()
     mLayer = new Layer();
     
     mWorkspace = new Workspace(mLayer);
-    mCamera = new  Camera(Vec3(0.0f, 0.0f, 15.0f));
+    mCamera = new  Camera(Vec3(0.0f, 0.0f, 30.0f));
     mCamera->setProjection(kProjectionPerspective);
     mModelManager = new ModelManager();
     mModelManager->ModelTreeManager()->setRootNode(reinterpret_cast<Node*>(mWorkspace));
