@@ -1,6 +1,5 @@
 
 #include <Math/Transformation.h>
-#include <External/TutorialHelper.h>
 
 namespace ftr {
 

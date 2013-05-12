@@ -14,7 +14,7 @@ LayerRenderer::LayerRenderer(ShadersInput& shadersInput)
 {
     //AddRenderer(new PointRenderer());
     AddRenderer(new LineRenderer(shadersInput));
-    //AddRenderer(new RectangleRenderer());
+    AddRenderer(new RectangleRenderer(shadersInput));
 }
     
 void LayerRenderer::AddRenderer(PrimitiveRenderer* primitiveRenderer)

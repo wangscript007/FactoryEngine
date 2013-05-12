@@ -114,7 +114,8 @@ class RectanglePrimitive : public Primitive
 {
 public:
     struct Data {
-        Vec4 vertices[3];
+        Vec4 vertices[4];
+        Color4f colors[4];
     };
     
     RectanglePrimitive();

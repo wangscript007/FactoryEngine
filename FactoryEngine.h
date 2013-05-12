@@ -33,8 +33,6 @@ typedef unsigned short int      Word;             // 2 bytes
 typedef unsigned int            Doubleword;       // 4 bytes
 typedef unsigned long long int  Quadrupleword;    // 8 bytes
 
-#include "External/TutorialHelper.h"
-
 //
 // Main
 //
