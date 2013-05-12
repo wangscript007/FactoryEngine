@@ -22,8 +22,8 @@ Scene::Scene()
     mLayer = new Layer();
     
     mWorkspace = new Workspace(mLayer);
-    mCamera = new  Camera(Vec3(5.0f, 5.0f, 5.0f));
-    mCamera->setProjection(kProjectionOrthographic);
+    mCamera = new  Camera(Vec3(1.0f, 1.0f, 1.0f));
+    mCamera->setProjection(kProjectionProjection);
     mModelManager = new ModelManager();
     mModelManager->ModelTreeManager()->setRootNode(reinterpret_cast<Node*>(mWorkspace));
     mInteractionManager = new class InteractionManager(*mModelManager);
@@ -69,7 +69,7 @@ void Scene::DeactivateProgram()
     
 void Scene::setViewportRect(int x, int y, int width, int height)
 {
-    mWorkspace->setViewportRect(Rect(x, y, width, height));
+    mCamera->setViewport(Frame(Vec2(x, y), Vec2(width, height)));
 }
 
 #pragma mark Camera

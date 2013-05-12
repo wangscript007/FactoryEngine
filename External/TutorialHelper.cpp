@@ -129,8 +129,36 @@ void TutorialHelper::setCamera(float *mat, float posX, float posY, float posZ,
     mat[7]  = 0.0f;
     mat[11] = 0.0f;
     mat[15] = 1.0f;
-    
+    printf("\n---------\n");
+    for (int i = 0; i < 16; ++i)
+    {
+        if (i%4==0) {
+            printf("\n");
+        }
+        printf("%d: [%f] \n",i, mat[i]);
+        
+    }
     setTranslationMatrix(aux, -posX, -posY, -posZ);
-    
+    printf("\n---------\n");
+    for (int i = 0; i < 16; ++i)
+    {
+        if (i%4==0) {
+            printf("\n");
+        }
+        printf("%d: [%f] \n",i, aux[i]);
+        
+    }
+
+    printf("\n---------\n");
     multMatrix(mat, aux);
+    for (int i = 0; i < 16; ++i)
+    {
+        if (i%4==0) {
+            printf("\n");
+        }
+        printf("%d: [%f] \n",i, mat[i]);
+        
+    }
+    
+    
 }

@@ -1,5 +1,6 @@
 
 #include <Math/Transformation.h>
+#include <External/TutorialHelper.h>
 
 namespace ftr {
 
@@ -10,6 +11,46 @@ Mat4 Transformation::Translate(const Vec3& motion)
                   Vec4(0.0f, 0.0f, 1.0, 0.0f),
                   Vec4(motion.mX, motion.mY, motion.mZ, 1.0f)
                   );
+}
+    
+Mat4 Transformation::RotateAroundAxis(float angle, const Vec3& axis)
+{
+    Mat4 m;
+    float a = angle * M_PI / 180.0; // convert to radians
+	float s = sin(a);
+	float c = cos(a);
+	float t = 1.0 - c;
+    float x = axis.mX;
+    float y = axis.mY;
+    float z = axis.mZ;
+	float tx = t * x;
+	float ty = t * y;
+	float tz = t * z;
+	
+	float sz = s * z;
+	float sy = s * y;
+	float sx = s * x;
+	
+	m.mX[0]  = tx * x + c;
+	m.mX[1]  = tx * y + sz;
+	m.mX[2]  = tx * z - sy;
+	m.mX[3]  = 0;
+    
+	m.mY[0]  = tx * y - sz;
+	m.mY[1]  = ty * y + c;
+	m.mY[2]  = ty * z + sx;
+	m.mY[3]  = 0;
+    
+	m.mZ[0]  = tx * z + sy;
+	m.mZ[1]  = ty * z - sx;
+	m.mZ[2] = tz * z + c;
+	m.mZ[3] = 0;
+    
+	m.mW[0] = 0;
+	m.mW[1] = 0;
+	m.mW[2] = 0;
+	m.mW[3] = 1;
+    return m;
 }
 
 Mat4 Transformation::Rotate(const Vec3& radians)
@@ -51,14 +92,27 @@ Mat4 Transformation::Scale(const Vec3& scale)
 Mat4 Transformation::Frustum(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top,
                              GLdouble near, GLdouble far)
 {
-    Mat4 m;
+    Mat4 m = Mat4::Identity;
     m.mX[0] = 2.0f*near/(right - left);
-    m.mY[1] = 2.0f*near/(top - bottom);
-    m.mX[2] = (right + left)/(right - left);
-    m.mY[2] = (top + bottom)/(top - bottom);
-    m.mZ[2] = -(far + near)/(far - near);
-    m.mZ[3] = -(2.0f*far*near)/(far - near);
+    m.mY[1] = 2.0f*near/(top - bottom); //
+    m.mX[2] = (right + left)/(right - left); // A
+    m.mY[2] = (top + bottom)/(top - bottom); // B
+    m.mZ[2] = -(far + near)/(far - near); // C
+    m.mZ[3] = -(2.0f*far*near)/(far - near); // D
     m.mW[2] = -1.0f;
+    m.mW[3] = 0.0f;
+    return m;
+}
+    
+Mat4 Transformation::Projection(float fov, float ratio, float nearP, float farP)
+{
+    Mat4 m;
+    float f = 1.0f / tan (fov * (M_PI / 360.0));
+    m.mX[0] = f / ratio;
+    m.mY[2] = f;
+    m.mZ[2] = (farP + nearP) / (nearP - farP);
+    m.mW[2] = (2.0f * farP * nearP) / (nearP - farP);
+    m.mZ[3] = -1.0f;
     m.mW[3] = 0.0f;
     return m;
 }
@@ -87,6 +141,7 @@ Mat4 Transformation::Ortho(GLdouble left, GLdouble right, GLdouble bottom, GLdou
     side = forward^up;
     side.Normalize();
     up2 = side^forward;
+    up2.Normalize();
     
     m.mX[0] = side[0];
     m.mY[0] = side[1];
@@ -106,10 +161,8 @@ Mat4 Transformation::Ortho(GLdouble left, GLdouble right, GLdouble bottom, GLdou
     m.mX[3] = 0;
     m.mY[3] = 0;
     m.mZ[3] = 0;
-    m.mZ[3] = 1.0f;
-    
-    m *= Translate(eye);
-    return m;
+    m.mW[3] = 1.0f;
+    return m*Translate(-eye);
 }
 
 }
