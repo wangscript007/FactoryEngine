@@ -22,8 +22,8 @@ Scene::Scene()
     mLayer = new Layer();
     
     mWorkspace = new Workspace(mLayer);
-    mCamera = new  Camera(Vec3(1.0f, 1.0f, 1.0f));
-    mCamera->setProjection(kProjectionProjection);
+    mCamera = new  Camera(Vec3(0.0f, 0.0f, 15.0f));
+    mCamera->setProjection(kProjectionPerspective);
     mModelManager = new ModelManager();
     mModelManager->ModelTreeManager()->setRootNode(reinterpret_cast<Node*>(mWorkspace));
     mInteractionManager = new class InteractionManager(*mModelManager);

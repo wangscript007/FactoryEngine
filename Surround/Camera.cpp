@@ -6,6 +6,8 @@
 
 
 namespace ftr {
+    
+const float Camera::kViewportScale = 1.0f;
 
 Camera::Camera(const Vec3& eyePosition)
     :mShadersInput(NULL)
@@ -17,15 +19,21 @@ Camera::Camera(const Vec3& eyePosition)
     
 void Camera::Look()
 {
-    static const Vec3 zero = Vec3(0.0f, 0.0f, 0.0f);
-    //mModelMatrix = ;
-    mModelMatrix = Transformation::Rotate(mRotation);
-    mModelMatrix *= Transformation::Translate(mTranslation);
-    mModelMatrix *= Transformation::Translate(-mEyePosition);
-    mModelMatrix *= Transformation::Translate(-Vec3(5.0f, 5.0f, 20.0));
+    static const Vec3 target = Vec3();
+    Vec3 forward = target + mEyePosition;
+    forward.Normalize();
+    Vec3 side = forward^Vec3::Y;
+    side.Normalize();
+    mRotationMatrix = Transformation::RotateAroundAxis(mRotation.mX, side);
+    mRotationMatrix *= Transformation::RotateAroundAxis(mRotation.mY, Vec3::Y);
+    mModelMatrix = Transformation::LookAt(mEyePosition, target, Vec3::Y);
+    
+    mTranslationMatrix = Transformation::Translate(mTranslation);
     if (mShadersInput) {
         mShadersInput->InputProjectionMatrix(&mProjectionMatrix);
         mShadersInput->InputViewMatrix(&mModelMatrix);
+        mShadersInput->InputRotationMatrix(&mRotationMatrix);
+        mShadersInput->InputTranslationMatrix(&mTranslationMatrix);
     }
 }
 
@@ -39,8 +47,8 @@ void Camera::MoveBy(const Vec2 deltaMove)
 
 void Camera::RotateBy(const Vec2 deltaRotation)
 {
-    mRotation.mX -= deltaRotation.mX/10;
-    mRotation.mY -= deltaRotation.mY/10;
+    mRotation.mX -= deltaRotation.mX;
+    mRotation.mY -= deltaRotation.mY;
     
     double ip;
     modf(mRotation.mX/360, &ip);
@@ -61,11 +69,15 @@ void Camera::setProjection(Projection projectionMode)
 {
     mProjection = projectionMode;
     switch (projectionMode) {
-        case kProjectionProjection:
-            mProjectionMatrix = Transformation::Frustum(-1.0f, 1.0f, -1.0f, 1.0f, 2.0f, 100.0);
+        case kProjectionPerspective:
+            mProjectionMatrix = Transformation::Frustum(-kViewportScale, kViewportScale,
+                                                        -kViewportScale, kViewportScale,
+                                                        2.0f, 2000.0);
             break;
         case kProjectionOrthographic:
-            mProjectionMatrix = Transformation::Ortho(-1.0f, 1.0f, -1.0f, 1.0f, 2.0f, 100.0);
+            mProjectionMatrix = Transformation::Ortho(-kViewportScale, kViewportScale,
+                                                      -kViewportScale, kViewportScale,
+                                                      2.0f, 2000.0);
             break;
     }
 }
@@ -74,7 +86,6 @@ void Camera::setViewport(const Frame& frame)
 {
     float size = std::max(frame.GetWidth(), frame.GetHeight());
     glViewport(0.0f, 0.0f, size, size);
-    //mProjectionMatrix = Transformation::Frustum(-0.1f, 0.1f, -0.1f, 0.1f, 2.0f, 2000.0);
 }
     
 

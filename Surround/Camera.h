@@ -9,13 +9,15 @@
 namespace ftr {
     
 typedef enum {
-    kProjectionProjection,
+    kProjectionPerspective,
     kProjectionOrthographic
 } Projection;
 
 class Camera : public Node
 {
 public:
+    static const float kViewportScale;
+    
     Camera(const Vec3& eyePosition);
     
     void MoveBy(const Vec2 deltaMove);
@@ -35,6 +37,8 @@ private:
     
     Mat4 mModelMatrix;
     Mat4 mProjectionMatrix;
+    Mat4 mRotationMatrix;
+    Mat4 mTranslationMatrix;
     
     Projection mProjection;
     ShadersInput* mShadersInput;

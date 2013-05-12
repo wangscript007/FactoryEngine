@@ -14,7 +14,7 @@ public:
     
     static Mat4 Frustum(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top,
                         GLdouble near, GLdouble far);
-    static Mat4 Projection(float fov, float ratio, float nearP, float farP);
+    static Mat4 Perspective(float fov, float ratio, float nearP, float farP);
     static Mat4 Ortho(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top,
                       GLdouble near, GLdouble far);
     

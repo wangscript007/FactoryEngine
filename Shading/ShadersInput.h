@@ -11,6 +11,8 @@ public:
         GLuint color;
         GLuint projMatrix;
         GLuint viewMatrix;
+        GLuint rotationMatrix;
+        GLuint translationMatrix;
     };
     
     ShadersInput(GLuint programId) : mProgramId(programId) {}
@@ -23,6 +25,8 @@ public:
     
     void InputProjectionMatrix(Mat4* matrix);
     void InputViewMatrix(Mat4* matrix);
+    void InputRotationMatrix(Mat4* matrix);
+    void InputTranslationMatrix(Mat4* matrix);
 private:
     
     

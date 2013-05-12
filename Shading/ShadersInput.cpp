@@ -19,6 +19,8 @@ void ShadersInput::Init()
     mInput.color = AttributeLocation("color");
     mInput.projMatrix = UniformLocation("projMatrix");
     mInput.viewMatrix = UniformLocation("viewMatrix");
+    mInput.rotationMatrix = UniformLocation("rotationMatrix");
+    mInput.translationMatrix = UniformLocation("translationMatrix");
 }
 
 void ShadersInput::BindOutput()
@@ -37,6 +39,20 @@ void ShadersInput::InputViewMatrix(Mat4* matrix)
     GLfloat* m = reinterpret_cast<GLfloat*>(matrix);
     glUniformMatrix4fv(mInput.viewMatrix,  1, false, m);
 }
+    
+void ShadersInput::InputRotationMatrix(Mat4* matrix)
+{
+    GLfloat* m = reinterpret_cast<GLfloat*>(matrix);
+    glUniformMatrix4fv(mInput.rotationMatrix,  1, false, m);
+}
+    
+void ShadersInput::InputTranslationMatrix(Mat4* matrix)
+{
+    GLfloat* m = reinterpret_cast<GLfloat*>(matrix);
+    glUniformMatrix4fv(mInput.translationMatrix,  1, false, m);
+}
+
+
 
     
 }

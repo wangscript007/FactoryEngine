@@ -15,14 +15,16 @@ Mat4 Transformation::Translate(const Vec3& motion)
     
 Mat4 Transformation::RotateAroundAxis(float angle, const Vec3& axis)
 {
+    Vec3 normalized = axis;
+    normalized.Normalize();
     Mat4 m;
     float a = angle * M_PI / 180.0; // convert to radians
 	float s = sin(a);
 	float c = cos(a);
 	float t = 1.0 - c;
-    float x = axis.mX;
-    float y = axis.mY;
-    float z = axis.mZ;
+    float x = normalized.mX;
+    float y = normalized.mY;
+    float z = normalized.mZ;
 	float tx = t * x;
 	float ty = t * y;
 	float tz = t * z;
@@ -104,7 +106,7 @@ Mat4 Transformation::Frustum(GLdouble left, GLdouble right, GLdouble bottom, GLd
     return m;
 }
     
-Mat4 Transformation::Projection(float fov, float ratio, float nearP, float farP)
+Mat4 Transformation::Perspective(float fov, float ratio, float nearP, float farP)
 {
     Mat4 m;
     float f = 1.0f / tan (fov * (M_PI / 360.0));
@@ -136,7 +138,7 @@ Mat4 Transformation::Ortho(GLdouble left, GLdouble right, GLdouble bottom, GLdou
 {
     Mat4 m;
     Vec3 side, up2;
-    Vec3 forward = center - eye;
+    Vec3 forward = center + eye;
     forward.Normalize();
     side = forward^up;
     side.Normalize();
