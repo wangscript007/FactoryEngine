@@ -7,7 +7,7 @@
 
 #include <Model/FaceNode.h>
 #include <Workspace/Workspace.h>
-#include <Surround/Camera.h>
+#include <Scene/Camera.h>
 #include <Model/ModelManager.h>
 #include <Interaction/InteractionManager.h>
 #include <Shading/ShadersBuilder.h>

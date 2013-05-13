@@ -4,7 +4,6 @@
 
 
 #include <Scene/Scene.h>
-#include <Surround/Lights.h>
 #include <Render/Layer.h>
 #include <Render/LayerRenderer.h>
 
@@ -117,7 +116,7 @@ void Scene::setProjection(Projection projectionMode)
 
 void Scene::TurnOnLight(int index)
 {
-    Lights::TurnOn(index);
+
 }
     
 #pragma mark Shading

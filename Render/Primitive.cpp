@@ -78,6 +78,7 @@ char* RectanglePrimitive::CreateRenderData(ShadersInput& shadersInput)
     data->vertices[1] = Vec4(mVec[1]);
     data->vertices[3] = Vec4(mVec[2]);
     data->vertices[2] = Vec4(mVec[3]);
+    
     AssignSurfaceNormals(data);
     for(int i = 0; i < 4; ++i) {
         data->colors[i] = color;
@@ -85,12 +86,13 @@ char* RectanglePrimitive::CreateRenderData(ShadersInput& shadersInput)
     
     const GLuint colorLoc = shadersInput.colorLocation();
     const GLuint vertexLoc = shadersInput.vertexLocation();
+    const GLuint normalLoc = shadersInput.normalLocation();
     
     glGenVertexArrays(1, &mVertexArrayObjectId);
     glBindVertexArray(mVertexArrayObjectId);
     
-    GLuint buffers[2];
-    glGenBuffers(2, buffers);
+    GLuint buffers[3];
+    glGenBuffers(3, buffers);
     
     glBindBuffer(GL_ARRAY_BUFFER, buffers[0]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(Vec4)*4, data->vertices, GL_STATIC_DRAW);
@@ -98,6 +100,11 @@ char* RectanglePrimitive::CreateRenderData(ShadersInput& shadersInput)
     glVertexAttribPointer(vertexLoc, 4, GL_FLOAT, 0, 0, 0);
     
     glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vec4)*4, data->normals, GL_STATIC_DRAW);
+    glEnableVertexAttribArray(normalLoc);
+    glVertexAttribPointer(normalLoc, 4, GL_FLOAT, 0, 0, 0);
+    
+    glBindBuffer(GL_ARRAY_BUFFER, buffers[2]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(Color4f)*4, data->colors, GL_STATIC_DRAW);
     glEnableVertexAttribArray(colorLoc);
     glVertexAttribPointer(colorLoc, 4, GL_FLOAT, 0, 0, 0);
@@ -109,7 +116,7 @@ void RectanglePrimitive::AssignSurfaceNormals(RectanglePrimitive::Data* data)
 {
     Vec4 normal;
     normal.Zero();
-    static const int vertexCount = 4;
+    static const int vertexCount = 3;
     for (int i = 0; i < vertexCount; i++) {
         Vec4& current = data->vertices[i];
         Vec4& next = data->vertices[(i+1)%vertexCount];
@@ -118,7 +125,7 @@ void RectanglePrimitive::AssignSurfaceNormals(RectanglePrimitive::Data* data)
         normal.mZ = normal.mZ + (current.mX - next.mX) * (current.mY + next.mY);
     }
     normal.Normalize();
-    for (int i = 0; i < vertexCount; i++) {
+    for (int i = 0; i < vertexCount+1; i++) {
         data->normals[i] = normal;
     }
 }

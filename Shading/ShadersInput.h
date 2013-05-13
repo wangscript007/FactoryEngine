@@ -25,7 +25,7 @@ public:
     GLuint UniformLocation(const std::string& name) const;
     
     GLuint colorLocation() const { return mInput.color; }
-    GLuint normalLocation() const { return mInput.color; }
+    GLuint normalLocation() const { return mInput.normal; }
     GLuint vertexLocation() const { return mInput.vertex; }
     
     void InputProjectionMatrix(Mat4* matrix);

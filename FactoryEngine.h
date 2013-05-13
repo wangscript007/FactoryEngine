@@ -66,11 +66,6 @@ typedef unsigned long long int  Quadrupleword;    // 8 bytes
 #include "Model/ModelFactory.h"
 
 //
-// Surround
-//
-#include "Surround/Camera.h"
-#include "Surround/Lights.h"
-//
 // Workspace
 //
 #include "Workspace/Pad.h"
@@ -85,4 +80,5 @@ typedef unsigned long long int  Quadrupleword;    // 8 bytes
 // Scene
 //
 #include "Scene/Scene.h"
+#include "Scene/Camera.h"
 
