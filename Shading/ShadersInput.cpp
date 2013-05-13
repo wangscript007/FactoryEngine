@@ -16,6 +16,7 @@ GLuint ShadersInput::UniformLocation(const std::string& name) const
 void ShadersInput::Init()
 {
     mInput.vertex = AttributeLocation("position");
+    mInput.normal = AttributeLocation("normal");
     mInput.color = AttributeLocation("color");
     mInput.projMatrix = UniformLocation("projMatrix");
     mInput.viewMatrix = UniformLocation("viewMatrix");

@@ -78,6 +78,7 @@ char* RectanglePrimitive::CreateRenderData(ShadersInput& shadersInput)
     data->vertices[1] = Vec4(mVec[1]);
     data->vertices[3] = Vec4(mVec[2]);
     data->vertices[2] = Vec4(mVec[3]);
+    AssignSurfaceNormals(data);
     for(int i = 0; i < 4; ++i) {
         data->colors[i] = color;
     }
@@ -106,23 +107,20 @@ char* RectanglePrimitive::CreateRenderData(ShadersInput& shadersInput)
     
 void RectanglePrimitive::AssignSurfaceNormals(RectanglePrimitive::Data* data)
 {
-    /*
-    Vec3 normal;
+    Vec4 normal;
     normal.Zero();
     static const int vertexCount = 4;
     for (int i = 0; i < vertexCount; i++) {
-        Vec3& current = data->vertices[i].vec;
-        Vec3& next = data->vertices[(i+1)%vertexCount].vec;
+        Vec4& current = data->vertices[i];
+        Vec4& next = data->vertices[(i+1)%vertexCount];
         normal.mX = normal.mX + (current.mY - next.mY) * (current.mZ + next.mZ);
         normal.mY = normal.mY + (current.mZ - next.mZ) * (current.mX + next.mX);
         normal.mZ = normal.mZ + (current.mX - next.mX) * (current.mY + next.mY);
     }
     normal.Normalize();
     for (int i = 0; i < vertexCount; i++) {
-        data->vertices[i].normal = normal;
+        data->normals[i] = normal;
     }
-    */
-
 }
 
     

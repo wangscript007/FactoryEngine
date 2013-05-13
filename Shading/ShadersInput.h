@@ -8,6 +8,7 @@ class ShadersInput
 public:
     struct Input {
         GLuint vertex;
+        GLuint normal;
         GLuint color;
         GLuint projMatrix;
         GLuint viewMatrix;
@@ -24,6 +25,7 @@ public:
     GLuint UniformLocation(const std::string& name) const;
     
     GLuint colorLocation() const { return mInput.color; }
+    GLuint normalLocation() const { return mInput.color; }
     GLuint vertexLocation() const { return mInput.vertex; }
     
     void InputProjectionMatrix(Mat4* matrix);
