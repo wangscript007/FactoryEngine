@@ -1,6 +1,4 @@
-//
-// Copyright (c) On5. All rights reserved.
-//
+
 
 //
 // 4x4 matrix is useful for homogeneous transformations, mostly for rotations.

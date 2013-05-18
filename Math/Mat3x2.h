@@ -1,6 +1,4 @@
-//
-// Copyright (c) On5. All rights reserved.
-//
+
 #pragma once
 
 namespace ftr {

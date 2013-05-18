@@ -1,6 +1,4 @@
-//
-// Copyright (c) On5. All rights reserved.
-//
+
 
 //
 // 2x2 matrix is useful for 2d transformations, mostly for rotations.

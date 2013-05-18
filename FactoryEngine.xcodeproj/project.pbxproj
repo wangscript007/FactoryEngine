@@ -71,6 +71,12 @@
 		60A575E71690DDEE0050FAFC /* Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 60A575E61690DDEE0050FAFC /* Prefix.pch */; };
 		60B7E4B4173AEA4000EF0834 /* ShadersInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B7E4B2173AEA4000EF0834 /* ShadersInput.cpp */; };
 		60B7E4B5173AEA4000EF0834 /* ShadersInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 60B7E4B3173AEA4000EF0834 /* ShadersInput.h */; };
+		60BD328A1744039D00C2E593 /* LightingModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BD32881744039C00C2E593 /* LightingModel.cpp */; };
+		60BD328B1744039D00C2E593 /* LightingModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BD32891744039C00C2E593 /* LightingModel.h */; };
+		60BD328E174436BD00C2E593 /* LightingCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BD328C174436BD00C2E593 /* LightingCollection.cpp */; };
+		60BD328F174436BD00C2E593 /* LightingCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BD328D174436BD00C2E593 /* LightingCollection.h */; };
+		60BD3292174436EA00C2E593 /* DefaultLighting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BD3290174436EA00C2E593 /* DefaultLighting.cpp */; };
+		60BD3293174436EA00C2E593 /* DefaultLighting.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BD3291174436EA00C2E593 /* DefaultLighting.h */; };
 		60C41BB41691BF5600DD0C09 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60C41BB21691BF5600DD0C09 /* Geometry.cpp */; };
 		60C41BB51691BF5600DD0C09 /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 60C41BB31691BF5600DD0C09 /* Geometry.h */; };
 		60D7457817228D4B0062CDF1 /* ModelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7457417228D4A0062CDF1 /* ModelManager.cpp */; };
@@ -205,6 +211,12 @@
 		60A575E61690DDEE0050FAFC /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		60B7E4B2173AEA4000EF0834 /* ShadersInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadersInput.cpp; sourceTree = "<group>"; };
 		60B7E4B3173AEA4000EF0834 /* ShadersInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadersInput.h; sourceTree = "<group>"; };
+		60BD32881744039C00C2E593 /* LightingModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightingModel.cpp; sourceTree = "<group>"; };
+		60BD32891744039C00C2E593 /* LightingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightingModel.h; sourceTree = "<group>"; };
+		60BD328C174436BD00C2E593 /* LightingCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightingCollection.cpp; sourceTree = "<group>"; };
+		60BD328D174436BD00C2E593 /* LightingCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightingCollection.h; sourceTree = "<group>"; };
+		60BD3290174436EA00C2E593 /* DefaultLighting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DefaultLighting.cpp; sourceTree = "<group>"; };
+		60BD3291174436EA00C2E593 /* DefaultLighting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultLighting.h; sourceTree = "<group>"; };
 		60C41BB21691BF5600DD0C09 /* Geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Geometry.cpp; sourceTree = "<group>"; };
 		60C41BB31691BF5600DD0C09 /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
 		60D7457417228D4A0062CDF1 /* ModelManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelManager.cpp; sourceTree = "<group>"; };
@@ -309,6 +321,12 @@
 		6055CFCD17417BB3009F1F46 /* Lighting */ = {
 			isa = PBXGroup;
 			children = (
+				60BD328C174436BD00C2E593 /* LightingCollection.cpp */,
+				60BD328D174436BD00C2E593 /* LightingCollection.h */,
+				60BD32881744039C00C2E593 /* LightingModel.cpp */,
+				60BD32891744039C00C2E593 /* LightingModel.h */,
+				60BD3290174436EA00C2E593 /* DefaultLighting.cpp */,
+				60BD3291174436EA00C2E593 /* DefaultLighting.h */,
 				6055CFCE17417D45009F1F46 /* Light.cpp */,
 				6055CFCF17417D45009F1F46 /* Light.h */,
 			);
@@ -582,6 +600,9 @@
 				60B7E4B5173AEA4000EF0834 /* ShadersInput.h in Headers */,
 				6055CFD117417D46009F1F46 /* Light.h in Headers */,
 				6055CFD517417DCB009F1F46 /* Camera.h in Headers */,
+				60BD328B1744039D00C2E593 /* LightingModel.h in Headers */,
+				60BD328F174436BD00C2E593 /* LightingCollection.h in Headers */,
+				60BD3293174436EA00C2E593 /* DefaultLighting.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,6 +711,9 @@
 				60B7E4B4173AEA4000EF0834 /* ShadersInput.cpp in Sources */,
 				6055CFD017417D46009F1F46 /* Light.cpp in Sources */,
 				6055CFD417417DCB009F1F46 /* Camera.cpp in Sources */,
+				60BD328A1744039D00C2E593 /* LightingModel.cpp in Sources */,
+				60BD328E174436BD00C2E593 /* LightingCollection.cpp in Sources */,
+				60BD3292174436EA00C2E593 /* DefaultLighting.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
