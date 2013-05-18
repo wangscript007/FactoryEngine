@@ -1,6 +1,8 @@
 
 #pragma once
 
+namespace ftr {
+
 class Light
 {
 public:
@@ -11,10 +13,18 @@ public:
         kLightSpot
     };
     
+    struct Data {
+        Vec4 position;
+        float intensity;
+    };
+    
+    
+    
     virtual ~Light() {}
     
 private:
-    
-    
+    Data mData;
 };
+
+}
 

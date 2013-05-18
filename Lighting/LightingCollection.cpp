@@ -1,10 +1,19 @@
-//
-//  LightingCollection.cpp
-//  FactoryEngine
-//
-//  Created by Edvinas on 5/16/13.
-//  Copyright (c) 2013 Jumsoft. All rights reserved.
-//
 
-#include "LightingCollection.h"
+#include <Lighting/LightingCollection.h>
+#include <Lighting/DefaultLighting.h>
+#include <Lighting/LigthtingModelFactory.h>
+
+namespace ftr {
+    
+LightingCollection::LightingCollection()
+{
+    mActiveModel = mFactory.CreateModelWithName("default");
+}
+    
+LightingCollection::~LightingCollection()
+{
+    FT_DELETE(mActiveModel);
+}
+
+}
 

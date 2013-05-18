@@ -19,6 +19,7 @@ Scene::Scene() :
     mCamera(NULL)
 {
     mShadersLibrary = new ShadersLibrary();
+    mLightingCollection = new LightingCollection();
     mLayer = new Layer();
     mWorkspace = new Workspace(mLayer);
     mModelManager = new ModelManager();
@@ -37,6 +38,7 @@ Scene::~Scene()
     FT_DELETE(mLayer);
     FT_DELETE(mShadersBuilder);
     FT_DELETE(mShadersLibrary);
+    FT_DELETE(mLightingCollection);
 }
     
 void Scene::Prepare()

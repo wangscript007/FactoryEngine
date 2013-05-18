@@ -3,8 +3,6 @@
 //
 #pragma once
 
-
-
 #include <Model/FaceNode.h>
 #include <Workspace/Workspace.h>
 #include <Scene/Camera.h>
@@ -12,6 +10,7 @@
 #include <Interaction/InteractionManager.h>
 #include <Shading/ShadersBuilder.h>
 #include <Shading/ShadersLibrary.h>
+#include <Lighting/LightingCollection.h>
 
 namespace ftr {
 
@@ -73,6 +72,7 @@ private:
     ModelManager*     mModelManager;
     ShadersBuilder*   mShadersBuilder;
     ShadersLibrary*   mShadersLibrary;
+    LightingCollection* mLightingCollection;
     
     Layer*           mLayer;
     LayerRenderer*   mLayerRenderer;

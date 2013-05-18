@@ -3,6 +3,8 @@
 
 #include <Lighting/Light.h>
 
+namespace ftr {
+
 class LightingModel
 {
 public:
@@ -14,4 +16,6 @@ public:
 private:
     LightsVector mLightsVector;
 };
+    
+}
 

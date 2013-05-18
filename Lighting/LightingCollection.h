@@ -1,16 +1,23 @@
-//
-//  LightingCollection.h
-//  FactoryEngine
-//
-//  Created by Edvinas on 5/16/13.
-//  Copyright (c) 2013 Jumsoft. All rights reserved.
-//
 
 #pragma once
+
+#include <Lighting/LigthtingModelFactory.h>
+
+namespace ftr {
 
 class LightingCollection
 {
 public:
-    virtual ~LightingCollection() {}
+    std::map<std::string, LightingModel*> ModelsMap;
+    
+    LightingCollection();
+    virtual ~LightingCollection();
+    
+private:
+    LigthtingModelFactory mFactory;
+    
+    LightingModel* mActiveModel;
 };
+
+}
 
