@@ -24,16 +24,12 @@ void Camera::Look()
     forward.Normalize();
     Vec3 side = forward^Vec3::Y;
     side.Normalize();
-    mRotationMatrix = Transformation::RotateAroundAxis(mRotation.mX, side);
-    mRotationMatrix *= Transformation::RotateAroundAxis(mRotation.mY, Vec3::Y);
-    mModelMatrix = Transformation::LookAt(mEyePosition, target, Vec3::Y);
-    
-    mTranslationMatrix = Transformation::Translate(mTranslation);
+    mTransform.rotation = Transformation::RotateAroundAxis(mRotation.mX, side);
+    mTransform.rotation *= Transformation::RotateAroundAxis(mRotation.mY, Vec3::Y);
+    mTransform.view = Transformation::LookAt(mEyePosition, target, Vec3::Y);
+    mTransform.translation = Transformation::Translate(mTranslation);
     if (mShadersInput) {
-        mShadersInput->InputProjectionMatrix(&mProjectionMatrix);
-        mShadersInput->InputViewMatrix(&mModelMatrix);
-        mShadersInput->InputRotationMatrix(&mRotationMatrix);
-        mShadersInput->InputTranslationMatrix(&mTranslationMatrix);
+        mShadersInput->InputTransform(mTransform);
     }
 }
 
@@ -70,12 +66,12 @@ void Camera::setProjection(Projection projectionMode)
     mProjection = projectionMode;
     switch (projectionMode) {
         case kProjectionPerspective:
-            mProjectionMatrix = Transformation::Frustum(-kViewportScale, kViewportScale,
+            mTransform.projection = Transformation::Frustum(-kViewportScale, kViewportScale,
                                                         -kViewportScale, kViewportScale,
                                                         2.0f, 2000.0);
             break;
         case kProjectionOrthographic:
-            mProjectionMatrix = Transformation::Ortho(-kViewportScale, kViewportScale,
+            mTransform.projection = Transformation::Ortho(-kViewportScale, kViewportScale,
                                                       -kViewportScale, kViewportScale,
                                                       2.0f, 2000.0);
             break;

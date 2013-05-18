@@ -5,12 +5,16 @@ namespace ftr {
 
 GLuint ShadersInput::AttributeLocation(const std::string& name) const
 {
-    return glGetAttribLocation(mProgramId, name.c_str());
+    GLint location = glGetAttribLocation(mProgramId, name.c_str());
+    assert(location != -1);
+    return location;
 }
 
 GLuint ShadersInput::UniformLocation(const std::string& name) const
 {
-    return glGetUniformLocation(mProgramId, name.c_str());
+    GLint location = glGetUniformLocation(mProgramId, name.c_str());
+    assert(location != -1);
+    return location;
 }
 
 void ShadersInput::Init()
@@ -18,10 +22,18 @@ void ShadersInput::Init()
     mInput.vertex = AttributeLocation("position");
     mInput.normal = AttributeLocation("normal");
     mInput.color = AttributeLocation("color");
-    mInput.projMatrix = UniformLocation("projMatrix");
-    mInput.viewMatrix = UniformLocation("viewMatrix");
-    mInput.rotationMatrix = UniformLocation("rotationMatrix");
-    mInput.translationMatrix = UniformLocation("translationMatrix");
+    mInput.transform = BlockBuffer("Transform");
+}
+    
+GLuint ShadersInput::BlockBuffer(const std::string& name)
+{
+    GLuint bindingPoint = 1, buffer, blockIndex;
+    blockIndex = glGetUniformBlockIndex(mProgramId, name.c_str());
+    assert(blockIndex != GL_INVALID_INDEX);
+    glUniformBlockBinding(mProgramId, blockIndex, bindingPoint);
+    glGenBuffers(1, &buffer);
+    glBindBufferBase(GL_UNIFORM_BUFFER, bindingPoint, buffer);
+    return buffer;
 }
 
 void ShadersInput::BindOutput()
@@ -29,30 +41,11 @@ void ShadersInput::BindOutput()
     glBindFragDataLocation(mProgramId, 0, "outputF");
 }
     
-void ShadersInput::InputProjectionMatrix(Mat4* matrix)
+void ShadersInput::InputTransform(const Transform& transform)
 {
-    GLfloat* m = reinterpret_cast<GLfloat*>(matrix);
-    glUniformMatrix4fv(mInput.projMatrix,  1, false, m);
+    glBindBuffer(GL_UNIFORM_BUFFER, mInput.transform);
+    glBufferData(GL_UNIFORM_BUFFER, sizeof(Transform), &transform, GL_DYNAMIC_DRAW);
 }
-    
-void ShadersInput::InputViewMatrix(Mat4* matrix)
-{
-    GLfloat* m = reinterpret_cast<GLfloat*>(matrix);
-    glUniformMatrix4fv(mInput.viewMatrix,  1, false, m);
-}
-    
-void ShadersInput::InputRotationMatrix(Mat4* matrix)
-{
-    GLfloat* m = reinterpret_cast<GLfloat*>(matrix);
-    glUniformMatrix4fv(mInput.rotationMatrix,  1, false, m);
-}
-    
-void ShadersInput::InputTranslationMatrix(Mat4* matrix)
-{
-    GLfloat* m = reinterpret_cast<GLfloat*>(matrix);
-    glUniformMatrix4fv(mInput.translationMatrix,  1, false, m);
-}
-
 
 
     

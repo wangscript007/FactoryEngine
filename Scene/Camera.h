@@ -34,14 +34,10 @@ private:
     Vec3 mEyePosition;
     Vec3 mTranslation;
     Vec3 mRotation;
-    
-    Mat4 mModelMatrix;
-    Mat4 mProjectionMatrix;
-    Mat4 mRotationMatrix;
-    Mat4 mTranslationMatrix;
-    
+        
     Projection mProjection;
     ShadersInput* mShadersInput;
+    ShadersInput::Transform mTransform;
 };
     
 }

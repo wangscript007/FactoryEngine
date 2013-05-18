@@ -10,10 +10,14 @@ public:
         GLuint vertex;
         GLuint normal;
         GLuint color;
-        GLuint projMatrix;
-        GLuint viewMatrix;
-        GLuint rotationMatrix;
-        GLuint translationMatrix;
+        GLuint transform;
+    };
+    
+    struct Transform {
+        Mat4 view;
+        Mat4 projection;
+        Mat4 rotation;
+        Mat4 translation;
     };
     
     ShadersInput(GLuint programId) : mProgramId(programId) {}
@@ -23,17 +27,16 @@ public:
     
     GLuint AttributeLocation(const std::string& name) const;
     GLuint UniformLocation(const std::string& name) const;
+    GLuint BlockBuffer(const std::string& name);
     
     GLuint colorLocation() const { return mInput.color; }
     GLuint normalLocation() const { return mInput.normal; }
     GLuint vertexLocation() const { return mInput.vertex; }
     
-    void InputProjectionMatrix(Mat4* matrix);
-    void InputViewMatrix(Mat4* matrix);
-    void InputRotationMatrix(Mat4* matrix);
-    void InputTranslationMatrix(Mat4* matrix);
+    void InputTransform(const Transform& transform);
     
 private:
+    
     GLuint mProgramId;
     Input mInput;
 };
