@@ -35,26 +35,33 @@ void ShadersInput::BindOutput()
     
 GLuint ShadersInput::BlockBuffer(const std::string& name) const
 {
+
     GLuint bindingPoint = 1, buffer, blockIndex;
+#ifndef GLES
     blockIndex = glGetUniformBlockIndex(mProgramId, name.c_str());
     assert(blockIndex != GL_INVALID_INDEX);
     glUniformBlockBinding(mProgramId, blockIndex, bindingPoint);
     glGenBuffers(1, &buffer);
     glBindBufferBase(GL_UNIFORM_BUFFER, bindingPoint, buffer);
+#endif
     return buffer;
 }
     
 void ShadersInput::InputTransform(const Transform& transform)
 {
+#ifndef GLES
     glBindBuffer(GL_UNIFORM_BUFFER, mInput.transform);
     glBufferData(GL_UNIFORM_BUFFER, sizeof(Transform), &transform, GL_DYNAMIC_DRAW);
+#endif
 }
     
 void ShadersInput::InputLight(const LightData& lightData)
 {
     return;
+#ifndef GLES
     glBindBuffer(GL_UNIFORM_BUFFER, mInput.light);
     glBufferData(GL_UNIFORM_BUFFER, sizeof(LightData), &lightData, GL_DYNAMIC_DRAW);
+#endif
 }
 
 
