@@ -24,7 +24,7 @@ GLfloat Utils::DepthAtWindowPoint(const Vec2 point)
     return depth[0];
 }
 
-void Utils::PrintMatrix(int cols, int rows, GLdouble *matrix)
+void Utils::PrintMatrix(int cols, int rows, FTDouble *matrix)
 {   
     printf("{\n");
     for (int i = 0; i < rows; i++) {
@@ -74,9 +74,9 @@ void mouse( int button, int state, int x, int y )
  bool glCamera::IsOccluded(glPoint p)
  {
  GLint viewport[4];                          // Space For Viewport Data
- GLdouble mvmatrix[16], projmatrix[16];                  // Space For Transform Matrix
- GLdouble winx, winy, winz;                      // Space For Returned Projected Coords
- GLdouble flareZ;                            // Here We Will Store The Transformed Flare Z
+ FTDouble mvmatrix[16], projmatrix[16];                  // Space For Transform Matrix
+ FTDouble winx, winy, winz;                      // Space For Returned Projected Coords
+ FTDouble flareZ;                            // Here We Will Store The Transformed Flare Z
  GLfloat bufferZ;                            // Here We Will Store The Read Z From The Buffer
  
  glGetIntegerv (GL_VIEWPORT, viewport);                  // Get Actual Viewport

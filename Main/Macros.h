@@ -57,12 +57,16 @@ Copyright (C) 2012 Apple Inc. All Rights Reserved.
 #ifndef __GL_UTIL_H__
 #define __GL_UTIL_H__
 
-#if ESSENTIAL_GL_PRACTICES_IOS
+#if GLES
 
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
+#define FTDouble float
+
 #else
+
+#define FTDouble Gldouble
 
 #import <OpenGL/OpenGL.h>
 
