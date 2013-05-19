@@ -25,6 +25,13 @@ void ShadersInput::Init()
     mInput.transform = BlockBuffer("Transform");
     //mInput.light = BlockBuffer("Light");
 }
+
+void ShadersInput::BindOutput()
+{
+#ifndef GLES
+    glBindFragDataLocation(mProgramId, 0, "outputF");
+#endif
+}
     
 GLuint ShadersInput::BlockBuffer(const std::string& name) const
 {
@@ -35,11 +42,6 @@ GLuint ShadersInput::BlockBuffer(const std::string& name) const
     glGenBuffers(1, &buffer);
     glBindBufferBase(GL_UNIFORM_BUFFER, bindingPoint, buffer);
     return buffer;
-}
-
-void ShadersInput::BindOutput()
-{
-    glBindFragDataLocation(mProgramId, 0, "outputF");
 }
     
 void ShadersInput::InputTransform(const Transform& transform)

@@ -53,19 +53,19 @@ POSSIBILITY OF SUCH DAMAGE.
 Copyright (C) 2012 Apple Inc. All Rights Reserved.
 
 */
+#pragma once
 
-#ifndef __GL_UTIL_H__
-#define __GL_UTIL_H__
 
-#if ESSENTIAL_GL_PRACTICES_IOS
+#if GLES
 
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
+#define FTDouble float
 
 #else
 
+#define FTDouble GLdouble
 #import <OpenGL/OpenGL.h>
-
 // OpenGL 3.2 is only supported on MacOS X Lion and later
 // CGL_VERSION_1_3 is defined as 1 on MacOS X Lion and later
 #if CGL_VERSION_1_3
@@ -81,17 +81,20 @@ Copyright (C) 2012 Apple Inc. All Rights Reserved.
 #import <OpenGL/gl.h>
 #endif //!ESSENTIAL_GL_PRACTICES_SUPPORT_GL3
 
-#endif // !ESSENTIAL_GL_PRACTICES_IOS
+#endif // !GLES
 
 
 //The name of the VertexArrayObject are slightly different in
 // OpenGLES, OpenGL Core Profile, and OpenGL Legacy
 // The arguments are exactly the same across these APIs however
-#if ESSENTIAL_GL_PRACTICES_IOS
+#if GLES
+
 #define glBindVertexArray glBindVertexArrayOES
 #define glGenVertexArrays glGenVertexArraysOES
 #define glDeleteVertexArrays glDeleteVertexArraysOES
+
 #else
+
 #if ESSENTIAL_GL_PRACTICES_SUPPORT_GL3
 #define glBindVertexArray glBindVertexArray
 #define glGenVertexArrays glGenVertexArrays
@@ -102,7 +105,9 @@ Copyright (C) 2012 Apple Inc. All Rights Reserved.
 #define glGenVertexArrays glGenVertexArraysAPPLE
 #define glGenerateMipmap glGenerateMipmapEXT
 #define glDeleteVertexArrays glDeleteVertexArraysAPPLE
+
 #endif //!ESSENTIAL_GL_PRACTICES_SUPPORT_GL3
+
 #endif //!ESSENTIAL_GL_PRACTICES_IOS
 
 static inline const char * GetGLErrorString(GLenum error)
@@ -148,5 +153,3 @@ static inline const char * GetGLErrorString(GLenum error)
     return str;
 }
 
-
-#endif // __GL_UTIL_H__

@@ -81,6 +81,123 @@
 		60BD3293174436EA00C2E593 /* DefaultLighting.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BD3291174436EA00C2E593 /* DefaultLighting.h */; };
 		60C41BB41691BF5600DD0C09 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60C41BB21691BF5600DD0C09 /* Geometry.cpp */; };
 		60C41BB51691BF5600DD0C09 /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 60C41BB31691BF5600DD0C09 /* Geometry.h */; };
+		60C6D03B174961470009EC3C /* FaceNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D143779D157BCF0200A05B3B /* FaceNode.cpp */; };
+		60C6D03C174961470009EC3C /* Workspace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F4A157FE79600566119 /* Workspace.cpp */; };
+		60C6D03D174961470009EC3C /* Pad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F4F157FE91900566119 /* Pad.cpp */; };
+		60C6D03E174961470009EC3C /* HUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F53157FE9D200566119 /* HUD.cpp */; };
+		60C6D03F174961470009EC3C /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1C9DD681582A4F3000DEA25 /* Camera.cpp */; };
+		60C6D040174961470009EC3C /* Lights.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D10849EF1583B4550042E161 /* Lights.cpp */; };
+		60C6D041174961470009EC3C /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D17C76861584B6010083E2B0 /* Log.cpp */; };
+		60C6D042174961470009EC3C /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D17C7914158536040083E2B0 /* Utils.cpp */; };
+		60C6D043174961470009EC3C /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D13D718115AF949100143662 /* Node.cpp */; };
+		60C6D044174961470009EC3C /* BodyNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D13D718515AF96F000143662 /* BodyNode.cpp */; };
+		60C6D045174961470009EC3C /* ModelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1E54CAD157BED250083FB90 /* ModelFactory.cpp */; };
+		60C6D046174961470009EC3C /* GroupNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1C708BF15B36D0E00D64823 /* GroupNode.cpp */; };
+		60C6D047174961470009EC3C /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6056C56E15DC5522008F8E92 /* Scene.cpp */; };
+		60C6D048174961470009EC3C /* PointNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC6F1657D0700051947E /* PointNode.cpp */; };
+		60C6D049174961470009EC3C /* LineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC741657D07C0051947E /* LineNode.cpp */; };
+		60C6D04B174961470009EC3C /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60C41BB21691BF5600DD0C09 /* Geometry.cpp */; };
+		60C6D04C174961470009EC3C /* PolylineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37316AC554E001DE0A7 /* PolylineNode.cpp */; };
+		60C6D04D174961470009EC3C /* LoopFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37816AC6036001DE0A7 /* LoopFinder.cpp */; };
+		60C6D04E174961470009EC3C /* RectangleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6047DB9116B46A890012286F /* RectangleInteraction.cpp */; };
+		60C6D050174961470009EC3C /* MoveInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605CD4FA16FDE992005CCAA2 /* MoveInteraction.cpp */; };
+		60C6D051174961470009EC3C /* LineInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60F2406C16B5BCA700291ED0 /* LineInteraction.cpp */; };
+		60C6D052174961470009EC3C /* Transformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED5A16FE14E30083DCD2 /* Transformation.cpp */; };
+		60C6D053174961470009EC3C /* RotationInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED5E16FE28BA0083DCD2 /* RotationInteraction.cpp */; };
+		60C6D054174961470009EC3C /* ScaleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED6516FE59D40083DCD2 /* ScaleInteraction.cpp */; };
+		60C6D055174961470009EC3C /* InteractionAssistant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60E4FF4F16FF1F6600EEAA5A /* InteractionAssistant.cpp */; };
+		60C6D056174961470009EC3C /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605F1D02171AE4CA00C8E4CC /* Color.cpp */; };
+		60C6D057174961470009EC3C /* Mat2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605F1D05171AE4CA00C8E4CC /* Mat2.cpp */; };
+		60C6D058174961470009EC3C /* Mat3x2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605F1D07171AE4CA00C8E4CC /* Mat3x2.cpp */; };
+		60C6D059174961470009EC3C /* Mat4x4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605F1D0A171AE4CA00C8E4CC /* Mat4x4.cpp */; };
+		60C6D05A174961470009EC3C /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605F1D0B171AE4CA00C8E4CC /* Util.cpp */; };
+		60C6D05B174961470009EC3C /* Vec2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605F1D0D171AE4CA00C8E4CC /* Vec2.cpp */; };
+		60C6D05C174961470009EC3C /* Vec3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605F1D0F171AE4CA00C8E4CC /* Vec3.cpp */; };
+		60C6D05D174961470009EC3C /* ModelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7457417228D4A0062CDF1 /* ModelManager.cpp */; };
+		60C6D05E174961470009EC3C /* ModelTreeManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7457617228D4A0062CDF1 /* ModelTreeManager.cpp */; };
+		60C6D05F174961470009EC3C /* InteractionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7457E17228E100062CDF1 /* InteractionManager.cpp */; };
+		60C6D060174961470009EC3C /* Octree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7458017228EB70062CDF1 /* Octree.cpp */; };
+		60C6D061174961470009EC3C /* Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D745891722994B0062CDF1 /* Primitive.cpp */; };
+		60C6D062174961470009EC3C /* LayerRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFBB17230800001EAEBE /* LayerRenderer.cpp */; };
+		60C6D063174961470009EC3C /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFBD17230E82001EAEBE /* Layer.cpp */; };
+		60C6D064174961470009EC3C /* PrimitiveRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFC517232B8E001EAEBE /* PrimitiveRenderer.cpp */; };
+		60C6D065174961470009EC3C /* LineRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFC9172332F6001EAEBE /* LineRenderer.cpp */; };
+		60C6D066174961470009EC3C /* PolygonRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */; };
+		60C6D067174961470009EC3C /* RectangleRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB13172C838100357B47 /* RectangleRenderer.cpp */; };
+		60C6D068174961470009EC3C /* Bounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60866058173436E500E67B54 /* Bounds.cpp */; };
+		60C6D069174961470009EC3C /* PointRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6086605C17343C5400E67B54 /* PointRenderer.cpp */; };
+		60C6D06A174961470009EC3C /* ShadersBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D70011735754A000A92F7 /* ShadersBuilder.cpp */; };
+		60C6D06B174961470009EC3C /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D700517357571000A92F7 /* Shader.cpp */; };
+		60C6D06C174961470009EC3C /* ShadersProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D700D17357A46000A92F7 /* ShadersProgram.cpp */; };
+		60C6D06D174961470009EC3C /* ShadersLibrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D701117357B3C000A92F7 /* ShadersLibrary.cpp */; };
+		60C6D06E174961470009EC3C /* TestRectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60F6D98D17368DB500935A76 /* TestRectangle.cpp */; };
+		60C6D06F174961470009EC3C /* ShadersInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B7E4B2173AEA4000EF0834 /* ShadersInput.cpp */; };
+		60C6D071174961470009EC3C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13DC912157A9FF500C84006 /* OpenGL.framework */; };
+		60C6D073174961470009EC3C /* FactoryEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76641583BF440083E2B0 /* FactoryEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		60C6D074174961470009EC3C /* FaceNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D143779E157BCF0200A05B3B /* FaceNode.h */; };
+		60C6D075174961470009EC3C /* ModelFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D1E54CAE157BED250083FB90 /* ModelFactory.h */; };
+		60C6D076174961470009EC3C /* Workspace.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F4B157FE79600566119 /* Workspace.h */; };
+		60C6D077174961470009EC3C /* Pad.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F50157FE91900566119 /* Pad.h */; };
+		60C6D078174961470009EC3C /* HUD.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F54157FE9D200566119 /* HUD.h */; };
+		60C6D079174961470009EC3C /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = D1C9DD691582A4F3000DEA25 /* Camera.h */; };
+		60C6D07A174961470009EC3C /* Lights.h in Headers */ = {isa = PBXBuildFile; fileRef = D10849F01583B4550042E161 /* Lights.h */; };
+		60C6D07B174961470009EC3C /* Log.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76871584B6010083E2B0 /* Log.h */; };
+		60C6D07C174961470009EC3C /* GLError.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76AB1584E3900083E2B0 /* GLError.h */; };
+		60C6D07D174961470009EC3C /* Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C7915158536040083E2B0 /* Utils.h */; };
+		60C6D07E174961470009EC3C /* Node.h in Headers */ = {isa = PBXBuildFile; fileRef = D13D718215AF949100143662 /* Node.h */; };
+		60C6D07F174961470009EC3C /* BodyNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D13D718615AF96F000143662 /* BodyNode.h */; };
+		60C6D080174961470009EC3C /* GroupNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D1C708C015B36D0E00D64823 /* GroupNode.h */; };
+		60C6D081174961470009EC3C /* b2Polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = D15D697D15B4CECB007D676B /* b2Polygon.h */; };
+		60C6D082174961470009EC3C /* b2Triangle.h in Headers */ = {isa = PBXBuildFile; fileRef = D15D697F15B4CECB007D676B /* b2Triangle.h */; };
+		60C6D083174961470009EC3C /* PointNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC701657D0700051947E /* PointNode.h */; };
+		60C6D084174961470009EC3C /* LineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC751657D07C0051947E /* LineNode.h */; };
+		60C6D086174961470009EC3C /* Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 60A575E61690DDEE0050FAFC /* Prefix.pch */; };
+		60C6D087174961470009EC3C /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 60C41BB31691BF5600DD0C09 /* Geometry.h */; };
+		60C6D088174961470009EC3C /* PolylineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37416AC554E001DE0A7 /* PolylineNode.h */; };
+		60C6D089174961470009EC3C /* LoopFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37916AC6036001DE0A7 /* LoopFinder.h */; };
+		60C6D08A174961470009EC3C /* LineInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F2406D16B5BCA700291ED0 /* LineInteraction.h */; };
+		60C6D08C174961470009EC3C /* MoveInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 605CD4FB16FDE992005CCAA2 /* MoveInteraction.h */; };
+		60C6D08D174961470009EC3C /* RectangleInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 6047DB9216B46A890012286F /* RectangleInteraction.h */; };
+		60C6D08E174961470009EC3C /* Transformation.h in Headers */ = {isa = PBXBuildFile; fileRef = 60A4ED5B16FE14E30083DCD2 /* Transformation.h */; };
+		60C6D08F174961470009EC3C /* RotationInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60A4ED5F16FE28BA0083DCD2 /* RotationInteraction.h */; };
+		60C6D090174961470009EC3C /* ScaleInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60A4ED6616FE59D40083DCD2 /* ScaleInteraction.h */; };
+		60C6D091174961470009EC3C /* InteractionAssistant.h in Headers */ = {isa = PBXBuildFile; fileRef = 60E4FF5016FF1F6600EEAA5A /* InteractionAssistant.h */; };
+		60C6D092174961470009EC3C /* Color.h in Headers */ = {isa = PBXBuildFile; fileRef = 605F1D03171AE4CA00C8E4CC /* Color.h */; };
+		60C6D093174961470009EC3C /* Frame.h in Headers */ = {isa = PBXBuildFile; fileRef = 605F1D04171AE4CA00C8E4CC /* Frame.h */; };
+		60C6D094174961470009EC3C /* Mat2.h in Headers */ = {isa = PBXBuildFile; fileRef = 605F1D06171AE4CA00C8E4CC /* Mat2.h */; };
+		60C6D095174961470009EC3C /* Mat3x2.h in Headers */ = {isa = PBXBuildFile; fileRef = 605F1D08171AE4CA00C8E4CC /* Mat3x2.h */; };
+		60C6D096174961470009EC3C /* Mat4.h in Headers */ = {isa = PBXBuildFile; fileRef = 605F1D09171AE4CA00C8E4CC /* Mat4.h */; };
+		60C6D097174961470009EC3C /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = 605F1D0C171AE4CA00C8E4CC /* Util.h */; };
+		60C6D098174961470009EC3C /* Vec2.h in Headers */ = {isa = PBXBuildFile; fileRef = 605F1D0E171AE4CA00C8E4CC /* Vec2.h */; };
+		60C6D099174961470009EC3C /* Vec3.h in Headers */ = {isa = PBXBuildFile; fileRef = 605F1D10171AE4CA00C8E4CC /* Vec3.h */; };
+		60C6D09A174961470009EC3C /* Vec4.h in Headers */ = {isa = PBXBuildFile; fileRef = 605F1D11171AE4CA00C8E4CC /* Vec4.h */; };
+		60C6D09B174961470009EC3C /* ModelManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7457517228D4A0062CDF1 /* ModelManager.h */; };
+		60C6D09C174961470009EC3C /* ModelTreeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7457717228D4B0062CDF1 /* ModelTreeManager.h */; };
+		60C6D09D174961470009EC3C /* InteractionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7457C17228DC40062CDF1 /* InteractionManager.h */; };
+		60C6D09E174961470009EC3C /* Octree.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7458117228EB70062CDF1 /* Octree.h */; };
+		60C6D09F174961470009EC3C /* LayerRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D74586172299390062CDF1 /* LayerRenderer.h */; };
+		60C6D0A0174961470009EC3C /* Primitive.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7458A1722994B0062CDF1 /* Primitive.h */; };
+		60C6D0A1174961470009EC3C /* Layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFBE17230E82001EAEBE /* Layer.h */; };
+		60C6D0A2174961470009EC3C /* PrimitiveRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFC617232B8F001EAEBE /* PrimitiveRenderer.h */; };
+		60C6D0A3174961470009EC3C /* LineRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFCA172332F6001EAEBE /* LineRenderer.h */; };
+		60C6D0A4174961470009EC3C /* PolygonRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 607BFB10172C7F3500357B47 /* PolygonRenderer.h */; };
+		60C6D0A5174961470009EC3C /* RectangleRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 607BFB14172C838200357B47 /* RectangleRenderer.h */; };
+		60C6D0A6174961470009EC3C /* Bounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 60866059173436E500E67B54 /* Bounds.h */; };
+		60C6D0A7174961470009EC3C /* PointRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6086605D17343C5400E67B54 /* PointRenderer.h */; };
+		60C6D0A8174961470009EC3C /* ShadersBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 608D70021735754A000A92F7 /* ShadersBuilder.h */; };
+		60C6D0A9174961470009EC3C /* Shader.h in Headers */ = {isa = PBXBuildFile; fileRef = 608D700617357571000A92F7 /* Shader.h */; };
+		60C6D0AA174961470009EC3C /* ShadersProgram.h in Headers */ = {isa = PBXBuildFile; fileRef = 608D700E17357A46000A92F7 /* ShadersProgram.h */; };
+		60C6D0AB174961470009EC3C /* ShadersLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 608D701217357B3C000A92F7 /* ShadersLibrary.h */; };
+		60C6D0AC174961470009EC3C /* TestRectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F6D98E17368DB500935A76 /* TestRectangle.h */; };
+		60C6D0AD174961470009EC3C /* ShadersInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 60B7E4B3173AEA4000EF0834 /* ShadersInput.h */; };
+		60C6D0BB1749737F0009EC3C /* Rect.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC791658308B0051947E /* Rect.h */; };
+		60C6D0BC174973800009EC3C /* Rect.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC791658308B0051947E /* Rect.h */; };
+		60C6D0BD174973850009EC3C /* Polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 6011C37716D0EE9100CD34F9 /* Polygon.h */; };
+		60C6D0BE174973850009EC3C /* Polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 6011C37716D0EE9100CD34F9 /* Polygon.h */; };
+		60C6D0BF1749738A0009EC3C /* Polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6011C37616D0EE9100CD34F9 /* Polygon.cpp */; };
+		60C6D0C01749738A0009EC3C /* Polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6011C37616D0EE9100CD34F9 /* Polygon.cpp */; };
+		60C6D0C11749739B0009EC3C /* Rect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC781658308B0051947E /* Rect.cpp */; };
+		60C6D0C21749739B0009EC3C /* Rect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC781658308B0051947E /* Rect.cpp */; };
 		60D7457817228D4B0062CDF1 /* ModelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7457417228D4A0062CDF1 /* ModelManager.cpp */; };
 		60D7457917228D4B0062CDF1 /* ModelManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7457517228D4A0062CDF1 /* ModelManager.h */; };
 		60D7457A17228D4B0062CDF1 /* ModelTreeManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7457617228D4A0062CDF1 /* ModelTreeManager.cpp */; };
@@ -96,8 +213,6 @@
 		60D7DC721657D0700051947E /* PointNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC701657D0700051947E /* PointNode.h */; };
 		60D7DC761657D07C0051947E /* LineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC741657D07C0051947E /* LineNode.cpp */; };
 		60D7DC771657D07C0051947E /* LineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC751657D07C0051947E /* LineNode.h */; };
-		60D7DC7A1658308B0051947E /* Rect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC781658308B0051947E /* Rect.cpp */; };
-		60D7DC7B1658308B0051947E /* Rect.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC791658308B0051947E /* Rect.h */; };
 		60E4FF5116FF1F6600EEAA5A /* InteractionAssistant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60E4FF4F16FF1F6600EEAA5A /* InteractionAssistant.cpp */; };
 		60E4FF5216FF1F6600EEAA5A /* InteractionAssistant.h in Headers */ = {isa = PBXBuildFile; fileRef = 60E4FF5016FF1F6600EEAA5A /* InteractionAssistant.h */; };
 		60F2406F16B5BCA700291ED0 /* LineInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F2406D16B5BCA700291ED0 /* LineInteraction.h */; };
@@ -132,6 +247,16 @@
 
 /* Begin PBXBuildRule section */
 		606A7F5E163C0C5400E4F243 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+				"",
+			);
+			script = "";
+		};
+		60C6D0AE174961470009EC3C /* PBXBuildRule */ = {
 			isa = PBXBuildRule;
 			compilerSpec = com.apple.compilers.proxy.script;
 			fileType = pattern.proxy;
@@ -223,6 +348,7 @@
 		60BD3291174436EA00C2E593 /* DefaultLighting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultLighting.h; sourceTree = "<group>"; };
 		60C41BB21691BF5600DD0C09 /* Geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Geometry.cpp; sourceTree = "<group>"; };
 		60C41BB31691BF5600DD0C09 /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
+		60C6D0B2174961470009EC3C /* libFactoryEngineIOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFactoryEngineIOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		60D7457417228D4A0062CDF1 /* ModelManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelManager.cpp; sourceTree = "<group>"; };
 		60D7457517228D4A0062CDF1 /* ModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelManager.h; sourceTree = "<group>"; };
 		60D7457617228D4A0062CDF1 /* ModelTreeManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelTreeManager.cpp; sourceTree = "<group>"; };
@@ -279,6 +405,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		60C6D070174961470009EC3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60C6D071174961470009EC3C /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D13DC908157A9F8C00C84006 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -416,6 +550,7 @@
 			isa = PBXGroup;
 			children = (
 				D13DC90B157A9F8C00C84006 /* libFactoryEngine.a */,
+				60C6D0B2174961470009EC3C /* libFactoryEngineIOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -543,6 +678,72 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		60C6D072174961470009EC3C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60C6D073174961470009EC3C /* FactoryEngine.h in Headers */,
+				60C6D074174961470009EC3C /* FaceNode.h in Headers */,
+				60C6D075174961470009EC3C /* ModelFactory.h in Headers */,
+				60C6D076174961470009EC3C /* Workspace.h in Headers */,
+				60C6D077174961470009EC3C /* Pad.h in Headers */,
+				60C6D078174961470009EC3C /* HUD.h in Headers */,
+				60C6D079174961470009EC3C /* Camera.h in Headers */,
+				60C6D07A174961470009EC3C /* Lights.h in Headers */,
+				60C6D07B174961470009EC3C /* Log.h in Headers */,
+				60C6D07C174961470009EC3C /* GLError.h in Headers */,
+				60C6D07D174961470009EC3C /* Utils.h in Headers */,
+				60C6D07E174961470009EC3C /* Node.h in Headers */,
+				60C6D07F174961470009EC3C /* BodyNode.h in Headers */,
+				60C6D080174961470009EC3C /* GroupNode.h in Headers */,
+				60C6D081174961470009EC3C /* b2Polygon.h in Headers */,
+				60C6D082174961470009EC3C /* b2Triangle.h in Headers */,
+				60C6D083174961470009EC3C /* PointNode.h in Headers */,
+				60C6D084174961470009EC3C /* LineNode.h in Headers */,
+				60C6D086174961470009EC3C /* Prefix.pch in Headers */,
+				60C6D087174961470009EC3C /* Geometry.h in Headers */,
+				60C6D088174961470009EC3C /* PolylineNode.h in Headers */,
+				60C6D089174961470009EC3C /* LoopFinder.h in Headers */,
+				60C6D08A174961470009EC3C /* LineInteraction.h in Headers */,
+				60C6D08C174961470009EC3C /* MoveInteraction.h in Headers */,
+				60C6D08D174961470009EC3C /* RectangleInteraction.h in Headers */,
+				60C6D08E174961470009EC3C /* Transformation.h in Headers */,
+				60C6D08F174961470009EC3C /* RotationInteraction.h in Headers */,
+				60C6D090174961470009EC3C /* ScaleInteraction.h in Headers */,
+				60C6D091174961470009EC3C /* InteractionAssistant.h in Headers */,
+				60C6D092174961470009EC3C /* Color.h in Headers */,
+				60C6D093174961470009EC3C /* Frame.h in Headers */,
+				60C6D094174961470009EC3C /* Mat2.h in Headers */,
+				60C6D095174961470009EC3C /* Mat3x2.h in Headers */,
+				60C6D096174961470009EC3C /* Mat4.h in Headers */,
+				60C6D097174961470009EC3C /* Util.h in Headers */,
+				60C6D098174961470009EC3C /* Vec2.h in Headers */,
+				60C6D099174961470009EC3C /* Vec3.h in Headers */,
+				60C6D09A174961470009EC3C /* Vec4.h in Headers */,
+				60C6D09B174961470009EC3C /* ModelManager.h in Headers */,
+				60C6D09C174961470009EC3C /* ModelTreeManager.h in Headers */,
+				60C6D09D174961470009EC3C /* InteractionManager.h in Headers */,
+				60C6D09E174961470009EC3C /* Octree.h in Headers */,
+				60C6D09F174961470009EC3C /* LayerRenderer.h in Headers */,
+				60C6D0A0174961470009EC3C /* Primitive.h in Headers */,
+				60C6D0A1174961470009EC3C /* Layer.h in Headers */,
+				60C6D0A2174961470009EC3C /* PrimitiveRenderer.h in Headers */,
+				60C6D0A3174961470009EC3C /* LineRenderer.h in Headers */,
+				60C6D0A4174961470009EC3C /* PolygonRenderer.h in Headers */,
+				60C6D0A5174961470009EC3C /* RectangleRenderer.h in Headers */,
+				60C6D0A6174961470009EC3C /* Bounds.h in Headers */,
+				60C6D0A7174961470009EC3C /* PointRenderer.h in Headers */,
+				60C6D0A8174961470009EC3C /* ShadersBuilder.h in Headers */,
+				60C6D0A9174961470009EC3C /* Shader.h in Headers */,
+				60C6D0AA174961470009EC3C /* ShadersProgram.h in Headers */,
+				60C6D0AB174961470009EC3C /* ShadersLibrary.h in Headers */,
+				60C6D0AC174961470009EC3C /* TestRectangle.h in Headers */,
+				60C6D0AD174961470009EC3C /* ShadersInput.h in Headers */,
+				60C6D0BB1749737F0009EC3C /* Rect.h in Headers */,
+				60C6D0BD174973850009EC3C /* Polygon.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D13DC909157A9F8C00C84006 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -563,13 +764,11 @@
 				D15D698315B4CECB007D676B /* b2Triangle.h in Headers */,
 				60D7DC721657D0700051947E /* PointNode.h in Headers */,
 				60D7DC771657D07C0051947E /* LineNode.h in Headers */,
-				60D7DC7B1658308B0051947E /* Rect.h in Headers */,
 				60A575E71690DDEE0050FAFC /* Prefix.pch in Headers */,
 				60C41BB51691BF5600DD0C09 /* Geometry.h in Headers */,
 				6091E37616AC554E001DE0A7 /* PolylineNode.h in Headers */,
 				6091E37B16AC6037001DE0A7 /* LoopFinder.h in Headers */,
 				60F2406F16B5BCA700291ED0 /* LineInteraction.h in Headers */,
-				6011C37916D0EE9100CD34F9 /* Polygon.h in Headers */,
 				605CD4FD16FDE992005CCAA2 /* MoveInteraction.h in Headers */,
 				605CD4FF16FDF824005CCAA2 /* RectangleInteraction.h in Headers */,
 				60A4ED5D16FE14E30083DCD2 /* Transformation.h in Headers */,
@@ -610,12 +809,32 @@
 				60BD328F174436BD00C2E593 /* LightingCollection.h in Headers */,
 				60BD3293174436EA00C2E593 /* DefaultLighting.h in Headers */,
 				6011AF1C1747C2FC0022E7A9 /* LigthtingModelFactory.h in Headers */,
+				60C6D0BC174973800009EC3C /* Rect.h in Headers */,
+				60C6D0BE174973850009EC3C /* Polygon.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		60C6D039174961470009EC3C /* FactoryEngineIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60C6D0AF174961470009EC3C /* Build configuration list for PBXNativeTarget "FactoryEngineIOS" */;
+			buildPhases = (
+				60C6D03A174961470009EC3C /* Sources */,
+				60C6D070174961470009EC3C /* Frameworks */,
+				60C6D072174961470009EC3C /* Headers */,
+			);
+			buildRules = (
+				60C6D0AE174961470009EC3C /* PBXBuildRule */,
+			);
+			dependencies = (
+			);
+			name = FactoryEngineIOS;
+			productName = ModelerGraphics;
+			productReference = 60C6D0B2174961470009EC3C /* libFactoryEngineIOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		D13DC90A157A9F8C00C84006 /* FactoryEngine */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D13DC90F157A9F8C00C84006 /* Build configuration list for PBXNativeTarget "FactoryEngine" */;
@@ -641,7 +860,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0430;
-				ORGANIZATIONNAME = Jumsoft;
+				ORGANIZATIONNAME = Dimention;
 			};
 			buildConfigurationList = D13DC905157A9F8B00C84006 /* Build configuration list for PBXProject "FactoryEngine" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -656,11 +875,72 @@
 			projectRoot = "";
 			targets = (
 				D13DC90A157A9F8C00C84006 /* FactoryEngine */,
+				60C6D039174961470009EC3C /* FactoryEngineIOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		60C6D03A174961470009EC3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60C6D03B174961470009EC3C /* FaceNode.cpp in Sources */,
+				60C6D03C174961470009EC3C /* Workspace.cpp in Sources */,
+				60C6D03D174961470009EC3C /* Pad.cpp in Sources */,
+				60C6D03E174961470009EC3C /* HUD.cpp in Sources */,
+				60C6D03F174961470009EC3C /* Camera.cpp in Sources */,
+				60C6D040174961470009EC3C /* Lights.cpp in Sources */,
+				60C6D041174961470009EC3C /* Log.cpp in Sources */,
+				60C6D042174961470009EC3C /* Utils.cpp in Sources */,
+				60C6D043174961470009EC3C /* Node.cpp in Sources */,
+				60C6D044174961470009EC3C /* BodyNode.cpp in Sources */,
+				60C6D045174961470009EC3C /* ModelFactory.cpp in Sources */,
+				60C6D046174961470009EC3C /* GroupNode.cpp in Sources */,
+				60C6D047174961470009EC3C /* Scene.cpp in Sources */,
+				60C6D048174961470009EC3C /* PointNode.cpp in Sources */,
+				60C6D049174961470009EC3C /* LineNode.cpp in Sources */,
+				60C6D04B174961470009EC3C /* Geometry.cpp in Sources */,
+				60C6D04C174961470009EC3C /* PolylineNode.cpp in Sources */,
+				60C6D04D174961470009EC3C /* LoopFinder.cpp in Sources */,
+				60C6D04E174961470009EC3C /* RectangleInteraction.cpp in Sources */,
+				60C6D050174961470009EC3C /* MoveInteraction.cpp in Sources */,
+				60C6D051174961470009EC3C /* LineInteraction.cpp in Sources */,
+				60C6D052174961470009EC3C /* Transformation.cpp in Sources */,
+				60C6D053174961470009EC3C /* RotationInteraction.cpp in Sources */,
+				60C6D054174961470009EC3C /* ScaleInteraction.cpp in Sources */,
+				60C6D055174961470009EC3C /* InteractionAssistant.cpp in Sources */,
+				60C6D056174961470009EC3C /* Color.cpp in Sources */,
+				60C6D057174961470009EC3C /* Mat2.cpp in Sources */,
+				60C6D058174961470009EC3C /* Mat3x2.cpp in Sources */,
+				60C6D059174961470009EC3C /* Mat4x4.cpp in Sources */,
+				60C6D05A174961470009EC3C /* Util.cpp in Sources */,
+				60C6D05B174961470009EC3C /* Vec2.cpp in Sources */,
+				60C6D05C174961470009EC3C /* Vec3.cpp in Sources */,
+				60C6D05D174961470009EC3C /* ModelManager.cpp in Sources */,
+				60C6D05E174961470009EC3C /* ModelTreeManager.cpp in Sources */,
+				60C6D05F174961470009EC3C /* InteractionManager.cpp in Sources */,
+				60C6D060174961470009EC3C /* Octree.cpp in Sources */,
+				60C6D061174961470009EC3C /* Primitive.cpp in Sources */,
+				60C6D062174961470009EC3C /* LayerRenderer.cpp in Sources */,
+				60C6D063174961470009EC3C /* Layer.cpp in Sources */,
+				60C6D064174961470009EC3C /* PrimitiveRenderer.cpp in Sources */,
+				60C6D065174961470009EC3C /* LineRenderer.cpp in Sources */,
+				60C6D066174961470009EC3C /* PolygonRenderer.cpp in Sources */,
+				60C6D067174961470009EC3C /* RectangleRenderer.cpp in Sources */,
+				60C6D068174961470009EC3C /* Bounds.cpp in Sources */,
+				60C6D069174961470009EC3C /* PointRenderer.cpp in Sources */,
+				60C6D06A174961470009EC3C /* ShadersBuilder.cpp in Sources */,
+				60C6D06B174961470009EC3C /* Shader.cpp in Sources */,
+				60C6D06C174961470009EC3C /* ShadersProgram.cpp in Sources */,
+				60C6D06D174961470009EC3C /* ShadersLibrary.cpp in Sources */,
+				60C6D06E174961470009EC3C /* TestRectangle.cpp in Sources */,
+				60C6D06F174961470009EC3C /* ShadersInput.cpp in Sources */,
+				60C6D0BF1749738A0009EC3C /* Polygon.cpp in Sources */,
+				60C6D0C11749739B0009EC3C /* Rect.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D13DC907157A9F8C00C84006 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -678,12 +958,10 @@
 				6056C57015DC554C008F8E92 /* Scene.cpp in Sources */,
 				60D7DC711657D0700051947E /* PointNode.cpp in Sources */,
 				60D7DC761657D07C0051947E /* LineNode.cpp in Sources */,
-				60D7DC7A1658308B0051947E /* Rect.cpp in Sources */,
 				60C41BB41691BF5600DD0C09 /* Geometry.cpp in Sources */,
 				6091E37516AC554E001DE0A7 /* PolylineNode.cpp in Sources */,
 				6091E37A16AC6037001DE0A7 /* LoopFinder.cpp in Sources */,
 				6047DB9316B46A890012286F /* RectangleInteraction.cpp in Sources */,
-				6011C37816D0EE9100CD34F9 /* Polygon.cpp in Sources */,
 				605CD4FC16FDE992005CCAA2 /* MoveInteraction.cpp in Sources */,
 				605CD4FE16FDF820005CCAA2 /* LineInteraction.cpp in Sources */,
 				60A4ED5C16FE14E30083DCD2 /* Transformation.cpp in Sources */,
@@ -722,12 +1000,65 @@
 				60BD328E174436BD00C2E593 /* LightingCollection.cpp in Sources */,
 				60BD3292174436EA00C2E593 /* DefaultLighting.cpp in Sources */,
 				6011AF1B1747C2FC0022E7A9 /* LigthtingModelFactory.cpp in Sources */,
+				60C6D0C01749738A0009EC3C /* Polygon.cpp in Sources */,
+				60C6D0C21749739B0009EC3C /* Rect.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		60C6D0B0174961470009EC3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_X86_VECTOR_INSTRUCTIONS = default;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Main/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DEBUG,
+					GLES,
+				);
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/External/Box2D",
+					"${SRCROOT}/External",
+					"${SRCROOT}",
+					"${SRCROOT}/External/boost",
+				);
+				PRODUCT_NAME = FactoryEngineIOS;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		60C6D0B1174961470009EC3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_X86_VECTOR_INSTRUCTIONS = default;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Main/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = GLES;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/External/Box2D",
+					"${SRCROOT}/External",
+					"${SRCROOT}",
+					"${SRCROOT}/External/boost",
+				);
+				PRODUCT_NAME = FactoryEngineIOS;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
 		D13DC90D157A9F8C00C84006 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -827,6 +1158,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		60C6D0AF174961470009EC3C /* Build configuration list for PBXNativeTarget "FactoryEngineIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60C6D0B0174961470009EC3C /* Debug */,
+				60C6D0B1174961470009EC3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D13DC905157A9F8B00C84006 /* Build configuration list for PBXProject "FactoryEngine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

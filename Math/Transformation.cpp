@@ -90,8 +90,8 @@ Mat4 Transformation::Scale(const Vec3& scale)
 }
     
     
-Mat4 Transformation::Frustum(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top,
-                             GLdouble near, GLdouble far)
+Mat4 Transformation::Frustum(FTDouble left, FTDouble right, FTDouble bottom, FTDouble top,
+                             FTDouble near, FTDouble far)
 {
     Mat4 m = Mat4::Identity;
     m.mX[0] = 2.0f*near/(right - left);
@@ -118,8 +118,8 @@ Mat4 Transformation::Perspective(float fov, float ratio, float nearP, float farP
     return m;
 }
     
-Mat4 Transformation::Ortho(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top,
-                                  GLdouble near, GLdouble far)
+Mat4 Transformation::Ortho(FTDouble left, FTDouble right, FTDouble bottom, FTDouble top,
+                                  FTDouble near, FTDouble far)
 {
     Mat4 m;
     m.mX[0] = 2.0f/(right - left);
