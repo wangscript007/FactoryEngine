@@ -8,7 +8,12 @@ namespace ftr {
 class DefaultLighting : public LightingModel
 {
 public:
-    virtual ~DefaultLighting() {}
+    DefaultLighting();
+    virtual ~DefaultLighting();
+    virtual void SetupLights();
+    
+private:
+    Light* AddLightWithType(Light::Type type);
 };
     
 }

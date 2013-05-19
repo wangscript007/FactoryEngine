@@ -6,12 +6,12 @@ namespace ftr {
     
 LigthtingModelFactory::LigthtingModelFactory()
 {
-    mFunctionsMap["default"] = LigthtingModelFactory::DefaultModel;
+    mMethodsMap["default"] = LigthtingModelFactory::DefaultModel;
 }
     
 LightingModel* LigthtingModelFactory::CreateModelWithName(const std::string& modelName)
 {
-   return mFunctionsMap[modelName]();
+   return mMethodsMap[modelName]();
 }
 
 LightingModel* LigthtingModelFactory::DefaultModel()

@@ -5,6 +5,8 @@
 
 namespace ftr {
 
+class ShadersInput;
+    
 class LightingModel
 {
 public:
@@ -13,8 +15,13 @@ public:
     LightingModel();
     virtual ~LightingModel();
     
-private:
+    virtual void SetupLights() = 0;
+    
+    void setShadersInput(ShadersInput* shadersInput) { mShadersInput = shadersInput; }
+    
+protected:
     LightsVector mLightsVector;
+    ShadersInput* mShadersInput;
 };
     
 }

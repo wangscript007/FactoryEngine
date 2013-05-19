@@ -1,6 +1,8 @@
 
 #pragma once
 
+#include <Shading/ShadersInput.h>
+
 namespace ftr {
 
 class Light
@@ -13,17 +15,15 @@ public:
         kLightSpot
     };
     
-    struct Data {
-        Vec4 position;
-        float intensity;
-    };
     
-    
-    
+    Light(Type type);
     virtual ~Light() {}
     
+    ShadersInput::LightData& lightData() { return mLightData; }
+    
 private:
-    Data mData;
+    ShadersInput::LightData mLightData;
+    Type mType;
 };
 
 }

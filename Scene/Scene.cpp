@@ -55,6 +55,10 @@ void Scene::Prepare()
     ShadersInput* shadersInput = mShadersBuilder->shadersProgram()->shaderInput();
     mCamera->setShadersInput(shadersInput);
     
+    LightingModel* activeLightingModel = mLightingCollection->activeModel();
+    activeLightingModel->setShadersInput(shadersInput);
+    activeLightingModel->SetupLights();
+    
     mLayerRenderer = new LayerRenderer(*shadersInput);
     
     glClearColor(0.23f,0.23f,0.23f,1.0);

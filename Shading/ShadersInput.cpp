@@ -23,9 +23,10 @@ void ShadersInput::Init()
     mInput.normal = AttributeLocation("normal");
     mInput.color = AttributeLocation("color");
     mInput.transform = BlockBuffer("Transform");
+    //mInput.light = BlockBuffer("Light");
 }
     
-GLuint ShadersInput::BlockBuffer(const std::string& name)
+GLuint ShadersInput::BlockBuffer(const std::string& name) const
 {
     GLuint bindingPoint = 1, buffer, blockIndex;
     blockIndex = glGetUniformBlockIndex(mProgramId, name.c_str());
@@ -46,6 +47,14 @@ void ShadersInput::InputTransform(const Transform& transform)
     glBindBuffer(GL_UNIFORM_BUFFER, mInput.transform);
     glBufferData(GL_UNIFORM_BUFFER, sizeof(Transform), &transform, GL_DYNAMIC_DRAW);
 }
+    
+void ShadersInput::InputLight(const LightData& lightData)
+{
+    return;
+    glBindBuffer(GL_UNIFORM_BUFFER, mInput.light);
+    glBufferData(GL_UNIFORM_BUFFER, sizeof(LightData), &lightData, GL_DYNAMIC_DRAW);
+}
+
 
 
     

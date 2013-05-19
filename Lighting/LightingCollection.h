@@ -13,9 +13,10 @@ public:
     LightingCollection();
     virtual ~LightingCollection();
     
+    LightingModel* activeModel() const { return mActiveModel; }
+    
 private:
     LigthtingModelFactory mFactory;
-    
     LightingModel* mActiveModel;
 };
 
