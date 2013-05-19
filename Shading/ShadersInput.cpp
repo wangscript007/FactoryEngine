@@ -26,7 +26,7 @@ void ShadersInput::Init()
 
 void ShadersInput::BindOutput()
 {
-    glBindFragDataLocation(mProgramId, 0, "outputF");
+    //glBindFragDataLocation(mProgramId, 0, "outputF");
 }
     
 void ShadersInput::InputProjectionMatrix(Mat4* matrix)

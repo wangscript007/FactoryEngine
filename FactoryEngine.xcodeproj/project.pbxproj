@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6011C37816D0EE9100CD34F9 /* Polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6011C37616D0EE9100CD34F9 /* Polygon.cpp */; };
-		6011C37916D0EE9100CD34F9 /* Polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 6011C37716D0EE9100CD34F9 /* Polygon.h */; };
 		6021AFBC17230800001EAEBE /* LayerRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFBB17230800001EAEBE /* LayerRenderer.cpp */; };
 		6021AFBF17230E82001EAEBE /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFBD17230E82001EAEBE /* Layer.cpp */; };
 		6021AFC017230E82001EAEBE /* Layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFBE17230E82001EAEBE /* Layer.h */; };
@@ -84,12 +82,10 @@
 		60C6D047174961470009EC3C /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6056C56E15DC5522008F8E92 /* Scene.cpp */; };
 		60C6D048174961470009EC3C /* PointNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC6F1657D0700051947E /* PointNode.cpp */; };
 		60C6D049174961470009EC3C /* LineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC741657D07C0051947E /* LineNode.cpp */; };
-		60C6D04A174961470009EC3C /* Rect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC781658308B0051947E /* Rect.cpp */; };
 		60C6D04B174961470009EC3C /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60C41BB21691BF5600DD0C09 /* Geometry.cpp */; };
 		60C6D04C174961470009EC3C /* PolylineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37316AC554E001DE0A7 /* PolylineNode.cpp */; };
 		60C6D04D174961470009EC3C /* LoopFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37816AC6036001DE0A7 /* LoopFinder.cpp */; };
 		60C6D04E174961470009EC3C /* RectangleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6047DB9116B46A890012286F /* RectangleInteraction.cpp */; };
-		60C6D04F174961470009EC3C /* Polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6011C37616D0EE9100CD34F9 /* Polygon.cpp */; };
 		60C6D050174961470009EC3C /* MoveInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605CD4FA16FDE992005CCAA2 /* MoveInteraction.cpp */; };
 		60C6D051174961470009EC3C /* LineInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60F2406C16B5BCA700291ED0 /* LineInteraction.cpp */; };
 		60C6D052174961470009EC3C /* Transformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED5A16FE14E30083DCD2 /* Transformation.cpp */; };
@@ -141,13 +137,11 @@
 		60C6D082174961470009EC3C /* b2Triangle.h in Headers */ = {isa = PBXBuildFile; fileRef = D15D697F15B4CECB007D676B /* b2Triangle.h */; };
 		60C6D083174961470009EC3C /* PointNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC701657D0700051947E /* PointNode.h */; };
 		60C6D084174961470009EC3C /* LineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC751657D07C0051947E /* LineNode.h */; };
-		60C6D085174961470009EC3C /* Rect.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC791658308B0051947E /* Rect.h */; };
 		60C6D086174961470009EC3C /* Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 60A575E61690DDEE0050FAFC /* Prefix.pch */; };
 		60C6D087174961470009EC3C /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 60C41BB31691BF5600DD0C09 /* Geometry.h */; };
 		60C6D088174961470009EC3C /* PolylineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37416AC554E001DE0A7 /* PolylineNode.h */; };
 		60C6D089174961470009EC3C /* LoopFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37916AC6036001DE0A7 /* LoopFinder.h */; };
 		60C6D08A174961470009EC3C /* LineInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F2406D16B5BCA700291ED0 /* LineInteraction.h */; };
-		60C6D08B174961470009EC3C /* Polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 6011C37716D0EE9100CD34F9 /* Polygon.h */; };
 		60C6D08C174961470009EC3C /* MoveInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 605CD4FB16FDE992005CCAA2 /* MoveInteraction.h */; };
 		60C6D08D174961470009EC3C /* RectangleInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 6047DB9216B46A890012286F /* RectangleInteraction.h */; };
 		60C6D08E174961470009EC3C /* Transformation.h in Headers */ = {isa = PBXBuildFile; fileRef = 60A4ED5B16FE14E30083DCD2 /* Transformation.h */; };
@@ -182,6 +176,14 @@
 		60C6D0AB174961470009EC3C /* ShadersLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 608D701217357B3C000A92F7 /* ShadersLibrary.h */; };
 		60C6D0AC174961470009EC3C /* TestRectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F6D98E17368DB500935A76 /* TestRectangle.h */; };
 		60C6D0AD174961470009EC3C /* ShadersInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 60B7E4B3173AEA4000EF0834 /* ShadersInput.h */; };
+		60C6D0BB1749737F0009EC3C /* Rect.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC791658308B0051947E /* Rect.h */; };
+		60C6D0BC174973800009EC3C /* Rect.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC791658308B0051947E /* Rect.h */; };
+		60C6D0BD174973850009EC3C /* Polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 6011C37716D0EE9100CD34F9 /* Polygon.h */; };
+		60C6D0BE174973850009EC3C /* Polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 6011C37716D0EE9100CD34F9 /* Polygon.h */; };
+		60C6D0BF1749738A0009EC3C /* Polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6011C37616D0EE9100CD34F9 /* Polygon.cpp */; };
+		60C6D0C01749738A0009EC3C /* Polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6011C37616D0EE9100CD34F9 /* Polygon.cpp */; };
+		60C6D0C11749739B0009EC3C /* Rect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC781658308B0051947E /* Rect.cpp */; };
+		60C6D0C21749739B0009EC3C /* Rect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC781658308B0051947E /* Rect.cpp */; };
 		60D7457817228D4B0062CDF1 /* ModelManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7457417228D4A0062CDF1 /* ModelManager.cpp */; };
 		60D7457917228D4B0062CDF1 /* ModelManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7457517228D4A0062CDF1 /* ModelManager.h */; };
 		60D7457A17228D4B0062CDF1 /* ModelTreeManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7457617228D4A0062CDF1 /* ModelTreeManager.cpp */; };
@@ -197,8 +199,6 @@
 		60D7DC721657D0700051947E /* PointNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC701657D0700051947E /* PointNode.h */; };
 		60D7DC761657D07C0051947E /* LineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC741657D07C0051947E /* LineNode.cpp */; };
 		60D7DC771657D07C0051947E /* LineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC751657D07C0051947E /* LineNode.h */; };
-		60D7DC7A1658308B0051947E /* Rect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC781658308B0051947E /* Rect.cpp */; };
-		60D7DC7B1658308B0051947E /* Rect.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC791658308B0051947E /* Rect.h */; };
 		60E4FF5116FF1F6600EEAA5A /* InteractionAssistant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60E4FF4F16FF1F6600EEAA5A /* InteractionAssistant.cpp */; };
 		60E4FF5216FF1F6600EEAA5A /* InteractionAssistant.h in Headers */ = {isa = PBXBuildFile; fileRef = 60E4FF5016FF1F6600EEAA5A /* InteractionAssistant.h */; };
 		60F2406F16B5BCA700291ED0 /* LineInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F2406D16B5BCA700291ED0 /* LineInteraction.h */; };
@@ -674,13 +674,11 @@
 				60C6D082174961470009EC3C /* b2Triangle.h in Headers */,
 				60C6D083174961470009EC3C /* PointNode.h in Headers */,
 				60C6D084174961470009EC3C /* LineNode.h in Headers */,
-				60C6D085174961470009EC3C /* Rect.h in Headers */,
 				60C6D086174961470009EC3C /* Prefix.pch in Headers */,
 				60C6D087174961470009EC3C /* Geometry.h in Headers */,
 				60C6D088174961470009EC3C /* PolylineNode.h in Headers */,
 				60C6D089174961470009EC3C /* LoopFinder.h in Headers */,
 				60C6D08A174961470009EC3C /* LineInteraction.h in Headers */,
-				60C6D08B174961470009EC3C /* Polygon.h in Headers */,
 				60C6D08C174961470009EC3C /* MoveInteraction.h in Headers */,
 				60C6D08D174961470009EC3C /* RectangleInteraction.h in Headers */,
 				60C6D08E174961470009EC3C /* Transformation.h in Headers */,
@@ -715,6 +713,8 @@
 				60C6D0AB174961470009EC3C /* ShadersLibrary.h in Headers */,
 				60C6D0AC174961470009EC3C /* TestRectangle.h in Headers */,
 				60C6D0AD174961470009EC3C /* ShadersInput.h in Headers */,
+				60C6D0BB1749737F0009EC3C /* Rect.h in Headers */,
+				60C6D0BD174973850009EC3C /* Polygon.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,13 +740,11 @@
 				D15D698315B4CECB007D676B /* b2Triangle.h in Headers */,
 				60D7DC721657D0700051947E /* PointNode.h in Headers */,
 				60D7DC771657D07C0051947E /* LineNode.h in Headers */,
-				60D7DC7B1658308B0051947E /* Rect.h in Headers */,
 				60A575E71690DDEE0050FAFC /* Prefix.pch in Headers */,
 				60C41BB51691BF5600DD0C09 /* Geometry.h in Headers */,
 				6091E37616AC554E001DE0A7 /* PolylineNode.h in Headers */,
 				6091E37B16AC6037001DE0A7 /* LoopFinder.h in Headers */,
 				60F2406F16B5BCA700291ED0 /* LineInteraction.h in Headers */,
-				6011C37916D0EE9100CD34F9 /* Polygon.h in Headers */,
 				605CD4FD16FDE992005CCAA2 /* MoveInteraction.h in Headers */,
 				605CD4FF16FDF824005CCAA2 /* RectangleInteraction.h in Headers */,
 				60A4ED5D16FE14E30083DCD2 /* Transformation.h in Headers */,
@@ -781,6 +779,8 @@
 				608D701417357B3C000A92F7 /* ShadersLibrary.h in Headers */,
 				60F6D99017368DB500935A76 /* TestRectangle.h in Headers */,
 				60B7E4B5173AEA4000EF0834 /* ShadersInput.h in Headers */,
+				60C6D0BC174973800009EC3C /* Rect.h in Headers */,
+				60C6D0BE174973850009EC3C /* Polygon.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -870,12 +870,10 @@
 				60C6D047174961470009EC3C /* Scene.cpp in Sources */,
 				60C6D048174961470009EC3C /* PointNode.cpp in Sources */,
 				60C6D049174961470009EC3C /* LineNode.cpp in Sources */,
-				60C6D04A174961470009EC3C /* Rect.cpp in Sources */,
 				60C6D04B174961470009EC3C /* Geometry.cpp in Sources */,
 				60C6D04C174961470009EC3C /* PolylineNode.cpp in Sources */,
 				60C6D04D174961470009EC3C /* LoopFinder.cpp in Sources */,
 				60C6D04E174961470009EC3C /* RectangleInteraction.cpp in Sources */,
-				60C6D04F174961470009EC3C /* Polygon.cpp in Sources */,
 				60C6D050174961470009EC3C /* MoveInteraction.cpp in Sources */,
 				60C6D051174961470009EC3C /* LineInteraction.cpp in Sources */,
 				60C6D052174961470009EC3C /* Transformation.cpp in Sources */,
@@ -908,6 +906,8 @@
 				60C6D06D174961470009EC3C /* ShadersLibrary.cpp in Sources */,
 				60C6D06E174961470009EC3C /* TestRectangle.cpp in Sources */,
 				60C6D06F174961470009EC3C /* ShadersInput.cpp in Sources */,
+				60C6D0BF1749738A0009EC3C /* Polygon.cpp in Sources */,
+				60C6D0C11749739B0009EC3C /* Rect.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -930,12 +930,10 @@
 				6056C57015DC554C008F8E92 /* Scene.cpp in Sources */,
 				60D7DC711657D0700051947E /* PointNode.cpp in Sources */,
 				60D7DC761657D07C0051947E /* LineNode.cpp in Sources */,
-				60D7DC7A1658308B0051947E /* Rect.cpp in Sources */,
 				60C41BB41691BF5600DD0C09 /* Geometry.cpp in Sources */,
 				6091E37516AC554E001DE0A7 /* PolylineNode.cpp in Sources */,
 				6091E37A16AC6037001DE0A7 /* LoopFinder.cpp in Sources */,
 				6047DB9316B46A890012286F /* RectangleInteraction.cpp in Sources */,
-				6011C37816D0EE9100CD34F9 /* Polygon.cpp in Sources */,
 				605CD4FC16FDE992005CCAA2 /* MoveInteraction.cpp in Sources */,
 				605CD4FE16FDF820005CCAA2 /* LineInteraction.cpp in Sources */,
 				60A4ED5C16FE14E30083DCD2 /* Transformation.cpp in Sources */,
@@ -968,6 +966,8 @@
 				608D701317357B3C000A92F7 /* ShadersLibrary.cpp in Sources */,
 				60F6D98F17368DB500935A76 /* TestRectangle.cpp in Sources */,
 				60B7E4B4173AEA4000EF0834 /* ShadersInput.cpp in Sources */,
+				60C6D0C01749738A0009EC3C /* Polygon.cpp in Sources */,
+				60C6D0C21749739B0009EC3C /* Rect.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
