@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		6011AF1B1747C2FC0022E7A9 /* LigthtingModelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6011AF191747C2FC0022E7A9 /* LigthtingModelFactory.cpp */; };
 		6011AF1C1747C2FC0022E7A9 /* LigthtingModelFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 6011AF1A1747C2FC0022E7A9 /* LigthtingModelFactory.h */; };
-		6011C37816D0EE9100CD34F9 /* Polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6011C37616D0EE9100CD34F9 /* Polygon.cpp */; };
-		6011C37916D0EE9100CD34F9 /* Polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 6011C37716D0EE9100CD34F9 /* Polygon.h */; };
 		6021AFBC17230800001EAEBE /* LayerRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFBB17230800001EAEBE /* LayerRenderer.cpp */; };
 		6021AFBF17230E82001EAEBE /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFBD17230E82001EAEBE /* Layer.cpp */; };
 		6021AFC017230E82001EAEBE /* Layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFBE17230E82001EAEBE /* Layer.h */; };
@@ -64,6 +62,8 @@
 		6091E37616AC554E001DE0A7 /* PolylineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37416AC554E001DE0A7 /* PolylineNode.h */; };
 		6091E37A16AC6037001DE0A7 /* LoopFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37816AC6036001DE0A7 /* LoopFinder.cpp */; };
 		6091E37B16AC6037001DE0A7 /* LoopFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37916AC6036001DE0A7 /* LoopFinder.h */; };
+		60A03E411752423100D650B5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A03E401752423100D650B5 /* OpenGLES.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		60A03E42175244EB00D650B5 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6056C56E15DC5522008F8E92 /* Scene.cpp */; };
 		60A4ED5C16FE14E30083DCD2 /* Transformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED5A16FE14E30083DCD2 /* Transformation.cpp */; };
 		60A4ED5D16FE14E30083DCD2 /* Transformation.h in Headers */ = {isa = PBXBuildFile; fileRef = 60A4ED5B16FE14E30083DCD2 /* Transformation.h */; };
 		60A4ED6016FE28BA0083DCD2 /* RotationInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED5E16FE28BA0083DCD2 /* RotationInteraction.cpp */; };
@@ -79,21 +79,31 @@
 		60BD328F174436BD00C2E593 /* LightingCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BD328D174436BD00C2E593 /* LightingCollection.h */; };
 		60BD3292174436EA00C2E593 /* DefaultLighting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BD3290174436EA00C2E593 /* DefaultLighting.cpp */; };
 		60BD3293174436EA00C2E593 /* DefaultLighting.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BD3291174436EA00C2E593 /* DefaultLighting.h */; };
+		60BD721C17567FF8007D7DC6 /* Scene.h in Headers */ = {isa = PBXBuildFile; fileRef = 6056C56F15DC5522008F8E92 /* Scene.h */; };
+		60BD721D1756800A007D7DC6 /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 6055CFD317417DCB009F1F46 /* Camera.h */; };
+		60BD721E17568022007D7DC6 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6055CFD217417DCB009F1F46 /* Camera.cpp */; };
+		60BD721F17568043007D7DC6 /* LightingCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BD328C174436BD00C2E593 /* LightingCollection.cpp */; };
+		60BD722017568077007D7DC6 /* LigthtingModelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6011AF191747C2FC0022E7A9 /* LigthtingModelFactory.cpp */; };
+		60BD72211756807D007D7DC6 /* LightingCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BD328D174436BD00C2E593 /* LightingCollection.h */; };
+		60BD72221756807D007D7DC6 /* LigthtingModelFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 6011AF1A1747C2FC0022E7A9 /* LigthtingModelFactory.h */; };
+		60BD72231756807D007D7DC6 /* LightingModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BD32881744039C00C2E593 /* LightingModel.cpp */; };
+		60BD72241756807D007D7DC6 /* LightingModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BD32891744039C00C2E593 /* LightingModel.h */; };
+		60BD72251756807D007D7DC6 /* DefaultLighting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BD3290174436EA00C2E593 /* DefaultLighting.cpp */; };
+		60BD72261756807D007D7DC6 /* DefaultLighting.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BD3291174436EA00C2E593 /* DefaultLighting.h */; };
+		60BD72271756807D007D7DC6 /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6055CFCE17417D45009F1F46 /* Light.cpp */; };
+		60BD72281756807D007D7DC6 /* Light.h in Headers */ = {isa = PBXBuildFile; fileRef = 6055CFCF17417D45009F1F46 /* Light.h */; };
 		60C41BB41691BF5600DD0C09 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60C41BB21691BF5600DD0C09 /* Geometry.cpp */; };
 		60C41BB51691BF5600DD0C09 /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 60C41BB31691BF5600DD0C09 /* Geometry.h */; };
 		60C6D03B174961470009EC3C /* FaceNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D143779D157BCF0200A05B3B /* FaceNode.cpp */; };
 		60C6D03C174961470009EC3C /* Workspace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F4A157FE79600566119 /* Workspace.cpp */; };
 		60C6D03D174961470009EC3C /* Pad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F4F157FE91900566119 /* Pad.cpp */; };
 		60C6D03E174961470009EC3C /* HUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F53157FE9D200566119 /* HUD.cpp */; };
-		60C6D03F174961470009EC3C /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1C9DD681582A4F3000DEA25 /* Camera.cpp */; };
-		60C6D040174961470009EC3C /* Lights.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D10849EF1583B4550042E161 /* Lights.cpp */; };
 		60C6D041174961470009EC3C /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D17C76861584B6010083E2B0 /* Log.cpp */; };
 		60C6D042174961470009EC3C /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D17C7914158536040083E2B0 /* Utils.cpp */; };
 		60C6D043174961470009EC3C /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D13D718115AF949100143662 /* Node.cpp */; };
 		60C6D044174961470009EC3C /* BodyNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D13D718515AF96F000143662 /* BodyNode.cpp */; };
 		60C6D045174961470009EC3C /* ModelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1E54CAD157BED250083FB90 /* ModelFactory.cpp */; };
 		60C6D046174961470009EC3C /* GroupNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1C708BF15B36D0E00D64823 /* GroupNode.cpp */; };
-		60C6D047174961470009EC3C /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6056C56E15DC5522008F8E92 /* Scene.cpp */; };
 		60C6D048174961470009EC3C /* PointNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC6F1657D0700051947E /* PointNode.cpp */; };
 		60C6D049174961470009EC3C /* LineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC741657D07C0051947E /* LineNode.cpp */; };
 		60C6D04B174961470009EC3C /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60C41BB21691BF5600DD0C09 /* Geometry.cpp */; };
@@ -132,15 +142,12 @@
 		60C6D06D174961470009EC3C /* ShadersLibrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D701117357B3C000A92F7 /* ShadersLibrary.cpp */; };
 		60C6D06E174961470009EC3C /* TestRectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60F6D98D17368DB500935A76 /* TestRectangle.cpp */; };
 		60C6D06F174961470009EC3C /* ShadersInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B7E4B2173AEA4000EF0834 /* ShadersInput.cpp */; };
-		60C6D071174961470009EC3C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13DC912157A9FF500C84006 /* OpenGL.framework */; };
 		60C6D073174961470009EC3C /* FactoryEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76641583BF440083E2B0 /* FactoryEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		60C6D074174961470009EC3C /* FaceNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D143779E157BCF0200A05B3B /* FaceNode.h */; };
 		60C6D075174961470009EC3C /* ModelFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D1E54CAE157BED250083FB90 /* ModelFactory.h */; };
 		60C6D076174961470009EC3C /* Workspace.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F4B157FE79600566119 /* Workspace.h */; };
 		60C6D077174961470009EC3C /* Pad.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F50157FE91900566119 /* Pad.h */; };
 		60C6D078174961470009EC3C /* HUD.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F54157FE9D200566119 /* HUD.h */; };
-		60C6D079174961470009EC3C /* Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = D1C9DD691582A4F3000DEA25 /* Camera.h */; };
-		60C6D07A174961470009EC3C /* Lights.h in Headers */ = {isa = PBXBuildFile; fileRef = D10849F01583B4550042E161 /* Lights.h */; };
 		60C6D07B174961470009EC3C /* Log.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76871584B6010083E2B0 /* Log.h */; };
 		60C6D07C174961470009EC3C /* GLError.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76AB1584E3900083E2B0 /* GLError.h */; };
 		60C6D07D174961470009EC3C /* Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C7915158536040083E2B0 /* Utils.h */; };
@@ -331,6 +338,7 @@
 		6091E37416AC554E001DE0A7 /* PolylineNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolylineNode.h; sourceTree = "<group>"; };
 		6091E37816AC6036001DE0A7 /* LoopFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoopFinder.cpp; sourceTree = "<group>"; };
 		6091E37916AC6036001DE0A7 /* LoopFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopFinder.h; sourceTree = "<group>"; };
+		60A03E401752423100D650B5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		60A4ED5A16FE14E30083DCD2 /* Transformation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transformation.cpp; sourceTree = "<group>"; };
 		60A4ED5B16FE14E30083DCD2 /* Transformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transformation.h; sourceTree = "<group>"; };
 		60A4ED5E16FE28BA0083DCD2 /* RotationInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RotationInteraction.cpp; sourceTree = "<group>"; };
@@ -409,7 +417,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60C6D071174961470009EC3C /* OpenGL.framework in Frameworks */,
+				60A03E411752423100D650B5 /* OpenGLES.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,6 +679,7 @@
 			isa = PBXGroup;
 			children = (
 				D13DC912157A9FF500C84006 /* OpenGL.framework */,
+				60A03E401752423100D650B5 /* OpenGLES.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -683,13 +692,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				60C6D073174961470009EC3C /* FactoryEngine.h in Headers */,
+				60BD721D1756800A007D7DC6 /* Camera.h in Headers */,
+				60BD721C17567FF8007D7DC6 /* Scene.h in Headers */,
 				60C6D074174961470009EC3C /* FaceNode.h in Headers */,
 				60C6D075174961470009EC3C /* ModelFactory.h in Headers */,
 				60C6D076174961470009EC3C /* Workspace.h in Headers */,
 				60C6D077174961470009EC3C /* Pad.h in Headers */,
 				60C6D078174961470009EC3C /* HUD.h in Headers */,
-				60C6D079174961470009EC3C /* Camera.h in Headers */,
-				60C6D07A174961470009EC3C /* Lights.h in Headers */,
 				60C6D07B174961470009EC3C /* Log.h in Headers */,
 				60C6D07C174961470009EC3C /* GLError.h in Headers */,
 				60C6D07D174961470009EC3C /* Utils.h in Headers */,
@@ -741,6 +750,11 @@
 				60C6D0AD174961470009EC3C /* ShadersInput.h in Headers */,
 				60C6D0BB1749737F0009EC3C /* Rect.h in Headers */,
 				60C6D0BD174973850009EC3C /* Polygon.h in Headers */,
+				60BD72211756807D007D7DC6 /* LightingCollection.h in Headers */,
+				60BD72221756807D007D7DC6 /* LigthtingModelFactory.h in Headers */,
+				60BD72241756807D007D7DC6 /* LightingModel.h in Headers */,
+				60BD72261756807D007D7DC6 /* DefaultLighting.h in Headers */,
+				60BD72281756807D007D7DC6 /* Light.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,7 +873,7 @@
 		D13DC902157A9F8B00C84006 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Dimention;
 			};
 			buildConfigurationList = D13DC905157A9F8B00C84006 /* Build configuration list for PBXProject "FactoryEngine" */;
@@ -885,19 +899,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60BD721F17568043007D7DC6 /* LightingCollection.cpp in Sources */,
+				60BD721E17568022007D7DC6 /* Camera.cpp in Sources */,
+				60A03E42175244EB00D650B5 /* Scene.cpp in Sources */,
 				60C6D03B174961470009EC3C /* FaceNode.cpp in Sources */,
 				60C6D03C174961470009EC3C /* Workspace.cpp in Sources */,
 				60C6D03D174961470009EC3C /* Pad.cpp in Sources */,
 				60C6D03E174961470009EC3C /* HUD.cpp in Sources */,
-				60C6D03F174961470009EC3C /* Camera.cpp in Sources */,
-				60C6D040174961470009EC3C /* Lights.cpp in Sources */,
 				60C6D041174961470009EC3C /* Log.cpp in Sources */,
 				60C6D042174961470009EC3C /* Utils.cpp in Sources */,
 				60C6D043174961470009EC3C /* Node.cpp in Sources */,
 				60C6D044174961470009EC3C /* BodyNode.cpp in Sources */,
 				60C6D045174961470009EC3C /* ModelFactory.cpp in Sources */,
 				60C6D046174961470009EC3C /* GroupNode.cpp in Sources */,
-				60C6D047174961470009EC3C /* Scene.cpp in Sources */,
 				60C6D048174961470009EC3C /* PointNode.cpp in Sources */,
 				60C6D049174961470009EC3C /* LineNode.cpp in Sources */,
 				60C6D04B174961470009EC3C /* Geometry.cpp in Sources */,
@@ -938,6 +952,10 @@
 				60C6D06F174961470009EC3C /* ShadersInput.cpp in Sources */,
 				60C6D0BF1749738A0009EC3C /* Polygon.cpp in Sources */,
 				60C6D0C11749739B0009EC3C /* Rect.cpp in Sources */,
+				60BD722017568077007D7DC6 /* LigthtingModelFactory.cpp in Sources */,
+				60BD72231756807D007D7DC6 /* LightingModel.cpp in Sources */,
+				60BD72251756807D007D7DC6 /* DefaultLighting.cpp in Sources */,
+				60BD72271756807D007D7DC6 /* Light.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1013,9 +1031,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_X86_VECTOR_INSTRUCTIONS = default;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Main/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1040,9 +1061,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_X86_VECTOR_INSTRUCTIONS = default;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Main/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = GLES;
@@ -1063,11 +1087,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_CXX0X_EXTENSIONS = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1081,10 +1109,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1092,11 +1120,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_CXX0X_EXTENSIONS = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = c11;
@@ -1107,9 +1139,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = "";
+				ONLY_ACTIVE_ARCH = YES;
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -1117,6 +1150,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_X86_VECTOR_INSTRUCTIONS = default;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -1130,6 +1164,7 @@
 					"${SRCROOT}/External/boost",
 				);
 				PRODUCT_NAME = FactoryEngine;
+				SDKROOT = macosx10.8;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -1138,6 +1173,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_X86_VECTOR_INSTRUCTIONS = default;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -1151,6 +1187,7 @@
 					"${SRCROOT}/External/boost",
 				);
 				PRODUCT_NAME = FactoryEngine;
+				SDKROOT = macosx10.8;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
