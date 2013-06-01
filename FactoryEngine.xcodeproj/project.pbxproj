@@ -42,6 +42,8 @@
 		605F1D1F171AE4CA00C8E4CC /* Vec3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605F1D0F171AE4CA00C8E4CC /* Vec3.cpp */; };
 		605F1D20171AE4CA00C8E4CC /* Vec3.h in Headers */ = {isa = PBXBuildFile; fileRef = 605F1D10171AE4CA00C8E4CC /* Vec3.h */; };
 		605F1D21171AE4CA00C8E4CC /* Vec4.h in Headers */ = {isa = PBXBuildFile; fileRef = 605F1D11171AE4CA00C8E4CC /* Vec4.h */; };
+		60666D42175A4AD3007FF45F /* ShadersInputES.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60666D3E175A4ABE007FF45F /* ShadersInputES.cpp */; };
+		60666D43175A4AD7007FF45F /* ShadersInputES.h in Headers */ = {isa = PBXBuildFile; fileRef = 60666D3F175A4ABE007FF45F /* ShadersInputES.h */; };
 		607BFB11172C7F3500357B47 /* PolygonRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */; };
 		607BFB12172C7F3500357B47 /* PolygonRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 607BFB10172C7F3500357B47 /* PolygonRenderer.h */; };
 		607BFB15172C838200357B47 /* RectangleRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB13172C838100357B47 /* RectangleRenderer.cpp */; };
@@ -71,8 +73,8 @@
 		60A4ED6716FE59D50083DCD2 /* ScaleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED6516FE59D40083DCD2 /* ScaleInteraction.cpp */; };
 		60A4ED6816FE59D50083DCD2 /* ScaleInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60A4ED6616FE59D40083DCD2 /* ScaleInteraction.h */; };
 		60A575E71690DDEE0050FAFC /* Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 60A575E61690DDEE0050FAFC /* Prefix.pch */; };
-		60B7E4B4173AEA4000EF0834 /* ShadersInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B7E4B2173AEA4000EF0834 /* ShadersInput.cpp */; };
-		60B7E4B5173AEA4000EF0834 /* ShadersInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 60B7E4B3173AEA4000EF0834 /* ShadersInput.h */; };
+		60ACE68A175A5FCF0032CEAD /* ShadersInputCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B7E4B2173AEA4000EF0834 /* ShadersInputCore.cpp */; };
+		60ACE68B175A5FD30032CEAD /* ShadersInputCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 60B7E4B3173AEA4000EF0834 /* ShadersInputCore.h */; };
 		60BD328A1744039D00C2E593 /* LightingModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BD32881744039C00C2E593 /* LightingModel.cpp */; };
 		60BD328B1744039D00C2E593 /* LightingModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BD32891744039C00C2E593 /* LightingModel.h */; };
 		60BD328E174436BD00C2E593 /* LightingCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BD328C174436BD00C2E593 /* LightingCollection.cpp */; };
@@ -141,7 +143,6 @@
 		60C6D06C174961470009EC3C /* ShadersProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D700D17357A46000A92F7 /* ShadersProgram.cpp */; };
 		60C6D06D174961470009EC3C /* ShadersLibrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D701117357B3C000A92F7 /* ShadersLibrary.cpp */; };
 		60C6D06E174961470009EC3C /* TestRectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60F6D98D17368DB500935A76 /* TestRectangle.cpp */; };
-		60C6D06F174961470009EC3C /* ShadersInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B7E4B2173AEA4000EF0834 /* ShadersInput.cpp */; };
 		60C6D073174961470009EC3C /* FactoryEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76641583BF440083E2B0 /* FactoryEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		60C6D074174961470009EC3C /* FaceNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D143779E157BCF0200A05B3B /* FaceNode.h */; };
 		60C6D075174961470009EC3C /* ModelFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D1E54CAE157BED250083FB90 /* ModelFactory.h */; };
@@ -196,7 +197,6 @@
 		60C6D0AA174961470009EC3C /* ShadersProgram.h in Headers */ = {isa = PBXBuildFile; fileRef = 608D700E17357A46000A92F7 /* ShadersProgram.h */; };
 		60C6D0AB174961470009EC3C /* ShadersLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 608D701217357B3C000A92F7 /* ShadersLibrary.h */; };
 		60C6D0AC174961470009EC3C /* TestRectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F6D98E17368DB500935A76 /* TestRectangle.h */; };
-		60C6D0AD174961470009EC3C /* ShadersInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 60B7E4B3173AEA4000EF0834 /* ShadersInput.h */; };
 		60C6D0BB1749737F0009EC3C /* Rect.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC791658308B0051947E /* Rect.h */; };
 		60C6D0BC174973800009EC3C /* Rect.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC791658308B0051947E /* Rect.h */; };
 		60C6D0BD174973850009EC3C /* Polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 6011C37716D0EE9100CD34F9 /* Polygon.h */; };
@@ -316,6 +316,8 @@
 		605F1D0F171AE4CA00C8E4CC /* Vec3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vec3.cpp; sourceTree = "<group>"; };
 		605F1D10171AE4CA00C8E4CC /* Vec3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vec3.h; sourceTree = "<group>"; };
 		605F1D11171AE4CA00C8E4CC /* Vec4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vec4.h; sourceTree = "<group>"; };
+		60666D3E175A4ABE007FF45F /* ShadersInputES.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadersInputES.cpp; sourceTree = "<group>"; };
+		60666D3F175A4ABE007FF45F /* ShadersInputES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadersInputES.h; sourceTree = "<group>"; };
 		606A7F5C163C0C0700E4F243 /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
 		607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolygonRenderer.cpp; sourceTree = "<group>"; };
 		607BFB10172C7F3500357B47 /* PolygonRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonRenderer.h; sourceTree = "<group>"; };
@@ -346,8 +348,9 @@
 		60A4ED6516FE59D40083DCD2 /* ScaleInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScaleInteraction.cpp; sourceTree = "<group>"; };
 		60A4ED6616FE59D40083DCD2 /* ScaleInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleInteraction.h; sourceTree = "<group>"; };
 		60A575E61690DDEE0050FAFC /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		60B7E4B2173AEA4000EF0834 /* ShadersInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadersInput.cpp; sourceTree = "<group>"; };
-		60B7E4B3173AEA4000EF0834 /* ShadersInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadersInput.h; sourceTree = "<group>"; };
+		60ACE689175A5F840032CEAD /* ShadersInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShadersInput.h; sourceTree = "<group>"; };
+		60B7E4B2173AEA4000EF0834 /* ShadersInputCore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadersInputCore.cpp; sourceTree = "<group>"; };
+		60B7E4B3173AEA4000EF0834 /* ShadersInputCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadersInputCore.h; sourceTree = "<group>"; };
 		60BD32881744039C00C2E593 /* LightingModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightingModel.cpp; sourceTree = "<group>"; };
 		60BD32891744039C00C2E593 /* LightingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightingModel.h; sourceTree = "<group>"; };
 		60BD328C174436BD00C2E593 /* LightingCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightingCollection.cpp; sourceTree = "<group>"; };
@@ -499,8 +502,11 @@
 				608D70021735754A000A92F7 /* ShadersBuilder.h */,
 				608D700D17357A46000A92F7 /* ShadersProgram.cpp */,
 				608D700E17357A46000A92F7 /* ShadersProgram.h */,
-				60B7E4B2173AEA4000EF0834 /* ShadersInput.cpp */,
-				60B7E4B3173AEA4000EF0834 /* ShadersInput.h */,
+				60ACE689175A5F840032CEAD /* ShadersInput.h */,
+				60B7E4B2173AEA4000EF0834 /* ShadersInputCore.cpp */,
+				60B7E4B3173AEA4000EF0834 /* ShadersInputCore.h */,
+				60666D3E175A4ABE007FF45F /* ShadersInputES.cpp */,
+				60666D3F175A4ABE007FF45F /* ShadersInputES.h */,
 				608D701117357B3C000A92F7 /* ShadersLibrary.cpp */,
 				608D701217357B3C000A92F7 /* ShadersLibrary.h */,
 				608D700517357571000A92F7 /* Shader.cpp */,
@@ -747,7 +753,6 @@
 				60C6D0AA174961470009EC3C /* ShadersProgram.h in Headers */,
 				60C6D0AB174961470009EC3C /* ShadersLibrary.h in Headers */,
 				60C6D0AC174961470009EC3C /* TestRectangle.h in Headers */,
-				60C6D0AD174961470009EC3C /* ShadersInput.h in Headers */,
 				60C6D0BB1749737F0009EC3C /* Rect.h in Headers */,
 				60C6D0BD174973850009EC3C /* Polygon.h in Headers */,
 				60BD72211756807D007D7DC6 /* LightingCollection.h in Headers */,
@@ -755,6 +760,7 @@
 				60BD72241756807D007D7DC6 /* LightingModel.h in Headers */,
 				60BD72261756807D007D7DC6 /* DefaultLighting.h in Headers */,
 				60BD72281756807D007D7DC6 /* Light.h in Headers */,
+				60666D43175A4AD7007FF45F /* ShadersInputES.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -816,7 +822,6 @@
 				608D701017357A46000A92F7 /* ShadersProgram.h in Headers */,
 				608D701417357B3C000A92F7 /* ShadersLibrary.h in Headers */,
 				60F6D99017368DB500935A76 /* TestRectangle.h in Headers */,
-				60B7E4B5173AEA4000EF0834 /* ShadersInput.h in Headers */,
 				6055CFD117417D46009F1F46 /* Light.h in Headers */,
 				6055CFD517417DCB009F1F46 /* Camera.h in Headers */,
 				60BD328B1744039D00C2E593 /* LightingModel.h in Headers */,
@@ -825,6 +830,7 @@
 				6011AF1C1747C2FC0022E7A9 /* LigthtingModelFactory.h in Headers */,
 				60C6D0BC174973800009EC3C /* Rect.h in Headers */,
 				60C6D0BE174973850009EC3C /* Polygon.h in Headers */,
+				60ACE68B175A5FD30032CEAD /* ShadersInputCore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -949,13 +955,13 @@
 				60C6D06C174961470009EC3C /* ShadersProgram.cpp in Sources */,
 				60C6D06D174961470009EC3C /* ShadersLibrary.cpp in Sources */,
 				60C6D06E174961470009EC3C /* TestRectangle.cpp in Sources */,
-				60C6D06F174961470009EC3C /* ShadersInput.cpp in Sources */,
 				60C6D0BF1749738A0009EC3C /* Polygon.cpp in Sources */,
 				60C6D0C11749739B0009EC3C /* Rect.cpp in Sources */,
 				60BD722017568077007D7DC6 /* LigthtingModelFactory.cpp in Sources */,
 				60BD72231756807D007D7DC6 /* LightingModel.cpp in Sources */,
 				60BD72251756807D007D7DC6 /* DefaultLighting.cpp in Sources */,
 				60BD72271756807D007D7DC6 /* Light.cpp in Sources */,
+				60666D42175A4AD3007FF45F /* ShadersInputES.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1011,7 +1017,6 @@
 				608D700F17357A46000A92F7 /* ShadersProgram.cpp in Sources */,
 				608D701317357B3C000A92F7 /* ShadersLibrary.cpp in Sources */,
 				60F6D98F17368DB500935A76 /* TestRectangle.cpp in Sources */,
-				60B7E4B4173AEA4000EF0834 /* ShadersInput.cpp in Sources */,
 				6055CFD017417D46009F1F46 /* Light.cpp in Sources */,
 				6055CFD417417DCB009F1F46 /* Camera.cpp in Sources */,
 				60BD328A1744039D00C2E593 /* LightingModel.cpp in Sources */,
@@ -1020,6 +1025,7 @@
 				6011AF1B1747C2FC0022E7A9 /* LigthtingModelFactory.cpp in Sources */,
 				60C6D0C01749738A0009EC3C /* Polygon.cpp in Sources */,
 				60C6D0C21749739B0009EC3C /* Rect.cpp in Sources */,
+				60ACE68A175A5FCF0032CEAD /* ShadersInputCore.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
