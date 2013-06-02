@@ -23,7 +23,6 @@ Scene::Scene() :
     mLayer = new Layer();
     mWorkspace = new Workspace(mLayer);
     mModelEditor = new ModelEditor();
-    mInteractionProvider = new class InteractionProvider(*mModelEditor);
     mModelEditor->ModelTree()->setRootNode(reinterpret_cast<Node*>(mWorkspace));
     mModelEditor->Select(mWorkspace);
 }
@@ -54,6 +53,7 @@ void Scene::Prepare()
     mCamera->setProjection(kProjectionPerspective);
     ShadersInput* shadersInput = mShadersBuilder->shadersProgram()->shaderInput();
     mCamera->setShadersInput(shadersInput);
+    mInteractionProvider = new class InteractionProvider(*mModelEditor, *mCamera);
     
     LightingModel* activeLightingModel = mLightingCollection->activeModel();
     activeLightingModel->setShadersInput(shadersInput);
@@ -92,30 +92,6 @@ void Scene::setViewportRect(int x, int y, int width, int height)
     mCamera->setViewport(Frame(Vec2(x, y), Vec2(width, height)));
 }
 
-#pragma mark Camera
-    
-void Scene::MoveBy(const Vec2& deltaMove)
-{
-    mCamera->MoveBy(deltaMove);
-}
-void Scene::RotateBy(const Vec2& deltaRotation)
-{
-    mCamera->RotateBy(deltaRotation);
-}
-void Scene::ZoomBy(const GLfloat times)
-{
-    mCamera->ZoomBy(times);
-}
-
-void Scene::Look()
-{
-    mCamera->Look();
-}
-    
-void Scene::setProjection(Projection projectionMode)
-{
-    mCamera->setProjection(projectionMode);
-}
 
 #pragma mark Lights
 

@@ -1,22 +1,25 @@
 
 #include <Model/ModelEditor.h>
+#include <Scene/Camera.h>
 #include <Interaction/InteractionProvider.h>
 #include <Interaction/RectangleInteraction.h>
 #include <Interaction/LineInteraction.h>
 #include <Interaction/MoveInteraction.h>
 #include <Interaction/RotationInteraction.h>
 #include <Interaction/ScaleInteraction.h>
+#include <Interaction/CameraInteraction.h>
+
 
 namespace ftr {
 
-InteractionProvider::InteractionProvider(ModelEditor& ModelEditor)
-    :mModelEditor(ModelEditor)
+InteractionProvider::InteractionProvider(ModelEditor& modelEditor, Camera& camera)
 {
-    mRectangleInteraction = new class RectangleInteraction(mModelEditor);
-    mLineInteraction = new class LineInteraction(mModelEditor);
-    mMoveInteraction = new class MoveInteraction(mModelEditor);
-    mRotationInteraction = new class RotationInteraction(mModelEditor);
-    mScaleInteraction = new class ScaleInteraction(mModelEditor);
+    mRectangleInteraction = new class RectangleInteraction(modelEditor);
+    mLineInteraction = new class LineInteraction(modelEditor);
+    mMoveInteraction = new class MoveInteraction(modelEditor);
+    mRotationInteraction = new class RotationInteraction(modelEditor);
+    mScaleInteraction = new class ScaleInteraction(modelEditor);
+    mCameraInercation = new class CameraInteraction(camera);
 }
 
 InteractionProvider::~InteractionProvider()
@@ -26,6 +29,7 @@ InteractionProvider::~InteractionProvider()
     FT_DELETE(mMoveInteraction);
     FT_DELETE(mRotationInteraction);
     FT_DELETE(mScaleInteraction);
+    FT_DELETE(mCameraInercation);
 }
 
 }

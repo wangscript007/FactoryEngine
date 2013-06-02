@@ -9,11 +9,13 @@ class MoveInteraction;
 class RotationInteraction;
 class ScaleInteraction;
 class ModelEditor;
+class CameraInteraction;
+class Camera;
 
 class InteractionProvider
 {
 public:
-    InteractionProvider(ModelEditor& ModelEditor);
+    InteractionProvider(ModelEditor& modelEditor, Camera& camera);
     virtual ~InteractionProvider();
     
     RectangleInteraction* RectangleInteraction() const { return mRectangleInteraction; }
@@ -21,6 +23,7 @@ public:
     MoveInteraction* MoveInteraction() const { return mMoveInteraction; }
     RotationInteraction* RotationInteraction() const { return mRotationInteraction; }
     ScaleInteraction* ScaleInteraction() const { return mScaleInteraction; }
+    CameraInteraction* CameraInercation() const { return mCameraInercation; }
     
 private:
     class RectangleInteraction* mRectangleInteraction;
@@ -28,7 +31,7 @@ private:
     class MoveInteraction* mMoveInteraction;
     class RotationInteraction* mRotationInteraction;
     class ScaleInteraction* mScaleInteraction;
-    ModelEditor& mModelEditor;
+    class CameraInteraction* mCameraInercation;
 };
 
 }

@@ -23,26 +23,14 @@ public:
                       Scene();
                       ~Scene();
     void              Prepare();
-    //
     // Workspace
-    //
     void              Render();
     void              setViewportRect(int x, int y, int width, int height);
-    //
-    // Camera
-    //
-    void              MoveBy(const Vec2& deltaMove);
-    void              RotateBy(const Vec2& deltaRotation);
-    void              ZoomBy(const GLfloat times);
-    void              Look();
-    void              setProjection(Projection projectionMode);
-    //
-    // Lights           
-    //
+    
+    // Lights
     void              TurnOnLight(int index);
-    //
+    
     // Shaders
-    //
     void              AddShader(const std::string& name, const std::string& source, GLenum type);
     void              PrepareShadersProgram();
     void              ActivateProgram();
@@ -50,9 +38,8 @@ public:
     GLuint            ShaderUniformLocation(const std::string& name);
 
     void              DeactivateProgram();
-    //
+    
     // Model
-    //
     void              Select(Node* pNode) { mModelEditor->Select(pNode); }
     FaceNode*         CreateFace(const Vec3& origin);
     PointNode*        CreatePoint(const Vec3& origin);
@@ -63,8 +50,6 @@ public:
     unsigned long     Size() { return mModelEditor->Size(); }
     
     InteractionProvider* InteractionProvider() const { return mInteractionProvider; }
-    Camera*           camera() const { return mCamera; }
-    
 private:
     
     Workspace*        mWorkspace;
