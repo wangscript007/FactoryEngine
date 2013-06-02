@@ -1,11 +1,11 @@
 
 #include <Interaction/RectangleInteraction.h>
-#include <Model/ModelManager.h>
+#include <Model/ModelEditor.h>
 
 namespace ftr {
 
-RectangleInteraction::RectangleInteraction(ModelManager& modelManager)
-    :mModelManager(modelManager)
+RectangleInteraction::RectangleInteraction(ModelEditor& ModelEditor)
+    :mModelEditor(ModelEditor)
     ,mActive(false)
 {}
 
@@ -46,7 +46,7 @@ void RectangleInteraction::Render()
 void RectangleInteraction::Begin()
 {
     mActive = true;
-    mModelManager.SelectedNode()->AddNode(this);
+    mModelEditor.SelectedNode()->AddNode(this);
     mRect3.mA = Vec3();
 }
 
@@ -54,8 +54,8 @@ void RectangleInteraction::End()
 {
     if (mActive) {
         mActive = false;
-        //mModelManager.CreateRectangle(mOrigin, mSize);
-        mModelManager.SelectedNode()->RemoveNode(this);
+        //mModelEditor.CreateRectangle(mOrigin, mSize);
+        mModelEditor.SelectedNode()->RemoveNode(this);
     }
 }
 

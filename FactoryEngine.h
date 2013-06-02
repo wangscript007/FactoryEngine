@@ -74,8 +74,8 @@ typedef unsigned long long int  Quadrupleword;    // 8 bytes
 //
 // Managers
 //
-#include "Model/ModelTreeManager.h"
-#include "Model/ModelManager.h"
+#include "Model/ModelTree.h"
+#include "Model/ModelEditor.h"
 //
 // Scene
 //

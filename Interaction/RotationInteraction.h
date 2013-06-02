@@ -4,12 +4,12 @@
 
 namespace ftr {
 
-class ModelManager;
+class ModelEditor;
 
 class RotationInteraction : public Node
 {
 public:
-    RotationInteraction(ModelManager& modelManager);
+    RotationInteraction(ModelEditor& ModelEditor);
     virtual ~RotationInteraction() {}
     void Render();
     
@@ -20,7 +20,7 @@ private:
     Vec3 mStart;
     Vec3 mEnd;
     Node* mNode;
-    ModelManager& mModelManager;
+    ModelEditor& mModelEditor;
     bool mActive;
 };
 

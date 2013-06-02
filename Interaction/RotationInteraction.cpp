@@ -1,12 +1,12 @@
 
 #include <Interaction/RotationInteraction.h>
-#include <Model/ModelManager.h>
+#include <Model/ModelEditor.h>
 #include <Math/Transformation.h>
 
 namespace ftr {
 
-RotationInteraction::RotationInteraction(ModelManager& modelManager)
-:mModelManager(modelManager)
+RotationInteraction::RotationInteraction(ModelEditor& ModelEditor)
+:mModelEditor(ModelEditor)
 ,mActive(false)
 {}
 
@@ -25,8 +25,8 @@ void RotationInteraction::setStart(Vec3 start)
 void RotationInteraction::setEnd(Vec3 end)
 {
     mEnd = end;
-    assert(mModelManager.SelectedNode()->Type() == Node::kLine);
-    mModelManager.SelectedNode()->Transform(Transformation::Rotate(mEnd - mStart));
+    assert(mModelEditor.SelectedNode()->Type() == Node::kLine);
+    mModelEditor.SelectedNode()->Transform(Transformation::Rotate(mEnd - mStart));
     mStart = end;
 }
 

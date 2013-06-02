@@ -9,11 +9,11 @@ namespace ftr {
 //
 // Manages model tree
 //
-class ModelTreeManager
+class ModelTree
 {
 public:
-    ModelTreeManager();
-    ~ModelTreeManager();
+    ModelTree();
+    ~ModelTree();
     
     void        setRootNode(Node* pRootNode);
     

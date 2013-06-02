@@ -8,13 +8,13 @@ class LineInteraction;
 class MoveInteraction;
 class RotationInteraction;
 class ScaleInteraction;
-class ModelManager;
+class ModelEditor;
 
-class InteractionManager
+class InteractionProvider
 {
 public:
-    InteractionManager(ModelManager& modelManager);
-    virtual ~InteractionManager();
+    InteractionProvider(ModelEditor& ModelEditor);
+    virtual ~InteractionProvider();
     
     RectangleInteraction* RectangleInteraction() const { return mRectangleInteraction; }
     LineInteraction* LineInteraction() const { return mLineInteraction; }
@@ -28,7 +28,7 @@ private:
     class MoveInteraction* mMoveInteraction;
     class RotationInteraction* mRotationInteraction;
     class ScaleInteraction* mScaleInteraction;
-    ModelManager& mModelManager;
+    ModelEditor& mModelEditor;
 };
 
 }

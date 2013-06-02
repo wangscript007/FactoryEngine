@@ -22,18 +22,18 @@ Scene::Scene() :
     mLightingCollection = new LightingCollection();
     mLayer = new Layer();
     mWorkspace = new Workspace(mLayer);
-    mModelManager = new ModelManager();
-    mInteractionManager = new class InteractionManager(*mModelManager);
-    mModelManager->ModelTreeManager()->setRootNode(reinterpret_cast<Node*>(mWorkspace));
-    mModelManager->Select(mWorkspace);
+    mModelEditor = new ModelEditor();
+    mInteractionProvider = new class InteractionProvider(*mModelEditor);
+    mModelEditor->ModelTree()->setRootNode(reinterpret_cast<Node*>(mWorkspace));
+    mModelEditor->Select(mWorkspace);
 }
     
 Scene::~Scene()
 {
     FT_DELETE(mWorkspace);
     FT_DELETE(mCamera);
-    FT_DELETE(mModelManager);
-    FT_DELETE(mInteractionManager);
+    FT_DELETE(mModelEditor);
+    FT_DELETE(mInteractionProvider);
     FT_DELETE(mLayerRenderer);
     FT_DELETE(mLayer);
     FT_DELETE(mShadersBuilder);
@@ -72,7 +72,7 @@ void Scene::Render()
     //mShadersBuilder->shadersProgram()->Activate();
     mWorkspace->Render(*mLayer);
     mLayerRenderer->Render(*mLayer);
-    //mModelManager->ModelTreeManager()->Octree()->Render();
+    //mModelEditor->ModelTree()->Octree()->Render();
     
     //mShadersBuilder->shadersProgram()->Deactivate();
 }
@@ -148,34 +148,34 @@ GLuint Scene::ShaderUniformLocation(const std::string& name)
 
 FaceNode* Scene::CreateFace(const Vec3& origin)
 {
-    return mModelManager->CreateFace(origin, FaceNode::kRectangle);
+    return mModelEditor->CreateFace(origin, FaceNode::kRectangle);
 }
 
 
 PointNode* Scene::CreatePoint(const Vec3& origin)
 {
-    return mModelManager->CreatePoint(origin);
+    return mModelEditor->CreatePoint(origin);
 }
 
 
 LineNode* Scene::CreateLine(PointNode* startPoint, PointNode* endPoint)
 {
-    return mModelManager->CreateLine(startPoint, endPoint);
+    return mModelEditor->CreateLine(startPoint, endPoint);
 }
 
 PointNode* Scene::NearestPointToCenterInSphere(const Sphere& sSphere)
 {
-    return mModelManager->NearestPointToCenterInSphere(sSphere);
+    return mModelEditor->NearestPointToCenterInSphere(sSphere);
 }
 
 void Scene::UpdateNode(Node* pNode)
 {
-    mModelManager->UpdateNode(pNode);
+    mModelEditor->UpdateNode(pNode);
 }
 
 void Scene::RemoveNode(Node* pNode)
 {
-    mModelManager->RemoveNode(pNode);
+    mModelEditor->RemoveNode(pNode);
     mWorkspace->RemoveNode(pNode);
 }
 

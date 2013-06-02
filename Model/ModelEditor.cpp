@@ -1,32 +1,32 @@
 
-#include <Model/ModelManager.h>
+#include <Model/ModelEditor.h>
 
 namespace ftr {
 
-ModelManager::ModelManager()
+ModelEditor::ModelEditor()
     :mSelectedNode(NULL)
 {
-    mModelTreeManager = new class ModelTreeManager();
-    mModelFactory = new class ModelFactory(*mModelTreeManager);
+    mModelTree = new class ModelTree();
+    mModelFactory = new class ModelFactory(*mModelTree);
     mRootGroup = new Group();
-    mModelTreeManager->setRootNode(mRootGroup);
+    mModelTree->setRootNode(mRootGroup);
     
 }
 
-ModelManager::~ModelManager()
+ModelEditor::~ModelEditor()
 {
     FT_DELETE(mModelFactory);
-    FT_DELETE(mModelTreeManager);
+    FT_DELETE(mModelTree);
     FT_DELETE(mRootGroup);
 }
 
 #pragma mark - Instance
 
-PointNode* ModelManager::NearestPointToCenterInSphere(const Sphere& sSphere) const
+PointNode* ModelEditor::NearestPointToCenterInSphere(const Sphere& sSphere) const
 {
     std::vector<PointNode*> cPointsVector;
     Box sBox = sSphere.Box();
-    mModelTreeManager->PointNodesInBox(sBox, cPointsVector);
+    mModelTree->PointNodesInBox(sBox, cPointsVector);
     PointNode* pNearestPoint = NULL;
     float fNearestPointDistance = MAXFLOAT;
     float fDistance;
@@ -42,25 +42,25 @@ PointNode* ModelManager::NearestPointToCenterInSphere(const Sphere& sSphere) con
     return pNearestPoint;
 }
 
-void ModelManager::Select(Node* pNode)
+void ModelEditor::Select(Node* pNode)
 {
     mSelectedNode = pNode;
 }
 
-FaceNode* ModelManager::CreateRectangle(const Vec3& origin, const Vec3& size) const
+FaceNode* ModelEditor::CreateRectangle(const Vec3& origin, const Vec3& size) const
 {
     assert(mSelectedNode);
     FaceNode* pFace = mModelFactory->CreateRectangle(origin, size);
     mSelectedNode->AddNode(pFace);
     const FaceNode::TPointsVector& pointsVector = pFace->PointNodesVector();
     for(auto i = pointsVector.begin(); i != pointsVector.end(); ++i) {
-        mModelTreeManager->AddNode(*i);
+        mModelTree->AddNode(*i);
     }
     return pFace;
 }
 
 
-FaceNode* ModelManager::CreateFace(Vec3 origin, FaceNode::FaceType eType)
+FaceNode* ModelEditor::CreateFace(Vec3 origin, FaceNode::FaceType eType)
 {
     assert(mSelectedNode);
     FaceNode* pFace = mModelFactory->CreateFace(Vec3(origin.mX, 0.01, origin.mZ),
@@ -70,16 +70,16 @@ FaceNode* ModelManager::CreateFace(Vec3 origin, FaceNode::FaceType eType)
     return pFace;
 }
 
-PointNode* ModelManager::CreatePoint(Vec3 origin)
+PointNode* ModelEditor::CreatePoint(Vec3 origin)
 {
     assert(mSelectedNode);
     PointNode* pPoint = mModelFactory->CreatePoint(origin);
     mSelectedNode->AddNode(pPoint);
-    mModelTreeManager->AddNode(pPoint);
+    mModelTree->AddNode(pPoint);
     return pPoint;
 }
 
-LineNode* ModelManager::CreateLine(PointNode* startPoint, PointNode* endPoint)
+LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
 {
     assert(mSelectedNode);
     LineNode* line = mModelFactory->CreateLine(startPoint, endPoint);

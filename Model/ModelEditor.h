@@ -3,24 +3,24 @@
 
 #include <Model/ModelFactory.h>
 #include <Model/GroupNode.h>
-#include <Model/ModelTreeManager.h>
+#include <Model/ModelTree.h>
 
 namespace ftr {
 
-class ModelManager
+class ModelEditor
 {
 public:
-                            ModelManager();
-                            ~ModelManager();
+                            ModelEditor();
+                            ~ModelEditor();
     
     ModelFactory*         ModelFactory() const { return mModelFactory; }
-    ModelTreeManager*     ModelTreeManager() const { return  mModelTreeManager; }
+    ModelTree*     ModelTree() const { return  mModelTree; }
     PointNode*                NearestPointToCenterInSphere(const Sphere& sSphere) const;
-    void                    UpdateNode(Node* pNode) { mModelTreeManager->UpdateNode(pNode); }
-    void                    RemoveNode(Node* pNode) { mModelTreeManager->RemoveNode(pNode); }
+    void                    UpdateNode(Node* pNode) { mModelTree->UpdateNode(pNode); }
+    void                    RemoveNode(Node* pNode) { mModelTree->RemoveNode(pNode); }
     void                    Select(Node* pNode);
     Node*                 SelectedNode() const { return mSelectedNode; }
-    unsigned long           Size() { return mModelTreeManager->Size(); }
+    unsigned long           Size() { return mModelTree->Size(); }
     //
     // Creating
     //
@@ -31,7 +31,7 @@ public:
     
 private:
     class ModelFactory*         mModelFactory;
-    class ModelTreeManager*     mModelTreeManager;
+    class ModelTree*     mModelTree;
     Group*                mRootGroup;
     Node*                 mSelectedNode;
 };

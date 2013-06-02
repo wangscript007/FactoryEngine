@@ -6,8 +6,8 @@
 #include <Model/FaceNode.h>
 #include <Workspace/Workspace.h>
 #include <Scene/Camera.h>
-#include <Model/ModelManager.h>
-#include <Interaction/InteractionManager.h>
+#include <Model/ModelEditor.h>
+#include <Interaction/InteractionProvider.h>
 #include <Shading/ShadersBuilder.h>
 #include <Shading/ShadersLibrary.h>
 #include <Lighting/LightingCollection.h>
@@ -53,30 +53,30 @@ public:
     //
     // Model
     //
-    void              Select(Node* pNode) { mModelManager->Select(pNode); }
+    void              Select(Node* pNode) { mModelEditor->Select(pNode); }
     FaceNode*         CreateFace(const Vec3& origin);
     PointNode*        CreatePoint(const Vec3& origin);
     LineNode*         CreateLine(PointNode* startPoint, PointNode* endPoint);
     PointNode*        NearestPointToCenterInSphere(const Sphere& sSphere);
     void              UpdateNode(Node* pNode);
     void              RemoveNode(Node* pNode);
-    unsigned long     Size() { return mModelManager->Size(); }
+    unsigned long     Size() { return mModelEditor->Size(); }
     
-    InteractionManager* InteractionManager() const { return mInteractionManager; }
+    InteractionProvider* InteractionProvider() const { return mInteractionProvider; }
     Camera*           camera() const { return mCamera; }
     
 private:
     
     Workspace*        mWorkspace;
     Camera*           mCamera;
-    ModelManager*     mModelManager;
+    ModelEditor*     mModelEditor;
     ShadersBuilder*   mShadersBuilder;
     ShadersLibrary*   mShadersLibrary;
     LightingCollection* mLightingCollection;
     
     Layer*           mLayer;
     LayerRenderer*   mLayerRenderer;
-    class InteractionManager* mInteractionManager;    
+    class InteractionProvider* mInteractionProvider;    
 };
 
 }

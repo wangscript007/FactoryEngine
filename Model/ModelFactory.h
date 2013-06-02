@@ -10,14 +10,14 @@
 
 namespace ftr {
 
-class ModelTreeManager;
+class ModelTree;
 //
 // 
 //
 class ModelFactory
 {
 public:
-    ModelFactory(ModelTreeManager& modelTreeManager);
+    ModelFactory(ModelTree& ModelTree);
     ~ModelFactory() {}
     
     FaceNode*     CreateRectangle(const Vec3& origin, const Vec3& size) const;
@@ -28,7 +28,7 @@ public:
     LineNode*     CreateLine(PointNode* startPoint, PointNode* endPoint) const;
     
 private:
-    ModelTreeManager& mModelTreeManager;
+    ModelTree& mModelTree;
 };
 
 }

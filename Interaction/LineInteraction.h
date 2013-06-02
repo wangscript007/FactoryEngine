@@ -5,13 +5,13 @@
 
 namespace ftr {
 
-class ModelManager;
+class ModelEditor;
 class PointNode;
 
 class LineInteraction : public Node
 {
 public:
-    LineInteraction(ModelManager& modelManager);
+    LineInteraction(ModelEditor& ModelEditor);
     virtual ~LineInteraction() {}
     void Render(Layer& layer);
     void Begin();
@@ -21,7 +21,7 @@ public:
     void setEnd(Vec3 end);
     
 private:
-    ModelManager& mModelManager;
+    ModelEditor& mModelEditor;
     Vec3 mStart;
     Vec3 mEnd;
     bool mActive;

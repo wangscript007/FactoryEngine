@@ -1,41 +1,41 @@
 
-#include <Model/ModelTreeManager.h>
+#include <Model/ModelTree.h>
 #include <Model/PointNode.h>
 
 namespace ftr {
 
-ModelTreeManager::ModelTreeManager()
+ModelTree::ModelTree()
 {
     mOctree = new ftr::Octree(Box(Vec3(0.0f, 0.0f, 0.0f), Vec3(100.0f, 100.0f, 100.0f)));
 }
 
-ModelTreeManager::~ModelTreeManager()
+ModelTree::~ModelTree()
 {
     FT_DELETE(mOctree);
 }
 
 #pragma mark Instance
 
-void ModelTreeManager::setRootNode(Node *pRootNode)
+void ModelTree::setRootNode(Node *pRootNode)
 {
     mRootNode = pRootNode;
 }
 
-void ModelTreeManager::AddNode(Node* pNode)
+void ModelTree::AddNode(Node* pNode)
 {
     if (pNode->Type() == Node::kPoint) {
         mOctree->InsertPoint(static_cast<PointNode*>(pNode));
     }
 }
 
-void ModelTreeManager::UpdateNode(Node* pNode)
+void ModelTree::UpdateNode(Node* pNode)
 {
     if (pNode->Type() == Node::kPoint) {
         mOctree->UpdatePoint(static_cast<PointNode*>(pNode));
     }
 }
 
-void ModelTreeManager::RemoveNode(Node* pNode)
+void ModelTree::RemoveNode(Node* pNode)
 {
     if (pNode->Type() == Node::kPoint) {
         mOctree->RemovePoint(static_cast<PointNode*>(pNode));

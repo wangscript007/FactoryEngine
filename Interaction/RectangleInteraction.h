@@ -8,12 +8,12 @@
 
 namespace ftr {
 
-class  ModelManager;
+class  ModelEditor;
 
 class RectangleInteraction : public Node
 {
 public:   
-    RectangleInteraction(ModelManager& modelManager);
+    RectangleInteraction(ModelEditor& ModelEditor);
     virtual ~RectangleInteraction() {}
     
     void Render();
@@ -25,7 +25,7 @@ public:
 private:
     Polygon mPolygon;
     Rectangle3 mRect3;
-    ModelManager& mModelManager;
+    ModelEditor& mModelEditor;
     bool mActive;
 };
     

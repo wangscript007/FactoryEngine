@@ -1,12 +1,12 @@
 
 #include <Model/PointNode.h>
 #include <Interaction/LineInteraction.h>
-#include <Model/ModelManager.h>
+#include <Model/ModelEditor.h>
 
 namespace ftr {
 
-LineInteraction::LineInteraction(ModelManager& modelManager)
-    :mModelManager(modelManager)
+LineInteraction::LineInteraction(ModelEditor& ModelEditor)
+    :mModelEditor(ModelEditor)
     ,mActive(false)
     ,mStartPoint(NULL)
     ,mEndPoint(NULL)
@@ -29,7 +29,7 @@ void LineInteraction::Begin()
 {
     if (!mActive) {
         mActive = true;
-        mModelManager.SelectedNode()->AddNode(this);
+        mModelEditor.SelectedNode()->AddNode(this);
         mEndPoint = NULL;
         mStartPoint = NULL;
         mEnd = Vec3();
@@ -41,14 +41,14 @@ void LineInteraction::Step()
 {
     if (mActive) {
         mActive = false;
-        mModelManager.SelectedNode()->RemoveNode(this);
+        mModelEditor.SelectedNode()->RemoveNode(this);
         if (!mStartPoint) {
-            mStartPoint = mModelManager.CreatePoint(mStart);
+            mStartPoint = mModelEditor.CreatePoint(mStart);
         }
         if (!mEndPoint) {
-            mEndPoint = mModelManager.CreatePoint(mEnd);
+            mEndPoint = mModelEditor.CreatePoint(mEnd);
         };
-        mModelManager.CreateLine(mStartPoint, mEndPoint);
+        mModelEditor.CreateLine(mStartPoint, mEndPoint);
         mStartPoint = mEndPoint;
         mEndPoint = NULL;
         
@@ -62,7 +62,7 @@ void LineInteraction::End()
 
 void LineInteraction::setEnd(Vec3 end)
 {
-    PointNode* pNearPoint = mModelManager.NearestPointToCenterInSphere(Sphere(end, 0.5f));
+    PointNode* pNearPoint = mModelEditor.NearestPointToCenterInSphere(Sphere(end, 0.5f));
     if (pNearPoint) {
         mEnd = pNearPoint->mOrigin;
         mEndPoint = pNearPoint;
@@ -74,7 +74,7 @@ void LineInteraction::setEnd(Vec3 end)
 
 void LineInteraction::setStart(Vec3 start)
 {
-    PointNode* pNearPoint = mModelManager.NearestPointToCenterInSphere(Sphere(start, 0.5f));
+    PointNode* pNearPoint = mModelEditor.NearestPointToCenterInSphere(Sphere(start, 0.5f));
     if (pNearPoint) {
         mStart = pNearPoint->mOrigin;
         mStartPoint = pNearPoint;

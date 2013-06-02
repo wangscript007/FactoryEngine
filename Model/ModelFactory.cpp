@@ -4,12 +4,12 @@
 
 #include <Model/ModelFactory.h>
 #include <Model/PointNode.h>
-#include <Model/ModelTreeManager.h>
+#include <Model/ModelTree.h>
 
 namespace ftr {
 
-ModelFactory::ModelFactory(ModelTreeManager& modelTreeManager)
-    :mModelTreeManager(modelTreeManager)
+ModelFactory::ModelFactory(ModelTree& ModelTree)
+    :mModelTree(ModelTree)
 {
     
 }

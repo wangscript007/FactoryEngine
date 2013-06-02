@@ -1,12 +1,12 @@
 
 #include <Interaction/MoveInteraction.h>
-#include <Model/ModelManager.h>
+#include <Model/ModelEditor.h>
 #include <Math/Transformation.h>
 
 namespace ftr {
 
-MoveInteraction::MoveInteraction(ModelManager& modelManager)
-:mModelManager(modelManager)
+MoveInteraction::MoveInteraction(ModelEditor& ModelEditor)
+:mModelEditor(ModelEditor)
 ,mActive(false)
 {}
 
@@ -25,8 +25,8 @@ void MoveInteraction::setStart(Vec3 start)
 void MoveInteraction::setEnd(Vec3 end)
 {
     mEnd = end;
-    assert(mModelManager.SelectedNode()->Type() == Node::kLine);
-    mModelManager.SelectedNode()->Transform(Transformation::Translate(mEnd - mStart));
+    assert(mModelEditor.SelectedNode()->Type() == Node::kLine);
+    mModelEditor.SelectedNode()->Transform(Transformation::Translate(mEnd - mStart));
     mStart = end;
 }
 
