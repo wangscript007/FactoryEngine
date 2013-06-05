@@ -19,7 +19,7 @@ InteractionProvider::InteractionProvider(ModelEditor& modelEditor, Camera& camer
     mMoveInteraction = new class MoveInteraction(modelEditor);
     mRotationInteraction = new class RotationInteraction(modelEditor);
     mScaleInteraction = new class ScaleInteraction(modelEditor);
-    mCameraInercation = new class CameraInteraction(camera);
+    mCameraInteraction = new class CameraInteraction(camera);
 }
 
 InteractionProvider::~InteractionProvider()
@@ -29,7 +29,7 @@ InteractionProvider::~InteractionProvider()
     FT_DELETE(mMoveInteraction);
     FT_DELETE(mRotationInteraction);
     FT_DELETE(mScaleInteraction);
-    FT_DELETE(mCameraInercation);
+    FT_DELETE(mCameraInteraction);
 }
 
 }

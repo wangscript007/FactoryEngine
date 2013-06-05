@@ -69,12 +69,8 @@ void Scene::Prepare()
 void Scene::Render()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    //mShadersBuilder->shadersProgram()->Activate();
     mWorkspace->Render(*mLayer);
     mLayerRenderer->Render(*mLayer);
-    //mModelEditor->ModelTree()->Octree()->Render();
-    
-    //mShadersBuilder->shadersProgram()->Deactivate();
 }
     
 void Scene::ActivateProgram()
@@ -92,14 +88,7 @@ void Scene::setViewportRect(int x, int y, int width, int height)
     mCamera->setViewport(Frame(Vec2(x, y), Vec2(width, height)));
 }
 
-
 #pragma mark Lights
-
-
-void Scene::TurnOnLight(int index)
-{
-
-}
     
 #pragma mark Shading
     

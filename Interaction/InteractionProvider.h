@@ -23,7 +23,7 @@ public:
     MoveInteraction* MoveInteraction() const { return mMoveInteraction; }
     RotationInteraction* RotationInteraction() const { return mRotationInteraction; }
     ScaleInteraction* ScaleInteraction() const { return mScaleInteraction; }
-    CameraInteraction* CameraInercation() const { return mCameraInercation; }
+    CameraInteraction* CameraInteraction() const { return mCameraInteraction; }
     
 private:
     class RectangleInteraction* mRectangleInteraction;
@@ -31,7 +31,7 @@ private:
     class MoveInteraction* mMoveInteraction;
     class RotationInteraction* mRotationInteraction;
     class ScaleInteraction* mScaleInteraction;
-    class CameraInteraction* mCameraInercation;
+    class CameraInteraction* mCameraInteraction;
 };
 
 }

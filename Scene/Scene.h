@@ -27,9 +27,6 @@ public:
     void              Render();
     void              setViewportRect(int x, int y, int width, int height);
     
-    // Lights
-    void              TurnOnLight(int index);
-    
     // Shaders
     void              AddShader(const std::string& name, const std::string& source, GLenum type);
     void              PrepareShadersProgram();
