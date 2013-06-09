@@ -2,6 +2,8 @@
 #include <Shading/ShadersInputCore.h>
 
 namespace ftr {
+    
+const int ShadersInput::kLightsCount = 5;
 
 GLuint ShadersInput::AttributeLocation(const std::string& name) const
 {
@@ -53,9 +55,6 @@ void ShadersInput::InputLight(const LightData& lightData)
     glBindBuffer(GL_UNIFORM_BUFFER, mInput.light);
     glBufferData(GL_UNIFORM_BUFFER, sizeof(LightData), &lightData, GL_DYNAMIC_DRAW);
 }
-
-
-
     
 }
 
