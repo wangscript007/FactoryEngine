@@ -40,6 +40,7 @@ public:
         float quadraticAttenuation; // K2
     };
     
+    
     ShadersInput(GLuint programId) : mProgramId(programId) {}
     virtual ~ShadersInput() {}
     void BindOutput();

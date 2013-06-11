@@ -1,7 +1,9 @@
 
 #pragma once
 
+#include <Shading/ShadersInput.h>
 #include <Lighting/Light.h>
+
 
 namespace ftr {
 
@@ -22,6 +24,11 @@ public:
 protected:
     LightsVector mLightsVector;
     ShadersInput* mShadersInput;
+    
+private:
+    size_t ModelDataSize() const;
+    ShadersInput::LightData* Data() const;
+    
 };
     
 }

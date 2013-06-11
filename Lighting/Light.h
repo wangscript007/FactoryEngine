@@ -19,10 +19,10 @@ public:
     Light(Type type);
     virtual ~Light() {}
     
-    ShadersInput::LightData& lightData() { return mLightData; }
+    ShadersInput::LightData& data() { return mData; }
     
 private:
-    ShadersInput::LightData mLightData;
+    ShadersInput::LightData mData;
     Type mType;
 };
 

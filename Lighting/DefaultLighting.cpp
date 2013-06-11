@@ -1,5 +1,5 @@
 
-#include "DefaultLighting.h"
+#include <Lighting/DefaultLighting.h>
 
 namespace ftr {
     
@@ -19,10 +19,8 @@ DefaultLighting::~DefaultLighting()
 void DefaultLighting::SetupLights()
 {
     Light* light = AddLightWithType(Light::kLightDirectional);
-    light->lightData().position = Vec4(-5.0f, -5.0f, -5.0f, 1.0f);
-    light->lightData().intensity = 1.0f;
-    
-    mShadersInput->InputLight(light->lightData());
+    light->data().position = Vec4(-5.0f, -5.0f, -5.0f, 1.0f);
+    mShadersInput->InputLight(light->data());
 }
     
 Light* DefaultLighting::AddLightWithType(Light::Type type)
