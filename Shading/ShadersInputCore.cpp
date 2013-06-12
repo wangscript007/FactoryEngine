@@ -24,8 +24,9 @@ void ShadersInput::Init()
     mInput.vertex = AttributeLocation("position");
     mInput.normal = AttributeLocation("normal");
     mInput.color = AttributeLocation("color");
+    mInput.light = BlockBuffer("Light[0]");
     mInput.transform = BlockBuffer("Transform");
-    //mInput.light = BlockBuffer("Light");
+    
 }
 
 void ShadersInput::BindOutput()
@@ -53,7 +54,7 @@ void ShadersInput::InputTransform(const Transform& transform)
 void ShadersInput::InputLight(const LightData& lightData)
 {
     glBindBuffer(GL_UNIFORM_BUFFER, mInput.light);
-    glBufferData(GL_UNIFORM_BUFFER, sizeof(LightData), &lightData, GL_DYNAMIC_DRAW);
+    glBufferData(GL_UNIFORM_BUFFER, sizeof(LightData)*kLightsCount, &lightData, GL_DYNAMIC_DRAW);
 }
     
 }

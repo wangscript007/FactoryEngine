@@ -58,6 +58,7 @@ void Scene::Prepare()
     LightingModel* activeLightingModel = mLightingCollection->activeModel();
     activeLightingModel->setShadersInput(shadersInput);
     activeLightingModel->SetupLights();
+    activeLightingModel->SendDataToShader();
     
     mLayerRenderer = new LayerRenderer(*shadersInput);
     

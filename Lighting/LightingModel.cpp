@@ -30,6 +30,11 @@ size_t LightingModel::ModelDataSize() const
 {
     return sizeof(ShadersInput::LightData) * ShadersInput::kLightsCount;
 }
+    
+void LightingModel::SendDataToShader()
+{
+    mShadersInput->InputLight(*Data());
+}
         
 }
 

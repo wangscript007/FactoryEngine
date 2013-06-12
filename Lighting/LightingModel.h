@@ -20,7 +20,7 @@ public:
     virtual void SetupLights() = 0;
     
     void setShadersInput(ShadersInput* shadersInput) { mShadersInput = shadersInput; }
-    
+    void SendDataToShader();
 protected:
     LightsVector mLightsVector;
     ShadersInput* mShadersInput;
