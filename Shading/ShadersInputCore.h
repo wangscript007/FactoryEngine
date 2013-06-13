@@ -6,14 +6,31 @@ namespace ftr {
 class ShadersInput
 {
 public:
-    static const int kLightsCount;
+    enum UniformCounts {
+        kLightsCount = 2
+    };
+    
+   
     
     struct Input {
         GLuint vertex;
         GLuint normal;
         GLuint color;
         GLuint transform;
-        GLuint light;
+        struct Light {
+            GLuint ambient;
+            GLuint diffuse;
+            GLuint specular;
+            GLuint position;
+            GLuint halfVector;
+            GLuint spotDirection;
+            GLuint spotExponent;
+            GLuint spotCutoff;
+            GLuint spotCosCutoff;
+            GLuint constantAttenuation;
+            GLuint linearAttenuation;
+            GLuint quadraticAttenuation;
+        } light[kLightsCount];
     };
     
     struct Transform {
@@ -24,20 +41,25 @@ public:
     };
     
     struct LightData {
-        Vec4 ambient;               // Aclarri
-        Vec4 diffuse;               // Dcli
-        Vec4 specular;              // Scli
-        Vec4 position;              // Ppli
-        Vec4 halfVector;            // Derived: Hi
-        Vec3 spotDirection;         // Sdli
-        float spotExponent;         // Srli
-        float spotCutoff;           // Crli
-                                    // (range: [0.0,90.0], 180.0)
-        float spotCosCutoff;        // Derived: cos(Crli)
-                                    // (range: [1.0,0.0],-1.0)
-        float constantAttenuation;  // K0
-        float linearAttenuation;    // K1
-        float quadraticAttenuation; // K2
+        Vec4 ambient;
+        Vec4 diffuse;
+        Vec4 specular;
+        Vec4 position;
+        Vec4 halfVector;
+        Vec3 spotDirection;
+        float spotExponent;
+        float spotCutoff;
+        float spotCosCutoff;
+        float constantAttenuation;
+        float linearAttenuation;
+        float quadraticAttenuation;
+        LightData() :
+        spotExponent(1.0f),
+        spotCutoff(0.0),
+        spotCosCutoff(0.0),
+        constantAttenuation(0.0),
+        linearAttenuation(0.0),
+        quadraticAttenuation(0.0) {}
     };
     
     

@@ -3,7 +3,6 @@
 
 namespace ftr {
     
-const int ShadersInput::kLightsCount = 5;
 
 GLuint ShadersInput::AttributeLocation(const std::string& name) const
 {
@@ -24,8 +23,25 @@ void ShadersInput::Init()
     mInput.vertex = AttributeLocation("position");
     mInput.normal = AttributeLocation("normal");
     mInput.color = AttributeLocation("color");
-    mInput.light = BlockBuffer("Light[0]");
     mInput.transform = BlockBuffer("Transform");
+    
+    for (int i = 0; i < kLightsCount; i++) {
+        std::stringstream streamLocation;
+        streamLocation << "light"<< i << ".";
+        std::string locationString = streamLocation.str();
+        mInput.light[i].ambient = UniformLocation(locationString + "ambient");
+        mInput.light[i].diffuse = UniformLocation(locationString + "diffuse");
+        mInput.light[i].specular = UniformLocation(locationString + "specular");
+        mInput.light[i].position = UniformLocation(locationString + "position");
+        mInput.light[i].halfVector = UniformLocation(locationString + "halfVector");
+        mInput.light[i].spotDirection = UniformLocation(locationString + "spotDirection");
+        mInput.light[i].spotExponent = UniformLocation(locationString + "spotExponent");
+        mInput.light[i].spotCutoff = UniformLocation(locationString + "spotCutoff");
+        mInput.light[i].spotCosCutoff = UniformLocation(locationString + "spotCosCutoff");
+        mInput.light[i].constantAttenuation = UniformLocation(locationString + "constantAttenuation");
+        mInput.light[i].linearAttenuation = UniformLocation(locationString + "linearAttenuation");
+        mInput.light[i].quadraticAttenuation = UniformLocation(locationString + "quadraticAttenuation");
+    }
     
 }
 
@@ -53,8 +69,22 @@ void ShadersInput::InputTransform(const Transform& transform)
     
 void ShadersInput::InputLight(const LightData& lightData)
 {
-    glBindBuffer(GL_UNIFORM_BUFFER, mInput.light);
-    glBufferData(GL_UNIFORM_BUFFER, sizeof(LightData)*kLightsCount, &lightData, GL_DYNAMIC_DRAW);
+    const LightData* lightDataArray = &lightData;
+    for (int i = 0; i < kLightsCount; i++) {
+        glUniform4fv(mInput.light[i].ambient, 1, reinterpret_cast<const GLfloat*>(&lightDataArray[i].ambient));
+        glUniform4fv(mInput.light[i].diffuse, 1, reinterpret_cast<const GLfloat*>(&lightDataArray[i].diffuse));
+        glUniform4fv(mInput.light[i].specular, 1, reinterpret_cast<const GLfloat*>(&lightDataArray[i].specular));
+        glUniform4fv(mInput.light[i].position, 1, reinterpret_cast<const GLfloat*>(&lightDataArray[i].position));
+        glUniform4fv(mInput.light[i].halfVector, 1, reinterpret_cast<const GLfloat*>(&lightDataArray[i].halfVector));
+        glUniform3fv(mInput.light[i].spotDirection, 1, reinterpret_cast<const GLfloat*>(&lightDataArray[i].spotDirection));
+        glUniform1f(mInput.light[i].spotExponent, lightDataArray[i].spotExponent);
+        glUniform1f(mInput.light[i].spotCutoff, lightDataArray[i].spotCutoff);
+        glUniform1f(mInput.light[i].spotCosCutoff, lightDataArray[i].spotCosCutoff);
+        glUniform1f(mInput.light[i].constantAttenuation, lightDataArray[i].constantAttenuation);
+        glUniform1f(mInput.light[i].linearAttenuation, lightDataArray[i].linearAttenuation);
+        glUniform1f(mInput.light[i].quadraticAttenuation, lightDataArray[i].quadraticAttenuation);
+    }
+    
 }
     
 }

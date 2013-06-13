@@ -18,7 +18,7 @@ ShadersInput::LightData* LightingModel::Data() const
     assert(mLightsVector.size() <= ShadersInput::kLightsCount);
     ShadersInput::LightData* data = reinterpret_cast<ShadersInput::LightData*>(new char[ModelDataSize()]);
     for (int i = 0; i < mLightsVector.size(); ++i) {
-        data[i] = mLightsVector[i]->data();
+        data[i] = mLightsVector[i]->mData;
     }
     for (size_t i = mLightsVector.size(); i < ShadersInput::kLightsCount; ++i) {
         data[i] = ShadersInput::LightData();

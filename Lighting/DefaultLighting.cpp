@@ -17,9 +17,15 @@ DefaultLighting::~DefaultLighting()
 }
     
 void DefaultLighting::SetupLights()
-{
-    Light* light = AddLightWithType(Light::kLightDirectional);
-    light->data().position = Vec4(-5.0f, -5.0f, -5.0f, 1.0f);
+{    
+    Light* directionalLight = AddLightWithType(Light::kLightDirectional);
+    directionalLight->mData.diffuse = Vec4(1.0, 1.0, 1.0, 1.0);
+    directionalLight->mData.position = Vec4(0.0, 0.0, 1.0, 0.0);
+    /*
+    Light* directionalLight = AddLightWithType(Light::kLightDirectional);
+    directionalLight->mData.diffuse = Vec4(0.0, 1.0, 0.0, 1.0);
+    directionalLight->mData.position = Vec4(5.0f, 5.0f, 5.0f, 0.0f);
+    */
 }
     
 Light* DefaultLighting::AddLightWithType(Light::Type type)
