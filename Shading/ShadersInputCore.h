@@ -57,9 +57,9 @@ public:
         spotExponent(1.0f),
         spotCutoff(0.0),
         spotCosCutoff(0.0),
-        constantAttenuation(0.0),
-        linearAttenuation(0.0),
-        quadraticAttenuation(0.0) {}
+        constantAttenuation(1.0),
+        linearAttenuation(1.0),
+        quadraticAttenuation(1.0) {}
     };
     
     
