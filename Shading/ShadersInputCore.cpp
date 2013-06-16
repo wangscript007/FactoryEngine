@@ -24,8 +24,9 @@ void ShadersInput::Init()
     mInput.normal = AttributeLocation("normal");
     mInput.color = AttributeLocation("color");
     mInput.transform = BlockBuffer("Transform");
+    mInput.settings = BlockBuffer("Settings");
     mInput.windowSize = UniformLocation("windowSize");
-    for (int i = 0; i < kLightsCount; i++) {
+    for (int i = 0; i < 2; i++) {
         std::stringstream streamLocation;
         streamLocation << "light"<< i << ".";
         std::string locationString = streamLocation.str();
@@ -41,7 +42,9 @@ void ShadersInput::Init()
         mInput.light[i].constantAttenuation = UniformLocation(locationString + "constantAttenuation");
         mInput.light[i].linearAttenuation = UniformLocation(locationString + "linearAttenuation");
         mInput.light[i].quadraticAttenuation = UniformLocation(locationString + "quadraticAttenuation");
+        mInput.light[i].useLocalCoordinates = UniformLocation(locationString + "useLocalCoordinates");
     }
+    InputSettings(mSettings);
     
 }
 
@@ -52,19 +55,28 @@ void ShadersInput::BindOutput()
     
 GLuint ShadersInput::BlockBuffer(const std::string& name) const
 {
-    GLuint bindingPoint = 1, buffer, blockIndex;
+    static GLuint bindingPoint = 1;
+    GLuint buffer, blockIndex;
     blockIndex = glGetUniformBlockIndex(mProgramId, name.c_str());
     assert(blockIndex != GL_INVALID_INDEX);
     glUniformBlockBinding(mProgramId, blockIndex, bindingPoint);
     glGenBuffers(1, &buffer);
     glBindBufferBase(GL_UNIFORM_BUFFER, bindingPoint, buffer);
+    bindingPoint++;
     return buffer;
+}
+    
+void ShadersInput::InputSettings(const Settings& settings)
+{
+    glBindBuffer(GL_UNIFORM_BUFFER, mInput.settings);
+    glBufferData(GL_UNIFORM_BUFFER, sizeof(Settings), &settings, GL_DYNAMIC_DRAW);
 }
     
 void ShadersInput::InputTransform(const Transform& transform)
 {
     glBindBuffer(GL_UNIFORM_BUFFER, mInput.transform);
     glBufferData(GL_UNIFORM_BUFFER, sizeof(Transform), &transform, GL_DYNAMIC_DRAW);
+    InputSettings(mSettings);
 }
     
 void ShadersInput::InputWindowSize(const Vec2& windowSize)
@@ -72,10 +84,10 @@ void ShadersInput::InputWindowSize(const Vec2& windowSize)
     glUniform2fv(mInput.windowSize, 1, reinterpret_cast<const GLfloat*>(&windowSize));
 }
     
-void ShadersInput::InputLight(const LightData& lightData)
+void ShadersInput::InputLight(const Light::Data& lightData)
 {
-    const LightData* lightDataArray = &lightData;
-    for (int i = 0; i < kLightsCount; i++) {
+    const Light::Data* lightDataArray = &lightData;
+    for (int i = 0; i < mSettings.lightsCount; i++) {
         glUniform4fv(mInput.light[i].ambient, 1, reinterpret_cast<const GLfloat*>(&lightDataArray[i].ambient));
         glUniform4fv(mInput.light[i].diffuse, 1, reinterpret_cast<const GLfloat*>(&lightDataArray[i].diffuse));
         glUniform4fv(mInput.light[i].specular, 1, reinterpret_cast<const GLfloat*>(&lightDataArray[i].specular));
@@ -88,6 +100,7 @@ void ShadersInput::InputLight(const LightData& lightData)
         glUniform1f(mInput.light[i].constantAttenuation, lightDataArray[i].constantAttenuation);
         glUniform1f(mInput.light[i].linearAttenuation, lightDataArray[i].linearAttenuation);
         glUniform1f(mInput.light[i].quadraticAttenuation, lightDataArray[i].quadraticAttenuation);
+        glUniform1i(mInput.light[i].useLocalCoordinates, lightDataArray[i].useLocalCoordinates);
     }
 }
     

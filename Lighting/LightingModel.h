@@ -27,7 +27,7 @@ protected:
     
 private:
     size_t ModelDataSize() const;
-    ShadersInput::LightData* Data() const;
+    Light::Data* Data() const;
     
 };
     

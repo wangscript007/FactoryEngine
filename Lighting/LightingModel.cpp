@@ -13,26 +13,27 @@ LightingModel::~LightingModel()
     
 }
     
-ShadersInput::LightData* LightingModel::Data() const
+Light::Data* LightingModel::Data() const
 {
-    assert(mLightsVector.size() <= ShadersInput::kLightsCount);
-    ShadersInput::LightData* data = reinterpret_cast<ShadersInput::LightData*>(new char[ModelDataSize()]);
+    assert(mLightsVector.size() <= mShadersInput->mSettings.lightsCount);
+    Light::Data* data = reinterpret_cast<Light::Data*>(new char[ModelDataSize()]);
     for (int i = 0; i < mLightsVector.size(); ++i) {
         data[i] = mLightsVector[i]->mData;
     }
-    for (size_t i = mLightsVector.size(); i < ShadersInput::kLightsCount; ++i) {
-        data[i] = ShadersInput::LightData();
+    for (size_t i = mLightsVector.size(); i < mShadersInput->mSettings.lightsCount; ++i) {
+        data[i] = Light::Data();
     }
     return data;
 }
     
 size_t LightingModel::ModelDataSize() const
 {
-    return sizeof(ShadersInput::LightData) * ShadersInput::kLightsCount;
+    return sizeof(Light::Data) * mShadersInput->mSettings.lightsCount;
 }
     
 void LightingModel::SendDataToShader()
 {
+    mShadersInput->mSettings.lightsCount = static_cast<int>(mLightsVector.size());
     mShadersInput->InputLight(*Data());
 }
         

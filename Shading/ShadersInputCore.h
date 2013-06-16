@@ -1,22 +1,21 @@
 
 #pragma once
 
-namespace ftr {
+#include <Lighting/Light.h>
 
+#define MAX_LIGHTS_COUNT 5
+
+namespace ftr {
 class ShadersInput
 {
 public:
-    enum UniformCounts {
-        kLightsCount = 2
-    };
-    
-   
     
     struct Input {
         GLuint vertex;
         GLuint normal;
         GLuint color;
         GLuint transform;
+        GLuint settings;
         GLuint windowSize;
         struct Light {
             GLuint ambient;
@@ -31,7 +30,8 @@ public:
             GLuint constantAttenuation;
             GLuint linearAttenuation;
             GLuint quadraticAttenuation;
-        } light[kLightsCount];
+            GLuint useLocalCoordinates;
+        } light[MAX_LIGHTS_COUNT];
     };
     
     struct Transform {
@@ -41,28 +41,18 @@ public:
         Mat4 translation;
     };
     
-    struct LightData {
-        Vec4 ambient;
-        Vec4 diffuse;
-        Vec4 specular;
-        Vec4 position;
-        Vec4 halfVector;
-        Vec3 spotDirection;
-        float spotExponent;
-        float spotCutoff;
-        float spotCosCutoff;
-        float constantAttenuation;
-        float linearAttenuation;
-        float quadraticAttenuation;
-        LightData() :
-        spotExponent(1.0f),
-        spotCutoff(0.0),
-        spotCosCutoff(0.0),
-        constantAttenuation(1.0),
-        linearAttenuation(1.0),
-        quadraticAttenuation(1.0) {}
-    };
     
+    struct Settings {
+        int lightsCount;
+        int debugLineWidth;
+        int debugOn;
+        float debugFloatScale;
+        Settings() :
+        lightsCount(2),
+        debugOn(0),
+        debugLineWidth(2.0f),
+        debugFloatScale(1.0f) {}
+    };
     
     ShadersInput(GLuint programId) : mProgramId(programId) {}
     virtual ~ShadersInput() {}
@@ -78,12 +68,15 @@ public:
     GLuint vertexLocation() const { return mInput.vertex; }
     
     void InputTransform(const Transform& transform);
-    void InputLight(const LightData& lightData);
+    void InputSettings(const Settings& settings);
+    void InputLight(const Light::Data& lightData);
     void InputWindowSize(const Vec2& windowSize);
-    
+        
+    Settings mSettings;
 private:
     GLuint mProgramId;
     Input mInput;
+    
 };
     
 }
