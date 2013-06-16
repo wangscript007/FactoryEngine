@@ -17,6 +17,7 @@ public:
         GLuint normal;
         GLuint color;
         GLuint transform;
+        GLuint windowSize;
         struct Light {
             GLuint ambient;
             GLuint diffuse;
@@ -78,6 +79,7 @@ public:
     
     void InputTransform(const Transform& transform);
     void InputLight(const LightData& lightData);
+    void InputWindowSize(const Vec2& windowSize);
     
 private:
     GLuint mProgramId;

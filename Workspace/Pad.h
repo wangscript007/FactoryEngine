@@ -16,6 +16,7 @@ public:
     GLfloat mfScale;
     
     LinePrimitive linePrimitive[200];
+    RectanglePrimitive rectanglePrimitive;
 };
     
 }

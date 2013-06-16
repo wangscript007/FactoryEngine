@@ -25,7 +25,6 @@ void Pad::Render(Layer& layer)
             linePrimitive[index].setOption(Primitive::kUseDepth, true);
             linePrimitive[index].setOption(Primitive::kUseLighting, false);
             layer.AddPrimitive(linePrimitive[index++]);
-            ;
         }
 		x += mfScale;
     }
@@ -69,6 +68,15 @@ void Pad::Render(Layer& layer)
     linePrimitive[index].setOption(Primitive::kUseDepth, true);
     linePrimitive[index].setOption(Primitive::kUseLighting, false);
     layer.AddPrimitive(linePrimitive[index++]);
+    
+    static const Color4f color = Color4f(0.1f, 0.3f, 0.1f, 1.0f);
+    float k = 50;
+    rectanglePrimitive.mVec[0].set(k,0,k);
+    rectanglePrimitive.mVec[1].set(k,0,-k);
+    rectanglePrimitive.mVec[2].set(-k,0,-k);
+    rectanglePrimitive.mVec[3].set(-k,0,k);
+    rectanglePrimitive.color = color;
+    layer.AddPrimitive(rectanglePrimitive);
 }
 
 }

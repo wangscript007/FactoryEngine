@@ -24,7 +24,7 @@ void ShadersInput::Init()
     mInput.normal = AttributeLocation("normal");
     mInput.color = AttributeLocation("color");
     mInput.transform = BlockBuffer("Transform");
-    
+    mInput.windowSize = UniformLocation("windowSize");
     for (int i = 0; i < kLightsCount; i++) {
         std::stringstream streamLocation;
         streamLocation << "light"<< i << ".";
@@ -67,6 +67,11 @@ void ShadersInput::InputTransform(const Transform& transform)
     glBufferData(GL_UNIFORM_BUFFER, sizeof(Transform), &transform, GL_DYNAMIC_DRAW);
 }
     
+void ShadersInput::InputWindowSize(const Vec2& windowSize)
+{
+    glUniform2fv(mInput.windowSize, 1, reinterpret_cast<const GLfloat*>(&windowSize));
+}
+    
 void ShadersInput::InputLight(const LightData& lightData)
 {
     const LightData* lightDataArray = &lightData;
@@ -84,8 +89,8 @@ void ShadersInput::InputLight(const LightData& lightData)
         glUniform1f(mInput.light[i].linearAttenuation, lightDataArray[i].linearAttenuation);
         glUniform1f(mInput.light[i].quadraticAttenuation, lightDataArray[i].quadraticAttenuation);
     }
-    
 }
+    
     
 }
 

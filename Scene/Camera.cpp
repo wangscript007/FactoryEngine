@@ -82,6 +82,7 @@ void Camera::setViewport(const Frame& frame)
 {
     float size = std::max(frame.GetWidth(), frame.GetHeight());
     glViewport(0.0f, 0.0f, size, size);
+    mShadersInput->InputWindowSize(frame.GetExtent());
 }
     
 
