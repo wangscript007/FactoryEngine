@@ -18,38 +18,40 @@ DefaultLighting::~DefaultLighting()
     
 void DefaultLighting::SetupLights()
 {
-    Light* spotLight = AddLightWithType(Light::kLightPoint);
-    spotLight->mData.position = Vec4(5.0f, 5.0f, 5.0f, 1.0f);
-    spotLight->mData.ambient = Vec4(1.0f, 1.0f, 1.0f, 1.0f);
-    spotLight->mData.diffuse = Vec4(1.0f, 1.0f, 1.0f, 1.0f);
+    /*
+    Light* pointLight = AddLightWithType(Light::kLightPoint);
+    pointLight->mData.position = Vec4(0.0f, 50.0f, 0.0f, 1.0f);
+    pointLight->mData.specular = Vec4(1.0f, 1.0f, 1.0f, 1.0f);
+    pointLight->mData.diffuse = Vec4(1.0f, 1.0f, 1.0f, 1.0f);
+    pointLight->mData.ambient = Vec4(1.0f, 1.0f, 1.0f, 1.0f);
+    pointLight->mData.quadraticAttenuation = 0.001;
+    pointLight->mData.linearAttenuation = 0.1;
+    pointLight->mData.constantAttenuation = 0.01;
+    pointLight->mData.spotCutoff = 180.0;
+    pointLight->mData.spotExponent = 2;
+    pointLight->mData.spotCosCutoff = 0.01;
+    pointLight->mData.spotDirection = Vec3(0.0, -1.0, 0.0);
+    pointLight->mData.useLocalCoordinates = 1;
+    */
+    
+    Light* spotLight = AddLightWithType(Light::kLightSpot);
+    spotLight->mData.position = Vec4(0.0f, 20.0f, 0.0f, 1.0f);
     spotLight->mData.specular = Vec4(1.0f, 1.0f, 1.0f, 1.0f);
-    spotLight->mData.quadraticAttenuation = 0.05;
-    spotLight->mData.linearAttenuation = 0.01;
+    spotLight->mData.diffuse = Vec4(1.0f, 1.0f, 1.0f, 1.0f);
+    spotLight->mData.ambient = Vec4(1.0f, 1.0f, 1.0f, 1.0f);
+    spotLight->mData.quadraticAttenuation = 0.001;
+    spotLight->mData.linearAttenuation = 0.1;
     spotLight->mData.constantAttenuation = 0.01;
-    spotLight->mData.spotCutoff = 180.0;
-    spotLight->mData.spotCosCutoff = .0;
-    spotLight->mData.spotDirection = Vec3(1.0, 1.0, 0.0);
+    spotLight->mData.spotCutoff = 20.0;
+    spotLight->mData.spotExponent = 2;
+    spotLight->mData.spotCosCutoff = 0.01;
+    spotLight->mData.spotDirection = Vec3(0.0, -1.0, 0.0);
     spotLight->mData.useLocalCoordinates = 1;
     
     Light* directionalLight = AddLightWithType(Light::kLightDirectional);
-    directionalLight->mData.diffuse = Vec4(1.0, 1.0, 1.0, 0.0);
     directionalLight->mData.position = Vec4(0.0, 0.0, 1.0, 0.0);
-    directionalLight->mData.useLocalCoordinates = 1;
-    
-//    Light* spotLight = AddLightWithType(Light::kLightPoint);
-//    spotLight->mData.position = Vec4(5.0f, 5.0f, 5.0f, 1.0f);
-//    spotLight->mData.ambient = Vec4(1.0f, 1.0f, 1.0f, 1.0f);
-//    spotLight->mData.diffuse = Vec4(1.0f, 1.0f, 1.0f, 1.0f);
-//    spotLight->mData.specular = Vec4(1.0f, 1.0f, 1.0f, 1.0f);
-//    spotLight->mData.quadraticAttenuation = 0.05;
-//    spotLight->mData.linearAttenuation = 0.01;
-//    spotLight->mData.constantAttenuation = 0.01;
-//    spotLight->mData.spotCutoff = 180.0;
-//    spotLight->mData.spotCosCutoff = .0;
-//    spotLight->mData.spotDirection = Vec3(1.0, 1.0, 0.0);
-//    spotLight->mData.useLocalCoordinates = 1;
-
-
+    directionalLight->mData.diffuse = Vec4(1.0, 1.0, 1.0, 1.0);
+    directionalLight->mData.useLocalCoordinates = 0;
 }
     
 Light* DefaultLighting::AddLightWithType(Light::Type type)
