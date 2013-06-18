@@ -1,6 +1,5 @@
 
 #include <Interaction/InteractionAssistant.h>
-#include <Math/Utils.h>
 #include <Math/Geometry.h>
 
 namespace ftr {
@@ -9,6 +8,7 @@ const float InteractionAssistant::kSensitivity = 20.0f;
 
 Vec3 InteractionAssistant::AxisAlignedViewport(const Vec3& startScene, const Vec3& endViewport) const
 {
+    /*
     Vec3 start = Utils::Viewport(startScene);
     Vec3 current = endViewport - start;
     Vec3 axisX = Utils::Viewport(Vec3::X);
@@ -36,6 +36,7 @@ Vec3 InteractionAssistant::AxisAlignedViewport(const Vec3& startScene, const Vec
     // Unchanged
     //
     return endViewport;
+    */
 }
 
 }

@@ -51,9 +51,12 @@ typedef unsigned long long int  Quadrupleword;    // 8 bytes
 #include "Math/Mat3x2.h"
 #include "Math/Mat4.h"
 #include "Math/Frame.h"
-#include "Math/Utils.h"
 #include "Math/Rect.h"
 
+//
+// Utils
+//
+#include "Utils/Picker.h"
 //
 // Model
 //

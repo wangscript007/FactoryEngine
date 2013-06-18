@@ -45,7 +45,6 @@ void ShadersInput::Init()
         mInput.light[i].useLocalCoordinates = UniformLocation(locationString + "useLocalCoordinates");
     }
     InputSettings(mSettings);
-    
 }
 
 void ShadersInput::BindOutput()

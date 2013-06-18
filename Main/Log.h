@@ -3,7 +3,7 @@
 //
 #pragma once
 
-#ifdef DEBUG 
+#ifdef DEBUG
     #define Log(flags, format, ...) Logf(__LINE__, __PRETTY_FUNCTION__, flags, format, ##__VA_ARGS__) 
 #else
     #define Log(flags, format, ...) ((void)0)

@@ -19,6 +19,10 @@ public:
                       FTDouble near, FTDouble far);
     
     static Mat4 LookAt(const Vec3& eye, const Vec3& center, const Vec3& up);
+    static Vec3 UnProject(const Vec3& window,
+                          const Mat4& modelview,
+                          const Mat4& projection,
+                          const Frame& viewport);
 };
 
 }
