@@ -49,7 +49,7 @@ void Scene::Prepare()
     mShadersBuilder->LinkProgram();
     mShadersBuilder->shadersProgram()->Activate();
     
-    mCamera = new Camera(Vec3(0.0f, 0.0f, 30.0f));
+    mCamera = new class Camera(Vec3(0.0f, 0.0f, 30.0f));
     mCamera->setProjection(kProjectionPerspective);
     ShadersInput* shadersInput = mShadersBuilder->shadersProgram()->shaderInput();
     mCamera->setShadersInput(shadersInput);

@@ -29,7 +29,8 @@ public:
     void setProjection(Projection projectionMode);
     void setShadersInput(ShadersInput* shadersInput) { mShadersInput = shadersInput; }
     void setViewport(const Frame& frame);
-    
+    const Mat4& ProjectionMatrix() const;
+    const Mat4& ModelviewMatrix() const;
 private:
     Vec3 mEyePosition;
     Vec3 mTranslation;

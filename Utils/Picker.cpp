@@ -47,7 +47,5 @@ GLfloat Picker::DepthAtPoint(const Vec2& point)
 }
 
     
-
-    
 }
 

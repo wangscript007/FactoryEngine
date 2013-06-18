@@ -85,6 +85,16 @@ void Camera::setViewport(const Frame& frame)
     mShadersInput->InputWindowSize(frame.GetExtent());
 }
     
+const Mat4& Camera::ProjectionMatrix() const
+{
+    return mTransform.projection;
+}
+    
+const Mat4& Camera::ModelviewMatrix() const
+{
+    return mTransform.translation;
+}
+    
 
 }
 

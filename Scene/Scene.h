@@ -47,10 +47,11 @@ public:
     unsigned long     Size() { return mModelEditor->Size(); }
     
     InteractionProvider* InteractionProvider() const { return mInteractionProvider; }
+    Camera*           Camera() const { return mCamera; }
 private:
     
     Workspace*        mWorkspace;
-    Camera*           mCamera;
+    class Camera*           mCamera;
     ModelEditor*     mModelEditor;
     ShadersBuilder*   mShadersBuilder;
     ShadersLibrary*   mShadersLibrary;
