@@ -27,7 +27,7 @@ public:
     };
     
     
-    Primitive(): mIsInvalid(true), mOptions(kUseNone) {}
+    Primitive(): mIsInvalid(true), mOptions(kUseNone), mRenderData(NULL) {}
     virtual ~Primitive() {
         if(mRenderData) {
             delete[] mRenderData;
