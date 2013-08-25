@@ -25,7 +25,7 @@ void RotationInteraction::setStart(Vec3 start)
 void RotationInteraction::setEnd(Vec3 end)
 {
     mEnd = end;
-    assert(mModelEditor.SelectedNode()->Type() == Node::kLine);
+    //assert(mModelEditor.SelectedNode()->Type() == Node::kLine);
     mModelEditor.SelectedNode()->Transform(Transformation::Rotate(mEnd - mStart));
     mStart = end;
 }

@@ -9,6 +9,11 @@ Shader::Shader(const Data& data)
     assert((mType == GL_FRAGMENT_SHADER) || (mType == GL_VERTEX_SHADER));
 }
     
+Shader::~Shader()
+{
+    glDeleteShader(mId);
+}
+    
 void Shader::Compile()
 {
     mId = glCreateShader(mType);

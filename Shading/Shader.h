@@ -15,7 +15,7 @@ public:
     };
 
     Shader(const Data& data);
-    virtual ~Shader() {}
+    virtual ~Shader();
     
     void Compile();
     
