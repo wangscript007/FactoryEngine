@@ -27,11 +27,8 @@ void Camera::Look()
     mTransform.rotation = Transformation::RotateAroundAxis(mRotation.mX, side);
     mTransform.rotation *= Transformation::RotateAroundAxis(mRotation.mY, Vec3::Y);
     mTransform.view = Transformation::LookAt(mEyePosition, target, Vec3::Y);
-    
-    mModelviewMatrix = mTransform.translation * mTransform.view * mTransform.rotation;
-    
-    
     mTransform.translation = Transformation::Translate(mTranslation);
+    mModelviewMatrix = mTransform.translation * mTransform.view * mTransform.rotation;
     if (mShadersInput) {
         mShadersInput->InputTransform(mTransform);
     }

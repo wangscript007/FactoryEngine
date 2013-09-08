@@ -14,8 +14,25 @@ public:
         GLuint vertex;
         GLuint normal;
         GLuint color;
+#ifdef USE_BLOCK_BUFFER
         GLuint transform;
         GLuint settings;
+#else
+        struct Transform {
+            GLuint view;
+            GLuint projection;
+            GLuint rotation;
+            GLuint translation;
+        } transform;
+        
+        struct Settings {
+            GLuint lightsCount;
+            GLuint debugLineWidth;
+            GLuint debugOn;
+            GLuint debugFloatScale;
+        } settings;
+#endif
+        
         GLuint windowSize;
         struct Light {
             GLuint ambient;
@@ -49,7 +66,7 @@ public:
         float debugFloatScale;
         Settings() :
         lightsCount(2),
-        debugOn(1),
+        debugOn(0),
         debugLineWidth(2.0f),
         debugFloatScale(1.0f) {}
     };

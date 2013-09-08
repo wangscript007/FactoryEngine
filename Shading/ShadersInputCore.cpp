@@ -21,11 +21,23 @@ GLuint ShadersInput::UniformLocation(const std::string& name) const
 void ShadersInput::Init()
 {
     mInput.vertex = AttributeLocation("position");
-    mInput.normal = AttributeLocation("normal");
     mInput.color = AttributeLocation("color");
+    mInput.normal = AttributeLocation("normal");
 #ifndef RECTANGLE_TEST
+#ifdef USE_BLOCK_BUFFER
     mInput.transform = BlockBuffer("Transform");
     mInput.settings = BlockBuffer("Settings");
+#else
+    mInput.transform.view = UniformLocation("transformVar.view");
+    mInput.transform.projection = UniformLocation("transformVar.projection");
+    mInput.transform.rotation = UniformLocation("transformVar.rotation");
+    mInput.transform.translation = UniformLocation("transformVar.translation");
+    
+    mInput.settings.lightsCount = UniformLocation("settingsVar.lightsCount");
+    mInput.settings.debugLineWidth = UniformLocation("settingsVar.debugLineWidth");
+    mInput.settings.debugOn = UniformLocation("settingsVar.debugOn");
+    mInput.settings.debugFloatScale = UniformLocation("settingsVar.debugFloatScale");
+#endif
     mInput.windowSize = UniformLocation("windowSize");
     for (int i = 0; i < 2; i++) {
         std::stringstream streamLocation;
@@ -45,7 +57,6 @@ void ShadersInput::Init()
         mInput.light[i].quadraticAttenuation = UniformLocation(locationString + "quadraticAttenuation");
         mInput.light[i].useLocalCoordinates = UniformLocation(locationString + "useLocalCoordinates");
     }
-    InputSettings(mSettings);
 #endif
 }
 
@@ -56,10 +67,9 @@ void ShadersInput::BindOutput()
     
 GLuint ShadersInput::BlockBuffer(const std::string& name) const
 {
-#ifdef RECTANGLE_TEST
+#ifndef USE_BLOCK_BUFFER
     return 0;
 #endif
-
     static GLuint bindingPoint = 1;
     GLuint buffer, blockIndex;
     blockIndex = glGetUniformBlockIndex(mProgramId, name.c_str());
@@ -73,12 +83,15 @@ GLuint ShadersInput::BlockBuffer(const std::string& name) const
     
 void ShadersInput::InputSettings(const Settings& settings)
 {
-#ifdef RECTANGLE_TEST
-    return;
-#endif
-
+#ifdef USE_BLOCK_BUFFER
     glBindBuffer(GL_UNIFORM_BUFFER, mInput.settings);
     glBufferData(GL_UNIFORM_BUFFER, sizeof(Settings), &settings, GL_DYNAMIC_DRAW);
+#else
+    glUniform1i(mInput.settings.lightsCount, settings.lightsCount);
+    glUniform1i(mInput.settings.debugLineWidth, settings.debugLineWidth);
+    glUniform1i(mInput.settings.debugOn, settings.debugOn);
+    glUniform1f(mInput.settings.debugFloatScale, settings.debugFloatScale);
+#endif
 }
     
 void ShadersInput::InputTransform(const Transform& transform)
@@ -86,10 +99,21 @@ void ShadersInput::InputTransform(const Transform& transform)
 #ifdef RECTANGLE_TEST
     return;
 #endif
-
+#ifdef USE_BLOCK_BUFFER
     glBindBuffer(GL_UNIFORM_BUFFER, mInput.transform);
     glBufferData(GL_UNIFORM_BUFFER, sizeof(Transform), &transform, GL_DYNAMIC_DRAW);
+#else
+    const GLfloat* view         = reinterpret_cast<const GLfloat*>(&transform.view);
+    const GLfloat* projection   = reinterpret_cast<const GLfloat*>(&transform.projection);
+    const GLfloat* rotation     = reinterpret_cast<const GLfloat*>(&transform.rotation);
+    const GLfloat* translation  = reinterpret_cast<const GLfloat*>(&transform.translation);
+    glUniformMatrix4fv(mInput.transform.view,  1, false, view);
+    glUniformMatrix4fv(mInput.transform.projection,  1, false, projection);
+    glUniformMatrix4fv(mInput.transform.rotation,  1, false, rotation);
+    glUniformMatrix4fv(mInput.transform.translation,  1, false, translation);
     InputSettings(mSettings);
+#endif
+ 
 }
     
 void ShadersInput::InputWindowSize(const Vec2& windowSize)

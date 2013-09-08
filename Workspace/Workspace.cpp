@@ -50,7 +50,7 @@ Workspace::~Workspace()
 
 void Workspace::Render(Layer& layer)
 {
-//    mTestRactangle->Render(*mTestLayer);
+    mTestRactangle->Render(*mTestLayer);
     mPad->Render(*mPadLayer);
     mHUD->Render(*mHudLayer);
     mBounds->Render(*mBoundsLayer);
