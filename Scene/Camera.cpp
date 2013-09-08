@@ -27,6 +27,10 @@ void Camera::Look()
     mTransform.rotation = Transformation::RotateAroundAxis(mRotation.mX, side);
     mTransform.rotation *= Transformation::RotateAroundAxis(mRotation.mY, Vec3::Y);
     mTransform.view = Transformation::LookAt(mEyePosition, target, Vec3::Y);
+    
+    mModelviewMatrix = mTransform.translation * mTransform.view * mTransform.rotation;
+    
+    
     mTransform.translation = Transformation::Translate(mTranslation);
     if (mShadersInput) {
         mShadersInput->InputTransform(mTransform);
@@ -92,7 +96,7 @@ const Mat4& Camera::ProjectionMatrix() const
     
 const Mat4& Camera::ModelviewMatrix() const
 {
-    return mTransform.translation;
+    return mModelviewMatrix;
 }
     
 

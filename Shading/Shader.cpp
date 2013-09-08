@@ -11,7 +11,7 @@ Shader::Shader(const Data& data)
     
 Shader::~Shader()
 {
-    glDeleteShader(mId);
+//    glDeleteShader(mId);
 }
     
 void Shader::Compile()

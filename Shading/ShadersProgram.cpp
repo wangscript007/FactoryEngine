@@ -12,7 +12,7 @@ ShadersProgram::ShadersProgram()
     
 ShadersProgram:: ~ShadersProgram()
 {
-    glDeleteProgram(mId);
+//    glDeleteProgram(mId);
     FT_DELETE(mShadersInput);
 }
     

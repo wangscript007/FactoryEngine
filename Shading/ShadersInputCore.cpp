@@ -23,6 +23,7 @@ void ShadersInput::Init()
     mInput.vertex = AttributeLocation("position");
     mInput.normal = AttributeLocation("normal");
     mInput.color = AttributeLocation("color");
+#ifndef RECTANGLE_TEST
     mInput.transform = BlockBuffer("Transform");
     mInput.settings = BlockBuffer("Settings");
     mInput.windowSize = UniformLocation("windowSize");
@@ -45,15 +46,20 @@ void ShadersInput::Init()
         mInput.light[i].useLocalCoordinates = UniformLocation(locationString + "useLocalCoordinates");
     }
     InputSettings(mSettings);
+#endif
 }
 
 void ShadersInput::BindOutput()
 {
-    glBindFragDataLocation(mProgramId, 0, "outputF");
+    glBindFragDataLocation(mProgramId, 0, "color");
 }
     
 GLuint ShadersInput::BlockBuffer(const std::string& name) const
 {
+#ifdef RECTANGLE_TEST
+    return 0;
+#endif
+
     static GLuint bindingPoint = 1;
     GLuint buffer, blockIndex;
     blockIndex = glGetUniformBlockIndex(mProgramId, name.c_str());
@@ -67,12 +73,20 @@ GLuint ShadersInput::BlockBuffer(const std::string& name) const
     
 void ShadersInput::InputSettings(const Settings& settings)
 {
+#ifdef RECTANGLE_TEST
+    return;
+#endif
+
     glBindBuffer(GL_UNIFORM_BUFFER, mInput.settings);
     glBufferData(GL_UNIFORM_BUFFER, sizeof(Settings), &settings, GL_DYNAMIC_DRAW);
 }
     
 void ShadersInput::InputTransform(const Transform& transform)
 {
+#ifdef RECTANGLE_TEST
+    return;
+#endif
+
     glBindBuffer(GL_UNIFORM_BUFFER, mInput.transform);
     glBufferData(GL_UNIFORM_BUFFER, sizeof(Transform), &transform, GL_DYNAMIC_DRAW);
     InputSettings(mSettings);
@@ -80,11 +94,19 @@ void ShadersInput::InputTransform(const Transform& transform)
     
 void ShadersInput::InputWindowSize(const Vec2& windowSize)
 {
+#ifdef RECTANGLE_TEST
+    return;
+#endif
+
     glUniform2fv(mInput.windowSize, 1, reinterpret_cast<const GLfloat*>(&windowSize));
 }
     
 void ShadersInput::InputLight(const Light::Data& lightData)
 {
+#ifdef RECTANGLE_TEST
+    return;
+#endif
+
     const Light::Data* lightDataArray = &lightData;
     for (int i = 0; i < mSettings.lightsCount; i++) {
         glUniform4fv(mInput.light[i].ambient, 1, reinterpret_cast<const GLfloat*>(&lightDataArray[i].ambient));

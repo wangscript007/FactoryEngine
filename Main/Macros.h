@@ -55,6 +55,7 @@ Copyright (C) 2012 Apple Inc. All Rights Reserved.
 */
 #pragma once
 
+//#define RECTANGLE_TEST
 
 #if GLES
 

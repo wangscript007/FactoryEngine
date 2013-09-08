@@ -49,7 +49,7 @@ public:
         float debugFloatScale;
         Settings() :
         lightsCount(2),
-        debugOn(0),
+        debugOn(1),
         debugLineWidth(2.0f),
         debugFloatScale(1.0f) {}
     };

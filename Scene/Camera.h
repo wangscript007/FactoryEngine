@@ -37,6 +37,8 @@ private:
     Vec3 mRotation;
         
     Projection mProjection;
+    Mat4 mModelviewMatrix;
+    
     ShadersInput* mShadersInput;
     ShadersInput::Transform mTransform;
 };

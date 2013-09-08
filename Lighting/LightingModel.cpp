@@ -36,6 +36,6 @@ void LightingModel::SendDataToShader()
     mShadersInput->mSettings.lightsCount = static_cast<int>(mLightsVector.size());
     mShadersInput->InputLight(*Data());
 }
-        
+    
 }
 

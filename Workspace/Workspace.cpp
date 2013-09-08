@@ -25,13 +25,13 @@ Workspace::Workspace(Layer* layer)
     mPadLayer->setDepth(1);
     mBoundsLayer->setDepth(2);
     mHudLayer->setDepth(3);
-    mModelLayer->setDepth(4);
+    //mModelLayer->setDepth(4);
     mTestLayer->setDepth(5);
     
     layer->AddSublayer(mHudLayer);
     layer->AddSublayer(mBoundsLayer);
     layer->AddSublayer(mPadLayer);
-    //layer->AddSublayer(mModelLayer);
+    layer->AddSublayer(mModelLayer);
     layer->AddSublayer(mTestLayer);
 }
 
@@ -51,11 +51,11 @@ Workspace::~Workspace()
 void Workspace::Render(Layer& layer)
 {
     mTestRactangle->Render(*mTestLayer);
-    mPad->Render(*mPadLayer);
-    mHUD->Render(*mHudLayer);
-    mBounds->Render(*mBoundsLayer);
-    //Node::Render(*mModelLayer);
-    //glFinish();
+    //mPad->Render(*mPadLayer);
+//    mHUD->Render(*mHudLayer);
+//    mBounds->Render(*mBoundsLayer);
+//    Node::Render(*mModelLayer);
+//    glFinish();
 }
 
 }
