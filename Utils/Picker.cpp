@@ -9,10 +9,10 @@ Vec3 Picker::Viewport(const Vec3& sceneVec)
     Mat4 modelviewMatrix[16];
     Mat4 projectionMatrix[16];
     glGetIntegerv (GL_VIEWPORT, viewport);
-    GLdouble x = sceneVec.mX;
-    GLdouble y = sceneVec.mY;
-    GLdouble z = sceneVec.mZ;
-    GLdouble resultX, resultY, resultZ;
+    double x = sceneVec.mX;
+    double y = sceneVec.mY;
+    double z = sceneVec.mZ;
+    double resultX, resultY, resultZ;
     /*
     gluProject(x, y, z,
                modelviewMatrix, projectionMatrix, viewport,
@@ -28,9 +28,9 @@ Vec3 Picker::Scene(const Vec3& windowVec)
     Mat4 projectionMatrix;
     //glGetIntegerv (GL_VIEWPORT, viewport);
     GLfloat depth = DepthAtPoint(Vec2(windowVec.mX, windowVec.mY));
-    GLdouble x = windowVec.mX;
-    GLdouble y = windowVec.mY;
-    GLdouble resultX, resultY, resultZ;
+    double x = windowVec.mX;
+    double y = windowVec.mY;
+    double resultX, resultY, resultZ;
     /*
     gluUnProject(x, y, depth,
                  modelviewMatrix, projectionMatrix, viewport,

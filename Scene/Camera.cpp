@@ -41,7 +41,6 @@ void Camera::MoveBy(const Vec2 deltaMove)
 {
     mTranslation.mX += deltaMove.mX;
     mTranslation.mY += deltaMove.mY;
-    //mTranslation.mZ -= deltaMove.mX;
     
 }
 
@@ -86,7 +85,9 @@ void Camera::setViewport(const Frame& frame)
 {
     float size = std::max(frame.GetWidth(), frame.GetHeight());
     glViewport(0.0f, 0.0f, size, size);
+#ifndef GLES
     mShadersInput->InputWindowSize(frame.GetExtent());
+#endif
 }
     
 const Mat4& Camera::ProjectionMatrix() const

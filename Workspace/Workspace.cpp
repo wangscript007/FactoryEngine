@@ -50,12 +50,11 @@ Workspace::~Workspace()
 
 void Workspace::Render(Layer& layer)
 {
-    mTestRactangle->Render(*mTestLayer);
-    //mPad->Render(*mPadLayer);
-//    mHUD->Render(*mHudLayer);
-//    mBounds->Render(*mBoundsLayer);
+//    mTestRactangle->Render(*mTestLayer);
+    mPad->Render(*mPadLayer);
+    mHUD->Render(*mHudLayer);
+    mBounds->Render(*mBoundsLayer);
 //    Node::Render(*mModelLayer);
-//    glFinish();
 }
 
 }
