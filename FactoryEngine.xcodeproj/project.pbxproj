@@ -46,6 +46,10 @@
 		605F1D1F171AE4CA00C8E4CC /* Vec3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605F1D0F171AE4CA00C8E4CC /* Vec3.cpp */; };
 		605F1D20171AE4CA00C8E4CC /* Vec3.h in Headers */ = {isa = PBXBuildFile; fileRef = 605F1D10171AE4CA00C8E4CC /* Vec3.h */; };
 		605F1D21171AE4CA00C8E4CC /* Vec4.h in Headers */ = {isa = PBXBuildFile; fileRef = 605F1D11171AE4CA00C8E4CC /* Vec4.h */; };
+		605FFDF317DFDC4C00DE90A9 /* Leap.h in Headers */ = {isa = PBXBuildFile; fileRef = 605FFDF117DFDC4C00DE90A9 /* Leap.h */; };
+		605FFDF417DFDC4C00DE90A9 /* LeapMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 605FFDF217DFDC4C00DE90A9 /* LeapMath.h */; };
+		605FFDFB17DFDD3400DE90A9 /* LeapListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605FFDF917DFDD3400DE90A9 /* LeapListener.cpp */; };
+		605FFDFC17DFDD3400DE90A9 /* LeapListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 605FFDFA17DFDD3400DE90A9 /* LeapListener.h */; };
 		60666D42175A4AD3007FF45F /* ShadersInputES.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60666D3E175A4ABE007FF45F /* ShadersInputES.cpp */; };
 		60666D43175A4AD7007FF45F /* ShadersInputES.h in Headers */ = {isa = PBXBuildFile; fileRef = 60666D3F175A4ABE007FF45F /* ShadersInputES.h */; };
 		607BFB11172C7F3500357B47 /* PolygonRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */; };
@@ -322,6 +326,10 @@
 		605F1D0F171AE4CA00C8E4CC /* Vec3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vec3.cpp; sourceTree = "<group>"; };
 		605F1D10171AE4CA00C8E4CC /* Vec3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vec3.h; sourceTree = "<group>"; };
 		605F1D11171AE4CA00C8E4CC /* Vec4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vec4.h; sourceTree = "<group>"; };
+		605FFDF117DFDC4C00DE90A9 /* Leap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leap.h; sourceTree = "<group>"; };
+		605FFDF217DFDC4C00DE90A9 /* LeapMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeapMath.h; sourceTree = "<group>"; };
+		605FFDF917DFDD3400DE90A9 /* LeapListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LeapListener.cpp; sourceTree = "<group>"; };
+		605FFDFA17DFDD3400DE90A9 /* LeapListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeapListener.h; sourceTree = "<group>"; };
 		60666D3E175A4ABE007FF45F /* ShadersInputES.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadersInputES.cpp; sourceTree = "<group>"; };
 		60666D3F175A4ABE007FF45F /* ShadersInputES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadersInputES.h; sourceTree = "<group>"; };
 		606A7F5C163C0C0700E4F243 /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
@@ -503,6 +511,17 @@
 			path = Scene;
 			sourceTree = "<group>";
 		};
+		605FFDF017DFDC4C00DE90A9 /* Leap */ = {
+			isa = PBXGroup;
+			children = (
+				605FFDF117DFDC4C00DE90A9 /* Leap.h */,
+				605FFDF217DFDC4C00DE90A9 /* LeapMath.h */,
+				605FFDF917DFDD3400DE90A9 /* LeapListener.cpp */,
+				605FFDFA17DFDD3400DE90A9 /* LeapListener.h */,
+			);
+			path = Leap;
+			sourceTree = "<group>";
+		};
 		608D70001735738C000A92F7 /* Shading */ = {
 			isa = PBXGroup;
 			children = (
@@ -561,6 +580,7 @@
 				60127559163BDB0000E98E34 /* Readme.rtf */,
 				D17C76641583BF440083E2B0 /* FactoryEngine.h */,
 				606A7F5C163C0C0700E4F243 /* Documentation */,
+				605FFDF017DFDC4C00DE90A9 /* Leap */,
 				604E939816A1C6CF00143522 /* Scripts */,
 				D1C708B915B3495400D64823 /* External */,
 				D17C766B1583C1580083E2B0 /* Main */,
@@ -849,6 +869,9 @@
 				60ACE68B175A5FD30032CEAD /* ShadersInputCore.h in Headers */,
 				601EC86C175B2901003DE2B8 /* CameraInteraction.h in Headers */,
 				60BC769A1770910200CA8F71 /* Picker.h in Headers */,
+				605FFDF317DFDC4C00DE90A9 /* Leap.h in Headers */,
+				605FFDF417DFDC4C00DE90A9 /* LeapMath.h in Headers */,
+				605FFDFC17DFDD3400DE90A9 /* LeapListener.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -880,6 +903,7 @@
 				D13DC907157A9F8C00C84006 /* Sources */,
 				D13DC908157A9F8C00C84006 /* Frameworks */,
 				D13DC909157A9F8C00C84006 /* Headers */,
+				605FFDE917DFD84B00DE90A9 /* Resources */,
 			);
 			buildRules = (
 				606A7F5E163C0C5400E4F243 /* PBXBuildRule */,
@@ -917,6 +941,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		605FFDE917DFD84B00DE90A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		60C6D03A174961470009EC3C /* Sources */ = {
@@ -1046,6 +1080,7 @@
 				60ACE68A175A5FCF0032CEAD /* ShadersInputCore.cpp in Sources */,
 				601EC86B175B2901003DE2B8 /* CameraInteraction.cpp in Sources */,
 				60BC7697177090F600CA8F71 /* Picker.cpp in Sources */,
+				605FFDFB17DFDD3400DE90A9 /* LeapListener.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1076,6 +1111,10 @@
 					"${SRCROOT}",
 					"${SRCROOT}/External/boost",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Desktop/LeapDeveloperKit/LeapSDK/lib\"",
+				);
 				PRODUCT_NAME = FactoryEngineIOS;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1102,6 +1141,10 @@
 					"${SRCROOT}/External",
 					"${SRCROOT}",
 					"${SRCROOT}/External/boost",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Desktop/LeapDeveloperKit/LeapSDK/lib\"",
 				);
 				PRODUCT_NAME = FactoryEngineIOS;
 				SDKROOT = iphoneos;
@@ -1185,9 +1228,14 @@
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/External/Box2D",
+					"${SRCROOT}/External/Leap",
 					"${SRCROOT}/External",
 					"${SRCROOT}",
 					"${SRCROOT}/External/boost",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Libs\"",
 				);
 				PRODUCT_NAME = FactoryEngine;
 				SDKROOT = macosx10.8;
@@ -1208,9 +1256,14 @@
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/External/Box2D",
+					"${SRCROOT}/External/Leap",
 					"${SRCROOT}/External",
 					"${SRCROOT}",
 					"${SRCROOT}/External/boost",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Libs\"",
 				);
 				PRODUCT_NAME = FactoryEngine;
 				SDKROOT = macosx10.8;

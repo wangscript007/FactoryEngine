@@ -33,6 +33,7 @@ Workspace::Workspace(Layer* layer)
     layer->AddSublayer(mPadLayer);
     layer->AddSublayer(mModelLayer);
     layer->AddSublayer(mTestLayer);
+    leapController.addListener(leapListener);
 }
 
 Workspace::~Workspace()
