@@ -16,7 +16,8 @@ namespace ftr {
 Scene::Scene() :
     mShadersBuilder(NULL),
     mLayerRenderer(NULL),
-    mCamera(NULL)
+    mCamera(NULL), 
+    mFramesCount(0)
 {
     mShadersLibrary = new ShadersLibrary();
     mLightingCollection = new LightingCollection();
@@ -74,6 +75,7 @@ void Scene::Render()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     mWorkspace->Render(*mLayer);
     mLayerRenderer->Render(*mLayer);
+    mFramesCount++;
 }
     
 void Scene::ActivateProgram()
@@ -89,6 +91,12 @@ void Scene::DeactivateProgram()
 void Scene::setViewportRect(int x, int y, int width, int height)
 {
     mCamera->setViewport(Frame(Vec2(x, y), Vec2(width, height)));
+}
+    
+void Scene::Step(float dTime)
+{
+    mFPS = mFramesCount/dTime;
+    mFramesCount = 0;
 }
 
 #pragma mark Lights

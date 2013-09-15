@@ -49,6 +49,9 @@ public:
     
     InteractionProvider* InteractionProvider() const { return mInteractionProvider; }
     Camera*             Camera() const { return mCamera; }
+    void                Step(float dTime);
+    float               FPS() const { return mFPS; }
+    
     
 private:
     Workspace*          mWorkspace;
@@ -63,7 +66,10 @@ private:
     
     Layer*              mLayer;
     LayerRenderer*      mLayerRenderer;
-    class InteractionProvider* mInteractionProvider;    
+    class InteractionProvider* mInteractionProvider;
+    
+    float mFPS;
+    int mFramesCount;
 };
 
 }
