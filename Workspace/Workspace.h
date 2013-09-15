@@ -11,7 +11,6 @@
 #include <Workspace/Bounds.h>
 #include <Workspace/TestRectangle.h>
 #include <Render/Layer.h>
-#include <Leap/LeapListener.h>
 
 
 
@@ -35,8 +34,7 @@ private:
     Layer* mBoundsLayer;
     Layer* mModelLayer;
     Layer* mTestLayer;
-    Leap::Controller leapController;
-    LeapListener leapListener;
+    
 };
 
 }

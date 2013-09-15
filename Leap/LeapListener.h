@@ -10,6 +10,7 @@
 
 #include <Leap/Leap.h>
 #include <Leap/LeapMath.h>
+#include <Interaction/CameraInteraction.h>
 
 namespace ftr {
     
@@ -21,6 +22,13 @@ public:
     virtual void onConnect(const Leap::Controller&);
     virtual void onDisconnect(const Leap::Controller&);
     virtual void onFrame(const Leap::Controller&);
+    
+    void setCameraInteraction(CameraInteraction* interaction) { mCameraInteraction = interaction; }
+
+private:
+
+    CameraInteraction* mCameraInteraction;
+    Leap::Frame mLastFrame;
 };
     
 }

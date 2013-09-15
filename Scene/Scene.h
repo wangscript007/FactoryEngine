@@ -11,6 +11,7 @@
 #include <Shading/ShadersBuilder.h>
 #include <Shading/ShadersLibrary.h>
 #include <Lighting/LightingCollection.h>
+#include <Leap/LeapListener.h>
 
 namespace ftr {
 
@@ -47,18 +48,21 @@ public:
     unsigned long     Size() { return mModelEditor->Size(); }
     
     InteractionProvider* InteractionProvider() const { return mInteractionProvider; }
-    Camera*           Camera() const { return mCamera; }
-private:
+    Camera*             Camera() const { return mCamera; }
     
-    Workspace*        mWorkspace;
-    class Camera*           mCamera;
-    ModelEditor*     mModelEditor;
-    ShadersBuilder*   mShadersBuilder;
-    ShadersLibrary*   mShadersLibrary;
+private:
+    Workspace*          mWorkspace;
+    class Camera*       mCamera;
+    ModelEditor*        mModelEditor;
+    ShadersBuilder*     mShadersBuilder;
+    ShadersLibrary*     mShadersLibrary;
     LightingCollection* mLightingCollection;
     
-    Layer*           mLayer;
-    LayerRenderer*   mLayerRenderer;
+    Leap::Controller    mLeapController;
+    LeapListener        mleapListener;
+    
+    Layer*              mLayer;
+    LayerRenderer*      mLayerRenderer;
     class InteractionProvider* mInteractionProvider;    
 };
 
