@@ -50,6 +50,9 @@
 		605FFDF417DFDC4C00DE90A9 /* LeapMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 605FFDF217DFDC4C00DE90A9 /* LeapMath.h */; };
 		605FFDFB17DFDD3400DE90A9 /* LeapListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605FFDF917DFDD3400DE90A9 /* LeapListener.cpp */; };
 		605FFDFC17DFDD3400DE90A9 /* LeapListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 605FFDFA17DFDD3400DE90A9 /* LeapListener.h */; };
+		60607E1017E63CF600708358 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60607E0F17E63CF600708358 /* XCTest.framework */; };
+		60607E1617E63CF600708358 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60607E1417E63CF600708358 /* InfoPlist.strings */; };
+		60607E1817E63CF600708358 /* FactoryEngine_Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60607E1717E63CF600708358 /* FactoryEngine_Tests.mm */; };
 		60666D42175A4AD3007FF45F /* ShadersInputES.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60666D3E175A4ABE007FF45F /* ShadersInputES.cpp */; };
 		60666D43175A4AD7007FF45F /* ShadersInputES.h in Headers */ = {isa = PBXBuildFile; fileRef = 60666D3F175A4ABE007FF45F /* ShadersInputES.h */; };
 		607BFB11172C7F3500357B47 /* PolygonRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */; };
@@ -287,6 +290,16 @@
 		};
 /* End PBXBuildRule section */
 
+/* Begin PBXContainerItemProxy section */
+		60607E1A17E63CF600708358 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D13DC902157A9F8B00C84006 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D13DC90A157A9F8C00C84006;
+			remoteInfo = FactoryEngine;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		6011AF191747C2FC0022E7A9 /* LigthtingModelFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LigthtingModelFactory.cpp; sourceTree = "<group>"; };
 		6011AF1A1747C2FC0022E7A9 /* LigthtingModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LigthtingModelFactory.h; sourceTree = "<group>"; };
@@ -334,6 +347,12 @@
 		605FFDF217DFDC4C00DE90A9 /* LeapMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeapMath.h; sourceTree = "<group>"; };
 		605FFDF917DFDD3400DE90A9 /* LeapListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LeapListener.cpp; sourceTree = "<group>"; };
 		605FFDFA17DFDD3400DE90A9 /* LeapListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeapListener.h; sourceTree = "<group>"; };
+		60607E0E17E63CF600708358 /* FactoryEngine Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FactoryEngine Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		60607E0F17E63CF600708358 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		60607E1317E63CF600708358 /* FactoryEngine Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FactoryEngine Tests-Info.plist"; sourceTree = "<group>"; };
+		60607E1517E63CF600708358 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		60607E1717E63CF600708358 /* FactoryEngine_Tests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FactoryEngine_Tests.mm; sourceTree = "<group>"; };
+		60607E1917E63CF600708358 /* FactoryEngine Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FactoryEngine Tests-Prefix.pch"; sourceTree = "<group>"; };
 		60666D3E175A4ABE007FF45F /* ShadersInputES.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadersInputES.cpp; sourceTree = "<group>"; };
 		60666D3F175A4ABE007FF45F /* ShadersInputES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadersInputES.h; sourceTree = "<group>"; };
 		606A7F5C163C0C0700E4F243 /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
@@ -436,6 +455,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		60607E0B17E63CF600708358 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60607E1017E63CF600708358 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		60C6D070174961470009EC3C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -528,6 +555,25 @@
 			path = Leap;
 			sourceTree = "<group>";
 		};
+		60607E1117E63CF600708358 /* FactoryEngine Tests */ = {
+			isa = PBXGroup;
+			children = (
+				60607E1717E63CF600708358 /* FactoryEngine_Tests.mm */,
+				60607E1217E63CF600708358 /* Supporting Files */,
+			);
+			path = "FactoryEngine Tests";
+			sourceTree = "<group>";
+		};
+		60607E1217E63CF600708358 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				60607E1317E63CF600708358 /* FactoryEngine Tests-Info.plist */,
+				60607E1417E63CF600708358 /* InfoPlist.strings */,
+				60607E1917E63CF600708358 /* FactoryEngine Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		608D70001735738C000A92F7 /* Shading */ = {
 			isa = PBXGroup;
 			children = (
@@ -599,6 +645,7 @@
 				6047DB8F16B46A5D0012286F /* Interaction */,
 				D13DC914157AA03200C84006 /* Workspace */,
 				6056C56D15DC5522008F8E92 /* Scene */,
+				60607E1117E63CF600708358 /* FactoryEngine Tests */,
 				D1E75032157BC4DB005C4CCF /* Frameworks */,
 				D13DC90C157A9F8C00C84006 /* Products */,
 			);
@@ -609,6 +656,7 @@
 			children = (
 				D13DC90B157A9F8C00C84006 /* libFactoryEngine.a */,
 				60C6D0B2174961470009EC3C /* libFactoryEngineIOS.a */,
+				60607E0E17E63CF600708358 /* FactoryEngine Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -730,6 +778,7 @@
 			children = (
 				D13DC912157A9FF500C84006 /* OpenGL.framework */,
 				60A03E401752423100D650B5 /* OpenGLES.framework */,
+				60607E0F17E63CF600708358 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -888,6 +937,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		60607E0D17E63CF600708358 /* FactoryEngine Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60607E1E17E63CF600708358 /* Build configuration list for PBXNativeTarget "FactoryEngine Tests" */;
+			buildPhases = (
+				60607E0A17E63CF600708358 /* Sources */,
+				60607E0B17E63CF600708358 /* Frameworks */,
+				60607E0C17E63CF600708358 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				60607E1B17E63CF600708358 /* PBXTargetDependency */,
+			);
+			name = "FactoryEngine Tests";
+			productName = "FactoryEngine Tests";
+			productReference = 60607E0E17E63CF600708358 /* FactoryEngine Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		60C6D039174961470009EC3C /* FactoryEngineIOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60C6D0AF174961470009EC3C /* Build configuration list for PBXNativeTarget "FactoryEngineIOS" */;
@@ -933,6 +1000,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Dimention;
+				TargetAttributes = {
+					60607E0D17E63CF600708358 = {
+						TestTargetID = D13DC90A157A9F8C00C84006;
+					};
+				};
 			};
 			buildConfigurationList = D13DC905157A9F8B00C84006 /* Build configuration list for PBXProject "FactoryEngine" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -948,6 +1020,7 @@
 			targets = (
 				D13DC90A157A9F8C00C84006 /* FactoryEngine */,
 				60C6D039174961470009EC3C /* FactoryEngineIOS */,
+				60607E0D17E63CF600708358 /* FactoryEngine Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -960,9 +1033,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		60607E0C17E63CF600708358 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60607E1617E63CF600708358 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		60607E0A17E63CF600708358 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60607E1817E63CF600708358 /* FactoryEngine_Tests.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		60C6D03A174961470009EC3C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1098,7 +1187,99 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		60607E1B17E63CF600708358 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D13DC90A157A9F8C00C84006 /* FactoryEngine */;
+			targetProxy = 60607E1A17E63CF600708358 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		60607E1417E63CF600708358 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60607E1517E63CF600708358 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		60607E1C17E63CF600708358 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FactoryEngine Tests/FactoryEngine Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/External/Box2D",
+					"${SRCROOT}/External",
+					"${SRCROOT}",
+				);
+				INFOPLIST_FILE = "FactoryEngine Tests/FactoryEngine Tests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.8;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		60607E1D17E63CF600708358 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FactoryEngine Tests/FactoryEngine Tests-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/External/Box2D",
+					"${SRCROOT}/External",
+					"${SRCROOT}",
+				);
+				INFOPLIST_FILE = "FactoryEngine Tests/FactoryEngine Tests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.8;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		60C6D0B0174961470009EC3C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1242,8 +1423,8 @@
 					"${SRCROOT}/External/Box2D",
 					"${SRCROOT}/External/Leap",
 					"${SRCROOT}/External",
-					"${SRCROOT}",
 					"${SRCROOT}/External/boost",
+					"${SRCROOT}",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1270,8 +1451,8 @@
 					"${SRCROOT}/External/Box2D",
 					"${SRCROOT}/External/Leap",
 					"${SRCROOT}/External",
-					"${SRCROOT}",
 					"${SRCROOT}/External/boost",
+					"${SRCROOT}",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1286,6 +1467,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		60607E1E17E63CF600708358 /* Build configuration list for PBXNativeTarget "FactoryEngine Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60607E1C17E63CF600708358 /* Debug */,
+				60607E1D17E63CF600708358 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		60C6D0AF174961470009EC3C /* Build configuration list for PBXNativeTarget "FactoryEngineIOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
