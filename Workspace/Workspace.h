@@ -12,6 +12,8 @@
 #include <Workspace/TestRectangle.h>
 #include <Render/Layer.h>
 
+
+
 namespace ftr {
 
 class Workspace : public Node
@@ -32,6 +34,7 @@ private:
     Layer* mBoundsLayer;
     Layer* mModelLayer;
     Layer* mTestLayer;
+    
 };
 
 }

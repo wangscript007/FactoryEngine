@@ -25,6 +25,8 @@ Scene::Scene() :
     mModelEditor = new ModelEditor();
     mModelEditor->ModelTree()->setRootNode(reinterpret_cast<Node*>(mWorkspace));
     mModelEditor->Select(mWorkspace);
+    
+    mLeapController.addListener(mleapListener);
 }
     
 Scene::~Scene()
@@ -54,7 +56,7 @@ void Scene::Prepare()
     ShadersInput* shadersInput = mShadersBuilder->shadersProgram()->shaderInput();
     mCamera->setShadersInput(shadersInput);
     mInteractionProvider = new class InteractionProvider(*mModelEditor, *mCamera);
-    
+    mleapListener.setCameraInteraction(mInteractionProvider->CameraInteraction());
     LightingModel* activeLightingModel = mLightingCollection->activeModel();
     activeLightingModel->setShadersInput(shadersInput);
     activeLightingModel->SetupLights();
