@@ -263,8 +263,9 @@ inline Mat4 Mat4::Transpose() const
 inline Mat4 Mat4::Invert() const
 {
     Mat4 result;
-    GluUtils::glhInvertMatrixf2(reinterpret_cast<const float*>(this),
-                                reinterpret_cast<float*>(&result));
+    int matrixIsInvertable = GluUtils::glhInvertMatrixf2(reinterpret_cast<const float*>(this),
+                                                         reinterpret_cast<float*>(&result));
+    assert(matrixIsInvertable);
     return result;
 }
     

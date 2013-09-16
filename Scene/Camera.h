@@ -16,6 +16,12 @@ typedef enum {
 class Camera : public Node
 {
 public:
+    typedef struct {
+        Mat4 projectionMatrix;
+        Mat4 modelviewMatrix;
+        Frame viewport;
+    } Parameters;
+    
     static const float kViewportScale;
     
     Camera(const Vec3& eyePosition);
@@ -29,14 +35,15 @@ public:
     void setProjection(Projection projectionMode);
     void setShadersInput(ShadersInput* shadersInput) { mShadersInput = shadersInput; }
     void setViewport(const Frame& frame);
-    const Mat4& ProjectionMatrix() const;
-    const Mat4& ModelviewMatrix() const;
+    const Parameters& getParameters() const { return mParameters; };
+    
 private:
     Vec3 mEyePosition;
     Vec3 mTranslation;
     Vec3 mRotation;
         
     Projection mProjection;
+    Parameters mParameters;
     Mat4 mModelviewMatrix;
     
     ShadersInput* mShadersInput;

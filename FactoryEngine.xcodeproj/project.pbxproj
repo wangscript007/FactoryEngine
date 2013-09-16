@@ -52,7 +52,6 @@
 		605FFDFC17DFDD3400DE90A9 /* LeapListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 605FFDFA17DFDD3400DE90A9 /* LeapListener.h */; };
 		60607E1017E63CF600708358 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60607E0F17E63CF600708358 /* XCTest.framework */; };
 		60607E1617E63CF600708358 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60607E1417E63CF600708358 /* InfoPlist.strings */; };
-		60607E1817E63CF600708358 /* FactoryEngine_Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60607E1717E63CF600708358 /* FactoryEngine_Tests.mm */; };
 		60666D42175A4AD3007FF45F /* ShadersInputES.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60666D3E175A4ABE007FF45F /* ShadersInputES.cpp */; };
 		60666D43175A4AD7007FF45F /* ShadersInputES.h in Headers */ = {isa = PBXBuildFile; fileRef = 60666D3F175A4ABE007FF45F /* ShadersInputES.h */; };
 		607BFB11172C7F3500357B47 /* PolygonRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */; };
@@ -112,6 +111,8 @@
 		60BD72261756807D007D7DC6 /* DefaultLighting.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BD3291174436EA00C2E593 /* DefaultLighting.h */; };
 		60BD72271756807D007D7DC6 /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6055CFCE17417D45009F1F46 /* Light.cpp */; };
 		60BD72281756807D007D7DC6 /* Light.h in Headers */ = {isa = PBXBuildFile; fileRef = 6055CFCF17417D45009F1F46 /* Light.h */; };
+		60C404EC17E64512009B0AD7 /* MathTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60C404EB17E64512009B0AD7 /* MathTest.mm */; };
+		60C404ED17E647C4009B0AD7 /* GluUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BA62A017E62F7800E14DFB /* GluUtils.cpp */; };
 		60C41BB41691BF5600DD0C09 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60C41BB21691BF5600DD0C09 /* Geometry.cpp */; };
 		60C41BB51691BF5600DD0C09 /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 60C41BB31691BF5600DD0C09 /* Geometry.h */; };
 		60C6D03B174961470009EC3C /* FaceNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D143779D157BCF0200A05B3B /* FaceNode.cpp */; };
@@ -351,7 +352,6 @@
 		60607E0F17E63CF600708358 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		60607E1317E63CF600708358 /* FactoryEngine Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FactoryEngine Tests-Info.plist"; sourceTree = "<group>"; };
 		60607E1517E63CF600708358 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		60607E1717E63CF600708358 /* FactoryEngine_Tests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FactoryEngine_Tests.mm; sourceTree = "<group>"; };
 		60607E1917E63CF600708358 /* FactoryEngine Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FactoryEngine Tests-Prefix.pch"; sourceTree = "<group>"; };
 		60666D3E175A4ABE007FF45F /* ShadersInputES.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadersInputES.cpp; sourceTree = "<group>"; };
 		60666D3F175A4ABE007FF45F /* ShadersInputES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadersInputES.h; sourceTree = "<group>"; };
@@ -398,6 +398,7 @@
 		60BD328D174436BD00C2E593 /* LightingCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightingCollection.h; sourceTree = "<group>"; };
 		60BD3290174436EA00C2E593 /* DefaultLighting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DefaultLighting.cpp; sourceTree = "<group>"; };
 		60BD3291174436EA00C2E593 /* DefaultLighting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultLighting.h; sourceTree = "<group>"; };
+		60C404EB17E64512009B0AD7 /* MathTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MathTest.mm; sourceTree = "<group>"; };
 		60C41BB21691BF5600DD0C09 /* Geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Geometry.cpp; sourceTree = "<group>"; };
 		60C41BB31691BF5600DD0C09 /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
 		60C6D0B2174961470009EC3C /* libFactoryEngineIOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFactoryEngineIOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -558,8 +559,8 @@
 		60607E1117E63CF600708358 /* FactoryEngine Tests */ = {
 			isa = PBXGroup;
 			children = (
-				60607E1717E63CF600708358 /* FactoryEngine_Tests.mm */,
 				60607E1217E63CF600708358 /* Supporting Files */,
+				60C404EB17E64512009B0AD7 /* MathTest.mm */,
 			);
 			path = "FactoryEngine Tests";
 			sourceTree = "<group>";
@@ -1048,7 +1049,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60607E1817E63CF600708358 /* FactoryEngine_Tests.mm in Sources */,
+				60C404EC17E64512009B0AD7 /* MathTest.mm in Sources */,
+				60C404ED17E647C4009B0AD7 /* GluUtils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

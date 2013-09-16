@@ -1,7 +1,9 @@
 
 #include <Math/GluUtils.h>
 
-int GluUtils::glhProjectf(float objx, float objy, float objz, float *modelview, float *projection, int *viewport, float *windowCoordinate)
+int GluUtils::glhProjectf(float objx, float objy, float objz,
+                          const float *modelview, const float *projection, const int *viewport,
+                          float *windowCoordinate)
 {
     //Transformation vectors
     float fTempo[8];
@@ -33,7 +35,9 @@ int GluUtils::glhProjectf(float objx, float objy, float objz, float *modelview, 
     return 1;
 }
 
-int GluUtils::glhUnProjectf(float winx, float winy, float winz, float *modelview, float *projection, int *viewport, float *objectCoordinate)
+int GluUtils::glhUnProjectf(float winx, float winy, float winz,
+                            const float *modelview, const  float *projection,  const int *viewport,
+                            float *objectCoordinate)
 {
     //Transformation matrices
     float m[16], A[16];
@@ -60,7 +64,7 @@ int GluUtils::glhUnProjectf(float winx, float winy, float winz, float *modelview
     return 1;
 }
 
-void GluUtils::MultiplyMatrices4by4OpenGL_FLOAT(float *result, float *matrix1, float *matrix2)
+void GluUtils::MultiplyMatrices4by4OpenGL_FLOAT(float *result, const float *matrix1,const float *matrix2)
 {
     result[0]=matrix1[0]*matrix2[0]+
     matrix1[4]*matrix2[1]+
@@ -128,7 +132,7 @@ void GluUtils::MultiplyMatrices4by4OpenGL_FLOAT(float *result, float *matrix1, f
     matrix1[15]*matrix2[15];
 }
 
-void MultiplyMatrixByVector4by4OpenGL_FLOAT(float *resultvector, const float *matrix, const float *pvector)
+void GluUtils::MultiplyMatrixByVector4by4OpenGL_FLOAT(float *resultvector, const float *matrix, const float *pvector)
 {
     resultvector[0]=matrix[0]*pvector[0]+matrix[4]*pvector[1]+matrix[8]*pvector[2]+matrix[12]*pvector[3];
     resultvector[1]=matrix[1]*pvector[0]+matrix[5]*pvector[1]+matrix[9]*pvector[2]+matrix[13]*pvector[3];

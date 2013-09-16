@@ -28,7 +28,8 @@ void Camera::Look()
     mTransform.rotation *= Transformation::RotateAroundAxis(mRotation.mY, Vec3::Y);
     mTransform.view = Transformation::LookAt(mEyePosition, target, Vec3::Y);
     mTransform.translation = Transformation::Translate(mTranslation);
-    mModelviewMatrix = mTransform.translation * mTransform.view * mTransform.rotation;
+    mParameters.modelviewMatrix = mTransform.rotation * mTransform.translation * mTransform.view;
+    mTransform.view = mParameters.modelviewMatrix;
     if (mShadersInput) {
         mShadersInput->InputTransform(mTransform);
     }
@@ -36,15 +37,15 @@ void Camera::Look()
 
 void Camera::MoveBy(const Vec2 deltaMove)
 {
-    mTranslation.mX += deltaMove.mX;
+    mTranslation.mX -= deltaMove.mX;
     mTranslation.mY += deltaMove.mY;
     
 }
 
 void Camera::RotateBy(const Vec2 deltaRotation)
 {
-    mRotation.mX -= deltaRotation.mX;
-    mRotation.mY -= deltaRotation.mY;
+    mRotation.mX += deltaRotation.mX;
+    mRotation.mY += deltaRotation.mY;
     
     double ip;
     modf(mRotation.mX/360, &ip);
@@ -76,10 +77,12 @@ void Camera::setProjection(Projection projectionMode)
                                                       2.0f, 2000.0);
             break;
     }
+    mParameters.projectionMatrix = mTransform.projection;
 }
     
 void Camera::setViewport(const Frame& frame)
 {
+    mParameters.viewport = frame;
     float size = std::max(frame.GetWidth(), frame.GetHeight());
     glViewport(0.0f, 0.0f, size, size);
 #ifndef GLES
@@ -87,17 +90,6 @@ void Camera::setViewport(const Frame& frame)
 #endif
 }
     
-const Mat4& Camera::ProjectionMatrix() const
-{
-    return mTransform.projection;
-}
-    
-const Mat4& Camera::ModelviewMatrix() const
-{
-    return mModelviewMatrix;
-}
-    
-
 }
 
 
