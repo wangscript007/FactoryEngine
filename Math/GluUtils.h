@@ -5,10 +5,10 @@ class GluUtils
 {
 public:
     static int glhProjectf(float objx, float objy, float objz,
-                           const float *modelview, const float *projection, const int *viewport,
+                           const float *modelview, const float *projection, const float *viewport,
                            float *windowCoordinate);
     static int glhUnProjectf(float winx, float winy, float winz,
-                             const float *modelview, const float *projection, const int *viewport,
+                             const float *modelview, const float *projection, const float *viewport,
                              float *objectCoordinate);
     static int glhInvertMatrixf2(const float *m, float *out);
 

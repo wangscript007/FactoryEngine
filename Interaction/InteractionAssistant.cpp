@@ -37,6 +37,7 @@ Vec3 InteractionAssistant::AxisAlignedViewport(const Vec3& startScene, const Vec
     //
     return endViewport;
     */
+    return Vec3();
 }
 
 }

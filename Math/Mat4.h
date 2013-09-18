@@ -51,7 +51,20 @@ public:
     Mat4              Transpose() const;
     Mat4              Invert() const;
     void              setArray(float* a);
+    void              DoubleArray(double* array) const;
 };
+    
+
+inline void Mat4::DoubleArray(double* array) const
+{
+    const int matrixSize = 4;
+    for (int i = 0; i < matrixSize; i++) {
+        for (int j = 0; j < matrixSize; j++) {
+            int index = i*matrixSize + j;
+            array[index] = static_cast<double>((*this)[i][j]);
+        }
+    }
+}
     
 inline void Mat4::setArray(float* a)
 {
@@ -60,6 +73,7 @@ inline void Mat4::setArray(float* a)
     mZ[0] = a[8]; mZ[1] = a[9]; mZ[2] = a[10]; mZ[3] = a[11];
     mW[0] = a[12]; mW[1] = a[13]; mW[2] = a[14]; mW[3] = a[15];
 }
+
 
 inline Mat4 Mat4::operator*(const Mat4& other) const
 {

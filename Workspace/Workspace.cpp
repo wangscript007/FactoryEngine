@@ -25,7 +25,7 @@ Workspace::Workspace(Layer* layer)
     mPadLayer->setDepth(1);
     mBoundsLayer->setDepth(2);
     mHudLayer->setDepth(3);
-    //mModelLayer->setDepth(4);
+    mModelLayer->setDepth(4);
     mTestLayer->setDepth(5);
     
     layer->AddSublayer(mHudLayer);
@@ -54,7 +54,7 @@ void Workspace::Render(Layer& layer)
     mPad->Render(*mPadLayer);
     mHUD->Render(*mHudLayer);
     mBounds->Render(*mBoundsLayer);
-//    Node::Render(*mModelLayer);
+    Node::Render(*mModelLayer);
 }
 
 }

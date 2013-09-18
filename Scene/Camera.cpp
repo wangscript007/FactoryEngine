@@ -7,7 +7,7 @@
 
 namespace ftr {
     
-const float Camera::kViewportScale = 0.3f;
+const float Camera::kViewportScale = 0.3;
 
 Camera::Camera(const Vec3& eyePosition)
     :mShadersInput(NULL)
@@ -69,12 +69,13 @@ void Camera::setProjection(Projection projectionMode)
         case kProjectionPerspective:
             mTransform.projection = Transformation::Frustum(-kViewportScale, kViewportScale,
                                                         -kViewportScale, kViewportScale,
-                                                        2.0f, 2000.0);
+                                                            2.0f, 200.0f);
+
             break;
         case kProjectionOrthographic:
             mTransform.projection = Transformation::Ortho(-kViewportScale, kViewportScale,
                                                       -kViewportScale, kViewportScale,
-                                                      2.0f, 2000.0);
+                                                      2.0f, 20.0);
             break;
     }
     mParameters.projectionMatrix = mTransform.projection;
@@ -82,9 +83,9 @@ void Camera::setProjection(Projection projectionMode)
     
 void Camera::setViewport(const Frame& frame)
 {
-    mParameters.viewport = frame;
     float size = std::max(frame.GetWidth(), frame.GetHeight());
     glViewport(0.0f, 0.0f, size, size);
+    mParameters.viewport = Frame(Vec2(), Vec2(size, size));
 #ifndef GLES
     mShadersInput->InputWindowSize(frame.GetExtent());
 #endif

@@ -2,7 +2,7 @@
 #include <Math/GluUtils.h>
 
 int GluUtils::glhProjectf(float objx, float objy, float objz,
-                          const float *modelview, const float *projection, const int *viewport,
+                          const float *modelview, const float *projection, const float *viewport,
                           float *windowCoordinate)
 {
     //Transformation vectors
@@ -36,7 +36,7 @@ int GluUtils::glhProjectf(float objx, float objy, float objz,
 }
 
 int GluUtils::glhUnProjectf(float winx, float winy, float winz,
-                            const float *modelview, const  float *projection,  const int *viewport,
+                            const float *modelview, const  float *projection,  const float *viewport,
                             float *objectCoordinate)
 {
     //Transformation matrices
