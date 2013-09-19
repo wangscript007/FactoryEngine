@@ -18,6 +18,11 @@
 		6021AFC817232B8F001EAEBE /* PrimitiveRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFC617232B8F001EAEBE /* PrimitiveRenderer.h */; };
 		6021AFCB172332F6001EAEBE /* LineRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFC9172332F6001EAEBE /* LineRenderer.cpp */; };
 		6021AFCC172332F6001EAEBE /* LineRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFCA172332F6001EAEBE /* LineRenderer.h */; };
+		6032716117EB08E700249562 /* Framebuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6032715F17EB08E700249562 /* Framebuffer.cpp */; };
+		6032716217EB08E700249562 /* Framebuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6032715F17EB08E700249562 /* Framebuffer.cpp */; };
+		6032716317EB08E700249562 /* Framebuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6032715F17EB08E700249562 /* Framebuffer.cpp */; };
+		6032716417EB08E700249562 /* Framebuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6032716017EB08E700249562 /* Framebuffer.h */; };
+		6032716517EB08E700249562 /* Framebuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6032716017EB08E700249562 /* Framebuffer.h */; };
 		603BA5C517E87388007CE822 /* Picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BC76951770907700CA8F71 /* Picker.cpp */; };
 		603BA5C617E87392007CE822 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6055CFD217417DCB009F1F46 /* Camera.cpp */; };
 		603BA5C817E87437007CE822 /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D17C76861584B6010083E2B0 /* Log.cpp */; };
@@ -373,6 +378,8 @@
 		6021AFC617232B8F001EAEBE /* PrimitiveRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimitiveRenderer.h; sourceTree = "<group>"; };
 		6021AFC9172332F6001EAEBE /* LineRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineRenderer.cpp; sourceTree = "<group>"; };
 		6021AFCA172332F6001EAEBE /* LineRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineRenderer.h; sourceTree = "<group>"; };
+		6032715F17EB08E700249562 /* Framebuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Framebuffer.cpp; sourceTree = "<group>"; };
+		6032716017EB08E700249562 /* Framebuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framebuffer.h; sourceTree = "<group>"; };
 		603BA60117E874FE007CE822 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		6047DB9116B46A890012286F /* RectangleInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleInteraction.cpp; sourceTree = "<group>"; };
 		6047DB9216B46A890012286F /* RectangleInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleInteraction.h; sourceTree = "<group>"; };
@@ -666,6 +673,8 @@
 		60D74584172298B30062CDF1 /* Render */ = {
 			isa = PBXGroup;
 			children = (
+				6032715F17EB08E700249562 /* Framebuffer.cpp */,
+				6032716017EB08E700249562 /* Framebuffer.h */,
 				60D745891722994B0062CDF1 /* Primitive.cpp */,
 				60D7458A1722994B0062CDF1 /* Primitive.h */,
 				6021AFC517232B8E001EAEBE /* PrimitiveRenderer.cpp */,
@@ -890,6 +899,7 @@
 				60C6D09A174961470009EC3C /* Vec4.h in Headers */,
 				60C6D09B174961470009EC3C /* ModelEditor.h in Headers */,
 				60C6D09C174961470009EC3C /* ModelTree.h in Headers */,
+				6032716517EB08E700249562 /* Framebuffer.h in Headers */,
 				60C6D09D174961470009EC3C /* InteractionProvider.h in Headers */,
 				60C6D09E174961470009EC3C /* Octree.h in Headers */,
 				60C6D09F174961470009EC3C /* LayerRenderer.h in Headers */,
@@ -953,6 +963,7 @@
 				60E4FF5216FF1F6600EEAA5A /* InteractionAssistant.h in Headers */,
 				605F1D13171AE4CA00C8E4CC /* Color.h in Headers */,
 				605F1D14171AE4CA00C8E4CC /* Frame.h in Headers */,
+				6032716417EB08E700249562 /* Framebuffer.h in Headers */,
 				605F1D16171AE4CA00C8E4CC /* Mat2.h in Headers */,
 				605F1D18171AE4CA00C8E4CC /* Mat3x2.h in Headers */,
 				605F1D19171AE4CA00C8E4CC /* Mat4.h in Headers */,
@@ -1142,6 +1153,7 @@
 				603BA5E817E87437007CE822 /* ModelEditor.cpp in Sources */,
 				603BA5E917E87437007CE822 /* ModelTree.cpp in Sources */,
 				603BA5EA17E87437007CE822 /* ModelFactory.cpp in Sources */,
+				6032716317EB08E700249562 /* Framebuffer.cpp in Sources */,
 				603BA5EB17E87437007CE822 /* Octree.cpp in Sources */,
 				603BA5EC17E87437007CE822 /* Node.cpp in Sources */,
 				603BA5ED17E87437007CE822 /* PointNode.cpp in Sources */,
@@ -1211,6 +1223,7 @@
 				60C6D060174961470009EC3C /* Octree.cpp in Sources */,
 				60C6D061174961470009EC3C /* Primitive.cpp in Sources */,
 				60C6D062174961470009EC3C /* LayerRenderer.cpp in Sources */,
+				6032716217EB08E700249562 /* Framebuffer.cpp in Sources */,
 				60C6D063174961470009EC3C /* Layer.cpp in Sources */,
 				60C6D064174961470009EC3C /* PrimitiveRenderer.cpp in Sources */,
 				60C6D065174961470009EC3C /* LineRenderer.cpp in Sources */,
@@ -1254,6 +1267,7 @@
 				60D7DC711657D0700051947E /* PointNode.cpp in Sources */,
 				60D7DC761657D07C0051947E /* LineNode.cpp in Sources */,
 				60C41BB41691BF5600DD0C09 /* Geometry.cpp in Sources */,
+				6032716117EB08E700249562 /* Framebuffer.cpp in Sources */,
 				6091E37516AC554E001DE0A7 /* PolylineNode.cpp in Sources */,
 				6091E37A16AC6037001DE0A7 /* LoopFinder.cpp in Sources */,
 				6047DB9316B46A890012286F /* RectangleInteraction.cpp in Sources */,
