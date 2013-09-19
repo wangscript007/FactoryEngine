@@ -25,16 +25,27 @@ void ShadersProgram::Deactivate()
     glUseProgram(0);
 }
     
-void ShadersProgram::AttachShader(const Shader& shader)
+void ShadersProgram::AddShader(const Shader& shader)
 {
     assert(shader.identifier() > 0);
     assert(mId > 0);
-    glAttachShader(mId, shader.identifier());
-    attachedVector.push_back(shader.identifier());
+    attachedVector.push_back(shader);
+}
+    
+void ShadersProgram::CompileShaders()
+{
+    for (auto it = attachedVector.begin(); it != attachedVector.end(); ++it) {
+        Shader& shader = *it;
+        shader.Compile();
+    }
 }
     
 void ShadersProgram::Link()
 {
+    for (auto it = attachedVector.begin(); it != attachedVector.end(); ++it) {
+        Shader& shader = *it;
+        glAttachShader(mId, shader.identifier());
+    }
     assert(attachedVector.size() > 0);
     mShadersInput->BindOutput();
     glLinkProgram(mId);
@@ -42,6 +53,8 @@ void ShadersProgram::Link()
     DetachShaders();
     mShadersInput->Init();
 }
+    
+
     
 void ShadersProgram::CheckLinkStatus()
 {
@@ -61,7 +74,7 @@ void ShadersProgram::CheckLinkStatus()
 void ShadersProgram::DetachShaders()
 {
     for(int i = 0; i < attachedVector.size(); ++i) {
-        glDetachShader(mId, attachedVector[i]);
+        glDetachShader(mId, attachedVector[i].identifier());
     }
     attachedVector.clear();
 }

@@ -8,7 +8,6 @@
 #include <Scene/Camera.h>
 #include <Model/ModelEditor.h>
 #include <Interaction/InteractionProvider.h>
-#include <Shading/ShadersBuilder.h>
 #include <Shading/ShadersLibrary.h>
 #include <Lighting/LightingCollection.h>
 #include <Leap/LeapListener.h>
@@ -58,7 +57,6 @@ private:
     Workspace*          mWorkspace;
     class Camera*       mCamera;
     ModelEditor*        mModelEditor;
-    ShadersBuilder*     mShadersBuilder;
     ShadersLibrary*     mShadersLibrary;
     LightingCollection* mLightingCollection;
     

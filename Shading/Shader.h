@@ -14,23 +14,20 @@ public:
         GLenum type;
     };
 
-    Shader(const Data& data);
-    virtual ~Shader();
+    Shader(const Data& data) { mData = data; }
     
     void Compile();
     
-    const std::string& name() const { return mName; }
-    const std::string& source() const { return mSource; }
+    const std::string& name() const { return mData.name; }
+    const std::string& source() const { return mData.source; }
     GLuint identifier() const { return mId; }
     GLint status() const { return mStatus; }
+    void setData(const Data& data) { mData = data; }
     
 private:
     void CheckCompileStatus();
     
-    std::string mName;
-    std::string mSource;
-    GLenum mType;
-    
+    Data mData;
     GLint mStatus;
     GLuint mId;
     

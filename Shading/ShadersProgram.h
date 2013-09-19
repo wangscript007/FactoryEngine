@@ -12,15 +12,16 @@ public:
     ShadersProgram();
     virtual ~ShadersProgram();
     
-    void AttachShader(const Shader& shader);
+    void AddShader(const Shader& shader);
     void Link();
     void Activate();
     void Deactivate();
+    void CompileShaders();
     GLint status() const { return mStatus; }
     ShadersInput* shaderInput() const { return mShadersInput; }
         
 private:
-    typedef std::vector<GLuint> AttachedVector;
+    typedef std::vector<Shader> AttachedVector;
     void CheckLinkStatus();
     void DetachShaders();
     
