@@ -12,6 +12,7 @@
 #include <Shading/ShadersLibrary.h>
 #include <Lighting/LightingCollection.h>
 #include <Leap/LeapListener.h>
+#include <Scene/SceneRenderer.h>
 
 namespace ftr {
 
@@ -65,7 +66,7 @@ private:
     LeapListener        mleapListener;
     
     Layer*              mLayer;
-    LayerRenderer*      mLayerRenderer;
+    SceneRenderer*      mSceneRenderer;
     class InteractionProvider* mInteractionProvider;
     
     float mFPS;

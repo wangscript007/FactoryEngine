@@ -23,6 +23,9 @@ Layer::PrimitivesVector& Layer::PrimitivesOfType(Primitive::Type type)
 void Layer::Clear()
 {
     mPrimitivesMap.clear();
+    for (int i = 0; i < mSublayers.size(); ++i) {
+        mSublayers[i]->Clear();
+    }
 }
     
 void Layer::AddSublayer(Layer* layer)

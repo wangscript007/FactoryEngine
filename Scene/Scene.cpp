@@ -15,7 +15,7 @@ namespace ftr {
     
 Scene::Scene() :
     mShadersBuilder(NULL),
-    mLayerRenderer(NULL),
+    mSceneRenderer(NULL),
     mCamera(NULL), 
     mFramesCount(0)
 {
@@ -36,7 +36,7 @@ Scene::~Scene()
     FT_DELETE(mCamera);
     FT_DELETE(mModelEditor);
     FT_DELETE(mInteractionProvider);
-    FT_DELETE(mLayerRenderer);
+    FT_DELETE(mSceneRenderer);
     FT_DELETE(mLayer);
     FT_DELETE(mShadersBuilder);
     FT_DELETE(mShadersLibrary);
@@ -63,18 +63,17 @@ void Scene::Prepare()
     activeLightingModel->SetupLights();
     activeLightingModel->SendDataToShader();
     
-    mLayerRenderer = new LayerRenderer(*shadersInput);
+    mSceneRenderer = new SceneRenderer(*shadersInput);
     
-    glClearColor(0.23f,0.23f,0.23f,1.0);
 }
 
 #pragma mark Workspace
 
 void Scene::Render()
 {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     mWorkspace->Render(*mLayer);
-    mLayerRenderer->Render(*mLayer);
+    mSceneRenderer->Render(*mLayer);
+    mLayer->Clear();
     mFramesCount++;
 }
     
@@ -90,7 +89,9 @@ void Scene::DeactivateProgram()
     
 void Scene::setViewportRect(int x, int y, int width, int height)
 {
-    mCamera->setViewport(Frame(Vec2(x, y), Vec2(width, height)));
+    Frame frame = Frame(Vec2(x, y), Vec2(width, height));
+    mCamera->setViewport(frame);
+    mSceneRenderer->setFrame(frame);
 }
     
 void Scene::Step(float dTime)

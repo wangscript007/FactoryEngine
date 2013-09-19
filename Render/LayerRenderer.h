@@ -1,28 +1,31 @@
 
 #pragma once
 
+#include <Shading/ShadersInput.h>
 
 namespace ftr {
     
 class Layer;
 class PrimitiveRenderer;
 class Primitive;
-class ShadersInput;
+
 //
 // Renders layer primitives
 //
 class LayerRenderer
 {
 public:
-             LayerRenderer(ShadersInput& shadersInput);
+            LayerRenderer(ShadersInput& shadersInput);
     virtual ~LayerRenderer();
     
-    void Render(Layer& layer);
+    virtual void Render(Layer& layer);
     
     
-private:
+protected:
     void RenderSublayersRecursively(Layer& layer);
     void AddRenderer(PrimitiveRenderer* primitiveRenderer);
+    
+    virtual void RenderInternal(Layer& layer);
     
     typedef std::vector<PrimitiveRenderer*> RenderersVector;
     RenderersVector mRenderersVector;

@@ -6,8 +6,8 @@ namespace ftr {
 Framebuffer::Framebuffer(const Vec2& size)
 {
     // create framebuffer
-    glGenFramebuffers (1, &framebufferId);
-    glBindFramebuffer (GL_FRAMEBUFFER, framebufferId);
+    glGenFramebuffers(1, &framebufferId);
+    glBindFramebuffer(GL_FRAMEBUFFER, framebufferId);
     
     // attach renderbuffer to fb so that depth-sorting works
     glGenRenderbuffers(1, &renderbufferId);
@@ -49,9 +49,17 @@ Framebuffer::Framebuffer(const Vec2& size)
     Unbind();
 }
     
+Framebuffer::~Framebuffer()
+{
+    glDeleteFramebuffers(1, &framebufferId);
+    glDeleteTextures(1, &framebufferTextureId);
+    glDeleteRenderbuffers(1, &renderbufferId);
+}
+
+    
 void Framebuffer::Bind()
 {
-    glBindFramebuffer(GL_FRAMEBUFFER, framebufferID);
+    glBindFramebuffer(GL_FRAMEBUFFER, framebufferId);
 }
     
 void Framebuffer::Unbind()
@@ -59,9 +67,5 @@ void Framebuffer::Unbind()
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
-Framebuffer::~Framebuffer()
-{
-    
-}
 
 }

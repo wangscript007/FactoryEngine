@@ -33,6 +33,11 @@ LayerRenderer::~LayerRenderer()
     
 void LayerRenderer::Render(Layer& layer)
 {
+    RenderInternal(layer);
+}
+    
+void LayerRenderer::RenderInternal(Layer& layer)
+{
     Layer::PrimitivesVector primitivesVector;
     for(int i = 0; i < mRenderersVector.size(); ++i) {
         primitivesVector = layer.PrimitivesOfType(mRenderersVector[i]->type());
@@ -43,14 +48,13 @@ void LayerRenderer::Render(Layer& layer)
         }
     }
     RenderSublayersRecursively(layer);
-    layer.Clear();
 }
     
 void LayerRenderer::RenderSublayersRecursively(Layer &layer)
 {
     Layer::LayersVector sublayers = layer.sublayers();
     for (int i = 0; i < sublayers.size(); ++i) {
-        Render(*sublayers[i]);
+        RenderInternal(*sublayers[i]);
     }
 }
     
