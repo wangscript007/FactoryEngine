@@ -14,15 +14,9 @@ public:
         GLuint vertex;
         GLuint normal;
         GLuint color;
-#ifdef USE_BLOCK_BUFFER
-        GLuint transform;
-        GLuint settings;
-#else
         struct Transform {
             GLuint view;
             GLuint projection;
-            GLuint rotation;
-            GLuint translation;
         } transform;
         
         struct Settings {
@@ -31,8 +25,6 @@ public:
             GLuint debugOn;
             GLuint debugFloatScale;
         } settings;
-#endif
-        
         GLuint windowSize;
         struct Light {
             GLuint ambient;
@@ -54,8 +46,6 @@ public:
     struct Transform {
         Mat4 view;
         Mat4 projection;
-        Mat4 rotation;
-        Mat4 translation;
     };
     
     
@@ -74,7 +64,7 @@ public:
     ShadersInput(GLuint programId) : mProgramId(programId) {}
     virtual ~ShadersInput() {}
     void BindOutput();
-    void Init();
+    void SetupForProgramWithName(const std::string& mName);
     
     GLuint AttributeLocation(const std::string& name) const;
     GLuint UniformLocation(const std::string& name) const;

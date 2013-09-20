@@ -24,11 +24,11 @@ void Camera::Look()
     forward.Normalize();
     Vec3 side = forward^Vec3::Y;
     side.Normalize();
-    mTransform.rotation = Transformation::RotateAroundAxis(mRotation.mX, side);
-    mTransform.rotation *= Transformation::RotateAroundAxis(mRotation.mY, Vec3::Y);
+    Mat4 rotation = Transformation::RotateAroundAxis(mRotation.mX, side);
+    rotation *= Transformation::RotateAroundAxis(mRotation.mY, Vec3::Y);
     mTransform.view = Transformation::LookAt(mEyePosition, target, Vec3::Y);
-    mTransform.translation = Transformation::Translate(mTranslation);
-    mParameters.modelviewMatrix = mTransform.rotation * mTransform.translation * mTransform.view;
+    Mat4 tranbslation = Transformation::Translate(mTranslation);
+    mParameters.modelviewMatrix = rotation * tranbslation * mTransform.view;
     mTransform.view = mParameters.modelviewMatrix;
     if (mShadersInput) {
         mShadersInput->InputTransform(mTransform);

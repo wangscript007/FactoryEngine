@@ -45,9 +45,9 @@ void Scene::Prepare()
 {
     mCamera = new class Camera(Vec3(0.0f, 0.0f, 10.0f));
     mCamera->setProjection(kProjectionPerspective);
-    mShadersLibrary->BuildProgramWithName("main");
-    ShadersInput* shadersInput = mShadersLibrary->InputForProgramWithName("main");
-    mShadersLibrary->UseProgramWithName("main");
+    mShadersLibrary->BuildProgramWithName("color");
+    ShadersInput* shadersInput = mShadersLibrary->InputForProgramWithName("color");
+    mShadersLibrary->UseProgramWithName("color");
     mCamera->setShadersInput(shadersInput);
     mInteractionProvider = new class InteractionProvider(*mModelEditor, *mCamera);
     mleapListener.setCameraInteraction(mInteractionProvider->CameraInteraction());

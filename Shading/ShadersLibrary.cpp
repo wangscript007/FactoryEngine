@@ -24,6 +24,7 @@ void ShadersLibrary::BuildProgramWithName(const std::string& name)
 {
     ShadersProgram& program = mProgramsMap[name];
     program.CompileShaders();
+    program.mName = name;
     program.Link();
  
 }
