@@ -3,7 +3,7 @@
 
 #include <Shading/Shader.h>
 #include <Shading/ShadingProgram.h>
-#include <Shading/ShadingInterface.h>
+
 
 namespace ftr {
     

@@ -1,6 +1,7 @@
 
 
 #include <Shading/ShadingLibrary.h>
+#include <Shading/ShadingInterface.h>
 
 namespace ftr {
     
@@ -40,7 +41,7 @@ void ShadingLibrary::UseProgramWithName(const std::string& name)
     
 ShadingInterface* ShadingLibrary::InputForProgramWithName(const std::string& name)
 {
-    return mProgramsMap[name].shaderInput();
+    return mProgramsMap[name].interface();
 }
     
 }

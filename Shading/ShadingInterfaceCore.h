@@ -2,6 +2,7 @@
 #pragma once
 
 #include <Lighting/Light.h>
+#include <Shading/ShadingProgram.h>
 
 #define MAX_LIGHTS_COUNT 5
 
@@ -10,7 +11,7 @@ class ShadingInterface
 {
 public:
     
-    struct Input {
+    struct Interface {
         GLuint vertex;
         GLuint normal;
         GLuint color;
@@ -18,7 +19,6 @@ public:
             GLuint view;
             GLuint projection;
         } transform;
-        
         struct Settings {
             GLuint lightsCount;
             GLuint debugLineWidth;
@@ -70,9 +70,9 @@ public:
     GLuint UniformLocation(const std::string& name) const;
     GLuint BlockBuffer(const std::string& name) const;
     
-    GLuint colorLocation() const { return mInput.color; }
-    GLuint normalLocation() const { return mInput.normal; }
-    GLuint vertexLocation() const { return mInput.vertex; }
+    GLuint colorLocation() const { return mInterface.color; }
+    GLuint normalLocation() const { return mInterface.normal; }
+    GLuint vertexLocation() const { return mInterface.vertex; }
     
     void InputTransform(const Transform& transform);
     void InputSettings(const Settings& settings);
@@ -81,8 +81,10 @@ public:
         
     Settings mSettings;
 private:
+    typedef std::map<std::string, Interface> NameToTypeMap;
+    
     GLuint mProgramId;
-    Input mInput;
+    Interface mInterface;
     
 };
     

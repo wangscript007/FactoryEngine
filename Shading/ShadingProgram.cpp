@@ -1,30 +1,28 @@
 
 #include <Shading/ShadingProgram.h>
+#include <Shading/ShadingInterface.h>
     
 namespace ftr {
+    
     
 ShadingProgram::ShadingProgram()
 {
     mId = glCreateProgram();
-    mShadingInterface = new ShadingInterface(mId);
+    mInterface = new ShadingInterface(mId);
     assert(mId != 0);
 }
     
 ShadingProgram:: ~ShadingProgram()
 {
 //    glDeleteProgram(mId);
-    FT_DELETE(mShadingInterface);
+    FT_DELETE(mInterface);
 }
     
 void ShadingProgram::Activate()
 {
     glUseProgram(mId);
 }
-void ShadingProgram::Deactivate()
-{
-    glUseProgram(0);
-}
-    
+        
 void ShadingProgram::AddShader(const Shader& shader)
 {
     assert(shader.identifier() > 0);
@@ -44,11 +42,11 @@ void ShadingProgram::Link()
 {
     AttachShaders();
     assert(attachedVector.size() > 0);
-    mShadingInterface->BindOutput();
+    mInterface->BindOutput();
     glLinkProgram(mId);
     CheckLinkStatus();
     DetachShaders();
-    mShadingInterface->SetupForProgramWithName(mName);
+    mInterface->SetupForProgramWithName(mName);
 }
     
 
@@ -83,6 +81,19 @@ void ShadingProgram::DetachShaders()
         glDetachShader(mId, attachedVector[i].identifier());
     }
     attachedVector.clear();
+}
+    
+ShadingProgram::Type ShadingProgram::TypeForName(const std::string& name)
+{
+    static NameToTypeMap map;
+    if (!map.size()) {
+        map.insert(std::make_pair("main",   kMain));
+        map.insert(std::make_pair("color",  kColor));
+        map.insert(std::make_pair("test",   kTest));
+        assert(map.size() == kCount);
+    }
+    return map[name];
+    
 }
         
 }
