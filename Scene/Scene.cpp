@@ -18,7 +18,7 @@ Scene::Scene() :
     mCamera(NULL), 
     mFramesCount(0)
 {
-    mShadersLibrary = new ShadersLibrary();
+    mShadingLibrary = new ShadingLibrary();
     mLightingCollection = new LightingCollection();
     mLayer = new Layer();
     mWorkspace = new Workspace(mLayer);
@@ -37,7 +37,7 @@ Scene::~Scene()
     FT_DELETE(mInteractionProvider);
     FT_DELETE(mSceneRenderer);
     FT_DELETE(mLayer);
-    FT_DELETE(mShadersLibrary);
+    FT_DELETE(mShadingLibrary);
     FT_DELETE(mLightingCollection);
 }
     
@@ -45,18 +45,18 @@ void Scene::Prepare()
 {
     mCamera = new class Camera(Vec3(0.0f, 0.0f, 10.0f));
     mCamera->setProjection(kProjectionPerspective);
-    mShadersLibrary->BuildProgramWithName("color");
-    ShadersInput* shadersInput = mShadersLibrary->InputForProgramWithName("color");
-    mShadersLibrary->UseProgramWithName("color");
-    mCamera->setShadersInput(shadersInput);
+    mShadingLibrary->BuildProgramWithName("color");
+    ShadingInterface* ShadingInterface = mShadingLibrary->InputForProgramWithName("color");
+    mShadingLibrary->UseProgramWithName("color");
+    mCamera->setShadingInterface(ShadingInterface);
     mInteractionProvider = new class InteractionProvider(*mModelEditor, *mCamera);
     mleapListener.setCameraInteraction(mInteractionProvider->CameraInteraction());
     LightingModel* activeLightingModel = mLightingCollection->activeModel();
-    activeLightingModel->setShadersInput(shadersInput);
+    activeLightingModel->setShadingInterface(ShadingInterface);
     activeLightingModel->SetupLights();
     activeLightingModel->SendDataToShader();
     
-    mSceneRenderer = new SceneRenderer(*shadersInput);
+    mSceneRenderer = new SceneRenderer(*ShadingInterface);
     
 }
 
@@ -72,12 +72,12 @@ void Scene::Render()
     
 void Scene::ActivateProgram()
 {
-    mShadersLibrary->UseProgramWithName("main");
+    mShadingLibrary->UseProgramWithName("main");
 }
     
 void Scene::DeactivateProgram()
 {
-    mShadersLibrary->UseProgramWithName("none");
+    mShadingLibrary->UseProgramWithName("none");
 }
     
 void Scene::setViewportRect(int x, int y, int width, int height)
@@ -99,18 +99,18 @@ void Scene::Step(float dTime)
     
 void Scene::AddShader(const std::string& name, const std::string& source, GLenum type)
 {
-    mShadersLibrary->Add(name, source, type);
+    mShadingLibrary->Add(name, source, type);
 }
 
 GLuint Scene::ShaderAttributeLocation(const std::string& name)
 {
-    ShadersInput* input = mShadersLibrary->InputForProgramWithName("main");
+    ShadingInterface* input = mShadingLibrary->InputForProgramWithName("main");
     return input->AttributeLocation(name);
 }
 
 GLuint Scene::ShaderUniformLocation(const std::string& name)
 {
-    ShadersInput* input = mShadersLibrary->InputForProgramWithName("main");
+    ShadingInterface* input = mShadingLibrary->InputForProgramWithName("main");
     return input->UniformLocation(name);
 }
     

@@ -8,7 +8,7 @@
 #include <Scene/Camera.h>
 #include <Model/ModelEditor.h>
 #include <Interaction/InteractionProvider.h>
-#include <Shading/ShadersLibrary.h>
+#include <Shading/ShadingLibrary.h>
 #include <Lighting/LightingCollection.h>
 #include <Leap/LeapListener.h>
 #include <Scene/SceneRenderer.h>
@@ -30,7 +30,7 @@ public:
     
     // Shaders
     void              AddShader(const std::string& name, const std::string& source, GLenum type);
-    void              PrepareShadersProgram();
+    void              PrepareShadingProgram();
     void              ActivateProgram();
     GLuint            ShaderAttributeLocation(const std::string& name);
     GLuint            ShaderUniformLocation(const std::string& name);
@@ -57,7 +57,7 @@ private:
     Workspace*          mWorkspace;
     class Camera*       mCamera;
     ModelEditor*        mModelEditor;
-    ShadersLibrary*     mShadersLibrary;
+    ShadingLibrary*     mShadingLibrary;
     LightingCollection* mLightingCollection;
     
     Leap::Controller    mLeapController;

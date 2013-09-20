@@ -11,7 +11,7 @@ void RectangleRenderer::Begin(Primitive& primitive)
 
 void RectangleRenderer::Render(Primitive& primitive)
 {
-    primitive.renderData(mShadersInput);
+    primitive.renderData(mShadingInterface);
     glBindVertexArray(primitive.vertexArrayObjectId());
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     glGetError();

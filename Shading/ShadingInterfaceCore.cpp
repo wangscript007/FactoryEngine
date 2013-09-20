@@ -1,24 +1,24 @@
 
-#include <Shading/ShadersInputCore.h>
+#include <Shading/ShadingInterfaceCore.h>
 
 namespace ftr {
     
 
-GLuint ShadersInput::AttributeLocation(const std::string& name) const
+GLuint ShadingInterface::AttributeLocation(const std::string& name) const
 {
     GLint location = glGetAttribLocation(mProgramId, name.c_str());
     assert(location != -1);
     return location;
 }
 
-GLuint ShadersInput::UniformLocation(const std::string& name) const
+GLuint ShadingInterface::UniformLocation(const std::string& name) const
 {
     GLint location = glGetUniformLocation(mProgramId, name.c_str());
     assert(location != -1);
     return location;
 }
 
-void ShadersInput::SetupForProgramWithName(const std::string& name)
+void ShadingInterface::SetupForProgramWithName(const std::string& name)
 {
     if (name == "main")
     {
@@ -65,12 +65,12 @@ void ShadersInput::SetupForProgramWithName(const std::string& name)
     }
 }
 
-void ShadersInput::BindOutput()
+void ShadingInterface::BindOutput()
 {
     glBindFragDataLocation(mProgramId, 0, "color");
 }
     
-GLuint ShadersInput::BlockBuffer(const std::string& name) const
+GLuint ShadingInterface::BlockBuffer(const std::string& name) const
 {
     static GLuint bindingPoint = 1;
     GLuint buffer, blockIndex;
@@ -83,7 +83,7 @@ GLuint ShadersInput::BlockBuffer(const std::string& name) const
     return buffer;
 }
     
-void ShadersInput::InputSettings(const Settings& settings)
+void ShadingInterface::InputSettings(const Settings& settings)
 {
     glUniform1i(mInput.settings.lightsCount, settings.lightsCount);
     glUniform1i(mInput.settings.debugLineWidth, settings.debugLineWidth);
@@ -91,7 +91,7 @@ void ShadersInput::InputSettings(const Settings& settings)
     glUniform1f(mInput.settings.debugFloatScale, settings.debugFloatScale);
 }
     
-void ShadersInput::InputTransform(const Transform& transform)
+void ShadingInterface::InputTransform(const Transform& transform)
 {
     const GLfloat* view         = reinterpret_cast<const GLfloat*>(&transform.view);
     const GLfloat* projection   = reinterpret_cast<const GLfloat*>(&transform.projection);
@@ -100,12 +100,12 @@ void ShadersInput::InputTransform(const Transform& transform)
     InputSettings(mSettings);
 }
     
-void ShadersInput::InputWindowSize(const Vec2& windowSize)
+void ShadingInterface::InputWindowSize(const Vec2& windowSize)
 {
     glUniform2fv(mInput.windowSize, 1, reinterpret_cast<const GLfloat*>(&windowSize));
 }
     
-void ShadersInput::InputLight(const Light::Data& lightData)
+void ShadingInterface::InputLight(const Light::Data& lightData)
 {
     const Light::Data* lightDataArray = &lightData;
     for (int i = 0; i < mSettings.lightsCount; i++) {

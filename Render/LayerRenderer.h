@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include <Shading/ShadersInput.h>
+#include <Shading/ShadingInterface.h>
 
 namespace ftr {
     
@@ -15,7 +15,7 @@ class Primitive;
 class LayerRenderer
 {
 public:
-            LayerRenderer(ShadersInput& shadersInput);
+            LayerRenderer(ShadingInterface& ShadingInterface);
     virtual ~LayerRenderer();
     
     virtual void Render(Layer& layer);

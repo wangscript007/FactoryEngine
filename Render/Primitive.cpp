@@ -4,9 +4,9 @@
 
 namespace ftr {
 
-char* Primitive::renderData(ShadersInput& shadersInput) {
+char* Primitive::renderData(ShadingInterface& ShadingInterface) {
     if (mIsInvalid) {
-        mRenderData = CreateRenderData(shadersInput);
+        mRenderData = CreateRenderData(ShadingInterface);
         mIsInvalid = false;
     }
     return mRenderData;
@@ -33,7 +33,7 @@ char* PointPrimitive::CreateRenderData()
 }
     
     
-char* LinePrimitive::CreateRenderData(ShadersInput& shadersInput)
+char* LinePrimitive::CreateRenderData(ShadingInterface& ShadingInterface)
 {    
     LinePrimitive::Data* data = reinterpret_cast<LinePrimitive::Data*>(new char[sizeof(LinePrimitive::Data)]);
     data->vertices[0] = Vec4(mBegin);
@@ -41,8 +41,8 @@ char* LinePrimitive::CreateRenderData(ShadersInput& shadersInput)
     data->colors[0] = color;
     data->colors[1] = color;
     
-    const GLuint colorLoc = shadersInput.colorLocation();
-    const GLuint vertexLoc = shadersInput.vertexLocation();
+    const GLuint colorLoc = ShadingInterface.colorLocation();
+    const GLuint vertexLoc = ShadingInterface.vertexLocation();
     
     glGenVertexArrays(1, &mVertexArrayObjectId);
     glBindVertexArray(mVertexArrayObjectId);
@@ -70,7 +70,7 @@ RectanglePrimitive::RectanglePrimitive()
 }
     
     
-char* RectanglePrimitive::CreateRenderData(ShadersInput& shadersInput)
+char* RectanglePrimitive::CreateRenderData(ShadingInterface& ShadingInterface)
 {
     RectanglePrimitive::Data* data = reinterpret_cast<RectanglePrimitive::Data*>(new char[sizeof(RectanglePrimitive::Data)]);
     
@@ -84,9 +84,9 @@ char* RectanglePrimitive::CreateRenderData(ShadersInput& shadersInput)
         data->colors[i] = color;
     }
     
-    const GLuint colorLoc = shadersInput.colorLocation();
-    const GLuint vertexLoc = shadersInput.vertexLocation();
-    const GLuint normalLoc = shadersInput.normalLocation();
+    const GLuint colorLoc = ShadingInterface.colorLocation();
+    const GLuint vertexLoc = ShadingInterface.vertexLocation();
+    const GLuint normalLoc = ShadingInterface.normalLocation();
     
     glGenVertexArrays(1, &mVertexArrayObjectId);
     glBindVertexArray(mVertexArrayObjectId);
@@ -135,7 +135,7 @@ void RectanglePrimitive::AssignSurfaceNormals(RectanglePrimitive::Data* data)
     
     
     
-char* PolygonPrimitive::CreateRenderData(ShadersInput& shadersInput)
+char* PolygonPrimitive::CreateRenderData(ShadingInterface& ShadingInterface)
 {
     PolygonPrimitive::Data* data = reinterpret_cast<PolygonPrimitive::Data*>(new char[sizeof(PolygonPrimitive::Data)]);
     data->indices[0] = 0;

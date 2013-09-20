@@ -2,7 +2,7 @@
 #pragma once
 
 #include <Lighting/LightingModel.h>
-#include <Shading/ShadersInput.h>
+#include <Shading/ShadingInterface.h>
 
 namespace ftr {
 
@@ -21,7 +21,7 @@ private:
     static LightingModel* DefaultModel();
     
     MethodsMap mMethodsMap;
-    ShadersInput* mShadersInput;
+    ShadingInterface* mShadingInterface;
 };
     
 }

@@ -3,8 +3,8 @@
 
 namespace ftr {
     
-SceneRenderer::SceneRenderer(ShadersInput& shadersInput)
-    : LayerRenderer(shadersInput),
+SceneRenderer::SceneRenderer(ShadingInterface& ShadingInterface)
+    : LayerRenderer(ShadingInterface),
     mColorMarkingFramebuffer(NULL)
 {
     glClearColor(0.23f,0.23f,0.23f,1.0);

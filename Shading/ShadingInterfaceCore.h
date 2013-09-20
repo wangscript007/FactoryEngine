@@ -6,7 +6,7 @@
 #define MAX_LIGHTS_COUNT 5
 
 namespace ftr {
-class ShadersInput
+class ShadingInterface
 {
 public:
     
@@ -61,8 +61,8 @@ public:
         debugFloatScale(1.0f) {}
     };
     
-    ShadersInput(GLuint programId) : mProgramId(programId) {}
-    virtual ~ShadersInput() {}
+    ShadingInterface(GLuint programId) : mProgramId(programId) {}
+    virtual ~ShadingInterface() {}
     void BindOutput();
     void SetupForProgramWithName(const std::string& mName);
     

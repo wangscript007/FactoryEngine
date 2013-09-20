@@ -3,7 +3,7 @@
 
 namespace ftr {
 
-class ShadersInput
+class ShadingInterface
 {
 public:
     struct Input {
@@ -31,8 +31,8 @@ public:
         float intensity;
     };
     
-    ShadersInput(GLuint programId) : mProgramId(programId) {}
-    virtual ~ShadersInput() {}
+    ShadingInterface(GLuint programId) : mProgramId(programId) {}
+    virtual ~ShadingInterface() {}
     void BindOutput();
     void Init();
     

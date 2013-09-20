@@ -10,7 +10,7 @@ class RectanglePrimitive;
 class RectangleRenderer : public PrimitiveRenderer
 {
 public:
-    RectangleRenderer(ShadersInput& shadersInput) : PrimitiveRenderer(shadersInput) {}
+    RectangleRenderer(ShadingInterface& ShadingInterface) : PrimitiveRenderer(ShadingInterface) {}
     virtual ~RectangleRenderer() {}
     virtual void Begin(Primitive& primitive);
     virtual void Render(Primitive& primitive);

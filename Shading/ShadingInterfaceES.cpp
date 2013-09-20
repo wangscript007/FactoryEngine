@@ -1,23 +1,23 @@
 
-#include <Shading/ShadersInputES.h>
+#include <Shading/ShadingInterfaceES.h>
 
 namespace ftr {
 
-GLuint ShadersInput::AttributeLocation(const std::string& name) const
+GLuint ShadingInterface::AttributeLocation(const std::string& name) const
 {
     GLint location = glGetAttribLocation(mProgramId, name.c_str());
     assert(location != -1);
     return location;
 }
 
-GLuint ShadersInput::UniformLocation(const std::string& name) const
+GLuint ShadingInterface::UniformLocation(const std::string& name) const
 {
     GLint location = glGetUniformLocation(mProgramId, name.c_str());
     assert(location != -1);
     return location;
 }
 
-void ShadersInput::Init()
+void ShadingInterface::Init()
 {
     mInput.vertex = AttributeLocation("position");
     mInput.normal = AttributeLocation("normal");
@@ -28,7 +28,7 @@ void ShadersInput::Init()
     mInput.transform.translation = UniformLocation("transformVar.translation");
 }
     
-void ShadersInput::InputTransform(const Transform& transform)
+void ShadingInterface::InputTransform(const Transform& transform)
 {
     const GLfloat* view = reinterpret_cast<const GLfloat*>(&transform.view);
     const GLfloat* projection = reinterpret_cast<const GLfloat*>(&transform.projection);
@@ -40,12 +40,12 @@ void ShadersInput::InputTransform(const Transform& transform)
     glUniformMatrix4fv(mInput.transform.translation,  1, false, translation);
 }
     
-void ShadersInput::InputLight(const LightData& lightData)
+void ShadingInterface::InputLight(const LightData& lightData)
 {
     
 }
     
-void ShadersInput::BindOutput()
+void ShadingInterface::BindOutput()
 {
     
 }

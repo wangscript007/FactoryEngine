@@ -1,38 +1,38 @@
 
-#include <Shading/ShadersProgram.h>
+#include <Shading/ShadingProgram.h>
     
 namespace ftr {
     
-ShadersProgram::ShadersProgram()
+ShadingProgram::ShadingProgram()
 {
     mId = glCreateProgram();
-    mShadersInput = new ShadersInput(mId);
+    mShadingInterface = new ShadingInterface(mId);
     assert(mId != 0);
 }
     
-ShadersProgram:: ~ShadersProgram()
+ShadingProgram:: ~ShadingProgram()
 {
 //    glDeleteProgram(mId);
-    FT_DELETE(mShadersInput);
+    FT_DELETE(mShadingInterface);
 }
     
-void ShadersProgram::Activate()
+void ShadingProgram::Activate()
 {
     glUseProgram(mId);
 }
-void ShadersProgram::Deactivate()
+void ShadingProgram::Deactivate()
 {
     glUseProgram(0);
 }
     
-void ShadersProgram::AddShader(const Shader& shader)
+void ShadingProgram::AddShader(const Shader& shader)
 {
     assert(shader.identifier() > 0);
     assert(mId > 0);
     attachedVector.push_back(shader);
 }
     
-void ShadersProgram::CompileShaders()
+void ShadingProgram::CompileShaders()
 {
     for (auto it = attachedVector.begin(); it != attachedVector.end(); ++it) {
         Shader& shader = *it;
@@ -40,20 +40,20 @@ void ShadersProgram::CompileShaders()
     }
 }
     
-void ShadersProgram::Link()
+void ShadingProgram::Link()
 {
     AttachShaders();
     assert(attachedVector.size() > 0);
-    mShadersInput->BindOutput();
+    mShadingInterface->BindOutput();
     glLinkProgram(mId);
     CheckLinkStatus();
     DetachShaders();
-    mShadersInput->SetupForProgramWithName(mName);
+    mShadingInterface->SetupForProgramWithName(mName);
 }
     
 
     
-void ShadersProgram::CheckLinkStatus()
+void ShadingProgram::CheckLinkStatus()
 {
     glGetProgramiv(mId, GL_LINK_STATUS, &mStatus);
     
@@ -68,7 +68,7 @@ void ShadersProgram::CheckLinkStatus()
     }
 }
     
-void ShadersProgram::AttachShaders()
+void ShadingProgram::AttachShaders()
 {
     for (auto it = attachedVector.begin(); it != attachedVector.end(); ++it) {
         Shader& shader = *it;
@@ -77,7 +77,7 @@ void ShadersProgram::AttachShaders()
 }
 
     
-void ShadersProgram::DetachShaders()
+void ShadingProgram::DetachShaders()
 {
     for(int i = 0; i < attachedVector.size(); ++i) {
         glDetachShader(mId, attachedVector[i].identifier());

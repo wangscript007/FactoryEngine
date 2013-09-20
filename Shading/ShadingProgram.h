@@ -2,15 +2,15 @@
 #pragma once
 
 #include <Shading/Shader.h>
-#include <Shading/ShadersInput.h>
+#include <Shading/ShadingInterface.h>
 
 namespace ftr {
 
-class ShadersProgram
+class ShadingProgram
 {
 public:
-    ShadersProgram();
-    virtual ~ShadersProgram();
+    ShadingProgram();
+    virtual ~ShadingProgram();
     
     void AddShader(const Shader& shader);
     void Link();
@@ -18,7 +18,7 @@ public:
     void Deactivate();
     void CompileShaders();
     GLint status() const { return mStatus; }
-    ShadersInput* shaderInput() const { return mShadersInput; }
+    ShadingInterface* shaderInput() const { return mShadingInterface; }
     std::string mName;
 private:
     typedef std::vector<Shader> AttachedVector;
@@ -31,7 +31,7 @@ private:
 
     
     AttachedVector attachedVector;
-    ShadersInput* mShadersInput;
+    ShadingInterface* mShadingInterface;
 };
 
 }

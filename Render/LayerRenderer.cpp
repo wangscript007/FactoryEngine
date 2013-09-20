@@ -5,16 +5,16 @@
 #include <Render/PointRenderer.h>
 #include <Render/LineRenderer.h>
 #include <Render/RectangleRenderer.h>
-#include <Shading/ShadersInput.h>
+#include <Shading/ShadingInterface.h>
 
 namespace ftr {
     
-LayerRenderer::LayerRenderer(ShadersInput& shadersInput)
+LayerRenderer::LayerRenderer(ShadingInterface& ShadingInterface)
     : mDepth(0)
 {
     //AddRenderer(new PointRenderer());
-    AddRenderer(new LineRenderer(shadersInput));
-    AddRenderer(new RectangleRenderer(shadersInput));
+    AddRenderer(new LineRenderer(ShadingInterface));
+    AddRenderer(new RectangleRenderer(ShadingInterface));
 }
     
 void LayerRenderer::AddRenderer(PrimitiveRenderer* primitiveRenderer)

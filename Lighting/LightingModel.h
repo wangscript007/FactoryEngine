@@ -1,13 +1,13 @@
 
 #pragma once
 
-#include <Shading/ShadersInput.h>
+#include <Shading/ShadingInterface.h>
 #include <Lighting/Light.h>
 
 
 namespace ftr {
 
-class ShadersInput;
+class ShadingInterface;
     
 class LightingModel
 {
@@ -19,11 +19,11 @@ public:
     
     virtual void SetupLights() = 0;
     
-    void setShadersInput(ShadersInput* shadersInput) { mShadersInput = shadersInput; }
+    void setShadingInterface(ShadingInterface* ShadingInterface) { mShadingInterface = ShadingInterface; }
     void SendDataToShader();
 protected:
     LightsVector mLightsVector;
-    ShadersInput* mShadersInput;
+    ShadingInterface* mShadingInterface;
     
 private:
     size_t ModelDataSize() const;

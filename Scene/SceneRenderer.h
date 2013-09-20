@@ -9,7 +9,7 @@ namespace ftr {
 class SceneRenderer : public LayerRenderer
 {
 public:
-    SceneRenderer(ShadersInput& shadersInput);
+    SceneRenderer(ShadingInterface& ShadingInterface);
     virtual ~SceneRenderer();
     
     void Render(Layer &layer);

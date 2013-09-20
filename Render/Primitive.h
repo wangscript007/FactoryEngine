@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include <Shading/ShadersInput.h>
+#include <Shading/ShadingInterface.h>
 
 namespace ftr {
 //
@@ -38,14 +38,14 @@ public:
     void Invalidate() { mIsInvalid = true; }
     
     virtual Type type() const { return kNone; }
-    char* renderData(ShadersInput& shadersInput);
+    char* renderData(ShadingInterface& ShadingInterface);
     bool isInvalid() const { return mIsInvalid; }
     void setOption(Option option, bool value);
     bool option(Option option) const { return (mOptions & static_cast<unsigned int>(option)) != 0; }
     GLuint vertexArrayObjectId() const { return mVertexArrayObjectId; }
     
 protected:
-    virtual char* CreateRenderData(ShadersInput& shadersInput) { return NULL; }
+    virtual char* CreateRenderData(ShadingInterface& ShadingInterface) { return NULL; }
     GLuint mVertexArrayObjectId;
     char* mRenderData;
     
@@ -103,7 +103,7 @@ public:
     Vec3 mEnd;
     Color4f color;
 protected:
-    char* CreateRenderData(ShadersInput& shadersInput);
+    char* CreateRenderData(ShadingInterface& ShadingInterface);
     
 private:
     
@@ -126,7 +126,7 @@ public:
     Vec3 mVec[4];
     Color4f color;
 protected:
-    char* CreateRenderData(ShadersInput& shadersInput);
+    char* CreateRenderData(ShadingInterface& ShadingInterface);
     
 private:
     void AssignSurfaceNormals(RectanglePrimitive::Data* data);
@@ -151,7 +151,7 @@ public:
     Vec2 mSize;
     Color4f color;
 protected:
-    char* CreateRenderData(ShadersInput& shadersInput);
+    char* CreateRenderData(ShadingInterface& ShadingInterface);
     
 private:
     

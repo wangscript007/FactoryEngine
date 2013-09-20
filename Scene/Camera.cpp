@@ -10,7 +10,7 @@ namespace ftr {
 const float Camera::kViewportScale = 0.3;
 
 Camera::Camera(const Vec3& eyePosition)
-    :mShadersInput(NULL)
+    :mShadingInterface(NULL)
 {
     mEyePosition = eyePosition;
     mTranslation = Vec3();
@@ -30,8 +30,8 @@ void Camera::Look()
     Mat4 tranbslation = Transformation::Translate(mTranslation);
     mParameters.modelviewMatrix = rotation * tranbslation * mTransform.view;
     mTransform.view = mParameters.modelviewMatrix;
-    if (mShadersInput) {
-        mShadersInput->InputTransform(mTransform);
+    if (mShadingInterface) {
+        mShadingInterface->InputTransform(mTransform);
     }
 }
 
@@ -87,7 +87,7 @@ void Camera::setViewport(const Frame& frame)
     glViewport(0.0f, 0.0f, size, size);
     mParameters.viewport = Frame(Vec2(), Vec2(size, size));
 #ifndef GLES
-    mShadersInput->InputWindowSize(frame.GetExtent());
+    mShadingInterface->InputWindowSize(frame.GetExtent());
 #endif
 }
     

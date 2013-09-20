@@ -2,7 +2,7 @@
 #pragma once
 
 #include <Model/Node.h>
-#include <Shading/ShadersInput.h>
+#include <Shading/ShadingInterface.h>
 
 
 
@@ -33,7 +33,7 @@ public:
     void Look();
     
     void setProjection(Projection projectionMode);
-    void setShadersInput(ShadersInput* shadersInput) { mShadersInput = shadersInput; }
+    void setShadingInterface(ShadingInterface* ShadingInterface) { mShadingInterface = ShadingInterface; }
     void setViewport(const Frame& frame);
     const Parameters& getParameters() const { return mParameters; };
     
@@ -46,8 +46,8 @@ private:
     Parameters mParameters;
     Mat4 mModelviewMatrix;
     
-    ShadersInput* mShadersInput;
-    ShadersInput::Transform mTransform;
+    ShadingInterface* mShadingInterface;
+    ShadingInterface::Transform mTransform;
 };
     
 }

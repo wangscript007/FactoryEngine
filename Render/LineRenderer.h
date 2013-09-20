@@ -9,7 +9,7 @@ class LinePrimitive;
 class LineRenderer : public PrimitiveRenderer
 {
 public:
-    LineRenderer(ShadersInput& shadersInput) : PrimitiveRenderer(shadersInput) {}
+    LineRenderer(ShadingInterface& ShadingInterface) : PrimitiveRenderer(ShadingInterface) {}
     virtual ~LineRenderer() {}
     virtual void Begin(Primitive& primitive);
     virtual void Render(Primitive& primitive);
