@@ -58,14 +58,13 @@ void Scene::Prepare()
     activeLightingModel->setShadingInterface(&shadingInterface);
     activeLightingModel->SetupLights();
     activeLightingModel->SendDataToShader();
-    mSceneRenderer = new SceneRenderer(*mShadingLibrary);
+    mSceneRenderer = new SceneRenderer(*mShadingLibrary, *mCamera);
 }
 
 #pragma mark Workspace
 
 void Scene::Render()
 {
-    mCamera->Look();
     mWorkspace->Render(*mLayer);
     mSceneRenderer->Render(*mLayer);
     mLayer->Clear();

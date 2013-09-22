@@ -4,13 +4,14 @@
 #include <Render/LayerRenderer.h>
 #include <Render/Framebuffer.h>
 #include <Shading/ShadingLibrary.h>
+#include <Scene/Camera.h>
 
 namespace ftr {
 
 class SceneRenderer : public LayerRenderer
 {
 public:
-    SceneRenderer(ShadingLibrary& shadingLibrary);
+    SceneRenderer(ShadingLibrary& shadingLibrary, Camera& camera);
     virtual ~SceneRenderer();
     
     void Render(Layer &layer);
@@ -24,6 +25,7 @@ private:
     Framebuffer* mColorMarkingFramebuffer;
     Frame mFrame;
     ShadingLibrary& mShadingLibrary;
+    Camera& mCamera;
 };
     
 }

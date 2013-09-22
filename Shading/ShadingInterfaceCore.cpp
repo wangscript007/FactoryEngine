@@ -107,6 +107,7 @@ void ShadingInterface::InputSettings(const Settings& settings)
     
 void ShadingInterface::InputTransform(const Transform& transform)
 {
+ 
     const GLfloat* view         = reinterpret_cast<const GLfloat*>(&transform.view);
     const GLfloat* projection   = reinterpret_cast<const GLfloat*>(&transform.projection);
     glUniformMatrix4fv(mActiveBond->transform.view,  1, false, view);
