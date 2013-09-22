@@ -45,39 +45,31 @@ void Scene::Prepare()
 {
     mCamera = new class Camera(Vec3(0.0f, 0.0f, 10.0f));
     mCamera->setProjection(kProjectionPerspective);
-    mShadingLibrary->BuildProgramWithName("color");
-    ShadingInterface* ShadingInterface = mShadingLibrary->InputForProgramWithName("color");
-    mShadingLibrary->UseProgramWithName("color");
-    mCamera->setShadingInterface(ShadingInterface);
+    mShadingLibrary->BuildProgramWithType(ShadingProgram::kMain);
+    mShadingLibrary->BuildProgramWithType(ShadingProgram::kColor);
+    
+    ShadingInterface& shadingInterface = mShadingLibrary->interface();
+    mCamera->setShadingInterface(&shadingInterface);
     mInteractionProvider = new class InteractionProvider(*mModelEditor, *mCamera);
     mleapListener.setCameraInteraction(mInteractionProvider->CameraInteraction());
+    
+    mShadingLibrary->UseProgramWithType(ShadingProgram::kMain);
     LightingModel* activeLightingModel = mLightingCollection->activeModel();
-    activeLightingModel->setShadingInterface(ShadingInterface);
+    activeLightingModel->setShadingInterface(&shadingInterface);
     activeLightingModel->SetupLights();
     activeLightingModel->SendDataToShader();
-    
-    mSceneRenderer = new SceneRenderer(*ShadingInterface);
-    
+    mSceneRenderer = new SceneRenderer(*mShadingLibrary);
 }
 
 #pragma mark Workspace
 
 void Scene::Render()
 {
+    mCamera->Look();
     mWorkspace->Render(*mLayer);
     mSceneRenderer->Render(*mLayer);
     mLayer->Clear();
     mFramesCount++;
-}
-    
-void Scene::ActivateProgram()
-{
-    mShadingLibrary->UseProgramWithName("main");
-}
-    
-void Scene::DeactivateProgram()
-{
-    mShadingLibrary->UseProgramWithName("none");
 }
     
 void Scene::setViewportRect(int x, int y, int width, int height)
@@ -100,18 +92,6 @@ void Scene::Step(float dTime)
 void Scene::AddShader(const std::string& name, const std::string& source, GLenum type)
 {
     mShadingLibrary->Add(name, source, type);
-}
-
-GLuint Scene::ShaderAttributeLocation(const std::string& name)
-{
-    ShadingInterface* input = mShadingLibrary->InputForProgramWithName("main");
-    return input->AttributeLocation(name);
-}
-
-GLuint Scene::ShaderUniformLocation(const std::string& name)
-{
-    ShadingInterface* input = mShadingLibrary->InputForProgramWithName("main");
-    return input->UniformLocation(name);
 }
     
 #pragma mark Model

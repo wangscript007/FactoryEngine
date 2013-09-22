@@ -10,11 +10,14 @@ class ShadingProgram
 {
 public:
     enum Type {
+        kNone,
         kMain,
         kColor,
         kTest,
         kCount
     };
+
+    static Type TypeForName(const std::string& name);
     
     ShadingProgram();
     virtual ~ShadingProgram();
@@ -24,8 +27,8 @@ public:
     void Activate();
     void CompileShaders();
     GLint status() const { return mStatus; }
-    ShadingInterface* interface() const { return mInterface; }
-    std::string mName;
+    GLint indentifier() const { return mId; }
+    Type mType;
     
 private:
     typedef std::map<std::string, Type> NameToTypeMap;
@@ -34,13 +37,13 @@ private:
     void DetachShaders();
     void AttachShaders();
     
-    static Type TypeForName(const std::string& name);
-    
     GLuint mId;
     GLint mStatus;
     
     AttachedVector attachedVector;
     ShadingInterface* mInterface;
+    
+    
 };
 
 }

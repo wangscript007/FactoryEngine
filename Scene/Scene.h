@@ -31,11 +31,6 @@ public:
     // Shaders
     void              AddShader(const std::string& name, const std::string& source, GLenum type);
     void              PrepareShadingProgram();
-    void              ActivateProgram();
-    GLuint            ShaderAttributeLocation(const std::string& name);
-    GLuint            ShaderUniformLocation(const std::string& name);
-
-    void              DeactivateProgram();
     
     // Model
     void              Select(Node* pNode) { mModelEditor->Select(pNode); }
@@ -51,8 +46,7 @@ public:
     Camera*             Camera() const { return mCamera; }
     void                Step(float dTime);
     float               FPS() const { return mFPS; }
-    
-    
+        
 private:
     Workspace*          mWorkspace;
     class Camera*       mCamera;

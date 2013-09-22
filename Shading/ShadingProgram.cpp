@@ -8,7 +8,6 @@ namespace ftr {
 ShadingProgram::ShadingProgram()
 {
     mId = glCreateProgram();
-    mInterface = new ShadingInterface(mId);
     assert(mId != 0);
 }
     
@@ -42,11 +41,9 @@ void ShadingProgram::Link()
 {
     AttachShaders();
     assert(attachedVector.size() > 0);
-    mInterface->BindOutput();
     glLinkProgram(mId);
     CheckLinkStatus();
     DetachShaders();
-    mInterface->SetupForProgramWithName(mName);
 }
     
 
@@ -90,7 +87,7 @@ ShadingProgram::Type ShadingProgram::TypeForName(const std::string& name)
         map.insert(std::make_pair("main",   kMain));
         map.insert(std::make_pair("color",  kColor));
         map.insert(std::make_pair("test",   kTest));
-        assert(map.size() == kCount);
+        assert(map.size() == kCount - 1);
     }
     return map[name];
     

@@ -11,7 +11,13 @@ class ShadingInterface
 {
 public:
     
-    struct Interface {
+    enum {
+        kVertexAttributeIndex,
+        kColorAttributeIndex,
+        kNormalAttributeIndex
+    };
+    
+    struct Bond {
         GLuint vertex;
         GLuint normal;
         GLuint color;
@@ -61,18 +67,19 @@ public:
         debugFloatScale(1.0f) {}
     };
     
-    ShadingInterface(GLuint programId) : mProgramId(programId) {}
     virtual ~ShadingInterface() {}
-    void BindOutput();
-    void SetupForProgramWithName(const std::string& mName);
+    void BindOutput(GLuint programId);
+    void CreateInterfaceForProgram(ShadingProgram::Type type, GLuint programID);
     
-    GLuint AttributeLocation(const std::string& name) const;
-    GLuint UniformLocation(const std::string& name) const;
-    GLuint BlockBuffer(const std::string& name) const;
+    void ActvateBondForProgramType(ShadingProgram::Type type);
     
-    GLuint colorLocation() const { return mInterface.color; }
-    GLuint normalLocation() const { return mInterface.normal; }
-    GLuint vertexLocation() const { return mInterface.vertex; }
+    GLuint AttributeLocation(const std::string& name, GLuint programID) const;
+    GLuint UniformLocation(const std::string& name, GLuint programID) const;
+    GLuint BlockBuffer(const std::string& name, GLuint programID) const;
+    
+    GLuint colorLocation() const { return mActiveBond->color; }
+    GLuint normalLocation() const { return mActiveBond->normal; }
+    GLuint vertexLocation() const { return mActiveBond->vertex; }
     
     void InputTransform(const Transform& transform);
     void InputSettings(const Settings& settings);
@@ -81,10 +88,11 @@ public:
         
     Settings mSettings;
 private:
-    typedef std::map<std::string, Interface> NameToTypeMap;
+    typedef std::map<ShadingProgram::Type, Bond> BondsMap;
+    static Bond BondForProgramType(ShadingProgram::Type type);
     
-    GLuint mProgramId;
-    Interface mInterface;
+    Bond* mActiveBond;
+    BondsMap mBondsMap;
     
 };
     

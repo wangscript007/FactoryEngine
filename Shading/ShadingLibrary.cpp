@@ -1,7 +1,6 @@
 
 
 #include <Shading/ShadingLibrary.h>
-#include <Shading/ShadingInterface.h>
 
 namespace ftr {
     
@@ -16,32 +15,32 @@ void ShadingLibrary::Add(const std::string& name, const std::string& source, GLe
     
 void ShadingLibrary::Add(Shader::Data& shaderData)
 {
-    ShadingProgram& program = mProgramsMap[shaderData.name];
+    ShadingProgram::Type programType = ShadingProgram::TypeForName(shaderData.name);
+    ShadingProgram& program = mProgramsMap[programType];
     program.AddShader(Shader(shaderData));
 }
     
     
-void ShadingLibrary::BuildProgramWithName(const std::string& name)
+void ShadingLibrary::BuildProgramWithType(ShadingProgram::Type type)
 {
-    ShadingProgram& program = mProgramsMap[name];
+    ShadingProgram& program = mProgramsMap[type];
+    program.mType = type;
     program.CompileShaders();
-    program.mName = name;
+    mInterface.BindOutput(program.indentifier());
     program.Link();
+    mInterface.CreateInterfaceForProgram(program.mType, program.indentifier());
  
 }
     
-void ShadingLibrary::UseProgramWithName(const std::string& name)
+void ShadingLibrary::UseProgramWithType(ShadingProgram::Type type)
 {
-    if (name == "none") {
+    if (type == ShadingProgram::kNone) {
         glUseProgram(0);
     } else {
-        mProgramsMap[name].Activate();
+        mProgramsMap[type].Activate();
+        mInterface.ActvateBondForProgramType(type);
+
     }
-}
-    
-ShadingInterface* ShadingLibrary::InputForProgramWithName(const std::string& name)
-{
-    return mProgramsMap[name].interface();
 }
     
 }
