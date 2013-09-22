@@ -13,14 +13,16 @@ public:
     
     enum {
         kVertexAttributeIndex,
+        kNormalAttributeIndex,
         kColorAttributeIndex,
-        kNormalAttributeIndex
+        kPickingColorAttributeIndex
     };
     
     struct Bond {
         GLuint vertex;
         GLuint normal;
         GLuint color;
+        GLuint pickingColor;
         struct Transform {
             GLuint view;
             GLuint projection;

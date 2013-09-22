@@ -46,6 +46,9 @@ public:
     Camera*             Camera() const { return mCamera; }
     void                Step(float dTime);
     float               FPS() const { return mFPS; }
+    
+    Framebuffer*        colorMarkingFramebuffer() const { return mSceneRenderer->colorMarkingFramebuffer(); }
+    
         
 private:
     Workspace*          mWorkspace;

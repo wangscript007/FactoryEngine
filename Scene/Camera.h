@@ -30,12 +30,13 @@ public:
     void RotateBy(const Vec2 deltaRotation);
     void ZoomBy(const GLfloat times);
     
-    void Look();
+    void CreateTransformations();
     
     void setProjection(Projection projectionMode);
     void setShadingInterface(ShadingInterface* ShadingInterface) { mShadingInterface = ShadingInterface; }
     void setViewport(const Frame& frame);
     const Parameters& getParameters() const { return mParameters; };
+    void CommitTransformations();
     
 private:
     Vec3 mEyePosition;

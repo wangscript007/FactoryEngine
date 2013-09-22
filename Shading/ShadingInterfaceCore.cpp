@@ -7,7 +7,6 @@ namespace ftr {
 void ShadingInterface::ActvateBondForProgramType(ShadingProgram::Type type)
 {
     mActiveBond = &mBondsMap[type];
-    
 }
 
 void ShadingInterface::CreateInterfaceForProgram(ShadingProgram::Type type, GLuint programId)
@@ -55,9 +54,11 @@ void ShadingInterface::CreateInterfaceForProgram(ShadingProgram::Type type, GLui
             assert(false);
             break;
     }
-    bond.vertex = kVertexAttributeIndex;
-    bond.color = kColorAttributeIndex;
-    bond.normal = kNormalAttributeIndex;
+    bond.vertex         = kVertexAttributeIndex;
+    bond.normal         = kNormalAttributeIndex;
+    bond.color          = kColorAttributeIndex;
+    bond.pickingColor   = kColorAttributeIndex;
+    
 
 }
 
@@ -66,6 +67,7 @@ void ShadingInterface::BindOutput(GLuint programId)
     glBindAttribLocation(programId, kVertexAttributeIndex, "position");
     glBindAttribLocation(programId, kNormalAttributeIndex, "normal");
     glBindAttribLocation(programId, kColorAttributeIndex, "color");
+    glBindAttribLocation(programId, kPickingColorAttributeIndex, "pickingColor");
     glBindFragDataLocation(programId, 0, "outputF");
     
 }

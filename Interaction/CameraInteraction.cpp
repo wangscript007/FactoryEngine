@@ -39,7 +39,7 @@ void CameraInteraction::Zoom(const GLfloat times)
     
 void CameraInteraction::Look()
 {
-    mCamera.Look();
+    mCamera.CreateTransformations();
 }
 
    

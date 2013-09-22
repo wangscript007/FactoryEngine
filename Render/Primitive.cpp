@@ -84,15 +84,21 @@ char* RectanglePrimitive::CreateRenderData(ShadingInterface& shadingInterface)
         data->colors[i] = color;
     }
     
-    const GLuint colorLoc = shadingInterface.colorLocation();
+    for(int i = 0; i < 4; ++i) {
+        data->pickingColors[i] = mPickingColor;
+    }
+    
+    
     const GLuint vertexLoc = shadingInterface.vertexLocation();
     const GLuint normalLoc = shadingInterface.normalLocation();
+    const GLuint colorLoc = ShadingInterface::kColorAttributeIndex;
+    const GLuint pickingColorLoc = ShadingInterface::kPickingColorAttributeIndex;
     
     glGenVertexArrays(1, &mVertexArrayObjectId);
     glBindVertexArray(mVertexArrayObjectId);
     
-    GLuint buffers[3];
-    glGenBuffers(3, buffers);
+    GLuint buffers[4];
+    glGenBuffers(4, buffers);
     
     glBindBuffer(GL_ARRAY_BUFFER, buffers[0]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(Vec4)*4, data->vertices, GL_STATIC_DRAW);
@@ -108,6 +114,11 @@ char* RectanglePrimitive::CreateRenderData(ShadingInterface& shadingInterface)
     glBufferData(GL_ARRAY_BUFFER, sizeof(Color4f)*4, data->colors, GL_STATIC_DRAW);
     glEnableVertexAttribArray(colorLoc);
     glVertexAttribPointer(colorLoc, 4, GL_FLOAT, 0, 0, 0);
+    
+    glBindBuffer(GL_ARRAY_BUFFER, buffers[3]);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Color4f)*4, data->pickingColors, GL_STATIC_DRAW);
+    glEnableVertexAttribArray(pickingColorLoc);
+    glVertexAttribPointer(pickingColorLoc, 4, GL_FLOAT, 0, 0, 0);
 
     return reinterpret_cast<char*>(data);
 }

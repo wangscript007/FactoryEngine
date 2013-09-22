@@ -117,6 +117,7 @@ public:
         Vec4 vertices[4];
         Vec4 normals[4];
         Color4f colors[4];
+        Color4f pickingColors[4];
     };
     
     RectanglePrimitive();
@@ -125,6 +126,7 @@ public:
     Type type() const { return kRectangle; }
     Vec3 mVec[4];
     Color4f color;
+    Color4f mPickingColor;
 protected:
     char* CreateRenderData(ShadingInterface& shadingInterface);
     

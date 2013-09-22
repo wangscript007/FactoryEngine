@@ -19,12 +19,9 @@ SceneRenderer::~SceneRenderer()
     
 void SceneRenderer::Render(Layer &layer)
 {
-
+    mCamera.CreateTransformations();
     RenderToScreen(layer);
     RenderToColorFramebuffer(layer);
-
-    
-
 }
     
 void SceneRenderer::RenderToScreen(Layer &layer)
@@ -32,7 +29,7 @@ void SceneRenderer::RenderToScreen(Layer &layer)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     mShadingLibrary.UseProgramWithType(ShadingProgram::kMain);
-    mCamera.Look();
+    mCamera.CommitTransformations();
     RenderInternal(layer);
 }
     
@@ -43,13 +40,11 @@ void SceneRenderer::RenderToColorFramebuffer(Layer &layer)
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     mShadingLibrary.UseProgramWithType(ShadingProgram::kColor);
-    mCamera.Look();
+    mCamera.CommitTransformations();
     LayerRenderer::RenderInternal(layer);
     mColorMarkingFramebuffer->Unbind();
 }
 
-    
-    
 void SceneRenderer::setFrame(const Frame& frame)
 {
     mFrame = frame;

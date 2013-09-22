@@ -4,7 +4,7 @@
 
 namespace ftr {
 
-class Vec3
+class _ALIGN(16) Vec3 
 {
 public:
     static const Vec3 X;

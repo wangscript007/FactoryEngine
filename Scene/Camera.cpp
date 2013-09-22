@@ -17,7 +17,7 @@ Camera::Camera(const Vec3& eyePosition)
     mRotation = Vec3();
 }
     
-void Camera::Look()
+void Camera::CreateTransformations()
 {
     static const Vec3 target = Vec3();
     Vec3 forward = target + mEyePosition;
@@ -30,6 +30,10 @@ void Camera::Look()
     Mat4 tranbslation = Transformation::Translate(mTranslation);
     mParameters.modelviewMatrix = rotation * tranbslation * mTransform.view;
     mTransform.view = mParameters.modelviewMatrix;
+}
+    
+void Camera::CommitTransformations()
+{
     if (mShadingInterface) {
         mShadingInterface->InputTransform(mTransform);
     }

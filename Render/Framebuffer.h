@@ -11,10 +11,12 @@ public:
     void Bind();
     void Unbind();
     
+    Color4f ColorAtPoint(const Vec2& point);
+    
 private:
-    GLuint framebufferId;
-    GLuint framebufferTextureId;
-    GLuint renderbufferId;
+    GLuint mFramebufferId;
+    GLuint mFramebufferTextureId;
+    GLuint mRenderbufferId;
 };
     
 }

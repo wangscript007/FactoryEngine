@@ -18,6 +18,8 @@ public:
     
     void setFrame(const Frame& frame);
     
+    Framebuffer* colorMarkingFramebuffer() const { return mColorMarkingFramebuffer; }
+    
 private:
     void RenderToScreen(Layer &layer);
     void RenderToColorFramebuffer(Layer &layer);
