@@ -3,6 +3,8 @@
 #include <Scene/Camera.h>
 #include <Main/Log.h>
 #include <Math/Transformation.h>
+#include <glm/glm.hpp>
+#include <glm/ext.hpp>
 
 
 namespace ftr {
@@ -26,9 +28,9 @@ void Camera::CreateTransformations()
     side.Normalize();
     Mat4 rotation = Transformation::RotateAroundAxis(mRotation.mX, side);
     rotation *= Transformation::RotateAroundAxis(mRotation.mY, Vec3::Y);
-    mTransform.view = Transformation::LookAt(mEyePosition, target, Vec3::Y);
-    Mat4 tranbslation = Transformation::Translate(mTranslation);
-    mParameters.modelviewMatrix = rotation * tranbslation * mTransform.view;
+    mTransform.view =  Transformation::LookAt(mEyePosition, target, Vec3::Y);
+    Mat4 translation = Transformation::Translate(mTranslation);
+    mParameters.modelviewMatrix = rotation * translation * mTransform.view;
     mTransform.view = mParameters.modelviewMatrix;
 }
     
@@ -70,17 +72,15 @@ void Camera::setProjection(Projection projectionMode)
 {
     mProjection = projectionMode;
     switch (projectionMode) {
-        case kProjectionPerspective:
-            mTransform.projection = Transformation::Frustum(-kViewportScale, kViewportScale,
-                                                        -kViewportScale, kViewportScale,
-                                                            2.0f, 200.0f);
-
+        case kProjectionPerspective: {
+            glm::mat4 mat = glm::perspective(60.0f, 1.0f, 0.1f, 10000.f);
+            mTransform.projection = *((Mat4*)glm::value_ptr(mat));
             break;
-        case kProjectionOrthographic:
-            mTransform.projection = Transformation::Ortho(-kViewportScale, kViewportScale,
-                                                      -kViewportScale, kViewportScale,
-                                                      2.0f, 20.0);
-            break;
+        }
+        case kProjectionOrthographic: {
+            glm::mat4 mat = glm::perspective(60.0f, 1.0f, 0.1f, 10000.f);
+            mTransform.projection = *((Mat4*)glm::value_ptr(mat));
+        } break;
     }
     mParameters.projectionMatrix = mTransform.projection;
 }
