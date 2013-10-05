@@ -18,6 +18,7 @@
 		6021AFC817232B8F001EAEBE /* PrimitiveRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFC617232B8F001EAEBE /* PrimitiveRenderer.h */; };
 		6021AFCB172332F6001EAEBE /* LineRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFC9172332F6001EAEBE /* LineRenderer.cpp */; };
 		6021AFCC172332F6001EAEBE /* LineRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFCA172332F6001EAEBE /* LineRenderer.h */; };
+		602A43A41800A59600EC071F /* glm in Resources */ = {isa = PBXBuildFile; fileRef = 602A43A31800A59600EC071F /* glm */; };
 		6032716117EB08E700249562 /* Framebuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6032715F17EB08E700249562 /* Framebuffer.cpp */; };
 		6032716217EB08E700249562 /* Framebuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6032715F17EB08E700249562 /* Framebuffer.cpp */; };
 		6032716317EB08E700249562 /* Framebuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6032715F17EB08E700249562 /* Framebuffer.cpp */; };
@@ -382,6 +383,7 @@
 		6021AFC617232B8F001EAEBE /* PrimitiveRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimitiveRenderer.h; sourceTree = "<group>"; };
 		6021AFC9172332F6001EAEBE /* LineRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineRenderer.cpp; sourceTree = "<group>"; };
 		6021AFCA172332F6001EAEBE /* LineRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineRenderer.h; sourceTree = "<group>"; };
+		602A43A31800A59600EC071F /* glm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = glm; sourceTree = "<group>"; };
 		6032715F17EB08E700249562 /* Framebuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Framebuffer.cpp; sourceTree = "<group>"; };
 		6032716017EB08E700249562 /* Framebuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framebuffer.h; sourceTree = "<group>"; };
 		6032717417EB17C700249562 /* SceneRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneRenderer.cpp; sourceTree = "<group>"; };
@@ -777,6 +779,7 @@
 		D1C708B915B3495400D64823 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				602A43A31800A59600EC071F /* glm */,
 				D15D697B15B4CECB007D676B /* ConvexDecomposition */,
 			);
 			path = External;
@@ -1110,6 +1113,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				602A43A41800A59600EC071F /* glm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
