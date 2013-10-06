@@ -87,6 +87,7 @@
 		60458B25175B8EF8000679CE /* CameraInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 601EC869175B2901003DE2B8 /* CameraInteraction.cpp */; };
 		60458B26175B8EFB000679CE /* CameraInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 601EC86A175B2901003DE2B8 /* CameraInteraction.h */; };
 		6047DB9316B46A890012286F /* RectangleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6047DB9116B46A890012286F /* RectangleInteraction.cpp */; };
+		604ADB721801971200F587B1 /* TestInteractionAssistant.mm in Sources */ = {isa = PBXBuildFile; fileRef = 604ADB711801971200F587B1 /* TestInteractionAssistant.mm */; };
 		6055CFD017417D46009F1F46 /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6055CFCE17417D45009F1F46 /* Light.cpp */; };
 		6055CFD117417D46009F1F46 /* Light.h in Headers */ = {isa = PBXBuildFile; fileRef = 6055CFCF17417D45009F1F46 /* Light.h */; };
 		6055CFD417417DCB009F1F46 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6055CFD217417DCB009F1F46 /* Camera.cpp */; };
@@ -391,6 +392,7 @@
 		603BA60117E874FE007CE822 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		6047DB9116B46A890012286F /* RectangleInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleInteraction.cpp; sourceTree = "<group>"; };
 		6047DB9216B46A890012286F /* RectangleInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleInteraction.h; sourceTree = "<group>"; };
+		604ADB711801971200F587B1 /* TestInteractionAssistant.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestInteractionAssistant.mm; sourceTree = "<group>"; };
 		604E939A16A1C6E700143522 /* fix_includes.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = fix_includes.py; sourceTree = "<group>"; };
 		604E93D116A1D14C00143522 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		6055CFCE17417D45009F1F46 /* Light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Light.cpp; sourceTree = "<group>"; };
@@ -635,6 +637,7 @@
 			children = (
 				60607E1217E63CF600708358 /* Supporting Files */,
 				60C404EB17E64512009B0AD7 /* MathTest.mm */,
+				604ADB711801971200F587B1 /* TestInteractionAssistant.mm */,
 			);
 			path = "FactoryEngine Tests";
 			sourceTree = "<group>";
@@ -1187,6 +1190,7 @@
 				603BA5FD17E87437007CE822 /* Workspace.cpp in Sources */,
 				603BA5FE17E87437007CE822 /* Bounds.cpp in Sources */,
 				603BA5FF17E87437007CE822 /* TestRectangle.cpp in Sources */,
+				604ADB721801971200F587B1 /* TestInteractionAssistant.mm in Sources */,
 				603BA5C617E87392007CE822 /* Camera.cpp in Sources */,
 				603BA5C517E87388007CE822 /* Picker.cpp in Sources */,
 				60C404EC17E64512009B0AD7 /* MathTest.mm in Sources */,

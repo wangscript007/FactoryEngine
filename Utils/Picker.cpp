@@ -11,6 +11,13 @@ Vec3 Picker::Viewport(const Vec3& sceneVec, const Camera::Parameters& cameraPara
 {
     return GluProject(sceneVec, cameraParameters);
 }
+    
+Vec2 Picker::Viewport2(const Vec3& sceneVec, const Camera::Parameters& cameraParameters)
+{
+    Vec3 vec3 = Picker::Viewport(sceneVec, cameraParameters);
+    return Vec2(vec3.mX, vec3.mY);
+}
+
 
 Vec3 Picker::Scene(const Vec3& windowVec, const Camera::Parameters& cameraParameters)
 {

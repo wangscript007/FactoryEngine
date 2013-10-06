@@ -10,6 +10,7 @@
 #include <Utils/Picker.h>
 #include <Scene/Camera.h>
 
+
 using namespace ftr;
 
 @interface MathTest : XCTestCase
@@ -46,16 +47,16 @@ using namespace ftr;
     
     Camera::Parameters parameters;
    
-    parameters.projectionMatrix =       Mat4(Vec4(6.666667, 0.000000, 0.000000, 0.000000),
-                                             Vec4(0.000000, 6.666667, 0.000000, 0.000000),
-                                             Vec4(0.000000, 0.000000, -1.002002, -4.004004),
-                                             Vec4(0.000000, 0.000000, -1.000000, 0.000000));
+    parameters.projectionMatrix =      Mat4(Vec4(1.732051, 0.000000, 0.000000, 0.000000),
+                                            Vec4(0.000000, 1.732051, 0.000000, 0.000000),
+                                            Vec4(0.000000, 0.000000, -1.000020, -1.000000),
+                                            Vec4(0.000000, 0.000000, -0.200002, 0.000000));
 
     
-    parameters.modelviewMatrix =     Mat4(Vec4(-0.998705, 0.000000, -0.050872, 0.000000),
-                                          Vec4(-0.023814, 0.883667, 0.467510, 0.000000),
-                                          Vec4(0.044954, 0.468117, -0.882522, 0.000000),
-                                          Vec4(0.000000, 0.000000, -10.000000, 1.000000));
+    parameters.modelviewMatrix =     Mat4(Vec4(-0.902585, 0.000000, 0.430511, 0.000000),
+                                          Vec4(0.336922, 0.622515, 0.706371, 0.000000),
+                                          Vec4(-0.267999, 0.782608, -0.561873, 0.000000),
+                                          Vec4(1.500000, -1.400000, -10.000000, 1.000000));
     
     parameters.viewport = Frame(Vec2(0.0f, 0.0f), Vec2(400.0f, 400.0f));
     
@@ -63,7 +64,11 @@ using namespace ftr;
     Vec3 projectVec     = Picker::GluProject(testPoint, parameters);
     Vec3 unprojectVec   = Picker::GluUnProject(projectVec, parameters);
     
-    XCTAssertTrue(unprojectVec == testPoint, @"Error in GluProject or GluUnproject");
+    const float accuracy = 0.1f;
+    XCTAssertEqualWithAccuracy(testPoint.mX, unprojectVec.mX, accuracy, @"Project/unproject problem!");
+    XCTAssertEqualWithAccuracy(testPoint.mY, unprojectVec.mY, accuracy, @"Project/unproject problem!");
+    XCTAssertEqualWithAccuracy(testPoint.mZ, unprojectVec.mZ, accuracy, @"Project/unproject problem!");
+    
 }
 
 
