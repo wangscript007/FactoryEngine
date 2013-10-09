@@ -131,6 +131,7 @@
 		6091E37616AC554E001DE0A7 /* PolylineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37416AC554E001DE0A7 /* PolylineNode.h */; };
 		6091E37A16AC6037001DE0A7 /* LoopFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37816AC6036001DE0A7 /* LoopFinder.cpp */; };
 		6091E37B16AC6037001DE0A7 /* LoopFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37916AC6036001DE0A7 /* LoopFinder.h */; };
+		60988088180584A60064477E /* TestSegment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60988087180584A60064477E /* TestSegment.mm */; };
 		60A03E411752423100D650B5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A03E401752423100D650B5 /* OpenGLES.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		60A03E42175244EB00D650B5 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6056C56E15DC5522008F8E92 /* Scene.cpp */; };
 		60A4ED5C16FE14E30083DCD2 /* Transformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED5A16FE14E30083DCD2 /* Transformation.cpp */; };
@@ -140,6 +141,10 @@
 		60A4ED6716FE59D50083DCD2 /* ScaleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED6516FE59D40083DCD2 /* ScaleInteraction.cpp */; };
 		60A4ED6816FE59D50083DCD2 /* ScaleInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60A4ED6616FE59D40083DCD2 /* ScaleInteraction.h */; };
 		60A575E71690DDEE0050FAFC /* Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 60A575E61690DDEE0050FAFC /* Prefix.pch */; };
+		60B3F3BD1805667B0010484D /* Segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B3F3BB1805667B0010484D /* Segment.cpp */; };
+		60B3F3BE1805667B0010484D /* Segment.h in Headers */ = {isa = PBXBuildFile; fileRef = 60B3F3BC1805667B0010484D /* Segment.h */; };
+		60B3F3C0180577560010484D /* Segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B3F3BB1805667B0010484D /* Segment.cpp */; };
+		60B3F3C1180577580010484D /* Segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B3F3BB1805667B0010484D /* Segment.cpp */; };
 		60BA62A217E62F7800E14DFB /* GluUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BA62A017E62F7800E14DFB /* GluUtils.cpp */; };
 		60BA62A317E62F7800E14DFB /* GluUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BA62A117E62F7800E14DFB /* GluUtils.h */; };
 		60BA62A517E630A500E14DFB /* GluUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BA62A017E62F7800E14DFB /* GluUtils.cpp */; };
@@ -450,6 +455,7 @@
 		6091E37416AC554E001DE0A7 /* PolylineNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolylineNode.h; sourceTree = "<group>"; };
 		6091E37816AC6036001DE0A7 /* LoopFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoopFinder.cpp; sourceTree = "<group>"; };
 		6091E37916AC6036001DE0A7 /* LoopFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopFinder.h; sourceTree = "<group>"; };
+		60988087180584A60064477E /* TestSegment.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestSegment.mm; sourceTree = "<group>"; };
 		60A03E401752423100D650B5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		60A4ED5A16FE14E30083DCD2 /* Transformation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transformation.cpp; sourceTree = "<group>"; };
 		60A4ED5B16FE14E30083DCD2 /* Transformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transformation.h; sourceTree = "<group>"; };
@@ -459,6 +465,8 @@
 		60A4ED6616FE59D40083DCD2 /* ScaleInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleInteraction.h; sourceTree = "<group>"; };
 		60A575E61690DDEE0050FAFC /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		60ACE689175A5F840032CEAD /* ShadingInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShadingInterface.h; sourceTree = "<group>"; };
+		60B3F3BB1805667B0010484D /* Segment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Segment.cpp; sourceTree = "<group>"; };
+		60B3F3BC1805667B0010484D /* Segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Segment.h; sourceTree = "<group>"; };
 		60B7E4B2173AEA4000EF0834 /* ShadingInterfaceCore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadingInterfaceCore.cpp; sourceTree = "<group>"; };
 		60B7E4B3173AEA4000EF0834 /* ShadingInterfaceCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadingInterfaceCore.h; sourceTree = "<group>"; };
 		60BA62A017E62F7800E14DFB /* GluUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GluUtils.cpp; sourceTree = "<group>"; };
@@ -637,6 +645,7 @@
 			children = (
 				60607E1217E63CF600708358 /* Supporting Files */,
 				60C404EB17E64512009B0AD7 /* MathTest.mm */,
+				60988087180584A60064477E /* TestSegment.mm */,
 				604ADB711801971200F587B1 /* TestInteractionAssistant.mm */,
 			);
 			path = "FactoryEngine Tests";
@@ -824,6 +833,8 @@
 				60BA62A117E62F7800E14DFB /* GluUtils.h */,
 				605F1D02171AE4CA00C8E4CC /* Color.cpp */,
 				605F1D03171AE4CA00C8E4CC /* Color.h */,
+				60B3F3BB1805667B0010484D /* Segment.cpp */,
+				60B3F3BC1805667B0010484D /* Segment.h */,
 				605F1D04171AE4CA00C8E4CC /* Frame.h */,
 				605F1D05171AE4CA00C8E4CC /* Mat2.cpp */,
 				605F1D06171AE4CA00C8E4CC /* Mat2.h */,
@@ -972,6 +983,7 @@
 				60CE9A5517EC646E00A775C0 /* ShadingLibrary.h in Headers */,
 				60A4ED5D16FE14E30083DCD2 /* Transformation.h in Headers */,
 				60CE9A5317EC646E00A775C0 /* ShadingInterfaceES.h in Headers */,
+				60B3F3BE1805667B0010484D /* Segment.h in Headers */,
 				60A4ED6116FE28BA0083DCD2 /* RotationInteraction.h in Headers */,
 				60A4ED6816FE59D50083DCD2 /* ScaleInteraction.h in Headers */,
 				60E4FF5216FF1F6600EEAA5A /* InteractionAssistant.h in Headers */,
@@ -1152,6 +1164,7 @@
 				603BA5D917E87437007CE822 /* ShadingLibrary.cpp in Sources */,
 				603BA5DA17E87437007CE822 /* Shader.cpp in Sources */,
 				603BA5DB17E87437007CE822 /* Primitive.cpp in Sources */,
+				60988088180584A60064477E /* TestSegment.mm in Sources */,
 				603BA5DC17E87437007CE822 /* PrimitiveRenderer.cpp in Sources */,
 				603BA5DD17E87437007CE822 /* LayerRenderer.cpp in Sources */,
 				603BA5DE17E87437007CE822 /* Layer.cpp in Sources */,
@@ -1162,6 +1175,7 @@
 				603BA5E317E87437007CE822 /* LightingCollection.cpp in Sources */,
 				603BA5E417E87437007CE822 /* LigthtingModelFactory.cpp in Sources */,
 				6032717817EB17C700249562 /* SceneRenderer.cpp in Sources */,
+				60B3F3C0180577560010484D /* Segment.cpp in Sources */,
 				603BA5E517E87437007CE822 /* LightingModel.cpp in Sources */,
 				603BA5E617E87437007CE822 /* DefaultLighting.cpp in Sources */,
 				603BA5E717E87437007CE822 /* Light.cpp in Sources */,
@@ -1229,6 +1243,7 @@
 				60CE9A6217EC646F00A775C0 /* ShadingLibrary.cpp in Sources */,
 				60C6D055174961470009EC3C /* InteractionAssistant.cpp in Sources */,
 				60C6D056174961470009EC3C /* Color.cpp in Sources */,
+				60B3F3C1180577580010484D /* Segment.cpp in Sources */,
 				60C6D057174961470009EC3C /* Mat2.cpp in Sources */,
 				60C6D058174961470009EC3C /* Mat3x2.cpp in Sources */,
 				60C6D059174961470009EC3C /* Mat4x4.cpp in Sources */,
@@ -1306,6 +1321,7 @@
 				60D7457A17228D4B0062CDF1 /* ModelTree.cpp in Sources */,
 				60D7457F17228E100062CDF1 /* InteractionProvider.cpp in Sources */,
 				60D7458217228EB70062CDF1 /* Octree.cpp in Sources */,
+				60B3F3BD1805667B0010484D /* Segment.cpp in Sources */,
 				60D7458B1722994B0062CDF1 /* Primitive.cpp in Sources */,
 				6021AFBC17230800001EAEBE /* LayerRenderer.cpp in Sources */,
 				6021AFBF17230E82001EAEBE /* Layer.cpp in Sources */,

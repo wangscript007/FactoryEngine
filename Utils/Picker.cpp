@@ -55,7 +55,16 @@ GLfloat Picker::DepthAtPoint(const Vec2& point)
     glReadPixels(point.mX, point.mY, 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &depth);
     return depth;
 }
-
+    
+Segment Picker::RayAtPoint(const Vec2& point, const Camera::Parameters& cameraParameters)
+{
+    Segment ray;
+    Vec3 start = GluUnProject(Vec3(point.mX, point.mY, 0.4), cameraParameters);
+    Vec3 end = GluUnProject(Vec3(point.mX, point.mY, 0.6), cameraParameters);
+    ray.mStart = glm::vec3(start.mX, start.mY, start.mZ);
+    ray.mEnd = glm::vec3(end.mX, end.mY, end.mZ);
+    return ray;
+}
     
 }
 
