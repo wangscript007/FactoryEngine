@@ -31,10 +31,6 @@ void Camera::CreateTransformations()
     mTransform.view =  Transformation::LookAt(mEyePosition, target, Vec3::Y);
     Mat4 translation = Transformation::Translate(mTranslation);
     mParameters.modelviewMatrix = rotation * translation * mTransform.view;
-    mParameters.modelviewMatrix = Mat4(Vec4(-1.000000, 0.000000, 0.000000, 0.000000),
-         Vec4(0.000000, 0.990268, 0.139173, 0.000000),
-         Vec4(0.000000, 0.139173, -0.990268, 0.000000),
-         Vec4(0.000000, 0.000000, -10.000000, 1.000000));
     mTransform.view = mParameters.modelviewMatrix;
 }
     

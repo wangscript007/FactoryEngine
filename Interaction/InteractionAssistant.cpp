@@ -41,6 +41,10 @@ Vec3 InteractionAssistant::AxisAlignedViewport(const Vec3& startScene,
     min = std::min(perp.x,  perp.y);
     min = std::min(min,     perp.z);
     
+    if (min > kSensitivity) {
+        return startScene;
+    }
+    
     glm::vec3 axisAlignedNormal;
     if (min == perp.x) {
         axisAlignedNormal = glm::vec3(1.0f, 0.0f, 0.0f);
