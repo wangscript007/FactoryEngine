@@ -41,23 +41,33 @@ Vec3 InteractionAssistant::AxisAlignedViewport(const Vec3& startScene,
     min = std::min(perp.x,  perp.y);
     min = std::min(min,     perp.z);
     
-    glm::vec3 projection;
-    glm::vec3 startSceneGlm = glm::vec3(startScene.mX, startScene.mY, startScene.mZ);
-    Segment raySegment = Picker::RayAtPoint(endViewport, cameraParameters);
-    glm::vec3 nearestPointOfTheRay = raySegment.NearestPoint(startSceneGlm);
-    glm::vec3 completionVec = nearestPointOfTheRay - startSceneGlm;
-    
-    glm::vec3 normalX = glm::vec3(1.0f, 0.0f, 0.0f);
-    glm::vec3 normalY = glm::vec3(0.0f, 1.0f, 0.0f);
-    glm::vec3 normalZ = glm::vec3(0.0f, 0.0f, 1.0f);
+    glm::vec3 axisAlignedNormal;
     if (min == perp.x) {
-        projection = glm::proj(completionVec, normalX);
+        axisAlignedNormal = glm::vec3(1.0f, 0.0f, 0.0f);
     } else if (min == perp.y) {
-        projection = glm::proj(completionVec, normalY);
+        axisAlignedNormal = glm::vec3(0.0f, 1.0f, 0.0f);
     } else if (min == perp.z) {
-        projection = glm::proj(completionVec, normalZ);
+        axisAlignedNormal = glm::vec3(0.0f, 0.0f, 1.0f);
     }
-    glm::vec3 result = startSceneGlm + projection;
+    
+    glm::vec3 startSceneGlm = glm::vec3(startScene.mX, startScene.mY, startScene.mZ);
+
+    Segment axisAlignedSegment;
+    axisAlignedSegment.mStart = startSceneGlm;
+    axisAlignedSegment.mEnd = startSceneGlm + axisAlignedNormal;
+    
+    Segment raySegment = Picker::RayAtPoint(endViewport, cameraParameters);
+    
+    Segment shortestSegmentFromRay = raySegment.ShortestSegmentFromLine(axisAlignedSegment);
+    
+    glm::vec3 result;
+    if (min == perp.x) {
+        result = glm::vec3(shortestSegmentFromRay.mStart.x, startSceneGlm.y, startSceneGlm.z);
+    } else if (min == perp.y) {
+        result = glm::vec3(startSceneGlm.x, shortestSegmentFromRay.mStart.y, startSceneGlm.z);
+    } else if (min == perp.z) {
+        result = glm::vec3(startSceneGlm.x, startSceneGlm.y, shortestSegmentFromRay.mStart.z);
+    }
     return Vec3(result.x, result.y, result.z);
 }
     

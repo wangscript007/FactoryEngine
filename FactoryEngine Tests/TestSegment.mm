@@ -13,10 +13,14 @@
 
 using namespace ftr;
 
+static const float kFloatAccuracy = 0.001;
+
 @interface TestSegment : XCTestCase
 
 @property (nonatomic, assign) glm::vec3 testPoint;
 @property (nonatomic, assign) Segment segment;
+@property (nonatomic, assign) Segment testSegment;
+@property (nonatomic, assign) Segment testLine;
 
 @end
 
@@ -26,8 +30,15 @@ using namespace ftr;
 {
     [super setUp];
     _testPoint = glm::vec3(2.0f, .0f, .0f);
+    
     _segment.mStart = glm::vec3(2.0f, 2.0f, 2.0f);
     _segment.mEnd = glm::vec3(2.0f, 2.0f, -2.0f);
+    
+    _testSegment.mStart = glm::vec3(0.0f, 0.0f, 0.0f);
+    _testSegment.mEnd = glm::vec3(4.0f, 0.0f, 0.0f);
+    
+    _testLine.mStart = glm::vec3(0.0f, 0.0f, 0.0f);
+    _testLine.mEnd = glm::vec3(-1.0f, 0.0f, 0.0f);
 
 }
 
@@ -48,8 +59,64 @@ using namespace ftr;
 {
     float expectedResult = 2.0f;
     float result = _segment.DistanceFromPoint(_testPoint);
-    XCTAssertEqualWithAccuracy(result, expectedResult, 0.001f, @"");
+    XCTAssertEqualWithAccuracy(result, expectedResult, kFloatAccuracy, @"");
+
 }
+
+- (void)testDistanceFromSegment
+{
+    float expectedResult = 2.0f;
+    float result = _segment.DistanceFromSegment(_testSegment);
+    XCTAssertEqualWithAccuracy(result, expectedResult, kFloatAccuracy, @"");
+}
+
+- (void)testDistanceFromLine
+{
+    float expectedResult = 2.0f;
+    float result = _segment.DistanceFromLine(_testLine);
+    XCTAssertEqualWithAccuracy(result, expectedResult, kFloatAccuracy, @"");
+}
+
+- (void)testShortestSegmentFromLine1
+{
+    Segment segment1;
+    segment1.mStart = glm::vec3(0.0f, 0.0f, 0.0f);
+    segment1.mEnd = glm::vec3(1.0f, 0.0f, 1.0f);
+    
+    Segment segment2;
+    segment2.mStart = glm::vec3(1.0f, 0.0f, 0.0f);
+    segment2.mEnd = glm::vec3(0.0f, 0.0f, 1.0f);
+    
+    const Segment& result = segment1.ShortestSegmentFromLine(segment2);
+    Segment expectedResult;
+    expectedResult.mStart = glm::vec3(0.5f, 0.0f, 0.5f);
+    expectedResult.mEnd = glm::vec3(0.5f, 0.0f, 0.5f);
+    XCTAssertTrue(expectedResult.mStart == result.mStart, @"");
+    XCTAssertTrue(expectedResult.mEnd == result.mEnd, @"");
+}
+
+- (void)testShortestSegmentFromLine2
+{
+    Segment segment1;
+    segment1.mStart = glm::vec3(0.0f, 1.0f, 0.0f);
+    segment1.mEnd = glm::vec3(1.0f, 1.0f, 1.0f);
+    
+    Segment segment2;
+    segment2.mStart = glm::vec3(1.0f, 0.0f, 0.0f);
+    segment2.mEnd = glm::vec3(0.0f, 0.0f, 1.0f);
+    
+    const Segment& result = segment1.ShortestSegmentFromLine(segment2);
+    Segment expectedResult;
+    expectedResult.mStart = glm::vec3(0.5f, 1.0f, 0.5f);
+    expectedResult.mEnd = glm::vec3(0.5f, 0.0f, 0.5f);
+    XCTAssertTrue(expectedResult.mStart == result.mStart, @"");
+    XCTAssertTrue(expectedResult.mEnd == result.mEnd, @"");
+}
+
+
+
+
+
 
 
 @end

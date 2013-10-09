@@ -77,12 +77,12 @@ void Camera::setProjection(Projection projectionMode)
     mProjection = projectionMode;
     switch (projectionMode) {
         case kProjectionPerspective: {
-            glm::mat4 mat = glm::perspective(60.0f, 1.0f, 0.1f, 10000.f);
+            glm::mat4 mat = glm::perspective(60.0f, 1.0f, 0.1f, 1000.f);
             mTransform.projection = *((Mat4*)glm::value_ptr(mat));
             break;
         }
         case kProjectionOrthographic: {
-            glm::mat4 mat = glm::perspective(60.0f, 1.0f, 0.1f, 10000.f);
+            glm::mat4 mat = glm::perspective(60.0f, 1.0f, 0.1f, 1000.f);
             mTransform.projection = *((Mat4*)glm::value_ptr(mat));
         } break;
     }

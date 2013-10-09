@@ -12,6 +12,8 @@
 
 using namespace ftr;
 
+static const float kAccuracy = 0.3;
+
 @interface TestInteractionAssistant : XCTestCase
 
 @property (nonatomic, assign) ftr::Camera::Parameters parameters;
@@ -45,46 +47,43 @@ using namespace ftr;
 - (void)testAxisAlignedViewportX
 {
     InteractionAssistant assistant;
-    const float accuracy = 0.1f;
     
     Vec3 startScene = Vec3(1.0f, 0.0f, -6.0f);
     Vec2 endViewport = Vec2(696.0f, 296.0f);
     Vec3 result = assistant.AxisAlignedViewport(startScene, endViewport, _parameters);
     Vec3 expectedResult = Vec3(-1.0f, 0.0f, -6.0f);
 
-    XCTAssertEqualWithAccuracy(expectedResult.mX, result.mX, accuracy, @"");
-    XCTAssertEqualWithAccuracy(expectedResult.mY, result.mY, accuracy, @"");
-    XCTAssertEqualWithAccuracy(expectedResult.mZ, result.mZ, accuracy, @"");
+    XCTAssertEqualWithAccuracy(expectedResult.mX, result.mX, kAccuracy, @"");
+    XCTAssertEqualWithAccuracy(expectedResult.mY, result.mY, kAccuracy, @"");
+    XCTAssertEqualWithAccuracy(expectedResult.mZ, result.mZ, kAccuracy, @"");
 }
 
 - (void)testAxisAlignedViewportY
 {
     InteractionAssistant assistant;
-    const float accuracy = 0.1f;
     
     Vec3 startScene = Vec3(-2.0f, 0.0f, 0.0f);
     Vec2 endViewport = Vec2(615.0f, 537.0f);
     Vec3 result = assistant.AxisAlignedViewport(startScene, endViewport, _parameters);
     Vec3 expectedResult = Vec3(-2.0f, 1.0f, 0.0f);
     
-    XCTAssertEqualWithAccuracy(expectedResult.mX, result.mX, accuracy, @"");
-    XCTAssertEqualWithAccuracy(expectedResult.mY, result.mY, accuracy, @"");
-    XCTAssertEqualWithAccuracy(expectedResult.mZ, result.mZ, accuracy, @"");
+    XCTAssertEqualWithAccuracy(expectedResult.mX, result.mX, kAccuracy, @"");
+    XCTAssertEqualWithAccuracy(expectedResult.mY, result.mY, kAccuracy, @"");
+    XCTAssertEqualWithAccuracy(expectedResult.mZ, result.mZ, kAccuracy, @"");
 }
 
 - (void)testAxisAlignedViewportZ
 {
     InteractionAssistant assistant;
-    const float accuracy = 0.1f;
     
     Vec3 startScene = Vec3(-3.0f, 0.0f, -2.0f);
     Vec2 endViewport = Vec2(858.0f, 381.0f);
     Vec3 result = assistant.AxisAlignedViewport(startScene, endViewport, _parameters);
     Vec3 expectedResult = Vec3(-3.0f, 0.0f, -4.0f);
     
-    XCTAssertEqualWithAccuracy(expectedResult.mX, result.mX, accuracy, @"");
-    XCTAssertEqualWithAccuracy(expectedResult.mY, result.mY, accuracy, @"");
-    XCTAssertEqualWithAccuracy(expectedResult.mZ, result.mZ, accuracy, @"");
+    XCTAssertEqualWithAccuracy(expectedResult.mX, result.mX, kAccuracy, @"");
+    XCTAssertEqualWithAccuracy(expectedResult.mY, result.mY, kAccuracy, @"");
+    XCTAssertEqualWithAccuracy(expectedResult.mZ, result.mZ, kAccuracy, @"");
 
 }
 
