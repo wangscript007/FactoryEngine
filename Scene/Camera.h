@@ -28,7 +28,7 @@ public:
     
     void MoveBy(const glm::vec2 deltaMove);
     void RotateBy(const glm::vec2 deltaRotation);
-    void ZoomBy(const GLfloat times);
+    void ZoomBy(const float delta, const glm::vec2& toViewportPoint);
     
     void CreateTransformations();
     
@@ -39,6 +39,7 @@ public:
     void CommitTransformations();
     
 private:
+    glm::vec3 RotateVector(const glm::vec3& vec);
     glm::mat4 RotationMatrix();
     glm::mat4 TranslationMatrix();
     glm::mat4 InitialMatrix();
@@ -49,7 +50,7 @@ private:
     Projection mProjection;
     Parameters mParameters;
     glm::mat4 mModelviewMatrix;
-    glm::vec3 mRotationCenter;
+    glm::vec3 mPivot;
     
     ShadingInterface* mShadingInterface;
     ShadingInterface::Transform mTransform;

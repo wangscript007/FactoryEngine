@@ -50,7 +50,7 @@ void LeapListener::onFrame(const Leap::Controller& controller)
             mCameraInteraction->RotateBy(glm::vec2(rotation.x, rotation.z));
         }
         if (shouldScale) {
-            mCameraInteraction->ZoomBy(scale);
+            mCameraInteraction->Zoom(scale);
         }
     }
     mLastFrame = frame;

@@ -27,9 +27,9 @@ void CameraInteraction::RotateBy(const glm::vec2 deltaRotation)
     mCamera.RotateBy(deltaRotation);
 }
     
-void CameraInteraction::ZoomBy(const GLfloat times)
+void CameraInteraction::ZoomBy(const GLfloat times, const glm::vec2& toViewportPoint)
 {
-    mCamera.ZoomBy(times);
+    mCamera.ZoomBy(times, toViewportPoint);
 }
     
 void CameraInteraction::Zoom(const GLfloat times)

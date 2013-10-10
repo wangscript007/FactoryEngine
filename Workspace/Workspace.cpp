@@ -53,7 +53,7 @@ void Workspace::Render(Layer& layer)
     mTestRactangle->Render(*mTestLayer);
     mPad->Render(*mPadLayer);
     mHUD->Render(*mHudLayer);
-    mBounds->Render(*mBoundsLayer);
+    //mBounds->Render(*mBoundsLayer);
     Node::Render(*mModelLayer);
 }
 

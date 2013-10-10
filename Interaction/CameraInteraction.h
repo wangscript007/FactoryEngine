@@ -16,7 +16,7 @@ public:
     void MoveBy(const glm::vec2 deltaMove);
     void Move(const glm::vec2 motion);
     void RotateBy(const glm::vec2 deltaRotation);
-    void ZoomBy(const GLfloat times);
+    void ZoomBy(const GLfloat times, const glm::vec2& toViewportPoint);
     void Zoom(const GLfloat times);
     void Look();
     

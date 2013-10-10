@@ -4,6 +4,7 @@
 #include <Main/Log.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
+#include <Utils/Picker.h>
 
 
 namespace ftr {
@@ -16,7 +17,6 @@ Camera::Camera(const glm::vec3& eyePosition)
     mEyePosition = eyePosition;
     mTranslation = glm::vec3();
     mRotation = glm::vec3();
-    mRotationCenter = glm::vec3(0.0f);
 }
     
 void Camera::CreateTransformations()
@@ -27,20 +27,24 @@ void Camera::CreateTransformations()
     
 glm::mat4 Camera::RotationMatrix()
 {
+    mPivot = mEyePosition;
     static const glm::vec3 axisY = glm::vec3(0.0f, 1.0f, 0.0f);
-    glm::vec3 forward = mRotationCenter + mEyePosition;
+    glm::vec3 forward = mEyePosition;
     forward = glm::normalize(forward);
     glm::vec3 side = glm::normalize(glm::cross(forward, axisY));
-    glm::mat4 rotation = glm::rotate(mRotation.x, side);
-    rotation *= glm::rotate(mRotation.y, axisY);
+    glm::mat4 rotation =
+    glm::translate(-mPivot)
+    * glm::rotate(mRotation.x, side)
+    * glm::rotate(mRotation.y, axisY)
+    * glm::translate(mPivot);
     return rotation;
 }
     
 glm::mat4 Camera::InitialMatrix()
 {
-    static const glm::vec3 axisY = glm::vec3(0.0f, 1.0f, 0.0f);
+    static const glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
     static const glm::vec3 target = glm::vec3(0.0f);
-    return glm::lookAt(mEyePosition, target, axisY);
+    return glm::lookAt(mEyePosition, target, up);
 }
     
 glm::mat4 Camera::TranslationMatrix()
@@ -54,12 +58,30 @@ void Camera::CommitTransformations()
         mShadingInterface->InputTransform(mTransform);
     }
 }
-
+    
+glm::vec3 Camera::RotateVector(const glm::vec3& vec)
+{
+    static const glm::vec3 axisY = glm::vec3(0.0f, 1.0f, 0.0f);
+    static glm::vec3 forward = glm::normalize(mEyePosition);
+    static glm::vec3 side = glm::normalize(glm::cross(forward, axisY));
+    
+    glm::vec3 result;
+    result = glm::rotate(vec, -mRotation.x, side);
+    result = glm::rotate(result, -mRotation.y, axisY);
+    return result;
+}
+    
 void Camera::MoveBy(const glm::vec2 deltaMove)
 {
-    mTranslation.x += deltaMove.x;
-    mTranslation.y += deltaMove.y;
+    glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
+    glm::vec3 forward = glm::normalize(mEyePosition);
     
+    up = RotateVector(up);
+    forward = RotateVector(forward);
+    glm::vec3 side = glm::normalize(glm::cross(up, forward));
+
+    mTranslation += side * deltaMove.x;
+    mTranslation += up * deltaMove.y;
 }
 
 void Camera::RotateBy(const glm::vec2 deltaRotation)
@@ -75,11 +97,30 @@ void Camera::RotateBy(const glm::vec2 deltaRotation)
     
 }
 
-void Camera::ZoomBy(const GLfloat times)
+void Camera::ZoomBy(const float delta, const glm::vec2& toViewportPoint)
 {
-    mEyePosition.x *= times;
-    mEyePosition.y *= times;
-    mEyePosition.z *= times;
+    glm::vec3 scenePoint = Picker::Scene(toViewportPoint, mParameters);
+    glm::vec2 viewportCenter = glm::vec2(mParameters.viewport[2] * 0.5f,
+                                         mParameters.viewport[3] * 0.5f);
+    const Segment& segment = Picker::RayAtPoint(viewportCenter, mParameters);
+    glm::vec3 start = segment.mStart;
+    glm::vec3 forward = glm::normalize(scenePoint - start);
+    
+    float distance = glm::length(scenePoint - start);
+    
+    static const float speed = 0.01f;
+    
+    float coef = std::max(0.0f, distance-0.5f) * speed;
+    coef = std::min(coef, 0.5f);
+    
+    float extra = 0.0f;
+    if (coef == 0) {
+        if (delta > 0) {
+            extra = 0.01f;
+        }
+    }
+    
+    mTranslation += forward * delta * (coef + extra);
 }
 
 void Camera::setProjection(Projection projectionMode)

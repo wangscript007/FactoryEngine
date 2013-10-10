@@ -17,6 +17,12 @@ glm::vec2 Picker::Viewport2(const glm::vec3& sceneVec, const Camera::Parameters&
     return glm::vec2(vec3.x, vec3.y);
 }
 
+    
+glm::vec3 Picker::Scene(const glm::vec2& windowVec, const Camera::Parameters& cameraParameters)
+{
+    return Picker::Scene(glm::vec3(windowVec.x, windowVec.y, 0.0f), cameraParameters);
+}
+    
 glm::vec3 Picker::Scene(const glm::vec3& windowVec, const Camera::Parameters& cameraParameters)
 {
     float depth = DepthAtPoint(glm::vec2(windowVec.x, windowVec.y));
@@ -50,8 +56,8 @@ GLfloat Picker::DepthAtPoint(const glm::vec2& point)
 Segment Picker::RayAtPoint(const glm::vec2& point, const Camera::Parameters& cameraParameters)
 {
     Segment ray;
-    glm::vec3 start = GluUnProject(glm::vec3(point.x, point.y, 0.1), cameraParameters);
-    glm::vec3 end = GluUnProject(glm::vec3(point.x, point.y, 0.9), cameraParameters);
+    glm::vec3 start = GluUnProject(glm::vec3(point.x, point.y, 0.0), cameraParameters);
+    glm::vec3 end = GluUnProject(glm::vec3(point.x, point.y, 1.0), cameraParameters);
     ray.mStart = glm::vec3(start.x, start.y, start.z);
     ray.mEnd = glm::vec3(end.x, end.y, end.z);
     return ray;
