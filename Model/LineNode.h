@@ -18,7 +18,7 @@ public:
     void setStartPoint(PointNode* startPoint) { mStartPoint = startPoint; }
     PointNode* StartPoint() const { return mStartPoint; }
     PointNode* EndPoint() const { return mEndPoint; }
-    virtual void Transform(const Mat4& m4Transformation);
+    virtual void Transform(const glm::mat4& m4Transformation);
 
 private:
     LinePrimitive linePrimitive;

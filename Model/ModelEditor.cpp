@@ -31,7 +31,7 @@ PointNode* ModelEditor::NearestPointToCenterInSphere(const Sphere& sSphere) cons
     float fNearestPointDistance = MAXFLOAT;
     float fDistance;
     for(auto i = cPointsVector.begin(); i != cPointsVector.end(); ++i) {
-        fDistance = (sSphere.mCenter - (*i)->mOrigin).Length();
+        fDistance = glm::length(sSphere.mCenter - (*i)->mOrigin);
         if (fDistance < sSphere.mRadius) {
             if (fDistance < fNearestPointDistance) {
                 pNearestPoint = *i;
@@ -47,7 +47,7 @@ void ModelEditor::Select(Node* pNode)
     mSelectedNode = pNode;
 }
 
-FaceNode* ModelEditor::CreateRectangle(const Vec3& origin, const Vec3& size) const
+FaceNode* ModelEditor::CreateRectangle(const glm::vec3& origin, const glm::vec3& size) const
 {
     assert(mSelectedNode);
     FaceNode* pFace = mModelFactory->CreateRectangle(origin, size);
@@ -60,17 +60,17 @@ FaceNode* ModelEditor::CreateRectangle(const Vec3& origin, const Vec3& size) con
 }
 
 
-FaceNode* ModelEditor::CreateFace(Vec3 origin, FaceNode::FaceType eType)
+FaceNode* ModelEditor::CreateFace(glm::vec3 origin, FaceNode::FaceType eType)
 {
     assert(mSelectedNode);
-    FaceNode* pFace = mModelFactory->CreateFace(Vec3(origin.mX, 0.01, origin.mZ),
-                                Vec3(0.0f, 0.0f, 0.0f),
+    FaceNode* pFace = mModelFactory->CreateFace(glm::vec3(origin.x, 0.01, origin.z),
+                                glm::vec3(0.0f, 0.0f, 0.0f),
                                 eType);
     mSelectedNode->AddNode(pFace);
     return pFace;
 }
 
-PointNode* ModelEditor::CreatePoint(Vec3 origin)
+PointNode* ModelEditor::CreatePoint(glm::vec3 origin)
 {
     assert(mSelectedNode);
     PointNode* pPoint = mModelFactory->CreatePoint(origin);

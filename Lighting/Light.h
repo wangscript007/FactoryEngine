@@ -15,12 +15,12 @@ public:
     };
     
     struct Data {
-        Vec4 ambient;
-        Vec4 diffuse;
-        Vec4 specular;
-        Vec4 position;
-        Vec4 halfVector;
-        Vec3 spotDirection;
+        glm::vec4 ambient;
+        glm::vec4 diffuse;
+        glm::vec4 specular;
+        glm::vec4 position;
+        glm::vec4 halfVector;
+        glm::vec3 spotDirection;
         float spotExponent;
         float spotCutoff;
         float spotCosCutoff;

@@ -58,9 +58,9 @@ private:
 
 
 struct Vertex {
-    Vec4 vec;
-    Vec4 normal;
-    Color4f color;
+    glm::vec4 vec;
+    glm::vec4 normal;
+    glm::vec4 color;
 };
 
     
@@ -76,8 +76,8 @@ public:
     virtual ~PointPrimitive() {}
     
     Type type() const { return kPoint; }
-    Vec3 mPosition;
-    Color4f mColor;
+    glm::vec3 mPosition;
+    glm::vec4 mColor;
     
 protected:
     char* CreateRenderData();
@@ -91,17 +91,17 @@ class LinePrimitive : public Primitive
 {
 public:
     struct Data {
-        Vec4 vertices[2];
-        Color4f colors[2];
+        glm::vec4 vertices[2];
+        glm::vec4 colors[2];
     };
     
     LinePrimitive() {}
     virtual ~LinePrimitive() {}
     
     Type type() const { return kLine; }
-    Vec3 mBegin;
-    Vec3 mEnd;
-    Color4f color;
+    glm::vec3 mBegin;
+    glm::vec3 mEnd;
+    glm::vec4 color;
 protected:
     char* CreateRenderData(ShadingInterface& shadingInterface);
     
@@ -114,19 +114,19 @@ class RectanglePrimitive : public Primitive
 {
 public:
     struct Data {
-        Vec4 vertices[4];
-        Vec4 normals[4];
-        Color4f colors[4];
-        Color4f pickingColors[4];
+        glm::vec4 vertices[4];
+        glm::vec4 normals[4];
+        glm::vec4 colors[4];
+        glm::vec4 pickingColors[4];
     };
     
     RectanglePrimitive();
     virtual ~RectanglePrimitive() {}
     
     Type type() const { return kRectangle; }
-    Vec3 mVec[4];
-    Color4f color;
-    Color4f mPickingColor;
+    glm::vec3 mVec[4];
+    glm::vec4 color;
+    glm::vec4 mPickingColor;
 protected:
     char* CreateRenderData(ShadingInterface& shadingInterface);
     
@@ -148,10 +148,10 @@ public:
     virtual ~PolygonPrimitive() {}
     
     Type type() const { return kPolygon; }
-    Vec3 mNormal;
-    Vec3 mCenter;
-    Vec2 mSize;
-    Color4f color;
+    glm::vec3 mNormal;
+    glm::vec3 mCenter;
+    glm::vec2 mSize;
+    glm::vec4 color;
 protected:
     char* CreateRenderData(ShadingInterface& shadingInterface);
     

@@ -1,7 +1,6 @@
 
 #include <Interaction/RotationInteraction.h>
 #include <Model/ModelEditor.h>
-#include <Math/Transformation.h>
 
 namespace ftr {
 
@@ -17,16 +16,16 @@ void RotationInteraction::Render()
 
 #pragma mark Instance
 
-void RotationInteraction::setStart(Vec3 start)
+void RotationInteraction::setStart(glm::vec3 start)
 {
     mStart = start;
 }
 
-void RotationInteraction::setEnd(Vec3 end)
+void RotationInteraction::setEnd(glm::vec3 end)
 {
     mEnd = end;
     //assert(mModelEditor.SelectedNode()->Type() == Node::kLine);
-    mModelEditor.SelectedNode()->Transform(Transformation::Rotate(mEnd - mStart));
+    //mModelEditor.SelectedNode()->Transform(Transformation::Rotate(mEnd - mStart));
     mStart = end;
 }
 

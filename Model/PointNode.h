@@ -11,14 +11,14 @@ class PointNode : public Node
 public:
     static const float c_fR;
     PointNode();
-    PointNode(Vec3 origin);
+    PointNode(glm::vec3 origin);
     virtual ~PointNode() {}
     
-    Vec3 mOrigin;
+    glm::vec3 mOrigin;
     
     virtual void Render(Layer& layer);
     virtual NodeType Type() const { return kPoint; }
-    virtual void Transform(const Mat4& m4Transformation);
+    virtual void Transform(const glm::mat4& m4Transformation);
     Octree::Leaf* OctreeLeaf() const { return mOctreeLeaf; }
     void setOctreeLeaf(Octree::Leaf* leaf) { mOctreeLeaf = leaf; }
     void setActive(bool active) { mIsActive = active; }

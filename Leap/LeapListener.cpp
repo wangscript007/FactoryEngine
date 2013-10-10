@@ -38,16 +38,16 @@ void LeapListener::onFrame(const Leap::Controller& controller)
     
     
     Leap::Vector leapTranslation = frame.translation(mLastFrame);
-    Vec3 translation = Vec3(leapTranslation.x, leapTranslation.y, leapTranslation.z);
+     glm::vec3 translation =  glm::vec3(leapTranslation.x, leapTranslation.y, leapTranslation.z);
     Leap::Vector leapRotation = frame.translation(mLastFrame);
-    Vec3 rotation = Vec3(leapRotation.x, leapRotation.y, leapRotation.z);
+     glm::vec3 rotation =  glm::vec3(leapRotation.x, leapRotation.y, leapRotation.z);
     float scale = frame.scaleFactor(mLastFrame);
     if (frame.fingers().count() > 4) {
         if (shouldTranslate) {
-            mCameraInteraction->MoveBy(Vec2(translation));
+            mCameraInteraction->MoveBy(glm::vec2(translation));
         }
         if (shouldRotate && false) {
-            mCameraInteraction->RotateBy(Vec2(rotation.mX, rotation.mZ));
+            mCameraInteraction->RotateBy(glm::vec2(rotation.x, rotation.z));
         }
         if (shouldScale) {
             mCameraInteraction->ZoomBy(scale);
@@ -61,7 +61,7 @@ void LeapListener::onFrame(const Leap::Controller& controller)
     << ", hands: " << frame.hands().count()
     << ", fingers: " << frame.fingers().count()
     << ", tools: " << frame.tools().count()
-    << ", translate: " << shouldTranslate << " - " << translation.mX << " " << translation.mY << " " << translation.mZ
+    << ", translate: " << shouldTranslate << " - " << translation.x << " " << translation.y << " " << translation.z
     << ", rotate: " << shouldRotate
     << ", scale: " << shouldScale << std::endl;
 #endif

@@ -15,15 +15,15 @@ PointNode::PointNode()
     
 }
 
-PointNode::PointNode(Vec3 origin)
+PointNode::PointNode(glm::vec3 origin)
 :mOrigin(origin)
 {
     PointNode();
 }
 
-void PointNode::Transform(const Mat4& m4Transformation)
+void PointNode::Transform(const glm::mat4& m4Transformation)
 {
-    mOrigin *= m4Transformation;
+    //mOrigin *= m4Transformation;
 }
 
 #pragma mark - Instance
@@ -35,7 +35,7 @@ void PointNode::Render(Layer& layer)
 {
     Node::Render(layer);
     primitive.mPosition = mOrigin;
-    primitive.mColor.set(1.0f, 0.0f, 0.0f, 1.0f);
+    primitive.mColor = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
     primitive.setOption(Primitive::kUseDepth, false);
     layer.AddPrimitive(primitive);
 }

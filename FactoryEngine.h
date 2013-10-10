@@ -23,6 +23,7 @@
 #include <queue>
 
 #include "External/Box2D/Box2D.h"
+#include <glm/glm.hpp>
 //
 // Platform macros.
 //
@@ -43,14 +44,6 @@ typedef unsigned long long int  Quadrupleword;    // 8 bytes
 // Math
 //
 #include "Math/Util.h"
-#include "Math/Color.h"
-#include "Math/Vec2.h"
-#include "Math/Vec3.h"
-#include "Math/Vec4.h"
-#include "Math/Mat2.h"
-#include "Math/Mat3x2.h"
-#include "Math/Mat4.h"
-#include "Math/Frame.h"
 #include "Math/Rect.h"
 
 //

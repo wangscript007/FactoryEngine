@@ -45,13 +45,13 @@ void SceneRenderer::RenderToColorFramebuffer(Layer &layer)
     mColorMarkingFramebuffer->Unbind();
 }
 
-void SceneRenderer::setFrame(const Frame& frame)
+void SceneRenderer::setFrame(const  glm::vec4& frame)
 {
     mFrame = frame;
     if (mColorMarkingFramebuffer) {
         FT_DELETE(mColorMarkingFramebuffer);
     }
-    mColorMarkingFramebuffer = new Framebuffer(mFrame.mMax);
+    mColorMarkingFramebuffer = new Framebuffer(glm::vec2(frame[2], frame[3]));
 }
     
 }

@@ -14,30 +14,30 @@ ModelFactory::ModelFactory(ModelTree& ModelTree)
     
 }
 
-FaceNode* ModelFactory::CreateRectangle(const Vec3& origin, const Vec3& size) const
+FaceNode* ModelFactory::CreateRectangle(const glm::vec3& origin, const glm::vec3& size) const
 {
     std::vector<PointNode*> pointsVector;
-    pointsVector.push_back(new PointNode(Vec3(origin.mX, origin.mY, origin.mZ)));
-    pointsVector.push_back(new PointNode(Vec3(origin.mX + size.mX, origin.mY, origin.mZ)));
-    pointsVector.push_back(new PointNode(Vec3(origin.mX + size.mX, origin.mY, origin.mZ + size.mZ)));
-    pointsVector.push_back(new PointNode(Vec3(origin.mX, origin.mY, origin.mZ + size.mZ)));
+    pointsVector.push_back(new PointNode(glm::vec3(origin.x, origin.y, origin.z)));
+    pointsVector.push_back(new PointNode(glm::vec3(origin.x + size.x, origin.y, origin.z)));
+    pointsVector.push_back(new PointNode(glm::vec3(origin.x + size.x, origin.y, origin.z + size.z)));
+    pointsVector.push_back(new PointNode(glm::vec3(origin.x, origin.y, origin.z + size.z)));
     return CreatePolygon(pointsVector);
 }
 
-FaceNode* ModelFactory::CreateCircle(Vec3 origin, float radius, int iCount) const
+FaceNode* ModelFactory::CreateCircle(glm::vec3 origin, float radius, int iCount) const
 {
     PointNode* pPoint;
     std::vector<PointNode*> pointsVector;
     float radAngleStep = M_2_PI/((float)iCount);
     float radAngle = 0;
     float x, y;
-    float z = origin.mZ;
+    float z = origin.z;
     for(int i = 0; i < iCount; i++) {
         radAngle += radAngleStep;
         x = radius*cosf(radAngle);
         y = radius*sinf(radAngle);
         pPoint = new PointNode();
-        pPoint->mOrigin = Vec3(x, y, z);
+        pPoint->mOrigin = glm::vec3(x, y, z);
         pointsVector.push_back(pPoint);
     }
     return CreatePolygon(pointsVector);
@@ -58,7 +58,7 @@ FaceNode* ModelFactory::CreatePolygon(std::vector<PointNode*>& pointsVector) con
     return pFace;
 }
 
-FaceNode* ModelFactory::CreateFace(Vec3 origin, Vec3 size, FaceNode::FaceType eType) const
+FaceNode* ModelFactory::CreateFace(glm::vec3 origin, glm::vec3 size, FaceNode::FaceType eType) const
 {
     switch (eType) {
         case FaceNode::kRectangle : {
@@ -73,7 +73,7 @@ FaceNode* ModelFactory::CreateFace(Vec3 origin, Vec3 size, FaceNode::FaceType eT
     return NULL;
 }
 
-PointNode* ModelFactory::CreatePoint(Vec3 origin) const
+PointNode* ModelFactory::CreatePoint(glm::vec3 origin) const
 {
     PointNode* pPoint = new PointNode();
     pPoint->mOrigin = origin;

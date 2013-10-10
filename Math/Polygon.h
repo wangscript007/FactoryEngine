@@ -10,15 +10,15 @@ namespace ftr {
 class Polygon
 {
 public:
-    void Rotate(Vec3& angle);
-    void Translate(Vec3& offset);
-    void Scale(Vec3& offset);
+    void Rotate(glm::vec3& angle);
+    void Translate(glm::vec3& offset);
+    void Scale(glm::vec3& offset);
     void Reset();
     
 private:
-    Mat4 m_mMatrix;
-    Vec3 mLocal;
-    Vec3 mWorld;
+    glm::mat4 m_mMatrix;
+    glm::vec3 mLocal;
+    glm::vec3 mWorld;
 };
 
 }

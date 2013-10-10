@@ -7,32 +7,30 @@ namespace ftr {
 
 const float InteractionAssistant::kSensitivity = 20.0f;
 
-Vec3 InteractionAssistant::AxisAlignedViewport(const Vec3& startScene,
-                                               const Vec2& endViewport,
+glm::vec3 InteractionAssistant::AxisAlignedViewport(const glm::vec3& startScene,
+                                               const glm::vec2& endViewport,
                                                const Camera::Parameters& cameraParameters) const
 {
-    Vec2 startViewport = Picker::Viewport2(startScene, cameraParameters);
-    Vec2 current = endViewport - startViewport;
-    Vec2 zero = Picker::Viewport2(startScene, cameraParameters);
-    Vec2 axisX = Picker::Viewport2(Vec3::X+startScene, cameraParameters) - zero;
-    Vec2 axisY = Picker::Viewport2(Vec3::Y+startScene, cameraParameters) - zero;
-    Vec2 axisZ = Picker::Viewport2(Vec3::Z+startScene, cameraParameters) - zero;
+    glm::vec3 axisSceneX = glm::vec3(1.0f, 0.0f, 0.0f);
+    glm::vec3 axisSceneY = glm::vec3(0.0f, 1.0f, 0.0f);
+    glm::vec3 axisSceneZ = glm::vec3(0.0f, 0.0f, 1.0f);
     
-    glm::vec2 aX = glm::normalize(glm::vec2(axisX.mX, axisX.mY));
-    glm::vec2 aY = glm::normalize(glm::vec2(axisY.mX, axisY.mY));
-    glm::vec2 aZ = glm::normalize(glm::vec2(axisZ.mX, axisZ.mY));
-    
-    glm::vec2 curr = glm::vec2(current.mX, current.mY);
-    glm::vec2 currNorm = glm::normalize(curr);
-    float length = glm::length(curr);
+    glm::vec2 startViewport = Picker::Viewport2(startScene, cameraParameters);
+    glm::vec2 currentViewport = endViewport - startViewport;
+    glm::vec2 zeroViewport = Picker::Viewport2(startScene, cameraParameters);
+    glm::vec2 axisViewportX = Picker::Viewport2(axisSceneX + startScene, cameraParameters) - zeroViewport;
+    glm::vec2 axisViewportY = Picker::Viewport2(axisSceneY + startScene, cameraParameters) - zeroViewport;
+    glm::vec2 axisViewportZ = Picker::Viewport2(axisSceneZ + startScene, cameraParameters) - zeroViewport;
     
     glm::vec3 perp;
     glm::vec3 angle;
     // Finding perpendiculars to axis aligned vectors
-    angle.x = glm::radians(glm::orientedAngle(aX, currNorm));
-    angle.y = glm::radians(glm::orientedAngle(aY, currNorm));
-    angle.z = glm::radians(glm::orientedAngle(aZ, currNorm));
+    glm::vec2 currentVNormalized = glm::normalize(currentViewport);
+    angle.x = glm::radians(glm::orientedAngle(glm::normalize(axisViewportX), currentVNormalized));
+    angle.y = glm::radians(glm::orientedAngle(glm::normalize(axisViewportY), currentVNormalized));
+    angle.z = glm::radians(glm::orientedAngle(glm::normalize(axisViewportZ), currentVNormalized));
     
+    float length = glm::length(currentViewport);
     perp.x = fabs(tanf(angle.x) * length);
     perp.y = fabs(tanf(angle.y) * length);
     perp.z = fabs(tanf(angle.z) * length);
@@ -54,25 +52,22 @@ Vec3 InteractionAssistant::AxisAlignedViewport(const Vec3& startScene,
         axisAlignedNormal = glm::vec3(0.0f, 0.0f, 1.0f);
     }
     
-    glm::vec3 startSceneGlm = glm::vec3(startScene.mX, startScene.mY, startScene.mZ);
-
     Segment axisAlignedSegment;
-    axisAlignedSegment.mStart = startSceneGlm;
-    axisAlignedSegment.mEnd = startSceneGlm + axisAlignedNormal;
+    axisAlignedSegment.mStart = startScene;
+    axisAlignedSegment.mEnd = startScene + axisAlignedNormal;
     
     Segment raySegment = Picker::RayAtPoint(endViewport, cameraParameters);
-    
     Segment shortestSegmentFromRay = raySegment.ShortestSegmentFromLine(axisAlignedSegment);
     
     glm::vec3 result;
     if (min == perp.x) {
-        result = glm::vec3(shortestSegmentFromRay.mStart.x, startSceneGlm.y, startSceneGlm.z);
+        result = glm::vec3(shortestSegmentFromRay.mStart.x, startScene.y, startScene.z);
     } else if (min == perp.y) {
-        result = glm::vec3(startSceneGlm.x, shortestSegmentFromRay.mStart.y, startSceneGlm.z);
+        result = glm::vec3(startScene.x, shortestSegmentFromRay.mStart.y, startScene.z);
     } else if (min == perp.z) {
-        result = glm::vec3(startSceneGlm.x, startSceneGlm.y, shortestSegmentFromRay.mStart.z);
+        result = glm::vec3(startScene.x, startScene.y, shortestSegmentFromRay.mStart.z);
     }
-    return Vec3(result.x, result.y, result.z);
+    return result;
 }
     
 }

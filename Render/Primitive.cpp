@@ -27,7 +27,7 @@ char* PointPrimitive::CreateRenderData()
 {
     PointPrimitive::Data* data = reinterpret_cast<PointPrimitive::Data*>(new char[sizeof(PointPrimitive::Data)]);
     data->indices[0] = 0;
-    data->vertices[0].vec = mPosition;
+    data->vertices[0].vec = glm::vec4(mPosition.x,mPosition.y, mPosition.z, 0.0f);
     data->vertices[0].color = mColor;
     return reinterpret_cast<char*>(data);
 }
@@ -36,8 +36,8 @@ char* PointPrimitive::CreateRenderData()
 char* LinePrimitive::CreateRenderData(ShadingInterface& shadingInterface)
 {    
     LinePrimitive::Data* data = reinterpret_cast<LinePrimitive::Data*>(new char[sizeof(LinePrimitive::Data)]);
-    data->vertices[0] = Vec4(mBegin);
-    data->vertices[1] = Vec4(mEnd);
+    data->vertices[0] = glm::vec4(mBegin.x,mBegin.y, mBegin.z, 1.0f);
+    data->vertices[1] = glm::vec4(mEnd.x,mEnd.y, mEnd.z, 1.0f);
     data->colors[0] = color;
     data->colors[1] = color;
     
@@ -51,12 +51,12 @@ char* LinePrimitive::CreateRenderData(ShadingInterface& shadingInterface)
     glGenBuffers(2, buffers);
     
     glBindBuffer(GL_ARRAY_BUFFER, buffers[0]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vec4)*2, data->vertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*2, data->vertices, GL_STATIC_DRAW);
     glEnableVertexAttribArray(vertexLoc);
     glVertexAttribPointer(vertexLoc, 4, GL_FLOAT, 0, 0, 0);
     
     glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Color4f)*2, data->colors, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*2, data->colors, GL_STATIC_DRAW);
     glEnableVertexAttribArray(colorLoc);
     glVertexAttribPointer(colorLoc, 4, GL_FLOAT, 0, 0, 0);
     return reinterpret_cast<char*>(data);
@@ -74,10 +74,10 @@ char* RectanglePrimitive::CreateRenderData(ShadingInterface& shadingInterface)
 {
     RectanglePrimitive::Data* data = reinterpret_cast<RectanglePrimitive::Data*>(new char[sizeof(RectanglePrimitive::Data)]);
     
-    data->vertices[0] = Vec4(mVec[0]);
-    data->vertices[1] = Vec4(mVec[1]);
-    data->vertices[3] = Vec4(mVec[2]);
-    data->vertices[2] = Vec4(mVec[3]);
+    data->vertices[0] = glm::vec4(mVec[0].x, mVec[0].y, mVec[0].z, 1.0f);
+    data->vertices[1] = glm::vec4(mVec[1].x, mVec[1].y, mVec[1].z, 1.0f);
+    data->vertices[3] = glm::vec4(mVec[2].x, mVec[2].y, mVec[2].z, 1.0f);
+    data->vertices[2] = glm::vec4(mVec[3].x, mVec[3].y, mVec[3].z, 1.0f);
     
     AssignSurfaceNormals(data);
     for(int i = 0; i < 4; ++i) {
@@ -101,22 +101,22 @@ char* RectanglePrimitive::CreateRenderData(ShadingInterface& shadingInterface)
     glGenBuffers(4, buffers);
     
     glBindBuffer(GL_ARRAY_BUFFER, buffers[0]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vec4)*4, data->vertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*4, data->vertices, GL_STATIC_DRAW);
     glEnableVertexAttribArray(vertexLoc);
     glVertexAttribPointer(vertexLoc, 4, GL_FLOAT, 0, 0, 0);
     
     glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vec4)*4, data->normals, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*4, data->normals, GL_STATIC_DRAW);
     glEnableVertexAttribArray(normalLoc);
     glVertexAttribPointer(normalLoc, 4, GL_FLOAT, 0, 0, 0);
     
     glBindBuffer(GL_ARRAY_BUFFER, buffers[2]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Color4f)*4, data->colors, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*4, data->colors, GL_STATIC_DRAW);
     glEnableVertexAttribArray(colorLoc);
     glVertexAttribPointer(colorLoc, 4, GL_FLOAT, 0, 0, 0);
     
     glBindBuffer(GL_ARRAY_BUFFER, buffers[3]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Color4f)*4, data->pickingColors, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*4, data->pickingColors, GL_STATIC_DRAW);
     glEnableVertexAttribArray(pickingColorLoc);
     glVertexAttribPointer(pickingColorLoc, 4, GL_FLOAT, 0, 0, 0);
 
@@ -125,17 +125,16 @@ char* RectanglePrimitive::CreateRenderData(ShadingInterface& shadingInterface)
     
 void RectanglePrimitive::AssignSurfaceNormals(RectanglePrimitive::Data* data)
 {
-    Vec4 normal;
-    normal.Zero();
+    glm::vec4 normal = glm::vec4(0.0f);
     static const int vertexCount = 3;
     for (int i = 0; i < vertexCount; i++) {
-        Vec4& current = data->vertices[i];
-        Vec4& next = data->vertices[(i+1)%vertexCount];
-        normal.mX = normal.mX + (current.mY - next.mY) * (current.mZ + next.mZ);
-        normal.mY = normal.mY + (current.mZ - next.mZ) * (current.mX + next.mX);
-        normal.mZ = normal.mZ + (current.mX - next.mX) * (current.mY + next.mY);
+        glm::vec4& current = data->vertices[i];
+        glm::vec4& next = data->vertices[(i+1)%vertexCount];
+        normal.x = normal.x + (current.y - next.y) * (current.z + next.z);
+        normal.y = normal.y + (current.z - next.z) * (current.x + next.x);
+        normal.z = normal.z + (current.x - next.x) * (current.y + next.y);
     }
-    normal.Normalize();
+    normal = glm::normalize(normal);
     for (int i = 0; i < vertexCount+1; i++) {
         data->normals[i] = normal;
     }

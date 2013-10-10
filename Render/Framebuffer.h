@@ -6,12 +6,12 @@ namespace ftr {
 class Framebuffer
 {
 public:
-    Framebuffer(const Vec2& size);
+    Framebuffer(const glm::vec2& size);
     ~Framebuffer();
     void Bind();
     void Unbind();
     
-    Color4f ColorAtPoint(const Vec2& point);
+    glm::vec4 ColorAtPoint(const glm::vec2& point);
     
 private:
     GLuint mFramebufferId;

@@ -28,9 +28,9 @@ public:
     
     virtual void                        Render(Layer& layer);
     virtual NodeType                    Type() const { return kFace; }
-    virtual void                        Transform(Mat4& m4Transformation);
-    bool                                IsInFacePlane(Vec3 vec);
-    bool                                Contains(Vec3 vec);
+    virtual void                        Transform(glm::mat4& m4Transformation);
+    bool                                IsInFacePlane(glm::vec3 vec);
+    bool                                Contains(glm::vec3 vec);
     void                                Cut(FaceNode* cutFace);
     
     void                                AddPolygon();
@@ -40,10 +40,10 @@ public:
     
     FaceType                            m_eType;
     
-    void                                setSize(const Vec3 size);
-    const Vec3&                       Size() const { return mSize; }
-    void                                setOrigin(const Vec3 origin);
-    const Vec3&                       Origin() const { return mOrigin; }
+    void                                setSize(const glm::vec3 size);
+    const glm::vec3&                       Size() const { return mSize; }
+    void                                setOrigin(const glm::vec3 origin);
+    const glm::vec3&                       Origin() const { return mOrigin; }
     
     const TPointsVector&                PointNodesVector() const { return mPointsVector; }
     
@@ -51,8 +51,8 @@ private:
     TPolygonsVector                     mPolygons;
     TLinesVector                        mLinesVector;
     TPointsVector                       mPointsVector;
-    Vec3                              mOrigin;
-    Vec3                              mSize;
+    glm::vec3                              mOrigin;
+    glm::vec3                              mSize;
 };
 
 }

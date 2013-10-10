@@ -28,7 +28,7 @@ public:
     void InsertPoint(PointNode* pPoint);
     void RemovePoint(PointNode* pPoint);
     void UpdatePoint(PointNode* pPoint);
-    Node* NodeContainingPoint(const Vec3& point);
+    Node* NodeContainingPoint(const glm::vec3& point);
     void PointNodesInBox(const Box& sBox, std::vector<PointNode*>& pointsVector) const;
     
     
@@ -39,10 +39,10 @@ public:
     public:
         
         struct SIndex {
-            int mX, mY, mZ;
-            SIndex() :mX(0), mY(0), mZ(0) {}
+            int x, y, z;
+            SIndex() :x(0), y(0), z(0) {}
             SIndex(const int iX, const int iY, const int iZ)
-            :mX(iX), mY(iY), mZ(iZ) {}
+            :x(iX), y(iY), z(iZ) {}
         };
         
         
@@ -57,7 +57,7 @@ public:
         Box& Box() { return mBox; }
         SIndex& Index() { return mIndex; }
         void setIndex(SIndex sIndex) { mIndex = sIndex; }
-        Node* NodeContainingPoint(const Vec3& point);
+        Node* NodeContainingPoint(const glm::vec3& point);
         void PointNodesInBox(const ftr::Box& sBox, std::vector<PointNode*>& pointsVector) const;
         void setDepth(int iDepth) { mDepth = iDepth; }
         int Depth() const { return mDepth; }

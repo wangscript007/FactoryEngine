@@ -23,12 +23,12 @@ void LineNode::Render(Layer& layer)
     
     linePrimitive.mBegin = mStartPoint->mOrigin;
     linePrimitive.mEnd = mEndPoint->mOrigin;
-    linePrimitive.color.set(1.0f, 1.0f, 1.0f);
+    linePrimitive.color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
     linePrimitive.setOption(Primitive::kUseDepth, false);
     layer.AddPrimitive(linePrimitive);
 }
 
-void LineNode::Transform(const Mat4& m4Transformation)
+void LineNode::Transform(const glm::mat4& m4Transformation)
 {
     mStartPoint->Transform(m4Transformation);
     mEndPoint->Transform(m4Transformation);

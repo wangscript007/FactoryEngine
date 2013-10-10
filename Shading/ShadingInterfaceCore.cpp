@@ -109,29 +109,26 @@ void ShadingInterface::InputSettings(const Settings& settings)
     
 void ShadingInterface::InputTransform(const Transform& transform)
 {
- 
-    const GLfloat* view         = reinterpret_cast<const GLfloat*>(&transform.view);
-    const GLfloat* projection   = reinterpret_cast<const GLfloat*>(&transform.projection);
-    glUniformMatrix4fv(mActiveBond->transform.view,  1, false, view);
-    glUniformMatrix4fv(mActiveBond->transform.projection,  1, false, projection);
+    glUniformMatrix4fv(mActiveBond->transform.view,  1, false, glm::value_ptr(transform.view));
+    glUniformMatrix4fv(mActiveBond->transform.projection,  1, false, glm::value_ptr(transform.projection));
     InputSettings(mSettings);
 }
     
-void ShadingInterface::InputWindowSize(const Vec2& windowSize)
+void ShadingInterface::InputWindowSize(const glm::vec2& windowSize)
 {
-    glUniform2fv(mActiveBond->windowSize, 1, reinterpret_cast<const GLfloat*>(&windowSize));
+    glUniform2fv(mActiveBond->windowSize, 1, glm::value_ptr(windowSize));
 }
     
 void ShadingInterface::InputLight(const Light::Data& lightData)
 {
     const Light::Data* lightDataArray = &lightData;
     for (int i = 0; i < mSettings.lightsCount; i++) {
-        glUniform4fv(mActiveBond->light[i].ambient, 1, reinterpret_cast<const GLfloat*>(&lightDataArray[i].ambient));
-        glUniform4fv(mActiveBond->light[i].diffuse, 1, reinterpret_cast<const GLfloat*>(&lightDataArray[i].diffuse));
-        glUniform4fv(mActiveBond->light[i].specular, 1, reinterpret_cast<const GLfloat*>(&lightDataArray[i].specular));
-        glUniform4fv(mActiveBond->light[i].position, 1, reinterpret_cast<const GLfloat*>(&lightDataArray[i].position));
-        glUniform4fv(mActiveBond->light[i].halfVector, 1, reinterpret_cast<const GLfloat*>(&lightDataArray[i].halfVector));
-        glUniform3fv(mActiveBond->light[i].spotDirection, 1, reinterpret_cast<const GLfloat*>(&lightDataArray[i].spotDirection));
+        glUniform4fv(mActiveBond->light[i].ambient, 1, glm::value_ptr(lightDataArray[i].ambient));
+        glUniform4fv(mActiveBond->light[i].diffuse, 1, glm::value_ptr(lightDataArray[i].diffuse));
+        glUniform4fv(mActiveBond->light[i].specular, 1, glm::value_ptr(lightDataArray[i].specular));
+        glUniform4fv(mActiveBond->light[i].position, 1, glm::value_ptr(lightDataArray[i].position));
+        glUniform4fv(mActiveBond->light[i].halfVector, 1, glm::value_ptr(lightDataArray[i].halfVector));
+        glUniform3fv(mActiveBond->light[i].spotDirection, 1, glm::value_ptr(lightDataArray[i].spotDirection));
         glUniform1f(mActiveBond->light[i].spotExponent, lightDataArray[i].spotExponent);
         glUniform1f(mActiveBond->light[i].spotCutoff, lightDataArray[i].spotCutoff);
         glUniform1f(mActiveBond->light[i].spotCosCutoff, lightDataArray[i].spotCosCutoff);

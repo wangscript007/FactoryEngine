@@ -16,7 +16,7 @@ public:
     
     void Render(Layer &layer);
     
-    void setFrame(const Frame& frame);
+    void setFrame(const  glm::vec4& frame);
     
     Framebuffer* colorMarkingFramebuffer() const { return mColorMarkingFramebuffer; }
     
@@ -25,7 +25,7 @@ private:
     void RenderToColorFramebuffer(Layer &layer);
     
     Framebuffer* mColorMarkingFramebuffer;
-    Frame mFrame;
+     glm::vec4 mFrame;
     ShadingLibrary& mShadingLibrary;
     Camera& mCamera;
 };

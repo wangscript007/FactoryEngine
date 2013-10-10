@@ -13,9 +13,9 @@ public:
     CameraInteraction(Camera& camera);
     virtual ~CameraInteraction() {}
     
-    void MoveBy(const Vec2 deltaMove);
-    void Move(const Vec2 motion);
-    void RotateBy(const Vec2 deltaRotation);
+    void MoveBy(const glm::vec2 deltaMove);
+    void Move(const glm::vec2 motion);
+    void RotateBy(const glm::vec2 deltaRotation);
     void ZoomBy(const GLfloat times);
     void Zoom(const GLfloat times);
     void Look();

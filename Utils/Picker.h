@@ -8,13 +8,13 @@ namespace ftr {
 class Picker
 {
 public:
-    static Vec3 Viewport(const Vec3& sceneVec, const Camera::Parameters& cameraParameters);
-    static Vec2 Viewport2(const Vec3& sceneVec, const Camera::Parameters& cameraParameters);
-    static Vec3 Scene(const Vec3& sceneVec, const Camera::Parameters& cameraParameters);
-    static GLfloat DepthAtPoint(const Vec2& point);
-    static Vec3 GluProject(const Vec3& sceneVec, const Camera::Parameters& cameraParameters);
-    static Vec3 GluUnProject(const Vec3& windowVec, const Camera::Parameters& cameraParameters);
-    static Segment RayAtPoint(const Vec2& point, const Camera::Parameters& cameraParameters);
+    static glm::vec3 Viewport(const glm::vec3& sceneVec, const Camera::Parameters& cameraParameters);
+    static glm::vec2 Viewport2(const glm::vec3& sceneVec, const Camera::Parameters& cameraParameters);
+    static glm::vec3 Scene(const glm::vec3& sceneVec, const Camera::Parameters& cameraParameters);
+    static GLfloat DepthAtPoint(const glm::vec2& point);
+    static glm::vec3 GluProject(const glm::vec3& sceneVec, const Camera::Parameters& cameraParameters);
+    static glm::vec3 GluUnProject(const glm::vec3& windowVec, const Camera::Parameters& cameraParameters);
+    static Segment RayAtPoint(const glm::vec2& point, const Camera::Parameters& cameraParameters);
 };
     
 }

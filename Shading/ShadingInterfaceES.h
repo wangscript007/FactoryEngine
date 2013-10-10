@@ -20,14 +20,14 @@ public:
     };
     
     struct Transform {
-        Mat4 view;
-        Mat4 projection;
-        Mat4 rotation;
-        Mat4 translation;
+        glm::mat4 view;
+        glm::mat4 projection;
+        glm::mat4 rotation;
+        glm::mat4 translation;
     };
     
     struct LightData {
-        Vec4 position;
+        glm::vec4 position;
         float intensity;
     };
     

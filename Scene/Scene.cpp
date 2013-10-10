@@ -43,7 +43,7 @@ Scene::~Scene()
     
 void Scene::Prepare()
 {
-    mCamera = new class Camera(Vec3(0.0f, 0.0f, 10.0f));
+    mCamera = new class Camera(glm::vec3(0.0f, 0.0f, 10.0f));
     mCamera->setProjection(kProjectionPerspective);
     mShadingLibrary->BuildProgramWithType(ShadingProgram::kMain);
     mShadingLibrary->BuildProgramWithType(ShadingProgram::kColor);
@@ -73,7 +73,7 @@ void Scene::Render()
     
 void Scene::setViewportRect(int x, int y, int width, int height)
 {
-    Frame frame = Frame(Vec2(x, y), Vec2(width, height));
+     glm::vec4 frame =  glm::vec4(glm::vec2(x, y), glm::vec2(width, height));
     mCamera->setViewport(frame);
     mSceneRenderer->setFrame(frame);
 }
@@ -95,13 +95,13 @@ void Scene::AddShader(const std::string& name, const std::string& source, GLenum
     
 #pragma mark Model
 
-FaceNode* Scene::CreateFace(const Vec3& origin)
+FaceNode* Scene::CreateFace(const glm::vec3& origin)
 {
     return mModelEditor->CreateFace(origin, FaceNode::kRectangle);
 }
 
 
-PointNode* Scene::CreatePoint(const Vec3& origin)
+PointNode* Scene::CreatePoint(const glm::vec3& origin)
 {
     return mModelEditor->CreatePoint(origin);
 }

@@ -20,12 +20,12 @@ void FaceNode::Render(Layer& layer)
 
 #pragma mark - Instance
 
-void FaceNode::setSize(const Vec3 size)
+void FaceNode::setSize(const glm::vec3 size)
 {
     mSize = size;
 }
 
-void FaceNode::setOrigin(const Vec3 origin)
+void FaceNode::setOrigin(const glm::vec3 origin)
 {
     mOrigin = origin;
 }
@@ -45,14 +45,14 @@ void FaceNode::AddLine(LineNode* line)
 // Checks if point is int the same plane with face.
 // PointNode is in same plane if any three points coordinate in same axes is the same.
 //
-bool FaceNode::IsInFacePlane(Vec3 vec)
+bool FaceNode::IsInFacePlane(glm::vec3 vec)
 {
     return true;
 }
 //
 // Checks point in the same plane intersection with face
 //
-bool FaceNode::Contains(Vec3 vec)
+bool FaceNode::Contains(glm::vec3 vec)
 {
     return false;
 }
@@ -64,7 +64,7 @@ void FaceNode::Cut(FaceNode *cutFace)
     
 }
 
-void FaceNode::Transform(Mat4& m4Transformation)
+void FaceNode::Transform(glm::mat4& m4Transformation)
 {
     for(auto i = mPointsVector.begin(); i != mPointsVector.end(); ++i) {
         (*i)->Transform(m4Transformation);

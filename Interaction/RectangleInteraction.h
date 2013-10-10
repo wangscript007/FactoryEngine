@@ -19,8 +19,8 @@ public:
     void Render();
     void Begin();
     void End();
-    void setOrigin(const Vec3& origin);
-    void setCurrent(const Vec3& current);
+    void setOrigin(const glm::vec3& origin);
+    void setCurrent(const glm::vec3& current);
     
 private:
     Polygon mPolygon;

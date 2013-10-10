@@ -22,9 +22,9 @@ void LineInteraction::Render(Layer& layer)
     linePrimitive.mBegin = mStart;
     linePrimitive.mEnd = mEnd;
     
-    const Vec3 line = mEnd - mStart;
+    const glm::vec3 line = mEnd - mStart;
     
-    glm::vec3 lineVector = glm::vec3(line.mX, line.mY, line.mZ);
+    glm::vec3 lineVector = glm::vec3(line.x, line.y, line.z);
     
     glm::vec3 normalX = glm::vec3(1.0f, 0.0f, 0.0f);
     glm::vec3 normalY = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -35,15 +35,15 @@ void LineInteraction::Render(Layer& layer)
     glm::vec3 projZ = glm::proj(lineVector, normalZ);
     
     if (glm::length(projX) == glm::length(lineVector)) {
-        linePrimitive.color.set(1.0f, 0.0f, 0.0f);
+        linePrimitive.color = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
     }
     else if (glm::length(projY) == glm::length(lineVector)) {
-        linePrimitive.color.set(0.0f, 1.0f, 0.0f);
+        linePrimitive.color = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
     }
     else if (glm::length(projZ) == glm::length(lineVector)) {
-        linePrimitive.color.set(0.0f, 0.0f, 1.0f);
+        linePrimitive.color = glm::vec4(0.0f, 0.0f, 1.0f, 1.0f);
     } else {
-        linePrimitive.color.set(1.0f, 1.0f, 1.0f);
+        linePrimitive.color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
     linePrimitive.Invalidate();
@@ -57,8 +57,8 @@ void LineInteraction::Begin()
         mModelEditor.SelectedNode()->AddNode(this);
         mEndPoint = NULL;
         mStartPoint = NULL;
-        mEnd = Vec3();
-        mStart = Vec3();
+        mEnd = glm::vec3();
+        mStart = glm::vec3();
     }
 }
 
@@ -85,7 +85,7 @@ void LineInteraction::End()
     mActive = false;
 }
 
-void LineInteraction::setEnd(Vec3 end)
+void LineInteraction::setEnd(glm::vec3 end)
 {
     PointNode* pNearPoint = mModelEditor.NearestPointToCenterInSphere(Sphere(end, 0.5f));
     if (pNearPoint) {
@@ -97,13 +97,13 @@ void LineInteraction::setEnd(Vec3 end)
     }
 }
     
-void LineInteraction::setEndViewport(const Vec2& endViewport, const Camera::Parameters& cameraParameters)
+void LineInteraction::setEndViewport(const glm::vec2& endViewport, const Camera::Parameters& cameraParameters)
 {
-    Vec3 end;
-    const Vec3& suggestedEnd =  mInteractionAssitant.AxisAlignedViewport(mStart, endViewport, cameraParameters);
+    glm::vec3 end;
+    const glm::vec3& suggestedEnd =  mInteractionAssitant.AxisAlignedViewport(mStart, endViewport, cameraParameters);
     
     if (mStart == suggestedEnd) {
-        end = Picker::Scene(Vec3(endViewport.mX, endViewport.mY, 0.0f), cameraParameters);
+        end = Picker::Scene(glm::vec3(endViewport.x, endViewport.y, 0.0f), cameraParameters);
     } else {
         end = suggestedEnd;
     }
@@ -119,7 +119,7 @@ void LineInteraction::setEndViewport(const Vec2& endViewport, const Camera::Para
 }
 
 
-void LineInteraction::setStart(Vec3 start)
+void LineInteraction::setStart(glm::vec3 start)
 {
     PointNode* pNearPoint = mModelEditor.NearestPointToCenterInSphere(Sphere(start, 0.5f));
     if (pNearPoint) {

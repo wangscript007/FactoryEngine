@@ -13,12 +13,12 @@ public:
     virtual ~RotationInteraction() {}
     void Render();
     
-    void setStart(Vec3 start);
-    void setEnd(Vec3 end);
+    void setStart(glm::vec3 start);
+    void setEnd(glm::vec3 end);
     
 private:
-    Vec3 mStart;
-    Vec3 mEnd;
+    glm::vec3 mStart;
+    glm::vec3 mEnd;
     Node* mNode;
     ModelEditor& mModelEditor;
     bool mActive;

@@ -5,16 +5,16 @@
 
 namespace ftr {
 
-void Polygon::Rotate(Vec3& angle)
+void Polygon::Rotate(glm::vec3& angle)
 {
     
 }
 
-void Polygon::Translate(Vec3& offset)
+void Polygon::Translate(glm::vec3& offset)
 {
 }
 
-void Polygon::Scale(Vec3& offset)
+void Polygon::Scale(glm::vec3& offset)
 {
     
 }

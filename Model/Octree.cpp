@@ -44,25 +44,25 @@ Octree::Branch* Octree::Split(Octree::Leaf *leaf)
     }
     Leaf* childLeaf;
     Box sBox = leaf->Box();
-    ftr::Vec3 half = sBox.mHalfDimention/2.0f;
-    ftr::Vec3 center;
+    glm::vec3 half = sBox.mHalfDimention/2.0f;
+    glm::vec3 center;
     for(int x = 0; x < 2; x++) {
         for(int y = 0; y < 2; y++) {
             for(int z = 0; z < 2; z++) {
                 if (x == 0) {
-                    center.mX = sBox.mCenter.mX - half.mX;
+                    center.x = sBox.mCenter.x - half.x;
                 } else {
-                    center.mX = sBox.mCenter.mX + half.mX;
+                    center.x = sBox.mCenter.x + half.x;
                 }
                 if (y == 0) {
-                    center.mY = sBox.mCenter.mY - half.mY;
+                    center.y = sBox.mCenter.y - half.y;
                 } else {
-                    center.mY = sBox.mCenter.mY + half.mY;
+                    center.y = sBox.mCenter.y + half.y;
                 }
                 if (z == 0) {
-                    center.mZ = sBox.mCenter.mZ - half.mZ;
+                    center.z = sBox.mCenter.z - half.z;
                 } else {
-                    center.mZ = sBox.mCenter.mZ + half.mZ;
+                    center.z = sBox.mCenter.z + half.z;
                 }
                 childLeaf = new Leaf(Box(center, half));
                 for(auto i = cPointsList.begin(); i != cPointsList.end(); ++i) {
@@ -167,7 +167,7 @@ void Octree::UpdatePoint(PointNode* pPoint)
     }
 }
 
-Octree::Node* Octree::NodeContainingPoint(const Vec3& point)
+Octree::Node* Octree::NodeContainingPoint(const glm::vec3& point)
 {
     return mRootNode->NodeContainingPoint(point);
 }
@@ -212,7 +212,7 @@ void Octree::Node::Render() const
     }
 }
 
-Octree::Node* Octree::Node::NodeContainingPoint(const Vec3& point)
+Octree::Node* Octree::Node::NodeContainingPoint(const glm::vec3& point)
 {
     if (mBox.Contains(point)) {
         if (Type() == kBranch) {
@@ -303,7 +303,7 @@ void Octree::Branch::Render() const
 
 void Octree::Branch::setChild(SIndex& sIndex, Node* pNode)
 {
-    setChild(sIndex.mX, sIndex.mY, sIndex.mZ, pNode);
+    setChild(sIndex.x, sIndex.y, sIndex.z, pNode);
 }
 
 void Octree::Branch::setChild(int x, int y, int z, Node* pNode)
@@ -338,37 +338,37 @@ void Octree::Leaf::Render() const
 {
     const Vertice3 vertices[]= {
         // 0
-        mBox.mCenter.mX - mBox.mHalfDimention.mX,
-        mBox.mCenter.mY - mBox.mHalfDimention.mY,
-        mBox.mCenter.mZ + mBox.mHalfDimention.mZ,
+        mBox.mCenter.x - mBox.mHalfDimention.x,
+        mBox.mCenter.y - mBox.mHalfDimention.y,
+        mBox.mCenter.z + mBox.mHalfDimention.z,
         // 1
-        mBox.mCenter.mX - mBox.mHalfDimention.mX,
-        mBox.mCenter.mY + mBox.mHalfDimention.mY,
-        mBox.mCenter.mZ + mBox.mHalfDimention.mZ,
+        mBox.mCenter.x - mBox.mHalfDimention.x,
+        mBox.mCenter.y + mBox.mHalfDimention.y,
+        mBox.mCenter.z + mBox.mHalfDimention.z,
         // 2
-        mBox.mCenter.mX + mBox.mHalfDimention.mX,
-        mBox.mCenter.mY + mBox.mHalfDimention.mY,
-        mBox.mCenter.mZ + mBox.mHalfDimention.mZ,
+        mBox.mCenter.x + mBox.mHalfDimention.x,
+        mBox.mCenter.y + mBox.mHalfDimention.y,
+        mBox.mCenter.z + mBox.mHalfDimention.z,
         // 3
-        mBox.mCenter.mX + mBox.mHalfDimention.mX,
-        mBox.mCenter.mY - mBox.mHalfDimention.mY,
-        mBox.mCenter.mZ + mBox.mHalfDimention.mZ,
+        mBox.mCenter.x + mBox.mHalfDimention.x,
+        mBox.mCenter.y - mBox.mHalfDimention.y,
+        mBox.mCenter.z + mBox.mHalfDimention.z,
         // 4
-        mBox.mCenter.mX - mBox.mHalfDimention.mX,
-        mBox.mCenter.mY - mBox.mHalfDimention.mY,
-        mBox.mCenter.mZ - mBox.mHalfDimention.mZ,
+        mBox.mCenter.x - mBox.mHalfDimention.x,
+        mBox.mCenter.y - mBox.mHalfDimention.y,
+        mBox.mCenter.z - mBox.mHalfDimention.z,
         // 5
-        mBox.mCenter.mX - mBox.mHalfDimention.mX,
-        mBox.mCenter.mY + mBox.mHalfDimention.mY,
-        mBox.mCenter.mZ - mBox.mHalfDimention.mZ,
+        mBox.mCenter.x - mBox.mHalfDimention.x,
+        mBox.mCenter.y + mBox.mHalfDimention.y,
+        mBox.mCenter.z - mBox.mHalfDimention.z,
         // 6
-        mBox.mCenter.mX + mBox.mHalfDimention.mX,
-        mBox.mCenter.mY + mBox.mHalfDimention.mY,
-        mBox.mCenter.mZ - mBox.mHalfDimention.mZ,
+        mBox.mCenter.x + mBox.mHalfDimention.x,
+        mBox.mCenter.y + mBox.mHalfDimention.y,
+        mBox.mCenter.z - mBox.mHalfDimention.z,
         // 7
-        mBox.mCenter.mX + mBox.mHalfDimention.mX,
-        mBox.mCenter.mY - mBox.mHalfDimention.mY,
-        mBox.mCenter.mZ - mBox.mHalfDimention.mZ,
+        mBox.mCenter.x + mBox.mHalfDimention.x,
+        mBox.mCenter.y - mBox.mHalfDimention.y,
+        mBox.mCenter.z - mBox.mHalfDimention.z,
     };
     
     static const GLubyte indices[] = {

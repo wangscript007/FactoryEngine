@@ -34,8 +34,8 @@ public:
     
     // Model
     void              Select(Node* pNode) { mModelEditor->Select(pNode); }
-    FaceNode*         CreateFace(const Vec3& origin);
-    PointNode*        CreatePoint(const Vec3& origin);
+    FaceNode*         CreateFace(const glm::vec3& origin);
+    PointNode*        CreatePoint(const glm::vec3& origin);
     LineNode*         CreateLine(PointNode* startPoint, PointNode* endPoint);
     PointNode*        NearestPointToCenterInSphere(const Sphere& sSphere);
     void              UpdateNode(Node* pNode);

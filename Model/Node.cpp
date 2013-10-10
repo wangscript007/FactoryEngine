@@ -38,7 +38,7 @@ void Node::Render(Layer& layer)
     }
 }
 
-void Node::Transform(const Mat4& m4Transformation)
+void Node::Transform(const glm::mat4& m4Transformation)
 {    
     for(auto i = mSubnodes.begin(); i != mSubnodes.end(); ++i)
     {

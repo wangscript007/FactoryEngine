@@ -52,8 +52,8 @@ public:
     };
     
     struct Transform {
-        Mat4 view;
-        Mat4 projection;
+        glm::mat4 view;
+        glm::mat4 projection;
     };
     
     
@@ -86,7 +86,7 @@ public:
     void InputTransform(const Transform& transform);
     void InputSettings(const Settings& settings);
     void InputLight(const Light::Data& lightData);
-    void InputWindowSize(const Vec2& windowSize);
+    void InputWindowSize(const glm::vec2& windowSize);
         
     Settings mSettings;
 private:

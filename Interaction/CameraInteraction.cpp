@@ -12,17 +12,17 @@ CameraInteraction::CameraInteraction(Camera& camera)
     
 #pragma mark Instance
 
-void CameraInteraction::MoveBy(const Vec2 deltaMove)
+void CameraInteraction::MoveBy(const glm::vec2 deltaMove)
 {
     mCamera.MoveBy(deltaMove);
 }
 
-void CameraInteraction::Move(const Vec2 motion)
+void CameraInteraction::Move(const glm::vec2 motion)
 {
     
 }
     
-void CameraInteraction::RotateBy(const Vec2 deltaRotation)
+void CameraInteraction::RotateBy(const glm::vec2 deltaRotation)
 {
     mCamera.RotateBy(deltaRotation);
 }

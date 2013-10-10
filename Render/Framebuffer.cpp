@@ -3,7 +3,7 @@
 
 namespace ftr {
 
-Framebuffer::Framebuffer(const Vec2& size)
+Framebuffer::Framebuffer(const glm::vec2& size)
 {
     // create framebuffer
     glGenFramebuffers(1, &mFramebufferId);
@@ -14,8 +14,8 @@ Framebuffer::Framebuffer(const Vec2& size)
     glBindRenderbuffer(GL_RENDERBUFFER, mRenderbufferId);
     glRenderbufferStorage(GL_RENDERBUFFER,
                           GL_DEPTH_COMPONENT,
-                          size.mX,
-                          size.mY);
+                          size.x,
+                          size.y);
     
     // create texture to use for rendering second pass
     glGenTextures (1, &mFramebufferTextureId);
@@ -24,8 +24,8 @@ Framebuffer::Framebuffer(const Vec2& size)
     glTexImage2D(GL_TEXTURE_2D,
                  0,
                  GL_RGBA,
-                 size.mX,
-                 size.mY,
+                 size.x,
+                 size.y,
                  0,
                  GL_RGBA,
                  GL_UNSIGNED_BYTE,
@@ -67,13 +67,13 @@ void Framebuffer::Unbind()
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
     
-Color4f Framebuffer::ColorAtPoint(const Vec2& point)
+glm::vec4 Framebuffer::ColorAtPoint(const glm::vec2& point)
 {
     static const float d = 255.0f;
     unsigned char data[4] = {0};
     glBindFramebuffer(GL_FRAMEBUFFER, mFramebufferId);
-    glReadPixels (point.mX, point.mY, 1, 1, GL_RGBA, GL_UNSIGNED_BYTE, &data);
-    Color4f color;
+    glReadPixels (point.x, point.y, 1, 1, GL_RGBA, GL_UNSIGNED_BYTE, &data);
+    glm::vec4 color;
     for (int i = 0; i < 4; ++i) {
         color[i] = data[i]/d;
     }

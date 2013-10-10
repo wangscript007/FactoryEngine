@@ -11,8 +11,8 @@ public:
     static const float kSensitivity;
     
     virtual ~InteractionAssistant() {}
-    Vec3 AxisAlignedViewport(const Vec3& startScene,
-                             const Vec2& endViewport,
+    glm::vec3 AxisAlignedViewport(const glm::vec3& startScene,
+                             const glm::vec2& endViewport,
                              const Camera::Parameters& cameraParameters) const;
     
 private:

@@ -8,39 +8,39 @@ enum Axis { kAxisX, kAxisY, kAxisZ };
 
 struct Box
 {
-    Vec3 mCenter;
-    Vec3 mHalfDimention;
+    glm::vec3 mCenter;
+    glm::vec3 mHalfDimention;
     
-    Box() : mCenter(Vec3()), mHalfDimention(Vec3()) {};
-    Box(Vec3 center, Vec3 halfDimension) : mCenter(center), mHalfDimention(halfDimension) {};
-    bool Contains(const Vec3& vec) const;
+    Box() : mCenter(glm::vec3()), mHalfDimention(glm::vec3()) {};
+    Box(glm::vec3 center, glm::vec3 halfDimension) : mCenter(center), mHalfDimention(halfDimension) {};
+    bool Contains(const glm::vec3& vec) const;
     bool Intersects(const Box& other) const;
 };
 
-inline bool Box::Contains(const Vec3& vec) const
+inline bool Box::Contains(const glm::vec3& vec) const
 {
-    if (vec.mX <= mCenter.mX - mHalfDimention.mX) return false;
-    if (vec.mX > mCenter.mX + mHalfDimention.mX) return false;
+    if (vec.x <= mCenter.x - mHalfDimention.x) return false;
+    if (vec.x > mCenter.x + mHalfDimention.x) return false;
     
-    if (vec.mY <= mCenter.mY - mHalfDimention.mY) return false;
-    if (vec.mY > mCenter.mY + mHalfDimention.mY) return false;
+    if (vec.y <= mCenter.y - mHalfDimention.y) return false;
+    if (vec.y > mCenter.y + mHalfDimention.y) return false;
     
-    if (vec.mZ <= mCenter.mZ - mHalfDimention.mZ) return false;
-    if (vec.mZ > mCenter.mZ + mHalfDimention.mZ) return false;
+    if (vec.z <= mCenter.z - mHalfDimention.z) return false;
+    if (vec.z > mCenter.z + mHalfDimention.z) return false;
         
     return true;
 }
 
 inline bool Box::Intersects(const Box& other) const
 {
-    if (mCenter.mX + mHalfDimention.mX <= other.mCenter.mX - other.mHalfDimention.mX) return false;
-    if (mCenter.mX - mHalfDimention.mX > other.mCenter.mX + other.mHalfDimention.mX) return false;
+    if (mCenter.x + mHalfDimention.x <= other.mCenter.x - other.mHalfDimention.x) return false;
+    if (mCenter.x - mHalfDimention.x > other.mCenter.x + other.mHalfDimention.x) return false;
     
-    if (mCenter.mY + mHalfDimention.mY <= other.mCenter.mY - other.mHalfDimention.mY) return false;
-    if (mCenter.mY - mHalfDimention.mY > other.mCenter.mY + other.mHalfDimention.mY) return false;
+    if (mCenter.y + mHalfDimention.y <= other.mCenter.y - other.mHalfDimention.y) return false;
+    if (mCenter.y - mHalfDimention.y > other.mCenter.y + other.mHalfDimention.y) return false;
     
-    if (mCenter.mZ + mHalfDimention.mZ <= other.mCenter.mZ - other.mHalfDimention.mZ) return false;
-    if (mCenter.mZ - mHalfDimention.mZ > other.mCenter.mZ + other.mHalfDimention.mZ) return false;
+    if (mCenter.z + mHalfDimention.z <= other.mCenter.z - other.mHalfDimention.z) return false;
+    if (mCenter.z - mHalfDimention.z > other.mCenter.z + other.mHalfDimention.z) return false;
 
     return true; // boxes overlap
 
@@ -48,11 +48,11 @@ inline bool Box::Intersects(const Box& other) const
 
 struct Sphere
 {
-    Vec3 mCenter;
+    glm::vec3 mCenter;
     float mRadius;
-    Sphere(Vec3 center, float radius) : mCenter(center), mRadius(radius) {};
+    Sphere(glm::vec3 center, float radius) : mCenter(center), mRadius(radius) {};
     bool Intersects(const Box& box) const;
-    bool Containts(const Vec3& vec) const;
+    bool Containts(const glm::vec3& vec) const;
     Box Box() const;
 };
 
@@ -70,20 +70,20 @@ inline bool Sphere::Intersects(const struct Box& box) const
 
 inline Box Sphere::Box() const
 {
-    return ftr::Box(mCenter, Vec3(mRadius, mRadius, mRadius));
+    return ftr::Box(mCenter, glm::vec3(mRadius, mRadius, mRadius));
 }
 
-inline bool Sphere::Containts(const Vec3& vec) const
+inline bool Sphere::Containts(const glm::vec3& vec) const
 {
-    return (mCenter - vec).Length() < mRadius;
+    return  glm::length(mCenter - vec) < mRadius;
 }
 
 
 struct Rectangle3
 {
-    Vec3 mOrigin;
-    Vec3 mA;
-    Vec3 mB;
+    glm::vec3 mOrigin;
+    glm::vec3 mA;
+    glm::vec3 mB;
 };
     
 }

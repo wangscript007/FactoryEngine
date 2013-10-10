@@ -19,14 +19,14 @@ public:
     void Begin();
     void Step();
     void End();
-    void setStart(Vec3 start);
-    void setEnd(Vec3 end);
-    void setEndViewport(const Vec2& endViewport, const Camera::Parameters& cameraParameters);
+    void setStart(glm::vec3 start);
+    void setEnd(glm::vec3 end);
+    void setEndViewport(const glm::vec2& endViewport, const Camera::Parameters& cameraParameters);
     
 private:
     ModelEditor& mModelEditor;
-    Vec3 mStart;
-    Vec3 mEnd;
+    glm::vec3 mStart;
+    glm::vec3 mEnd;
     bool mActive;
     PointNode* mStartPoint;
     PointNode* mEndPoint;
