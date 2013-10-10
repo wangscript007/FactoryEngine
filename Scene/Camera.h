@@ -39,12 +39,17 @@ public:
     void CommitTransformations();
     
 private:
+    glm::mat4 RotationMatrix();
+    glm::mat4 TranslationMatrix();
+    glm::mat4 InitialMatrix();
+    
     glm::vec3 mEyePosition;
     glm::vec3 mTranslation;
     glm::vec3 mRotation;
     Projection mProjection;
     Parameters mParameters;
     glm::mat4 mModelviewMatrix;
+    glm::vec3 mRotationCenter;
     
     ShadingInterface* mShadingInterface;
     ShadingInterface::Transform mTransform;

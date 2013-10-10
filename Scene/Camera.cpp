@@ -16,21 +16,36 @@ Camera::Camera(const glm::vec3& eyePosition)
     mEyePosition = eyePosition;
     mTranslation = glm::vec3();
     mRotation = glm::vec3();
+    mRotationCenter = glm::vec3(0.0f);
 }
     
 void Camera::CreateTransformations()
 {
-    static const glm::vec3 target = glm::vec3(0.0f);
-    glm::vec3 forward = target + mEyePosition;
+    mTransform.view = RotationMatrix() * TranslationMatrix() * InitialMatrix();
+    mParameters.modelviewMatrix = mTransform.view;
+}
+    
+glm::mat4 Camera::RotationMatrix()
+{
+    static const glm::vec3 axisY = glm::vec3(0.0f, 1.0f, 0.0f);
+    glm::vec3 forward = mRotationCenter + mEyePosition;
     forward = glm::normalize(forward);
-    glm::vec3 axisY = glm::vec3(0.0f, 1.0f, 0.0f);
     glm::vec3 side = glm::normalize(glm::cross(forward, axisY));
     glm::mat4 rotation = glm::rotate(mRotation.x, side);
     rotation *= glm::rotate(mRotation.y, axisY);
-    mTransform.view = glm::lookAt(mEyePosition, target, axisY);
-    glm::mat4 translation = glm::translate(mTranslation);
-    mParameters.modelviewMatrix = rotation * translation * mTransform.view;
-    mTransform.view = mParameters.modelviewMatrix;
+    return rotation;
+}
+    
+glm::mat4 Camera::InitialMatrix()
+{
+    static const glm::vec3 axisY = glm::vec3(0.0f, 1.0f, 0.0f);
+    static const glm::vec3 target = glm::vec3(0.0f);
+    return glm::lookAt(mEyePosition, target, axisY);
+}
+    
+glm::mat4 Camera::TranslationMatrix()
+{
+   return glm::translate(mTranslation);
 }
     
 void Camera::CommitTransformations()
@@ -72,13 +87,11 @@ void Camera::setProjection(Projection projectionMode)
     mProjection = projectionMode;
     switch (projectionMode) {
         case kProjectionPerspective: {
-            glm::mat4 mat = glm::perspective(60.0f, 1.0f, 0.1f, 10000.f);
-            mTransform.projection = *((glm::mat4*)glm::value_ptr(mat));
-            break;
-        }
+            mTransform.projection = glm::perspective(60.0f, 1.0f, 0.1f, 10000.f);
+            
+        } break;
         case kProjectionOrthographic: {
-            glm::mat4 mat = glm::perspective(60.0f, 1.0f, 0.1f, 10000.f);
-            mTransform.projection = *((glm::mat4*)glm::value_ptr(mat));
+            mTransform.projection = glm::perspective(60.0f, 1.0f, 0.1f, 10000.f);;
         } break;
     }
     mParameters.projectionMatrix = mTransform.projection;

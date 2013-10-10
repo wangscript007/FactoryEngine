@@ -1,6 +1,5 @@
 
 #import <Utils/Picker.h>
-#import <Math/GluUtils.h>
 #import <OpenGL/glu.h>
 
 
@@ -18,7 +17,6 @@ glm::vec2 Picker::Viewport2(const glm::vec3& sceneVec, const Camera::Parameters&
     return glm::vec2(vec3.x, vec3.y);
 }
 
-
 glm::vec3 Picker::Scene(const glm::vec3& windowVec, const Camera::Parameters& cameraParameters)
 {
     float depth = DepthAtPoint(glm::vec2(windowVec.x, windowVec.y));
@@ -27,26 +25,19 @@ glm::vec3 Picker::Scene(const glm::vec3& windowVec, const Camera::Parameters& ca
     
 glm::vec3 Picker::GluProject(const glm::vec3& sceneVec, const Camera::Parameters& cameraParameters)
 {
-    glm::vec3 windowCoords;
-    GluUtils::glhProjectf(sceneVec.x, sceneVec.y, sceneVec.z,
-                          reinterpret_cast<const float*>(&cameraParameters.modelviewMatrix),
-                          reinterpret_cast<const float*>(&cameraParameters.projectionMatrix),
-                          reinterpret_cast<const float*>(&cameraParameters.viewport),
-                          reinterpret_cast<float*>(&windowCoords));
-    return windowCoords;
+    return glm::project(sceneVec,
+                        cameraParameters.modelviewMatrix,
+                        cameraParameters.projectionMatrix,
+                        cameraParameters.viewport);
+    
 }
     
 glm::vec3 Picker::GluUnProject(const glm::vec3& windowVec, const Camera::Parameters& cameraParameters)
 {
-    glm::vec3 sceneCoords;
-    GluUtils::glhUnProjectf(windowVec.x, windowVec.y, windowVec.z,
-                            reinterpret_cast<const float*>(&cameraParameters.modelviewMatrix),
-                            reinterpret_cast<const float*>(&cameraParameters.projectionMatrix),
-                            reinterpret_cast<const float*>(&cameraParameters.viewport),
-                            reinterpret_cast<float*>(&sceneCoords));
-    
-    
-    return sceneCoords;
+    return glm::unProject(windowVec,
+                          cameraParameters.modelviewMatrix,
+                          cameraParameters.projectionMatrix,
+                          cameraParameters.viewport);
 }
 
 GLfloat Picker::DepthAtPoint(const glm::vec2& point)

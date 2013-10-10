@@ -128,9 +128,6 @@
 		60B3F3BE1805667B0010484D /* Segment.h in Headers */ = {isa = PBXBuildFile; fileRef = 60B3F3BC1805667B0010484D /* Segment.h */; };
 		60B3F3C0180577560010484D /* Segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B3F3BB1805667B0010484D /* Segment.cpp */; };
 		60B3F3C1180577580010484D /* Segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B3F3BB1805667B0010484D /* Segment.cpp */; };
-		60BA62A217E62F7800E14DFB /* GluUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BA62A017E62F7800E14DFB /* GluUtils.cpp */; };
-		60BA62A317E62F7800E14DFB /* GluUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BA62A117E62F7800E14DFB /* GluUtils.h */; };
-		60BA62A517E630A500E14DFB /* GluUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BA62A017E62F7800E14DFB /* GluUtils.cpp */; };
 		60BC7697177090F600CA8F71 /* Picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BC76951770907700CA8F71 /* Picker.cpp */; };
 		60BC7698177090F700CA8F71 /* Picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BC76951770907700CA8F71 /* Picker.cpp */; };
 		60BC76991770910100CA8F71 /* Picker.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BC76961770907700CA8F71 /* Picker.h */; };
@@ -155,7 +152,6 @@
 		60BD72271756807D007D7DC6 /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6055CFCE17417D45009F1F46 /* Light.cpp */; };
 		60BD72281756807D007D7DC6 /* Light.h in Headers */ = {isa = PBXBuildFile; fileRef = 6055CFCF17417D45009F1F46 /* Light.h */; };
 		60C404EC17E64512009B0AD7 /* MathTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60C404EB17E64512009B0AD7 /* MathTest.mm */; };
-		60C404ED17E647C4009B0AD7 /* GluUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BA62A017E62F7800E14DFB /* GluUtils.cpp */; };
 		60C41BB41691BF5600DD0C09 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60C41BB21691BF5600DD0C09 /* Geometry.cpp */; };
 		60C41BB51691BF5600DD0C09 /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 60C41BB31691BF5600DD0C09 /* Geometry.h */; };
 		60C6D03B174961470009EC3C /* FaceNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D143779D157BCF0200A05B3B /* FaceNode.cpp */; };
@@ -274,7 +270,6 @@
 		60D7DC771657D07C0051947E /* LineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC751657D07C0051947E /* LineNode.h */; };
 		60E4FF5116FF1F6600EEAA5A /* InteractionAssistant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60E4FF4F16FF1F6600EEAA5A /* InteractionAssistant.cpp */; };
 		60E4FF5216FF1F6600EEAA5A /* InteractionAssistant.h in Headers */ = {isa = PBXBuildFile; fileRef = 60E4FF5016FF1F6600EEAA5A /* InteractionAssistant.h */; };
-		60EE5D3817E631F200D740E4 /* GluUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BA62A117E62F7800E14DFB /* GluUtils.h */; };
 		60F2406F16B5BCA700291ED0 /* LineInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F2406D16B5BCA700291ED0 /* LineInteraction.h */; };
 		60F6D98F17368DB500935A76 /* TestRectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60F6D98D17368DB500935A76 /* TestRectangle.cpp */; };
 		60F6D99017368DB500935A76 /* TestRectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F6D98E17368DB500935A76 /* TestRectangle.h */; };
@@ -415,8 +410,6 @@
 		60B3F3BC1805667B0010484D /* Segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Segment.h; sourceTree = "<group>"; };
 		60B7E4B2173AEA4000EF0834 /* ShadingInterfaceCore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadingInterfaceCore.cpp; sourceTree = "<group>"; };
 		60B7E4B3173AEA4000EF0834 /* ShadingInterfaceCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadingInterfaceCore.h; sourceTree = "<group>"; };
-		60BA62A017E62F7800E14DFB /* GluUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GluUtils.cpp; sourceTree = "<group>"; };
-		60BA62A117E62F7800E14DFB /* GluUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GluUtils.h; sourceTree = "<group>"; };
 		60BC76951770907700CA8F71 /* Picker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Picker.cpp; sourceTree = "<group>"; };
 		60BC76961770907700CA8F71 /* Picker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Picker.h; sourceTree = "<group>"; };
 		60BD32881744039C00C2E593 /* LightingModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightingModel.cpp; sourceTree = "<group>"; };
@@ -775,8 +768,6 @@
 		D1E54CA7157BE5120083FB90 /* Math */ = {
 			isa = PBXGroup;
 			children = (
-				60BA62A017E62F7800E14DFB /* GluUtils.cpp */,
-				60BA62A117E62F7800E14DFB /* GluUtils.h */,
 				60B3F3BB1805667B0010484D /* Segment.cpp */,
 				60B3F3BC1805667B0010484D /* Segment.h */,
 				605F1D0B171AE4CA00C8E4CC /* Util.cpp */,
@@ -870,7 +861,6 @@
 				60458B26175B8EFB000679CE /* CameraInteraction.h in Headers */,
 				60CE9A6317EC646F00A775C0 /* ShadingLibrary.h in Headers */,
 				60BC76991770910100CA8F71 /* Picker.h in Headers */,
-				60EE5D3817E631F200D740E4 /* GluUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -891,7 +881,6 @@
 				D1C708C215B36D0E00D64823 /* GroupNode.h in Headers */,
 				D15D698115B4CECB007D676B /* b2Polygon.h in Headers */,
 				D15D698315B4CECB007D676B /* b2Triangle.h in Headers */,
-				60BA62A317E62F7800E14DFB /* GluUtils.h in Headers */,
 				60D7DC721657D0700051947E /* PointNode.h in Headers */,
 				60D7DC771657D07C0051947E /* LineNode.h in Headers */,
 				60A575E71690DDEE0050FAFC /* Prefix.pch in Headers */,
@@ -1114,7 +1103,6 @@
 				603BA5C617E87392007CE822 /* Camera.cpp in Sources */,
 				603BA5C517E87388007CE822 /* Picker.cpp in Sources */,
 				60C404EC17E64512009B0AD7 /* MathTest.mm in Sources */,
-				60C404ED17E647C4009B0AD7 /* GluUtils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1174,7 +1162,6 @@
 				60BD72251756807D007D7DC6 /* DefaultLighting.cpp in Sources */,
 				60BD72271756807D007D7DC6 /* Light.cpp in Sources */,
 				60458B25175B8EF8000679CE /* CameraInteraction.cpp in Sources */,
-				60BA62A517E630A500E14DFB /* GluUtils.cpp in Sources */,
 				60BC7698177090F700CA8F71 /* Picker.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1185,7 +1172,6 @@
 			files = (
 				D143779F157BCF0200A05B3B /* FaceNode.cpp in Sources */,
 				D1F44F4C157FE79600566119 /* Workspace.cpp in Sources */,
-				60BA62A217E62F7800E14DFB /* GluUtils.cpp in Sources */,
 				6032717617EB17C700249562 /* SceneRenderer.cpp in Sources */,
 				D1F44F51157FE91900566119 /* Pad.cpp in Sources */,
 				D1F44F55157FE9D200566119 /* HUD.cpp in Sources */,
