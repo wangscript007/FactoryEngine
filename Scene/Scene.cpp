@@ -43,7 +43,7 @@ Scene::~Scene()
     
 void Scene::Prepare()
 {
-    mCamera = new class Camera(glm::vec3(0.0f, 0.0f, 10.0f));
+    mCamera = new class Camera(mViewport);
     mCamera->setProjection(kProjectionPerspective);
     mShadingLibrary->BuildProgramWithType(ShadingProgram::kMain);
     mShadingLibrary->BuildProgramWithType(ShadingProgram::kColor);

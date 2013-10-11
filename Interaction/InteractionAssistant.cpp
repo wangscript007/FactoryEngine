@@ -1,16 +1,15 @@
 
 #include <Interaction/InteractionAssistant.h>
 #include <Math/Geometry.h>
-#include <Utils/Picker.h>
 
 namespace ftr {
 
 const float InteractionAssistant::kSensitivity = 20.0f;
 
-glm::vec3 InteractionAssistant::AxisAlignedViewport(const glm::vec3& startScene,
-                                                    const glm::vec2& endViewport,
-                                                    const Camera::Parameters& cameraParameters) const
+    glm::vec3 InteractionAssistant::AxisAlignedViewport(const glm::vec3& startScene,
+                                                        const glm::vec2& endViewport) const
 {
+    /*
     static glm::vec3 axisSceneX = glm::vec3(1.0f, 0.0f, 0.0f);
     static glm::vec3 axisSceneY = glm::vec3(0.0f, 1.0f, 0.0f);
     static glm::vec3 axisSceneZ = glm::vec3(0.0f, 0.0f, 1.0f);
@@ -67,6 +66,8 @@ glm::vec3 InteractionAssistant::AxisAlignedViewport(const glm::vec3& startScene,
         result = glm::vec3(startScene.x, startScene.y, shortestSegmentFromRay.mStart.z);
     }
     return result;
+    */
+    return glm::vec3(0.0f);
 }
     
 }

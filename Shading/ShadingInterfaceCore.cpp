@@ -107,10 +107,10 @@ void ShadingInterface::InputSettings(const Settings& settings)
     glUniform1f(mActiveBond->settings.debugFloatScale, settings.debugFloatScale);
 }
     
-void ShadingInterface::InputTransform(const Transform& transform)
+void ShadingInterface::InputViewport(const Viewport& viewport)
 {
-    glUniformMatrix4fv(mActiveBond->transform.view,  1, false, glm::value_ptr(transform.view));
-    glUniformMatrix4fv(mActiveBond->transform.projection,  1, false, glm::value_ptr(transform.projection));
+    glUniformMatrix4fv(mActiveBond->transform.view,  1, false, glm::value_ptr(viewport.modelviewMatrix));
+    glUniformMatrix4fv(mActiveBond->transform.projection,  1, false, glm::value_ptr(viewport.projectionMatrix));
     InputSettings(mSettings);
 }
     

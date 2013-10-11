@@ -12,6 +12,7 @@
 #include <Lighting/LightingCollection.h>
 #include <Leap/LeapListener.h>
 #include <Scene/SceneRenderer.h>
+#include <Scene/Viewport.h>
 
 namespace ftr {
 
@@ -48,7 +49,7 @@ public:
     float               FPS() const { return mFPS; }
     
     Framebuffer*        colorMarkingFramebuffer() const { return mSceneRenderer->colorMarkingFramebuffer(); }
-    
+    const Viewport&     viewport() const { return mViewport; }
         
 private:
     Workspace*          mWorkspace;
@@ -56,6 +57,7 @@ private:
     ModelEditor*        mModelEditor;
     ShadingLibrary*     mShadingLibrary;
     LightingCollection* mLightingCollection;
+    Viewport            mViewport;
     
     Leap::Controller    mLeapController;
     LeapListener        mleapListener;

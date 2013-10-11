@@ -4,25 +4,24 @@
 #include <Main/Log.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
-#include <Utils/Picker.h>
 
 
 namespace ftr {
     
 const float Camera::kViewportScale = 0.3;
 
-Camera::Camera(const glm::vec3& eyePosition)
-    :mShadingInterface(NULL)
+Camera::Camera(Viewport& viewport)
+    :mShadingInterface(NULL),
+    mViewport(viewport)
 {
-    mEyePosition = eyePosition;
+    mEyePosition = glm::vec3(0.0f, 0.0f, 10.0f);
     mTranslation = glm::vec3();
     mRotation = glm::vec3();
 }
     
 void Camera::CreateTransformations()
 {
-    mTransform.view = RotationMatrix() * TranslationMatrix() * InitialMatrix();
-    mParameters.modelviewMatrix = mTransform.view;
+    mViewport.modelviewMatrix = RotationMatrix() * TranslationMatrix() * InitialMatrix();
 }
     
 glm::mat4 Camera::RotationMatrix()
@@ -55,7 +54,7 @@ glm::mat4 Camera::TranslationMatrix()
 void Camera::CommitTransformations()
 {
     if (mShadingInterface) {
-        mShadingInterface->InputTransform(mTransform);
+        mShadingInterface->InputViewport(mViewport);
     }
 }
     
@@ -99,10 +98,10 @@ void Camera::RotateBy(const glm::vec2 deltaRotation)
 
 void Camera::ZoomBy(const float delta, const glm::vec2& toViewportPoint)
 {
-    glm::vec3 scenePoint = Picker::Scene(toViewportPoint, mParameters);
-    glm::vec2 viewportCenter = glm::vec2(mParameters.viewport[2] * 0.5f,
-                                         mParameters.viewport[3] * 0.5f);
-    const Segment& segment = Picker::RayAtPoint(viewportCenter, mParameters);
+    glm::vec3 scenePoint = mViewport.SceneCoordsAt(toViewportPoint);
+    glm::vec2 viewportCenter = glm::vec2(mViewport.frame[2] * 0.5f,
+                                         mViewport.frame[3] * 0.5f);
+    const Segment& segment = mViewport.RayAtPoint(viewportCenter);
     glm::vec3 start = segment.mStart;
     glm::vec3 forward = glm::normalize(scenePoint - start);
     
@@ -128,14 +127,13 @@ void Camera::setProjection(Projection projectionMode)
     mProjection = projectionMode;
     switch (projectionMode) {
         case kProjectionPerspective: {
-            mTransform.projection = glm::perspective(60.0f, 1.0f, 0.1f, 10000.f);
+            mViewport.projectionMatrix = glm::perspective(60.0f, 1.0f, 0.1f, 10000.f);
             
         } break;
         case kProjectionOrthographic: {
-            mTransform.projection = glm::perspective(60.0f, 1.0f, 0.1f, 10000.f);;
+            mViewport.projectionMatrix = glm::perspective(60.0f, 1.0f, 0.1f, 10000.f);;
         } break;
     }
-    mParameters.projectionMatrix = mTransform.projection;
 }
     
 void Camera::setViewport(const  glm::vec4& frame)
@@ -144,7 +142,7 @@ void Camera::setViewport(const  glm::vec4& frame)
     float height = fabsf(frame[1] - frame[3]);
     float size = std::max(width, height);
     glViewport(0.0f, 0.0f, size, size);
-    mParameters.viewport =  glm::vec4(glm::vec2(), glm::vec2(size, size));
+    mViewport.frame =  glm::vec4(glm::vec2(), glm::vec2(size, size));
 #ifndef GLES
     mShadingInterface->InputWindowSize(glm::vec2(size, size));
 #endif

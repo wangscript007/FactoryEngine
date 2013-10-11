@@ -1,7 +1,6 @@
 #include <Model/PointNode.h>
 #include <Interaction/LineInteraction.h>
 #include <Model/ModelEditor.h>
-#include <Utils/Picker.h>
 
 namespace ftr {
 
@@ -97,13 +96,13 @@ void LineInteraction::setEnd(glm::vec3 end)
     }
 }
     
-void LineInteraction::setEndViewport(const glm::vec2& endViewport, const Camera::Parameters& cameraParameters)
+void LineInteraction::setEndViewport(const glm::vec2& endViewport)
 {
     glm::vec3 end;
-    const glm::vec3& suggestedEnd =  mInteractionAssitant.AxisAlignedViewport(mStart, endViewport, cameraParameters);
+    const glm::vec3& suggestedEnd =  mInteractionAssitant.AxisAlignedViewport(mStart, endViewport);
     
     if (mStart == suggestedEnd) {
-        end = Picker::Scene(glm::vec3(endViewport.x, endViewport.y, 0.0f), cameraParameters);
+        //end = Picker::Scene(glm::vec3(endViewport.x, endViewport.y, 0.0f));
     } else {
         end = suggestedEnd;
     }

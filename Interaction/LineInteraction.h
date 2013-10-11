@@ -21,7 +21,7 @@ public:
     void End();
     void setStart(glm::vec3 start);
     void setEnd(glm::vec3 end);
-    void setEndViewport(const glm::vec2& endViewport, const Camera::Parameters& cameraParameters);
+    void setEndViewport(const glm::vec2& endViewport);
     
 private:
     ModelEditor& mModelEditor;

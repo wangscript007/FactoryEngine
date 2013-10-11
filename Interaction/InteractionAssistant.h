@@ -12,8 +12,7 @@ public:
     
     virtual ~InteractionAssistant() {}
     glm::vec3 AxisAlignedViewport(const glm::vec3& startScene,
-                             const glm::vec2& endViewport,
-                             const Camera::Parameters& cameraParameters) const;
+                                  const glm::vec2& endViewport) const;
     
 private:
 };

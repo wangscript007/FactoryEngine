@@ -29,7 +29,6 @@
 		6032717817EB17C700249562 /* SceneRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6032717417EB17C700249562 /* SceneRenderer.cpp */; };
 		6032717917EB17C700249562 /* SceneRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6032717517EB17C700249562 /* SceneRenderer.h */; };
 		6032717A17EB17C700249562 /* SceneRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6032717517EB17C700249562 /* SceneRenderer.h */; };
-		603BA5C517E87388007CE822 /* Picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BC76951770907700CA8F71 /* Picker.cpp */; };
 		603BA5C617E87392007CE822 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6055CFD217417DCB009F1F46 /* Camera.cpp */; };
 		603BA5C817E87437007CE822 /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D17C76861584B6010083E2B0 /* Log.cpp */; };
 		603BA5CD17E87437007CE822 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605F1D0B171AE4CA00C8E4CC /* Util.cpp */; };
@@ -104,6 +103,8 @@
 		606BC0101808639500EC4F37 /* SnappingQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 606BC00A1808639500EC4F37 /* SnappingQueue.h */; };
 		606BC013180863C100EC4F37 /* PointSnap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC011180863C100EC4F37 /* PointSnap.cpp */; };
 		606BC014180863C100EC4F37 /* PointSnap.h in Headers */ = {isa = PBXBuildFile; fileRef = 606BC012180863C100EC4F37 /* PointSnap.h */; };
+		606BC0171808666700EC4F37 /* Viewport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0151808666700EC4F37 /* Viewport.cpp */; };
+		606BC0181808666700EC4F37 /* Viewport.h in Headers */ = {isa = PBXBuildFile; fileRef = 606BC0161808666700EC4F37 /* Viewport.h */; };
 		6076A1531806AE5400770486 /* Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D745891722994B0062CDF1 /* Primitive.cpp */; };
 		6076A1541806AE5400770486 /* Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D745891722994B0062CDF1 /* Primitive.cpp */; };
 		6076A1551806AE5400770486 /* Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D745891722994B0062CDF1 /* Primitive.cpp */; };
@@ -136,10 +137,6 @@
 		60B3F3BE1805667B0010484D /* Segment.h in Headers */ = {isa = PBXBuildFile; fileRef = 60B3F3BC1805667B0010484D /* Segment.h */; };
 		60B3F3C0180577560010484D /* Segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B3F3BB1805667B0010484D /* Segment.cpp */; };
 		60B3F3C1180577580010484D /* Segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B3F3BB1805667B0010484D /* Segment.cpp */; };
-		60BC7697177090F600CA8F71 /* Picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BC76951770907700CA8F71 /* Picker.cpp */; };
-		60BC7698177090F700CA8F71 /* Picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BC76951770907700CA8F71 /* Picker.cpp */; };
-		60BC76991770910100CA8F71 /* Picker.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BC76961770907700CA8F71 /* Picker.h */; };
-		60BC769A1770910200CA8F71 /* Picker.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BC76961770907700CA8F71 /* Picker.h */; };
 		60BD328A1744039D00C2E593 /* LightingModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BD32881744039C00C2E593 /* LightingModel.cpp */; };
 		60BD328B1744039D00C2E593 /* LightingModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BD32891744039C00C2E593 /* LightingModel.h */; };
 		60BD328E174436BD00C2E593 /* LightingCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BD328C174436BD00C2E593 /* LightingCollection.cpp */; };
@@ -395,6 +392,8 @@
 		606BC00A1808639500EC4F37 /* SnappingQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnappingQueue.h; sourceTree = "<group>"; };
 		606BC011180863C100EC4F37 /* PointSnap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointSnap.cpp; sourceTree = "<group>"; };
 		606BC012180863C100EC4F37 /* PointSnap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointSnap.h; sourceTree = "<group>"; };
+		606BC0151808666700EC4F37 /* Viewport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Viewport.cpp; sourceTree = "<group>"; };
+		606BC0161808666700EC4F37 /* Viewport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Viewport.h; sourceTree = "<group>"; };
 		607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolygonRenderer.cpp; sourceTree = "<group>"; };
 		607BFB10172C7F3500357B47 /* PolygonRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonRenderer.h; sourceTree = "<group>"; };
 		607BFB13172C838100357B47 /* RectangleRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleRenderer.cpp; sourceTree = "<group>"; };
@@ -426,8 +425,6 @@
 		60B3F3BC1805667B0010484D /* Segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Segment.h; sourceTree = "<group>"; };
 		60B7E4B2173AEA4000EF0834 /* ShadingInterfaceCore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadingInterfaceCore.cpp; sourceTree = "<group>"; };
 		60B7E4B3173AEA4000EF0834 /* ShadingInterfaceCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadingInterfaceCore.h; sourceTree = "<group>"; };
-		60BC76951770907700CA8F71 /* Picker.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Picker.cpp; sourceTree = "<group>"; };
-		60BC76961770907700CA8F71 /* Picker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Picker.h; sourceTree = "<group>"; };
 		60BD32881744039C00C2E593 /* LightingModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightingModel.cpp; sourceTree = "<group>"; };
 		60BD32891744039C00C2E593 /* LightingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightingModel.h; sourceTree = "<group>"; };
 		60BD328C174436BD00C2E593 /* LightingCollection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightingCollection.cpp; sourceTree = "<group>"; };
@@ -580,6 +577,8 @@
 				6055CFD317417DCB009F1F46 /* Camera.h */,
 				6056C56E15DC5522008F8E92 /* Scene.cpp */,
 				6056C56F15DC5522008F8E92 /* Scene.h */,
+				606BC0151808666700EC4F37 /* Viewport.cpp */,
+				606BC0161808666700EC4F37 /* Viewport.h */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -652,8 +651,6 @@
 		60BC76941770907500CA8F71 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				60BC76951770907700CA8F71 /* Picker.cpp */,
-				60BC76961770907700CA8F71 /* Picker.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -892,7 +889,6 @@
 				60CE9A6117EC646F00A775C0 /* ShadingInterfaceES.h in Headers */,
 				60458B26175B8EFB000679CE /* CameraInteraction.h in Headers */,
 				60CE9A6317EC646F00A775C0 /* ShadingLibrary.h in Headers */,
-				60BC76991770910100CA8F71 /* Picker.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -903,6 +899,7 @@
 				D17C76651583BF440083E2B0 /* FactoryEngine.h in Headers */,
 				D14377A0157BCF0200A05B3B /* FaceNode.h in Headers */,
 				D1E54CB0157BED250083FB90 /* ModelFactory.h in Headers */,
+				606BC0181808666700EC4F37 /* Viewport.h in Headers */,
 				D1F44F4D157FE79600566119 /* Workspace.h in Headers */,
 				D1F44F52157FE91900566119 /* Pad.h in Headers */,
 				D1F44F56157FE9D200566119 /* HUD.h in Headers */,
@@ -961,7 +958,6 @@
 				60C6D0BC174973800009EC3C /* Rect.h in Headers */,
 				60C6D0BE174973850009EC3C /* Polygon.h in Headers */,
 				601EC86C175B2901003DE2B8 /* CameraInteraction.h in Headers */,
-				60BC769A1770910200CA8F71 /* Picker.h in Headers */,
 				60CE9A5117EC646E00A775C0 /* ShadingInterfaceCore.h in Headers */,
 				605FFDF317DFDC4C00DE90A9 /* Leap.h in Headers */,
 				605FFDF417DFDC4C00DE90A9 /* LeapMath.h in Headers */,
@@ -1137,7 +1133,6 @@
 				603BA5FF17E87437007CE822 /* TestRectangle.cpp in Sources */,
 				604ADB721801971200F587B1 /* TestInteractionAssistant.mm in Sources */,
 				603BA5C617E87392007CE822 /* Camera.cpp in Sources */,
-				603BA5C517E87388007CE822 /* Picker.cpp in Sources */,
 				60C404EC17E64512009B0AD7 /* MathTest.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1198,7 +1193,6 @@
 				60BD72251756807D007D7DC6 /* DefaultLighting.cpp in Sources */,
 				60BD72271756807D007D7DC6 /* Light.cpp in Sources */,
 				60458B25175B8EF8000679CE /* CameraInteraction.cpp in Sources */,
-				60BC7698177090F700CA8F71 /* Picker.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1247,6 +1241,7 @@
 				60CE9A5417EC646E00A775C0 /* ShadingLibrary.cpp in Sources */,
 				6021AFC717232B8F001EAEBE /* PrimitiveRenderer.cpp in Sources */,
 				6021AFCB172332F6001EAEBE /* LineRenderer.cpp in Sources */,
+				606BC0171808666700EC4F37 /* Viewport.cpp in Sources */,
 				60CE9A6817EC654A00A775C0 /* ShadingProgram.cpp in Sources */,
 				607BFB11172C7F3500357B47 /* PolygonRenderer.cpp in Sources */,
 				607BFB15172C838200357B47 /* RectangleRenderer.cpp in Sources */,
@@ -1262,7 +1257,6 @@
 				60C6D0C01749738A0009EC3C /* Polygon.cpp in Sources */,
 				60C6D0C21749739B0009EC3C /* Rect.cpp in Sources */,
 				601EC86B175B2901003DE2B8 /* CameraInteraction.cpp in Sources */,
-				60BC7697177090F600CA8F71 /* Picker.cpp in Sources */,
 				605FFDFB17DFDD3400DE90A9 /* LeapListener.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

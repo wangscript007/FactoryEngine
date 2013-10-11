@@ -3,6 +3,7 @@
 
 #include <Lighting/Light.h>
 #include <Shading/ShadingProgram.h>
+#include <Scene/Viewport.h>
 
 #define MAX_LIGHTS_COUNT 5
 
@@ -51,12 +52,6 @@ public:
         } light[MAX_LIGHTS_COUNT];
     };
     
-    struct Transform {
-        glm::mat4 view;
-        glm::mat4 projection;
-    };
-    
-    
     struct Settings {
         int lightsCount;
         int debugLineWidth;
@@ -83,7 +78,7 @@ public:
     GLuint normalLocation() const { return mActiveBond->normal; }
     GLuint vertexLocation() const { return mActiveBond->vertex; }
     
-    void InputTransform(const Transform& transform);
+    void InputViewport(const Viewport& viewport);
     void InputSettings(const Settings& settings);
     void InputLight(const Light::Data& lightData);
     void InputWindowSize(const glm::vec2& windowSize);

@@ -18,14 +18,7 @@ public:
         GLuint color;
         GLuint light;
     };
-    
-    struct Transform {
-        glm::mat4 view;
-        glm::mat4 projection;
-        glm::mat4 rotation;
-        glm::mat4 translation;
-    };
-    
+        
     struct LightData {
         glm::vec4 position;
         float intensity;
