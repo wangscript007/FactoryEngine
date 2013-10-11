@@ -64,8 +64,8 @@ FaceNode* ModelEditor::CreateFace(glm::vec3 origin, FaceNode::FaceType eType)
 {
     assert(mSelectedNode);
     FaceNode* pFace = mModelFactory->CreateFace(glm::vec3(origin.x, 0.01, origin.z),
-                                glm::vec3(0.0f, 0.0f, 0.0f),
-                                eType);
+                                                glm::vec3(0.0f, 0.0f, 0.0f),
+                                                eType);
     mSelectedNode->AddNode(pFace);
     return pFace;
 }

@@ -12,19 +12,19 @@ namespace ftr {
     
 #define SMALL_NUM   0.00000001f
 
-float Segment::DistanceFromPoint(const glm::vec3& point)
+float Segment::DistanceFromPoint(const glm::vec3& point) const
 {
     return glm::length(NearestPoint(point) - point);
 }
     
-glm::vec3 Segment::NearestPoint(const glm::vec3 &testPoint)
+glm::vec3 Segment::NearestPoint(const glm::vec3 &testPoint) const
 {
     const glm::vec3 A = testPoint - mStart;
     const glm::vec3 u = glm::normalize((mStart-mEnd));
     return mStart + glm::dot(A, u) * u;
 };
     
-Segment Segment::ShortestSegmentFromLine(const Segment& segment)
+Segment Segment::ShortestSegmentFromLine(const Segment& segment) const
 {
     glm::vec3   u = mEnd - mStart;
     glm::vec3   v = segment.mEnd - segment.mStart;
@@ -50,13 +50,13 @@ Segment Segment::ShortestSegmentFromLine(const Segment& segment)
 
 }
     
-float Segment::DistanceFromLine(const Segment& segment)
+float Segment::DistanceFromLine(const Segment& segment) const
 {
     const Segment& shortestSegment = ShortestSegmentFromLine(segment);
     return glm::length(shortestSegment.mStart - shortestSegment.mEnd);
 }
     
-float Segment::DistanceFromSegment(const Segment& segment)
+float Segment::DistanceFromSegment(const Segment& segment) const
 {
     glm::vec3   u = mEnd - mStart;
     glm::vec3   v = segment.mEnd - segment.mStart;

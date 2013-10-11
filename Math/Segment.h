@@ -26,11 +26,11 @@ public:
     glm::vec3 mStart;
     glm::vec3 mEnd;
     
-    float DistanceFromPoint(const glm::vec3& point);
-    float DistanceFromSegment(const Segment& segment);
-    float DistanceFromLine(const Segment& segment);
-    Segment ShortestSegmentFromLine(const Segment& segment);
-    glm::vec3 NearestPoint(const glm::vec3 &testPoint);
+    float DistanceFromPoint(const glm::vec3& point) const;
+    float DistanceFromSegment(const Segment& segment) const;
+    float DistanceFromLine(const Segment& segment) const;
+    Segment ShortestSegmentFromLine(const Segment& segment) const;
+    glm::vec3 NearestPoint(const glm::vec3 &testPoint) const;
 
 };
     
