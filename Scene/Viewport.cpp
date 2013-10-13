@@ -2,9 +2,27 @@
 #include <Scene/Viewport.h>
 
 namespace ftr {
+    
+std::vector<glm::vec3> Viewport::mDebugPoints;
+    
+void Viewport::AddDebugPoint(const glm::vec2& point)
+{
+    mDebugPoints.push_back(glm::vec3(point.x, point.y, DepthAtPoint(point)));
+}
 
 float Viewport::DepthAtPoint(const glm::vec2& point)
 {
+#ifdef TEST
+    for(auto it = mDebugPoints.begin(); it != mDebugPoints.end(); ++it)
+    {
+        glm::vec3 test = *it;
+        glm::detail::tvec2<bool> equal = glm::epsilonEqual(point, glm::vec2(test.x, test.y), 0.0001f);
+        if (equal.x && equal.y) {
+            return test.z;
+        }
+    }
+    assert(false);
+#endif
     float depth;
     glReadPixels(point.x, point.y, 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &depth);
     return depth;

@@ -31,6 +31,7 @@ public:
     void setProjection(Projection projectionMode);
     void setShadingInterface(ShadingInterface* ShadingInterface) { mShadingInterface = ShadingInterface; }
     void setViewport(const  glm::vec4& frame);
+    const Viewport& viewport() const { return mViewport; }
     void CommitTransformations();
     
 private:
@@ -43,7 +44,6 @@ private:
     glm::vec3 mTranslation;
     glm::vec3 mRotation;
     Projection mProjection;
-    glm::mat4 mModelviewMatrix;
     glm::vec3 mPivot;
     
     Viewport& mViewport;

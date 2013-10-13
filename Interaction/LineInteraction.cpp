@@ -1,16 +1,23 @@
+
 #include <Model/PointNode.h>
-#include <Interaction/LineInteraction.h>
 #include <Model/ModelEditor.h>
+#include <Interaction/LineInteraction.h>
+#include <Snapping/SnappingQueue.h>
 
 namespace ftr {
 
-LineInteraction::LineInteraction(ModelEditor& ModelEditor)
-    :mModelEditor(ModelEditor)
+LineInteraction::LineInteraction(ModelEditor& modelEditor, const Viewport& viewport)
+    :mModelEditor(modelEditor)
     ,mActive(false)
     ,mStartPoint(NULL)
     ,mEndPoint(NULL)
 {
+    mSnappingQueue = new SnappingQueue(viewport, *modelEditor.ModelTree());
+}
     
+LineInteraction::~LineInteraction()
+{
+    FT_DELETE(mSnappingQueue);
 }
 
 #pragma mark Instance
@@ -54,80 +61,63 @@ void LineInteraction::Begin()
     if (!mActive) {
         mActive = true;
         mModelEditor.SelectedNode()->AddNode(this);
+        
         mEndPoint = NULL;
         mStartPoint = NULL;
+        
         mEnd = glm::vec3();
         mStart = glm::vec3();
+        
     }
 }
 
 void LineInteraction::Step()
 {
+    
     if (mActive) {
         mActive = false;
         mModelEditor.SelectedNode()->RemoveNode(this);
+        
         if (!mStartPoint) {
             mStartPoint = mModelEditor.CreatePoint(mStart);
         }
+        
         if (!mEndPoint) {
             mEndPoint = mModelEditor.CreatePoint(mEnd);
         };
+        
         mModelEditor.CreateLine(mStartPoint, mEndPoint);
         mStartPoint = mEndPoint;
         mEndPoint = NULL;
-        
     }
 }
 
-void LineInteraction::End()
+void LineInteraction::Finish()
 {
     mActive = false;
 }
-
-void LineInteraction::setEnd(glm::vec3 end)
+    
+void LineInteraction::setStart(const glm::vec2& start)
 {
-    PointNode* pNearPoint = mModelEditor.NearestPointToCenterInSphere(Sphere(end, 0.5f));
-    if (pNearPoint) {
-        mEnd = pNearPoint->mOrigin;
-        mEndPoint = pNearPoint;
-    } else {
-        mEnd = end;
-        mEndPoint = NULL;
-    }
+#ifndef TEST
+    Viewport::AddDebugPoint(start);
+#endif
+    
+    mSnappingQueue->setStartViewport(start, true);
+    mSnappingQueue->setEndViewport(start, true);
+    
+    mStart = mSnappingQueue->Snapped();
+    mSnappingQueue->setStartScene(mStart, true);
+    
 }
     
-void LineInteraction::setEndViewport(const glm::vec2& endViewport)
+void LineInteraction::setEnd(const glm::vec2& endViewport)
 {
-    glm::vec3 end;
-    const glm::vec3& suggestedEnd =  mInteractionAssitant.AxisAlignedViewport(mStart, endViewport);
+    mSnappingQueue->setEndViewport(endViewport, true);
     
-    if (mStart == suggestedEnd) {
-        //end = Picker::Scene(glm::vec3(endViewport.x, endViewport.y, 0.0f));
-    } else {
-        end = suggestedEnd;
-    }
-    
-    PointNode* pNearPoint = mModelEditor.NearestPointToCenterInSphere(Sphere(end, 0.5f));
-    if (pNearPoint) {
-        mEnd = pNearPoint->mOrigin;
-        mEndPoint = pNearPoint;
-    } else {
-        mEnd = end;
-        mEndPoint = NULL;
-    }
+    mEnd = mSnappingQueue->Snapped();
 }
 
 
-void LineInteraction::setStart(glm::vec3 start)
-{
-    PointNode* pNearPoint = mModelEditor.NearestPointToCenterInSphere(Sphere(start, 0.5f));
-    if (pNearPoint) {
-        mStart = pNearPoint->mOrigin;
-        mStartPoint = pNearPoint;
-    } else {
-        mStart = start;
-        mStartPoint = NULL;
-    }
-}
     
 }

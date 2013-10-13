@@ -10,6 +10,7 @@ ModelEditor::ModelEditor()
     mModelFactory = new class ModelFactory(*mModelTree);
     mRootGroup = new Group();
     mModelTree->setRootNode(mRootGroup);
+    Select(mRootGroup);
     
 }
 

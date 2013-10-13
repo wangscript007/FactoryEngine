@@ -77,7 +77,6 @@
 		60458B25175B8EF8000679CE /* CameraInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 601EC869175B2901003DE2B8 /* CameraInteraction.cpp */; };
 		60458B26175B8EFB000679CE /* CameraInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 601EC86A175B2901003DE2B8 /* CameraInteraction.h */; };
 		6047DB9316B46A890012286F /* RectangleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6047DB9116B46A890012286F /* RectangleInteraction.cpp */; };
-		604ADB721801971200F587B1 /* TestInteractionAssistant.mm in Sources */ = {isa = PBXBuildFile; fileRef = 604ADB711801971200F587B1 /* TestInteractionAssistant.mm */; };
 		6055CFD017417D46009F1F46 /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6055CFCE17417D45009F1F46 /* Light.cpp */; };
 		6055CFD117417D46009F1F46 /* Light.h in Headers */ = {isa = PBXBuildFile; fileRef = 6055CFCF17417D45009F1F46 /* Light.h */; };
 		6055CFD417417DCB009F1F46 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6055CFD217417DCB009F1F46 /* Camera.cpp */; };
@@ -128,6 +127,17 @@
 		60988088180584A60064477E /* TestSegment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60988087180584A60064477E /* TestSegment.mm */; };
 		60A03E411752423100D650B5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A03E401752423100D650B5 /* OpenGLES.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		60A03E42175244EB00D650B5 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6056C56E15DC5522008F8E92 /* Scene.cpp */; };
+		60A05FBD1809D457004DD045 /* Viewport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0151808666700EC4F37 /* Viewport.cpp */; };
+		60A05FC41809DA8A004DD045 /* TestLineInteraction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60A05FC31809DA8A004DD045 /* TestLineInteraction.mm */; };
+		60A05FC61809DB06004DD045 /* Snap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0071808639500EC4F37 /* Snap.cpp */; };
+		60A05FC71809DB15004DD045 /* PointSnap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC011180863C100EC4F37 /* PointSnap.cpp */; };
+		60A05FC81809DB16004DD045 /* PointSnap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC011180863C100EC4F37 /* PointSnap.cpp */; };
+		60A05FC91809DB35004DD045 /* AxisSnap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0051808639500EC4F37 /* AxisSnap.cpp */; };
+		60A05FCA1809DB36004DD045 /* AxisSnap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0051808639500EC4F37 /* AxisSnap.cpp */; };
+		60A05FCB1809DB48004DD045 /* Snap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0071808639500EC4F37 /* Snap.cpp */; };
+		60A05FCC1809DB5E004DD045 /* Viewport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0151808666700EC4F37 /* Viewport.cpp */; };
+		60A05FCE180AD1BA004DD045 /* SnappingQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0091808639500EC4F37 /* SnappingQueue.cpp */; };
+		60A05FCF180AD1BA004DD045 /* SnappingQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0091808639500EC4F37 /* SnappingQueue.cpp */; };
 		60A4ED6016FE28BA0083DCD2 /* RotationInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED5E16FE28BA0083DCD2 /* RotationInteraction.cpp */; };
 		60A4ED6116FE28BA0083DCD2 /* RotationInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60A4ED5F16FE28BA0083DCD2 /* RotationInteraction.h */; };
 		60A4ED6716FE59D50083DCD2 /* ScaleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED6516FE59D40083DCD2 /* ScaleInteraction.cpp */; };
@@ -156,7 +166,6 @@
 		60BD72261756807D007D7DC6 /* DefaultLighting.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BD3291174436EA00C2E593 /* DefaultLighting.h */; };
 		60BD72271756807D007D7DC6 /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6055CFCE17417D45009F1F46 /* Light.cpp */; };
 		60BD72281756807D007D7DC6 /* Light.h in Headers */ = {isa = PBXBuildFile; fileRef = 6055CFCF17417D45009F1F46 /* Light.h */; };
-		60C404EC17E64512009B0AD7 /* MathTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60C404EB17E64512009B0AD7 /* MathTest.mm */; };
 		60C41BB41691BF5600DD0C09 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60C41BB21691BF5600DD0C09 /* Geometry.cpp */; };
 		60C41BB51691BF5600DD0C09 /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 60C41BB31691BF5600DD0C09 /* Geometry.h */; };
 		60C6D03B174961470009EC3C /* FaceNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D143779D157BCF0200A05B3B /* FaceNode.cpp */; };
@@ -359,7 +368,6 @@
 		603BA60117E874FE007CE822 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		6047DB9116B46A890012286F /* RectangleInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleInteraction.cpp; sourceTree = "<group>"; };
 		6047DB9216B46A890012286F /* RectangleInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleInteraction.h; sourceTree = "<group>"; };
-		604ADB711801971200F587B1 /* TestInteractionAssistant.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestInteractionAssistant.mm; sourceTree = "<group>"; };
 		604E939A16A1C6E700143522 /* fix_includes.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = fix_includes.py; sourceTree = "<group>"; };
 		604E93D116A1D14C00143522 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		6055CFCE17417D45009F1F46 /* Light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Light.cpp; sourceTree = "<group>"; };
@@ -415,6 +423,7 @@
 		6091E37916AC6036001DE0A7 /* LoopFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopFinder.h; sourceTree = "<group>"; };
 		60988087180584A60064477E /* TestSegment.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestSegment.mm; sourceTree = "<group>"; };
 		60A03E401752423100D650B5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		60A05FC31809DA8A004DD045 /* TestLineInteraction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestLineInteraction.mm; sourceTree = "<group>"; };
 		60A4ED5E16FE28BA0083DCD2 /* RotationInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RotationInteraction.cpp; sourceTree = "<group>"; };
 		60A4ED5F16FE28BA0083DCD2 /* RotationInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotationInteraction.h; sourceTree = "<group>"; };
 		60A4ED6516FE59D40083DCD2 /* ScaleInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScaleInteraction.cpp; sourceTree = "<group>"; };
@@ -431,7 +440,6 @@
 		60BD328D174436BD00C2E593 /* LightingCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightingCollection.h; sourceTree = "<group>"; };
 		60BD3290174436EA00C2E593 /* DefaultLighting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DefaultLighting.cpp; sourceTree = "<group>"; };
 		60BD3291174436EA00C2E593 /* DefaultLighting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultLighting.h; sourceTree = "<group>"; };
-		60C404EB17E64512009B0AD7 /* MathTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MathTest.mm; sourceTree = "<group>"; };
 		60C41BB21691BF5600DD0C09 /* Geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Geometry.cpp; sourceTree = "<group>"; };
 		60C41BB31691BF5600DD0C09 /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
 		60C6D0B2174961470009EC3C /* libFactoryEngineIOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFactoryEngineIOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -598,9 +606,8 @@
 			isa = PBXGroup;
 			children = (
 				60607E1217E63CF600708358 /* Supporting Files */,
-				60C404EB17E64512009B0AD7 /* MathTest.mm */,
 				60988087180584A60064477E /* TestSegment.mm */,
-				604ADB711801971200F587B1 /* TestInteractionAssistant.mm */,
+				60A05FC31809DA8A004DD045 /* TestLineInteraction.mm */,
 			);
 			path = "FactoryEngine Tests";
 			sourceTree = "<group>";
@@ -1090,6 +1097,7 @@
 				603BA5D317E87437007CE822 /* LoopFinder.cpp in Sources */,
 				603BA5D917E87437007CE822 /* ShadingLibrary.cpp in Sources */,
 				603BA5DA17E87437007CE822 /* Shader.cpp in Sources */,
+				60A05FC91809DB35004DD045 /* AxisSnap.cpp in Sources */,
 				60988088180584A60064477E /* TestSegment.mm in Sources */,
 				603BA5DC17E87437007CE822 /* PrimitiveRenderer.cpp in Sources */,
 				603BA5DD17E87437007CE822 /* LayerRenderer.cpp in Sources */,
@@ -1098,11 +1106,14 @@
 				603BA5E017E87437007CE822 /* PolygonRenderer.cpp in Sources */,
 				603BA5E117E87437007CE822 /* RectangleRenderer.cpp in Sources */,
 				603BA5E217E87437007CE822 /* PointRenderer.cpp in Sources */,
+				60A05FC61809DB06004DD045 /* Snap.cpp in Sources */,
+				60A05FC41809DA8A004DD045 /* TestLineInteraction.mm in Sources */,
 				603BA5E317E87437007CE822 /* LightingCollection.cpp in Sources */,
 				603BA5E417E87437007CE822 /* LigthtingModelFactory.cpp in Sources */,
 				6032717817EB17C700249562 /* SceneRenderer.cpp in Sources */,
 				60B3F3C0180577560010484D /* Segment.cpp in Sources */,
 				603BA5E517E87437007CE822 /* LightingModel.cpp in Sources */,
+				60A05FC71809DB15004DD045 /* PointSnap.cpp in Sources */,
 				603BA5E617E87437007CE822 /* DefaultLighting.cpp in Sources */,
 				603BA5E717E87437007CE822 /* Light.cpp in Sources */,
 				603BA5E817E87437007CE822 /* ModelEditor.cpp in Sources */,
@@ -1121,19 +1132,19 @@
 				603BA5F417E87437007CE822 /* RectangleInteraction.cpp in Sources */,
 				603BA5F517E87437007CE822 /* LineInteraction.cpp in Sources */,
 				603BA5F617E87437007CE822 /* MoveInteraction.cpp in Sources */,
+				60A05FCE180AD1BA004DD045 /* SnappingQueue.cpp in Sources */,
 				603BA5F717E87437007CE822 /* RotationInteraction.cpp in Sources */,
 				603BA5F817E87437007CE822 /* ScaleInteraction.cpp in Sources */,
 				603BA5F917E87437007CE822 /* InteractionAssistant.cpp in Sources */,
 				603BA5FA17E87437007CE822 /* CameraInteraction.cpp in Sources */,
+				60A05FBD1809D457004DD045 /* Viewport.cpp in Sources */,
 				603BA5FB17E87437007CE822 /* Pad.cpp in Sources */,
 				603BA5FC17E87437007CE822 /* HUD.cpp in Sources */,
 				603BA5FD17E87437007CE822 /* Workspace.cpp in Sources */,
 				603BA5FE17E87437007CE822 /* Bounds.cpp in Sources */,
 				6076A1561806AE8F00770486 /* ShadingInterfaceCore.cpp in Sources */,
 				603BA5FF17E87437007CE822 /* TestRectangle.cpp in Sources */,
-				604ADB721801971200F587B1 /* TestInteractionAssistant.mm in Sources */,
 				603BA5C617E87392007CE822 /* Camera.cpp in Sources */,
-				60C404EC17E64512009B0AD7 /* MathTest.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1141,6 +1152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60A05FCA1809DB36004DD045 /* AxisSnap.cpp in Sources */,
 				60BD721F17568043007D7DC6 /* LightingCollection.cpp in Sources */,
 				60BD721E17568022007D7DC6 /* Camera.cpp in Sources */,
 				60A03E42175244EB00D650B5 /* Scene.cpp in Sources */,
@@ -1151,6 +1163,7 @@
 				60C6D041174961470009EC3C /* Log.cpp in Sources */,
 				60C6D043174961470009EC3C /* Node.cpp in Sources */,
 				60C6D044174961470009EC3C /* BodyNode.cpp in Sources */,
+				60A05FCF180AD1BA004DD045 /* SnappingQueue.cpp in Sources */,
 				60C6D045174961470009EC3C /* ModelFactory.cpp in Sources */,
 				60C6D046174961470009EC3C /* GroupNode.cpp in Sources */,
 				60C6D048174961470009EC3C /* PointNode.cpp in Sources */,
@@ -1159,10 +1172,13 @@
 				60C6D04B174961470009EC3C /* Geometry.cpp in Sources */,
 				60C6D04C174961470009EC3C /* PolylineNode.cpp in Sources */,
 				60C6D04D174961470009EC3C /* LoopFinder.cpp in Sources */,
+				60A05FC81809DB16004DD045 /* PointSnap.cpp in Sources */,
 				60C6D04E174961470009EC3C /* RectangleInteraction.cpp in Sources */,
+				60A05FCC1809DB5E004DD045 /* Viewport.cpp in Sources */,
 				60C6D050174961470009EC3C /* MoveInteraction.cpp in Sources */,
 				60C6D051174961470009EC3C /* LineInteraction.cpp in Sources */,
 				60C6D053174961470009EC3C /* RotationInteraction.cpp in Sources */,
+				60A05FCB1809DB48004DD045 /* Snap.cpp in Sources */,
 				60C6D054174961470009EC3C /* ScaleInteraction.cpp in Sources */,
 				60CE9A6217EC646F00A775C0 /* ShadingLibrary.cpp in Sources */,
 				60C6D055174961470009EC3C /* InteractionAssistant.cpp in Sources */,
@@ -1302,6 +1318,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FactoryEngine Tests/FactoryEngine Tests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					TEST,
 					"DEBUG=1",
 					"$(inherited)",
 				);

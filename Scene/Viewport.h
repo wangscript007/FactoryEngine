@@ -10,6 +10,9 @@ class Viewport
 public:
     virtual ~Viewport() {}
     
+    static std::vector<glm::vec3> mDebugPoints;
+    static void AddDebugPoint(const glm::vec2& point);
+    
     static float DepthAtPoint(const glm::vec2& point);
     
     glm::mat4 projectionMatrix;

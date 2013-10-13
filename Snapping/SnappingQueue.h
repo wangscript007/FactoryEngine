@@ -1,16 +1,25 @@
-//
-//  SnappingQueue.h
-//  FactoryEngine
-//
-//  Created by Edvinas on 10/11/13.
-//  Copyright (c) 2013 Dimention. All rights reserved.
-//
 
 #pragma once
 
-class SnappingQueue
+#include <Snapping/Snap.h>
+#include <Scene/Viewport.h>
+#include <Model/ModelTree.h>
+
+namespace ftr {
+
+    class SnappingQueue : public Snap
 {
 public:
-    virtual ~SnappingQueue() {}
+    typedef std::vector <Snap*> SnapsVector;
+    
+    SnappingQueue(const Viewport& viewport, const ModelTree& modelTree);
+    virtual ~SnappingQueue() {};
+    
+    glm::vec3 Snapped() const;
+    
+private:
+    SnapsVector mSnapsVector;
 };
+    
+}
 

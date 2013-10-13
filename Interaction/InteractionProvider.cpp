@@ -15,7 +15,7 @@ namespace ftr {
 InteractionProvider::InteractionProvider(ModelEditor& modelEditor, Camera& camera)
 {
     mRectangleInteraction = new class RectangleInteraction(modelEditor);
-    mLineInteraction = new class LineInteraction(modelEditor);
+    mLineInteraction = new class LineInteraction(modelEditor, camera.viewport());
     mMoveInteraction = new class MoveInteraction(modelEditor);
     mRotationInteraction = new class RotationInteraction(modelEditor);
     mScaleInteraction = new class ScaleInteraction(modelEditor);
