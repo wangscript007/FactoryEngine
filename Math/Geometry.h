@@ -2,12 +2,14 @@
 
 #pragma once
 
+
 namespace ftr {
 
 enum Axis { kAxisX, kAxisY, kAxisZ };
 
-struct Box
+class Box
 {
+public:
     glm::vec3 mCenter;
     glm::vec3 mHalfDimention;
     
@@ -15,6 +17,8 @@ struct Box
     Box(glm::vec3 center, glm::vec3 halfDimension) : mCenter(center), mHalfDimention(halfDimension) {};
     bool Contains(const glm::vec3& vec) const;
     bool Intersects(const Box& other) const;
+    float Diagonal2() const;
+    float Diagonal3() const;
 };
 
 inline bool Box::Contains(const glm::vec3& vec) const
@@ -43,11 +47,26 @@ inline bool Box::Intersects(const Box& other) const
     if (mCenter.z - mHalfDimention.z > other.mCenter.z + other.mHalfDimention.z) return false;
 
     return true; // boxes overlap
-
+}
+    
+inline float Box::Diagonal2() const
+{
+    float a = mHalfDimention.x*2;
+    return sqrtf(2*(a*a));
 }
 
-struct Sphere
+inline float Box::Diagonal3() const
 {
+    float a = mHalfDimention.x*2;
+    float b = Diagonal2();
+    return sqrtf((a*a)+(b*b));
+}
+    
+
+
+class Sphere
+{
+public:
     glm::vec3 mCenter;
     float mRadius;
     Sphere(glm::vec3 center, float radius) : mCenter(center), mRadius(radius) {};

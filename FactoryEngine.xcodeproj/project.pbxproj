@@ -104,6 +104,9 @@
 		606BC014180863C100EC4F37 /* PointSnap.h in Headers */ = {isa = PBXBuildFile; fileRef = 606BC012180863C100EC4F37 /* PointSnap.h */; };
 		606BC0171808666700EC4F37 /* Viewport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0151808666700EC4F37 /* Viewport.cpp */; };
 		606BC0181808666700EC4F37 /* Viewport.h in Headers */ = {isa = PBXBuildFile; fileRef = 606BC0161808666700EC4F37 /* Viewport.h */; };
+		60758B6B180F2F68004BE067 /* boost in Resources */ = {isa = PBXBuildFile; fileRef = 60758B6A180F2F68004BE067 /* boost */; };
+		60758B6C180F2F68004BE067 /* boost in Resources */ = {isa = PBXBuildFile; fileRef = 60758B6A180F2F68004BE067 /* boost */; };
+		60758B6E180F3020004BE067 /* TestCylinder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60758B6D180F3020004BE067 /* TestCylinder.mm */; };
 		6076A1531806AE5400770486 /* Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D745891722994B0062CDF1 /* Primitive.cpp */; };
 		6076A1541806AE5400770486 /* Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D745891722994B0062CDF1 /* Primitive.cpp */; };
 		6076A1551806AE5400770486 /* Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D745891722994B0062CDF1 /* Primitive.cpp */; };
@@ -284,6 +287,11 @@
 		60D7DC771657D07C0051947E /* LineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC751657D07C0051947E /* LineNode.h */; };
 		60E4FF5116FF1F6600EEAA5A /* InteractionAssistant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60E4FF4F16FF1F6600EEAA5A /* InteractionAssistant.cpp */; };
 		60E4FF5216FF1F6600EEAA5A /* InteractionAssistant.h in Headers */ = {isa = PBXBuildFile; fileRef = 60E4FF5016FF1F6600EEAA5A /* InteractionAssistant.h */; };
+		60EB2F641812C385008DCA37 /* Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60EB2F621812C385008DCA37 /* Cylinder.cpp */; };
+		60EB2F651812C385008DCA37 /* Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60EB2F621812C385008DCA37 /* Cylinder.cpp */; };
+		60EB2F661812C385008DCA37 /* Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60EB2F621812C385008DCA37 /* Cylinder.cpp */; };
+		60EB2F671812C385008DCA37 /* Cylinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 60EB2F631812C385008DCA37 /* Cylinder.h */; };
+		60EB2F681812C385008DCA37 /* Cylinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 60EB2F631812C385008DCA37 /* Cylinder.h */; };
 		60F2406F16B5BCA700291ED0 /* LineInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F2406D16B5BCA700291ED0 /* LineInteraction.h */; };
 		60F6D98F17368DB500935A76 /* TestRectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60F6D98D17368DB500935A76 /* TestRectangle.cpp */; };
 		60F6D99017368DB500935A76 /* TestRectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F6D98E17368DB500935A76 /* TestRectangle.h */; };
@@ -402,6 +410,8 @@
 		606BC012180863C100EC4F37 /* PointSnap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointSnap.h; sourceTree = "<group>"; };
 		606BC0151808666700EC4F37 /* Viewport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Viewport.cpp; sourceTree = "<group>"; };
 		606BC0161808666700EC4F37 /* Viewport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Viewport.h; sourceTree = "<group>"; };
+		60758B6A180F2F68004BE067 /* boost */ = {isa = PBXFileReference; lastKnownFileType = folder; path = boost; sourceTree = "<group>"; };
+		60758B6D180F3020004BE067 /* TestCylinder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestCylinder.mm; sourceTree = "<group>"; };
 		607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolygonRenderer.cpp; sourceTree = "<group>"; };
 		607BFB10172C7F3500357B47 /* PolygonRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonRenderer.h; sourceTree = "<group>"; };
 		607BFB13172C838100357B47 /* RectangleRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleRenderer.cpp; sourceTree = "<group>"; };
@@ -462,6 +472,8 @@
 		60D7DC791658308B0051947E /* Rect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rect.h; sourceTree = "<group>"; };
 		60E4FF4F16FF1F6600EEAA5A /* InteractionAssistant.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InteractionAssistant.cpp; sourceTree = "<group>"; };
 		60E4FF5016FF1F6600EEAA5A /* InteractionAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractionAssistant.h; sourceTree = "<group>"; };
+		60EB2F621812C385008DCA37 /* Cylinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cylinder.cpp; sourceTree = "<group>"; };
+		60EB2F631812C385008DCA37 /* Cylinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cylinder.h; sourceTree = "<group>"; };
 		60F2406C16B5BCA700291ED0 /* LineInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineInteraction.cpp; sourceTree = "<group>"; };
 		60F2406D16B5BCA700291ED0 /* LineInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineInteraction.h; sourceTree = "<group>"; };
 		60F6D98D17368DB500935A76 /* TestRectangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestRectangle.cpp; sourceTree = "<group>"; };
@@ -608,6 +620,7 @@
 				60607E1217E63CF600708358 /* Supporting Files */,
 				60988087180584A60064477E /* TestSegment.mm */,
 				60A05FC31809DA8A004DD045 /* TestLineInteraction.mm */,
+				60758B6D180F3020004BE067 /* TestCylinder.mm */,
 			);
 			path = "FactoryEngine Tests";
 			sourceTree = "<group>";
@@ -766,6 +779,7 @@
 		D1C708B915B3495400D64823 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				60758B6A180F2F68004BE067 /* boost */,
 				602A43A31800A59600EC071F /* glm */,
 				D15D697B15B4CECB007D676B /* ConvexDecomposition */,
 			);
@@ -816,6 +830,8 @@
 				60C41BB31691BF5600DD0C09 /* Geometry.h */,
 				6091E37816AC6036001DE0A7 /* LoopFinder.cpp */,
 				6091E37916AC6036001DE0A7 /* LoopFinder.h */,
+				60EB2F621812C385008DCA37 /* Cylinder.cpp */,
+				60EB2F631812C385008DCA37 /* Cylinder.h */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -872,6 +888,7 @@
 				60C6D097174961470009EC3C /* Util.h in Headers */,
 				60C6D09B174961470009EC3C /* ModelEditor.h in Headers */,
 				60C6D09C174961470009EC3C /* ModelTree.h in Headers */,
+				60EB2F681812C385008DCA37 /* Cylinder.h in Headers */,
 				6032716517EB08E700249562 /* Framebuffer.h in Headers */,
 				60C6D09D174961470009EC3C /* InteractionProvider.h in Headers */,
 				60C6D09E174961470009EC3C /* Octree.h in Headers */,
@@ -968,6 +985,7 @@
 				60CE9A5117EC646E00A775C0 /* ShadingInterfaceCore.h in Headers */,
 				605FFDF317DFDC4C00DE90A9 /* Leap.h in Headers */,
 				605FFDF417DFDC4C00DE90A9 /* LeapMath.h in Headers */,
+				60EB2F671812C385008DCA37 /* Cylinder.h in Headers */,
 				605FFDFC17DFDD3400DE90A9 /* LeapListener.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1068,6 +1086,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60758B6B180F2F68004BE067 /* boost in Resources */,
 				602A43A41800A59600EC071F /* glm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1076,6 +1095,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60758B6C180F2F68004BE067 /* boost in Resources */,
 				60607E1617E63CF600708358 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1100,6 +1120,7 @@
 				60A05FC91809DB35004DD045 /* AxisSnap.cpp in Sources */,
 				60988088180584A60064477E /* TestSegment.mm in Sources */,
 				603BA5DC17E87437007CE822 /* PrimitiveRenderer.cpp in Sources */,
+				60758B6E180F3020004BE067 /* TestCylinder.mm in Sources */,
 				603BA5DD17E87437007CE822 /* LayerRenderer.cpp in Sources */,
 				603BA5DE17E87437007CE822 /* Layer.cpp in Sources */,
 				603BA5DF17E87437007CE822 /* LineRenderer.cpp in Sources */,
@@ -1133,6 +1154,7 @@
 				603BA5F517E87437007CE822 /* LineInteraction.cpp in Sources */,
 				603BA5F617E87437007CE822 /* MoveInteraction.cpp in Sources */,
 				60A05FCE180AD1BA004DD045 /* SnappingQueue.cpp in Sources */,
+				60EB2F661812C385008DCA37 /* Cylinder.cpp in Sources */,
 				603BA5F717E87437007CE822 /* RotationInteraction.cpp in Sources */,
 				603BA5F817E87437007CE822 /* ScaleInteraction.cpp in Sources */,
 				603BA5F917E87437007CE822 /* InteractionAssistant.cpp in Sources */,
@@ -1179,6 +1201,7 @@
 				60C6D051174961470009EC3C /* LineInteraction.cpp in Sources */,
 				60C6D053174961470009EC3C /* RotationInteraction.cpp in Sources */,
 				60A05FCB1809DB48004DD045 /* Snap.cpp in Sources */,
+				60EB2F651812C385008DCA37 /* Cylinder.cpp in Sources */,
 				60C6D054174961470009EC3C /* ScaleInteraction.cpp in Sources */,
 				60CE9A6217EC646F00A775C0 /* ShadingLibrary.cpp in Sources */,
 				60C6D055174961470009EC3C /* InteractionAssistant.cpp in Sources */,
@@ -1255,6 +1278,7 @@
 				6021AFBC17230800001EAEBE /* LayerRenderer.cpp in Sources */,
 				6021AFBF17230E82001EAEBE /* Layer.cpp in Sources */,
 				60CE9A5417EC646E00A775C0 /* ShadingLibrary.cpp in Sources */,
+				60EB2F641812C385008DCA37 /* Cylinder.cpp in Sources */,
 				6021AFC717232B8F001EAEBE /* PrimitiveRenderer.cpp in Sources */,
 				6021AFCB172332F6001EAEBE /* LineRenderer.cpp in Sources */,
 				606BC0171808666700EC4F37 /* Viewport.cpp in Sources */,

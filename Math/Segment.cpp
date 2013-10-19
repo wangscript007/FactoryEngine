@@ -56,6 +56,7 @@ float Segment::DistanceFromLine(const Segment& segment) const
     return glm::length(shortestSegment.mStart - shortestSegment.mEnd);
 }
     
+    
 float Segment::DistanceFromSegment(const Segment& segment) const
 {
     glm::vec3   u = mEnd - mStart;
