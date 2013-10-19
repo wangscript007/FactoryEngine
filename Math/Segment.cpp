@@ -128,6 +128,32 @@ float Segment::DistanceFromSegment(const Segment& segment) const
 
 }
     
+bool Segment::IntersectsBox(const Box& box) const
+{
+    glm::vec3 BoxExtents, Diff;
+    const glm::vec3& Dir = Direction();
+    
+	Diff.x = mStart.x - box.mCenter[0];
+	BoxExtents.x = box.mHalfDimention[0];
+    
+	Diff.y = mStart.y - box.mCenter[1];
+	BoxExtents.y = box.mHalfDimention[1];
+    
+	Diff.z = mStart.z - box.mCenter[2];
+    BoxExtents.z = box.mHalfDimention[2];
+    
+	float fAWdU[3];
+	fAWdU[0] = fabsf(Dir.x);
+	fAWdU[1] = fabsf(Dir.y);
+	fAWdU[2] = fabsf(Dir.z);
+    
+	float f;
+	f = Dir.y * Diff.z - Dir.z * Diff.y;	if(fabsf(f)>BoxExtents.y*fAWdU[2] + BoxExtents.z*fAWdU[1])	return false;
+	f = Dir.z * Diff.x - Dir.x * Diff.z;	if(fabsf(f)>BoxExtents.x*fAWdU[2] + BoxExtents.z*fAWdU[0])	return false;
+	f = Dir.x * Diff.y - Dir.y * Diff.x;	if(fabsf(f)>BoxExtents.x*fAWdU[1] + BoxExtents.y*fAWdU[0])	return false;
+    
+	return true;
+}
     
     
 }

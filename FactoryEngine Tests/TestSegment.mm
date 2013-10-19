@@ -113,6 +113,55 @@ static const float kFloatAccuracy = 0.001;
     XCTAssertTrue(expectedResult.mEnd == result.mEnd, @"");
 }
 
+-(void)testIntersectsBox
+{
+    Box box = Box(glm::vec3(0.0f), glm::vec3(1.0f));
+    
+    
+    Segment segment1;
+    segment1.mStart = glm::vec3(1.0f, 1.0f, 1.0f);
+    segment1.mEnd = glm::vec3(1.0f, 1.0f, -1.0f);
+    
+    XCTAssertTrue(segment1.IntersectsBox(box));
+    
+    Segment segment2;
+    segment2.mStart = glm::vec3(2.0f, 2.0f, 2.0f);
+    segment2.mEnd = glm::vec3(3.0f, 3.0f, 3.0f);
+    
+    XCTAssertTrue(segment2.IntersectsBox(box));
+    
+    Segment segment3;
+    segment3.mStart = glm::vec3(0.5f, 0.0f, 2.0f);
+    segment3.mEnd = glm::vec3(1.5f, 0.0f, 4.0f);
+    
+    XCTAssertTrue(segment3.IntersectsBox(box));
+    
+    
+    
+    
+    Segment segment4;
+    segment4.mStart = glm::vec3(2.0f, 1.0f, 1.0f);
+    segment4.mEnd = glm::vec3(2.0f, 1.0f, -1.0f);
+    
+    XCTAssertFalse(segment4.IntersectsBox(box));
+    
+    Segment segment5;
+    segment5.mStart = glm::vec3(-1.0f, 0.0f, 1.5f);
+    segment5.mEnd = glm::vec3(1.0f, 0.0f, 2.5f);
+    
+    XCTAssertFalse(segment5.IntersectsBox(box));
+    
+    Segment segment6;
+    segment6.mStart = glm::vec3(1.0f, 0.0f, -1.5f);
+    segment6.mEnd = glm::vec3(4.0f, 0.0f, -0.5f);
+    
+    XCTAssertFalse(segment6.IntersectsBox(box));
+
+
+
+
+}
+
 
 
 

@@ -14,6 +14,7 @@ public:
     glm::vec3 Snapped() const;
 private:
     PointNode* NearestPointToCenterInSphere(const Sphere& sphere) const;
+    PointNode* NearestPointToAxisInCylinder(const Cylinder& cylinder) const;
     
 };
     

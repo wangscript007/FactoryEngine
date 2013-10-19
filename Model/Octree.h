@@ -2,6 +2,7 @@
 #pragma once
 
 #include <Math/Geometry.h>
+#include <Math/Cylinder.h>
 
 namespace ftr {
 
@@ -30,7 +31,7 @@ public:
     void UpdatePoint(PointNode* pPoint);
     Node* NodeContainingPoint(const glm::vec3& point);
     void PointNodesInBox(const Box& sBox, std::vector<PointNode*>& pointsVector) const;
-    
+    void PointNodesInCylinder(const Cylinder& cylinder, std::vector<PointNode*>& pointsVector) const;
     
     enum NodeType { kBranch, kLeaf };
     
@@ -59,6 +60,7 @@ public:
         void setIndex(SIndex sIndex) { mIndex = sIndex; }
         Node* NodeContainingPoint(const glm::vec3& point);
         void PointNodesInBox(const ftr::Box& sBox, std::vector<PointNode*>& pointsVector) const;
+        void PointNodesInCylinder(const Cylinder& cylinder, std::vector<PointNode*>& pointsVector) const;
         void setDepth(int iDepth) { mDepth = iDepth; }
         int Depth() const { return mDepth; }
         

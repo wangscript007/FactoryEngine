@@ -5,6 +5,11 @@ namespace ftr {
     
 bool Cylinder::Intersects(const Box& box) const
 {
+    
+    if (mAxis.IntersectsBox(box)) {
+        return true;
+    }
+    
     const glm::vec3 vertices[]= {
         // 0
         glm::vec3(

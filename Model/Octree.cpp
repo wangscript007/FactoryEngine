@@ -3,6 +3,7 @@
 #include <Model/PointNode.h>
 #include <Main/GLError.h>
 
+
 namespace ftr {
 
 Octree::Octree(Box sBox)
@@ -178,6 +179,11 @@ void Octree::PointNodesInBox(const Box& sBox, std::vector<PointNode*>& pointsVec
     mRootNode->PointNodesInBox(sBox, pointsVector);
 }
 
+void Octree::PointNodesInCylinder(const Cylinder& cylinder, std::vector<PointNode*>& pointsVector) const
+{
+    mRootNode->PointNodesInCylinder(cylinder, pointsVector);
+}
+
 unsigned long Octree::Size()
 {
     if (mUpdateSize) {
@@ -245,6 +251,31 @@ void Octree::Node::PointNodesInBox(const struct Box& sBox, std::vector<PointNode
                         Node* child = branch->Child(x, y, z);
                         if (child->mBox.Intersects(sBox)) {
                             child->PointNodesInBox(sBox, pointsVector);
+                        }
+                    }
+                }
+            }
+        } else {
+            const Leaf* leaf = static_cast<const Leaf*>(this);
+            const TPointsList& pointsList = leaf->PointNodes();
+            for(auto i = pointsList.begin(); i != pointsList.end(); ++i) {
+                pointsVector.push_back(*i);
+            }
+        }
+    }
+}
+    
+void Octree::Node::PointNodesInCylinder(const Cylinder& cylinder, std::vector<PointNode*>& pointsVector) const
+{
+    if (cylinder.Intersects(mBox)) {
+        if (Type() == kBranch) {
+            const Branch* branch = static_cast<const Branch*>(this);
+            for(int x = 0; x < 2; x++) {
+                for(int y = 0; y < 2; y++) {
+                    for(int z = 0; z < 2; z++) {
+                        Node* child = branch->Child(x, y, z);
+                        if (cylinder.Intersects(child->mBox)) {
+                            child->PointNodesInCylinder(cylinder, pointsVector);
                         }
                     }
                 }

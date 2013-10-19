@@ -18,16 +18,18 @@ glm::vec3 SnappingQueue::Snapped() const
     AxisSnap * axisSnap = reinterpret_cast<AxisSnap*>(mSnapsVector[1]);
     
     glm::vec3 snapped;
+    pointSnap->setStartViewport(mStartViewport);
     pointSnap->setStartScene(mStartScene);
     snapped = pointSnap->Snapped();
-    
+
     if (mStartScene != mEndScene) {
         axisSnap->setStartScene(snapped, true);
         axisSnap->setEndScene(mEndScene);
         axisSnap->setEndViewport(mEndViewport);
         snapped = axisSnap->Snapped();
         
-        pointSnap->setStartScene(snapped);
+        pointSnap->setStartScene(snapped, true);
+
         snapped = pointSnap->Snapped();
     }
     

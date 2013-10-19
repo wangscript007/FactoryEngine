@@ -25,6 +25,10 @@ public:
     void PointNodesInBox(const Box& sBox, std::vector<PointNode*>& pointsVector) const {
         mOctree->PointNodesInBox(sBox, pointsVector);
     }
+    void PointNodesInCylinder(const Cylinder& cylinder, std::vector<PointNode*>& pointsVector) const {
+        mOctree->PointNodesInCylinder(cylinder, pointsVector);
+    }
+
     unsigned long Size() { return mOctree->Size(); }
     
 private:

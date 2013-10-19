@@ -49,6 +49,7 @@ inline bool Box::Intersects(const Box& other) const
     return true; // boxes overlap
 }
     
+    
 inline float Box::Diagonal2() const
 {
     float a = mHalfDimention.x*2;
