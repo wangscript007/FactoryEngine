@@ -48,28 +48,6 @@ void ModelEditor::Select(Node* pNode)
     mSelectedNode = pNode;
 }
 
-FaceNode* ModelEditor::CreateRectangle(const glm::vec3& origin, const glm::vec3& size) const
-{
-    assert(mSelectedNode);
-    FaceNode* pFace = mModelFactory->CreateRectangle(origin, size);
-    mSelectedNode->AddNode(pFace);
-    const FaceNode::TPointsVector& pointsVector = pFace->PointNodesVector();
-    for(auto i = pointsVector.begin(); i != pointsVector.end(); ++i) {
-        mModelTree->AddNode(*i);
-    }
-    return pFace;
-}
-
-
-FaceNode* ModelEditor::CreateFace(glm::vec3 origin, FaceNode::FaceType eType)
-{
-    assert(mSelectedNode);
-    FaceNode* pFace = mModelFactory->CreateFace(glm::vec3(origin.x, 0.01, origin.z),
-                                                glm::vec3(0.0f, 0.0f, 0.0f),
-                                                eType);
-    mSelectedNode->AddNode(pFace);
-    return pFace;
-}
 
 PointNode* ModelEditor::CreatePoint(glm::vec3 origin)
 {

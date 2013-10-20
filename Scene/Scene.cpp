@@ -95,12 +95,6 @@ void Scene::AddShader(const std::string& name, const std::string& source, GLenum
     
 #pragma mark Model
 
-FaceNode* Scene::CreateFace(const glm::vec3& origin)
-{
-    return mModelEditor->CreateFace(origin, FaceNode::kRectangle);
-}
-
-
 PointNode* Scene::CreatePoint(const glm::vec3& origin)
 {
     return mModelEditor->CreatePoint(origin);

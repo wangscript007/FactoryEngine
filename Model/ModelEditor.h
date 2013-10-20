@@ -24,8 +24,6 @@ public:
     //
     // Creating
     //
-    FaceNode*       CreateRectangle(const glm::vec3& origin, const glm::vec3& size) const;
-    FaceNode*       CreateFace(glm::vec3 origin, FaceNode::FaceType eType);
     PointNode*      CreatePoint(glm::vec3 origin);
     LineNode*       CreateLine(PointNode* startPoint, PointNode* endPoint);
     
