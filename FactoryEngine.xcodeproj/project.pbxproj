@@ -29,13 +29,14 @@
 		6032717817EB17C700249562 /* SceneRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6032717417EB17C700249562 /* SceneRenderer.cpp */; };
 		6032717917EB17C700249562 /* SceneRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6032717517EB17C700249562 /* SceneRenderer.h */; };
 		6032717A17EB17C700249562 /* SceneRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6032717517EB17C700249562 /* SceneRenderer.h */; };
+		603981731819A444002EBDA8 /* HalfEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 603981711819A444002EBDA8 /* HalfEdge.cpp */; };
+		603981741819A444002EBDA8 /* HalfEdge.h in Headers */ = {isa = PBXBuildFile; fileRef = 603981721819A444002EBDA8 /* HalfEdge.h */; };
 		603BA5C617E87392007CE822 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6055CFD217417DCB009F1F46 /* Camera.cpp */; };
 		603BA5C817E87437007CE822 /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D17C76861584B6010083E2B0 /* Log.cpp */; };
 		603BA5CD17E87437007CE822 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605F1D0B171AE4CA00C8E4CC /* Util.cpp */; };
 		603BA5D017E87437007CE822 /* Polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6011C37616D0EE9100CD34F9 /* Polygon.cpp */; };
 		603BA5D117E87437007CE822 /* Rect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC781658308B0051947E /* Rect.cpp */; };
 		603BA5D217E87437007CE822 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60C41BB21691BF5600DD0C09 /* Geometry.cpp */; };
-		603BA5D317E87437007CE822 /* LoopFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37816AC6036001DE0A7 /* LoopFinder.cpp */; };
 		603BA5D917E87437007CE822 /* ShadingLibrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D701117357B3C000A92F7 /* ShadingLibrary.cpp */; };
 		603BA5DA17E87437007CE822 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D700517357571000A92F7 /* Shader.cpp */; };
 		603BA5DC17E87437007CE822 /* PrimitiveRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFC517232B8E001EAEBE /* PrimitiveRenderer.cpp */; };
@@ -125,8 +126,6 @@
 		6086605F17343C5400E67B54 /* PointRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6086605D17343C5400E67B54 /* PointRenderer.h */; };
 		6091E37516AC554E001DE0A7 /* PolylineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37316AC554E001DE0A7 /* PolylineNode.cpp */; };
 		6091E37616AC554E001DE0A7 /* PolylineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37416AC554E001DE0A7 /* PolylineNode.h */; };
-		6091E37A16AC6037001DE0A7 /* LoopFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37816AC6036001DE0A7 /* LoopFinder.cpp */; };
-		6091E37B16AC6037001DE0A7 /* LoopFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37916AC6036001DE0A7 /* LoopFinder.h */; };
 		60988088180584A60064477E /* TestSegment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60988087180584A60064477E /* TestSegment.mm */; };
 		60A03E411752423100D650B5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A03E401752423100D650B5 /* OpenGLES.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		60A03E42175244EB00D650B5 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6056C56E15DC5522008F8E92 /* Scene.cpp */; };
@@ -184,7 +183,6 @@
 		60C6D049174961470009EC3C /* LineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC741657D07C0051947E /* LineNode.cpp */; };
 		60C6D04B174961470009EC3C /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60C41BB21691BF5600DD0C09 /* Geometry.cpp */; };
 		60C6D04C174961470009EC3C /* PolylineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37316AC554E001DE0A7 /* PolylineNode.cpp */; };
-		60C6D04D174961470009EC3C /* LoopFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37816AC6036001DE0A7 /* LoopFinder.cpp */; };
 		60C6D04E174961470009EC3C /* RectangleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6047DB9116B46A890012286F /* RectangleInteraction.cpp */; };
 		60C6D050174961470009EC3C /* MoveInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605CD4FA16FDE992005CCAA2 /* MoveInteraction.cpp */; };
 		60C6D051174961470009EC3C /* LineInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60F2406C16B5BCA700291ED0 /* LineInteraction.cpp */; };
@@ -222,7 +220,6 @@
 		60C6D086174961470009EC3C /* Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 60A575E61690DDEE0050FAFC /* Prefix.pch */; };
 		60C6D087174961470009EC3C /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 60C41BB31691BF5600DD0C09 /* Geometry.h */; };
 		60C6D088174961470009EC3C /* PolylineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37416AC554E001DE0A7 /* PolylineNode.h */; };
-		60C6D089174961470009EC3C /* LoopFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37916AC6036001DE0A7 /* LoopFinder.h */; };
 		60C6D08A174961470009EC3C /* LineInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F2406D16B5BCA700291ED0 /* LineInteraction.h */; };
 		60C6D08C174961470009EC3C /* MoveInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 605CD4FB16FDE992005CCAA2 /* MoveInteraction.h */; };
 		60C6D08D174961470009EC3C /* RectangleInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 6047DB9216B46A890012286F /* RectangleInteraction.h */; };
@@ -272,6 +269,10 @@
 		60CE9A6517EC646F00A775C0 /* Shader.h in Headers */ = {isa = PBXBuildFile; fileRef = 608D700617357571000A92F7 /* Shader.h */; };
 		60CE9A6717EC654900A775C0 /* ShadingProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D700D17357A46000A92F7 /* ShadingProgram.cpp */; };
 		60CE9A6817EC654A00A775C0 /* ShadingProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D700D17357A46000A92F7 /* ShadingProgram.cpp */; };
+		60D473A61815CFB2007BB63D /* TestPointNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60D473A51815CFB2007BB63D /* TestPointNode.mm */; };
+		60D63215181C08F600CEB0D0 /* TestHalfEdge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60D63214181C08F600CEB0D0 /* TestHalfEdge.mm */; };
+		60D63216181C0C3000CEB0D0 /* HalfEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 603981711819A444002EBDA8 /* HalfEdge.cpp */; };
+		60D63217181C0C3000CEB0D0 /* HalfEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 603981711819A444002EBDA8 /* HalfEdge.cpp */; };
 		60D7457817228D4B0062CDF1 /* ModelEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7457417228D4A0062CDF1 /* ModelEditor.cpp */; };
 		60D7457917228D4B0062CDF1 /* ModelEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7457517228D4A0062CDF1 /* ModelEditor.h */; };
 		60D7457A17228D4B0062CDF1 /* ModelTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7457617228D4A0062CDF1 /* ModelTree.cpp */; };
@@ -295,6 +296,8 @@
 		60F2406F16B5BCA700291ED0 /* LineInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F2406D16B5BCA700291ED0 /* LineInteraction.h */; };
 		60F6D98F17368DB500935A76 /* TestRectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60F6D98D17368DB500935A76 /* TestRectangle.cpp */; };
 		60F6D99017368DB500935A76 /* TestRectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F6D98E17368DB500935A76 /* TestRectangle.h */; };
+		60FF395C1813CBC700B86F40 /* FaceTraversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60FF395A1813CBC700B86F40 /* FaceTraversal.cpp */; };
+		60FF395D1813CBC700B86F40 /* FaceTraversal.h in Headers */ = {isa = PBXBuildFile; fileRef = 60FF395B1813CBC700B86F40 /* FaceTraversal.h */; };
 		D10EF57D15B2132100BC14D5 /* ModelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1E54CAD157BED250083FB90 /* ModelFactory.cpp */; };
 		D13D718315AF949100143662 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D13D718115AF949100143662 /* Node.cpp */; };
 		D13D718415AF949100143662 /* Node.h in Headers */ = {isa = PBXBuildFile; fileRef = D13D718215AF949100143662 /* Node.h */; };
@@ -373,6 +376,8 @@
 		6032716017EB08E700249562 /* Framebuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framebuffer.h; sourceTree = "<group>"; };
 		6032717417EB17C700249562 /* SceneRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneRenderer.cpp; sourceTree = "<group>"; };
 		6032717517EB17C700249562 /* SceneRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneRenderer.h; sourceTree = "<group>"; };
+		603981711819A444002EBDA8 /* HalfEdge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HalfEdge.cpp; sourceTree = "<group>"; };
+		603981721819A444002EBDA8 /* HalfEdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HalfEdge.h; sourceTree = "<group>"; };
 		603BA60117E874FE007CE822 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		6047DB9116B46A890012286F /* RectangleInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleInteraction.cpp; sourceTree = "<group>"; };
 		6047DB9216B46A890012286F /* RectangleInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleInteraction.h; sourceTree = "<group>"; };
@@ -429,8 +434,6 @@
 		6090C57E1711AE2400F23DBB /* rename.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = rename.py; sourceTree = "<group>"; };
 		6091E37316AC554E001DE0A7 /* PolylineNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolylineNode.cpp; sourceTree = "<group>"; };
 		6091E37416AC554E001DE0A7 /* PolylineNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolylineNode.h; sourceTree = "<group>"; };
-		6091E37816AC6036001DE0A7 /* LoopFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoopFinder.cpp; sourceTree = "<group>"; };
-		6091E37916AC6036001DE0A7 /* LoopFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopFinder.h; sourceTree = "<group>"; };
 		60988087180584A60064477E /* TestSegment.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestSegment.mm; sourceTree = "<group>"; };
 		60A03E401752423100D650B5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		60A05FC31809DA8A004DD045 /* TestLineInteraction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestLineInteraction.mm; sourceTree = "<group>"; };
@@ -453,6 +456,8 @@
 		60C41BB21691BF5600DD0C09 /* Geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Geometry.cpp; sourceTree = "<group>"; };
 		60C41BB31691BF5600DD0C09 /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
 		60C6D0B2174961470009EC3C /* libFactoryEngineIOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFactoryEngineIOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		60D473A51815CFB2007BB63D /* TestPointNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPointNode.mm; sourceTree = "<group>"; };
+		60D63214181C08F600CEB0D0 /* TestHalfEdge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestHalfEdge.mm; sourceTree = "<group>"; };
 		60D7457417228D4A0062CDF1 /* ModelEditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelEditor.cpp; sourceTree = "<group>"; };
 		60D7457517228D4A0062CDF1 /* ModelEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelEditor.h; sourceTree = "<group>"; };
 		60D7457617228D4A0062CDF1 /* ModelTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelTree.cpp; sourceTree = "<group>"; };
@@ -480,6 +485,8 @@
 		60F6D98E17368DB500935A76 /* TestRectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRectangle.h; sourceTree = "<group>"; };
 		60FD3CFA16DA3C65001F789D /* cpp_convention.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = cpp_convention.py; sourceTree = "<group>"; };
 		60FD3CFB16DA4C9A001F789D /* parsing.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = parsing.py; sourceTree = "<group>"; };
+		60FF395A1813CBC700B86F40 /* FaceTraversal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FaceTraversal.cpp; sourceTree = "<group>"; };
+		60FF395B1813CBC700B86F40 /* FaceTraversal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceTraversal.h; sourceTree = "<group>"; };
 		D13D718115AF949100143662 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
 		D13D718215AF949100143662 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
 		D13D718515AF96F000143662 /* BodyNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BodyNode.cpp; sourceTree = "<group>"; };
@@ -621,6 +628,8 @@
 				60988087180584A60064477E /* TestSegment.mm */,
 				60A05FC31809DA8A004DD045 /* TestLineInteraction.mm */,
 				60758B6D180F3020004BE067 /* TestCylinder.mm */,
+				60D473A51815CFB2007BB63D /* TestPointNode.mm */,
+				60D63214181C08F600CEB0D0 /* TestHalfEdge.mm */,
 			);
 			path = "FactoryEngine Tests";
 			sourceTree = "<group>";
@@ -799,6 +808,8 @@
 				60D7458117228EB70062CDF1 /* Octree.h */,
 				D13D718115AF949100143662 /* Node.cpp */,
 				D13D718215AF949100143662 /* Node.h */,
+				603981711819A444002EBDA8 /* HalfEdge.cpp */,
+				603981721819A444002EBDA8 /* HalfEdge.h */,
 				60D7DC6F1657D0700051947E /* PointNode.cpp */,
 				60D7DC701657D0700051947E /* PointNode.h */,
 				60D7DC741657D07C0051947E /* LineNode.cpp */,
@@ -811,6 +822,8 @@
 				D13D718615AF96F000143662 /* BodyNode.h */,
 				D1C708BF15B36D0E00D64823 /* GroupNode.cpp */,
 				D1C708C015B36D0E00D64823 /* GroupNode.h */,
+				60FF395A1813CBC700B86F40 /* FaceTraversal.cpp */,
+				60FF395B1813CBC700B86F40 /* FaceTraversal.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -828,8 +841,6 @@
 				60D7DC791658308B0051947E /* Rect.h */,
 				60C41BB21691BF5600DD0C09 /* Geometry.cpp */,
 				60C41BB31691BF5600DD0C09 /* Geometry.h */,
-				6091E37816AC6036001DE0A7 /* LoopFinder.cpp */,
-				6091E37916AC6036001DE0A7 /* LoopFinder.h */,
 				60EB2F621812C385008DCA37 /* Cylinder.cpp */,
 				60EB2F631812C385008DCA37 /* Cylinder.h */,
 			);
@@ -876,7 +887,6 @@
 				60C6D086174961470009EC3C /* Prefix.pch in Headers */,
 				60C6D087174961470009EC3C /* Geometry.h in Headers */,
 				60C6D088174961470009EC3C /* PolylineNode.h in Headers */,
-				60C6D089174961470009EC3C /* LoopFinder.h in Headers */,
 				60C6D08A174961470009EC3C /* LineInteraction.h in Headers */,
 				60C6D08C174961470009EC3C /* MoveInteraction.h in Headers */,
 				60CE9A5F17EC646F00A775C0 /* ShadingInterfaceCore.h in Headers */,
@@ -920,6 +930,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				603981741819A444002EBDA8 /* HalfEdge.h in Headers */,
 				D17C76651583BF440083E2B0 /* FactoryEngine.h in Headers */,
 				D14377A0157BCF0200A05B3B /* FaceNode.h in Headers */,
 				D1E54CB0157BED250083FB90 /* ModelFactory.h in Headers */,
@@ -940,7 +951,6 @@
 				60C41BB51691BF5600DD0C09 /* Geometry.h in Headers */,
 				606BC0101808639500EC4F37 /* SnappingQueue.h in Headers */,
 				6091E37616AC554E001DE0A7 /* PolylineNode.h in Headers */,
-				6091E37B16AC6037001DE0A7 /* LoopFinder.h in Headers */,
 				60F2406F16B5BCA700291ED0 /* LineInteraction.h in Headers */,
 				605CD4FD16FDE992005CCAA2 /* MoveInteraction.h in Headers */,
 				605CD4FF16FDF824005CCAA2 /* RectangleInteraction.h in Headers */,
@@ -964,6 +974,7 @@
 				6021AFCC172332F6001EAEBE /* LineRenderer.h in Headers */,
 				607BFB12172C7F3500357B47 /* PolygonRenderer.h in Headers */,
 				607BFB16172C838200357B47 /* RectangleRenderer.h in Headers */,
+				60FF395D1813CBC700B86F40 /* FaceTraversal.h in Headers */,
 				60CE9A4F17EC646E00A775C0 /* ShadingInterface.h in Headers */,
 				60CE9A4E17EC646E00A775C0 /* ShadingProgram.h in Headers */,
 				6086605B173436E500E67B54 /* Bounds.h in Headers */,
@@ -1114,7 +1125,6 @@
 				603BA5D117E87437007CE822 /* Rect.cpp in Sources */,
 				6076A1581806AEB600770486 /* Octree.cpp in Sources */,
 				603BA5D217E87437007CE822 /* Geometry.cpp in Sources */,
-				603BA5D317E87437007CE822 /* LoopFinder.cpp in Sources */,
 				603BA5D917E87437007CE822 /* ShadingLibrary.cpp in Sources */,
 				603BA5DA17E87437007CE822 /* Shader.cpp in Sources */,
 				60A05FC91809DB35004DD045 /* AxisSnap.cpp in Sources */,
@@ -1131,9 +1141,11 @@
 				60A05FC41809DA8A004DD045 /* TestLineInteraction.mm in Sources */,
 				603BA5E317E87437007CE822 /* LightingCollection.cpp in Sources */,
 				603BA5E417E87437007CE822 /* LigthtingModelFactory.cpp in Sources */,
+				60D473A61815CFB2007BB63D /* TestPointNode.mm in Sources */,
 				6032717817EB17C700249562 /* SceneRenderer.cpp in Sources */,
 				60B3F3C0180577560010484D /* Segment.cpp in Sources */,
 				603BA5E517E87437007CE822 /* LightingModel.cpp in Sources */,
+				60D63216181C0C3000CEB0D0 /* HalfEdge.cpp in Sources */,
 				60A05FC71809DB15004DD045 /* PointSnap.cpp in Sources */,
 				603BA5E617E87437007CE822 /* DefaultLighting.cpp in Sources */,
 				603BA5E717E87437007CE822 /* Light.cpp in Sources */,
@@ -1160,6 +1172,7 @@
 				603BA5F917E87437007CE822 /* InteractionAssistant.cpp in Sources */,
 				603BA5FA17E87437007CE822 /* CameraInteraction.cpp in Sources */,
 				60A05FBD1809D457004DD045 /* Viewport.cpp in Sources */,
+				60D63215181C08F600CEB0D0 /* TestHalfEdge.mm in Sources */,
 				603BA5FB17E87437007CE822 /* Pad.cpp in Sources */,
 				603BA5FC17E87437007CE822 /* HUD.cpp in Sources */,
 				603BA5FD17E87437007CE822 /* Workspace.cpp in Sources */,
@@ -1193,9 +1206,9 @@
 				6032717717EB17C700249562 /* SceneRenderer.cpp in Sources */,
 				60C6D04B174961470009EC3C /* Geometry.cpp in Sources */,
 				60C6D04C174961470009EC3C /* PolylineNode.cpp in Sources */,
-				60C6D04D174961470009EC3C /* LoopFinder.cpp in Sources */,
 				60A05FC81809DB16004DD045 /* PointSnap.cpp in Sources */,
 				60C6D04E174961470009EC3C /* RectangleInteraction.cpp in Sources */,
+				60D63217181C0C3000CEB0D0 /* HalfEdge.cpp in Sources */,
 				60A05FCC1809DB5E004DD045 /* Viewport.cpp in Sources */,
 				60C6D050174961470009EC3C /* MoveInteraction.cpp in Sources */,
 				60C6D051174961470009EC3C /* LineInteraction.cpp in Sources */,
@@ -1244,6 +1257,7 @@
 				D1F44F4C157FE79600566119 /* Workspace.cpp in Sources */,
 				6032717617EB17C700249562 /* SceneRenderer.cpp in Sources */,
 				D1F44F51157FE91900566119 /* Pad.cpp in Sources */,
+				60FF395C1813CBC700B86F40 /* FaceTraversal.cpp in Sources */,
 				D1F44F55157FE9D200566119 /* HUD.cpp in Sources */,
 				D17C76881584B6010083E2B0 /* Log.cpp in Sources */,
 				D13D718315AF949100143662 /* Node.cpp in Sources */,
@@ -1258,8 +1272,8 @@
 				60C41BB41691BF5600DD0C09 /* Geometry.cpp in Sources */,
 				6032716117EB08E700249562 /* Framebuffer.cpp in Sources */,
 				6091E37516AC554E001DE0A7 /* PolylineNode.cpp in Sources */,
-				6091E37A16AC6037001DE0A7 /* LoopFinder.cpp in Sources */,
 				6047DB9316B46A890012286F /* RectangleInteraction.cpp in Sources */,
+				603981731819A444002EBDA8 /* HalfEdge.cpp in Sources */,
 				606BC00D1808639500EC4F37 /* Snap.cpp in Sources */,
 				605CD4FC16FDE992005CCAA2 /* MoveInteraction.cpp in Sources */,
 				605CD4FE16FDF820005CCAA2 /* LineInteraction.cpp in Sources */,

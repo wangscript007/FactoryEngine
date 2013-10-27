@@ -6,13 +6,15 @@
 
 namespace ftr {
 
+class HalfEdge;
 class PointNode : public Node
 {
 public:
+    
     static const float c_fR;
     PointNode();
     PointNode(glm::vec3 origin);
-    virtual ~PointNode() {}
+    virtual ~PointNode();
     
     glm::vec3 mOrigin;
     
@@ -24,8 +26,12 @@ public:
     void setActive(bool active) { mIsActive = active; }
     bool Active() const { return mIsActive; }
     
+    void ConnectTo(PointNode* newNode);
+    HalfEdge* mHalfEdge;
+    HalfEdge* halfEdge() const { return mHalfEdge; }
     
 private:
+    
     Octree::Leaf* mOctreeLeaf;
     bool mIsActive;
     PointPrimitive primitive;
