@@ -12,6 +12,7 @@ PointNode::PointNode()
     :mOctreeLeaf(NULL)
     ,mHalfEdge(NULL)
     ,mIsActive(false)
+    ,mName("")
 {
     
 }
@@ -30,6 +31,7 @@ PointNode::PointNode(glm::vec3 origin)
 :mOrigin(origin)
     ,mHalfEdge(NULL)
     ,mIsActive(false)
+    ,mName("")
     
 {
     PointNode();
@@ -67,8 +69,8 @@ void PointNode::ConnectTo(PointNode* newNode)
     HalfEdge* twin = new HalfEdge(newNode);
     
     newNode->mHalfEdge = twin;
-    
     mHalfEdge->setTwin(twin);
+    
     mHalfEdge->setPrev(prev);
     if (next) {
         next->setPrev(mHalfEdge);

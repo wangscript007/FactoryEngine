@@ -79,8 +79,11 @@ using namespace ftr;
     HalfEdge* next = initial;
     HalfEdge* prev = initial;
     next = next->next();
+    XCTAssertTrue(next->IsClockwiseFrom(*next->prev()));
     next = next->next();
+    XCTAssertTrue(next->IsClockwiseFrom(*next->prev()));
     next = next->next();
+    XCTAssertTrue(next->IsClockwiseFrom(*next->prev()));
     XCTAssertEqual(next, initial);
     
     prev = prev->prev();
@@ -102,6 +105,9 @@ using namespace ftr;
     PointNode* v1 = new PointNode(glm::vec3(0.0f, 0.0f, 0.0f));
     PointNode* v2 = new PointNode(glm::vec3(1.0f, 0.0f, 0.0f));
     PointNode* v3 = new PointNode(glm::vec3(1.0f, 0.0f, 1.0f));
+    v1->mName = "1";
+    v2->mName = "2";
+    v3->mName = "3";
     
     v2->ConnectTo(v1);
     v2->ConnectTo(v3);
@@ -123,6 +129,7 @@ using namespace ftr;
     XCTAssertEqual(v1->halfEdge()->twin()->prev()->twin(), v1->halfEdge()->next());
     XCTAssertEqual(v2->halfEdge()->twin()->prev()->twin(), v2->halfEdge()->next());
     XCTAssertEqual(v3->halfEdge()->twin()->prev()->twin(), v3->halfEdge()->next());
+    
     
     delete v1;
     delete v2;

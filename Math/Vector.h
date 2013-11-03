@@ -14,7 +14,7 @@ class Vector
 {
 public:
     virtual ~Vector() {}
-    static bool IsCW(const glm::vec3& v1, const glm::vec3& v2);
+    static bool IsCWOrder(const glm::vec3& v1, const glm::vec3& v2);
     static float Angle360(const glm::vec3& v1, const glm::vec3& v2);
     
 private:

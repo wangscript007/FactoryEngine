@@ -27,8 +27,11 @@ public:
     HalfEdge* next() const { return mNext; }
     HalfEdge* prev() const { return mPrev; }
     PointNode* originNode() const { return mOriginNode; }
+    void DoublyConnectTo(HalfEdge* next);
     
     void DeleteTwin() { FT_DELETE(mTwin); }
+    std::string Name() const;
+    std::string Description() const;
     
 private:
     void SwitchNextWithPrev();

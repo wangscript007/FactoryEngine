@@ -19,6 +19,32 @@ HalfEdge::~HalfEdge()
 
 }
     
+    
+std::string HalfEdge::Name() const
+{
+    if (mOriginNode) {
+        return "e" + mOriginNode->mName + "," + mTwin->mOriginNode->mName;
+    }
+    return "-";
+}
+    
+std::string HalfEdge::Description() const
+{
+    std::string description = Name();
+    description += "    Twin: ";
+    if (mTwin) {
+        description += mTwin->Name();
+    }
+    description += "    Next: ";
+    if (mNext) {
+        description += mNext->Name();
+    }
+    description += "    Prev: ";
+    if (mPrev) {
+        description += mPrev->Name();
+    }
+    return description;
+}
 
 void HalfEdge::setTwin(HalfEdge* twin)
 {
@@ -39,6 +65,8 @@ void HalfEdge::setPrev(HalfEdge* prev)
     }
 }
     
+
+    
 void HalfEdge::Reverse()
 {
     assert(mTwin != this);
@@ -57,7 +85,7 @@ void HalfEdge::Reverse()
     
 bool HalfEdge::IsClockwiseFrom(const HalfEdge& other) const
 {
-    return Vector::IsCW(other.Direction(), Direction());
+    return Vector::IsCWOrder(other.Direction(), Direction());
 }
     
 float HalfEdge::AngleFrom(const HalfEdge& other) const
@@ -69,7 +97,7 @@ glm::vec3 HalfEdge::Direction() const
 {
     assert(mOriginNode);
     assert(mTwin && mTwin->mOriginNode);
-    return glm::normalize(mTwin->origin() - origin());
+    return glm::normalize(twin()->origin() - origin());
 }
     
 }

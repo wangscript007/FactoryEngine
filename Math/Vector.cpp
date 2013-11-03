@@ -13,17 +13,17 @@ namespace ftr {
 float Vector::Angle360(const glm::vec3& v1, const glm::vec3& v2)
 {
     float angle = glm::angle(v1, v2);
-    if (!IsCW(v1, v2)) {
+    if (!IsCWOrder(v1, v2)) {
         angle += 180.0f;
     }
     return angle;
 }
     
-bool Vector::IsCW(const glm::vec3& v1, const glm::vec3& v2)
+bool Vector::IsCWOrder(const glm::vec3& v1, const glm::vec3& v2)
 {
     glm::vec3 cross = glm::cross(v1, v2);
     glm::vec3 mostParallelAxis = MostParallelAxis(cross);
-    return glm::dot(cross, mostParallelAxis) > 0;
+    return glm::dot(cross, mostParallelAxis) < 0;
 }
     
 glm::vec3 Vector::MostParallelAxis(glm::vec3 v)

@@ -30,6 +30,8 @@ public:
     HalfEdge* mHalfEdge;
     HalfEdge* halfEdge() const { return mHalfEdge; }
     
+    std::string mName;
+    
 private:
     
     Octree::Leaf* mOctreeLeaf;
