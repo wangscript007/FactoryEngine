@@ -1,5 +1,6 @@
 
 #include <Model/HalfEdge.h>
+#include <Math/Vector.h>
 
 namespace ftr {
     
@@ -41,7 +42,13 @@ void HalfEdge::setPrev(HalfEdge* prev)
 void HalfEdge::Reverse()
 {
     assert(mTwin != this);
-    std::swap(mOriginNode->mHalfEdge, mTwin->mOriginNode->mHalfEdge);
+    if (mOriginNode->mHalfEdge == this) {
+        mOriginNode->mHalfEdge = mTwin;
+    }
+    if (mTwin->mOriginNode->mHalfEdge == mTwin) {
+        mTwin->mOriginNode->mHalfEdge = this;
+    }
+    
     std::swap(mOriginNode, mTwin->mOriginNode);
     std::swap(mNext, mPrev);
     std::swap(mTwin->mNext, mTwin->mPrev);
@@ -50,9 +57,7 @@ void HalfEdge::Reverse()
     
 bool HalfEdge::IsClockwiseFrom(const HalfEdge& other) const
 {
-    
-    
-    return glm::dot(glm::cross(other.origin(), origin()), origin()) > 0;
+    return Vector::IsCW(other.Direction(), Direction());
 }
     
 float HalfEdge::AngleFrom(const HalfEdge& other) const

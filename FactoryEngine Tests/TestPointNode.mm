@@ -99,7 +99,35 @@ using namespace ftr;
 
 - (void)testUnorderedConnect
 {
+    PointNode* v1 = new PointNode(glm::vec3(0.0f, 0.0f, 0.0f));
+    PointNode* v2 = new PointNode(glm::vec3(1.0f, 0.0f, 0.0f));
+    PointNode* v3 = new PointNode(glm::vec3(1.0f, 0.0f, 1.0f));
     
+    v2->ConnectTo(v1);
+    v2->ConnectTo(v3);
+    v1->ConnectTo(v3);
+    
+    HalfEdge* initial = v1->halfEdge();
+    HalfEdge* next = initial;
+    HalfEdge* prev = initial;
+    next = next->next();
+    next = next->next();
+    next = next->next();
+    XCTAssertEqual(next, initial);
+    
+    prev = prev->prev();
+    prev = prev->prev();
+    prev = prev->prev();
+    XCTAssertEqual(prev, initial);
+    
+    XCTAssertEqual(v1->halfEdge()->twin()->prev()->twin(), v1->halfEdge()->next());
+    XCTAssertEqual(v2->halfEdge()->twin()->prev()->twin(), v2->halfEdge()->next());
+    XCTAssertEqual(v3->halfEdge()->twin()->prev()->twin(), v3->halfEdge()->next());
+    
+    delete v1;
+    delete v2;
+    delete v3;
+
 }
 
 @end

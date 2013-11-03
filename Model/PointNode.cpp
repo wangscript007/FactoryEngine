@@ -73,6 +73,12 @@ void PointNode::ConnectTo(PointNode* newNode)
     if (next) {
         next->setPrev(mHalfEdge);
     }
+    
+    if (mHalfEdge->prev()) {
+        if (mHalfEdge->IsClockwiseFrom(*mHalfEdge->prev())) {
+            mHalfEdge->Reverse();
+        }
+    }
 }
     
     
