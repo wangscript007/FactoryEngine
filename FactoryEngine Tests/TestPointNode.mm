@@ -30,46 +30,15 @@ using namespace ftr;
     [super tearDown];
 }
 
-- (void)testHalfEdgeReverse
-{
-    PointNode* v1 = new PointNode(glm::vec3(0.0f, 0.0f, 0.0f));
-    PointNode* v2 = new PointNode(glm::vec3(1.0f, 0.0f, 0.0f));
-    PointNode* v3 = new PointNode(glm::vec3(1.0f, 0.0f, 1.0f));
-    
-    v1->ConnectTo(v2);
-    v2->ConnectTo(v3);
-    v3->ConnectTo(v1);
-    
-    HalfEdge* e1 = v1->halfEdge();
-    HalfEdge* prev = e1;
-    
-    HalfEdge* e2 = e1->next();
-    HalfEdge* e3 = e2->next();
-    XCTAssertEqual(e3->next(), e1);
-    
-    e1->Reverse();
-    e2->Reverse();
-    e3->Reverse();
-    
-    prev = prev->prev();
-    prev = prev->prev();
-    prev = prev->prev();
-    XCTAssertEqual(prev, e1);
-    
-    XCTAssertEqual(v1->halfEdge()->twin()->prev()->twin(), v1->halfEdge()->next());
-    XCTAssertEqual(v2->halfEdge()->twin()->prev()->twin(), v2->halfEdge()->next());
-    XCTAssertEqual(v3->halfEdge()->twin()->prev()->twin(), v3->halfEdge()->next());
-    
-    delete v1;
-    delete v2;
-    delete v3;
-}
-
 - (void)testOrderedConnect
 {
     PointNode* v1 = new PointNode(glm::vec3(0.0f, 0.0f, 0.0f));
     PointNode* v2 = new PointNode(glm::vec3(1.0f, 0.0f, 0.0f));
     PointNode* v3 = new PointNode(glm::vec3(1.0f, 0.0f, 1.0f));
+    
+    v1->mName = "1";
+    v2->mName = "2";
+    v3->mName = "3";
     
     v1->ConnectTo(v2);
     v2->ConnectTo(v3);
@@ -79,11 +48,11 @@ using namespace ftr;
     HalfEdge* next = initial;
     HalfEdge* prev = initial;
     next = next->next();
-    XCTAssertTrue(next->IsClockwiseFrom(*next->prev()));
+    XCTAssertTrue(!next->IsClockwiseCountingFrom(*next->prev()));
     next = next->next();
-    XCTAssertTrue(next->IsClockwiseFrom(*next->prev()));
+    XCTAssertTrue(!next->IsClockwiseCountingFrom(*next->prev()));
     next = next->next();
-    XCTAssertTrue(next->IsClockwiseFrom(*next->prev()));
+    XCTAssertTrue(!next->IsClockwiseCountingFrom(*next->prev()));
     XCTAssertEqual(next, initial);
     
     prev = prev->prev();
@@ -109,9 +78,10 @@ using namespace ftr;
     v2->mName = "2";
     v3->mName = "3";
     
+    v1->ConnectTo(v3);
     v2->ConnectTo(v1);
     v2->ConnectTo(v3);
-    v1->ConnectTo(v3);
+    
     
     HalfEdge* initial = v1->halfEdge();
     HalfEdge* next = initial;

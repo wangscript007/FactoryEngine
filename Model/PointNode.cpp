@@ -53,35 +53,38 @@ void PointNode::Render(Layer& layer)
     layer.AddPrimitive(primitive);
 }
     
-void PointNode::ConnectTo(PointNode* newNode)
+void PointNode::ConnectTo(PointNode* other)
 {
-    HalfEdge* prev = NULL;
+    // Create new pair of half edges
+    HalfEdge* newHalfEdge = new HalfEdge(this);
+    HalfEdge* newHalfEdgeTwin = new HalfEdge(other);
+    newHalfEdge->MakeTwinsWith(newHalfEdgeTwin);
+
+    // Connect with previous edge
     if (mHalfEdge) {
-        prev = mHalfEdge->twin();
-    }
-    
-    HalfEdge* next = NULL;
-    if (newNode->mHalfEdge) {
-        next = newNode->mHalfEdge;
-    }
-    
-    mHalfEdge = new HalfEdge(this);
-    HalfEdge* twin = new HalfEdge(newNode);
-    
-    newNode->mHalfEdge = twin;
-    mHalfEdge->setTwin(twin);
-    
-    mHalfEdge->setPrev(prev);
-    if (next) {
-        next->setPrev(mHalfEdge);
-    }
-    
-    if (mHalfEdge->prev()) {
-        if (mHalfEdge->IsClockwiseFrom(*mHalfEdge->prev())) {
-            mHalfEdge->Reverse();
+        if (newHalfEdge->IsClockwiseCountingFrom(*mHalfEdge)) {
+            newHalfEdgeTwin->ConnectToNext(mHalfEdge);
+        } else {
+            newHalfEdge->ConnectToNext(mHalfEdge);
         }
+    } else {
+        mHalfEdge = newHalfEdge;
     }
+    
+    // Connect to next edge
+    if (other->mHalfEdge) {
+        if (other->mHalfEdge->IsClockwiseCountingFrom(*newHalfEdge)) {
+            newHalfEdgeTwin->ConnectToNext(other->mHalfEdge);
+        } else {
+            newHalfEdge->ConnectToNext(other->mHalfEdge);
+        }
+    } else {
+        other->mHalfEdge = newHalfEdgeTwin;
+    }
+//    printf("%s \n", newHalfEdge->Description().c_str());
+    
 }
+
     
     
 }

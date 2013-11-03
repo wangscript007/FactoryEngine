@@ -31,10 +31,6 @@ std::string HalfEdge::Name() const
 std::string HalfEdge::Description() const
 {
     std::string description = Name();
-    description += "    Twin: ";
-    if (mTwin) {
-        description += mTwin->Name();
-    }
     description += "    Next: ";
     if (mNext) {
         description += mNext->Name();
@@ -46,44 +42,28 @@ std::string HalfEdge::Description() const
     return description;
 }
 
-void HalfEdge::setTwin(HalfEdge* twin)
+void HalfEdge::MakeTwinsWith(HalfEdge* twin)
 {
     mTwin = twin;
     twin->mTwin = this;
 }
     
-void HalfEdge::setPrev(HalfEdge* prev)
+void HalfEdge::ConnectToNext(HalfEdge* next, bool connectingTwin)
 {
-    if (!prev) return;
+    if (!connectingTwin) {
+        printf("%s to %s\n", this->Name().c_str(), next->Name().c_str());
+    }
+    mNext = next;
+    mNext->mPrev = this;
     
-    mPrev = prev;
-    prev->mNext = this;
     
-    if (mTwin) {
-        mTwin->mNext = prev->mTwin;
-        prev->mTwin->mPrev = mTwin;
+    if (!connectingTwin) {
+        mNext->mTwin->ConnectToNext(mTwin, true);
     }
 }
     
-
     
-void HalfEdge::Reverse()
-{
-    assert(mTwin != this);
-    if (mOriginNode->mHalfEdge == this) {
-        mOriginNode->mHalfEdge = mTwin;
-    }
-    if (mTwin->mOriginNode->mHalfEdge == mTwin) {
-        mTwin->mOriginNode->mHalfEdge = this;
-    }
-    
-    std::swap(mOriginNode, mTwin->mOriginNode);
-    std::swap(mNext, mPrev);
-    std::swap(mTwin->mNext, mTwin->mPrev);
-}
-    
-    
-bool HalfEdge::IsClockwiseFrom(const HalfEdge& other) const
+bool HalfEdge::IsClockwiseCountingFrom(const HalfEdge& other) const
 {
     return Vector::IsCWOrder(other.Direction(), Direction());
 }
