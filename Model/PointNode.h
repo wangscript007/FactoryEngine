@@ -26,9 +26,10 @@ public:
     void setActive(bool active) { mIsActive = active; }
     bool Active() const { return mIsActive; }
     
-    void ConnectTo(PointNode* other);
+    HalfEdge* ConnectTo(PointNode* other);
     HalfEdge* mHalfEdge;
     HalfEdge* halfEdge() const { return mHalfEdge; }
+    
     
     std::string mName;
     

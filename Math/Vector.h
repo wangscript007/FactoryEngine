@@ -15,7 +15,7 @@ class Vector
 public:
     virtual ~Vector() {}
     static bool IsCWOrder(const glm::vec3& v1, const glm::vec3& v2);
-    static float Angle360(const glm::vec3& v1, const glm::vec3& v2);
+    static float CCWAngle(const glm::vec3& v1, const glm::vec3& v2);
     
 private:
     static glm::vec3 MostParallelAxis(glm::vec3 v);

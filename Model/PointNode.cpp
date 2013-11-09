@@ -53,38 +53,26 @@ void PointNode::Render(Layer& layer)
     layer.AddPrimitive(primitive);
 }
     
-void PointNode::ConnectTo(PointNode* other)
+HalfEdge* PointNode::ConnectTo(PointNode* other)
 {
-    // Create new pair of half edges
     HalfEdge* newHalfEdge = new HalfEdge(this);
     HalfEdge* newHalfEdgeTwin = new HalfEdge(other);
     newHalfEdge->MakeTwinsWith(newHalfEdgeTwin);
-
-    // Connect with previous edge
+    
     if (mHalfEdge) {
-        if (newHalfEdge->IsClockwiseCountingFrom(*mHalfEdge)) {
-            newHalfEdgeTwin->ConnectToNext(mHalfEdge);
-        } else {
-            newHalfEdge->ConnectToNext(mHalfEdge);
-        }
+        HalfEdge* CWNeighbour = newHalfEdgeTwin->CWNeighbourForNode(*this);
+        newHalfEdge->InsertConnectionNearCWNeigbour(CWNeighbour);
     } else {
         mHalfEdge = newHalfEdge;
     }
     
-    // Connect to next edge
     if (other->mHalfEdge) {
-        if (other->mHalfEdge->IsClockwiseCountingFrom(*newHalfEdge)) {
-            newHalfEdgeTwin->ConnectToNext(other->mHalfEdge);
-        } else {
-            newHalfEdge->ConnectToNext(other->mHalfEdge);
-        }
+        HalfEdge* CWNeighbour = newHalfEdgeTwin->CWNeighbourForNode(*other);
+        newHalfEdgeTwin->InsertConnectionNearCWNeigbour(CWNeighbour);
     } else {
         other->mHalfEdge = newHalfEdgeTwin;
     }
-//    printf("%s \n", newHalfEdge->Description().c_str());
-    
+    return newHalfEdge;
 }
-
-    
     
 }

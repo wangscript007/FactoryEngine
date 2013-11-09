@@ -10,11 +10,11 @@
 
 namespace ftr {
     
-float Vector::Angle360(const glm::vec3& v1, const glm::vec3& v2)
+float Vector::CCWAngle(const glm::vec3& v1, const glm::vec3& v2)
 {
     float angle = glm::angle(v1, v2);
-    if (!IsCWOrder(v1, v2)) {
-        angle += 180.0f;
+    if (IsCWOrder(v1, v2)) {
+        angle = 360 - angle;
     }
     return angle;
 }

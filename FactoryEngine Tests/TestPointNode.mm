@@ -30,81 +30,139 @@ using namespace ftr;
     [super tearDown];
 }
 
-- (void)testOrderedConnect
+- (void)testConnect1
 {
-    PointNode* v1 = new PointNode(glm::vec3(0.0f, 0.0f, 0.0f));
-    PointNode* v2 = new PointNode(glm::vec3(1.0f, 0.0f, 0.0f));
-    PointNode* v3 = new PointNode(glm::vec3(1.0f, 0.0f, 1.0f));
+    PointNode* v1 = new PointNode(glm::vec3(0.0f, 1.0f, 0.0f));
+    PointNode* v2 = new PointNode(glm::vec3(1.0f, 1.0f, 0.0f));
+    PointNode* v3 = new PointNode(glm::vec3(1.0f, 0.0f, 0.0f));
+    PointNode* v4 = new PointNode(glm::vec3(0.0f, -1.0f, 0.0f));
+    PointNode* v5 = new PointNode(glm::vec3(0.0f, 0.0f, 0.0f));
     
     v1->mName = "1";
     v2->mName = "2";
     v3->mName = "3";
+    v4->mName = "4";
+    v5->mName = "5";
     
-    v1->ConnectTo(v2);
-    v2->ConnectTo(v3);
-    v3->ConnectTo(v1);
+    HalfEdge* e23 = v2->ConnectTo(v3);
+    HalfEdge* e12 = v1->ConnectTo(v2);
+    HalfEdge* e53 = v5->ConnectTo(v3);
+    HalfEdge* e43 = v4->ConnectTo(v3);
+    HalfEdge* e13 = v1->ConnectTo(v3);
     
-    HalfEdge* initial = v1->halfEdge();
-    HalfEdge* next = initial;
-    HalfEdge* prev = initial;
-    next = next->next();
-    XCTAssertTrue(!next->IsClockwiseCountingFrom(*next->prev()));
-    next = next->next();
-    XCTAssertTrue(!next->IsClockwiseCountingFrom(*next->prev()));
-    next = next->next();
-    XCTAssertTrue(!next->IsClockwiseCountingFrom(*next->prev()));
-    XCTAssertEqual(next, initial);
-    
-    prev = prev->prev();
-    prev = prev->prev();
-    prev = prev->prev();
-    XCTAssertEqual(prev, initial);
-    
-    XCTAssertEqual(v1->halfEdge()->twin()->prev()->twin(), v1->halfEdge()->next());
-    XCTAssertEqual(v2->halfEdge()->twin()->prev()->twin(), v2->halfEdge()->next());
-    XCTAssertEqual(v3->halfEdge()->twin()->prev()->twin(), v3->halfEdge()->next());
-    
-    delete v1;
-    delete v2;
-    delete v3;
-}
-
-- (void)testUnorderedConnect
-{
-    PointNode* v1 = new PointNode(glm::vec3(0.0f, 0.0f, 0.0f));
-    PointNode* v2 = new PointNode(glm::vec3(1.0f, 0.0f, 0.0f));
-    PointNode* v3 = new PointNode(glm::vec3(1.0f, 0.0f, 1.0f));
-    v1->mName = "1";
-    v2->mName = "2";
-    v3->mName = "3";
-    
-    v1->ConnectTo(v3);
-    v2->ConnectTo(v1);
-    v2->ConnectTo(v3);
-    
-    
-    HalfEdge* initial = v1->halfEdge();
-    HalfEdge* next = initial;
-    HalfEdge* prev = initial;
-    next = next->next();
-    next = next->next();
-    next = next->next();
-    XCTAssertEqual(next, initial);
-    
-    prev = prev->prev();
-    prev = prev->prev();
-    prev = prev->prev();
-    XCTAssertEqual(prev, initial);
-    
-    XCTAssertEqual(v1->halfEdge()->twin()->prev()->twin(), v1->halfEdge()->next());
-    XCTAssertEqual(v2->halfEdge()->twin()->prev()->twin(), v2->halfEdge()->next());
-    XCTAssertEqual(v3->halfEdge()->twin()->prev()->twin(), v3->halfEdge()->next());
+    XCTAssertEqual(e12->next(), e23);
+    XCTAssertEqual(e13->next(), e23->twin());
+    XCTAssertEqual(e23->next(), e43->twin());
+    XCTAssertEqual(e43->next(), e53->twin());
+    XCTAssertEqual(e53->next(), e13->twin());
     
     
     delete v1;
     delete v2;
     delete v3;
-
+    delete v4;
 }
+
+- (void)testConnect2
+{
+    PointNode* v1 = new PointNode(glm::vec3(0.0f, 1.0f, 0.0f));
+    PointNode* v2 = new PointNode(glm::vec3(1.0f, 1.0f, 0.0f));
+    PointNode* v3 = new PointNode(glm::vec3(1.0f, 0.0f, 0.0f));
+    PointNode* v4 = new PointNode(glm::vec3(0.0f, -1.0f, 0.0f));
+    PointNode* v5 = new PointNode(glm::vec3(0.0f, 0.0f, 0.0f));
+    
+    v1->mName = "1";
+    v2->mName = "2";
+    v3->mName = "3";
+    v4->mName = "4";
+    v5->mName = "5";
+    
+    HalfEdge* e23 = v2->ConnectTo(v3);
+    HalfEdge* e12 = v1->ConnectTo(v2);
+    HalfEdge* e43 = v4->ConnectTo(v3);
+    HalfEdge* e13 = v1->ConnectTo(v3);
+    HalfEdge* e53 = v5->ConnectTo(v3);
+    
+    XCTAssertEqual(e12->next(), e23);
+    XCTAssertEqual(e13->next(), e23->twin());
+    XCTAssertEqual(e23->next(), e43->twin());
+    XCTAssertEqual(e43->next(), e53->twin());
+    XCTAssertEqual(e53->next(), e13->twin());
+    
+    
+    delete v1;
+    delete v2;
+    delete v3;
+    delete v4;
+}
+
+- (void)testConnect3
+{
+    PointNode* v1 = new PointNode(glm::vec3(0.0f, 1.0f, 0.0f));
+    PointNode* v2 = new PointNode(glm::vec3(1.0f, 1.0f, 0.0f));
+    PointNode* v3 = new PointNode(glm::vec3(1.0f, 0.0f, 0.0f));
+    PointNode* v4 = new PointNode(glm::vec3(0.0f, -1.0f, 0.0f));
+    PointNode* v5 = new PointNode(glm::vec3(0.0f, 0.0f, 0.0f));
+    
+    v1->mName = "1";
+    v2->mName = "2";
+    v3->mName = "3";
+    v4->mName = "4";
+    v5->mName = "5";
+    
+    HalfEdge* e23 = v2->ConnectTo(v3);
+    HalfEdge* e13 = v1->ConnectTo(v3);
+    HalfEdge* e53 = v5->ConnectTo(v3);
+    HalfEdge* e12 = v1->ConnectTo(v2);
+    HalfEdge* e43 = v4->ConnectTo(v3);
+    
+    XCTAssertEqual(e12->next(), e23);
+    XCTAssertEqual(e13->next(), e23->twin());
+    XCTAssertEqual(e23->next(), e43->twin());
+    XCTAssertEqual(e43->next(), e53->twin());
+    XCTAssertEqual(e53->next(), e13->twin());
+    
+    
+    delete v1;
+    delete v2;
+    delete v3;
+    delete v4;
+}
+
+- (void)testConnect4
+{
+    PointNode* v1 = new PointNode(glm::vec3(0.0f, 1.0f, 0.0f));
+    PointNode* v2 = new PointNode(glm::vec3(1.0f, 1.0f, 0.0f));
+    PointNode* v3 = new PointNode(glm::vec3(1.0f, 0.0f, 0.0f));
+    PointNode* v4 = new PointNode(glm::vec3(0.0f, -1.0f, 0.0f));
+    PointNode* v5 = new PointNode(glm::vec3(0.0f, 0.0f, 0.0f));
+    
+    v1->mName = "1";
+    v2->mName = "2";
+    v3->mName = "3";
+    v4->mName = "4";
+    v5->mName = "5";
+    
+    HalfEdge* e23 = v2->ConnectTo(v3);
+    HalfEdge* e31 = v3->ConnectTo(v1);
+    HalfEdge* e53 = v5->ConnectTo(v3);
+    HalfEdge* e21 = v2->ConnectTo(v1);
+    HalfEdge* e43 = v4->ConnectTo(v3);
+    
+    XCTAssertEqual(e21->next(), e31->twin());
+    XCTAssertEqual(e31->next(), e21->twin());
+    XCTAssertEqual(e23->next(), e43->twin());
+    XCTAssertEqual(e43->next(), e53->twin());
+    XCTAssertEqual(e53->next(), e31);
+    
+    
+    delete v1;
+    delete v2;
+    delete v3;
+    delete v4;
+}
+
+
+
 
 @end

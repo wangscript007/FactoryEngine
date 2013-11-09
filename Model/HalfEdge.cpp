@@ -47,30 +47,56 @@ void HalfEdge::MakeTwinsWith(HalfEdge* twin)
     mTwin = twin;
     twin->mTwin = this;
 }
-    
-void HalfEdge::ConnectToNext(HalfEdge* next, bool connectingTwin)
+        
+HalfEdge* HalfEdge::CWNeighbourForNode(const PointNode& node) const
 {
-    if (!connectingTwin) {
-        printf("%s to %s\n", this->Name().c_str(), next->Name().c_str());
+    HalfEdge* edge = node.mHalfEdge;
+    float maxCCWAngle = 0.0f;
+    HalfEdge* neighbour = edge;
+    do {
+        if (edge->mOriginNode == &node && edge->mPrev) {
+            edge = edge->mPrev;
+        } else {
+            edge = edge->mTwin;
+        }
+        if (edge->mOriginNode == &node) {
+            float CCWAngle = CCWAngleFrom(*edge);
+            if (CCWAngle > maxCCWAngle) {
+                maxCCWAngle = CCWAngle;
+                neighbour = edge;
+            }
+        }
+        
+//        if (edge->mOriginNode == &node) {
+//            printf("%s to %s CWAngle = %f \n", this->Name().c_str(), edge->Name().c_str(), CCWAngle);
+//        }
+    } while (edge != node.mHalfEdge);
+    return neighbour;
+}
+    
+void HalfEdge::InsertConnectionNearCWNeigbour(HalfEdge* CWNeighbour)
+{
+    if (CWNeighbour->mPrev) {
+        CWNeighbour->mPrev->ConnectToNext(this);
+    } else {
+        CWNeighbour->mTwin->ConnectToNext(this);
     }
+    mTwin->ConnectToNext(CWNeighbour);
+
+}
+    
+float HalfEdge::CCWAngleFrom(const HalfEdge& other) const
+{
+    return Vector::CCWAngle(Direction(), other.Direction());
+}
+    
+void HalfEdge::ConnectToNext(HalfEdge* next)
+{
+//    printf("%s to next %s\n", this->Name().c_str(), next->Name().c_str());
+    assert(next);
+    assert(mOriginNode != next->mOriginNode);
     mNext = next;
     mNext->mPrev = this;
-    
-    
-    if (!connectingTwin) {
-        mNext->mTwin->ConnectToNext(mTwin, true);
-    }
-}
-    
-    
-bool HalfEdge::IsClockwiseCountingFrom(const HalfEdge& other) const
-{
-    return Vector::IsCWOrder(other.Direction(), Direction());
-}
-    
-float HalfEdge::AngleFrom(const HalfEdge& other) const
-{
-    return glm::angle(other.Direction(), Direction());
 }
     
 glm::vec3 HalfEdge::Direction() const

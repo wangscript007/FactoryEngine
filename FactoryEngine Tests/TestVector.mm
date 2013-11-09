@@ -74,6 +74,23 @@ using namespace ftr;
     XCTAssertTrue(Vector::IsCWOrder(v1, v3));
 }
 
+- (void)testCWAngle
+{
+    glm::vec3 v1 = glm::vec3(0.0f, 1.0f, 0.0f);
+    glm::vec3 v2 = glm::vec3(1.0f, 1.0f, 0.0f);
+    glm::vec3 v3 = glm::vec3(1.0f, 0.0f, 0.0f);
+    glm::vec3 v4 = glm::vec3(0.0f, -1.0f, 0.0f);
+    glm::vec3 v5 = glm::vec3(0.0f, 0.0f, 0.0f);
+    
+    glm::vec3 e53 = glm::normalize(v3 - v5);
+    glm::vec3 e32 = glm::normalize(v2 - v3);
+    glm::vec3 e31 = glm::normalize(v1 - v3);
+    
+    XCTAssertEqualWithAccuracy(Vector::CCWAngle(e53, e31), 135.0f, 0.01f);
+    XCTAssertEqualWithAccuracy(Vector::CCWAngle(e53, e32), 90.0f, 0.01f);
+
+}
+
 
 
 @end
