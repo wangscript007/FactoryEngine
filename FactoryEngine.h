@@ -22,7 +22,6 @@
 #include <algorithm>
 #include <queue>
 
-#include "External/Box2D/Box2D.h"
 #include <glm/glm.hpp>
 //
 // Platform macros.
