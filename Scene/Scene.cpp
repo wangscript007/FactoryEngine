@@ -73,7 +73,7 @@ void Scene::Render()
     
 void Scene::setViewportRect(int x, int y, int width, int height)
 {
-     glm::vec4 frame =  glm::vec4(glm::vec2(x, y), glm::vec2(width, height));
+    glm::vec4 frame =  glm::vec4(glm::vec2(x, y), glm::vec2(width, height));
     mCamera->setViewport(frame);
     mSceneRenderer->setFrame(frame);
 }

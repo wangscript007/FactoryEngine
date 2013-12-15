@@ -1,21 +1,17 @@
 
 #pragma once
 
-#include <Model/ModelTree.h>
-#include <Model/FaceNode.h>
-
 namespace ftr {
+    
+class FaceNode;
+class PointNode;
 
 class FaceTraversal
 {
 public:
-    FaceTraversal(const ModelTree& modelTree);
-    virtual ~FaceTraversal() {}
-    
-    FaceNode* TraverseNode(const PointNode& pointNode) const;
+    FaceNode* CreateFaceByConnectingNode(PointNode& pointNode) const;
     
 private:
-    const ModelTree& mModelTree;
 };
     
 }
