@@ -14,40 +14,48 @@
 
 using namespace ftr;
 
-@interface TestFaceTraversal : XCTestCase
+@interface TestFaceTraversal : XCTestCase {
+    FaceTraversal traversal;
+    PointNode* v1;
+    PointNode* v2;
+    PointNode* v3;
+    PointNode* v4;
+    PointNode* v5;
+}
 
 @end
 
 @implementation TestFaceTraversal
 
+
 - (void)setUp
 {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testTwoTrianglesOrdered
-{
-    FaceTraversal traversal;
-    
-    PointNode* v1 = new PointNode(glm::vec3(0.0f, 1.0f, 0.0f));
-    PointNode* v2 = new PointNode(glm::vec3(1.0f, 1.0f, 0.0f));
-    PointNode* v3 = new PointNode(glm::vec3(1.0f, 0.0f, 0.0f));
-    PointNode* v4 = new PointNode(glm::vec3(0.0f, -1.0f, 0.0f));
-    PointNode* v5 = new PointNode(glm::vec3(0.0f, 0.0f, 0.0f));
-    
+    v1 = new PointNode(glm::vec3(0.0f, 1.0f, 0.0f));
+    v2 = new PointNode(glm::vec3(1.0f, 1.0f, 0.0f));
+    v3 = new PointNode(glm::vec3(1.0f, 0.0f, 0.0f));
+    v4 = new PointNode(glm::vec3(0.0f, -1.0f, 0.0f));
+    v5 = new PointNode(glm::vec3(0.0f, 0.0f, 0.0f));
     v1->mName = "1";
     v2->mName = "2";
     v3->mName = "3";
     v4->mName = "4";
     v5->mName = "5";
-    
+
+}
+
+- (void)tearDown
+{
+    delete v1;
+    delete v2;
+    delete v3;
+    delete v4;
+    delete v5;
+    [super tearDown];
+}
+
+- (void)testTwoTrianglesOrdered
+{
     FaceNode* face = NULL;
     
     v1->ConnectTo(v2);
@@ -77,22 +85,7 @@ using namespace ftr;
 
 - (void)testTwoTrianglesUnordered
 {
-    FaceTraversal traversal;
-    
-    PointNode* v1 = new PointNode(glm::vec3(0.0f, 1.0f, 0.0f));
-    PointNode* v2 = new PointNode(glm::vec3(1.0f, 1.0f, 0.0f));
-    PointNode* v3 = new PointNode(glm::vec3(1.0f, 0.0f, 0.0f));
-    PointNode* v4 = new PointNode(glm::vec3(0.0f, -1.0f, 0.0f));
-    PointNode* v5 = new PointNode(glm::vec3(0.0f, 0.0f, 0.0f));
-    
-    v1->mName = "1";
-    v2->mName = "2";
-    v3->mName = "3";
-    v4->mName = "4";
-    v5->mName = "5";
-    
     FaceNode* face = NULL;
-    
     
     v2->ConnectTo(v3);
     face = traversal.CreateFaceByConnectingNode(*v2);
@@ -113,9 +106,29 @@ using namespace ftr;
     v1->ConnectTo(v4);
     face = traversal.CreateFaceByConnectingNode(*v4);
     XCTAssertTrue(face != NULL);
-    
-  
 }
+
+- (void)testQuadrate
+{
+    FaceNode* face = NULL;
+    
+    v2->ConnectTo(v3);
+    face = traversal.CreateFaceByConnectingNode(*v2);
+    XCTAssertTrue(face == NULL);
+    
+    v1->ConnectTo(v2);
+    face = traversal.CreateFaceByConnectingNode(*v1);
+    XCTAssertTrue(face == NULL);
+    
+    v4->ConnectTo(v3);
+    face = traversal.CreateFaceByConnectingNode(*v4);
+    XCTAssertTrue(face == NULL);
+    
+    v4->ConnectTo(v1);
+    face = traversal.CreateFaceByConnectingNode(*v4);
+    XCTAssertTrue(face != NULL);
+}
+
 
 
 @end

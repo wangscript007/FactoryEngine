@@ -12,24 +12,26 @@
 
 using namespace ftr;
 
-@interface TestEdge : XCTestCase
+@interface TestEdge : XCTestCase {
+    PointNode* v1;
+    PointNode* v2;
+    PointNode* v3;
+    PointNode* v4;
+    
+    Edge* e12;
+    Edge* e21;
+    Edge* e23;
+    Edge* e32;
+    Edge* e34;
+    Edge* e43;
+    Edge* e13;
+    Edge* e31;
+
+}
 @end
 
 @implementation TestEdge
 
-PointNode* v1;
-PointNode* v2;
-PointNode* v3;
-PointNode* v4;
-
-Edge* e12;
-Edge* e21;
-Edge* e23;
-Edge* e32;
-Edge* e34;
-Edge* e43;
-Edge* e13;
-Edge* e31;
 
 
 - (void)setUp
