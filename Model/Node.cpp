@@ -4,9 +4,10 @@
 
 namespace ftr {
     
-Node::Node()
+Node::Node() :
+    mSupernode(NULL)
 {
-
+    
 }
 
 Node::~Node()

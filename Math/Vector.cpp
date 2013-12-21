@@ -21,6 +21,10 @@ float Vector::CCWAngle(const glm::vec3& v1, const glm::vec3& v2)
     
 bool Vector::IsCWOrder(const glm::vec3& v1, const glm::vec3& v2)
 {
+    glm::detail::tvec3<bool> equal = glm::epsilonEqual(v1, v2, 0.0001f);
+    if (equal.x && equal.y && equal.z) {
+        return false;
+    }
     glm::vec3 cross = glm::cross(v1, v2);
     glm::vec3 mostParallelAxis = MostParallelAxis(cross);
     return glm::dot(cross, mostParallelAxis) < 0;

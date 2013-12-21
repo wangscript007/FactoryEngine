@@ -11,7 +11,7 @@ namespace ftr {
 class Polygon;
 class LineNode;
 class PointNode;
-class HalfEdge;
+class Edge;
 
 class FaceNode : public Node
 {
@@ -21,14 +21,14 @@ public:
     
     void Render(Layer& layer);
     
-    void BoundByLoopWithHalfEdge(HalfEdge& outerEdge);
-    void AddHoleBoundedByLoopWithHalfEdge(HalfEdge& innerEdge);
+    void BoundByLoopWithEdge(Edge& outerEdge);
+    void AddHoleBoundedByLoopWithEdge(Edge& innerEdge);
     
     std::string Description() const;
 private:
-    void MarkIncidentFaceInLoopWithHalfEdge(HalfEdge& halfEdge);
-    std::vector<HalfEdge*> mInnerEdges;
-    HalfEdge* mOuterEdge;
+    void MarkIncidentFaceInLoopWithEdge(Edge& Edge);
+    std::vector<Edge*> mInnerEdges;
+    Edge* mOuterEdge;
 };
 
 }

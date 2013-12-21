@@ -1,6 +1,6 @@
 
 #include <Model/PointNode.h>
-#include <Model/HalfEdge.h>
+#include <Model/Edge.h>
 #include <Main/Log.h>
 
 namespace ftr {
@@ -10,7 +10,7 @@ const float PointNode::c_fR = 5.0f;
 
 PointNode::PointNode()
     :mOctreeLeaf(NULL)
-    ,mHalfEdge(NULL)
+    ,mEdge(NULL)
     ,mIsActive(false)
     ,mName("")
 {
@@ -19,17 +19,17 @@ PointNode::PointNode()
     
 PointNode::~PointNode()
 {
-    if (mHalfEdge) {
-        assert(mHalfEdge->twin()->originNode()->mHalfEdge != mHalfEdge);
-        mHalfEdge->twin()->originNode()->mHalfEdge = NULL;
-        mHalfEdge->DeleteTwin();
-        FT_DELETE(mHalfEdge);
+    if (mEdge) {
+        assert(mEdge->twin()->originNode()->mEdge != mEdge);
+        mEdge->twin()->originNode()->mEdge = NULL;
+        mEdge->DeleteTwin();
+        FT_DELETE(mEdge);
     }
 }
 
 PointNode::PointNode(glm::vec3 origin)
 :mOrigin(origin)
-    ,mHalfEdge(NULL)
+    ,mEdge(NULL)
     ,mIsActive(false)
     ,mName("")
     
@@ -53,26 +53,27 @@ void PointNode::Render(Layer& layer)
     layer.AddPrimitive(primitive);
 }
     
-HalfEdge* PointNode::ConnectTo(PointNode* other)
+// Work with connections from both directions
+Edge* PointNode::ConnectTo(PointNode* other)
 {
-    HalfEdge* newHalfEdge = new HalfEdge(this);
-    HalfEdge* newHalfEdgeTwin = new HalfEdge(other);
-    newHalfEdge->MakeTwinsWith(newHalfEdgeTwin);
+    ftr::Edge* newEdge = new ftr::Edge(this);
+    ftr::Edge* newEdgeTwin = new ftr::Edge(other);
+    newEdge->MakeTwinsWith(newEdgeTwin);
     
-    if (mHalfEdge) {
-        HalfEdge* CWNeighbour = newHalfEdgeTwin->CWNeighbourForNode(*this);
-        newHalfEdge->InsertConnectionNearCWNeigbour(CWNeighbour);
+    if (mEdge) {
+        newEdge->DoublyConnectCCWOrderedAtOrigin();
     } else {
-        mHalfEdge = newHalfEdge;
+        mEdge = newEdge;
     }
     
-    if (other->mHalfEdge) {
-        HalfEdge* CWNeighbour = newHalfEdgeTwin->CWNeighbourForNode(*other);
-        newHalfEdgeTwin->InsertConnectionNearCWNeigbour(CWNeighbour);
+    if (other->mEdge) {
+        newEdgeTwin->DoublyConnectCCWOrderedAtOrigin();
     } else {
-        other->mHalfEdge = newHalfEdgeTwin;
+        other->mEdge = newEdgeTwin;
     }
-    return newHalfEdge;
+    return newEdge;
 }
+    
+    
     
 }

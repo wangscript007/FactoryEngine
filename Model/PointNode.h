@@ -6,7 +6,7 @@
 
 namespace ftr {
 
-class HalfEdge;
+class Edge;
 class PointNode : public Node
 {
 public:
@@ -26,15 +26,14 @@ public:
     void setActive(bool active) { mIsActive = active; }
     bool Active() const { return mIsActive; }
     
-    HalfEdge* ConnectTo(PointNode* other);
-    HalfEdge* mHalfEdge;
-    HalfEdge* halfEdge() const { return mHalfEdge; }
+    Edge* ConnectTo(PointNode* other);
+    Edge* mEdge;
+    Edge* Edge() const { return mEdge; }
     
     
     std::string mName;
     
 private:
-    
     Octree::Leaf* mOctreeLeaf;
     bool mIsActive;
     PointPrimitive primitive;

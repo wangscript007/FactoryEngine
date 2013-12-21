@@ -2,7 +2,7 @@
 #include <Model/FaceNode.h>
 #include <Model/LineNode.h>
 #include <Model/PointNode.h>
-#include <Model/HalfEdge.h>
+#include <Model/Edge.h>
 #include <Main/Log.h>
 
 namespace ftr {
@@ -21,23 +21,23 @@ void FaceNode::Render(Layer& layer)
 
 #pragma mark - Instance
     
-void FaceNode::BoundByLoopWithHalfEdge(HalfEdge& outerEdge)
+void FaceNode::BoundByLoopWithEdge(Edge& outerEdge)
 {
     mOuterEdge = &outerEdge;
-    MarkIncidentFaceInLoopWithHalfEdge(outerEdge);
+    MarkIncidentFaceInLoopWithEdge(outerEdge);
 }
     
-void FaceNode::AddHoleBoundedByLoopWithHalfEdge(HalfEdge& innerEdge)
+void FaceNode::AddHoleBoundedByLoopWithEdge(Edge& innerEdge)
 {
     mInnerEdges.push_back(&innerEdge);
-    MarkIncidentFaceInLoopWithHalfEdge(innerEdge);
+    MarkIncidentFaceInLoopWithEdge(innerEdge);
 }
     
-void FaceNode::MarkIncidentFaceInLoopWithHalfEdge(HalfEdge& halfEdge)
+void FaceNode::MarkIncidentFaceInLoopWithEdge(Edge& edge)
 {
-    HalfEdge* currentEdge = &halfEdge;
+    Edge* currentEdge = &edge;
     currentEdge->mIncidentFace = this;
-    while (currentEdge->HasFreeNextEdge() && (currentEdge->next() != &halfEdge)) {
+    while (currentEdge->HasFreeNextEdge() && (currentEdge->next() != &edge)) {
         currentEdge = currentEdge->next();
         currentEdge->mIncidentFace = this;
     }
@@ -46,7 +46,7 @@ void FaceNode::MarkIncidentFaceInLoopWithHalfEdge(HalfEdge& halfEdge)
 std::string FaceNode::Description() const
 {
     std::string description = "";
-    HalfEdge* currentEdge = mOuterEdge;
+    Edge* currentEdge = mOuterEdge;
     while (currentEdge->next() && (currentEdge->next() != mOuterEdge)) {
         currentEdge = currentEdge->next();
         description += currentEdge->originNode()->mName + "-";
