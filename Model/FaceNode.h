@@ -29,6 +29,7 @@ private:
     void MarkIncidentFaceInLoopWithEdge(Edge& Edge);
     std::vector<Edge*> mInnerEdges;
     Edge* mOuterEdge;
+    PolygonPrimitive mPolygonPrimitive;
 };
 
 }

@@ -140,20 +140,25 @@ class PolygonPrimitive : public Primitive
 {
 public:
     struct Data {
-        Vertex vertices[4];
-        GLubyte indices[4];
+        glm::vec4 vertices[3];
+        glm::vec4 normals[3];
+        glm::vec4 colors[3];
+        glm::vec4 pickingColors[3];
     };
     
     PolygonPrimitive() {}
     virtual ~PolygonPrimitive() {}
     
     Type type() const { return kPolygon; }
-    glm::vec3 mNormal;
-    glm::vec3 mCenter;
-    glm::vec2 mSize;
+    glm::vec3 mVec[3];
     glm::vec4 color;
+    glm::vec4 mPickingColor;
 protected:
     char* CreateRenderData(ShadingInterface& shadingInterface);
+    
+private:
+    void AssignSurfaceNormals(PolygonPrimitive::Data* data);
+
     
 private:
     

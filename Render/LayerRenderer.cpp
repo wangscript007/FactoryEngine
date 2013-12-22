@@ -5,16 +5,18 @@
 #include <Render/PointRenderer.h>
 #include <Render/LineRenderer.h>
 #include <Render/RectangleRenderer.h>
+#include <Render/PolygonRenderer.h>
 #include <Shading/ShadingInterface.h>
 
 namespace ftr {
     
-LayerRenderer::LayerRenderer(ShadingInterface& ShadingInterface)
+LayerRenderer::LayerRenderer(ShadingInterface& shadingInterface)
     : mDepth(0)
 {
     //AddRenderer(new PointRenderer());
-    AddRenderer(new LineRenderer(ShadingInterface));
-    AddRenderer(new RectangleRenderer(ShadingInterface));
+    AddRenderer(new LineRenderer(shadingInterface));
+    AddRenderer(new RectangleRenderer(shadingInterface));
+    AddRenderer(new PolygonRenderer(shadingInterface));
 }
     
 void LayerRenderer::AddRenderer(PrimitiveRenderer* primitiveRenderer)

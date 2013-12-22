@@ -7,14 +7,14 @@ namespace ftr {
 void PolygonRenderer::Begin(Primitive& primitive)
 {
     PrimitiveRenderer::Begin(primitive);
-    glEnable(GL_DEPTH_TEST);
-    glDepthMask(GL_TRUE);
 }
 
 void PolygonRenderer::Render(Primitive& primitive)
 {
-    PolygonPrimitive::Data* data = reinterpret_cast<PolygonPrimitive::Data*>(primitive.renderData(mShadingInterface));
-    
+    primitive.renderData(mShadingInterface);
+    glBindVertexArray(primitive.vertexArrayObjectId());
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glGetError();
 }   
 
 void PolygonRenderer::End(Primitive& primitive)

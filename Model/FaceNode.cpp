@@ -16,7 +16,16 @@ FaceNode::FaceNode()
 void FaceNode::Render(Layer& layer)
 {
     Node::Render(layer);
+    mPolygonPrimitive.color = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
+    Edge* currentEdge = mOuterEdge;
+    int i = 0;
+    do {
+        mPolygonPrimitive.mVec[i] = currentEdge->origin();
+        i++;
+        currentEdge = currentEdge->prev();
+    } while (currentEdge != mOuterEdge && i < 3);
     
+    layer.AddPrimitive(mPolygonPrimitive);
 }
 
 #pragma mark - Instance
