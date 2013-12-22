@@ -3,8 +3,7 @@
 //
 
 #include <Model/ModelFactory.h>
-#include <Model/PointNode.h>
-#include <Model/ModelTree.h>
+#include <Model/FaceTraversal.h>
 
 namespace ftr {
 
@@ -26,5 +25,10 @@ LineNode* ModelFactory::CreateLine(PointNode* startPoint, PointNode* endPoint) c
     LineNode* line = new LineNode(startPoint, endPoint);
     return line;
 }
-
+    
+FaceNode* ModelFactory::TryToCreateFaceByConnectingNode(PointNode& pointNode) const
+{
+    return FaceTraversal::TryToCreateFaceByConnectingNode(pointNode);
+}
+    
 }

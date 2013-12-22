@@ -15,9 +15,9 @@
 
 namespace ftr {
     
-FaceNode* FaceTraversal::CreateFaceByConnectingNode(PointNode& pointNode) const
+FaceNode* FaceTraversal::TryToCreateFaceByConnectingNode(PointNode& pointNode)
 {
-    if (!pointNode.mEdge->HasFreeNextEdge()) {
+    if (!(pointNode.mEdge && pointNode.mEdge->HasFreeNextEdge())) {
         return NULL;
     }
     Edge* initialEdge = pointNode.mEdge;

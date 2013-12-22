@@ -48,7 +48,6 @@ void ModelEditor::Select(Node* pNode)
     mSelectedNode = pNode;
 }
 
-
 PointNode* ModelEditor::CreatePoint(glm::vec3 origin)
 {
     assert(mSelectedNode);
@@ -62,11 +61,22 @@ LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
 {
     assert(mSelectedNode);
     LineNode* line = mModelFactory->CreateLine(startPoint, endPoint);
+    startPoint->ConnectTo(endPoint);
+    TryToCreateFaceByConnectingNode(*endPoint);
     mSelectedNode->AddNode(line);
     mSelectedNode = line;
-    
     return line;
     
+}
+    
+FaceNode* ModelEditor::TryToCreateFaceByConnectingNode(PointNode& pointNode)
+{
+    FaceNode* face = mModelFactory->TryToCreateFaceByConnectingNode(pointNode);
+    if (face) {
+        mSelectedNode->AddNode(face);
+        //mSelectedNode = face;
+    }
+    return face;
 }
     
 }

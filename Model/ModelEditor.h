@@ -27,7 +27,10 @@ public:
     PointNode*      CreatePoint(glm::vec3 origin);
     LineNode*       CreateLine(PointNode* startPoint, PointNode* endPoint);
     
+    
 private:
+    FaceNode*       TryToCreateFaceByConnectingNode(PointNode& pointNode);
+    
     class ModelFactory* mModelFactory;
     class ModelTree*    mModelTree;
     Group*              mRootGroup;

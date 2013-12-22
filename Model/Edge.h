@@ -18,7 +18,7 @@ public:
     
     bool IsCWCountingFrom(const Edge& other) const;
     bool HasSameOrigin(const Edge& other) const { return mOriginNode == other.mOriginNode; }
-    bool HasFreeNextEdge() const { return next() && next() && !next()->mIncidentFace; }
+    bool HasFreeNextEdge() const { return next() && !next()->mIncidentFace; }
     float AngleFrom(const Edge& other) const;
     
     Edge* twin() const { return mTwin; }

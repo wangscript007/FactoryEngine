@@ -73,7 +73,6 @@ void LineInteraction::Begin()
 
 void LineInteraction::Step()
 {
-    
     if (mActive) {
         mActive = false;
         mModelEditor.SelectedNode()->RemoveNode(this);
@@ -84,7 +83,7 @@ void LineInteraction::Step()
         
         if (!mEndPoint) {
             mEndPoint = mModelEditor.CreatePoint(mEnd);
-        };
+        }
         
         mModelEditor.CreateLine(mStartPoint, mEndPoint);
         mStartPoint = mEndPoint;
@@ -108,7 +107,6 @@ void LineInteraction::setStart(const glm::vec2& start)
     
     mStart = mSnappingQueue->Snapped();
     mSnappingQueue->setStartScene(mStart, true);
-    
 }
     
 void LineInteraction::setEnd(const glm::vec2& endViewport)

@@ -59,27 +59,27 @@ using namespace ftr;
     FaceNode* face = NULL;
     
     v1->ConnectTo(v2);
-    face = traversal.CreateFaceByConnectingNode(*v1);
+    face = traversal.TryToCreateFaceByConnectingNode(*v1);
     XCTAssertTrue(face == NULL);
     
     v2->ConnectTo(v3);
-    face = traversal.CreateFaceByConnectingNode(*v2);
+    face = traversal.TryToCreateFaceByConnectingNode(*v2);
     XCTAssertTrue(face == NULL);
     
     v3->ConnectTo(v1);
-    face = traversal.CreateFaceByConnectingNode(*v3);
+    face = traversal.TryToCreateFaceByConnectingNode(*v3);
     XCTAssertTrue(face != NULL);
     
     v4->ConnectTo(v3);
-    face = traversal.CreateFaceByConnectingNode(*v4);
+    face = traversal.TryToCreateFaceByConnectingNode(*v4);
     XCTAssertTrue(face == NULL);
     
     v1->ConnectTo(v4);
-    face = traversal.CreateFaceByConnectingNode(*v4);
+    face = traversal.TryToCreateFaceByConnectingNode(*v4);
     XCTAssertTrue(face != NULL);
     
     v5->ConnectTo(v4);
-    face = traversal.CreateFaceByConnectingNode(*v4);
+    face = traversal.TryToCreateFaceByConnectingNode(*v4);
     XCTAssertTrue(face == NULL);
 }
 
@@ -88,23 +88,23 @@ using namespace ftr;
     FaceNode* face = NULL;
     
     v2->ConnectTo(v3);
-    face = traversal.CreateFaceByConnectingNode(*v2);
+    face = traversal.TryToCreateFaceByConnectingNode(*v2);
     XCTAssertTrue(face == NULL);
     
     v1->ConnectTo(v2);
-    face = traversal.CreateFaceByConnectingNode(*v1);
+    face = traversal.TryToCreateFaceByConnectingNode(*v1);
     XCTAssertTrue(face == NULL);
     
     v4->ConnectTo(v3);
-    face = traversal.CreateFaceByConnectingNode(*v4);
+    face = traversal.TryToCreateFaceByConnectingNode(*v4);
     XCTAssertTrue(face == NULL);
     
     v3->ConnectTo(v1);
-    face = traversal.CreateFaceByConnectingNode(*v3);
+    face = traversal.TryToCreateFaceByConnectingNode(*v3);
     XCTAssertTrue(face != NULL);
     
     v1->ConnectTo(v4);
-    face = traversal.CreateFaceByConnectingNode(*v4);
+    face = traversal.TryToCreateFaceByConnectingNode(*v4);
     XCTAssertTrue(face != NULL);
 }
 
@@ -113,19 +113,19 @@ using namespace ftr;
     FaceNode* face = NULL;
     
     v2->ConnectTo(v3);
-    face = traversal.CreateFaceByConnectingNode(*v2);
+    face = traversal.TryToCreateFaceByConnectingNode(*v2);
     XCTAssertTrue(face == NULL);
     
     v1->ConnectTo(v2);
-    face = traversal.CreateFaceByConnectingNode(*v1);
+    face = traversal.TryToCreateFaceByConnectingNode(*v1);
     XCTAssertTrue(face == NULL);
     
     v4->ConnectTo(v3);
-    face = traversal.CreateFaceByConnectingNode(*v4);
+    face = traversal.TryToCreateFaceByConnectingNode(*v4);
     XCTAssertTrue(face == NULL);
     
     v4->ConnectTo(v1);
-    face = traversal.CreateFaceByConnectingNode(*v4);
+    face = traversal.TryToCreateFaceByConnectingNode(*v4);
     XCTAssertTrue(face != NULL);
 }
 

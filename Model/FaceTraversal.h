@@ -9,7 +9,7 @@ class PointNode;
 class FaceTraversal
 {
 public:
-    FaceNode* CreateFaceByConnectingNode(PointNode& pointNode) const;
+    static FaceNode* TryToCreateFaceByConnectingNode(PointNode& pointNode);
     
 private:
 };
