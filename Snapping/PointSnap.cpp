@@ -6,13 +6,19 @@ namespace ftr {
     
 glm::vec3 PointSnap::Snapped() const
 {
+    PointNode* point = SnappedPoint();
+    return point ? point->mOrigin : mStartScene;
+}
+    
+PointNode* PointSnap::SnappedPoint() const
+{
     const Segment& segment = mViewport.RayAtPoint(mStartViewport);
     const Cylinder& cylinder = Cylinder(segment, 0.5f);
     PointNode* pointNode = NearestPointToAxisInCylinder(cylinder);
     if (pointNode) {
-        return pointNode->mOrigin;
+        return pointNode;
     } else {
-        return mStartScene;
+        return NULL;
     }
 }
     

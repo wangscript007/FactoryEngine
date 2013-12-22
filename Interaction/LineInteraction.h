@@ -5,6 +5,7 @@
 #include <Scene/Camera.h>
 #include <Interaction/InteractionAssistant.h>
 #include <Snapping/SnappingQueue.h>
+#include <Snapping/PointSnap.h>
 
 namespace ftr {
 
@@ -38,6 +39,7 @@ private:
     ModelEditor& mModelEditor;
     InteractionAssistant mInteractionAssitant;
     SnappingQueue* mSnappingQueue;
+    PointSnap* mPointSnap;
     
     std::vector<glm::vec3> mDebugPoints;
 };

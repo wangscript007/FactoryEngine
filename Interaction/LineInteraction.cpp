@@ -13,11 +13,13 @@ LineInteraction::LineInteraction(ModelEditor& modelEditor, const Viewport& viewp
     ,mEndPoint(NULL)
 {
     mSnappingQueue = new SnappingQueue(viewport, *modelEditor.ModelTree());
+    mPointSnap = new PointSnap(viewport, *modelEditor.ModelTree());
 }
     
 LineInteraction::~LineInteraction()
 {
     FT_DELETE(mSnappingQueue);
+    FT_DELETE(mPointSnap);
 }
 
 #pragma mark Instance
@@ -32,9 +34,9 @@ void LineInteraction::Render(Layer& layer)
     
     glm::vec3 lineVector = glm::vec3(line.x, line.y, line.z);
     
-    glm::vec3 normalX = glm::vec3(1.0f, 0.0f, 0.0f);
-    glm::vec3 normalY = glm::vec3(0.0f, 1.0f, 0.0f);
-    glm::vec3 normalZ = glm::vec3(0.0f, 0.0f, 1.0f);
+    static glm::vec3 normalX = glm::vec3(1.0f, 0.0f, 0.0f);
+    static glm::vec3 normalY = glm::vec3(0.0f, 1.0f, 0.0f);
+    static glm::vec3 normalZ = glm::vec3(0.0f, 0.0f, 1.0f);
     
     glm::vec3 projX = glm::proj(lineVector, normalX);
     glm::vec3 projY = glm::proj(lineVector, normalY);
@@ -78,11 +80,25 @@ void LineInteraction::Step()
         mModelEditor.SelectedNode()->RemoveNode(this);
         
         if (!mStartPoint) {
-            mStartPoint = mModelEditor.CreatePoint(mStart);
+            mPointSnap->setStartScene(mStart, true);
+            PointNode* snappedPoint = mPointSnap->SnappedPoint();
+            if (snappedPoint) {
+                mStartPoint = snappedPoint;
+            } else {
+                mStartPoint = mModelEditor.CreatePoint(mStart);
+            }
+            
         }
         
         if (!mEndPoint) {
-            mEndPoint = mModelEditor.CreatePoint(mEnd);
+            mPointSnap->setStartScene(mEnd, true);
+            PointNode* snappedPoint = mPointSnap->SnappedPoint();
+            if (snappedPoint) {
+                mEndPoint = snappedPoint;
+            } else {
+                mEndPoint = mModelEditor.CreatePoint(mEnd);
+            }
+            
         }
         
         mModelEditor.CreateLine(mStartPoint, mEndPoint);

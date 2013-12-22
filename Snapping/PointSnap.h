@@ -12,6 +12,8 @@ public:
     virtual ~PointSnap() {}
 
     glm::vec3 Snapped() const;
+    PointNode* SnappedPoint() const;
+    
 private:
     PointNode* NearestPointToCenterInSphere(const Sphere& sphere) const;
     PointNode* NearestPointToAxisInCylinder(const Cylinder& cylinder) const;

@@ -34,7 +34,7 @@ FaceNode* FaceTraversal::TryToCreateFaceByConnectingNode(PointNode& pointNode)
         face->BoundByLoopWithEdge(*initialEdge);
     }
     if (face) {
-        printf("%s \n%s\n\n", pointNode.mName.c_str(), face->Description().c_str());
+        printf("New face %s \n%s\n\n", pointNode.mName.c_str(), face->Description().c_str());
     }
     return face;
 }
