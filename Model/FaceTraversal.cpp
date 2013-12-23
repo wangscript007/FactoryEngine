@@ -15,26 +15,54 @@
 
 namespace ftr {
     
-FaceNode* FaceTraversal::TryToCreateFaceByConnectingNode(PointNode& pointNode)
+FaceNode* FaceTraversal::FindAndCreateFaceContainingNode(PointNode& pointNode)
 {
-    if (!(pointNode.mEdge && pointNode.mEdge->HasFreeNextEdge())) {
-        return NULL;
-    }
-    Edge* initialEdge = pointNode.mEdge;
-    Edge* currentEdge = pointNode.mEdge;
+    Edge* itrEdge = pointNode.mEdge;
+    if (!itrEdge) return NULL;
+    FaceNode* face = NULL;
+
+    do {
+        if (itrEdge->originNode() == &pointNode) {
+            if (itrEdge->IsFree()) {
+                face = FindAndCreateFaceContainingEdge(*itrEdge);
+                if (face) break;
+            }
+        }
+        
+        if ((itrEdge->originNode() == &pointNode) && itrEdge->prev()) {
+            itrEdge = itrEdge->prev();
+        } else {
+            itrEdge = itrEdge->twin();
+        }
+    } while (itrEdge != pointNode.mEdge);
+    
+    return face;
+}
+    
+FaceNode* FaceTraversal::FindAndCreateFaceContainingEdge(Edge& edge)
+{
+    Edge* itrEdge = &edge;
     FaceNode* face = NULL;
     printf("---------------------------------\n");
-    while (currentEdge->HasFreeNextEdge() && (currentEdge->next() != initialEdge)) {
-        printf("%s\n", currentEdge->Description().c_str());
-        currentEdge = currentEdge->next();
-        
+    
+    int i = 0;
+    while (itrEdge->next()
+           && itrEdge->next()->IsFree()
+           && (itrEdge->next() != &edge)
+           && itrEdge->next()->IsCCWCountingFrom(*itrEdge)
+           && i < 2)
+    {
+        printf("%s\n", itrEdge->Description().c_str());
+        itrEdge = itrEdge->next();
+        i++;
     }
-    if (initialEdge == currentEdge->next()) {
+    
+    if (&edge == itrEdge->next()) {
         face = new FaceNode();
-        face->BoundByLoopWithEdge(*initialEdge);
+        face->BoundByLoopWithEdge(edge);
     }
     if (face) {
-        printf("New face %s \n%s\n\n", pointNode.mName.c_str(), face->Description().c_str());
+        printf("New face:%s\n", face->Description().c_str());
     }
     return face;
 }

@@ -12,6 +12,7 @@ namespace ftr {
     
 float Vector::CCWAngle(const glm::vec3& v1, const glm::vec3& v2)
 {
+    
     float angle = glm::angle(v1, v2);
     if (IsCWOrder(v1, v2)) {
         angle = 360 - angle;
@@ -21,8 +22,9 @@ float Vector::CCWAngle(const glm::vec3& v1, const glm::vec3& v2)
     
 bool Vector::IsCWOrder(const glm::vec3& v1, const glm::vec3& v2)
 {
-    glm::detail::tvec3<bool> equal = glm::epsilonEqual(v1, v2, 0.0001f);
-    if (equal.x && equal.y && equal.z) {
+    glm::detail::tvec3<bool> equal1 = glm::epsilonEqual(v1, v2, 0.0001f);
+    glm::detail::tvec3<bool> equal2 = glm::epsilonEqual(v1, -v2, 0.0001f);
+    if ((equal1.x && equal1.y && equal1.z) || (equal2.x && equal2.y && equal2.z)) {
         return false;
     }
     glm::vec3 cross = glm::cross(v1, v2);

@@ -24,8 +24,13 @@ Edge::~Edge()
     
 std::string Edge::Name() const
 {
+    
     if (mOriginNode) {
-        return "e" + mOriginNode->mName + "," + mTwin->mOriginNode->mName;
+        std::string str = "e" + mOriginNode->mName + "," + mTwin->mOriginNode->mName;
+        if (mIncidentFace) {
+            str += "i";
+        }
+        return str;
     }
     return "-";
 }
@@ -70,11 +75,10 @@ Edge* Edge::CWNeighbourWithSameOrigin()
         } else {
             edge = edge->mTwin;
         }
-        printf("Edge %s\n", edge->Name().c_str());
     } while (edge != mOriginNode->mEdge);
-    printf("Edge %s CW neighbour %s\n", Name().c_str(), neighbour->Name().c_str());
     return neighbour;
 }
+
     
 
 // Connect 2 pairs of edges
@@ -96,12 +100,18 @@ float Edge::CCWAngleFrom(const Edge& other) const
     return Vector::CCWAngle(Direction(), other.Direction());
 }
     
+bool Edge::IsCCWCountingFrom(const Edge& other) const
+{
+    return Vector::IsCWOrder(Direction(), other.Direction());
+}
+    
 void Edge::ConnectToNext(Edge* next)
 {
-    printf("%s to next %s\n", this->Name().c_str(), next->Name().c_str());
     assert(next);
     assert(next != this);
     assert(next != mTwin);
+    assert(!mIncidentFace);
+    assert(!next->mIncidentFace);
     assert(mOriginNode != next->mOriginNode);
     
     mNext = next;

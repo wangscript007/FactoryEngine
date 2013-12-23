@@ -23,7 +23,7 @@ public:
     
     PointNode* CreatePoint(glm::vec3 origin) const;
     LineNode* CreateLine(PointNode* startPoint, PointNode* endPoint) const;
-    FaceNode* TryToCreateFaceByConnectingNode(PointNode& pointNode) const;
+    FaceNode* FindAndCreateFaceContainingNode(PointNode& pointNode) const;
     
 private:
     ModelTree& mModelTree;

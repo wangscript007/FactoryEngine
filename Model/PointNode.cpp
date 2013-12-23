@@ -74,6 +74,25 @@ Edge* PointNode::ConnectTo(PointNode* other)
     return newEdge;
 }
     
+Edge* PointNode::FindOutgoingFreeEdge() const
+{
+    ftr::Edge* edge = mEdge;
+    do {
+        if (edge->originNode() == this) {
+            if (edge->IsFree()) break;
+        }
+        
+        if ((edge->originNode() == this) && edge->prev()) {
+            edge = edge->prev();
+        } else {
+            edge = edge->twin();
+        }
+    } while (edge != mEdge);
+    
+    return edge->IsFree() ? edge : NULL;
+}
+
+    
     
     
 }

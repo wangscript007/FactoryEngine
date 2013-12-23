@@ -22,7 +22,7 @@ void FaceNode::Render(Layer& layer)
     do {
         mPolygonPrimitive.mVec[i] = currentEdge->origin();
         i++;
-        currentEdge = currentEdge->prev();
+        currentEdge = currentEdge->next();
     } while (currentEdge != mOuterEdge && i < 3);
     
     layer.AddPrimitive(mPolygonPrimitive);
@@ -45,11 +45,12 @@ void FaceNode::AddHoleBoundedByLoopWithEdge(Edge& innerEdge)
 void FaceNode::MarkIncidentFaceInLoopWithEdge(Edge& edge)
 {
     Edge* currentEdge = &edge;
-    currentEdge->mIncidentFace = this;
-    while (currentEdge->HasFreeNextEdge() && (currentEdge->next() != &edge)) {
-        currentEdge = currentEdge->next();
+    do {
         currentEdge->mIncidentFace = this;
-    }
+        printf("Mark %s\n", currentEdge->Name().c_str());
+        currentEdge = currentEdge->next();
+        assert(currentEdge->next()->IsCCWCountingFrom(*currentEdge));
+    } while ( currentEdge->IsFree() );
 }
 
 std::string FaceNode::Description() const

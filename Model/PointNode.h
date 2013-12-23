@@ -29,6 +29,7 @@ public:
     Edge* ConnectTo(PointNode* other);
     Edge* mEdge;
     Edge* Edge() const { return mEdge; }
+    ftr::Edge* FindOutgoingFreeEdge() const;
     
     
     std::string mName;

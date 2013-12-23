@@ -29,6 +29,7 @@
 		6032717817EB17C700249562 /* SceneRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6032717417EB17C700249562 /* SceneRenderer.cpp */; };
 		6032717917EB17C700249562 /* SceneRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6032717517EB17C700249562 /* SceneRenderer.h */; };
 		6032717A17EB17C700249562 /* SceneRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6032717517EB17C700249562 /* SceneRenderer.h */; };
+		60379DD618678813009A9EBC /* TestFaceNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60379DD518678813009A9EBC /* TestFaceNode.mm */; };
 		603981731819A444002EBDA8 /* Edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 603981711819A444002EBDA8 /* Edge.cpp */; };
 		603981741819A444002EBDA8 /* Edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 603981721819A444002EBDA8 /* Edge.h */; };
 		603BA5C617E87392007CE822 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6055CFD217417DCB009F1F46 /* Camera.cpp */; };
@@ -377,6 +378,7 @@
 		6032716017EB08E700249562 /* Framebuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framebuffer.h; sourceTree = "<group>"; };
 		6032717417EB17C700249562 /* SceneRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneRenderer.cpp; sourceTree = "<group>"; };
 		6032717517EB17C700249562 /* SceneRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneRenderer.h; sourceTree = "<group>"; };
+		60379DD518678813009A9EBC /* TestFaceNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestFaceNode.mm; sourceTree = "<group>"; };
 		603981711819A444002EBDA8 /* Edge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Edge.cpp; sourceTree = "<group>"; };
 		603981721819A444002EBDA8 /* Edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Edge.h; sourceTree = "<group>"; };
 		603BA60117E874FE007CE822 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
@@ -634,6 +636,7 @@
 				60D63214181C08F600CEB0D0 /* TestEdge.mm */,
 				60DFE3AA18253C6900A32D7A /* TestVector.mm */,
 				60919945185DB33900C7524F /* TestFaceTraversal.mm */,
+				60379DD518678813009A9EBC /* TestFaceNode.mm */,
 			);
 			path = "FactoryEngine Tests";
 			sourceTree = "<group>";
@@ -1158,6 +1161,7 @@
 				603BA5ED17E87437007CE822 /* PointNode.cpp in Sources */,
 				603BA5EE17E87437007CE822 /* LineNode.cpp in Sources */,
 				603BA5EF17E87437007CE822 /* PolylineNode.cpp in Sources */,
+				60379DD618678813009A9EBC /* TestFaceNode.mm in Sources */,
 				603BA5F017E87437007CE822 /* FaceNode.cpp in Sources */,
 				603BA5F117E87437007CE822 /* BodyNode.cpp in Sources */,
 				603BA5F217E87437007CE822 /* GroupNode.cpp in Sources */,

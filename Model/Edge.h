@@ -16,9 +16,9 @@ public:
     
     const glm::vec3& origin() const { return mOriginNode->mOrigin; }
     
-    bool IsCWCountingFrom(const Edge& other) const;
+    bool IsCCWCountingFrom(const Edge& other) const;
     bool HasSameOrigin(const Edge& other) const { return mOriginNode == other.mOriginNode; }
-    bool HasFreeNextEdge() const { return next() && !next()->mIncidentFace; }
+    bool IsFree() const { return mIncidentFace == NULL; }
     float AngleFrom(const Edge& other) const;
     
     Edge* twin() const { return mTwin; }
