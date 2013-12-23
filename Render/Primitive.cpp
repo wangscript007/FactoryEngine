@@ -197,7 +197,7 @@ char* PolygonPrimitive::CreateRenderData(ShadingInterface& shadingInterface)
 void PolygonPrimitive::AssignSurfaceNormals(PolygonPrimitive::Data* data)
 {
     glm::vec4 normal = glm::vec4(0.0f);
-    static const int vertexCount = 4;
+    static const int vertexCount = 3;
     for (int i = 0; i < vertexCount; i++) {
         glm::vec4& current = data->vertices[i];
         glm::vec4& next = data->vertices[(i+1)%vertexCount];
