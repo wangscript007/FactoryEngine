@@ -88,8 +88,41 @@ using namespace ftr;
     
     XCTAssertEqualWithAccuracy(Vector::CCWAngle(e53, e31), 135.0f, 0.01f);
     XCTAssertEqualWithAccuracy(Vector::CCWAngle(e53, e32), 90.0f, 0.01f);
-
 }
+
+bool IsEqualVec(const glm::vec3& vec1, const glm::vec3& vec2)
+{
+    glm::detail::tvec3<bool> equal = glm::epsilonEqual(vec1, vec2, 0.0001f);
+    return equal.x && equal.y && equal.z;
+}
+
+- (void)testMostParallelAxis
+{
+    glm::vec3 x = glm::vec3(1.0f, 0.0f, 0.0f);
+    glm::vec3 y = glm::vec3(0.0f, 1.0f, 0.0f);
+    glm::vec3 z = glm::vec3(0.0f, 0.0f, 1.0f);
+    
+    XCTAssertTrue(IsEqualVec(x, Vector::MostParallelAxis(x)));
+    XCTAssertTrue(IsEqualVec(x, Vector::MostParallelAxis(-x)));
+    XCTAssertTrue(IsEqualVec(-y, Vector::MostParallelAxis(y)));
+    XCTAssertTrue(IsEqualVec(-y, Vector::MostParallelAxis(-y)));
+    XCTAssertTrue(IsEqualVec(z, Vector::MostParallelAxis(z)));
+    XCTAssertTrue(IsEqualVec(z, Vector::MostParallelAxis(-z)));
+    
+    glm::vec3 x2 = glm::vec3(1.0f, 0.5f, 0.0f);
+    glm::vec3 y2 = glm::vec3(0.9f, 1.0f, 0.0f);
+    glm::vec3 z2 = glm::vec3(0.0f, 0.1f, 1.0f);
+    
+    XCTAssertTrue(IsEqualVec(x, Vector::MostParallelAxis(x2)));
+    XCTAssertTrue(IsEqualVec(x, Vector::MostParallelAxis(-x2)));
+    XCTAssertTrue(IsEqualVec(-y, Vector::MostParallelAxis(y2)));
+    XCTAssertTrue(IsEqualVec(-y, Vector::MostParallelAxis(-y2)));
+    XCTAssertTrue(IsEqualVec(z, Vector::MostParallelAxis(z2)));
+    XCTAssertTrue(IsEqualVec(z, Vector::MostParallelAxis(-z2)));
+    
+    
+}
+
 
 
 

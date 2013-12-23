@@ -44,8 +44,9 @@ glm::vec3 Vector::MostParallelAxis(glm::vec3 v)
     float max = 0;
     for (int i = 0; i < 3; i++) {
         float angle = glm::angle(glm::normalize(v), axis[i]);
-        if (fabs(angle - 90) > max) {
-            max = angle;
+        float diff = fabs(angle - 90);
+        if (diff > max) {
+            max = diff;
             maxIndex = i;
         }
     }
