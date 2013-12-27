@@ -20,11 +20,12 @@ void FaceNode::Render(Layer& layer)
     Edge* currentEdge = mOuterEdge;
     int i = 0;
     do {
+        
         mPolygonPrimitive.mVec[i] = currentEdge->origin();
         i++;
         currentEdge = currentEdge->next();
     } while (currentEdge != mOuterEdge && i < 3);
-    
+    mPolygonPrimitive.setOption(Primitive::kUseDepth, true);
     layer.AddPrimitive(mPolygonPrimitive);
 }
 
@@ -49,7 +50,7 @@ void FaceNode::MarkIncidentFaceInLoopWithEdge(Edge& edge)
         currentEdge->mIncidentFace = this;
         printf("Mark %s\n", currentEdge->Name().c_str());
         currentEdge = currentEdge->next();
-        assert(currentEdge->next()->IsCCWCountingFrom(*currentEdge));
+        //assert(currentEdge->next()->IsCCWCountingFrom(*currentEdge));
     } while ( currentEdge->IsFree() );
 }
 

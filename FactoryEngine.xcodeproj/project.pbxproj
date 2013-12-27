@@ -125,6 +125,7 @@
 		60919948185DC45C00C7524F /* FaceTraversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60FF395A1813CBC700B86F40 /* FaceTraversal.cpp */; };
 		6091E37516AC554E001DE0A7 /* PolylineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6091E37316AC554E001DE0A7 /* PolylineNode.cpp */; };
 		6091E37616AC554E001DE0A7 /* PolylineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 6091E37416AC554E001DE0A7 /* PolylineNode.h */; };
+		60937FB8186D9F1200E6C23E /* TestTetrahedron.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60937FB7186D9F1200E6C23E /* TestTetrahedron.mm */; };
 		60988088180584A60064477E /* TestSegment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60988087180584A60064477E /* TestSegment.mm */; };
 		60A03E411752423100D650B5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A03E401752423100D650B5 /* OpenGLES.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		60A03E42175244EB00D650B5 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6056C56E15DC5522008F8E92 /* Scene.cpp */; };
@@ -435,6 +436,7 @@
 		60919945185DB33900C7524F /* TestFaceTraversal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestFaceTraversal.mm; sourceTree = "<group>"; };
 		6091E37316AC554E001DE0A7 /* PolylineNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolylineNode.cpp; sourceTree = "<group>"; };
 		6091E37416AC554E001DE0A7 /* PolylineNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolylineNode.h; sourceTree = "<group>"; };
+		60937FB7186D9F1200E6C23E /* TestTetrahedron.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestTetrahedron.mm; sourceTree = "<group>"; };
 		60988087180584A60064477E /* TestSegment.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestSegment.mm; sourceTree = "<group>"; };
 		60A03E401752423100D650B5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		60A05FC31809DA8A004DD045 /* TestLineInteraction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestLineInteraction.mm; sourceTree = "<group>"; };
@@ -637,6 +639,7 @@
 				60DFE3AA18253C6900A32D7A /* TestVector.mm */,
 				60919945185DB33900C7524F /* TestFaceTraversal.mm */,
 				60379DD518678813009A9EBC /* TestFaceNode.mm */,
+				60937FB7186D9F1200E6C23E /* TestTetrahedron.mm */,
 			);
 			path = "FactoryEngine Tests";
 			sourceTree = "<group>";
@@ -1121,6 +1124,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60937FB8186D9F1200E6C23E /* TestTetrahedron.mm in Sources */,
 				603BA5C817E87437007CE822 /* Log.cpp in Sources */,
 				60CE9A4917EC646600A775C0 /* ShadingProgram.cpp in Sources */,
 				603BA5D017E87437007CE822 /* Polygon.cpp in Sources */,

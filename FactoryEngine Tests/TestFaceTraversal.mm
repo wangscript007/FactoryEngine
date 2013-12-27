@@ -22,6 +22,7 @@ using namespace ftr;
     PointNode* v3;
     PointNode* v4;
     PointNode* v5;
+    PointNode* v2h;
 }
 
 @end
@@ -37,11 +38,14 @@ using namespace ftr;
     v3 = new PointNode(glm::vec3(1.0f, 0.0f, 0.0f));
     v4 = new PointNode(glm::vec3(0.0f, -1.0f, 0.0f));
     v5 = new PointNode(glm::vec3(1.0f, -1.0f, 0.0f));
+    v2h = new PointNode(glm::vec3(1.0f, 1.0f, 2.0f));
+    
     v1->mName = "1";
     v2->mName = "2";
     v3->mName = "3";
     v4->mName = "4";
     v5->mName = "5";
+    v2h->mName = "2h";
 
 }
 
@@ -52,7 +56,34 @@ using namespace ftr;
     delete v3;
     delete v4;
     delete v5;
+    delete v2h;
     [super tearDown];
+}
+
+- (void)testTwoTriangles3D
+{
+    FaceNode* face = NULL;
+    
+    v1->ConnectTo(v3);
+    face = traversal.FindAndCreateFaceContainingNode(*v1);
+    XCTAssertTrue(face == NULL);
+    
+    v3->ConnectTo(v4);
+    face = traversal.FindAndCreateFaceContainingNode(*v3);
+    XCTAssertTrue(face == NULL);
+    
+    v4->ConnectTo(v1);
+    face = traversal.FindAndCreateFaceContainingNode(*v4);
+    XCTAssertTrue(face != NULL);
+    
+    // Include height dimention
+    v1->ConnectTo(v2h);
+    face = traversal.FindAndCreateFaceContainingNode(*v3);
+    XCTAssertTrue(face == NULL);
+    
+    v2h->ConnectTo(v3);
+    face = traversal.FindAndCreateFaceContainingNode(*v3);
+    XCTAssertTrue(face != NULL);
 }
 
 - (void)testTwoTrianglesOrdered
@@ -261,6 +292,8 @@ using namespace ftr;
         XCTAssertEqual(3, facesCount);
         
         delete xv1;
+        
+        
         delete xv2;
         delete xv3;
         delete xv4;

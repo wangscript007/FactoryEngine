@@ -62,6 +62,7 @@ LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
     assert(mSelectedNode);
     LineNode* line = mModelFactory->CreateLine(startPoint, endPoint);
     startPoint->ConnectTo(endPoint);
+    FindAndCreateFaceContainingNode(*startPoint);
     FindAndCreateFaceContainingNode(*endPoint);
     mSelectedNode->AddNode(line);
     mSelectedNode = line;

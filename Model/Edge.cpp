@@ -63,7 +63,7 @@ Edge* Edge::CWNeighbourWithSameOrigin()
     Edge* edge = mOriginNode->mEdge;
     Edge* neighbour = edge;
     do {
-        if (edge->mOriginNode == mOriginNode) {
+        if (edge->mOriginNode == mOriginNode && edge->IsFree()) {
             float CCWAngle = CCWAngleFrom(*edge);
             if (CCWAngle > maxCCWAngle) {
                 maxCCWAngle = CCWAngle;
@@ -82,11 +82,13 @@ Edge* Edge::CWNeighbourWithSameOrigin()
     
 
 // Connect 2 pairs of edges
+// This method only works in 2D?
 void Edge::DoublyConnectCCWOrderedAtOrigin()
 {
     ftr::Edge* CWNeighbour = CWNeighbourWithSameOrigin();
     // Notice: use old prev pointer pointer to connect edge
     if (CWNeighbour->prev()) {
+//        assert(!CWNeighbour->prev()->IsCCWCountingFrom(*this));
         CWNeighbour->prev()->ConnectToNext(this);
     } else {
         CWNeighbour->twin()->ConnectToNext(this);
