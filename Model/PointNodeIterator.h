@@ -17,8 +17,9 @@ class PointNode;
 class PointNodeIterator
 {
 public:
-    PointNodeIterator(const PointNode& pointNode)
-    : mPointNode(pointNode) { };
+    PointNodeIterator(const PointNode& pointNode, Edge* start)
+    : mPointNode(pointNode), mEdge(start) {};
+
     virtual ~PointNodeIterator() {}
     
     PointNodeIterator& operator = (const PointNodeIterator& other) {
@@ -43,7 +44,7 @@ private:
     
 inline PointNodeIterator& PointNodeIterator::operator ++ ()
 {
-    if ((mEdge->originNode() == &mPointNode) && mEdge->next()) {
+    if ((mEdge->originNode() != &mPointNode) && mEdge->next()) {
         mEdge = mEdge->next();
     } else {
         mEdge = mEdge->twin();

@@ -1,6 +1,7 @@
 
 #include <Model/Edge.h>
 #include <Math/Vector.h>
+#include <Model/PointNode.h>
 
 namespace ftr {
     
@@ -19,6 +20,11 @@ Edge::~Edge()
     if (mOriginNode && mOriginNode->mEdge == this) {
         mOriginNode->mEdge = NULL;
     }
+}
+    
+const glm::vec3& Edge::origin() const
+{
+    return mOriginNode->mOrigin;
 }
     
     

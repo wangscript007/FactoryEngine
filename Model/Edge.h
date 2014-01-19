@@ -1,10 +1,12 @@
 
 #pragma once
 
-#include <Model/PointNode.h>
+//#include <Model/PointNode.h>
 #include <Model/FaceNode.h>
 
 namespace ftr {
+    
+class PointNode;
 
 class Edge
 {
@@ -14,7 +16,7 @@ public:
     
     FaceNode* mIncidentFace;
     
-    const glm::vec3& origin() const { return mOriginNode->mOrigin; }
+    const glm::vec3& origin() const;
     
     bool IsCCWCountingFrom(const Edge& other) const;
     bool HasSameOrigin(const Edge& other) const { return mOriginNode == other.mOriginNode; }

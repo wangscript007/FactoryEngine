@@ -15,58 +15,53 @@
 
 namespace ftr {
     
-FaceNode* FaceTraversal::FindAndCreateFaceContainingNode(PointNode& pointNode)
+FaceTraversal::FaceTraversal(Edge& startEdge)
+    : mStartEdge(&startEdge),
+    mTargetNode(startEdge.originNode())
 {
-    Edge* itrEdge = pointNode.mEdge;
-    if (!itrEdge) return NULL;
-    FaceNode* face = NULL;
+    
+}
 
-    do {
-        if (itrEdge->originNode() == &pointNode) {
-            if (itrEdge->IsFree()) {
-                face = FindAndCreateFaceContainingEdge(*itrEdge);
-                if (face) break;
+std::vector<Edge*>& FaceTraversal::Find()
+{
+    mEdgesVector.clear();
+    mEdgesVector.push_back(mStartEdge);
+    Find(mStartEdge->twin());
+    
+    return mEdgesVector;
+}
+    
+bool FaceTraversal::Find(ftr::Edge *startEdge)
+{
+    PointNode* originNode = mStartEdge->originNode();
+    PointNode::Iterator i = originNode->Begin();
+    for(; i != originNode->End(); ++i) {
+        ftr::Edge* iEdge = *i;
+        if (iEdge->originNode() == originNode) {
+            if (iEdge != startEdge->twin() && iEdge->IsFree()) {
+                if (iEdge->twin()->originNode() == mTargetNode) {
+                    return true;
+                } else {
+                    if (iEdge->next()) {
+                        bool samePlane = true;
+                        if (mEdgesVector.size() > 1) {
+                            // samePlane check if plane would be same as first two vector elements
+                        }
+                        if (samePlane) {
+                            mEdgesVector.push_back(iEdge);
+                            if (Find(iEdge->next())) {
+                                return true;
+                            }
+                            mEdgesVector.pop_back();
+                        }
+                    }
+                    
+                }
             }
         }
-        
-        if ((itrEdge->originNode() == &pointNode) && itrEdge->prev()) {
-            itrEdge = itrEdge->prev();
-        } else {
-            itrEdge = itrEdge->twin();
-        }
-    } while (itrEdge != pointNode.mEdge);
-    
-    return face;
+    }
+    return false;
 }
-    
-FaceNode* FaceTraversal::FindAndCreateFaceContainingEdge(Edge& edge)
-{
-    Edge* itrEdge = &edge;
-    FaceNode* face = NULL;
-    printf("---------------------------------\n");
-    
-    int i = 0;
-    while (itrEdge->next()
-           && itrEdge->next()->IsFree()
-           && (itrEdge->next() != &edge)
-           && itrEdge->next()->IsCCWCountingFrom(*itrEdge)
-           && i < 2)
-    {
-        printf("%s\n", itrEdge->Description().c_str());
-        itrEdge = itrEdge->next();
-        i++;
-    }
-    
-    if (&edge == itrEdge->next()) {
-        face = new FaceNode();
-        face->BoundByLoopWithEdge(edge);
-    }
-    if (face) {
-        printf("New face:%s\n", face->Description().c_str());
-    }
-    return face;
-}
-    
     
 }
 

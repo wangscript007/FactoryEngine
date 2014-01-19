@@ -3,16 +3,25 @@
 
 #include <Model/Node.h>
 #include <Model/Octree.h>
+#include <Model/PointNodeIterator.h>
+
 
 namespace ftr {
 
-class PointNodeIterator;
 class Edge;
+class FaceNode;
+class FaceTraversal;
     
 class PointNode : public Node
 {
 public:
     typedef PointNodeIterator Iterator;
+    
+    typedef struct {
+        FaceNode* faceA;
+        FaceNode* faceB;
+        Edge* edge;
+    } ConnectionResult;
     
     static const float c_fR;
     PointNode();
@@ -29,13 +38,16 @@ public:
     void setActive(bool active) { mIsActive = active; }
     bool Active() const { return mIsActive; }
     
-    Edge* ConnectTo(PointNode* other);
+    ConnectionResult ConnectTo(PointNode* other);
     Edge* mEdge;
     Edge* Edge() const { return mEdge; }
     ftr::Edge* FindOutgoingFreeEdge() const;
     
-    ftr::Edge* Begin() const;
-    ftr::Edge* End() const;
+    PointNode::Iterator Begin() const;
+    PointNode::Iterator End() const;
+    void Insert(Iterator position, ftr::Edge& edge);
+    void Erase(Iterator position);
+    
     
     
     std::string mName;

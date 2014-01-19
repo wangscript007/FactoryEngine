@@ -33,7 +33,7 @@ LineNode* ModelFactory::CreateLine(PointNode* startPoint, PointNode* endPoint) c
     
 FaceNode* ModelFactory::FindAndCreateFaceContainingNode(PointNode& pointNode) const
 {
-    return FaceTraversal::FindAndCreateFaceContainingNode(pointNode);
+ //   return FaceTraversal::FindAndCreateFaceContainingNode(pointNode);
 }
     
 }

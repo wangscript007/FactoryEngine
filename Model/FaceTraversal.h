@@ -10,10 +10,17 @@ class Edge;
 class FaceTraversal
 {
 public:
-    static FaceNode* FindAndCreateFaceContainingNode(PointNode& pointNode);
-    static FaceNode* FindAndCreateFaceContainingEdge(Edge& edge);
+    FaceTraversal(Edge& startEdge);
+    virtual ~FaceTraversal() {}
+    
+    std::vector<Edge*>& Find();
     
 private:
+    bool Find(Edge* startEdge);
+    
+    Edge* mStartEdge;
+    PointNode* mTargetNode;
+    std::vector<Edge*> mEdgesVector;
 };
     
 }

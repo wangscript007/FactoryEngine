@@ -1,7 +1,11 @@
 
 #include <Model/PointNode.h>
+#include <Model/PointNodeIterator.h>
 #include <Model/Edge.h>
 #include <Main/Log.h>
+#include <Model/FaceNode.h>
+#include <Model/FaceTraversal.h>
+
 
 namespace ftr {
 
@@ -37,20 +41,6 @@ PointNode::PointNode(glm::vec3 origin)
     PointNode();
 }
     
-Edge* PointNode::Begin() const
-{
-    return mEdge;
-}
-    
-Edge* PointNode::End() const
-{
-    if (mEdge) {
-        return mEdge->prev() ? mEdge->prev() : mEdge;
-    } else {
-        return NULL;
-    }
-}
-
 void PointNode::Transform(const glm::mat4& m4Transformation)
 {
     //mOrigin *= m4Transformation;
@@ -67,25 +57,69 @@ void PointNode::Render(Layer& layer)
     layer.AddPrimitive(primitive);
 }
     
-// Work with connections from both directions
-Edge* PointNode::ConnectTo(PointNode* other)
+PointNode::Iterator PointNode::Begin() const
 {
+    return Iterator(*this, mEdge);
+}
+
+PointNode::Iterator PointNode::End() const
+{
+    if (mEdge && mEdge->prev()) {
+        return Iterator(*this, mEdge->prev());
+    } else {
+        return Iterator(*this, NULL);
+    }
+}
+
+void PointNode::Insert(PointNode::Iterator position, ftr::Edge& edge)
+{
+    if ((*position)->originNode() != this) {
+        ++position;
+    }
+    ftr::Edge* itrEdge = (*position);
+    
+    if (itrEdge->prev()) {
+        itrEdge->prev()->ConnectToNext(&edge);
+    } else {
+        itrEdge->twin()->ConnectToNext(&edge);
+    }
+    edge.twin()->ConnectToNext(itrEdge);
+}
+
+void PointNode::Erase(PointNode::Iterator position)
+{
+    // Fill in
+}
+    
+// Work with connections from both directions
+PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other)
+{
+    ConnectionResult result;
     ftr::Edge* newEdge = new ftr::Edge(this);
     ftr::Edge* newEdgeTwin = new ftr::Edge(other);
     newEdge->MakeTwinsWith(newEdgeTwin);
     
+    
+    
     if (mEdge) {
-        newEdge->DoublyConnectCCWOrderedAtOrigin();
+        FaceTraversal traversal(*newEdgeTwin);
+        if (traversal.Find().size()) {
+            // connect to first edge in vector
+            
+        }
     } else {
         mEdge = newEdge;
     }
     
     if (other->mEdge) {
-        newEdgeTwin->DoublyConnectCCWOrderedAtOrigin();
+        FaceTraversal traversal(*newEdge);
+        traversal.Find();
     } else {
         other->mEdge = newEdgeTwin;
     }
-    return newEdge;
+    
+    result.edge = newEdge;
+    return result;
 }
     
 Edge* PointNode::FindOutgoingFreeEdge() const
