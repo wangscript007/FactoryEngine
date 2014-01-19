@@ -93,6 +93,8 @@
 		605FFDFC17DFDD3400DE90A9 /* LeapListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 605FFDFA17DFDD3400DE90A9 /* LeapListener.h */; };
 		60607E1017E63CF600708358 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60607E0F17E63CF600708358 /* XCTest.framework */; };
 		60607E1617E63CF600708358 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60607E1417E63CF600708358 /* InfoPlist.strings */; };
+		60686C0C188C222200CEE3D8 /* PointNodeIterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60686C0A188C222200CEE3D8 /* PointNodeIterator.cpp */; };
+		60686C0D188C222200CEE3D8 /* PointNodeIterator.h in Headers */ = {isa = PBXBuildFile; fileRef = 60686C0B188C222200CEE3D8 /* PointNodeIterator.h */; };
 		606BC00B1808639500EC4F37 /* AxisSnap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0051808639500EC4F37 /* AxisSnap.cpp */; };
 		606BC00C1808639500EC4F37 /* AxisSnap.h in Headers */ = {isa = PBXBuildFile; fileRef = 606BC0061808639500EC4F37 /* AxisSnap.h */; };
 		606BC00D1808639500EC4F37 /* Snap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0071808639500EC4F37 /* Snap.cpp */; };
@@ -406,6 +408,8 @@
 		60607E1917E63CF600708358 /* FactoryEngine Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FactoryEngine Tests-Prefix.pch"; sourceTree = "<group>"; };
 		60666D3E175A4ABE007FF45F /* ShadingInterfaceES.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadingInterfaceES.cpp; sourceTree = "<group>"; };
 		60666D3F175A4ABE007FF45F /* ShadingInterfaceES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadingInterfaceES.h; sourceTree = "<group>"; };
+		60686C0A188C222200CEE3D8 /* PointNodeIterator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointNodeIterator.cpp; sourceTree = "<group>"; };
+		60686C0B188C222200CEE3D8 /* PointNodeIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointNodeIterator.h; sourceTree = "<group>"; };
 		606A7F5C163C0C0700E4F243 /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
 		606BC0051808639500EC4F37 /* AxisSnap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AxisSnap.cpp; sourceTree = "<group>"; };
 		606BC0061808639500EC4F37 /* AxisSnap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxisSnap.h; sourceTree = "<group>"; };
@@ -833,6 +837,8 @@
 				D1C708C015B36D0E00D64823 /* GroupNode.h */,
 				60FF395A1813CBC700B86F40 /* FaceTraversal.cpp */,
 				60FF395B1813CBC700B86F40 /* FaceTraversal.h */,
+				60686C0A188C222200CEE3D8 /* PointNodeIterator.cpp */,
+				60686C0B188C222200CEE3D8 /* PointNodeIterator.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -949,6 +955,7 @@
 				D1F44F56157FE9D200566119 /* HUD.h in Headers */,
 				D17C76891584B6010083E2B0 /* Log.h in Headers */,
 				D17C76AC1584E3900083E2B0 /* GLError.h in Headers */,
+				60686C0D188C222200CEE3D8 /* PointNodeIterator.h in Headers */,
 				D13D718415AF949100143662 /* Node.h in Headers */,
 				D13D718815AF96F000143662 /* BodyNode.h in Headers */,
 				D1C708C215B36D0E00D64823 /* GroupNode.h in Headers */,
@@ -1319,6 +1326,7 @@
 				60BD328A1744039D00C2E593 /* LightingModel.cpp in Sources */,
 				60BD328E174436BD00C2E593 /* LightingCollection.cpp in Sources */,
 				60BD3292174436EA00C2E593 /* DefaultLighting.cpp in Sources */,
+				60686C0C188C222200CEE3D8 /* PointNodeIterator.cpp in Sources */,
 				6011AF1B1747C2FC0022E7A9 /* LigthtingModelFactory.cpp in Sources */,
 				60C6D0C01749738A0009EC3C /* Polygon.cpp in Sources */,
 				60C6D0C21749739B0009EC3C /* Rect.cpp in Sources */,

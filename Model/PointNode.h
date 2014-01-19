@@ -6,10 +6,13 @@
 
 namespace ftr {
 
+class PointNodeIterator;
 class Edge;
+    
 class PointNode : public Node
 {
 public:
+    typedef PointNodeIterator Iterator;
     
     static const float c_fR;
     PointNode();
@@ -30,6 +33,9 @@ public:
     Edge* mEdge;
     Edge* Edge() const { return mEdge; }
     ftr::Edge* FindOutgoingFreeEdge() const;
+    
+    ftr::Edge* Begin() const;
+    ftr::Edge* End() const;
     
     
     std::string mName;

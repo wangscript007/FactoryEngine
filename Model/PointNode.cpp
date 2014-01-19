@@ -36,6 +36,20 @@ PointNode::PointNode(glm::vec3 origin)
 {
     PointNode();
 }
+    
+Edge* PointNode::Begin() const
+{
+    return mEdge;
+}
+    
+Edge* PointNode::End() const
+{
+    if (mEdge) {
+        return mEdge->prev() ? mEdge->prev() : mEdge;
+    } else {
+        return NULL;
+    }
+}
 
 void PointNode::Transform(const glm::mat4& m4Transformation)
 {
