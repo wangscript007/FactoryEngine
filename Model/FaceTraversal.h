@@ -13,7 +13,9 @@ public:
     FaceTraversal(Edge& startEdge);
     virtual ~FaceTraversal() {}
     
-    std::vector<Edge*>& Find();
+    void Find();
+    
+    std::vector<Edge*>& FaceEdges() { return mEdgesVector; }
     
 private:
     bool Find(Edge* startEdge);

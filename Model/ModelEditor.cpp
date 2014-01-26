@@ -61,10 +61,14 @@ LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
 {
     assert(mSelectedNode);
     LineNode* line = mModelFactory->CreateLine(startPoint, endPoint);
-    startPoint->ConnectTo(endPoint);
-    FindAndCreateFaceContainingNode(*startPoint);
-    FindAndCreateFaceContainingNode(*endPoint);
+    PointNode::ConnectionResult result = startPoint->ConnectTo(endPoint);
     mSelectedNode->AddNode(line);
+    if (result.faceA) {
+        mSelectedNode->AddNode(result.faceA);
+    }
+    if (result.faceB) {
+        mSelectedNode->AddNode(result.faceB);
+    }
     mSelectedNode = line;
     return line;
     

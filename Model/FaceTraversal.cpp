@@ -22,13 +22,11 @@ FaceTraversal::FaceTraversal(Edge& startEdge)
     
 }
 
-std::vector<Edge*>& FaceTraversal::Find()
+void FaceTraversal::Find()
 {
     mEdgesVector.clear();
     mEdgesVector.push_back(mStartEdge);
     Find(mStartEdge->twin());
-    
-    return mEdgesVector;
 }
     
 bool FaceTraversal::Find(ftr::Edge *startEdge)

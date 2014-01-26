@@ -64,10 +64,14 @@ PointNode::Iterator PointNode::Begin() const
 
 PointNode::Iterator PointNode::End() const
 {
-    if (mEdge && mEdge->prev()) {
-        return Iterator(*this, mEdge->prev());
+    if (mEdge) {
+        if (mEdge->prev()) {
+            return Iterator(*this, mEdge->prev());
+        } else {
+            return Iterator(*this, mEdge->twin());
+        }
     } else {
-        return Iterator(*this, NULL);
+        Iterator(*this, NULL);
     }
 }
 
@@ -98,14 +102,17 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other)
     ftr::Edge* newEdge = new ftr::Edge(this);
     ftr::Edge* newEdgeTwin = new ftr::Edge(other);
     newEdge->MakeTwinsWith(newEdgeTwin);
-    
-    
+    result.edge = newEdge;
     
     if (mEdge) {
         FaceTraversal traversal(*newEdgeTwin);
-        if (traversal.Find().size()) {
-            // connect to first edge in vector
-            
+        traversal.Find();
+        if (traversal.FaceEdges().size()) {
+            result.faceA = new FaceNode(traversal.FaceEdges());
+            Insert(PointNodeIterator(*other, traversal.FaceEdges().front()), *newEdgeTwin);
+        } else {
+            Insert(End(), *newEdgeTwin);
+            result.faceA = NULL;
         }
     } else {
         mEdge = newEdge;
@@ -114,11 +121,17 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other)
     if (other->mEdge) {
         FaceTraversal traversal(*newEdge);
         traversal.Find();
+        if (traversal.FaceEdges().size()) {
+            result.faceB = new FaceNode(traversal.FaceEdges());
+            Insert(PointNodeIterator(*this, traversal.FaceEdges().front()), *newEdge);
+        } else {
+            other->Insert(other->End(), *newEdge);
+            result.faceB = NULL;
+        }
     } else {
         other->mEdge = newEdgeTwin;
     }
     
-    result.edge = newEdge;
     return result;
 }
     

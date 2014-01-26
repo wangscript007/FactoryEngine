@@ -17,6 +17,7 @@ class FaceNode : public Node
 {
 public:
     FaceNode();
+    FaceNode(std::vector<Edge*>& edges);
     ~FaceNode();
     
     void Render(Layer& layer);

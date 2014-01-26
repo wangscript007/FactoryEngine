@@ -6,6 +6,16 @@
 #include <Main/Log.h>
 
 namespace ftr {
+    
+FaceNode::FaceNode(std::vector<Edge*>& edges)
+{
+    assert(edges.size() > 2);
+    for (int i = 0; i < edges.size()-1; ++i) {
+        edges[i]->ConnectToNext(edges[i+1]);
+    }
+    edges.back()->ConnectToNext(edges.front());
+    BoundByLoopWithEdge(*edges.front());
+}
 
 FaceNode::FaceNode()
 {

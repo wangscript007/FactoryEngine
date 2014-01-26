@@ -94,7 +94,6 @@ void Edge::DoublyConnectCCWOrderedAtOrigin()
     ftr::Edge* CWNeighbour = CWNeighbourWithSameOrigin();
     // Notice: use old prev pointer pointer to connect edge
     if (CWNeighbour->prev()) {
-//        assert(!CWNeighbour->prev()->IsCCWCountingFrom(*this));
         CWNeighbour->prev()->ConnectToNext(this);
     } else {
         CWNeighbour->twin()->ConnectToNext(this);
