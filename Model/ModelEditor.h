@@ -29,7 +29,6 @@ public:
     
     
 private:
-    FaceNode*       FindAndCreateFaceContainingNode(PointNode& pointNode);
     
     class ModelFactory* mModelFactory;
     class ModelTree*    mModelTree;

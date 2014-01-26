@@ -64,15 +64,7 @@ PointNode::Iterator PointNode::Begin() const
 
 PointNode::Iterator PointNode::End() const
 {
-    if (mEdge) {
-        if (mEdge->prev()) {
-            return Iterator(*this, mEdge->prev());
-        } else {
-            return Iterator(*this, mEdge->twin());
-        }
-    } else {
-        Iterator(*this, NULL);
-    }
+    return ++Begin();
 }
 
 void PointNode::Insert(PointNode::Iterator position, ftr::Edge& edge)
@@ -96,7 +88,7 @@ void PointNode::Erase(PointNode::Iterator position)
 }
     
 // Work with connections from both directions
-PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other)
+PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTraversal)
 {
     ConnectionResult result;
     ftr::Edge* newEdge = new ftr::Edge(this);
@@ -105,28 +97,32 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other)
     result.edge = newEdge;
     
     if (mEdge) {
-        FaceTraversal traversal(*newEdgeTwin);
-        traversal.Find();
-        if (traversal.FaceEdges().size()) {
-            result.faceA = new FaceNode(traversal.FaceEdges());
-            Insert(PointNodeIterator(*other, traversal.FaceEdges().front()), *newEdgeTwin);
-        } else {
-            Insert(End(), *newEdgeTwin);
-            result.faceA = NULL;
+        if (!skipTraversal) {
+            FaceTraversal traversal(*newEdgeTwin);
+            traversal.Find();
+            if (traversal.FaceEdges().size()) {
+                result.faceA = new FaceNode(traversal.FaceEdges());
+                Insert(PointNodeIterator(*other, traversal.FaceEdges().front()), *newEdgeTwin);
+            } else {
+                Insert(End(), *newEdgeTwin);
+                result.faceA = NULL;
+            }
         }
     } else {
         mEdge = newEdge;
     }
     
     if (other->mEdge) {
-        FaceTraversal traversal(*newEdge);
-        traversal.Find();
-        if (traversal.FaceEdges().size()) {
-            result.faceB = new FaceNode(traversal.FaceEdges());
-            Insert(PointNodeIterator(*this, traversal.FaceEdges().front()), *newEdge);
-        } else {
-            other->Insert(other->End(), *newEdge);
-            result.faceB = NULL;
+        if (!skipTraversal) {
+            FaceTraversal traversal(*newEdge);
+            traversal.Find();
+            if (traversal.FaceEdges().size()) {
+                result.faceB = new FaceNode(traversal.FaceEdges());
+                Insert(PointNodeIterator(*this, traversal.FaceEdges().front()), *newEdge);
+            } else {
+                other->Insert(other->End(), *newEdge);
+                result.faceB = NULL;
+            }
         }
     } else {
         other->mEdge = newEdgeTwin;

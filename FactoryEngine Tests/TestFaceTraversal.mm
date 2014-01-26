@@ -16,7 +16,7 @@
 using namespace ftr;
 
 @interface TestFaceTraversal : XCTestCase {
-    FaceTraversal traversal;
+//    FaceTraversal traversal;
     PointNode* v1;
     PointNode* v2;
     PointNode* v3;
@@ -65,25 +65,15 @@ using namespace ftr;
     FaceNode* face = NULL;
     
     v1->ConnectTo(v3);
-    face = traversal.FindAndCreateFaceContainingNode(*v1);
-    XCTAssertTrue(face == NULL);
     
     v3->ConnectTo(v4);
-    face = traversal.FindAndCreateFaceContainingNode(*v3);
-    XCTAssertTrue(face == NULL);
     
     v4->ConnectTo(v1);
-    face = traversal.FindAndCreateFaceContainingNode(*v4);
-    XCTAssertTrue(face != NULL);
     
-    // Include height dimention
     v1->ConnectTo(v2h);
-    face = traversal.FindAndCreateFaceContainingNode(*v3);
-    XCTAssertTrue(face == NULL);
     
     v2h->ConnectTo(v3);
-    face = traversal.FindAndCreateFaceContainingNode(*v3);
-    XCTAssertTrue(face != NULL);
+    
 }
 
 - (void)testTwoTrianglesOrdered
@@ -91,150 +81,30 @@ using namespace ftr;
     FaceNode* face = NULL;
     
     v1->ConnectTo(v2);
-    face = traversal.FindAndCreateFaceContainingNode(*v1);
-    XCTAssertTrue(face == NULL);
+    
+    
     
     v2->ConnectTo(v3);
-    face = traversal.FindAndCreateFaceContainingNode(*v2);
-    XCTAssertTrue(face == NULL);
+    
+    
     
     v3->ConnectTo(v1);
-    face = traversal.FindAndCreateFaceContainingNode(*v3);
-    XCTAssertTrue(face != NULL);
+    
+    
     
     v4->ConnectTo(v3);
-    face = traversal.FindAndCreateFaceContainingNode(*v4);
-    XCTAssertTrue(face == NULL);
+    
     
     v1->ConnectTo(v4);
-    face = traversal.FindAndCreateFaceContainingNode(*v4);
-    XCTAssertTrue(face != NULL);
+    
     
     v5->ConnectTo(v4);
-    face = traversal.FindAndCreateFaceContainingNode(*v4);
-    XCTAssertTrue(face == NULL);
+    
 }
 
-- (void)testTwoTrianglesUnordered
-{
-    FaceNode* face = NULL;
-    
-    v2->ConnectTo(v3);
-    face = traversal.FindAndCreateFaceContainingNode(*v2);
-    XCTAssertTrue(face == NULL);
-    
-    v1->ConnectTo(v2);
-    face = traversal.FindAndCreateFaceContainingNode(*v1);
-    XCTAssertTrue(face == NULL);
-    
-    v4->ConnectTo(v3);
-    face = traversal.FindAndCreateFaceContainingNode(*v4);
-    XCTAssertTrue(face == NULL);
-    
-    v3->ConnectTo(v1);
-    face = traversal.FindAndCreateFaceContainingNode(*v3);
-    XCTAssertTrue(face != NULL);
-    
-    v1->ConnectTo(v4);
-    face = traversal.FindAndCreateFaceContainingNode(*v4);
-    XCTAssertTrue(face != NULL);
-}
 
-- (void)testThreeTrianglesUnordered
-{
-    FaceNode* face = NULL;
-    
-    v2->ConnectTo(v3);
-    face = traversal.FindAndCreateFaceContainingNode(*v2);
-    XCTAssertTrue(face == NULL);
-    
-    v1->ConnectTo(v2);
-    face = traversal.FindAndCreateFaceContainingNode(*v1);
-    XCTAssertTrue(face == NULL);
-    
-    v4->ConnectTo(v3);
-    face = traversal.FindAndCreateFaceContainingNode(*v4);
-    XCTAssertTrue(face == NULL);
-    
-    v3->ConnectTo(v1);
-    face = traversal.FindAndCreateFaceContainingNode(*v3);
-    XCTAssertTrue(face != NULL);
-    
-    v1->ConnectTo(v4);
-    face = traversal.FindAndCreateFaceContainingNode(*v4);
-    XCTAssertTrue(face != NULL);
-    
-    v5->ConnectTo(v4);
-    face = traversal.FindAndCreateFaceContainingNode(*v5);
-    XCTAssertTrue(face == NULL);
-    
-    v5->ConnectTo(v3);
-    face = traversal.FindAndCreateFaceContainingNode(*v3);
-    XCTAssertTrue(face != NULL);
-}
 
-- (void)testThreeTrianglesUnordered2
-{
-    FaceNode* face = NULL;
-    
-    v1->ConnectTo(v2);
-    face = traversal.FindAndCreateFaceContainingNode(*v1);
-    XCTAssertTrue(face == NULL);
-    
-    v4->ConnectTo(v3);
-    face = traversal.FindAndCreateFaceContainingNode(*v4);
-    XCTAssertTrue(face == NULL);
-    
-    v4->ConnectTo(v5);
-    face = traversal.FindAndCreateFaceContainingNode(*v5);
-    XCTAssertTrue(face == NULL);
-    
-    v3->ConnectTo(v2);
-    face = traversal.FindAndCreateFaceContainingNode(*v2);
-    XCTAssertTrue(face == NULL);
-    
-    v3->ConnectTo(v1);
-    face = traversal.FindAndCreateFaceContainingNode(*v3);
-    XCTAssertTrue(face != NULL);
-    
-    v1->ConnectTo(v4);
-    face = traversal.FindAndCreateFaceContainingNode(*v4);
-    XCTAssertTrue(face != NULL);
-    
-    v5->ConnectTo(v3);
-    face = traversal.FindAndCreateFaceContainingNode(*v3);
-    XCTAssertTrue(face != NULL);
-}
 
-- (void)testConnectingIncidentFaces
-{
-    v1->ConnectTo(v2);
-    traversal.FindAndCreateFaceContainingNode(*v1);
-    v2->ConnectTo(v3);
-    traversal.FindAndCreateFaceContainingNode(*v3);
-    v3->ConnectTo(v1);
-    traversal.FindAndCreateFaceContainingNode(*v1);
-    v3->ConnectTo(v4);
-    traversal.FindAndCreateFaceContainingNode(*v3);
-    v1->ConnectTo(v4);
-    traversal.FindAndCreateFaceContainingNode(*v1);
-}
-
-- (void)testConnectingIncidentFaces2
-{
-    v3->ConnectTo(v5);
-    traversal.FindAndCreateFaceContainingNode(*v1);
-    v3->ConnectTo(v4);
-    traversal.FindAndCreateFaceContainingNode(*v3);
-    v1->ConnectTo(v2);
-    traversal.FindAndCreateFaceContainingNode(*v1);
-    v4->ConnectTo(v1);
-    traversal.FindAndCreateFaceContainingNode(*v3);
-    v2->ConnectTo(v3);
-    traversal.FindAndCreateFaceContainingNode(*v1);
-    v3->ConnectTo(v1);
-    traversal.FindAndCreateFaceContainingNode(*v1);
-}
 
 
 - (void)testConnectingInRandomOrder
@@ -281,12 +151,12 @@ using namespace ftr;
             PointNode* p1 = (*it).first;
             PointNode* p2 = (*it).second;
             p1->ConnectTo(p2);
-            if (traversal.FindAndCreateFaceContainingNode(*p1)) {
-                facesCount++;
-            }
-            if (traversal.FindAndCreateFaceContainingNode(*p2)) {
-                facesCount++;
-            }
+//            if (traversal.FindAndCreateFaceContainingNode(*p1)) {
+//                facesCount++;
+//            }
+//            if (traversal.FindAndCreateFaceContainingNode(*p2)) {
+//                facesCount++;
+//            }
         }
         assert(3 == facesCount);
         XCTAssertEqual(3, facesCount);
@@ -308,20 +178,13 @@ using namespace ftr;
     FaceNode* face = NULL;
     
     v2->ConnectTo(v3);
-    face = traversal.FindAndCreateFaceContainingNode(*v2);
-    XCTAssertTrue(face == NULL);
     
     v1->ConnectTo(v2);
-    face = traversal.FindAndCreateFaceContainingNode(*v1);
-    XCTAssertTrue(face == NULL);
     
     v4->ConnectTo(v3);
-    face = traversal.FindAndCreateFaceContainingNode(*v4);
-    XCTAssertTrue(face == NULL);
     
     v4->ConnectTo(v1);
-    face = traversal.FindAndCreateFaceContainingNode(*v4);
-    XCTAssertTrue(face != NULL);
+    
 }
 
 

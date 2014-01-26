@@ -38,7 +38,7 @@ public:
     void setActive(bool active) { mIsActive = active; }
     bool Active() const { return mIsActive; }
     
-    ConnectionResult ConnectTo(PointNode* other);
+    ConnectionResult ConnectTo(PointNode* other, bool skipTraversal = false);
     Edge* mEdge;
     Edge* Edge() const { return mEdge; }
     ftr::Edge* FindOutgoingFreeEdge() const;

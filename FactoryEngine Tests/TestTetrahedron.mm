@@ -20,7 +20,7 @@ using namespace ftr;
     PointNode* v3;
     PointNode* l4;
     PointNode* h4;
-    FaceTraversal traversal;
+//    FaceTraversal traversal;
 }
 
 @end
@@ -56,34 +56,11 @@ using namespace ftr;
 
 - (void)testConnectingLowTetrahedron
 {
-    Edge* e12 = v1->ConnectTo(v2);
-    Edge* e23 = v2->ConnectTo(v3);
-    Edge* e31 = v3->ConnectTo(v1);
-    XCTAssertTrue(traversal.FindAndCreateFaceContainingNode(*v3));
-    Edge* e14 = v1->ConnectTo(l4);
-    Edge* e34 = v3->ConnectTo(l4);
-    XCTAssertTrue(traversal.FindAndCreateFaceContainingNode(*v3));
-    Edge* e24 = v2->ConnectTo(l4);
-    XCTAssertTrue(traversal.FindAndCreateFaceContainingNode(*v3));
-    
-//    XCTAssertEqual(e12->twin()->next(), e14);
-    XCTAssertEqual(e23->twin()->next(), e12->twin());
-  //  XCTAssertEqual(e31->twin()->next(), e34);
 }
 
 - (void)testConnectingHighTetrahedron
 {
-    Edge* e12 = v1->ConnectTo(v2);
-    Edge* e23 = v2->ConnectTo(v3);
-    Edge* e31 = v3->ConnectTo(v1);
-//    Edge* e14 = v1->ConnectTo(h4);
-//    Edge* e24 = v2->ConnectTo(h4);
-//    Edge* e34 = v3->ConnectTo(h4);
     
-    XCTAssertEqual(e12->twin()->next(), e31->twin());
-    XCTAssertEqual(e23->twin()->next(), e12->twin());
-    XCTAssertEqual(e31->twin()->next(), e23->twin());
-
 }
 
 @end

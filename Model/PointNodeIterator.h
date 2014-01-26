@@ -44,6 +44,7 @@ private:
     
 inline PointNodeIterator& PointNodeIterator::operator ++ ()
 {
+    assert(mEdge->originNode() == &mPointNode);
     if ((mEdge->originNode() != &mPointNode) && mEdge->next()) {
         mEdge = mEdge->next();
     } else {

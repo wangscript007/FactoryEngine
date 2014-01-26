@@ -27,6 +27,9 @@ void FaceTraversal::Find()
     mEdgesVector.clear();
     mEdgesVector.push_back(mStartEdge);
     Find(mStartEdge->twin());
+    if (mEdgesVector.size() < 3) {
+        mEdgesVector.clear();
+    }
 }
     
 bool FaceTraversal::Find(ftr::Edge *startEdge)

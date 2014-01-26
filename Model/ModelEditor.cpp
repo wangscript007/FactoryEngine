@@ -74,15 +74,6 @@ LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
     
 }
     
-FaceNode* ModelEditor::FindAndCreateFaceContainingNode(PointNode& pointNode)
-{
-    FaceNode* face = mModelFactory->FindAndCreateFaceContainingNode(pointNode);
-    if (face) {
-        mSelectedNode->AddNode(face);
-        //mSelectedNode = face;
-    }
-    return face;
-}
     
 }
 
