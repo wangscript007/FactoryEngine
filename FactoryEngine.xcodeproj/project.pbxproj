@@ -11,6 +11,7 @@
 		6011AF1C1747C2FC0022E7A9 /* LigthtingModelFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 6011AF1A1747C2FC0022E7A9 /* LigthtingModelFactory.h */; };
 		601EC86B175B2901003DE2B8 /* CameraInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 601EC869175B2901003DE2B8 /* CameraInteraction.cpp */; };
 		601EC86C175B2901003DE2B8 /* CameraInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 601EC86A175B2901003DE2B8 /* CameraInteraction.h */; };
+		602055C518A6BE790005F379 /* Docs in Resources */ = {isa = PBXBuildFile; fileRef = 602055C418A6BE790005F379 /* Docs */; };
 		6021AFBC17230800001EAEBE /* LayerRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFBB17230800001EAEBE /* LayerRenderer.cpp */; };
 		6021AFBF17230E82001EAEBE /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFBD17230E82001EAEBE /* Layer.cpp */; };
 		6021AFC017230E82001EAEBE /* Layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFBE17230E82001EAEBE /* Layer.h */; };
@@ -368,6 +369,7 @@
 		60127559163BDB0000E98E34 /* Readme.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Readme.rtf; sourceTree = "<group>"; };
 		601EC869175B2901003DE2B8 /* CameraInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraInteraction.cpp; sourceTree = "<group>"; };
 		601EC86A175B2901003DE2B8 /* CameraInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraInteraction.h; sourceTree = "<group>"; };
+		602055C418A6BE790005F379 /* Docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Docs; sourceTree = "<group>"; };
 		6021AFBB17230800001EAEBE /* LayerRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayerRenderer.cpp; sourceTree = "<group>"; };
 		6021AFBD17230E82001EAEBE /* Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Layer.cpp; sourceTree = "<group>"; };
 		6021AFBE17230E82001EAEBE /* Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layer.h; sourceTree = "<group>"; };
@@ -726,6 +728,7 @@
 			children = (
 				60127559163BDB0000E98E34 /* Readme.rtf */,
 				D17C76641583BF440083E2B0 /* FactoryEngine.h */,
+				602055C418A6BE790005F379 /* Docs */,
 				606A7F5C163C0C0700E4F243 /* Documentation */,
 				605FFDF017DFDC4C00DE90A9 /* Leap */,
 				604E939816A1C6CF00143522 /* Scripts */,
@@ -1110,6 +1113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				602A43A41800A59600EC071F /* glm in Resources */,
+				602055C518A6BE790005F379 /* Docs in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
