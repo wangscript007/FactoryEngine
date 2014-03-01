@@ -57,6 +57,8 @@ void PointNode::Render(Layer& layer)
     layer.AddPrimitive(primitive);
 }
     
+#pragma mark - List
+    
 PointNode::Iterator PointNode::Begin() const
 {
     return Iterator(*this, mEdge);
@@ -72,20 +74,32 @@ void PointNode::Insert(PointNode::Iterator position, ftr::Edge& edge)
     if ((*position)->originNode() != this) {
         ++position;
     }
-    ftr::Edge* itrEdge = (*position);
-    
-    if (itrEdge->prev()) {
-        itrEdge->prev()->ConnectToNext(&edge);
+    ftr::Edge* posEdge = (*position);
+    ftr::Edge* insertEdge = NULL;
+    if (edge.originNode() != this) {
+        insertEdge = edge.twin();
     } else {
-        itrEdge->twin()->ConnectToNext(&edge);
+        insertEdge = &edge;
     }
-    edge.twin()->ConnectToNext(itrEdge);
+    assert(insertEdge->originNode() == this);
+    assert(posEdge->originNode() == this);
+    
+    printf("inserting edge %s at position %s\n", edge.Name().c_str(), posEdge->Name().c_str());
+
+    if (posEdge->prev()) {
+        posEdge->prev()->ConnectToNext(insertEdge);
+    } else {
+        posEdge->twin()->ConnectToNext(insertEdge);
+    }
+    insertEdge->twin()->ConnectToNext(posEdge);
 }
 
 void PointNode::Erase(PointNode::Iterator position)
 {
     // Fill in
 }
+    
+#pragma mark - Connecting
     
 // Work with connections from both directions
 PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTraversal)

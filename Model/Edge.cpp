@@ -114,6 +114,7 @@ bool Edge::IsCCWCountingFrom(const Edge& other) const
     
 void Edge::ConnectToNext(Edge* next)
 {
+    printf("%s connect to next %s\n", Name().c_str(), next->Name().c_str());
     assert(next);
     assert(next != this);
     assert(next != mTwin);
