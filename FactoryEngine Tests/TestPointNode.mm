@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #include <Model/PointNode.h>
+#include <Model/PointNodeIterator.h>
 #include <Model/Edge.h>
 
 using namespace ftr;
@@ -94,7 +95,43 @@ using namespace ftr;
     PointNode::ConnectionResult e41 = v4->ConnectTo(v1, true);
     
     v1->Insert(v1->Begin(), *e31.edge);
+    v1->Insert(v1->Begin(), *e41.edge);
 
+    PointNode::Iterator it = v1->Begin();
+    int i = 0;
+    for(; it != v1->End(); ++it) {
+        Edge* edge = (*it);
+        printf("Edge %s is at index %d\n", edge->Name().c_str(), i);
+        i++;
+    }
+    it = v1->End();
+    --it;
+    i--;
+    for(; it != v1->End(); --it) {
+        Edge* edge = (*it);
+        printf("Edge %s is at index %d\n", edge->Name().c_str(), i);
+        i--;
+    }
+}
+
+- (void)testStd
+{
+    int myints[] = {75,23,65,42,13};
+    std::list<int> mylist (myints,myints+5);
+    
+    std::cout << "mylist contains:";
+    for (std::list<int>::iterator it=mylist.begin(); it != mylist.end(); ++it)
+        std::cout << ' ' << *it;
+    
+    std::cout << '\n';
+    
+    std::cout << "mylist contains:";
+    for (std::list<int>::iterator it=mylist.end(); it != mylist.begin(); --it)
+        std::cout << ' ' << *it;
+    
+    std::cout << '\n';
+
+    
 }
 
 

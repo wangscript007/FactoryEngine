@@ -3,7 +3,7 @@
 
 #include <Model/Node.h>
 #include <Model/Octree.h>
-#include <Model/PointNodeIterator.h>
+//#include <Model/PointNodeIterator.h>
 
 
 namespace ftr {
@@ -11,6 +11,7 @@ namespace ftr {
 class Edge;
 class FaceNode;
 class FaceTraversal;
+class PointNodeIterator;
     
 class PointNode : public Node
 {
@@ -40,13 +41,12 @@ public:
     
     ConnectionResult ConnectTo(PointNode* other, bool skipTraversal = false);
     Edge* mEdge;
-    Edge* Edge() const { return mEdge; }
     ftr::Edge* FindOutgoingFreeEdge() const;
     
     PointNode::Iterator Begin() const;
     PointNode::Iterator End() const;
     void Insert(Iterator position, ftr::Edge& edge);
-    void Erase(Iterator position);
+    void Remove(Iterator position);
     
     
     

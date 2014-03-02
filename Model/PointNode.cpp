@@ -66,14 +66,11 @@ PointNode::Iterator PointNode::Begin() const
 
 PointNode::Iterator PointNode::End() const
 {
-    return ++Begin();
+    return Iterator(*this, NULL);
 }
 
 void PointNode::Insert(PointNode::Iterator position, ftr::Edge& edge)
 {
-    if ((*position)->originNode() != this) {
-        ++position;
-    }
     ftr::Edge* posEdge = (*position);
     ftr::Edge* insertEdge = NULL;
     if (edge.originNode() != this) {
@@ -92,11 +89,17 @@ void PointNode::Insert(PointNode::Iterator position, ftr::Edge& edge)
         posEdge->twin()->ConnectToNext(insertEdge);
     }
     insertEdge->twin()->ConnectToNext(posEdge);
+    
+    if (position == Begin()) {
+        // Marking as new begin
+        mEdge = insertEdge;
+    }
 }
 
-void PointNode::Erase(PointNode::Iterator position)
+void PointNode::Remove(PointNode::Iterator position)
 {
-    // Fill in
+    assert(position != End());
+    
 }
     
 #pragma mark - Connecting
