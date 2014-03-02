@@ -25,9 +25,13 @@ FaceTraversal::FaceTraversal(Edge& startEdge)
 
 void FaceTraversal::Find()
 {
+    std::cout
+    << "Find route from " << mStartEdge->targetNode()->mName
+    << " to "<<  mStartEdge->originNode()->mName << std::endl;
     mEdgesVector.clear();
     mEdgesVector.push_back(mStartEdge);
     Find(mStartEdge->twin());
+    
     if (mEdgesVector.size() < 3) {
         mEdgesVector.clear();
     }
@@ -35,30 +39,37 @@ void FaceTraversal::Find()
     
 bool FaceTraversal::Find(ftr::Edge *startEdge)
 {
-    PointNode* originNode = mStartEdge->originNode();
-    PointNode::Iterator i = originNode->Begin();
-    for(; i != originNode->End(); ++i) {
+    std::cout << "Checking " << startEdge->Name() << std::endl;
+    PointNode* originNode = startEdge->originNode();
+    for(PointNode::Iterator i = originNode->Begin(); i != originNode->End(); ++i)
+    {
         ftr::Edge* iEdge = *i;
-        if (iEdge->originNode() == originNode) {
-            if (iEdge != startEdge->twin() && iEdge->IsFree()) {
-                if (iEdge->twin()->originNode() == mTargetNode) {
-                    return true;
-                } else {
-                    if (iEdge->next()) {
-                        bool samePlane = true;
-                        if (mEdgesVector.size() > 1) {
-                            // samePlane check if plane would be same as first two vector elements
-                        }
-                        if (samePlane) {
-                            mEdgesVector.push_back(iEdge);
-                            if (Find(iEdge->next())) {
-                                return true;
-                            }
-                            mEdgesVector.pop_back();
-                        }
+        if (iEdge != startEdge->twin() && iEdge->IsFree())
+        {
+            if (iEdge->targetNode() == mTargetNode)
+            {
+                mEdgesVector.push_back(iEdge);
+                return true;
+            }
+            else {
+                if (iEdge->next())
+                {
+                    bool samePlane = true;
+                    if (mEdgesVector.size() > 1) {
+                        // samePlane check if plane would be same as first two vector elements
                     }
-                    
+                    if (samePlane)
+                    {
+                        mEdgesVector.push_back(iEdge);
+                        
+                        if (Find(iEdge->next()))
+                        {
+                            return true;
+                        }
+                        mEdgesVector.pop_back();
+                    }
                 }
+                
             }
         }
     }

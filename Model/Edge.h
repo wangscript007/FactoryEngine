@@ -28,6 +28,7 @@ public:
     Edge* next() const { return mNext; }
     Edge* prev() const { return mPrev; }
     PointNode* originNode() const { return mOriginNode; }
+    PointNode* targetNode() const { return mTwin->mOriginNode; }
     
     void MakeTwinsWith(Edge* twin);
     void DeleteTwin() { FT_DELETE(mTwin); }

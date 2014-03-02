@@ -71,6 +71,9 @@ PointNode::Iterator PointNode::End() const
 
 void PointNode::Insert(PointNode::Iterator position, ftr::Edge& edge)
 {
+    if (position == End()) {
+        position = Begin();
+    }
     ftr::Edge* posEdge = (*position);
     ftr::Edge* insertEdge = NULL;
     if (edge.originNode() != this) {
@@ -119,11 +122,11 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
             traversal.Find();
             if (traversal.FaceEdges().size()) {
                 result.faceA = new FaceNode(traversal.FaceEdges());
-                Insert(PointNodeIterator(*other, traversal.FaceEdges().front()), *newEdgeTwin);
             } else {
-                Insert(End(), *newEdgeTwin);
                 result.faceA = NULL;
+                Insert(End(), *newEdgeTwin);
             }
+
         }
     } else {
         mEdge = newEdge;
@@ -135,11 +138,11 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
             traversal.Find();
             if (traversal.FaceEdges().size()) {
                 result.faceB = new FaceNode(traversal.FaceEdges());
-                Insert(PointNodeIterator(*this, traversal.FaceEdges().front()), *newEdge);
             } else {
-                other->Insert(other->End(), *newEdge);
                 result.faceB = NULL;
+                other->Insert(other->End(), *newEdge);
             }
+            
         }
     } else {
         other->mEdge = newEdgeTwin;
