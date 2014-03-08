@@ -18,11 +18,12 @@ class PointNode : public Node
 public:
     typedef PointNodeIterator Iterator;
     
-    typedef struct {
+    struct ConnectionResult {
         FaceNode* faceA;
         FaceNode* faceB;
         Edge* edge;
-    } ConnectionResult;
+        ConnectionResult() : faceA(NULL), faceB(NULL), edge(NULL) {};
+    };
     
     static const float c_fR;
     PointNode();
