@@ -50,6 +50,8 @@ public:
     
     void Insert(Iterator position, ftr::Edge& edge);
     void Remove(Iterator position);
+    void Move(Iterator fromPosition, Iterator toPosition);
+    void Move(Edge& edge, Iterator position);
     bool IsEmpty() const { return mEdge == NULL; };
     
     std::string Description() const;

@@ -88,7 +88,7 @@ using namespace ftr;
 //    XCTAssertEqual(e63->next(), e13->twin());
 }
 
-- (void)testInsert
+- (void)testIteratorOperations
 {
     PointNode::ConnectionResult e21 = v2->ConnectTo(v1, true);
     PointNode::ConnectionResult e31 = v3->ConnectTo(v1, true);
@@ -96,6 +96,11 @@ using namespace ftr;
     
     v1->Insert(v1->Begin(), *e31.edge);
     v1->Insert(v1->Begin(), *e41.edge);
+    v1->Move(v1->Begin(), v1->End());
+    v1->Move(v1->Begin(), v1->End());
+    v1->Move(v1->Begin(), v1->End());
+    v1->Move(*(e21.edge->twin()), ++v1->Begin());
+    v1->Move(*(e21.edge->twin()), v1->End());
     
     if (!v1->IsEmpty()) {
         PointNode::Iterator it = v1->Begin();

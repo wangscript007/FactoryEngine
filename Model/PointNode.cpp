@@ -82,8 +82,10 @@ PointNode::Iterator PointNode::IteratorFromEdge(Edge* edge) const
 
 void PointNode::Insert(PointNode::Iterator position, ftr::Edge& edge)
 {
+    bool shouldMarkAsNewBegin = true;
     if (position == End()) {
         position = Begin();
+        shouldMarkAsNewBegin = false;
     }
     ftr::Edge* posEdge = (*position);
     ftr::Edge* insertEdge = NULL;
@@ -104,7 +106,7 @@ void PointNode::Insert(PointNode::Iterator position, ftr::Edge& edge)
     }
     insertEdge->twin()->ConnectToNext(posEdge);
     
-    if (position == Begin()) {
+    if (position == Begin() && shouldMarkAsNewBegin) {
         // Marking as new begin
         mEdge = insertEdge;
     }
@@ -184,6 +186,19 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
     }
     
     return result;
+}
+    
+void PointNode::Move(Iterator fromPosition, Iterator toPosition)
+{
+    ftr::Edge* edgeToMove = (*fromPosition);
+    Move(*edgeToMove, toPosition);
+}
+    
+void PointNode::Move(Edge& edge, Iterator position)
+{
+    assert(edge.originNode() == this);
+    Remove(IteratorFromEdge(&edge));
+    Insert(position, edge);
 }
     
 Edge* PointNode::FindOutgoingFreeEdge() const
