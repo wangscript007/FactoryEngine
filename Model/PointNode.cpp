@@ -120,8 +120,6 @@ void PointNode::Remove(PointNode::Iterator position)
     ftr::Edge* prev = posEdge->prev();
     ftr::Edge* next = posEdge->twin()->next();
     
-    
-  
     if (position == Begin()) {
         // mark new begin or NULL if last edge was removed
         mEdge = next;
@@ -138,7 +136,6 @@ void PointNode::Remove(PointNode::Iterator position)
     }
     posEdge->DisconnectPrev();
     posEdge->twin()->DisconnectNext();
-
 }
     
     
@@ -152,37 +149,43 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
     ftr::Edge* newEdgeTwin = new ftr::Edge(other);
     newEdge->MakeTwinsWith(newEdgeTwin);
     result.edge = newEdge;
-    
+    bool traverseThis = false;
+    bool traverseOther = false;
     if (mEdge) {
         if (!skipTraversal) {
-            FaceTraversal traversal(*newEdgeTwin);
-            traversal.Find();
-            if (traversal.FaceEdges().size()) {
-                result.faceA = new FaceNode(traversal.FaceEdges());
-            } else {
-                result.faceA = NULL;
-                Insert(End(), *newEdgeTwin);
-            }
-
+            Insert(End(), *newEdgeTwin);
+            traverseThis = true;
         }
     } else {
         mEdge = newEdge;
     }
-    
     if (other->mEdge) {
         if (!skipTraversal) {
-            FaceTraversal traversal(*newEdge);
-            traversal.Find();
-            if (traversal.FaceEdges().size()) {
-                result.faceB = new FaceNode(traversal.FaceEdges());
-            } else {
-                result.faceB = NULL;
-                other->Insert(other->End(), *newEdge);
-            }
-            
+            other->Insert(other->End(), *newEdge);
+            traverseOther = true;
         }
     } else {
         other->mEdge = newEdgeTwin;
+    }
+    
+    if (traverseThis) {
+        FaceTraversal traversal(*newEdgeTwin);
+        traversal.Find();
+        if (traversal.FaceEdges().size()) {
+            result.faceA = new FaceNode(traversal.FaceEdges());
+        } else {
+            result.faceA = NULL;
+        }
+    }
+    
+    if (traverseOther) {
+        FaceTraversal traversal(*newEdge);
+        traversal.Find();
+        if (traversal.FaceEdges().size()) {
+            result.faceB = new FaceNode(traversal.FaceEdges());
+        } else {
+            result.faceB = NULL;
+        }
     }
     
     return result;

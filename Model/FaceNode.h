@@ -21,13 +21,16 @@ public:
     ~FaceNode();
     
     void Render(Layer& layer);
-    
+    static void OrderAscending(Edge& edge1, Edge& edge2);
     void BoundByLoopWithEdge(Edge& outerEdge);
     void AddHoleBoundedByLoopWithEdge(Edge& innerEdge);
     
     std::string Description() const;
+    
 private:
+    bool IsValid(std::vector<Edge*>& edges) const;
     void MarkIncidentFaceInLoopWithEdge(Edge& Edge);
+    
     std::vector<Edge*> mInnerEdges;
     Edge* mOuterEdge;
     PolygonPrimitive mPolygonPrimitive;

@@ -34,6 +34,12 @@ void FaceTraversal::Find()
     
     if (mEdgesVector.size() < 3) {
         mEdgesVector.clear();
+    } else {
+        std::cout << "FOUND: ";
+        for(int i = 0; i < mEdgesVector.size(); ++i) {
+            std::cout << mEdgesVector[i]->Name() << " ";
+        }
+        std::cout << std::endl;
     }
 }
     
