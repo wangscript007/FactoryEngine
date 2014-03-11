@@ -96,22 +96,28 @@ using namespace ftr;
     
     v1->Insert(v1->Begin(), *e31.edge);
     v1->Insert(v1->Begin(), *e41.edge);
-
-    PointNode::Iterator it = v1->Begin();
-    int i = 0;
-    for(; it != v1->End(); ++it) {
-        Edge* edge = (*it);
-        printf("Edge %s is at index %d\n", edge->Name().c_str(), i);
-        i++;
-    }
-    it = v1->End();
-    --it;
-    i--;
-    for(; it != v1->End(); --it) {
-        Edge* edge = (*it);
-        printf("Edge %s is at index %d\n", edge->Name().c_str(), i);
+    
+    if (!v1->IsEmpty()) {
+        PointNode::Iterator it = v1->Begin();
+        int i = 0;
+        for(; it != v1->End(); ++it) {
+            Edge* edge = (*it);
+            printf("Edge %s is at index %d\n", edge->Name().c_str(), i);
+            i++;
+        }
+        it = v1->End();
+        --it;
         i--;
+        for(; it != v1->End(); --it) {
+            Edge* edge = (*it);
+            printf("Edge %s is at index %d\n", edge->Name().c_str(), i);
+            i--;
+        }
     }
+    v1->Remove(v1->Begin());
+    v1->Remove(v1->Begin());
+    v1->Remove(v1->Begin());
+    XCTAssert(v1->IsEmpty());
 }
 
 - (void)testStd

@@ -38,6 +38,8 @@ public:
     
     Edge* CWNeighbourWithSameOrigin();
     void ConnectToNext(Edge* other);
+    void DisconnectNext() { mNext = NULL; }
+    void DisconnectPrev() { mPrev = NULL; }
     
     void DoublyConnectCCWOrderedAtOrigin();
     

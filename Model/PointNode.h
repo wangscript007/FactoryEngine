@@ -46,11 +46,13 @@ public:
     
     PointNode::Iterator Begin() const;
     PointNode::Iterator End() const;
+    PointNode::Iterator IteratorFromEdge(Edge* edge) const;
+    
     void Insert(Iterator position, ftr::Edge& edge);
     void Remove(Iterator position);
+    bool IsEmpty() const { return mEdge == NULL; };
     
-    
-    
+    std::string Description() const;
     std::string mName;
     
 private:

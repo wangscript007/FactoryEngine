@@ -61,13 +61,24 @@ void PointNode::Render(Layer& layer)
     
 PointNode::Iterator PointNode::Begin() const
 {
-    return Iterator(*this, mEdge);
+    assert(mEdge);
+    return IteratorFromEdge(mEdge);
 }
 
 PointNode::Iterator PointNode::End() const
 {
     return Iterator(*this, NULL);
 }
+    
+PointNode::Iterator PointNode::IteratorFromEdge(Edge* edge) const
+{
+    if (edge->originNode() != this) {
+        edge = edge->twin();
+        assert(edge->originNode() == this);
+    }
+    return Iterator(*this, edge);
+}
+
 
 void PointNode::Insert(PointNode::Iterator position, ftr::Edge& edge)
 {
@@ -102,8 +113,32 @@ void PointNode::Insert(PointNode::Iterator position, ftr::Edge& edge)
 void PointNode::Remove(PointNode::Iterator position)
 {
     assert(position != End());
+    ftr::Edge* posEdge = (*position);
     
+    ftr::Edge* prev = posEdge->prev();
+    ftr::Edge* next = posEdge->twin()->next();
+    
+    
+  
+    if (position == Begin()) {
+        // mark new begin or NULL if last edge was removed
+        mEdge = next;
+    }
+    if (prev && next) {
+        
+        if (prev->twin() != next) {
+            // true, if there are more than two edges
+            prev->ConnectToNext(next);
+        } else {
+            prev->DisconnectNext();
+            next->DisconnectPrev();
+        }
+    }
+    posEdge->DisconnectPrev();
+    posEdge->twin()->DisconnectNext();
+
 }
+    
     
 #pragma mark - Connecting
     
@@ -170,6 +205,16 @@ Edge* PointNode::FindOutgoingFreeEdge() const
 }
 
     
-    
+std::string PointNode::Description() const
+{
+    // Node 1:{e12, e12, e13}
+    std::string description = "Node " + mName + ": {";
+    for(PointNode::Iterator it = Begin(); it != End(); ++it) {
+        description += (*it)->Name() + "; ";
+    }
+    description += "END}";
+    return description;
+}
+
     
 }
