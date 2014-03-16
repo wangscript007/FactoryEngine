@@ -7,7 +7,7 @@
 //
 
 
-
+#include <Math/Plane.h>
 #include <Model/FaceTraversal.h>
 #include <Model/PointNode.h>
 #include <Model/Edge.h>
@@ -18,6 +18,7 @@ namespace ftr {
     
 FaceTraversal::FaceTraversal(Edge& startEdge)
     : mStartEdge(&startEdge),
+    mPlane(NULL),
     mTargetNode(startEdge.originNode())
 {
     
@@ -25,11 +26,16 @@ FaceTraversal::FaceTraversal(Edge& startEdge)
 
 void FaceTraversal::Find()
 {
+    if (mPlane) {
+        FT_DELETE(mPlane);
+    }
+    
     std::cout
     << "Find route from " << mStartEdge->targetNode()->mName
     << " to "<<  mStartEdge->originNode()->mName << std::endl;
     mEdgesVector.clear();
     mEdgesVector.push_back(mStartEdge);
+    
     Find(mStartEdge->twin());
     
     if (mEdgesVector.size() < 3) {
@@ -63,8 +69,12 @@ bool FaceTraversal::Find(ftr::Edge *startEdge)
                 if (mEdgesVector.size() > 0) {
                     isCW = iEdge->IsCCWCountingFrom(*mEdgesVector.back());
                     if (mEdgesVector.size() > 1) {
-                        // samePlane check if plane would be same as first two vector elements
-                        
+                        CreatePlane();
+                    } else {
+                        FT_DELETE(mPlane);
+                    }
+                    if (mPlane) {
+                        samePlane = mPlane->Contains(iEdge->target());
                     }
                 }
                 if (samePlane && isCW)
@@ -81,6 +91,16 @@ bool FaceTraversal::Find(ftr::Edge *startEdge)
         }
     }
     return false;
+}
+    
+void FaceTraversal::CreatePlane()
+{
+    if (!mPlane) {
+        assert(mEdgesVector.size() > 1);
+        Edge* e1 = mEdgesVector[0];
+        Edge* e2 = mEdgesVector[1];
+        mPlane = new Plane(e1->origin(), e1->target(), e2->target());
+    }
 }
     
 }

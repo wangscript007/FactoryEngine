@@ -39,8 +39,8 @@ using namespace ftr;
     v1->mName = "1";
     v2->mName = "2";
     v3->mName = "3";
-    l4->mName = "L4";
-    h4->mName = "H4";
+    l4->mName = "4";
+    h4->mName = "4";
     
 }
 
@@ -56,6 +56,17 @@ using namespace ftr;
 
 - (void)testConnectingLowTetrahedron
 {
+    PointNode::ConnectionResult e12 = v1->ConnectTo(v2);
+    PointNode::ConnectionResult e23 = v2->ConnectTo(v3);
+    PointNode::ConnectionResult e31 = v3->ConnectTo(v1);
+    
+    PointNode::ConnectionResult e14 = v1->ConnectTo(l4);
+    PointNode::ConnectionResult e24 = v2->ConnectTo(l4);
+    PointNode::ConnectionResult e34 = v3->ConnectTo(l4);
+    
+    XCTAssert(e31.faceA || e31.faceB);
+    XCTAssert(e24.faceA || e24.faceB);
+    XCTAssert(e34.faceA && e34.faceB);
 }
 
 - (void)testConnectingHighTetrahedron

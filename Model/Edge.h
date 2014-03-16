@@ -17,6 +17,7 @@ public:
     FaceNode* mIncidentFace;
     
     const glm::vec3& origin() const;
+    const glm::vec3& target() const;
     
     bool IsCCWCountingFrom(const Edge& other) const;
     bool HasSameOrigin(const Edge& other) const { return mOriginNode == other.mOriginNode; }
