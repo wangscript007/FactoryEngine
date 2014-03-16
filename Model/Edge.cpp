@@ -109,7 +109,14 @@ float Edge::CCWAngleFrom(const Edge& other) const
     
 bool Edge::IsCCWCountingFrom(const Edge& other) const
 {
-    return Vector::IsCWOrder(Direction(), other.Direction());
+    
+    bool result = Vector::IsCWOrder(Direction(), other.Direction());
+    if (result) {
+        printf("%s is CCW from %s.\n", Name().c_str(), other.Name().c_str());
+    } else {
+        printf("%s is CW from %s.\n", Name().c_str(), other.Name().c_str());
+    }
+    return result;
 }
     
 void Edge::ConnectToNext(Edge* next)
@@ -118,8 +125,8 @@ void Edge::ConnectToNext(Edge* next)
     assert(next);
     assert(next != this);
     assert(next != mTwin);
-    assert(!mIncidentFace);
-    assert(!next->mIncidentFace);
+    //assert(!mIncidentFace);
+    //assert(!next->mIncidentFace);
     assert(mOriginNode != next->mOriginNode);
     
     mNext = next;

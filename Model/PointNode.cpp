@@ -200,8 +200,11 @@ void PointNode::Move(Iterator fromPosition, Iterator toPosition)
 void PointNode::Move(Edge& edge, Iterator position)
 {
     assert(edge.originNode() == this);
-    Remove(IteratorFromEdge(&edge));
-    Insert(position, edge);
+    Iterator oldPosition = IteratorFromEdge(&edge);
+    if (oldPosition != position) {
+        Remove(oldPosition);
+        Insert(position, edge);
+    }
 }
     
 Edge* PointNode::FindOutgoingFreeEdge() const

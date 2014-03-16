@@ -57,25 +57,24 @@ bool FaceTraversal::Find(ftr::Edge *startEdge)
                 mEdgesVector.push_back(iEdge);
                 return true;
             }
-            else {
-                if (iEdge->next())
-                {
-                    bool samePlane = true;
-                    if (mEdgesVector.size() > 1) {
-                        // samePlane check if plane would be same as first two vector elements
-                    }
-                    if (samePlane)
-                    {
-                        mEdgesVector.push_back(iEdge);
-                        
-                        if (Find(iEdge->next()))
-                        {
-                            return true;
-                        }
-                        mEdgesVector.pop_back();
-                    }
+            else if (iEdge->next()) {
+                bool samePlane = true;
+                bool isCW = true;
+                if (mEdgesVector.size() > 0) {
+                    // samePlane check if plane would be same as first two vector elements
+                    isCW = iEdge->IsCCWCountingFrom(*mEdgesVector.back());
+//                    assert(isCW);
                 }
-                
+                if (samePlane && isCW)
+                {
+                    mEdgesVector.push_back(iEdge);
+                    
+                    if (Find(iEdge->next()))
+                    {
+                        return true;
+                    }
+                    mEdgesVector.pop_back();
+                }
             }
         }
     }
