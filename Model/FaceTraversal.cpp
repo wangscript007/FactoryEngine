@@ -47,8 +47,10 @@ bool FaceTraversal::Find(ftr::Edge *startEdge)
 {
     std::cout << "Checking " << startEdge->Name() << std::endl;
     PointNode* originNode = startEdge->originNode();
+    int index = 0;
     for(PointNode::Iterator i = originNode->Begin(); i != originNode->End(); ++i)
     {
+        index++;
         ftr::Edge* iEdge = *i;
         if (iEdge != startEdge->twin() && iEdge->IsFree())
         {
@@ -63,7 +65,6 @@ bool FaceTraversal::Find(ftr::Edge *startEdge)
                 if (mEdgesVector.size() > 0) {
                     // samePlane check if plane would be same as first two vector elements
                     isCW = iEdge->IsCCWCountingFrom(*mEdgesVector.back());
-//                    assert(isCW);
                 }
                 if (samePlane && isCW)
                 {

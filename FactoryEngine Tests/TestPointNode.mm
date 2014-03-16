@@ -126,8 +126,6 @@ using namespace ftr;
     //    XCTAssertEqual(e63->next(), e13->twin());
 }
 
-
-
 - (void)testIteratorOperations
 {
     PointNode::ConnectionResult e21 = v2->ConnectTo(v1, true);
