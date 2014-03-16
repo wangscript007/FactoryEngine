@@ -61,8 +61,11 @@ bool FaceTraversal::Find(ftr::Edge *startEdge)
                 bool samePlane = true;
                 bool isCW = true;
                 if (mEdgesVector.size() > 0) {
-                    // samePlane check if plane would be same as first two vector elements
                     isCW = iEdge->IsCCWCountingFrom(*mEdgesVector.back());
+                    if (mEdgesVector.size() > 1) {
+                        // samePlane check if plane would be same as first two vector elements
+                        
+                    }
                 }
                 if (samePlane && isCW)
                 {
