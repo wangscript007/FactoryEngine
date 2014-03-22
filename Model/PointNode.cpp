@@ -145,22 +145,30 @@ void PointNode::Remove(PointNode::Iterator position)
 PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTraversal)
 {
     ConnectionResult result;
+    
     ftr::Edge* newEdge = new ftr::Edge(this);
     ftr::Edge* newEdgeTwin = new ftr::Edge(other);
+    
     newEdge->MakeTwinsWith(newEdgeTwin);
     result.edge = newEdge;
+    
     bool traverseThis = false;
     bool traverseOther = false;
-    if (mEdge) {
-        if (!skipTraversal) {
+    
+    if (mEdge)
+    {
+        if (!skipTraversal)
+        {
             Insert(End(), *newEdgeTwin);
             traverseThis = true;
         }
     } else {
         mEdge = newEdge;
     }
-    if (other->mEdge) {
-        if (!skipTraversal) {
+    if (other->mEdge)
+    {
+        if (!skipTraversal)
+        {
             other->Insert(other->End(), *newEdge);
             traverseOther = true;
         }
@@ -168,28 +176,68 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
         other->mEdge = newEdgeTwin;
     }
     
-    if (traverseThis) {
+    FaceTraversal::Result traverseResultThis;
+    FaceTraversal::Result traverseResultOther;
+    
+    if (traverseThis)
+    {
         FaceTraversal traversal(*newEdgeTwin);
-        traversal.Find();
-        if (traversal.FaceEdges().size()) {
-            result.faceA = new FaceNode(traversal.FaceEdges());
-        } else {
-            result.faceA = NULL;
-        }
+        traversal.Find(traverseResultThis);
     }
     
-    if (traverseOther) {
+    if (traverseOther)
+    {
         FaceTraversal traversal(*newEdge);
-        traversal.Find();
-        if (traversal.FaceEdges().size()) {
-            result.faceB = new FaceNode(traversal.FaceEdges());
-        } else {
-            result.faceB = NULL;
+        traversal.Find(traverseResultOther);
+    }
+    
+    bool thisFoundFace = traverseResultThis.edgesVector.size() > 0;
+    bool otherFoundFace = traverseResultOther.edgesVector.size() > 0;
+    
+    bool thisHasUsed = traverseResultThis.hasUsedEdges;
+    bool otherHasUsed = traverseResultOther.hasUsedEdges;
+    
+    result.faceA = NULL;
+    result.faceB = NULL;
+    
+    if (thisFoundFace && otherFoundFace)
+    {
+        if (FaceTraversal::IsSameFace(traverseResultThis, traverseResultOther))
+        {
+            if (thisHasUsed && !otherHasUsed)
+            {
+                result.faceA = new FaceNode(traverseResultOther.edgesVector);
+            }
+            else if (!thisHasUsed && otherHasUsed)
+            {
+                result.faceA = new FaceNode(traverseResultThis.edgesVector);
+            }
+            else
+            {
+                // I believe we could change orientation of all body here
+                result.faceA = new FaceNode(traverseResultOther.edgesVector);
+                //result.faceA = new FaceNode(traverseResultThis.edgesVector);
+            }
         }
+        else {
+            // we must create two faces in this case, if at least one has used edges we must reverse both
+            result.faceA = thisHasUsed ? NULL : new FaceNode(traverseResultThis.edgesVector);
+            result.faceB = otherHasUsed ? NULL : new FaceNode(traverseResultOther.edgesVector);
+        }
+    }
+    else if (thisFoundFace)
+    {
+        result.faceA = thisHasUsed ? NULL : new FaceNode(traverseResultThis.edgesVector);
+    }
+    else if (otherFoundFace)
+    {
+        result.faceA = otherHasUsed ? NULL : new FaceNode(traverseResultOther.edgesVector);
     }
     
     return result;
 }
+    
+
     
 void PointNode::Move(Iterator fromPosition, Iterator toPosition)
 {
