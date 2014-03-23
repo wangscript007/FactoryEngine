@@ -106,8 +106,9 @@ bool FaceTraversal::Find(ftr::Edge *startEdge)
                     if (mPlane) {
                         samePlane = mPlane->Contains(iEdge->target());
                     }
+                } else {
+                    FT_DELETE(mPlane);
                 }
-                assert(samePlane);
                 if (samePlane && isCW)
                 {
                     edgesVector.push_back(iEdge);
@@ -143,6 +144,7 @@ void FaceTraversal::CreatePlane()
         Edge* e1 = edgesVector[0];
         Edge* e2 = edgesVector[1];
         mPlane = new Plane(e1->origin(), e1->target(), e2->target());
+        std::cout << "Created plane: " << mPlane->Description();
     }
 }
     

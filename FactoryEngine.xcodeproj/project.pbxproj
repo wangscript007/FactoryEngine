@@ -302,6 +302,11 @@
 		60FF395C1813CBC700B86F40 /* FaceTraversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60FF395A1813CBC700B86F40 /* FaceTraversal.cpp */; };
 		60FF395D1813CBC700B86F40 /* FaceTraversal.h in Headers */ = {isa = PBXBuildFile; fileRef = 60FF395B1813CBC700B86F40 /* FaceTraversal.h */; };
 		D10EF57D15B2132100BC14D5 /* ModelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1E54CAD157BED250083FB90 /* ModelFactory.cpp */; };
+		D11D1CC218DF4FBA0091521F /* Description.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1CC018DF4FBA0091521F /* Description.cpp */; };
+		D11D1CC318DF4FBA0091521F /* Description.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1CC018DF4FBA0091521F /* Description.cpp */; };
+		D11D1CC418DF4FBA0091521F /* Description.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1CC018DF4FBA0091521F /* Description.cpp */; };
+		D11D1CC518DF4FBA0091521F /* Description.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1CC118DF4FBA0091521F /* Description.h */; };
+		D11D1CC618DF4FBA0091521F /* Description.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1CC118DF4FBA0091521F /* Description.h */; };
 		D13D718315AF949100143662 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D13D718115AF949100143662 /* Node.cpp */; };
 		D13D718415AF949100143662 /* Node.h in Headers */ = {isa = PBXBuildFile; fileRef = D13D718215AF949100143662 /* Node.h */; };
 		D13D718715AF96F000143662 /* BodyNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D13D718515AF96F000143662 /* BodyNode.cpp */; };
@@ -500,6 +505,8 @@
 		60FD3CFB16DA4C9A001F789D /* parsing.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = parsing.py; sourceTree = "<group>"; };
 		60FF395A1813CBC700B86F40 /* FaceTraversal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FaceTraversal.cpp; sourceTree = "<group>"; };
 		60FF395B1813CBC700B86F40 /* FaceTraversal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceTraversal.h; sourceTree = "<group>"; };
+		D11D1CC018DF4FBA0091521F /* Description.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Description.cpp; sourceTree = "<group>"; };
+		D11D1CC118DF4FBA0091521F /* Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Description.h; sourceTree = "<group>"; };
 		D13D718115AF949100143662 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
 		D13D718215AF949100143662 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
 		D13D718515AF96F000143662 /* BodyNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BodyNode.cpp; sourceTree = "<group>"; };
@@ -697,13 +704,6 @@
 			path = Shading;
 			sourceTree = "<group>";
 		};
-		60BC76941770907500CA8F71 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		60D74584172298B30062CDF1 /* Render */ = {
 			isa = PBXGroup;
 			children = (
@@ -729,6 +729,15 @@
 			path = Render;
 			sourceTree = "<group>";
 		};
+		D11D1CBF18DF4FAF0091521F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D11D1CC018DF4FBA0091521F /* Description.cpp */,
+				D11D1CC118DF4FBA0091521F /* Description.h */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		D13DC900157A9F8B00C84006 = {
 			isa = PBXGroup;
 			children = (
@@ -740,8 +749,8 @@
 				604E939816A1C6CF00143522 /* Scripts */,
 				D1C708B915B3495400D64823 /* External */,
 				D17C766B1583C1580083E2B0 /* Main */,
+				D11D1CBF18DF4FAF0091521F /* Utils */,
 				D1E54CA7157BE5120083FB90 /* Math */,
-				60BC76941770907500CA8F71 /* Utils */,
 				608D70001735738C000A92F7 /* Shading */,
 				60D74584172298B30062CDF1 /* Render */,
 				6055CFCD17417BB3009F1F46 /* Lighting */,
@@ -900,6 +909,7 @@
 				60C6D08A174961470009EC3C /* LineInteraction.h in Headers */,
 				60C6D08C174961470009EC3C /* MoveInteraction.h in Headers */,
 				60CE9A5F17EC646F00A775C0 /* ShadingInterfaceCore.h in Headers */,
+				D11D1CC618DF4FBA0091521F /* Description.h in Headers */,
 				60C6D08D174961470009EC3C /* RectangleInteraction.h in Headers */,
 				60C6D08F174961470009EC3C /* RotationInteraction.h in Headers */,
 				60CE9A5D17EC646F00A775C0 /* ShadingInterface.h in Headers */,
@@ -945,6 +955,7 @@
 				D14377A0157BCF0200A05B3B /* FaceNode.h in Headers */,
 				D1E54CB0157BED250083FB90 /* ModelFactory.h in Headers */,
 				606BC0181808666700EC4F37 /* Viewport.h in Headers */,
+				D11D1CC518DF4FBA0091521F /* Description.h in Headers */,
 				D1F44F4D157FE79600566119 /* Workspace.h in Headers */,
 				D1F44F52157FE91900566119 /* Pad.h in Headers */,
 				D1F44F56157FE9D200566119 /* HUD.h in Headers */,
@@ -1185,6 +1196,7 @@
 				603BA5F717E87437007CE822 /* RotationInteraction.cpp in Sources */,
 				60DFE3AC18253C7400A32D7A /* Vector.cpp in Sources */,
 				603BA5F817E87437007CE822 /* ScaleInteraction.cpp in Sources */,
+				D11D1CC418DF4FBA0091521F /* Description.cpp in Sources */,
 				603BA5F917E87437007CE822 /* InteractionAssistant.cpp in Sources */,
 				603BA5FA17E87437007CE822 /* CameraInteraction.cpp in Sources */,
 				60919947185DC45B00C7524F /* FaceTraversal.cpp in Sources */,
@@ -1257,6 +1269,7 @@
 				60C6D069174961470009EC3C /* PointRenderer.cpp in Sources */,
 				60C6D06E174961470009EC3C /* TestRectangle.cpp in Sources */,
 				60CE9A6017EC646F00A775C0 /* ShadingInterfaceES.cpp in Sources */,
+				D11D1CC318DF4FBA0091521F /* Description.cpp in Sources */,
 				60C6D0BF1749738A0009EC3C /* Polygon.cpp in Sources */,
 				60C6D0C11749739B0009EC3C /* Rect.cpp in Sources */,
 				60BD722017568077007D7DC6 /* LigthtingModelFactory.cpp in Sources */,
@@ -1281,6 +1294,7 @@
 				D1F44F55157FE9D200566119 /* HUD.cpp in Sources */,
 				D17C76881584B6010083E2B0 /* Log.cpp in Sources */,
 				D13D718315AF949100143662 /* Node.cpp in Sources */,
+				D11D1CC218DF4FBA0091521F /* Description.cpp in Sources */,
 				D13D718715AF96F000143662 /* BodyNode.cpp in Sources */,
 				D10EF57D15B2132100BC14D5 /* ModelFactory.cpp in Sources */,
 				D1C708C115B36D0E00D64823 /* GroupNode.cpp in Sources */,

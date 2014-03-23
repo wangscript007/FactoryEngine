@@ -33,6 +33,9 @@ using namespace ftr;
 
 - (void)testContains
 {
+    XCTAssert(plane.Contains(p1));
+    XCTAssert(plane.Contains(p2));
+    XCTAssert(plane.Contains(p3));
     XCTAssert(plane.Contains(p4));
     XCTAssert(!plane.Contains(p5));
 }
