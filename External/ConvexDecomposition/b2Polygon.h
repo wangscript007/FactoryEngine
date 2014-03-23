@@ -19,7 +19,6 @@
 #ifndef B2_POLYGON_H
 #define B2_POLYGON_H
 
-#include "Box2D.h"
 #include "b2Triangle.h"
 
 class b2Polygon;
@@ -29,7 +28,6 @@ int32 TriangulatePolygon(float32* xv, float32* yv, int32 vNum, b2Triangle* resul
 bool IsEar(int32 i, float32* xv, float32* yv, int32 xvLength); //Not for external use
 int32 PolygonizeTriangles(b2Triangle* triangulated, int32 triangulatedLength, b2Polygon* polys, int32 polysLength);
 int32 DecomposeConvex(b2Polygon* p, b2Polygon* results, int32 maxPolys);
-void DecomposeConvexAndAddTo(b2Polygon* p, b2Body* bd, b2FixtureDef* prototype);
 b2Polygon ConvexHull(b2Vec2* v, int nVert);
 b2Polygon ConvexHull(float32* cloudX, float32* cloudY, int32 nVert);
 void ReversePolygon(float32* x, float32* y, int n);
@@ -58,13 +56,12 @@ public:
 	void MergeParallelEdges(float32 tolerance);
     b2Vec2* GetVertexVecs();
     b2Polygon(b2Triangle& t);
-    void set(const b2Polygon& p);
+    void Set(const b2Polygon& p);
     bool IsConvex();
 	bool IsCCW();
 	bool IsUsable(bool printError);
 	bool IsUsable();
     bool IsSimple();
-    void AddTo(b2FixtureDef& pd);
 	
     b2Polygon* Add(b2Triangle& t);
 

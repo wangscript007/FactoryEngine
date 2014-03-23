@@ -18,8 +18,8 @@
 
 // This utility works with Box2d version 2.0 (or higher), and not with 1.4.3
 
-#include "b2Triangle.h"
-#include "b2Polygon.h"
+#include <b2Triangle.h>
+#include <b2Polygon.h>
 
 #include <cmath>
 #include <climits>
@@ -196,7 +196,7 @@ void b2Polygon::MergeParallelEdges(float32 tolerance) {
 b2Vec2* b2Polygon::GetVertexVecs() {
         b2Vec2* out = new b2Vec2[nVertices];
         for (int32 i = 0; i < nVertices; ++i) {
-            out[i].set(x[i], y[i]);
+            out[i].Set(x[i], y[i]);
         }
         return out;
 }
@@ -211,7 +211,7 @@ b2Polygon::b2Polygon(b2Triangle& t) {
 	}
 }
 	
-void b2Polygon::set(const b2Polygon& p) {
+void b2Polygon::Set(const b2Polygon& p) {
         if (nVertices != p.nVertices){
 			nVertices = p.nVertices;
 			if (x) delete[] x;
@@ -259,7 +259,7 @@ bool b2Polygon::IsConvex() {
  */
 static b2Vec2 PolyCentroid(const b2Vec2* vs, int32 count)
 {
-	b2Vec2 c; c.set(0.0f, 0.0f);
+	b2Vec2 c; c.Set(0.0f, 0.0f);
 	float32 area = 0.0f;
 
 	const float32 inv3 = 1.0f / 3.0f;
@@ -311,7 +311,7 @@ bool b2Polygon::IsUsable(bool printErrors){
 	b2Vec2* normals = new b2Vec2[nVertices];
 	b2Vec2* vertices = new b2Vec2[nVertices];
 	for (int32 i = 0; i < nVertices; ++i){
-		vertices[i].set(x[i],y[i]);
+		vertices[i].Set(x[i],y[i]);
 		int32 i1 = i;
 		int32 i2 = i + 1 < nVertices ? i + 1 : 0;
 		b2Vec2 edge(x[i2]-x[i1],y[i2]-y[i1]);
@@ -510,42 +510,6 @@ b2Polygon* b2Polygon::Add(b2Triangle& t) {
         return result;
 }
 	
-    /**
-     * Adds this polygon to a PolyDef.
-     */
-void b2Polygon::AddTo(b2FixtureDef& pd) {
-	if (nVertices < 3) return;
-	
-	b2Assert(nVertices <= b2_maxPolygonVertices);
-	
-	b2Vec2* vecs = GetVertexVecs();
-	b2Vec2* vecsToAdd = new b2Vec2[nVertices];
-
-	int32 offset = 0;
-	
-	b2PolygonShape *polyShape = new b2PolygonShape;
-	int32 ind;
-	
-    for (int32 i = 0; i < nVertices; ++i) {
-		
-		//Omit identical neighbors (including wraparound)
-		ind = i - offset;
-		if (vecs[i].x==vecs[remainder(i+1,nVertices)].x &&
-			vecs[i].y==vecs[remainder(i+1,nVertices)].y){
-				offset++;
-				continue;
-		}
-		
-		vecsToAdd[ind] = vecs[i];
-		
-    }
-	
-	polyShape->set((const b2Vec2*)vecsToAdd, ind+1);
-	pd.shape = polyShape;
-	
-    delete[] vecs;
-	delete[] vecsToAdd;
-}
 
 	/**
 	 * Finds and fixes "pinch points," points where two polygon
@@ -589,7 +553,7 @@ bool ResolvePinchPoint(const b2Polygon& pin, b2Polygon& poutA, b2Polygon& poutB)
 			yA[i] = pin.y[ind];
 		}
 		b2Polygon tempA(xA,yA,sizeA);
-		poutA.set(tempA);
+		poutA.Set(tempA);
 		delete[] xA;
 		delete[] yA;
 		
@@ -601,8 +565,8 @@ bool ResolvePinchPoint(const b2Polygon& pin, b2Polygon& poutA, b2Polygon& poutB)
 			xB[i] = pin.x[ind];
 			yB[i] = pin.y[ind];
 		}
-		b2Polygon temb(xB,yB,sizeB);
-		poutB.set(temb);
+		b2Polygon tempB(xB,yB,sizeB);
+		poutB.Set(tempB);
 		//printf("Size of a: %d, size of b: %d\n",sizeA,sizeB);
 		delete[] xB;
 		delete[] yB;
@@ -640,23 +604,23 @@ int32 TriangulatePolygon(float32* xv, float32* yv, int32 vNum, b2Triangle* resul
             return 0;
 
 		//Recurse and split on pinch points
-		b2Polygon pA,b;
+		b2Polygon pA,pB;
 		b2Polygon pin(xv,yv,vNum);
-		if (ResolvePinchPoint(pin,pA,b)){
+		if (ResolvePinchPoint(pin,pA,pB)){
 			b2Triangle* mergeA = new b2Triangle[pA.nVertices];
-			b2Triangle* mergeB = new b2Triangle[b.nVertices];
+			b2Triangle* mergeB = new b2Triangle[pB.nVertices];
 			int32 nA = TriangulatePolygon(pA.x,pA.y,pA.nVertices,mergeA);
-			int32 nB = TriangulatePolygon(b.x,b.y,b.nVertices,mergeB);
+			int32 nB = TriangulatePolygon(pB.x,pB.y,pB.nVertices,mergeB);
 			if (nA==-1 || nB==-1){
 				delete[] mergeA;
 				delete[] mergeB;
 				return -1;
 			}
 			for (int32 i=0; i<nA; ++i){
-				results[i].set(mergeA[i]);
+				results[i].Set(mergeA[i]);
 			}
 			for (int32 i=0; i<nB; ++i){
-				results[nA+i].set(mergeB[i]);
+				results[nA+i].Set(mergeB[i]);
 			}
 			delete[] mergeA;
 			delete[] mergeB;
@@ -721,7 +685,7 @@ int32 TriangulatePolygon(float32* xv, float32* yv, int32 vNum, b2Triangle* resul
 					printf("Please submit this dump to ewjordan at Box2d forums\n");
 				}
 				for (int32 i = 0; i < bufferSize; i++) {
-					results[i].set(buffer[i]);
+					results[i].Set(buffer[i]);
 				}
 		
 				delete[] buffer;
@@ -748,7 +712,7 @@ int32 TriangulatePolygon(float32* xv, float32* yv, int32 vNum, b2Triangle* resul
             int32 under = (earIndex == 0) ? (vNum) : (earIndex - 1);
             int32 over = (earIndex == vNum) ? 0 : (earIndex + 1);
             b2Triangle toAdd = b2Triangle(xrem[earIndex], yrem[earIndex], xrem[over], yrem[over], xrem[under], yrem[under]);
-            buffer[bufferSize].set(toAdd);
+            buffer[bufferSize].Set(toAdd);
             ++bufferSize;
 			
             // - replace the old list with the new one
@@ -760,7 +724,7 @@ int32 TriangulatePolygon(float32* xv, float32* yv, int32 vNum, b2Triangle* resul
 		
         b2Triangle toAdd = b2Triangle(xrem[1], yrem[1], xrem[2], yrem[2],
 								  xrem[0], yrem[0]);
-        buffer[bufferSize].set(toAdd);
+        buffer[bufferSize].Set(toAdd);
         ++bufferSize;
 		
         delete[] xrem;
@@ -769,7 +733,7 @@ int32 TriangulatePolygon(float32* xv, float32* yv, int32 vNum, b2Triangle* resul
         b2Assert(bufferSize == xremLength-2);
 		
         for (int32 i = 0; i < bufferSize; i++) {
-            results[i].set(buffer[i]);
+            results[i].Set(buffer[i]);
         }
 		
         delete[] buffer;
@@ -841,7 +805,7 @@ int32 PolygonizeTriangles(b2Triangle* triangulated, int32 triangulatedLength, b2
                             continue;
 						}
                         if (newP->IsConvex()) { //Or should it be IsUsable?  Maybe re-write IsConvex to apply the angle threshold from Box2d
-                            poly.set(*newP);
+                            poly.Set(*newP);
 							delete newP;
 							newP = NULL;
                             covered[index] = 1;
@@ -855,7 +819,7 @@ int32 PolygonizeTriangles(b2Triangle* triangulated, int32 triangulatedLength, b2
 						//If identical points are present, a triangle gets
 						//borked by the MergeParallelEdges function, hence
 						//the vertex number check
-						if (poly.nVertices >= 3) polys[polyIndex].set(poly);
+						if (poly.nVertices >= 3) polys[polyIndex].Set(poly);
 						//else printf("Skipping corrupt poly\n");
 					}
                     if (poly.nVertices >= 3) polyIndex++; //Must be outside (polyIndex < polysLength) test
@@ -956,7 +920,7 @@ int32 DecomposeConvex(b2Polygon* p, b2Polygon* results, int32 maxPolys) {
         if (p->IsCCW()) {
 			//printf("It is ccw \n");
 			b2Polygon tempP;
-			tempP.set(*p);
+			tempP.Set(*p);
 			ReversePolygon(tempP.x, tempP.y, tempP.nVertices);
 			nTri = TriangulatePolygon(tempP.x, tempP.y, tempP.nVertices, triangulated);
 //			ReversePolygon(p->x, p->y, p->nVertices); //reset orientation
@@ -973,148 +937,7 @@ int32 DecomposeConvex(b2Polygon* p, b2Polygon* results, int32 maxPolys) {
         return nPolys;
 }
 
-    /**
-	 * Decomposes a polygon into convex polygons and adds all pieces to a b2BodyDef
-     * using a prototype b2PolyDef. All fields of the prototype are used for every
-     * shape except the vertices (friction, restitution, density, etc).
-     * 
-     * If you want finer control, you'll have to add everything by hand.
-     * 
-     * This is the simplest method to add a complicated polygon to a body.
-	 *
-	 * Until Box2D's b2BodyDef behavior changes, this method returns a pointer to
-	 * a heap-allocated array of b2PolyDefs, which must be deleted by the user
-	 * after the b2BodyDef is added to the world.
-     */
-void DecomposeConvexAndAddTo(b2Polygon* p, b2Body* bd, b2FixtureDef* prototype) {
 
-        if (p->nVertices < 3) return;
-        b2Polygon* decomposed = new b2Polygon[p->nVertices - 2]; //maximum number of polys
-        int32 nPolys = DecomposeConvex(p, decomposed, p->nVertices - 2);
-//		printf("npolys: %d",nPolys);
-		b2FixtureDef* pdarray = new b2FixtureDef[2*p->nVertices];//extra space in case of splits
-		int32 extra = 0;
-        for (int32 i = 0; i < nPolys; ++i) {
-            b2FixtureDef* toAdd = &pdarray[i+extra];
-			 *toAdd = *prototype;
-			 //Hmm, shouldn't have to do all this...
-			 /*
-			 toAdd->type = prototype->type;
-			 toAdd->friction = prototype->friction;
-			 toAdd->restitution = prototype->restitution;
-			 toAdd->density = prototype->density;
-			 toAdd->userData = prototype->userData;
-			 toAdd->categoryBits = prototype->categoryBits;
-			 toAdd->maskBits = prototype->maskBits;
-			 toAdd->groupIndex = prototype->groupIndex;//*/
-			 //decomposed[i].print();
-			b2Polygon curr = decomposed[i];
-			//TODO ewjordan: move this triangle handling to a better place so that
-			//it happens even if this convenience function is not called.
-			if (curr.nVertices == 3){
-					//Check here for near-parallel edges, since we can't
-					//handle this in merge routine
-					for (int j=0; j<3; ++j){
-						int32 lower = (j == 0) ? (curr.nVertices - 1) : (j - 1);
-						int32 middle = j;
-						int32 upper = (j == curr.nVertices - 1) ? (0) : (j + 1);
-						float32 dx0 = curr.x[middle] - curr.x[lower]; float32 dy0 = curr.y[middle] - curr.y[lower];
-						float32 dx1 = curr.x[upper] - curr.x[middle]; float32 dy1 = curr.y[upper] - curr.y[middle];
-						float32 norm0 = sqrtf(dx0*dx0+dy0*dy0);	float32 norm1 = sqrtf(dx1*dx1+dy1*dy1);
-						if ( !(norm0 > 0.0f && norm1 > 0.0f) ) {
-							//Identical points, don't do anything!
-							goto Skip;
-						}
-						dx0 /= norm0; dy0 /= norm0;
-						dx1 /= norm1; dy1 /= norm1;
-						float32 cross = dx0 * dy1 - dx1 * dy0;
-						float32 dot = dx0*dx1 + dy0*dy1;
-						if (fabs(cross) < b2_angularSlop && dot > 0) {
-							//Angle too close, split the triangle across from this point.
-							//This is guaranteed to result in two triangles that satify
-							//the tolerance (one of the angles is 90 degrees)
-							float32 dx2 = curr.x[lower] - curr.x[upper]; float32 dy2 = curr.y[lower] - curr.y[upper];
-							float32 norm2 = sqrtf(dx2*dx2+dy2*dy2);
-							if (norm2 == 0.0f) {
-								goto Skip;
-							}
-							dx2 /= norm2; dy2 /= norm2;
-							float32 thisArea = curr.GetArea();
-							float32 thisHeight = 2.0f * thisArea / norm2;
-							float32 buffer2 = dx2;
-							dx2 = dy2; dy2 = -buffer2;
-							//Make two new polygons
-							//printf("dx2: %f, dy2: %f, thisHeight: %f, middle: %d\n",dx2,dy2,thisHeight,middle);
-							float32 newX1[3] = { curr.x[middle]+dx2*thisHeight, curr.x[lower], curr.x[middle] };
-							float32 newY1[3] = { curr.y[middle]+dy2*thisHeight, curr.y[lower], curr.y[middle] };
-							float32 newX2[3] = { newX1[0], curr.x[middle], curr.x[upper] };
-							float32 newY2[3] = { newY1[0], curr.y[middle], curr.y[upper] };
-							b2Polygon p1(newX1,newY1,3);
-							b2Polygon p2(newX2,newY2,3);
-							if (p1.IsUsable()){
-								p1.AddTo(*toAdd);
-								
-								
-								bd->CreateFixture(toAdd);
-								++extra;
-							} else if (B2_POLYGON_REPORT_ERRORS){
-								printf("Didn't add unusable polygon.  Dumping vertices:\n");
-								p1.print();
-							}
-							if (p2.IsUsable()){
-								p2.AddTo(pdarray[i+extra]);
-								
-								bd->CreateFixture(toAdd);
-							} else if (B2_POLYGON_REPORT_ERRORS){
-								printf("Didn't add unusable polygon.  Dumping vertices:\n");
-								p2.print();
-							}
-							goto Skip;
-						}
-					}
-
-			}
-			if (decomposed[i].IsUsable()){
-				decomposed[i].AddTo(*toAdd);
-				
-				bd->CreateFixture((const b2FixtureDef*)toAdd);
-			} else if (B2_POLYGON_REPORT_ERRORS){
-				printf("Didn't add unusable polygon.  Dumping vertices:\n");
-				decomposed[i].print();
-			}
-Skip:
-			;
-        }
-		delete[] pdarray;
-        delete[] decomposed;
-		return;// pdarray; //needs to be deleted after body is created
-}
-
-	
-    /**
-	 * Find the convex hull of a point cloud using "Gift-wrap" algorithm - start
-     * with an extremal point, and walk around the outside edge by testing
-     * angles.
-     * 
-     * Runs in O(N*S) time where S is number of sides of resulting polygon.
-     * Worst case: point cloud is all vertices of convex polygon -> O(N^2).
-     * 
-     * There may be faster algorithms to do this, should you need one -
-     * this is just the simplest. You can get O(N log N) expected time if you
-     * try, I think, and O(N) if you restrict inputs to simple polygons.
-     * 
-     * Returns null if number of vertices passed is less than 3.
-     * 
-	 * Results should be passed through convex decomposition afterwards
-	 * to ensure that each shape has few enough points to be used in Box2d.
-	 *
-     * FIXME?: May be buggy with colinear points on hull. Couldn't find a test
-     * case that resulted in wrong behavior. If one turns up, the solution is to
-     * supplement angle check with an equality resolver that always picks the
-     * longer edge. I think the current solution is working, though it sometimes
-     * creates an extra edge along a line.
-     */
-	
 b2Polygon ConvexHull(b2Vec2* v, int nVert) {
         float32* cloudX = new float32[nVert];
         float32* cloudY = new float32[nVert];

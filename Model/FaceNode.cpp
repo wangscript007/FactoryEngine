@@ -59,7 +59,7 @@ void FaceNode::Render(Layer& layer)
         i++;
         currentEdge = currentEdge->next();
     } while (currentEdge != mOuterEdge && i < 3);
-    mPolygonPrimitive.setOption(Primitive::kUseDepth, false);
+    mPolygonPrimitive.setOption(Primitive::kUseDepth, true);
     layer.AddPrimitive(mPolygonPrimitive);
 }
 

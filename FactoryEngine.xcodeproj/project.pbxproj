@@ -214,8 +214,6 @@
 		60C6D07E174961470009EC3C /* Node.h in Headers */ = {isa = PBXBuildFile; fileRef = D13D718215AF949100143662 /* Node.h */; };
 		60C6D07F174961470009EC3C /* BodyNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D13D718615AF96F000143662 /* BodyNode.h */; };
 		60C6D080174961470009EC3C /* GroupNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D1C708C015B36D0E00D64823 /* GroupNode.h */; };
-		60C6D081174961470009EC3C /* b2Polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = D15D697D15B4CECB007D676B /* b2Polygon.h */; };
-		60C6D082174961470009EC3C /* b2Triangle.h in Headers */ = {isa = PBXBuildFile; fileRef = D15D697F15B4CECB007D676B /* b2Triangle.h */; };
 		60C6D083174961470009EC3C /* PointNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC701657D0700051947E /* PointNode.h */; };
 		60C6D084174961470009EC3C /* LineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC751657D07C0051947E /* LineNode.h */; };
 		60C6D086174961470009EC3C /* Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 60A575E61690DDEE0050FAFC /* Prefix.pch */; };
@@ -311,8 +309,6 @@
 		D13DC913157A9FF500C84006 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13DC912157A9FF500C84006 /* OpenGL.framework */; };
 		D143779F157BCF0200A05B3B /* FaceNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D143779D157BCF0200A05B3B /* FaceNode.cpp */; };
 		D14377A0157BCF0200A05B3B /* FaceNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D143779E157BCF0200A05B3B /* FaceNode.h */; };
-		D15D698115B4CECB007D676B /* b2Polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = D15D697D15B4CECB007D676B /* b2Polygon.h */; };
-		D15D698315B4CECB007D676B /* b2Triangle.h in Headers */ = {isa = PBXBuildFile; fileRef = D15D697F15B4CECB007D676B /* b2Triangle.h */; };
 		D16D270318D5E8FB0095B177 /* Plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Plane.cpp */; };
 		D16D270418D5E8FB0095B177 /* Plane.h in Headers */ = {isa = PBXBuildFile; fileRef = D16D270218D5E8FB0095B177 /* Plane.h */; };
 		D16D270618D5F1980095B177 /* TestPlane.mm in Sources */ = {isa = PBXBuildFile; fileRef = D16D270518D5F1980095B177 /* TestPlane.mm */; };
@@ -330,6 +326,9 @@
 		D1F44F52157FE91900566119 /* Pad.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F50157FE91900566119 /* Pad.h */; };
 		D1F44F55157FE9D200566119 /* HUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F53157FE9D200566119 /* HUD.cpp */; };
 		D1F44F56157FE9D200566119 /* HUD.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F54157FE9D200566119 /* HUD.h */; };
+		D1FBAF6D18DEE73B000A083E /* TestPolygonTrianguliation.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1FBAF6C18DEE73B000A083E /* TestPolygonTrianguliation.mm */; };
+		D1FBAF6F18DEE8B0000A083E /* ConvexDecomposition in Resources */ = {isa = PBXBuildFile; fileRef = D1FBAF6E18DEE8B0000A083E /* ConvexDecomposition */; };
+		D1FBAF7018DEE8B0000A083E /* ConvexDecomposition in Resources */ = {isa = PBXBuildFile; fileRef = D1FBAF6E18DEE8B0000A083E /* ConvexDecomposition */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -509,10 +508,6 @@
 		D13DC912157A9FF500C84006 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		D143779D157BCF0200A05B3B /* FaceNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FaceNode.cpp; sourceTree = "<group>"; };
 		D143779E157BCF0200A05B3B /* FaceNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceNode.h; sourceTree = "<group>"; };
-		D15D697C15B4CECB007D676B /* b2Polygon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2Polygon.cpp; sourceTree = "<group>"; };
-		D15D697D15B4CECB007D676B /* b2Polygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2Polygon.h; sourceTree = "<group>"; };
-		D15D697E15B4CECB007D676B /* b2Triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2Triangle.cpp; sourceTree = "<group>"; };
-		D15D697F15B4CECB007D676B /* b2Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2Triangle.h; sourceTree = "<group>"; };
 		D16D270118D5E8FB0095B177 /* Plane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Plane.cpp; sourceTree = "<group>"; };
 		D16D270218D5E8FB0095B177 /* Plane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plane.h; sourceTree = "<group>"; };
 		D16D270518D5F1980095B177 /* TestPlane.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPlane.mm; sourceTree = "<group>"; };
@@ -530,6 +525,8 @@
 		D1F44F50157FE91900566119 /* Pad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pad.h; sourceTree = "<group>"; };
 		D1F44F53157FE9D200566119 /* HUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HUD.cpp; sourceTree = "<group>"; };
 		D1F44F54157FE9D200566119 /* HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUD.h; sourceTree = "<group>"; };
+		D1FBAF6C18DEE73B000A083E /* TestPolygonTrianguliation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPolygonTrianguliation.mm; sourceTree = "<group>"; };
+		D1FBAF6E18DEE8B0000A083E /* ConvexDecomposition */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ConvexDecomposition; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -652,6 +649,7 @@
 				60379DD518678813009A9EBC /* TestFaceNode.mm */,
 				60937FB7186D9F1200E6C23E /* TestTetrahedron.mm */,
 				D16D270518D5F1980095B177 /* TestPlane.mm */,
+				D1FBAF6C18DEE73B000A083E /* TestPolygonTrianguliation.mm */,
 			);
 			path = "FactoryEngine Tests";
 			sourceTree = "<group>";
@@ -785,17 +783,6 @@
 			path = Workspace;
 			sourceTree = "<group>";
 		};
-		D15D697B15B4CECB007D676B /* ConvexDecomposition */ = {
-			isa = PBXGroup;
-			children = (
-				D15D697C15B4CECB007D676B /* b2Polygon.cpp */,
-				D15D697D15B4CECB007D676B /* b2Polygon.h */,
-				D15D697E15B4CECB007D676B /* b2Triangle.cpp */,
-				D15D697F15B4CECB007D676B /* b2Triangle.h */,
-			);
-			path = ConvexDecomposition;
-			sourceTree = "<group>";
-		};
 		D17C766B1583C1580083E2B0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -811,8 +798,8 @@
 		D1C708B915B3495400D64823 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				D1FBAF6E18DEE8B0000A083E /* ConvexDecomposition */,
 				602A43A31800A59600EC071F /* glm */,
-				D15D697B15B4CECB007D676B /* ConvexDecomposition */,
 			);
 			path = External;
 			sourceTree = "<group>";
@@ -905,8 +892,6 @@
 				60C6D07E174961470009EC3C /* Node.h in Headers */,
 				60C6D07F174961470009EC3C /* BodyNode.h in Headers */,
 				60C6D080174961470009EC3C /* GroupNode.h in Headers */,
-				60C6D081174961470009EC3C /* b2Polygon.h in Headers */,
-				60C6D082174961470009EC3C /* b2Triangle.h in Headers */,
 				60C6D083174961470009EC3C /* PointNode.h in Headers */,
 				60C6D084174961470009EC3C /* LineNode.h in Headers */,
 				60C6D086174961470009EC3C /* Prefix.pch in Headers */,
@@ -969,8 +954,6 @@
 				D13D718415AF949100143662 /* Node.h in Headers */,
 				D13D718815AF96F000143662 /* BodyNode.h in Headers */,
 				D1C708C215B36D0E00D64823 /* GroupNode.h in Headers */,
-				D15D698115B4CECB007D676B /* b2Polygon.h in Headers */,
-				D15D698315B4CECB007D676B /* b2Triangle.h in Headers */,
 				D16D270418D5E8FB0095B177 /* Plane.h in Headers */,
 				60D7DC721657D0700051947E /* PointNode.h in Headers */,
 				60D7DC771657D07C0051947E /* LineNode.h in Headers */,
@@ -1125,6 +1108,7 @@
 			files = (
 				602A43A41800A59600EC071F /* glm in Resources */,
 				602055C518A6BE790005F379 /* Docs in Resources */,
+				D1FBAF6F18DEE8B0000A083E /* ConvexDecomposition in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1133,6 +1117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60607E1617E63CF600708358 /* InfoPlist.strings in Resources */,
+				D1FBAF7018DEE8B0000A083E /* ConvexDecomposition in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1174,6 +1159,7 @@
 				60DFE3AB18253C6900A32D7A /* TestVector.mm in Sources */,
 				60D63216181C0C3000CEB0D0 /* Edge.cpp in Sources */,
 				60A05FC71809DB15004DD045 /* PointSnap.cpp in Sources */,
+				D1FBAF6D18DEE73B000A083E /* TestPolygonTrianguliation.mm in Sources */,
 				603BA5E617E87437007CE822 /* DefaultLighting.cpp in Sources */,
 				603BA5E717E87437007CE822 /* Light.cpp in Sources */,
 				603BA5E817E87437007CE822 /* ModelEditor.cpp in Sources */,
@@ -1398,7 +1384,6 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/External/Box2D",
 					"${SRCROOT}/External",
 					"${SRCROOT}",
 				);
@@ -1433,7 +1418,6 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/External/Box2D",
 					"${SRCROOT}/External",
 					"${SRCROOT}",
 				);
@@ -1464,10 +1448,9 @@
 				);
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/External/Box2D",
+					"${SRCROOT}/External/ConvexDecomposition",
 					"${SRCROOT}/External",
 					"${SRCROOT}",
-					"${SRCROOT}/External/boost",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1495,10 +1478,9 @@
 				GCC_PREPROCESSOR_DEFINITIONS = GLES;
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/External/Box2D",
+					"${SRCROOT}/External/ConvexDecomposition",
 					"${SRCROOT}/External",
 					"${SRCROOT}",
-					"${SRCROOT}/External/boost",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1585,7 +1567,7 @@
 				GCC_PREFIX_HEADER = Main/Prefix.pch;
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/External/Box2D",
+					"${SRCROOT}/External/ConvexDecomposition",
 					"${SRCROOT}/External/Leap",
 					"${SRCROOT}/External",
 					"${SRCROOT}",
@@ -1612,7 +1594,7 @@
 				GCC_PREFIX_HEADER = Main/Prefix.pch;
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/External/Box2D",
+					"${SRCROOT}/External/ConvexDecomposition",
 					"${SRCROOT}/External/Leap",
 					"${SRCROOT}/External",
 					"${SRCROOT}",

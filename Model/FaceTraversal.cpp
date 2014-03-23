@@ -107,6 +107,7 @@ bool FaceTraversal::Find(ftr::Edge *startEdge)
                         samePlane = mPlane->Contains(iEdge->target());
                     }
                 }
+                assert(samePlane);
                 if (samePlane && isCW)
                 {
                     edgesVector.push_back(iEdge);

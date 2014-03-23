@@ -16,7 +16,7 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#include "b2Triangle.h"
+#include <b2Triangle>
 
 //Constructor automatically fixes orientation to ccw
 b2Triangle::b2Triangle(float32 x1, float32 y1, float32 x2, float32 y2, float32 x3, float32 y3){
@@ -47,7 +47,7 @@ b2Triangle::~b2Triangle(){
 	delete[] y;
 }
 
-void b2Triangle::set(const b2Triangle& toMe) {
+void b2Triangle::Set(const b2Triangle& toMe) {
 	for (int32 i=0; i<3; ++i) {
 		x[i] = toMe.x[i];
 		y[i] = toMe.y[i];
