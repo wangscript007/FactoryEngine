@@ -307,6 +307,28 @@
 		D11D1CC418DF4FBA0091521F /* Description.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1CC018DF4FBA0091521F /* Description.cpp */; };
 		D11D1CC518DF4FBA0091521F /* Description.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1CC118DF4FBA0091521F /* Description.h */; };
 		D11D1CC618DF4FBA0091521F /* Description.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1CC118DF4FBA0091521F /* Description.h */; };
+		D11D1D4F18DF70980091521F /* shapes.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4218DF70980091521F /* shapes.cc */; };
+		D11D1D5118DF70980091521F /* shapes.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D4318DF70980091521F /* shapes.h */; };
+		D11D1D5218DF70980091521F /* utils.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D4418DF70980091521F /* utils.h */; };
+		D11D1D5318DF70980091521F /* poly2tri.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D4518DF70980091521F /* poly2tri.h */; };
+		D11D1D5418DF70980091521F /* advancing_front.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4718DF70980091521F /* advancing_front.cc */; };
+		D11D1D5618DF70980091521F /* advancing_front.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D4818DF70980091521F /* advancing_front.h */; };
+		D11D1D5718DF70980091521F /* cdt.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4918DF70980091521F /* cdt.cc */; };
+		D11D1D5918DF70980091521F /* cdt.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D4A18DF70980091521F /* cdt.h */; };
+		D11D1D5A18DF70980091521F /* sweep.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4B18DF70980091521F /* sweep.cc */; };
+		D11D1D5C18DF70980091521F /* sweep.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D4C18DF70980091521F /* sweep.h */; };
+		D11D1D5D18DF70980091521F /* sweep_context.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4D18DF70980091521F /* sweep_context.cc */; };
+		D11D1D5F18DF70980091521F /* sweep_context.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D4E18DF70980091521F /* sweep_context.h */; };
+		D11D1D6018DF70CD0091521F /* sweep.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4B18DF70980091521F /* sweep.cc */; };
+		D11D1D6118DF70CE0091521F /* sweep.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4B18DF70980091521F /* sweep.cc */; };
+		D11D1D6218DF70D00091521F /* sweep_context.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4D18DF70980091521F /* sweep_context.cc */; };
+		D11D1D6318DF70D10091521F /* sweep_context.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4D18DF70980091521F /* sweep_context.cc */; };
+		D11D1D6418DF70D40091521F /* advancing_front.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4718DF70980091521F /* advancing_front.cc */; };
+		D11D1D6518DF70D40091521F /* advancing_front.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4718DF70980091521F /* advancing_front.cc */; };
+		D11D1D6618DF70D80091521F /* shapes.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4218DF70980091521F /* shapes.cc */; };
+		D11D1D6718DF70D80091521F /* shapes.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4218DF70980091521F /* shapes.cc */; };
+		D11D1D6818DF71080091521F /* cdt.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4918DF70980091521F /* cdt.cc */; };
+		D11D1D6918DF71080091521F /* cdt.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4918DF70980091521F /* cdt.cc */; };
 		D13D718315AF949100143662 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D13D718115AF949100143662 /* Node.cpp */; };
 		D13D718415AF949100143662 /* Node.h in Headers */ = {isa = PBXBuildFile; fileRef = D13D718215AF949100143662 /* Node.h */; };
 		D13D718715AF96F000143662 /* BodyNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D13D718515AF96F000143662 /* BodyNode.cpp */; };
@@ -331,7 +353,7 @@
 		D1F44F52157FE91900566119 /* Pad.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F50157FE91900566119 /* Pad.h */; };
 		D1F44F55157FE9D200566119 /* HUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F53157FE9D200566119 /* HUD.cpp */; };
 		D1F44F56157FE9D200566119 /* HUD.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F54157FE9D200566119 /* HUD.h */; };
-		D1FBAF6D18DEE73B000A083E /* TestPolygonTrianguliation.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1FBAF6C18DEE73B000A083E /* TestPolygonTrianguliation.mm */; };
+		D1FBAF6D18DEE73B000A083E /* TestPoly2tri.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1FBAF6C18DEE73B000A083E /* TestPoly2tri.mm */; };
 		D1FBAF6F18DEE8B0000A083E /* ConvexDecomposition in Resources */ = {isa = PBXBuildFile; fileRef = D1FBAF6E18DEE8B0000A083E /* ConvexDecomposition */; };
 		D1FBAF7018DEE8B0000A083E /* ConvexDecomposition in Resources */ = {isa = PBXBuildFile; fileRef = D1FBAF6E18DEE8B0000A083E /* ConvexDecomposition */; };
 /* End PBXBuildFile section */
@@ -507,6 +529,18 @@
 		60FF395B1813CBC700B86F40 /* FaceTraversal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceTraversal.h; sourceTree = "<group>"; };
 		D11D1CC018DF4FBA0091521F /* Description.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Description.cpp; sourceTree = "<group>"; };
 		D11D1CC118DF4FBA0091521F /* Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Description.h; sourceTree = "<group>"; };
+		D11D1D4218DF70980091521F /* shapes.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shapes.cc; sourceTree = "<group>"; };
+		D11D1D4318DF70980091521F /* shapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shapes.h; sourceTree = "<group>"; };
+		D11D1D4418DF70980091521F /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
+		D11D1D4518DF70980091521F /* poly2tri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = poly2tri.h; sourceTree = "<group>"; };
+		D11D1D4718DF70980091521F /* advancing_front.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = advancing_front.cc; sourceTree = "<group>"; };
+		D11D1D4818DF70980091521F /* advancing_front.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = advancing_front.h; sourceTree = "<group>"; };
+		D11D1D4918DF70980091521F /* cdt.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cdt.cc; sourceTree = "<group>"; };
+		D11D1D4A18DF70980091521F /* cdt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cdt.h; sourceTree = "<group>"; };
+		D11D1D4B18DF70980091521F /* sweep.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sweep.cc; sourceTree = "<group>"; };
+		D11D1D4C18DF70980091521F /* sweep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sweep.h; sourceTree = "<group>"; };
+		D11D1D4D18DF70980091521F /* sweep_context.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sweep_context.cc; sourceTree = "<group>"; };
+		D11D1D4E18DF70980091521F /* sweep_context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sweep_context.h; sourceTree = "<group>"; };
 		D13D718115AF949100143662 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
 		D13D718215AF949100143662 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
 		D13D718515AF96F000143662 /* BodyNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BodyNode.cpp; sourceTree = "<group>"; };
@@ -532,7 +566,7 @@
 		D1F44F50157FE91900566119 /* Pad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pad.h; sourceTree = "<group>"; };
 		D1F44F53157FE9D200566119 /* HUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HUD.cpp; sourceTree = "<group>"; };
 		D1F44F54157FE9D200566119 /* HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUD.h; sourceTree = "<group>"; };
-		D1FBAF6C18DEE73B000A083E /* TestPolygonTrianguliation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPolygonTrianguliation.mm; sourceTree = "<group>"; };
+		D1FBAF6C18DEE73B000A083E /* TestPoly2tri.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPoly2tri.mm; sourceTree = "<group>"; };
 		D1FBAF6E18DEE8B0000A083E /* ConvexDecomposition */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ConvexDecomposition; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -656,7 +690,7 @@
 				60379DD518678813009A9EBC /* TestFaceNode.mm */,
 				60937FB7186D9F1200E6C23E /* TestTetrahedron.mm */,
 				D16D270518D5F1980095B177 /* TestPlane.mm */,
-				D1FBAF6C18DEE73B000A083E /* TestPolygonTrianguliation.mm */,
+				D1FBAF6C18DEE73B000A083E /* TestPoly2tri.mm */,
 			);
 			path = "FactoryEngine Tests";
 			sourceTree = "<group>";
@@ -738,6 +772,41 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		D11D1D4018DF70980091521F /* poly2tri */ = {
+			isa = PBXGroup;
+			children = (
+				D11D1D4118DF70980091521F /* common */,
+				D11D1D4518DF70980091521F /* poly2tri.h */,
+				D11D1D4618DF70980091521F /* sweep */,
+			);
+			path = poly2tri;
+			sourceTree = "<group>";
+		};
+		D11D1D4118DF70980091521F /* common */ = {
+			isa = PBXGroup;
+			children = (
+				D11D1D4218DF70980091521F /* shapes.cc */,
+				D11D1D4318DF70980091521F /* shapes.h */,
+				D11D1D4418DF70980091521F /* utils.h */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		D11D1D4618DF70980091521F /* sweep */ = {
+			isa = PBXGroup;
+			children = (
+				D11D1D4718DF70980091521F /* advancing_front.cc */,
+				D11D1D4818DF70980091521F /* advancing_front.h */,
+				D11D1D4918DF70980091521F /* cdt.cc */,
+				D11D1D4A18DF70980091521F /* cdt.h */,
+				D11D1D4B18DF70980091521F /* sweep.cc */,
+				D11D1D4C18DF70980091521F /* sweep.h */,
+				D11D1D4D18DF70980091521F /* sweep_context.cc */,
+				D11D1D4E18DF70980091521F /* sweep_context.h */,
+			);
+			path = sweep;
+			sourceTree = "<group>";
+		};
 		D13DC900157A9F8B00C84006 = {
 			isa = PBXGroup;
 			children = (
@@ -807,6 +876,7 @@
 		D1C708B915B3495400D64823 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				D11D1D4018DF70980091521F /* poly2tri */,
 				D1FBAF6E18DEE8B0000A083E /* ConvexDecomposition */,
 				602A43A31800A59600EC071F /* glm */,
 			);
@@ -973,13 +1043,17 @@
 				606BC0101808639500EC4F37 /* SnappingQueue.h in Headers */,
 				6091E37616AC554E001DE0A7 /* PolylineNode.h in Headers */,
 				60F2406F16B5BCA700291ED0 /* LineInteraction.h in Headers */,
+				D11D1D5C18DF70980091521F /* sweep.h in Headers */,
 				605CD4FD16FDE992005CCAA2 /* MoveInteraction.h in Headers */,
 				605CD4FF16FDF824005CCAA2 /* RectangleInteraction.h in Headers */,
 				60CE9A5517EC646E00A775C0 /* ShadingLibrary.h in Headers */,
 				60CE9A5317EC646E00A775C0 /* ShadingInterfaceES.h in Headers */,
+				D11D1D5F18DF70980091521F /* sweep_context.h in Headers */,
 				60B3F3BE1805667B0010484D /* Segment.h in Headers */,
+				D11D1D5318DF70980091521F /* poly2tri.h in Headers */,
 				60A4ED6116FE28BA0083DCD2 /* RotationInteraction.h in Headers */,
 				60A4ED6816FE59D50083DCD2 /* ScaleInteraction.h in Headers */,
+				D11D1D5218DF70980091521F /* utils.h in Headers */,
 				60E4FF5216FF1F6600EEAA5A /* InteractionAssistant.h in Headers */,
 				6032716417EB08E700249562 /* Framebuffer.h in Headers */,
 				60D7457917228D4B0062CDF1 /* ModelEditor.h in Headers */,
@@ -1003,6 +1077,7 @@
 				6032717917EB17C700249562 /* SceneRenderer.h in Headers */,
 				60F6D99017368DB500935A76 /* TestRectangle.h in Headers */,
 				606BC00C1808639500EC4F37 /* AxisSnap.h in Headers */,
+				D11D1D5918DF70980091521F /* cdt.h in Headers */,
 				6055CFD117417D46009F1F46 /* Light.h in Headers */,
 				6055CFD517417DCB009F1F46 /* Camera.h in Headers */,
 				606BC014180863C100EC4F37 /* PointSnap.h in Headers */,
@@ -1010,11 +1085,13 @@
 				60BD328F174436BD00C2E593 /* LightingCollection.h in Headers */,
 				60BD3293174436EA00C2E593 /* DefaultLighting.h in Headers */,
 				6011AF1C1747C2FC0022E7A9 /* LigthtingModelFactory.h in Headers */,
+				D11D1D5618DF70980091521F /* advancing_front.h in Headers */,
 				60C6D0BC174973800009EC3C /* Rect.h in Headers */,
 				60C6D0BE174973850009EC3C /* Polygon.h in Headers */,
 				601EC86C175B2901003DE2B8 /* CameraInteraction.h in Headers */,
 				60CE9A5117EC646E00A775C0 /* ShadingInterfaceCore.h in Headers */,
 				605FFDF317DFDC4C00DE90A9 /* Leap.h in Headers */,
+				D11D1D5118DF70980091521F /* shapes.h in Headers */,
 				605FFDF417DFDC4C00DE90A9 /* LeapMath.h in Headers */,
 				60EB2F671812C385008DCA37 /* Cylinder.h in Headers */,
 				605FFDFC17DFDD3400DE90A9 /* LeapListener.h in Headers */,
@@ -1170,15 +1247,17 @@
 				60DFE3AB18253C6900A32D7A /* TestVector.mm in Sources */,
 				60D63216181C0C3000CEB0D0 /* Edge.cpp in Sources */,
 				60A05FC71809DB15004DD045 /* PointSnap.cpp in Sources */,
-				D1FBAF6D18DEE73B000A083E /* TestPolygonTrianguliation.mm in Sources */,
+				D1FBAF6D18DEE73B000A083E /* TestPoly2tri.mm in Sources */,
 				603BA5E617E87437007CE822 /* DefaultLighting.cpp in Sources */,
 				603BA5E717E87437007CE822 /* Light.cpp in Sources */,
 				603BA5E817E87437007CE822 /* ModelEditor.cpp in Sources */,
+				D11D1D6418DF70D40091521F /* advancing_front.cc in Sources */,
 				603BA5E917E87437007CE822 /* ModelTree.cpp in Sources */,
 				603BA5EA17E87437007CE822 /* ModelFactory.cpp in Sources */,
 				6032716317EB08E700249562 /* Framebuffer.cpp in Sources */,
 				603BA5EC17E87437007CE822 /* Node.cpp in Sources */,
 				6076A1531806AE5400770486 /* Primitive.cpp in Sources */,
+				D11D1D6818DF71080091521F /* cdt.cc in Sources */,
 				603BA5ED17E87437007CE822 /* PointNode.cpp in Sources */,
 				603BA5EE17E87437007CE822 /* LineNode.cpp in Sources */,
 				603BA5EF17E87437007CE822 /* PolylineNode.cpp in Sources */,
@@ -1203,12 +1282,15 @@
 				D16D270618D5F1980095B177 /* TestPlane.mm in Sources */,
 				60A05FBD1809D457004DD045 /* Viewport.cpp in Sources */,
 				60D63215181C08F600CEB0D0 /* TestEdge.mm in Sources */,
+				D11D1D6018DF70CD0091521F /* sweep.cc in Sources */,
 				603BA5FB17E87437007CE822 /* Pad.cpp in Sources */,
 				603BA5FC17E87437007CE822 /* HUD.cpp in Sources */,
 				603BA5FD17E87437007CE822 /* Workspace.cpp in Sources */,
 				603BA5FE17E87437007CE822 /* Bounds.cpp in Sources */,
 				6076A1561806AE8F00770486 /* ShadingInterfaceCore.cpp in Sources */,
+				D11D1D6218DF70D00091521F /* sweep_context.cc in Sources */,
 				603BA5FF17E87437007CE822 /* TestRectangle.cpp in Sources */,
+				D11D1D6718DF70D80091521F /* shapes.cc in Sources */,
 				603BA5C617E87392007CE822 /* Camera.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1217,8 +1299,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D11D1D6918DF71080091521F /* cdt.cc in Sources */,
 				60A05FCA1809DB36004DD045 /* AxisSnap.cpp in Sources */,
+				D11D1D6618DF70D80091521F /* shapes.cc in Sources */,
 				60BD721F17568043007D7DC6 /* LightingCollection.cpp in Sources */,
+				D11D1D6518DF70D40091521F /* advancing_front.cc in Sources */,
 				60BD721E17568022007D7DC6 /* Camera.cpp in Sources */,
 				60A03E42175244EB00D650B5 /* Scene.cpp in Sources */,
 				60C6D03B174961470009EC3C /* FaceNode.cpp in Sources */,
@@ -1245,6 +1330,7 @@
 				60C6D051174961470009EC3C /* LineInteraction.cpp in Sources */,
 				60C6D053174961470009EC3C /* RotationInteraction.cpp in Sources */,
 				60A05FCB1809DB48004DD045 /* Snap.cpp in Sources */,
+				D11D1D6318DF70D10091521F /* sweep_context.cc in Sources */,
 				60EB2F651812C385008DCA37 /* Cylinder.cpp in Sources */,
 				60C6D054174961470009EC3C /* ScaleInteraction.cpp in Sources */,
 				60919948185DC45C00C7524F /* FaceTraversal.cpp in Sources */,
@@ -1269,6 +1355,7 @@
 				60C6D069174961470009EC3C /* PointRenderer.cpp in Sources */,
 				60C6D06E174961470009EC3C /* TestRectangle.cpp in Sources */,
 				60CE9A6017EC646F00A775C0 /* ShadingInterfaceES.cpp in Sources */,
+				D11D1D6118DF70CE0091521F /* sweep.cc in Sources */,
 				D11D1CC318DF4FBA0091521F /* Description.cpp in Sources */,
 				60C6D0BF1749738A0009EC3C /* Polygon.cpp in Sources */,
 				60C6D0C11749739B0009EC3C /* Rect.cpp in Sources */,
@@ -1284,7 +1371,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D11D1D5718DF70980091521F /* cdt.cc in Sources */,
 				606BC013180863C100EC4F37 /* PointSnap.cpp in Sources */,
+				D11D1D4F18DF70980091521F /* shapes.cc in Sources */,
 				D143779F157BCF0200A05B3B /* FaceNode.cpp in Sources */,
 				60DFE3A81825389500A32D7A /* Vector.cpp in Sources */,
 				D1F44F4C157FE79600566119 /* Workspace.cpp in Sources */,
@@ -1327,6 +1416,7 @@
 				60CE9A5417EC646E00A775C0 /* ShadingLibrary.cpp in Sources */,
 				60EB2F641812C385008DCA37 /* Cylinder.cpp in Sources */,
 				6021AFC717232B8F001EAEBE /* PrimitiveRenderer.cpp in Sources */,
+				D11D1D5D18DF70980091521F /* sweep_context.cc in Sources */,
 				6021AFCB172332F6001EAEBE /* LineRenderer.cpp in Sources */,
 				606BC0171808666700EC4F37 /* Viewport.cpp in Sources */,
 				60CE9A6817EC654A00A775C0 /* ShadingProgram.cpp in Sources */,
@@ -1340,11 +1430,13 @@
 				60BD328A1744039D00C2E593 /* LightingModel.cpp in Sources */,
 				60BD328E174436BD00C2E593 /* LightingCollection.cpp in Sources */,
 				60BD3292174436EA00C2E593 /* DefaultLighting.cpp in Sources */,
+				D11D1D5418DF70980091521F /* advancing_front.cc in Sources */,
 				D16D270318D5E8FB0095B177 /* Plane.cpp in Sources */,
 				6011AF1B1747C2FC0022E7A9 /* LigthtingModelFactory.cpp in Sources */,
 				60C6D0C01749738A0009EC3C /* Polygon.cpp in Sources */,
 				60C6D0C21749739B0009EC3C /* Rect.cpp in Sources */,
 				601EC86B175B2901003DE2B8 /* CameraInteraction.cpp in Sources */,
+				D11D1D5A18DF70980091521F /* sweep.cc in Sources */,
 				605FFDFB17DFDD3400DE90A9 /* LeapListener.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1398,6 +1490,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/External/poly2tri/**",
 					"${SRCROOT}/External",
 					"${SRCROOT}",
 				);
@@ -1432,6 +1525,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/External/poly2tri/**",
 					"${SRCROOT}/External",
 					"${SRCROOT}",
 				);
@@ -1581,7 +1675,6 @@
 				GCC_PREFIX_HEADER = Main/Prefix.pch;
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/External/ConvexDecomposition",
 					"${SRCROOT}/External/Leap",
 					"${SRCROOT}/External",
 					"${SRCROOT}",
@@ -1608,7 +1701,6 @@
 				GCC_PREFIX_HEADER = Main/Prefix.pch;
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/External/ConvexDecomposition",
 					"${SRCROOT}/External/Leap",
 					"${SRCROOT}/External",
 					"${SRCROOT}",

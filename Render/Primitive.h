@@ -140,17 +140,17 @@ class PolygonPrimitive : public Primitive
 {
 public:
     struct Data {
-        glm::vec4 vertices[3];
-        glm::vec4 normals[3];
-        glm::vec4 colors[3];
-        glm::vec4 pickingColors[3];
+        glm::vec4 vertices;
+        glm::vec4 normals;
+        glm::vec4 colors;
+        glm::vec4 pickingColors;
     };
     
     PolygonPrimitive() {}
     virtual ~PolygonPrimitive() {}
     
     Type type() const { return kPolygon; }
-    glm::vec3 mVec[3];
+    std::vector<glm::vec3> vecsVector;
     glm::vec4 color;
     glm::vec4 mPickingColor;
 protected:
