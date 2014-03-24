@@ -1,10 +1,3 @@
-//
-//  Segment.h
-//  FactoryEngine
-//
-//  Created by Edvinas on 10/9/13.
-//  Copyright (c) 2013 Dimention. All rights reserved.
-//
 
 #pragma once
 

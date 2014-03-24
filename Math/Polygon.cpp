@@ -21,7 +21,6 @@ void Polygon::Scale(glm::vec3& offset)
 
 void Polygon::Reset()
 {
-    //m_mMatrix.Identity
 }
     
 }

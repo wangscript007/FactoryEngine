@@ -329,6 +329,11 @@
 		D11D1D6718DF70D80091521F /* shapes.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4218DF70980091521F /* shapes.cc */; };
 		D11D1D6818DF71080091521F /* cdt.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4918DF70980091521F /* cdt.cc */; };
 		D11D1D6918DF71080091521F /* cdt.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4918DF70980091521F /* cdt.cc */; };
+		D11D1D6D18E04D1C0091521F /* PolygonProjection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D6B18E04D1C0091521F /* PolygonProjection.cpp */; };
+		D11D1D6E18E04D1C0091521F /* PolygonProjection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D6B18E04D1C0091521F /* PolygonProjection.cpp */; };
+		D11D1D6F18E04D1C0091521F /* PolygonProjection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D6B18E04D1C0091521F /* PolygonProjection.cpp */; };
+		D11D1D7018E04D1C0091521F /* PolygonProjection.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D6C18E04D1C0091521F /* PolygonProjection.h */; };
+		D11D1D7118E04D1C0091521F /* PolygonProjection.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D6C18E04D1C0091521F /* PolygonProjection.h */; };
 		D13D718315AF949100143662 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D13D718115AF949100143662 /* Node.cpp */; };
 		D13D718415AF949100143662 /* Node.h in Headers */ = {isa = PBXBuildFile; fileRef = D13D718215AF949100143662 /* Node.h */; };
 		D13D718715AF96F000143662 /* BodyNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D13D718515AF96F000143662 /* BodyNode.cpp */; };
@@ -541,6 +546,8 @@
 		D11D1D4C18DF70980091521F /* sweep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sweep.h; sourceTree = "<group>"; };
 		D11D1D4D18DF70980091521F /* sweep_context.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sweep_context.cc; sourceTree = "<group>"; };
 		D11D1D4E18DF70980091521F /* sweep_context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sweep_context.h; sourceTree = "<group>"; };
+		D11D1D6B18E04D1C0091521F /* PolygonProjection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolygonProjection.cpp; sourceTree = "<group>"; };
+		D11D1D6C18E04D1C0091521F /* PolygonProjection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonProjection.h; sourceTree = "<group>"; };
 		D13D718115AF949100143662 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
 		D13D718215AF949100143662 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
 		D13D718515AF96F000143662 /* BodyNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BodyNode.cpp; sourceTree = "<group>"; };
@@ -807,6 +814,15 @@
 			path = sweep;
 			sourceTree = "<group>";
 		};
+		D11D1D6A18E04CF70091521F /* Processing */ = {
+			isa = PBXGroup;
+			children = (
+				D11D1D6B18E04D1C0091521F /* PolygonProjection.cpp */,
+				D11D1D6C18E04D1C0091521F /* PolygonProjection.h */,
+			);
+			path = Processing;
+			sourceTree = "<group>";
+		};
 		D13DC900157A9F8B00C84006 = {
 			isa = PBXGroup;
 			children = (
@@ -820,6 +836,7 @@
 				D17C766B1583C1580083E2B0 /* Main */,
 				D11D1CBF18DF4FAF0091521F /* Utils */,
 				D1E54CA7157BE5120083FB90 /* Math */,
+				D11D1D6A18E04CF70091521F /* Processing */,
 				608D70001735738C000A92F7 /* Shading */,
 				60D74584172298B30062CDF1 /* Render */,
 				6055CFCD17417BB3009F1F46 /* Lighting */,
@@ -997,6 +1014,7 @@
 				60C6D0A2174961470009EC3C /* PrimitiveRenderer.h in Headers */,
 				60C6D0A3174961470009EC3C /* LineRenderer.h in Headers */,
 				60C6D0A4174961470009EC3C /* PolygonRenderer.h in Headers */,
+				D11D1D7118E04D1C0091521F /* PolygonProjection.h in Headers */,
 				60C6D0A5174961470009EC3C /* RectangleRenderer.h in Headers */,
 				60C6D0A6174961470009EC3C /* Bounds.h in Headers */,
 				60C6D0A7174961470009EC3C /* PointRenderer.h in Headers */,
@@ -1080,6 +1098,7 @@
 				D11D1D5918DF70980091521F /* cdt.h in Headers */,
 				6055CFD117417D46009F1F46 /* Light.h in Headers */,
 				6055CFD517417DCB009F1F46 /* Camera.h in Headers */,
+				D11D1D7018E04D1C0091521F /* PolygonProjection.h in Headers */,
 				606BC014180863C100EC4F37 /* PointSnap.h in Headers */,
 				60BD328B1744039D00C2E593 /* LightingModel.h in Headers */,
 				60BD328F174436BD00C2E593 /* LightingCollection.h in Headers */,
@@ -1266,6 +1285,7 @@
 				603BA5F117E87437007CE822 /* BodyNode.cpp in Sources */,
 				603BA5F217E87437007CE822 /* GroupNode.cpp in Sources */,
 				603BA5F317E87437007CE822 /* InteractionProvider.cpp in Sources */,
+				D11D1D6F18E04D1C0091521F /* PolygonProjection.cpp in Sources */,
 				603BA5F417E87437007CE822 /* RectangleInteraction.cpp in Sources */,
 				603BA5F517E87437007CE822 /* LineInteraction.cpp in Sources */,
 				603BA5F617E87437007CE822 /* MoveInteraction.cpp in Sources */,
@@ -1338,6 +1358,7 @@
 				60C6D055174961470009EC3C /* InteractionAssistant.cpp in Sources */,
 				6076A1541806AE5400770486 /* Primitive.cpp in Sources */,
 				60B3F3C1180577580010484D /* Segment.cpp in Sources */,
+				D11D1D6E18E04D1C0091521F /* PolygonProjection.cpp in Sources */,
 				60C6D05D174961470009EC3C /* ModelEditor.cpp in Sources */,
 				60C6D05E174961470009EC3C /* ModelTree.cpp in Sources */,
 				60C6D05F174961470009EC3C /* InteractionProvider.cpp in Sources */,
@@ -1382,6 +1403,7 @@
 				60FF395C1813CBC700B86F40 /* FaceTraversal.cpp in Sources */,
 				D1F44F55157FE9D200566119 /* HUD.cpp in Sources */,
 				D17C76881584B6010083E2B0 /* Log.cpp in Sources */,
+				D11D1D6D18E04D1C0091521F /* PolygonProjection.cpp in Sources */,
 				D13D718315AF949100143662 /* Node.cpp in Sources */,
 				D11D1CC218DF4FBA0091521F /* Description.cpp in Sources */,
 				D13D718715AF96F000143662 /* BodyNode.cpp in Sources */,
