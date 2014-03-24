@@ -6,7 +6,7 @@ namespace ftr {
 class FaceNode;
 class PointNode;
 class Edge;
-class Plane;
+class Triangle;
 
 class FaceTraversal
 {
@@ -31,7 +31,7 @@ private:
     
     Edge* mStartEdge;
     PointNode* mTargetNode;
-    Plane* mPlane;
+    Triangle* mTriangle;
     Result* mResult;
     
 };

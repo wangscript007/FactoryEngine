@@ -28,11 +28,11 @@ bool Vector::IsCWOrder(const glm::vec3& v1, const glm::vec3& v2)
         return false;
     }
     glm::vec3 cross = glm::cross(v1, v2);
-    glm::vec3 mostParallelAxis = MostParallelAxis(cross);
+    glm::vec3 mostParallelAxis = XYZClosestAxis(cross);
     return glm::dot(cross, mostParallelAxis) < 0;
 }
     
-glm::vec3 Vector::MostParallelAxis(glm::vec3 v)
+glm::vec3 Vector::XYZClosestAxis(glm::vec3 v)
 {
     static const glm::vec3 axis[3] =
     {

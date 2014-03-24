@@ -1,26 +1,119 @@
-// 
-//  Copyright (c) 2012 Dimention. All rights reserved.
-//
+
 #include <Math/Polygon.h>
+#include <Math/Vector.h>
 
 namespace ftr {
+    
+void Polygon::AddPoint(const glm::vec3& point)
+{
+    mPolyline.AddPoint(point);
+}
 
-void Polygon::Rotate(glm::vec3& angle)
+void Polygon::Rotate(const glm::vec3& oilerAngle)
 {
     
 }
 
-void Polygon::Translate(glm::vec3& offset)
-{
-}
-
-void Polygon::Scale(glm::vec3& offset)
+void Polygon::Translate(const glm::vec3& offset)
 {
     
 }
+
+void Polygon::Scale(const glm::vec3& offset)
+{
+    
+    
+}
+    
+void Polygon::Triangulate()
+{
+    glm::vec3 closestNormal = XYZClosestNormal();
+    OrientPolygonToSurfaceNormal(closestNormal);
+    
+    int dimensionsToUse[2];
+    int dim = 0;
+    for (int i = 0; i < 3; i++) {
+        if (closestNormal[i] == 0) {
+            dimensionsToUse[dim] = i;
+            dim++;
+        }
+    }
+    
+    std::vector<p2t::Point*> polyline;
+    for (int i = 0; i < mPolyline.mPoints.size(); i++) {
+        glm::vec3 polygonPoint = mPolyline.mPoints[0];
+        int x = polygonPoint[dimensionsToUse[0]];
+        int y = polygonPoint[dimensionsToUse[1]];
+        polyline.push_back(new p2t::Point(x, y));
+    }
+    
+    p2t::CDT *cdt = new p2t::CDT(polyline);
+    cdt->Triangulate();
+    std::vector<p2t::Triangle*> triangles = cdt->GetTriangles();
+    
+    for (int ti = 0; ti < triangles.size(); ++ti)
+    {
+        p2t::Triangle* p2Triangle = triangles[ti];
+        glm::vec3 points[3];
+        
+        for(int pi = 0; pi < 3; pi++)
+        {
+            int dim = 0;
+            for (int di = 0; di < 3; ++di)
+            {
+                if (closestNormal[di] == 0) {
+                    if (dim == 0) {
+                        points[pi][di] = p2Triangle->GetPoint(pi)->x;
+                    } else {
+                        points[pi][di] = p2Triangle->GetPoint(pi)->y;
+                    }
+                    dim++;
+                }
+            }
+        }
+        mTriangles.push_back(new Triangle(points[0], points[1], points[2]));
+    }
+    
+    
+}
+    
+void Polygon::Transform(const glm::mat4& tranformation)
+{
+    mPolyline.Transform(tranformation);
+    if (mTriangles.size()) {
+    }
+}
+
 
 void Polygon::Reset()
 {
+    
+}
+    
+void Polygon::OrientPolygonToSurfaceNormal(const glm::vec3& newNormal)
+{
+    glm::vec3 surfaceNormal = SurfaceNormal();
+    
+    glm::vec3 rotationAxis = glm::normalize(glm::cross(newNormal, surfaceNormal));
+    float rotationAngle = glm::angle(newNormal, surfaceNormal);
+    
+    Transform(glm::rotate(rotationAngle, rotationAxis));
+}
+    
+glm::vec3 Polygon::XYZClosestNormal() const
+{
+    return Vector::XYZClosestAxis(SurfaceNormal());
+}
+    
+glm::vec3 Polygon::SurfaceNormal() const
+{
+    assert(mPolyline.mPoints.size() > 2);
+    Triangle triangle(mPolyline.mPoints[0],
+                      mPolyline.mPoints[1],
+                      mPolyline.mPoints[2]);
+    
+    glm::vec3 normal = triangle.SurfaceNormal();
+    return normal;
 }
     
 }

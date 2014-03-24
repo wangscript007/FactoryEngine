@@ -7,7 +7,7 @@
 //
 
 
-#include <Math/Plane.h>
+#include <Math/Triangle.h>
 #include <Model/FaceTraversal.h>
 #include <Model/PointNode.h>
 #include <Model/Edge.h>
@@ -28,7 +28,7 @@ bool FaceTraversal::IsSameFace(const Result& resultA, const Result& resultB)
     
 FaceTraversal::FaceTraversal(Edge& startEdge)
     : mStartEdge(&startEdge),
-    mPlane(NULL),
+    mTriangle(NULL),
     mTargetNode(startEdge.originNode())
 {
     
@@ -38,8 +38,8 @@ void FaceTraversal::Find(Result& result)
 {
     mResult = &result;
     std::vector<Edge*>& edgesVector = mResult->edgesVector;
-    if (mPlane) {
-        FT_DELETE(mPlane);
+    if (mTriangle) {
+        FT_DELETE(mTriangle);
     }
     
     std::cout
@@ -101,13 +101,13 @@ bool FaceTraversal::Find(ftr::Edge *startEdge)
                     if (edgesVector.size() > 1) {
                         CreatePlane();
                     } else {
-                        FT_DELETE(mPlane);
+                        FT_DELETE(mTriangle);
                     }
-                    if (mPlane) {
-                        samePlane = mPlane->Contains(iEdge->target());
+                    if (mTriangle) {
+                        samePlane = mTriangle->PlaneContains(iEdge->target());
                     }
                 } else {
-                    FT_DELETE(mPlane);
+                    FT_DELETE(mTriangle);
                 }
                 if (samePlane && isCW)
                 {
@@ -138,13 +138,13 @@ void FaceTraversal::PrintEdgesRoute() const
     
 void FaceTraversal::CreatePlane()
 {
-    if (!mPlane) {
+    if (!mTriangle) {
         std::vector<Edge*>& edgesVector = mResult->edgesVector;
         assert(edgesVector.size() > 1);
         Edge* e1 = edgesVector[0];
         Edge* e2 = edgesVector[1];
-        mPlane = new Plane(e1->origin(), e1->target(), e2->target());
-        std::cout << "Created plane: " << mPlane->Description();
+        mTriangle = new Triangle(e1->origin(), e1->target(), e2->target());
+        std::cout << "Created Triangle: " << mTriangle->Description();
     }
 }
     

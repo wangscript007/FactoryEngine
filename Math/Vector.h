@@ -16,7 +16,7 @@ public:
     virtual ~Vector() {}
     static bool IsCWOrder(const glm::vec3& v1, const glm::vec3& v2);
     static float CCWAngle(const glm::vec3& v1, const glm::vec3& v2);
-    static glm::vec3 MostParallelAxis(glm::vec3 v);
+    static glm::vec3 XYZClosestAxis(glm::vec3 v);
 private:
     
     

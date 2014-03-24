@@ -1,13 +1,13 @@
 
 #import <XCTest/XCTest.h>
-#import <Math/Plane.h>
+#import <Math/Triangle.h>
 
 
 using namespace ftr;
 
 @interface TestPlane : XCTestCase
 {
-    Plane plane;
+    Triangle Triangle;
     glm::vec3 p1, p2, p3, p4, p5;
 }
 
@@ -23,7 +23,7 @@ using namespace ftr;
     p3 = glm::vec3(1.0f, 0.0f, 0.0f);
     p4 = glm::vec3(0.0f, -1.0f, 0.0f);
     p5 = glm::vec3(0.0f, -1.0f, 1.0f);
-    plane = Plane(p1, p2, p3);
+    Triangle = Triangle(p1, p2, p3);
 }
 
 - (void)tearDown
@@ -33,11 +33,11 @@ using namespace ftr;
 
 - (void)testContains
 {
-    XCTAssert(plane.Contains(p1));
-    XCTAssert(plane.Contains(p2));
-    XCTAssert(plane.Contains(p3));
-    XCTAssert(plane.Contains(p4));
-    XCTAssert(!plane.Contains(p5));
+    XCTAssert(Triangle.Contains(p1));
+    XCTAssert(Triangle.Contains(p2));
+    XCTAssert(Triangle.Contains(p3));
+    XCTAssert(Triangle.Contains(p4));
+    XCTAssert(!Triangle.Contains(p5));
 }
 
 @end

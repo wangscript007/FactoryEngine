@@ -1,24 +1,44 @@
-// 
-//  Copyright (c) 2012 Dimention. All rights reserved.
-//
+
 #pragma once
 
 #include <Math/Geometry.h>
+#include <External/poly2tri/poly2tri.h>
+#include <Math/Polyline.h>
+#include <Math/Triangle.h>
+
 
 namespace ftr {
 
 class Polygon
 {
 public:
-    void Rotate(glm::vec3& angle);
-    void Translate(glm::vec3& offset);
-    void Scale(glm::vec3& offset);
+    void AddPoint(const glm::vec3& point);
+    const std::vector<Triangle*>& GetTriangles() const { return mTriangles; }
+    
+    void Triangulate();
+    
+    void Rotate(const glm::vec3& oilerAngle);
+    void Translate(const  glm::vec3& offset);
+    void Scale(const glm::vec3& offset);
     void Reset();
     
+    
+    
 private:
-    glm::mat4 m_mMatrix;
+    void OrientPolygonToSurfaceNormal(const glm::vec3& newNormal);
+    void Transform(const glm::mat4& tranformation);
+    
+    std::vector<Triangle*> mTriangles;
+    
+    glm::vec3 SurfaceNormal() const;
+    glm::vec3 XYZClosestNormal() const;
+    
+    
+    glm::mat4 mMatrix;
     glm::vec3 mLocal;
     glm::vec3 mWorld;
+    
+    Polyline mPolyline;
 };
 
 }

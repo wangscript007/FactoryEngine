@@ -5,6 +5,7 @@ namespace ftr {
     
 glm::vec3 AxisSnap::Snapped() const
 {
+    // TODO: simplify with arrays and loops
     static glm::vec3 axisSceneX = glm::vec3(1.0f, 0.0f, 0.0f);
     static glm::vec3 axisSceneY = glm::vec3(0.0f, 1.0f, 0.0f);
     static glm::vec3 axisSceneZ = glm::vec3(0.0f, 0.0f, 1.0f);

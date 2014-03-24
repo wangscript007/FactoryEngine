@@ -334,6 +334,11 @@
 		D11D1D6F18E04D1C0091521F /* PolygonProjection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D6B18E04D1C0091521F /* PolygonProjection.cpp */; };
 		D11D1D7018E04D1C0091521F /* PolygonProjection.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D6C18E04D1C0091521F /* PolygonProjection.h */; };
 		D11D1D7118E04D1C0091521F /* PolygonProjection.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D6C18E04D1C0091521F /* PolygonProjection.h */; };
+		D11D1D7418E0507B0091521F /* Polyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D7218E0507B0091521F /* Polyline.cpp */; };
+		D11D1D7518E0507B0091521F /* Polyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D7218E0507B0091521F /* Polyline.cpp */; };
+		D11D1D7618E0507B0091521F /* Polyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D7218E0507B0091521F /* Polyline.cpp */; };
+		D11D1D7718E0507B0091521F /* Polyline.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D7318E0507B0091521F /* Polyline.h */; };
+		D11D1D7818E0507B0091521F /* Polyline.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D7318E0507B0091521F /* Polyline.h */; };
 		D13D718315AF949100143662 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D13D718115AF949100143662 /* Node.cpp */; };
 		D13D718415AF949100143662 /* Node.h in Headers */ = {isa = PBXBuildFile; fileRef = D13D718215AF949100143662 /* Node.h */; };
 		D13D718715AF96F000143662 /* BodyNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D13D718515AF96F000143662 /* BodyNode.cpp */; };
@@ -341,10 +346,10 @@
 		D13DC913157A9FF500C84006 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13DC912157A9FF500C84006 /* OpenGL.framework */; };
 		D143779F157BCF0200A05B3B /* FaceNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D143779D157BCF0200A05B3B /* FaceNode.cpp */; };
 		D14377A0157BCF0200A05B3B /* FaceNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D143779E157BCF0200A05B3B /* FaceNode.h */; };
-		D16D270318D5E8FB0095B177 /* Plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Plane.cpp */; };
-		D16D270418D5E8FB0095B177 /* Plane.h in Headers */ = {isa = PBXBuildFile; fileRef = D16D270218D5E8FB0095B177 /* Plane.h */; };
-		D16D270618D5F1980095B177 /* TestPlane.mm in Sources */ = {isa = PBXBuildFile; fileRef = D16D270518D5F1980095B177 /* TestPlane.mm */; };
-		D16D270718D5F5330095B177 /* Plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Plane.cpp */; };
+		D16D270318D5E8FB0095B177 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Triangle.cpp */; };
+		D16D270418D5E8FB0095B177 /* Triangle.h in Headers */ = {isa = PBXBuildFile; fileRef = D16D270218D5E8FB0095B177 /* Triangle.h */; };
+		D16D270618D5F1980095B177 /* TestTriangle.mm in Sources */ = {isa = PBXBuildFile; fileRef = D16D270518D5F1980095B177 /* TestTriangle.mm */; };
+		D16D270718D5F5330095B177 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Triangle.cpp */; };
 		D17C76651583BF440083E2B0 /* FactoryEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76641583BF440083E2B0 /* FactoryEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D17C76881584B6010083E2B0 /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D17C76861584B6010083E2B0 /* Log.cpp */; };
 		D17C76891584B6010083E2B0 /* Log.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76871584B6010083E2B0 /* Log.h */; };
@@ -548,6 +553,8 @@
 		D11D1D4E18DF70980091521F /* sweep_context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sweep_context.h; sourceTree = "<group>"; };
 		D11D1D6B18E04D1C0091521F /* PolygonProjection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolygonProjection.cpp; sourceTree = "<group>"; };
 		D11D1D6C18E04D1C0091521F /* PolygonProjection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonProjection.h; sourceTree = "<group>"; };
+		D11D1D7218E0507B0091521F /* Polyline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Polyline.cpp; sourceTree = "<group>"; };
+		D11D1D7318E0507B0091521F /* Polyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polyline.h; sourceTree = "<group>"; };
 		D13D718115AF949100143662 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
 		D13D718215AF949100143662 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
 		D13D718515AF96F000143662 /* BodyNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BodyNode.cpp; sourceTree = "<group>"; };
@@ -556,9 +563,9 @@
 		D13DC912157A9FF500C84006 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		D143779D157BCF0200A05B3B /* FaceNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FaceNode.cpp; sourceTree = "<group>"; };
 		D143779E157BCF0200A05B3B /* FaceNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceNode.h; sourceTree = "<group>"; };
-		D16D270118D5E8FB0095B177 /* Plane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Plane.cpp; sourceTree = "<group>"; };
-		D16D270218D5E8FB0095B177 /* Plane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plane.h; sourceTree = "<group>"; };
-		D16D270518D5F1980095B177 /* TestPlane.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPlane.mm; sourceTree = "<group>"; };
+		D16D270118D5E8FB0095B177 /* Triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
+		D16D270218D5E8FB0095B177 /* Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangle.h; sourceTree = "<group>"; };
+		D16D270518D5F1980095B177 /* TestTriangle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestTriangle.mm; sourceTree = "<group>"; };
 		D17C76641583BF440083E2B0 /* FactoryEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FactoryEngine.h; sourceTree = "<group>"; };
 		D17C76861584B6010083E2B0 /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
 		D17C76871584B6010083E2B0 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
@@ -696,7 +703,7 @@
 				60919945185DB33900C7524F /* TestFaceTraversal.mm */,
 				60379DD518678813009A9EBC /* TestFaceNode.mm */,
 				60937FB7186D9F1200E6C23E /* TestTetrahedron.mm */,
-				D16D270518D5F1980095B177 /* TestPlane.mm */,
+				D16D270518D5F1980095B177 /* TestTriangle.mm */,
 				D1FBAF6C18DEE73B000A083E /* TestPoly2tri.mm */,
 			);
 			path = "FactoryEngine Tests";
@@ -937,10 +944,6 @@
 		D1E54CA7157BE5120083FB90 /* Math */ = {
 			isa = PBXGroup;
 			children = (
-				60B3F3BB1805667B0010484D /* Segment.cpp */,
-				60B3F3BC1805667B0010484D /* Segment.h */,
-				6011C37616D0EE9100CD34F9 /* Polygon.cpp */,
-				6011C37716D0EE9100CD34F9 /* Polygon.h */,
 				60D7DC781658308B0051947E /* Rect.cpp */,
 				60D7DC791658308B0051947E /* Rect.h */,
 				60C41BB21691BF5600DD0C09 /* Geometry.cpp */,
@@ -949,8 +952,14 @@
 				60EB2F631812C385008DCA37 /* Cylinder.h */,
 				60DFE3A61825389500A32D7A /* Vector.cpp */,
 				60DFE3A71825389500A32D7A /* Vector.h */,
-				D16D270118D5E8FB0095B177 /* Plane.cpp */,
-				D16D270218D5E8FB0095B177 /* Plane.h */,
+				60B3F3BB1805667B0010484D /* Segment.cpp */,
+				60B3F3BC1805667B0010484D /* Segment.h */,
+				D16D270118D5E8FB0095B177 /* Triangle.cpp */,
+				D16D270218D5E8FB0095B177 /* Triangle.h */,
+				D11D1D7218E0507B0091521F /* Polyline.cpp */,
+				D11D1D7318E0507B0091521F /* Polyline.h */,
+				6011C37616D0EE9100CD34F9 /* Polygon.cpp */,
+				6011C37716D0EE9100CD34F9 /* Polygon.h */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -991,6 +1000,7 @@
 				60C6D083174961470009EC3C /* PointNode.h in Headers */,
 				60C6D084174961470009EC3C /* LineNode.h in Headers */,
 				60C6D086174961470009EC3C /* Prefix.pch in Headers */,
+				D11D1D7818E0507B0091521F /* Polyline.h in Headers */,
 				60C6D087174961470009EC3C /* Geometry.h in Headers */,
 				60C6D088174961470009EC3C /* PolylineNode.h in Headers */,
 				60C6D08A174961470009EC3C /* LineInteraction.h in Headers */,
@@ -1053,7 +1063,7 @@
 				D13D718415AF949100143662 /* Node.h in Headers */,
 				D13D718815AF96F000143662 /* BodyNode.h in Headers */,
 				D1C708C215B36D0E00D64823 /* GroupNode.h in Headers */,
-				D16D270418D5E8FB0095B177 /* Plane.h in Headers */,
+				D16D270418D5E8FB0095B177 /* Triangle.h in Headers */,
 				60D7DC721657D0700051947E /* PointNode.h in Headers */,
 				60D7DC771657D07C0051947E /* LineNode.h in Headers */,
 				60A575E71690DDEE0050FAFC /* Prefix.pch in Headers */,
@@ -1091,6 +1101,7 @@
 				60CE9A4E17EC646E00A775C0 /* ShadingProgram.h in Headers */,
 				6086605B173436E500E67B54 /* Bounds.h in Headers */,
 				6086605F17343C5400E67B54 /* PointRenderer.h in Headers */,
+				D11D1D7718E0507B0091521F /* Polyline.h in Headers */,
 				606BC00E1808639500EC4F37 /* Snap.h in Headers */,
 				6032717917EB17C700249562 /* SceneRenderer.h in Headers */,
 				60F6D99017368DB500935A76 /* TestRectangle.h in Headers */,
@@ -1247,7 +1258,7 @@
 				60A05FC91809DB35004DD045 /* AxisSnap.cpp in Sources */,
 				60988088180584A60064477E /* TestSegment.mm in Sources */,
 				603BA5DC17E87437007CE822 /* PrimitiveRenderer.cpp in Sources */,
-				D16D270718D5F5330095B177 /* Plane.cpp in Sources */,
+				D16D270718D5F5330095B177 /* Triangle.cpp in Sources */,
 				60758B6E180F3020004BE067 /* TestCylinder.mm in Sources */,
 				603BA5DD17E87437007CE822 /* LayerRenderer.cpp in Sources */,
 				603BA5DE17E87437007CE822 /* Layer.cpp in Sources */,
@@ -1276,6 +1287,7 @@
 				6032716317EB08E700249562 /* Framebuffer.cpp in Sources */,
 				603BA5EC17E87437007CE822 /* Node.cpp in Sources */,
 				6076A1531806AE5400770486 /* Primitive.cpp in Sources */,
+				D11D1D7618E0507B0091521F /* Polyline.cpp in Sources */,
 				D11D1D6818DF71080091521F /* cdt.cc in Sources */,
 				603BA5ED17E87437007CE822 /* PointNode.cpp in Sources */,
 				603BA5EE17E87437007CE822 /* LineNode.cpp in Sources */,
@@ -1299,7 +1311,7 @@
 				603BA5F917E87437007CE822 /* InteractionAssistant.cpp in Sources */,
 				603BA5FA17E87437007CE822 /* CameraInteraction.cpp in Sources */,
 				60919947185DC45B00C7524F /* FaceTraversal.cpp in Sources */,
-				D16D270618D5F1980095B177 /* TestPlane.mm in Sources */,
+				D16D270618D5F1980095B177 /* TestTriangle.mm in Sources */,
 				60A05FBD1809D457004DD045 /* Viewport.cpp in Sources */,
 				60D63215181C08F600CEB0D0 /* TestEdge.mm in Sources */,
 				D11D1D6018DF70CD0091521F /* sweep.cc in Sources */,
@@ -1370,6 +1382,7 @@
 				60CE9A6717EC654900A775C0 /* ShadingProgram.cpp in Sources */,
 				60CE9A6417EC646F00A775C0 /* Shader.cpp in Sources */,
 				60C6D065174961470009EC3C /* LineRenderer.cpp in Sources */,
+				D11D1D7518E0507B0091521F /* Polyline.cpp in Sources */,
 				60C6D066174961470009EC3C /* PolygonRenderer.cpp in Sources */,
 				60C6D067174961470009EC3C /* RectangleRenderer.cpp in Sources */,
 				60C6D068174961470009EC3C /* Bounds.cpp in Sources */,
@@ -1453,7 +1466,8 @@
 				60BD328E174436BD00C2E593 /* LightingCollection.cpp in Sources */,
 				60BD3292174436EA00C2E593 /* DefaultLighting.cpp in Sources */,
 				D11D1D5418DF70980091521F /* advancing_front.cc in Sources */,
-				D16D270318D5E8FB0095B177 /* Plane.cpp in Sources */,
+				D16D270318D5E8FB0095B177 /* Triangle.cpp in Sources */,
+				D11D1D7418E0507B0091521F /* Polyline.cpp in Sources */,
 				6011AF1B1747C2FC0022E7A9 /* LigthtingModelFactory.cpp in Sources */,
 				60C6D0C01749738A0009EC3C /* Polygon.cpp in Sources */,
 				60C6D0C21749739B0009EC3C /* Rect.cpp in Sources */,
