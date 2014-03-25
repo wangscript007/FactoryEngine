@@ -24,7 +24,7 @@ void Polygon::Triangulate()
     
     std::vector<p2t::Point*> polyline;
     for (int i = 0; i < rotatedPolygon.mPoints.size(); i++) {
-        glm::vec3 polygonPoint = rotatedPolygon.mPoints[0];
+        glm::vec3 polygonPoint = rotatedPolygon[0];
         int x = polygonPoint[dimensionsToUse[0]];
         int y = polygonPoint[dimensionsToUse[1]];
         polyline.push_back(new p2t::Point(x, y));
