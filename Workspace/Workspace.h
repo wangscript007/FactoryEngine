@@ -5,7 +5,7 @@
 #pragma once
 
 #include <Model/Node.h>
-#include <Math/Rect.h>
+#include <Geometry/Rect.h>
 #include <Workspace/Pad.h>
 #include <Workspace/HUD.h>
 #include <Workspace/Bounds.h>

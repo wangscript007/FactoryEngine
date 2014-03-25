@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include <Math/Polygon.h>
+#include <Geometry/Polygon.h>
 
 namespace ftr {
 

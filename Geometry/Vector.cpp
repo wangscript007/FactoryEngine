@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Dimention. All rights reserved.
 //
 
-#include <Math/Vector.h>
+#include <Geometry/Vector.h>
 
 namespace ftr {
     

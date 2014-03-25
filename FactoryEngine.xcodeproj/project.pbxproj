@@ -846,7 +846,7 @@
 				D1C708B915B3495400D64823 /* External */,
 				D17C766B1583C1580083E2B0 /* Main */,
 				D11D1CBF18DF4FAF0091521F /* Utils */,
-				D1E54CA7157BE5120083FB90 /* Math */,
+				D1E54CA7157BE5120083FB90 /* Geometry */,
 				D11D1D6A18E04CF70091521F /* Processing */,
 				608D70001735738C000A92F7 /* Shading */,
 				60D74584172298B30062CDF1 /* Render */,
@@ -945,7 +945,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		D1E54CA7157BE5120083FB90 /* Math */ = {
+		D1E54CA7157BE5120083FB90 /* Geometry */ = {
 			isa = PBXGroup;
 			children = (
 				60D7DC781658308B0051947E /* Rect.cpp */,
@@ -967,7 +967,7 @@
 				D1A920FD18E1876A0034336A /* Geometry.cpp */,
 				D1A920FE18E1876A0034336A /* Geometry.h */,
 			);
-			path = Math;
+			path = Geometry;
 			sourceTree = "<group>";
 		};
 		D1E75032157BC4DB005C4CCF /* Frameworks */ = {

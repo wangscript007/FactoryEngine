@@ -1,6 +1,6 @@
 
 #include <Model/Edge.h>
-#include <Math/Vector.h>
+#include <Geometry/Vector.h>
 #include <Model/PointNode.h>
 
 namespace ftr {

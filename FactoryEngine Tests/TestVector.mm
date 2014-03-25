@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <Math/Vector.h>
+#import <Geometry/Vector.h>
 
 using namespace ftr;
 

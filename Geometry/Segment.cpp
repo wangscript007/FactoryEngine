@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Dimention. All rights reserved.
 //
 
-#include <Math/Segment.h>
+#include <Geometry/Segment.h>
 
 namespace ftr {
     

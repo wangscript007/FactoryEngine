@@ -1,5 +1,5 @@
 
-#include <Math/Triangle.h>
+#include <Geometry/Triangle.h>
 #include <Utils/Description.h>
 
 namespace ftr {

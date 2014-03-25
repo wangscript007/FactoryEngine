@@ -7,7 +7,7 @@
 //
 
 
-#include <Math/Triangle.h>
+#include <Geometry/Triangle.h>
 #include <Model/FaceTraversal.h>
 #include <Model/PointNode.h>
 #include <Model/Edge.h>

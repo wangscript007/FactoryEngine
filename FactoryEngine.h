@@ -42,7 +42,7 @@ typedef unsigned long long int  Quadrupleword;    // 8 bytes
 //
 // Math
 //l
-#include "Math/Rect.h"
+#include "Geometry/Rect.h"
 
 //
 // Model

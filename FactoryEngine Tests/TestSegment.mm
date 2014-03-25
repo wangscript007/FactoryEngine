@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
-#include <Math/Segment.h>
+#include <Geometry/Segment.h>
 
 using namespace ftr;
 

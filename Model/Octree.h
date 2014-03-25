@@ -1,8 +1,8 @@
 
 #pragma once
 
-#include <Math/GeometryPrimitives.h>
-#include <Math/Cylinder.h>
+#include <Geometry/GeometryPrimitives.h>
+#include <Geometry/Cylinder.h>
 
 namespace ftr {
 

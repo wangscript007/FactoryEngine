@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include <Math/Segment.h>
+#include <Geometry/Segment.h>
 
 namespace ftr {
 

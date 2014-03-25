@@ -1,10 +1,10 @@
 
 #pragma once
 
-#include <Math/GeometryPrimitives.h>
+#include <Geometry/GeometryPrimitives.h>
 #include <External/poly2tri/poly2tri.h>
-#include <Math/Polyline.h>
-#include <Math/Triangle.h>
+#include <Geometry/Polyline.h>
+#include <Geometry/Triangle.h>
 
 
 namespace ftr {

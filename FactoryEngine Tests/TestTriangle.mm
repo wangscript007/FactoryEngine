@@ -1,6 +1,6 @@
 
 #import <XCTest/XCTest.h>
-#import <Math/Triangle.h>
+#import <Geometry/Triangle.h>
 
 
 using namespace ftr;

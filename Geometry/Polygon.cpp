@@ -1,6 +1,6 @@
 
-#include <Math/Polygon.h>
-#include <Math/Vector.h>
+#include <Geometry/Polygon.h>
+#include <Geometry/Vector.h>
 
 namespace ftr {
     

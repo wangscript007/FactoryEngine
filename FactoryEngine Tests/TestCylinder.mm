@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#include <Math/Cylinder.h>
+#include <Geometry/Cylinder.h>
 
 using namespace ftr;
 

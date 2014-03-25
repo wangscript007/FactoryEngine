@@ -1,8 +1,8 @@
 
 #pragma once
     
-#include <Math/GeometryPrimitives.h>
-#include <Math/Segment.h>
+#include <Geometry/GeometryPrimitives.h>
+#include <Geometry/Segment.h>
 
 namespace ftr {
 
