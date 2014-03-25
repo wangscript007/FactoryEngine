@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include <Math/Geometry.h>
+#include <Math/GeometryPrimitives.h>
 #include <Math/Cylinder.h>
 
 namespace ftr {

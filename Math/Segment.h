@@ -3,7 +3,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
-#include <Math/Geometry.h>
+#include <Math/GeometryPrimitives.h>
 
 namespace ftr {
 

@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include <Math/Geometry.h>
+#include <Math/GeometryPrimitives.h>
 #include <External/poly2tri/poly2tri.h>
 #include <Math/Polyline.h>
 #include <Math/Triangle.h>
@@ -25,8 +25,9 @@ public:
     
     
 private:
-    void OrientPolygonToSurfaceNormal(const glm::vec3& newNormal);
+    glm::mat4 RotationToSurfaceNormal(const glm::vec3& targedNormal);
     void Transform(const glm::mat4& tranformation);
+    void TransformTriangles(const glm::mat4& tranformation);
     
     std::vector<Triangle*> mTriangles;
     

@@ -3,7 +3,7 @@
 #pragma once
 
 #include <Model/Node.h>
-#include <Math/Geometry.h>
+#include <Math/GeometryPrimitives.h>
 #include <Math/Polygon.h>
 
 namespace ftr {

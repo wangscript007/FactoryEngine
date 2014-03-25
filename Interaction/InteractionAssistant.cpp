@@ -1,6 +1,6 @@
 
 #include <Interaction/InteractionAssistant.h>
-#include <Math/Geometry.h>
+#include <Math/GeometryPrimitives.h>
 
 namespace ftr {
 

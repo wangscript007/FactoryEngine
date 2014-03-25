@@ -28,7 +28,11 @@ void Polygon::Scale(const glm::vec3& offset)
 void Polygon::Triangulate()
 {
     glm::vec3 closestNormal = XYZClosestNormal();
-    OrientPolygonToSurfaceNormal(closestNormal);
+    glm::mat4 rotationMatrix = RotationToSurfaceNormal(closestNormal);
+    
+    Polyline rotatedPolyline = mPolyline; // copy
+    rotatedPolyline.Transform(rotationMatrix);
+    
     
     int dimensionsToUse[2];
     int dim = 0;
@@ -73,8 +77,13 @@ void Polygon::Triangulate()
         }
         mTriangles.push_back(new Triangle(points[0], points[1], points[2]));
     }
+}
     
-    
+void Polygon::TransformTriangles(const glm::mat4& tranformation)
+{
+    for (auto it = mTriangles.begin(); it != mTriangles.end(); ++it) {
+        //(*it)->T
+    }
 }
     
 void Polygon::Transform(const glm::mat4& tranformation)
@@ -90,14 +99,14 @@ void Polygon::Reset()
     
 }
     
-void Polygon::OrientPolygonToSurfaceNormal(const glm::vec3& newNormal)
+glm::mat4 Polygon::RotationToSurfaceNormal(const glm::vec3& targedNormal)
 {
     glm::vec3 surfaceNormal = SurfaceNormal();
     
-    glm::vec3 rotationAxis = glm::normalize(glm::cross(newNormal, surfaceNormal));
-    float rotationAngle = glm::angle(newNormal, surfaceNormal);
+    glm::vec3 rotationAxis = glm::normalize(glm::cross(targedNormal, surfaceNormal));
+    float rotationAngle = glm::angle(targedNormal, surfaceNormal);
     
-    Transform(glm::rotate(rotationAngle, rotationAxis));
+    return glm::rotate(rotationAngle, rotationAxis);
 }
     
 glm::vec3 Polygon::XYZClosestNormal() const
