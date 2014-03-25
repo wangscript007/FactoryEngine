@@ -1,9 +1,12 @@
 
 #pragma once
 
+
+#include <Geometry/Geometry.h>
+
 namespace ftr {
 
-class Triangle
+class Triangle: public Geometry
 {
 public:
     Triangle() {};
@@ -11,11 +14,12 @@ public:
     
     bool PlaneContains(const glm::vec3& p) const;
     std::string Description() const;
-    
     glm::vec3 SurfaceNormal() const;
     
+    
 private:
-    glm::vec3 mP1, mP2, mP3;
+    
+    
     glm::vec3 mCross;
 };
     

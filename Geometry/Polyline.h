@@ -1,20 +1,17 @@
 
+#include <Geometry/Geometry.h>
 
 #pragma once
 
 namespace ftr {
 
-class Polyline
+class Polyline : public Geometry
 {
 public:
-    
     void AddPoint(const glm::vec3& point);
-    std::vector<glm::vec3> mPoints;
-    void Transform(const glm::mat4& tranformation);
+    virtual std::vector<glm::vec3>& GetPoints() { return mPoints; }
     
-    
-private:
-
+protected:
 };
     
 }

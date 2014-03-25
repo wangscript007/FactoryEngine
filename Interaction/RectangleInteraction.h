@@ -23,7 +23,6 @@ public:
     void setCurrent(const glm::vec3& current);
     
 private:
-    Polygon mPolygon;
     Rectangle3 mRect3;
     ModelEditor& mModelEditor;
     bool mActive;

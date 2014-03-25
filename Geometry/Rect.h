@@ -1,11 +1,9 @@
 
 #pragma once
 
-#include <Geometry/Polygon.h>
-
 namespace ftr {
 
-class Rect : public Polygon
+class Rect
 {
 public:
     glm::vec2 mOrigin;

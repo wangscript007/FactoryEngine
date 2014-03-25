@@ -3,36 +3,15 @@
 #include <Geometry/Vector.h>
 
 namespace ftr {
-    
-void Polygon::AddPoint(const glm::vec3& point)
-{
-    mPolyline.AddPoint(point);
-}
-
-void Polygon::Rotate(const glm::vec3& oilerAngle)
-{
-    
-}
-
-void Polygon::Translate(const glm::vec3& offset)
-{
-    
-}
-
-void Polygon::Scale(const glm::vec3& offset)
-{
-    
-    
-}
-    
+        
 void Polygon::Triangulate()
 {
     glm::vec3 closestNormal = XYZClosestNormal();
     glm::mat4 rotationMatrix = RotationToSurfaceNormal(closestNormal);
     
-    Polyline rotatedPolyline = mPolyline; // copy
-    rotatedPolyline.Transform(rotationMatrix);
+    Polygon rotatedPolygon = *this;
     
+    rotatedPolygon.Transform(rotationMatrix);
     
     int dimensionsToUse[2];
     int dim = 0;
@@ -44,8 +23,8 @@ void Polygon::Triangulate()
     }
     
     std::vector<p2t::Point*> polyline;
-    for (int i = 0; i < mPolyline.mPoints.size(); i++) {
-        glm::vec3 polygonPoint = mPolyline.mPoints[0];
+    for (int i = 0; i < rotatedPolygon.mPoints.size(); i++) {
+        glm::vec3 polygonPoint = rotatedPolygon.mPoints[0];
         int x = polygonPoint[dimensionsToUse[0]];
         int y = polygonPoint[dimensionsToUse[1]];
         polyline.push_back(new p2t::Point(x, y));
@@ -77,26 +56,15 @@ void Polygon::Triangulate()
         }
         mTriangles.push_back(new Triangle(points[0], points[1], points[2]));
     }
+    
+    TransformTriangles(glm::inverse(rotationMatrix));
 }
     
 void Polygon::TransformTriangles(const glm::mat4& tranformation)
 {
-    for (auto it = mTriangles.begin(); it != mTriangles.end(); ++it) {
-        //(*it)->T
+    for (int i = 0; i < mTriangles.size(); ++i) {
+        mTriangles[i]->Transform(tranformation);
     }
-}
-    
-void Polygon::Transform(const glm::mat4& tranformation)
-{
-    mPolyline.Transform(tranformation);
-    if (mTriangles.size()) {
-    }
-}
-
-
-void Polygon::Reset()
-{
-    
 }
     
 glm::mat4 Polygon::RotationToSurfaceNormal(const glm::vec3& targedNormal)
@@ -116,10 +84,10 @@ glm::vec3 Polygon::XYZClosestNormal() const
     
 glm::vec3 Polygon::SurfaceNormal() const
 {
-    assert(mPolyline.mPoints.size() > 2);
-    Triangle triangle(mPolyline.mPoints[0],
-                      mPolyline.mPoints[1],
-                      mPolyline.mPoints[2]);
+    assert(mPoints.size() > 2);
+    Triangle triangle(mPoints[0],
+                      mPoints[1],
+                      mPoints[2]);
     
     glm::vec3 normal = triangle.SurfaceNormal();
     return normal;

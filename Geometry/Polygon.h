@@ -9,19 +9,14 @@
 
 namespace ftr {
 
-class Polygon
+class Polygon : public Polyline
 {
 public:
-    void AddPoint(const glm::vec3& point);
+    Polygon() {};
+    ~Polygon() {};
     const std::vector<Triangle*>& GetTriangles() const { return mTriangles; }
     
     void Triangulate();
-    
-    void Rotate(const glm::vec3& oilerAngle);
-    void Translate(const  glm::vec3& offset);
-    void Scale(const glm::vec3& offset);
-    void Reset();
-    
     
     
 private:
@@ -33,11 +28,6 @@ private:
     
     glm::vec3 SurfaceNormal() const;
     glm::vec3 XYZClosestNormal() const;
-    
-    
-    glm::mat4 mMatrix;
-    glm::vec3 mLocal;
-    glm::vec3 mWorld;
     
     Polyline mPolyline;
 };
