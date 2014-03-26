@@ -44,6 +44,17 @@ using namespace ftr;
     XCTAssertTrue(Vector::IsCWOrder(v1, v3));
 }
 
+- (void)testIsParallel
+{
+    XCTAssertTrue(Vector::IsParallel(glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(0.0f, 0.0f, 1.0f)));
+    XCTAssertTrue(Vector::IsParallel(glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(0.0f, 0.0f, -1.0f)));
+    XCTAssertTrue(Vector::IsParallel(glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, -1.0f, 0.0f)));
+    
+    XCTAssertFalse(Vector::IsParallel(glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f)));
+    XCTAssertFalse(Vector::IsParallel(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, -1.0f)));
+    XCTAssertFalse(Vector::IsParallel(glm::vec3(0.8f, 1.0f, 0.0f), glm::vec3(0.7f, -.0f, 0.0f)));
+}
+
 - (void)testIsCWInXZPlane
 {
     glm::vec3 p1 = glm::vec3(0.0);

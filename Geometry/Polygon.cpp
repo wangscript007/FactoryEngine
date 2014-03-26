@@ -1,17 +1,22 @@
 
 #include <Geometry/Polygon.h>
 #include <Geometry/Vector.h>
+#include <Utils/Description.h>
 
 namespace ftr {
         
 void Polygon::Triangulate()
 {
     glm::vec3 closestNormal = XYZClosestNormal();
-    glm::mat4 rotationMatrix = RotationToSurfaceNormal(closestNormal);
+    
+    bool shouldRotate = !Vector::IsParallel(SurfaceNormal(), closestNormal);
     
     Polygon rotatedPolygon = *this;
-    
-    rotatedPolygon.Transform(rotationMatrix);
+    glm::mat4 rotationMatrix;
+    if (shouldRotate) {
+        rotationMatrix = RotationToSurfaceNormal(closestNormal);
+        rotatedPolygon.Transform(rotationMatrix);
+    }
     
     int dimensionsToUse[2];
     int dim = 0;
@@ -24,9 +29,10 @@ void Polygon::Triangulate()
     
     std::vector<p2t::Point*> polyline;
     for (int i = 0; i < rotatedPolygon.mPoints.size(); i++) {
-        glm::vec3 polygonPoint = rotatedPolygon[0];
+        glm::vec3 polygonPoint = rotatedPolygon[i];
         int x = polygonPoint[dimensionsToUse[0]];
         int y = polygonPoint[dimensionsToUse[1]];
+        std::cout << "x: " << x << " y: " << y << std::endl;
         polyline.push_back(new p2t::Point(x, y));
     }
     
@@ -57,7 +63,9 @@ void Polygon::Triangulate()
         mTriangles.push_back(new Triangle(points[0], points[1], points[2]));
     }
     
-    TransformTriangles(glm::inverse(rotationMatrix));
+    if (shouldRotate) {
+        TransformTriangles(glm::inverse(rotationMatrix));
+    }
 }
     
 void Polygon::TransformTriangles(const glm::mat4& tranformation)
@@ -67,11 +75,18 @@ void Polygon::TransformTriangles(const glm::mat4& tranformation)
     }
 }
     
+void Polygon::RotateToSurfaceNormal(const glm::vec3& targedNormal)
+{
+    Transform(RotationToSurfaceNormal(targedNormal));
+}
+    
 glm::mat4 Polygon::RotationToSurfaceNormal(const glm::vec3& targedNormal)
 {
     glm::vec3 surfaceNormal = SurfaceNormal();
     glm::vec3 rotationAxis = glm::normalize(glm::cross(targedNormal, surfaceNormal));
     float rotationAngle = glm::angle(targedNormal, surfaceNormal);
+    
+    std::cout << "Rotatation angle: " << rotationAngle << " around: " << Description::Described(rotationAxis) << std::endl;
     
     return glm::rotate(rotationAngle, rotationAxis);
 }
@@ -90,6 +105,23 @@ glm::vec3 Polygon::SurfaceNormal() const
     
     glm::vec3 normal = triangle.SurfaceNormal();
     return normal;
+}
+    
+void Polygon::DebugPrint() const
+{
+    std::cout << "Polygon \n";
+    for (int i = 0; i < mPoints.size(); ++i) {
+        std::cout << Description::Described(mPoints[i]) << " ";
+    }
+}
+    
+void Polygon::DebugPrintTriangles() const
+{
+    std::cout << "Triangles of polygon \n";
+    std::vector<Triangle*> triangles = GetTriangles();
+    for (int i = 0; i < triangles.size(); ++i) {
+        std::cout << triangles[i]->Description();
+    }
 }
     
 }

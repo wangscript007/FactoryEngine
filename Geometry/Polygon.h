@@ -17,15 +17,21 @@ public:
     const std::vector<Triangle*>& GetTriangles() const { return mTriangles; }
     
     void Triangulate();
+    glm::vec3 SurfaceNormal() const;
     
+    void RotateToSurfaceNormal(const glm::vec3& targedNormal);
+    void DebugPrint() const;
+    void DebugPrintTriangles() const;
     
 private:
     glm::mat4 RotationToSurfaceNormal(const glm::vec3& targedNormal);
     void TransformTriangles(const glm::mat4& tranformation);
     
+    
+    
     std::vector<Triangle*> mTriangles;
     
-    glm::vec3 SurfaceNormal() const;
+    
     glm::vec3 XYZClosestNormal() const;
     
     Polyline mPolyline;
