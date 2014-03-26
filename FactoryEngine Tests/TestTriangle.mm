@@ -7,7 +7,7 @@ using namespace ftr;
 
 @interface TestPlane : XCTestCase
 {
-    Triangle Triangle;
+    Triangle triangle;
     glm::vec3 p1, p2, p3, p4, p5;
 }
 
@@ -23,7 +23,7 @@ using namespace ftr;
     p3 = glm::vec3(1.0f, 0.0f, 0.0f);
     p4 = glm::vec3(0.0f, -1.0f, 0.0f);
     p5 = glm::vec3(0.0f, -1.0f, 1.0f);
-    Triangle = Triangle(p1, p2, p3);
+    triangle = Triangle(p1, p2, p3);
 }
 
 - (void)tearDown
@@ -33,11 +33,11 @@ using namespace ftr;
 
 - (void)testContains
 {
-    XCTAssert(Triangle.Contains(p1));
-    XCTAssert(Triangle.Contains(p2));
-    XCTAssert(Triangle.Contains(p3));
-    XCTAssert(Triangle.Contains(p4));
-    XCTAssert(!Triangle.Contains(p5));
+    XCTAssert(triangle.PlaneContains(p1));
+    XCTAssert(triangle.PlaneContains(p2));
+    XCTAssert(triangle.PlaneContains(p3));
+    XCTAssert(triangle.PlaneContains(p4));
+    XCTAssert(!triangle.PlaneContains(p5));
 }
 
 @end

@@ -21,7 +21,6 @@ public:
     
 private:
     glm::mat4 RotationToSurfaceNormal(const glm::vec3& targedNormal);
-    void Transform(const glm::mat4& tranformation);
     void TransformTriangles(const glm::mat4& tranformation);
     
     std::vector<Triangle*> mTriangles;

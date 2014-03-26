@@ -9,7 +9,7 @@ namespace ftr {
 class Description
 {
 public:
-    static std::string Desribed(const glm::vec3 v);
+    static std::string Described(const glm::vec3 v);
     
 private:
     

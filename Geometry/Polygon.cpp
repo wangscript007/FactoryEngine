@@ -70,7 +70,6 @@ void Polygon::TransformTriangles(const glm::mat4& tranformation)
 glm::mat4 Polygon::RotationToSurfaceNormal(const glm::vec3& targedNormal)
 {
     glm::vec3 surfaceNormal = SurfaceNormal();
-    
     glm::vec3 rotationAxis = glm::normalize(glm::cross(targedNormal, surfaceNormal));
     float rotationAngle = glm::angle(targedNormal, surfaceNormal);
     
