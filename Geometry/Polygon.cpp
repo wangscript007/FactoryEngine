@@ -30,8 +30,8 @@ void Polygon::Triangulate()
     std::vector<p2t::Point*> polyline;
     for (int i = 0; i < rotatedPolygon.mPoints.size(); i++) {
         glm::vec3 polygonPoint = rotatedPolygon[i];
-        int x = polygonPoint[dimensionsToUse[0]];
-        int y = polygonPoint[dimensionsToUse[1]];
+        float x = polygonPoint[dimensionsToUse[0]];
+        float y = polygonPoint[dimensionsToUse[1]];
         std::cout << "x: " << x << " y: " << y << std::endl;
         polyline.push_back(new p2t::Point(x, y));
     }
