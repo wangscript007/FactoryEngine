@@ -43,15 +43,15 @@ void LineInteraction::Render(Layer& layer)
     glm::vec3 projZ = glm::proj(lineVector, normalZ);
     
     if (glm::length(projX) == glm::length(lineVector)) {
-        linePrimitive.color = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
+        linePrimitive.mColor = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
     }
     else if (glm::length(projY) == glm::length(lineVector)) {
-        linePrimitive.color = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
+        linePrimitive.mColor = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
     }
     else if (glm::length(projZ) == glm::length(lineVector)) {
-        linePrimitive.color = glm::vec4(0.0f, 0.0f, 1.0f, 1.0f);
+        linePrimitive.mColor = glm::vec4(0.0f, 0.0f, 1.0f, 1.0f);
     } else {
-        linePrimitive.color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+        linePrimitive.mColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
     linePrimitive.Invalidate();

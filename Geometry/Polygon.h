@@ -13,6 +13,7 @@ class Polygon : public Polyline
 {
 public:
     Polygon() {};
+    Polygon(const std::vector<glm::vec3>& points) : Polyline(points) {};
     ~Polygon() {};
     const std::vector<Triangle*>& GetTriangles() const { return mTriangles; }
     

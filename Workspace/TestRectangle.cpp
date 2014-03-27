@@ -11,7 +11,7 @@ void TestRectangle::Render(Layer& layer)
     rectanglePrimitive.mVec[1] = glm::vec3(-k,k,k);
     rectanglePrimitive.mVec[2] = glm::vec3(-k,-k,k);
     rectanglePrimitive.mVec[3] = glm::vec3(k,-k,k);
-    rectanglePrimitive.color = color;
+    rectanglePrimitive.mColor = color;
     layer.AddPrimitive(rectanglePrimitive);
 }
 

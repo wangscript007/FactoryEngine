@@ -21,7 +21,7 @@ void ShadingInterface::Init()
 {
     mInput.vertex = AttributeLocation("position");
     mInput.normal = AttributeLocation("normal");
-    mInput.color = AttributeLocation("color");
+    mInput.mColor = AttributeLocation("color");
     mInput.transform.view = UniformLocation("transformVar.view");
     mInput.transform.projection = UniformLocation("transformVar.projection");
     mInput.transform.rotation = UniformLocation("transformVar.rotation");

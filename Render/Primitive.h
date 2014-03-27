@@ -101,7 +101,7 @@ public:
     Type type() const { return kLine; }
     glm::vec3 mBegin;
     glm::vec3 mEnd;
-    glm::vec4 color;
+    glm::vec4 mColor;
 protected:
     char* CreateRenderData(ShadingInterface& shadingInterface);
     
@@ -125,7 +125,7 @@ public:
     
     Type type() const { return kRectangle; }
     glm::vec3 mVec[4];
-    glm::vec4 color;
+    glm::vec4 mColor;
     glm::vec4 mPickingColor;
 protected:
     char* CreateRenderData(ShadingInterface& shadingInterface);
@@ -140,19 +140,22 @@ class PolygonPrimitive : public Primitive
 {
 public:
     struct Data {
-        glm::vec4 vertices;
-        glm::vec4 normals;
-        glm::vec4 colors;
-        glm::vec4 pickingColors;
+        glm::vec4 vertices[3];
+        glm::vec4 normals[3];
+        glm::vec4 colors[3];
+        glm::vec4 pickingColors[3];
     };
     
     PolygonPrimitive() {}
+    PolygonPrimitive(const std::vector<glm::vec3>& vecs) { mVec = vecs; }
     virtual ~PolygonPrimitive() {}
     
     Type type() const { return kPolygon; }
-    std::vector<glm::vec3> vecsVector;
-    glm::vec4 color;
+    std::vector<glm::vec3> mVec;
+    glm::vec4 mColor;
     glm::vec4 mPickingColor;
+    
+    std::vector<PolygonPrimitive*>mSubpolygons;
 protected:
     char* CreateRenderData(ShadingInterface& shadingInterface);
     

@@ -23,7 +23,7 @@ void LineNode::Render(Layer& layer)
     
     linePrimitive.mBegin = mStartPoint->mOrigin;
     linePrimitive.mEnd = mEndPoint->mOrigin;
-    linePrimitive.color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+    linePrimitive.mColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
     linePrimitive.setOption(Primitive::kUseDepth, false);
     layer.AddPrimitive(linePrimitive);
 }

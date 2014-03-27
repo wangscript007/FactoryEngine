@@ -32,7 +32,7 @@ public:
     GLuint AttributeLocation(const std::string& name) const;
     GLuint UniformLocation(const std::string& name) const;
     
-    GLuint colorLocation() const { return mInput.color; }
+    GLuint colorLocation() const { return mInput.mColor; }
     GLuint normalLocation() const { return mInput.normal; }
     GLuint vertexLocation() const { return mInput.vertex; }
     

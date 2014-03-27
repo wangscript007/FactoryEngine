@@ -15,7 +15,7 @@ void Bounds::Render(Layer& layer)
     rectanglePrimitive[0].mVec[1] = glm::vec3(-k,k,k);
     rectanglePrimitive[0].mVec[2] = glm::vec3(-k,-k,k);
     rectanglePrimitive[0].mVec[3] = glm::vec3(k,-k,k);
-    rectanglePrimitive[0].color = color;
+    rectanglePrimitive[0].mColor = color;
     rectanglePrimitive[0].setOption(Primitive::kUseBlend, true);
     layer.AddPrimitive(rectanglePrimitive[0]);
     
@@ -23,7 +23,7 @@ void Bounds::Render(Layer& layer)
     rectanglePrimitive[1].mVec[1] = glm::vec3(k,-k,k);
     rectanglePrimitive[1].mVec[2] = glm::vec3(k,-k,-k);
     rectanglePrimitive[1].mVec[3] = glm::vec3(k,k,-k);
-    rectanglePrimitive[1].color = color;
+    rectanglePrimitive[1].mColor = color;
     rectanglePrimitive[1].setOption(Primitive::kUseBlend, true);
     layer.AddPrimitive(rectanglePrimitive[1]);
     
@@ -31,7 +31,7 @@ void Bounds::Render(Layer& layer)
     rectanglePrimitive[2].mVec[1] = glm::vec3(k,k,-k);
     rectanglePrimitive[2].mVec[2] = glm::vec3(-k,k,-k);
     rectanglePrimitive[2].mVec[3] = glm::vec3(-k,k,k);
-    rectanglePrimitive[2].color = color;
+    rectanglePrimitive[2].mColor = color;
     rectanglePrimitive[2].setOption(Primitive::kUseBlend, true);
     layer.AddPrimitive(rectanglePrimitive[2]);
     
@@ -39,7 +39,7 @@ void Bounds::Render(Layer& layer)
     rectanglePrimitive[3].mVec[1] = glm::vec3(-k,k,-k);
     rectanglePrimitive[3].mVec[2] = glm::vec3(-k,-k,-k);
     rectanglePrimitive[3].mVec[3] = glm::vec3(-k,-k,k);
-    rectanglePrimitive[3].color = color;
+    rectanglePrimitive[3].mColor = color;
     rectanglePrimitive[3].setOption(Primitive::kUseBlend, true);
     layer.AddPrimitive(rectanglePrimitive[3]);
     
@@ -47,7 +47,7 @@ void Bounds::Render(Layer& layer)
     rectanglePrimitive[4].mVec[1] = glm::vec3(k,-k,-k);
     rectanglePrimitive[4].mVec[2] = glm::vec3(k,-k,k);
     rectanglePrimitive[4].mVec[3] = glm::vec3(-k,-k,k);
-    rectanglePrimitive[4].color = color;
+    rectanglePrimitive[4].mColor = color;
     rectanglePrimitive[4].setOption(Primitive::kUseBlend, true);
     layer.AddPrimitive(rectanglePrimitive[4]);
     
@@ -55,7 +55,7 @@ void Bounds::Render(Layer& layer)
     rectanglePrimitive[5].mVec[1] = glm::vec3(-k,-k,-k);
     rectanglePrimitive[5].mVec[2] = glm::vec3(-k,k,-k);
     rectanglePrimitive[5].mVec[3] = glm::vec3(k,k,-k);
-    rectanglePrimitive[5].color = color;
+    rectanglePrimitive[5].mColor = color;
     rectanglePrimitive[5].setOption(Primitive::kUseBlend, true);
     layer.AddPrimitive(rectanglePrimitive[5]);
 }

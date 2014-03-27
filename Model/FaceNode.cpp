@@ -51,13 +51,13 @@ FaceNode::FaceNode()
 void FaceNode::Render(Layer& layer)
 {
     Node::Render(layer);
-    mPolygonPrimitive.color = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
+    mPolygonPrimitive.mColor = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
     Edge* currentEdge = mOuterEdge;
     do {
-        mPolygonPrimitive.vecsVector.push_back(currentEdge->origin());
+        mPolygonPrimitive.mVec.push_back(currentEdge->origin());
         currentEdge = currentEdge->next();
     } while (currentEdge != mOuterEdge);
-    mPolygonPrimitive.setOption(Primitive::kUseDepth, true);
+    mPolygonPrimitive.setOption(Primitive::kUseDepth, false);
     layer.AddPrimitive(mPolygonPrimitive);
 }
 
