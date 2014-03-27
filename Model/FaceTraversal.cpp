@@ -90,10 +90,14 @@ bool FaceTraversal::Find(ftr::Edge *startEdge)
         {
             if (iEdge->targetNode() == mTargetNode)
             {
-                edgesVector.push_back(iEdge);
-                return true;
+                if(PathContainsNode(edgesVector, *iEdge->targetNode())) {
+                    return false;
+                } else {
+                    edgesVector.push_back(iEdge);
+                    return true;
+                }
             }
-            else if (iEdge->next()) {
+            else if (iEdge->next() && !PathContainsNode(edgesVector, *iEdge->targetNode())) {
                 bool samePlane = true;
                 bool isCW = true;
                 if (edgesVector.size() > 0) {
@@ -112,21 +116,31 @@ bool FaceTraversal::Find(ftr::Edge *startEdge)
                 if (samePlane && isCW)
                 {
                     edgesVector.push_back(iEdge);
-                    
                     std::cout << "Route: "; PrintEdgesRoute();
                     
-                    if (Find(iEdge->next()))
-                    {
+                    if ( Find(iEdge->next()) ) {
                         return true;
+                    } else {
+                        edgesVector.pop_back();
                     }
-                    edgesVector.pop_back();
                 }
             }
         }
     }
-    //std::cout << "Failed route: "; PrintEdgesRoute();
     return false;
 }
+    
+bool FaceTraversal::PathContainsNode(const std::vector<Edge*>& edges, const PointNode& pointNode)
+{
+    for (int i = 0; i < edges.size(); ++i) {
+        Edge* edge = edges[i];
+        if (edge->targetNode() == &pointNode) {
+            return true;
+        }
+    }
+    return false;
+}
+    
     
 void FaceTraversal::PrintEdgesRoute() const
 {
@@ -141,10 +155,20 @@ void FaceTraversal::CreatePlane()
     if (!mTriangle) {
         std::vector<Edge*>& edgesVector = mResult->edgesVector;
         assert(edgesVector.size() > 1);
-        Edge* e1 = edgesVector[0];
-        Edge* e2 = edgesVector[1];
-        mTriangle = new Triangle(e1->origin(), e1->target(), e2->target());
-        std::cout << "Created Triangle: " << mTriangle->Description();
+        size_t size = edgesVector.size();
+        Edge* e1 = edgesVector[size-2];
+        Edge* e2 = edgesVector[size-1];
+        
+        glm::vec3 p1 = e1->origin();
+        glm::vec3 p2 = e1->target();
+        glm::vec3 p3 = e2->target();
+        
+        if (Triangle::IsInOnLine(p1, p2, p3)) {
+            std::cout << "Points are in one line";
+        } else {
+            mTriangle = new Triangle(e1->origin(), e1->target(), e2->target());
+            std::cout << "Created Triangle: " << mTriangle->Description();
+        }
     }
 }
     

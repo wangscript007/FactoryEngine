@@ -28,5 +28,4 @@ void Geometry::Transform(const glm::mat4& mat)
     }
 }
 
-
 }

@@ -57,7 +57,7 @@ void FaceNode::Render(Layer& layer)
         mPolygonPrimitive.mVec.push_back(currentEdge->origin());
         currentEdge = currentEdge->next();
     } while (currentEdge != mOuterEdge);
-    mPolygonPrimitive.setOption(Primitive::kUseDepth, false);
+    mPolygonPrimitive.setOption(Primitive::kUseDepth, true);
     layer.AddPrimitive(mPolygonPrimitive);
 }
 

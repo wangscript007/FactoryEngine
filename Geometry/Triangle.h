@@ -16,6 +16,9 @@ public:
     bool PlaneContains(const glm::vec3& p) const;
     std::string Description() const;
     glm::vec3 SurfaceNormal() const;
+    glm::vec3 Cross() const;
+    
+    static bool IsInOnLine(const glm::vec3& p1,const  glm::vec3& p2, const glm::vec3&  p3);
     
     
 private:

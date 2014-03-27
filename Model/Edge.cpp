@@ -32,7 +32,6 @@ const glm::vec3& Edge::target() const
     return targetNode()->mOrigin;
 }
     
-    
 std::string Edge::Name() const
 {
     
@@ -90,7 +89,6 @@ Edge* Edge::CWNeighbourWithSameOrigin()
     return neighbour;
 }
 
-    
 
 // Connect 2 pairs of edges
 // This method only works in 2D?

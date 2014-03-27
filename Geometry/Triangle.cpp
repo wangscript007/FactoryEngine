@@ -1,26 +1,47 @@
 
 #include <Geometry/Triangle.h>
 #include <Utils/Description.h>
+#include <Geometry/Vector.h>
 
 namespace ftr {
+    
+bool Triangle::IsInOnLine(const glm::vec3& p1,const  glm::vec3& p2, const glm::vec3&  p3)
+{
+    return glm::isNull(glm::cross(p2 - p1, p3 - p2), 0.0000001f);
+}
+    
+    
     
 Triangle::Triangle(const glm::vec3& p1, const glm::vec3& p2, const glm::vec3&  p3)
 {
     mPoints.push_back(p1);
     mPoints.push_back(p2);
     mPoints.push_back(p3);
+    
+    // points can't be in one line
+    mCross = Cross();
+    assert(!glm::isNull(mCross, 0.0000001f));
+    
 }
     
 bool Triangle::PlaneContains(const glm::vec3& p) const
 {
     glm::vec3 cross = glm::cross(mPoints[1] - p, mPoints[1] - mPoints[0]);
-    return glm::isNull(glm::cross(SurfaceNormal(), cross), 0.3f);
+    glm::vec3 surfaceNormal = SurfaceNormal();
+    return glm::isNull(glm::cross(surfaceNormal, cross), 0.3f);
 }
     
 glm::vec3 Triangle::SurfaceNormal() const
 {
-    return glm::normalize(glm::cross(mPoints[1] - mPoints[0], mPoints[2] - mPoints[0]));
+    return glm::normalize(mCross);
 }
+    
+glm::vec3 Triangle::Cross() const
+{
+    return glm::cross(mPoints[1] - mPoints[0], mPoints[2] - mPoints[0]);
+}
+    
+
     
 std::string Triangle::Description() const
 {

@@ -29,6 +29,8 @@ private:
     void CreatePlane();
     void PrintEdgesRoute() const;
     
+    static bool PathContainsNode(const std::vector<Edge*>& edges, const PointNode& pointNode);
+    
     Edge* mStartEdge;
     PointNode* mTargetNode;
     Triangle* mTriangle;

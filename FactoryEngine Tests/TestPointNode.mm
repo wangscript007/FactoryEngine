@@ -68,14 +68,18 @@ using namespace ftr;
 
 - (void)testConnect2
 {
-    PointNode::ConnectionResult e23 = v2->ConnectTo(v3);
     PointNode::ConnectionResult e12 = v1->ConnectTo(v2);
-    PointNode::ConnectionResult e43 = v4->ConnectTo(v3);
+    PointNode::ConnectionResult e23 = v2->ConnectTo(v3);
     PointNode::ConnectionResult e13 = v1->ConnectTo(v3);
+    XCTAssert(e13->faceA ||  e13->faceB);
+    
     PointNode::ConnectionResult e53 = v5->ConnectTo(v3);
+    PointNode::ConnectionResult e43 = v4->ConnectTo(v3);
+    XCTAssert(e43->faceA ||  e43->faceB);
+    
     PointNode::ConnectionResult e45 = v4->ConnectTo(v5);
     PointNode::ConnectionResult e41 = v4->ConnectTo(v1);
-    
+    XCTAssert(e41->faceA ||  e41->faceB);
 }
 
 - (void)testConnect3
@@ -135,26 +139,6 @@ using namespace ftr;
     v1->Remove(v1->Begin());
     v1->Remove(v1->Begin());
     XCTAssert(v1->IsEmpty());
-}
-
-- (void)testStd
-{
-    int myints[] = {75,23,65,42,13};
-    std::list<int> mylist (myints,myints+5);
-    
-    std::cout << "mylist contains:";
-    for (std::list<int>::iterator it=mylist.begin(); it != mylist.end(); ++it)
-        std::cout << ' ' << *it;
-    
-    std::cout << '\n';
-    
-    std::cout << "mylist contains:";
-    for (std::list<int>::iterator it=mylist.end(); it != mylist.begin(); --it)
-        std::cout << ' ' << *it;
-    
-    std::cout << '\n';
-
-    
 }
 
 
