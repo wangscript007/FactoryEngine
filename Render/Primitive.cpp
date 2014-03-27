@@ -156,6 +156,7 @@ char* PolygonPrimitive::CreateRenderData(ShadingInterface& shadingInterface)
             
             mSubpolygons.push_back(primitive);
         }
+        
     }
     else {
         PolygonPrimitive::Data* data = reinterpret_cast<PolygonPrimitive::Data*>(new char[sizeof(PolygonPrimitive::Data)]);
@@ -206,6 +207,7 @@ char* PolygonPrimitive::CreateRenderData(ShadingInterface& shadingInterface)
         glVertexAttribPointer(pickingColorLoc, 4, GL_FLOAT, 0, 0, 0);
         return reinterpret_cast<char*>(data);
     }
+    return NULL;
 }
     
 void PolygonPrimitive::AssignSurfaceNormals(PolygonPrimitive::Data* data)
