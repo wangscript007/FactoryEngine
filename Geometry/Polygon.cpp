@@ -18,12 +18,15 @@ void Polygon::Triangulate()
         rotatedPolygon.Transform(rotationMatrix);
     }
     
+    float xyzOffset = 0.0f;
     int dimensionsToUse[2];
     int dim = 0;
     for (int i = 0; i < 3; i++) {
         if (closestNormal[i] == 0) {
             dimensionsToUse[dim] = i;
             dim++;
+        } else {
+            xyzOffset = rotatedPolygon.mPoints[0][i];
         }
     }
     
@@ -57,9 +60,12 @@ void Polygon::Triangulate()
                         points[pi][di] = p2Triangle->GetPoint(pi)->y;
                     }
                     dim++;
+                } else {
+                    points[pi][di] = xyzOffset;
                 }
             }
         }
+        
         mTriangles.push_back(new Triangle(points[0], points[1], points[2]));
     }
     
