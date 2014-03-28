@@ -2,6 +2,7 @@
 #include <Geometry/Polygon.h>
 #include <Geometry/Vector.h>
 #include <Utils/Description.h>
+#include <Geometry/Constants.h>
 
 namespace ftr {
     
@@ -28,7 +29,7 @@ void Polygon::Triangulate()
     float xyzOffset = 0.0f;
     int dimensionsToUse[2];
     int dim = 0;
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < kDimensionsCount; i++) {
         if (closestNormal[i] == 0) {
             dimensionsToUse[dim] = i;
             dim++;
@@ -53,10 +54,10 @@ void Polygon::Triangulate()
     {
         glm::vec3 points[3];
         
-        for(int pi = 0; pi < 3; pi++)
+        for(int pi = 0; pi < kDimensionsCount; pi++)
         {
             int dim = 0;
-            for (int di = 0; di < 3; ++di)
+            for (int di = 0; di < kDimensionsCount; ++di)
             {
                 if (closestNormal[di] == 0) {
                     if (dim == 0) {
@@ -70,7 +71,6 @@ void Polygon::Triangulate()
                 }
             }
         }
-        
         mTriangles.push_back(new Triangle(points[0], points[1], points[2]));
     }
     
