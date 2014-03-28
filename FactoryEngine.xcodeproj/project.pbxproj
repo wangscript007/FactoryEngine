@@ -329,11 +329,6 @@
 		D11D1D6718DF70D80091521F /* shapes.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4218DF70980091521F /* shapes.cc */; };
 		D11D1D6818DF71080091521F /* cdt.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4918DF70980091521F /* cdt.cc */; };
 		D11D1D6918DF71080091521F /* cdt.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4918DF70980091521F /* cdt.cc */; };
-		D11D1D6D18E04D1C0091521F /* PolygonProjection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D6B18E04D1C0091521F /* PolygonProjection.cpp */; };
-		D11D1D6E18E04D1C0091521F /* PolygonProjection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D6B18E04D1C0091521F /* PolygonProjection.cpp */; };
-		D11D1D6F18E04D1C0091521F /* PolygonProjection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D6B18E04D1C0091521F /* PolygonProjection.cpp */; };
-		D11D1D7018E04D1C0091521F /* PolygonProjection.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D6C18E04D1C0091521F /* PolygonProjection.h */; };
-		D11D1D7118E04D1C0091521F /* PolygonProjection.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D6C18E04D1C0091521F /* PolygonProjection.h */; };
 		D11D1D7418E0507B0091521F /* Polyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D7218E0507B0091521F /* Polyline.cpp */; };
 		D11D1D7518E0507B0091521F /* Polyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D7218E0507B0091521F /* Polyline.cpp */; };
 		D11D1D7618E0507B0091521F /* Polyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D7218E0507B0091521F /* Polyline.cpp */; };
@@ -370,8 +365,6 @@
 		D1F44F55157FE9D200566119 /* HUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F53157FE9D200566119 /* HUD.cpp */; };
 		D1F44F56157FE9D200566119 /* HUD.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F54157FE9D200566119 /* HUD.h */; };
 		D1FBAF6D18DEE73B000A083E /* TestPoly2tri.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1FBAF6C18DEE73B000A083E /* TestPoly2tri.mm */; };
-		D1FBAF6F18DEE8B0000A083E /* ConvexDecomposition in Resources */ = {isa = PBXBuildFile; fileRef = D1FBAF6E18DEE8B0000A083E /* ConvexDecomposition */; };
-		D1FBAF7018DEE8B0000A083E /* ConvexDecomposition in Resources */ = {isa = PBXBuildFile; fileRef = D1FBAF6E18DEE8B0000A083E /* ConvexDecomposition */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -557,8 +550,6 @@
 		D11D1D4C18DF70980091521F /* sweep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sweep.h; sourceTree = "<group>"; };
 		D11D1D4D18DF70980091521F /* sweep_context.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sweep_context.cc; sourceTree = "<group>"; };
 		D11D1D4E18DF70980091521F /* sweep_context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sweep_context.h; sourceTree = "<group>"; };
-		D11D1D6B18E04D1C0091521F /* PolygonProjection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolygonProjection.cpp; sourceTree = "<group>"; };
-		D11D1D6C18E04D1C0091521F /* PolygonProjection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonProjection.h; sourceTree = "<group>"; };
 		D11D1D7218E0507B0091521F /* Polyline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Polyline.cpp; sourceTree = "<group>"; };
 		D11D1D7318E0507B0091521F /* Polyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polyline.h; sourceTree = "<group>"; };
 		D13CAE0318E1CBE700C2A180 /* TestPolygon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPolygon.mm; sourceTree = "<group>"; };
@@ -590,7 +581,6 @@
 		D1F44F53157FE9D200566119 /* HUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HUD.cpp; sourceTree = "<group>"; };
 		D1F44F54157FE9D200566119 /* HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUD.h; sourceTree = "<group>"; };
 		D1FBAF6C18DEE73B000A083E /* TestPoly2tri.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPoly2tri.mm; sourceTree = "<group>"; };
-		D1FBAF6E18DEE8B0000A083E /* ConvexDecomposition */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ConvexDecomposition; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -834,8 +824,6 @@
 		D11D1D6A18E04CF70091521F /* Processing */ = {
 			isa = PBXGroup;
 			children = (
-				D11D1D6B18E04D1C0091521F /* PolygonProjection.cpp */,
-				D11D1D6C18E04D1C0091521F /* PolygonProjection.h */,
 			);
 			path = Processing;
 			sourceTree = "<group>";
@@ -911,7 +899,6 @@
 			isa = PBXGroup;
 			children = (
 				D11D1D4018DF70980091521F /* poly2tri */,
-				D1FBAF6E18DEE8B0000A083E /* ConvexDecomposition */,
 				602A43A31800A59600EC071F /* glm */,
 			);
 			path = External;
@@ -1036,7 +1023,6 @@
 				60C6D0A2174961470009EC3C /* PrimitiveRenderer.h in Headers */,
 				60C6D0A3174961470009EC3C /* LineRenderer.h in Headers */,
 				60C6D0A4174961470009EC3C /* PolygonRenderer.h in Headers */,
-				D11D1D7118E04D1C0091521F /* PolygonProjection.h in Headers */,
 				60C6D0A5174961470009EC3C /* RectangleRenderer.h in Headers */,
 				60C6D0A6174961470009EC3C /* Bounds.h in Headers */,
 				60C6D0A7174961470009EC3C /* PointRenderer.h in Headers */,
@@ -1122,7 +1108,6 @@
 				D11D1D5918DF70980091521F /* cdt.h in Headers */,
 				6055CFD117417D46009F1F46 /* Light.h in Headers */,
 				6055CFD517417DCB009F1F46 /* Camera.h in Headers */,
-				D11D1D7018E04D1C0091521F /* PolygonProjection.h in Headers */,
 				606BC014180863C100EC4F37 /* PointSnap.h in Headers */,
 				60BD328B1744039D00C2E593 /* LightingModel.h in Headers */,
 				60BD328F174436BD00C2E593 /* LightingCollection.h in Headers */,
@@ -1239,7 +1224,6 @@
 			files = (
 				602A43A41800A59600EC071F /* glm in Resources */,
 				602055C518A6BE790005F379 /* Docs in Resources */,
-				D1FBAF6F18DEE8B0000A083E /* ConvexDecomposition in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1248,7 +1232,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				60607E1617E63CF600708358 /* InfoPlist.strings in Resources */,
-				D1FBAF7018DEE8B0000A083E /* ConvexDecomposition in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1311,7 +1294,6 @@
 				603BA5F117E87437007CE822 /* BodyNode.cpp in Sources */,
 				603BA5F217E87437007CE822 /* GroupNode.cpp in Sources */,
 				603BA5F317E87437007CE822 /* InteractionProvider.cpp in Sources */,
-				D11D1D6F18E04D1C0091521F /* PolygonProjection.cpp in Sources */,
 				603BA5F417E87437007CE822 /* RectangleInteraction.cpp in Sources */,
 				603BA5F517E87437007CE822 /* LineInteraction.cpp in Sources */,
 				603BA5F617E87437007CE822 /* MoveInteraction.cpp in Sources */,
@@ -1387,7 +1369,6 @@
 				60C6D055174961470009EC3C /* InteractionAssistant.cpp in Sources */,
 				6076A1541806AE5400770486 /* Primitive.cpp in Sources */,
 				60B3F3C1180577580010484D /* Segment.cpp in Sources */,
-				D11D1D6E18E04D1C0091521F /* PolygonProjection.cpp in Sources */,
 				60C6D05D174961470009EC3C /* ModelEditor.cpp in Sources */,
 				60C6D05E174961470009EC3C /* ModelTree.cpp in Sources */,
 				60C6D05F174961470009EC3C /* InteractionProvider.cpp in Sources */,
@@ -1433,7 +1414,6 @@
 				60FF395C1813CBC700B86F40 /* FaceTraversal.cpp in Sources */,
 				D1F44F55157FE9D200566119 /* HUD.cpp in Sources */,
 				D17C76881584B6010083E2B0 /* Log.cpp in Sources */,
-				D11D1D6D18E04D1C0091521F /* PolygonProjection.cpp in Sources */,
 				D13D718315AF949100143662 /* Node.cpp in Sources */,
 				D11D1CC218DF4FBA0091521F /* Description.cpp in Sources */,
 				D13D718715AF96F000143662 /* BodyNode.cpp in Sources */,

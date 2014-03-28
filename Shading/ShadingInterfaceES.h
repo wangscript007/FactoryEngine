@@ -32,11 +32,11 @@ public:
     GLuint AttributeLocation(const std::string& name) const;
     GLuint UniformLocation(const std::string& name) const;
     
-    GLuint colorLocation() const { return mInput.mColor; }
+    GLuint colorLocation() const { return mInput.color; }
     GLuint normalLocation() const { return mInput.normal; }
     GLuint vertexLocation() const { return mInput.vertex; }
     
-    void InputTransform(const Transform& transform);
+    void InputTransform(const Input::Transform& transform);
     void InputLight(const LightData& lightData);
     
 private:
