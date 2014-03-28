@@ -12,7 +12,6 @@
 #include <Model/PointNode.h>
 #include <Model/Edge.h>
 #include <Model/FaceNode.h>
-#include <Model/PointNodeIterator.h>
 
 namespace ftr {
     

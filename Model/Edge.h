@@ -1,7 +1,6 @@
 
 #pragma once
 
-//#include <Model/PointNode.h>
 #include <Model/FaceNode.h>
 
 namespace ftr {

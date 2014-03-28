@@ -3,7 +3,7 @@
 
 #include <Model/Node.h>
 #include <Model/Octree.h>
-//#include <Model/PointNodeIterator.h>
+#include <Model/PointNodeIterator.h>
 
 
 namespace ftr {

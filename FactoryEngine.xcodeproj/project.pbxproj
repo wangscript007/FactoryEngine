@@ -344,6 +344,9 @@
 		D13DC913157A9FF500C84006 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13DC912157A9FF500C84006 /* OpenGL.framework */; };
 		D143779F157BCF0200A05B3B /* FaceNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D143779D157BCF0200A05B3B /* FaceNode.cpp */; };
 		D14377A0157BCF0200A05B3B /* FaceNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D143779E157BCF0200A05B3B /* FaceNode.h */; };
+		D152781518E583B500C48850 /* PointNodeIterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D152781418E583B500C48850 /* PointNodeIterator.cpp */; };
+		D152781618E583B500C48850 /* PointNodeIterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D152781418E583B500C48850 /* PointNodeIterator.cpp */; };
+		D152781718E583B500C48850 /* PointNodeIterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D152781418E583B500C48850 /* PointNodeIterator.cpp */; };
 		D157A5DC18E3098500840C77 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Triangle.cpp */; };
 		D16D270318D5E8FB0095B177 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Triangle.cpp */; };
 		D16D270418D5E8FB0095B177 /* Triangle.h in Headers */ = {isa = PBXBuildFile; fileRef = D16D270218D5E8FB0095B177 /* Triangle.h */; };
@@ -561,6 +564,7 @@
 		D13DC912157A9FF500C84006 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		D143779D157BCF0200A05B3B /* FaceNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FaceNode.cpp; sourceTree = "<group>"; };
 		D143779E157BCF0200A05B3B /* FaceNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceNode.h; sourceTree = "<group>"; };
+		D152781418E583B500C48850 /* PointNodeIterator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointNodeIterator.cpp; sourceTree = "<group>"; };
 		D16D270118D5E8FB0095B177 /* Triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
 		D16D270218D5E8FB0095B177 /* Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangle.h; sourceTree = "<group>"; };
 		D16D270518D5F1980095B177 /* TestTriangle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestTriangle.mm; sourceTree = "<group>"; };
@@ -934,6 +938,7 @@
 				60FF395A1813CBC700B86F40 /* FaceTraversal.cpp */,
 				60FF395B1813CBC700B86F40 /* FaceTraversal.h */,
 				60686C0B188C222200CEE3D8 /* PointNodeIterator.h */,
+				D152781418E583B500C48850 /* PointNodeIterator.cpp */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1258,6 +1263,7 @@
 				60758B6E180F3020004BE067 /* TestCylinder.mm in Sources */,
 				603BA5DD17E87437007CE822 /* LayerRenderer.cpp in Sources */,
 				603BA5DE17E87437007CE822 /* Layer.cpp in Sources */,
+				D152781718E583B500C48850 /* PointNodeIterator.cpp in Sources */,
 				603BA5DF17E87437007CE822 /* LineRenderer.cpp in Sources */,
 				603BA5E017E87437007CE822 /* PolygonRenderer.cpp in Sources */,
 				603BA5E117E87437007CE822 /* RectangleRenderer.cpp in Sources */,
@@ -1354,6 +1360,7 @@
 				60C6D04C174961470009EC3C /* PolylineNode.cpp in Sources */,
 				60A05FC81809DB16004DD045 /* PointSnap.cpp in Sources */,
 				D157A5DC18E3098500840C77 /* Triangle.cpp in Sources */,
+				D152781618E583B500C48850 /* PointNodeIterator.cpp in Sources */,
 				60C6D04E174961470009EC3C /* RectangleInteraction.cpp in Sources */,
 				60D63217181C0C3000CEB0D0 /* Edge.cpp in Sources */,
 				60A05FCC1809DB5E004DD045 /* Viewport.cpp in Sources */,
@@ -1439,6 +1446,7 @@
 				60E4FF5116FF1F6600EEAA5A /* InteractionAssistant.cpp in Sources */,
 				60D7457817228D4B0062CDF1 /* ModelEditor.cpp in Sources */,
 				60CE9A5617EC646E00A775C0 /* Shader.cpp in Sources */,
+				D152781518E583B500C48850 /* PointNodeIterator.cpp in Sources */,
 				60D7457A17228D4B0062CDF1 /* ModelTree.cpp in Sources */,
 				60D7457F17228E100062CDF1 /* InteractionProvider.cpp in Sources */,
 				6076A1551806AE5400770486 /* Primitive.cpp in Sources */,

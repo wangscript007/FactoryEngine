@@ -1,6 +1,5 @@
 
 #include <Model/PointNode.h>
-#include <Model/PointNodeIterator.h>
 #include <Model/Edge.h>
 #include <Main/Log.h>
 #include <Model/FaceNode.h>
