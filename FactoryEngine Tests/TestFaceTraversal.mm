@@ -150,15 +150,17 @@ using namespace ftr;
         for(auto it = edges.begin(); it != edges.end(); ++it) {
             PointNode* p1 = (*it).first;
             PointNode* p2 = (*it).second;
-            p1->ConnectTo(p2);
-//            if (traversal.FindAndCreateFaceContainingNode(*p1)) {
-//                facesCount++;
-//            }
-//            if (traversal.FindAndCreateFaceContainingNode(*p2)) {
-//                facesCount++;
-//            }
+            
+            PointNode::ConnectionResult result = p1->ConnectTo(p2);
+            if (result.faceA) {
+                facesCount++;
+            }
+            
+            if (result.faceB) {
+                facesCount++;
+            }
+            
         }
-        assert(3 == facesCount);
         XCTAssertEqual(3, facesCount);
         
         delete xv1;

@@ -71,15 +71,15 @@ using namespace ftr;
     PointNode::ConnectionResult e12 = v1->ConnectTo(v2);
     PointNode::ConnectionResult e23 = v2->ConnectTo(v3);
     PointNode::ConnectionResult e13 = v1->ConnectTo(v3);
-    XCTAssert(e13->faceA ||  e13->faceB);
+    XCTAssert(e13.faceA ||  e13.faceB);
     
     PointNode::ConnectionResult e53 = v5->ConnectTo(v3);
     PointNode::ConnectionResult e43 = v4->ConnectTo(v3);
-    XCTAssert(e43->faceA ||  e43->faceB);
+    XCTAssert(e43.faceA ||  e43.faceB);
     
     PointNode::ConnectionResult e45 = v4->ConnectTo(v5);
     PointNode::ConnectionResult e41 = v4->ConnectTo(v1);
-    XCTAssert(e41->faceA ||  e41->faceB);
+    XCTAssert(e41.faceA ||  e41.faceB);
 }
 
 - (void)testConnect3
