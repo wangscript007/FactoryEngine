@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#include <Model/ModelEditor.h>
+#include <Processing/ModelEditor.h>
 #include <Interaction/LineInteraction.h>
 #include <Scene/Viewport.h>
 

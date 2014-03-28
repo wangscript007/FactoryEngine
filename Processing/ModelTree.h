@@ -3,7 +3,7 @@
 
 
 #include <Model/Node.h>
-#include <Model/Octree.h>
+#include <Processing/Octree.h>
 
 namespace ftr {
 //

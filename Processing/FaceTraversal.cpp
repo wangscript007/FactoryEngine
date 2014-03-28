@@ -8,7 +8,7 @@
 
 
 #include <Geometry/Triangle.h>
-#include <Model/FaceTraversal.h>
+#include <Processing/FaceTraversal.h>
 #include <Model/PointNode.h>
 #include <Model/Edge.h>
 #include <Model/FaceNode.h>

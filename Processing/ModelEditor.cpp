@@ -1,5 +1,5 @@
 
-#include <Model/ModelEditor.h>
+#include <Processing/ModelEditor.h>
 
 namespace ftr {
 

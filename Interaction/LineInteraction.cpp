@@ -1,6 +1,6 @@
 
 #include <Model/PointNode.h>
-#include <Model/ModelEditor.h>
+#include <Processing/ModelEditor.h>
 #include <Interaction/LineInteraction.h>
 #include <Snapping/SnappingQueue.h>
 

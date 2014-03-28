@@ -1,5 +1,5 @@
 
-#include <Model/ModelEditor.h>
+#include <Processing/ModelEditor.h>
 #include <Scene/Camera.h>
 #include <Interaction/InteractionProvider.h>
 #include <Interaction/RectangleInteraction.h>

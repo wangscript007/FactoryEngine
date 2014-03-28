@@ -1,5 +1,5 @@
 
-#include <Model/PointNodeIterator.h>
+#include <Processing/PointNodeIterator.h>
 #include <Model/PointNode.h>
 
 namespace ftr {

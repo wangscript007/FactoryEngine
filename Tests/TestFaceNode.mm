@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import <Model/FaceNode.h>
-#import <Model/FaceTraversal.h>
+#import <Processing/FaceTraversal.h>
 
 using namespace ftr;
 

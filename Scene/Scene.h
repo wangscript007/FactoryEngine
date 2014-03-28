@@ -6,7 +6,7 @@
 #include <Model/FaceNode.h>
 #include <Workspace/Workspace.h>
 #include <Scene/Camera.h>
-#include <Model/ModelEditor.h>
+#include <Processing/ModelEditor.h>
 #include <Interaction/InteractionProvider.h>
 #include <Shading/ShadingLibrary.h>
 #include <Lighting/LightingCollection.h>

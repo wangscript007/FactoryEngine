@@ -2,8 +2,8 @@
 #pragma once
 
 #include <Model/Node.h>
-#include <Model/Octree.h>
-#include <Model/PointNodeIterator.h>
+#include <Processing/Octree.h>
+#include <Processing/PointNodeIterator.h>
 
 
 namespace ftr {

@@ -3,7 +3,7 @@
 
 #include <Snapping/Snap.h>
 #include <Scene/Viewport.h>
-#include <Model/ModelTree.h>
+#include <Processing/ModelTree.h>
 
 namespace ftr {
 

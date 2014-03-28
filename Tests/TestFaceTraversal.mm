@@ -10,7 +10,7 @@
 #import <Model/PointNode.h>
 #import <Model/Edge.h>
 #import <Model/FaceNode.h>
-#import <Model/FaceTraversal.h>
+#import <Processing/FaceTraversal.h>
 #import <random>
 
 using namespace ftr;

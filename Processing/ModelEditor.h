@@ -3,7 +3,7 @@
 
 #include <Model/ModelFactory.h>
 #include <Model/GroupNode.h>
-#include <Model/ModelTree.h>
+#include <Processing/ModelTree.h>
 
 namespace ftr {
 

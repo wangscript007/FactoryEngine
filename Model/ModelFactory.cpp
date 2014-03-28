@@ -3,7 +3,7 @@
 //
 
 #include <Model/ModelFactory.h>
-#include <Model/FaceTraversal.h>
+#include <Processing/FaceTraversal.h>
 
 namespace ftr {
 

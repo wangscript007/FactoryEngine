@@ -3,7 +3,7 @@
 #include <Model/Edge.h>
 #include <Main/Log.h>
 #include <Model/FaceNode.h>
-#include <Model/FaceTraversal.h>
+#include <Processing/FaceTraversal.h>
 
 
 namespace ftr {

@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #include <Model/PointNode.h>
-#include <Model/PointNodeIterator.h>
+#include <Processing/PointNodeIterator.h>
 #include <Model/Edge.h>
 
 using namespace ftr;

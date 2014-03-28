@@ -2,7 +2,7 @@
 #include <Model/FaceNode.h>
 #include <Model/LineNode.h>
 #include <Model/PointNode.h>
-#include <Model/PointNodeIterator.h>
+#include <Processing/PointNodeIterator.h>
 #include <Model/Edge.h>
 #include <Main/Log.h>
 

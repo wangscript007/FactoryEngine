@@ -1,6 +1,6 @@
 
 #include <Interaction/RotationInteraction.h>
-#include <Model/ModelEditor.h>
+#include <Processing/ModelEditor.h>
 
 namespace ftr {
 

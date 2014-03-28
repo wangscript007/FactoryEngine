@@ -2,7 +2,7 @@
 #pragma once
 
 #include <Scene/Viewport.h>
-#include <Model/ModelTree.h>
+#include <Processing/ModelTree.h>
 
 namespace ftr {
     
