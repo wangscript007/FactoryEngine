@@ -27,7 +27,7 @@ void Polygon::Triangulate()
     }
     
     float xyzOffset = 0.0f;
-    int dimensionsToUse[2];
+    int dimensionsToUse[2] = { 0, 1 };
     int dim = 0;
     for (int i = 0; i < kDimensionsCount; i++) {
         if (closestNormal[i] == 0) {

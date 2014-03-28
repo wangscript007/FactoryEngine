@@ -367,46 +367,46 @@ unsigned long Octree::Branch::Size() const
 
 void Octree::Leaf::Render() const
 {
-    const Vertice3 vertices[]= {
-        // 0
-        mBox.mCenter.x - mBox.mHalfDimention.x,
-        mBox.mCenter.y - mBox.mHalfDimention.y,
-        mBox.mCenter.z + mBox.mHalfDimention.z,
-        // 1
-        mBox.mCenter.x - mBox.mHalfDimention.x,
-        mBox.mCenter.y + mBox.mHalfDimention.y,
-        mBox.mCenter.z + mBox.mHalfDimention.z,
-        // 2
-        mBox.mCenter.x + mBox.mHalfDimention.x,
-        mBox.mCenter.y + mBox.mHalfDimention.y,
-        mBox.mCenter.z + mBox.mHalfDimention.z,
-        // 3
-        mBox.mCenter.x + mBox.mHalfDimention.x,
-        mBox.mCenter.y - mBox.mHalfDimention.y,
-        mBox.mCenter.z + mBox.mHalfDimention.z,
-        // 4
-        mBox.mCenter.x - mBox.mHalfDimention.x,
-        mBox.mCenter.y - mBox.mHalfDimention.y,
-        mBox.mCenter.z - mBox.mHalfDimention.z,
-        // 5
-        mBox.mCenter.x - mBox.mHalfDimention.x,
-        mBox.mCenter.y + mBox.mHalfDimention.y,
-        mBox.mCenter.z - mBox.mHalfDimention.z,
-        // 6
-        mBox.mCenter.x + mBox.mHalfDimention.x,
-        mBox.mCenter.y + mBox.mHalfDimention.y,
-        mBox.mCenter.z - mBox.mHalfDimention.z,
-        // 7
-        mBox.mCenter.x + mBox.mHalfDimention.x,
-        mBox.mCenter.y - mBox.mHalfDimention.y,
-        mBox.mCenter.z - mBox.mHalfDimention.z,
-    };
-    
-    static const GLubyte indices[] = {
-        0, 1,   1, 2,   2, 3,   3, 0,
-        4, 5,   5, 6,   6, 7,   7, 4,
-        0, 4,   1, 5,   2, 6,   3, 7
-    };
+//    const Vertice3 vertices[]= {
+//        // 0
+//        mBox.mCenter.x - mBox.mHalfDimention.x,
+//        mBox.mCenter.y - mBox.mHalfDimention.y,
+//        mBox.mCenter.z + mBox.mHalfDimention.z,
+//        // 1
+//        mBox.mCenter.x - mBox.mHalfDimention.x,
+//        mBox.mCenter.y + mBox.mHalfDimention.y,
+//        mBox.mCenter.z + mBox.mHalfDimention.z,
+//        // 2
+//        mBox.mCenter.x + mBox.mHalfDimention.x,
+//        mBox.mCenter.y + mBox.mHalfDimention.y,
+//        mBox.mCenter.z + mBox.mHalfDimention.z,
+//        // 3
+//        mBox.mCenter.x + mBox.mHalfDimention.x,
+//        mBox.mCenter.y - mBox.mHalfDimention.y,
+//        mBox.mCenter.z + mBox.mHalfDimention.z,
+//        // 4
+//        mBox.mCenter.x - mBox.mHalfDimention.x,
+//        mBox.mCenter.y - mBox.mHalfDimention.y,
+//        mBox.mCenter.z - mBox.mHalfDimention.z,
+//        // 5
+//        mBox.mCenter.x - mBox.mHalfDimention.x,
+//        mBox.mCenter.y + mBox.mHalfDimention.y,
+//        mBox.mCenter.z - mBox.mHalfDimention.z,
+//        // 6
+//        mBox.mCenter.x + mBox.mHalfDimention.x,
+//        mBox.mCenter.y + mBox.mHalfDimention.y,
+//        mBox.mCenter.z - mBox.mHalfDimention.z,
+//        // 7
+//        mBox.mCenter.x + mBox.mHalfDimention.x,
+//        mBox.mCenter.y - mBox.mHalfDimention.y,
+//        mBox.mCenter.z - mBox.mHalfDimention.z,
+//    };
+//    
+//    static const GLubyte indices[] = {
+//        0, 1,   1, 2,   2, 3,   3, 0,
+//        4, 5,   5, 6,   6, 7,   7, 4,
+//        0, 4,   1, 5,   2, 6,   3, 7
+//    };
     
 }
 
