@@ -7,7 +7,10 @@ namespace ftr {
 
 char* Primitive::renderData(ShadingInterface& shadingInterface) {
     if (mIsInvalid) {
-        FT_DELETE(mRenderData);
+        if (mRenderData) {
+            delete[] mRenderData;
+            mRenderData = NULL;
+        }
         mRenderData = CreateRenderData(shadingInterface);
         mIsInvalid = false;
     }
@@ -149,8 +152,8 @@ char* PolygonPrimitive::CreateRenderData(ShadingInterface& shadingInterface)
         Polygon polygon(mVec);
         polygon.Triangulate();
         std::vector<Triangle*> triangles = polygon.GetTriangles();
-        for (int i = 0; i < triangles.size(); ++i) {
-            PolygonPrimitive* primitive = new PolygonPrimitive(triangles[i]->GetPoints());
+        for (auto &triangle : triangles) {
+            PolygonPrimitive* primitive = new PolygonPrimitive(triangle->GetPoints());
             primitive->mColor = mColor;
             primitive->mPickingColor = mPickingColor;
             

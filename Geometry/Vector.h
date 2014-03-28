@@ -1,12 +1,6 @@
-//
-//  Vector.h
-//  FactoryEngine
-//
-//  Created by Edvinas on 02/11/13.
-//  Copyright (c) 2013 Dimention. All rights reserved.
-//
 
 #pragma once
+
 
 namespace ftr {
 

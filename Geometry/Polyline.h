@@ -9,7 +9,7 @@ class Polyline : public Geometry
 {
 public:
     Polyline() {};
-    Polyline(const std::vector<glm::vec3>& points) { mPoints = points; }
+    Polyline(const std::vector<glm::vec3>& points) : Geometry(points) {};
     
     void AddPoint(const glm::vec3& point);
     virtual std::vector<glm::vec3>& GetPoints() { return mPoints; }

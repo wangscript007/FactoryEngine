@@ -1,15 +1,9 @@
-//
-//  Vector.cpp
-//  FactoryEngine
-//
-//  Created by Edvinas on 02/11/13.
-//  Copyright (c) 2013 Dimention. All rights reserved.
-//
 
 #include <Geometry/Vector.h>
+#include <Geometry/Constants.h>
 
 namespace ftr {
-    
+        
     
 float Vector::CCWAngle(const glm::vec3& v1, const glm::vec3& v2)
 {
@@ -39,14 +33,11 @@ bool Vector::IsParallel(const glm::vec3& v1, const glm::vec3& v2)
     
 glm::vec3 Vector::XYZClosestAxis(glm::vec3 v)
 {
-    static const glm::vec3 axis[3] =
-    {
-        glm::vec3(1.0f, 0.0f, 0.0f),
-        glm::vec3(0.0f, -1.0f, 0.0f), //TODO: diferences in coordinates model. Not sure if this is right solution...
-        glm::vec3(0.0f, 0.0f, 1.0f)
-    };
+    static const glm::vec3 axis[3] = { kXAxis, -kYAxis, kZAxis };
+    
     int maxIndex = 0;
     float max = 0;
+    
     for (int i = 0; i < 3; i++) {
         float angle = glm::angle(glm::normalize(v), axis[i]);
         float diff = fabs(angle - 90);

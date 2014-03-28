@@ -3,7 +3,6 @@
 //
 
 #include <Workspace/Pad.h>
-#include <Main/Log.h>
 
 namespace ftr {
 

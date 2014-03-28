@@ -4,7 +4,6 @@
 #include <Model/PointNode.h>
 #include <Processing/PointNodeIterator.h>
 #include <Model/Edge.h>
-#include <Main/Log.h>
 
 
 namespace ftr {

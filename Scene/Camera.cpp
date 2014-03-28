@@ -1,7 +1,6 @@
 
 
 #include <Scene/Camera.h>
-#include <Main/Log.h>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 

@@ -5,7 +5,7 @@
 
 namespace ftr {
     
-bool Triangle::IsInOnLine(const glm::vec3& p1,const  glm::vec3& p2, const glm::vec3&  p3)
+bool Triangle::IsInOneLine(const glm::vec3& p1,const  glm::vec3& p2, const glm::vec3&  p3)
 {
     return glm::isNull(glm::cross(p2 - p1, p3 - p2), 0.0000001f);
 }

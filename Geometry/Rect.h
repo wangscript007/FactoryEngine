@@ -6,6 +6,8 @@ namespace ftr {
 class Rect
 {
 public:
+    //glm::mat2
+    
     glm::vec2 mOrigin;
     glm::vec2 mSize;
     

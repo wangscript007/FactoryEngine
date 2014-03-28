@@ -14,27 +14,22 @@ class Polygon : public Polyline
 public:
     Polygon() {};
     Polygon(const std::vector<glm::vec3>& points) : Polyline(points) {};
-    ~Polygon() {};
-    const std::vector<Triangle*>& GetTriangles() const { return mTriangles; }
+    virtual ~Polygon();
     
     void Triangulate();
-    glm::vec3 SurfaceNormal() const;
-    
     void RotateToSurfaceNormal(const glm::vec3& targedNormal);
+    glm::vec3 SurfaceNormal() const;
+    const std::vector<Triangle*>& GetTriangles() const { return mTriangles; }
+    
     void DebugPrint() const;
     void DebugPrintTriangles() const;
     
 private:
     glm::mat4 RotationToSurfaceNormal(const glm::vec3& targedNormal);
     void TransformTriangles(const glm::mat4& tranformation);
-    
-    
-    
-    std::vector<Triangle*> mTriangles;
-    
-    
     glm::vec3 XYZClosestNormal() const;
     
+    std::vector<Triangle*> mTriangles;
     Polyline mPolyline;
 };
 

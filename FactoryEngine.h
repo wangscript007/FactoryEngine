@@ -37,7 +37,6 @@ typedef unsigned long long int  Quadrupleword;    // 8 bytes
 // Main
 //
 #include "Main/GLError.h"
-#include "Main/Log.h"
 #include "Main/Macros.h"
 //
 // Math

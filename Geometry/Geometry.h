@@ -7,7 +7,10 @@ class Geometry
 {
 public:
     Geometry() {};
+    Geometry(const std::vector<glm::vec3>& points) : mPoints(points) {};
+    
     virtual ~Geometry() {};
+    
     
     virtual void Rotate(const glm::vec3& oilerAngle);
     virtual void Translate(const glm::vec3& offset);

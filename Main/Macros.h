@@ -4,6 +4,10 @@
     #define FT_DELETE(a) { if(a) { delete (a); (a) = NULL; } }
 #endif
 
+#ifndef FT_DELETE_VECTOR
+    #define FT_DELETE_VECTOR(a) { for(auto &it:a) delete it; a.clear(); }
+#endif
+
 /*
 File: glUtil.h
 Abstract:

@@ -162,7 +162,7 @@ void FaceTraversal::CreatePlane()
         glm::vec3 p2 = e1->target();
         glm::vec3 p3 = e2->target();
         
-        if (Triangle::IsInOnLine(p1, p2, p3)) {
+        if (Triangle::IsInOneLine(p1, p2, p3)) {
             std::cout << "Points are in one line";
         } else {
             mTriangle = new Triangle(e1->origin(), e1->target(), e2->target());

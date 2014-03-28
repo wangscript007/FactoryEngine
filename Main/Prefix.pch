@@ -37,7 +37,5 @@ typedef unsigned long long int  Quadrupleword;    // 8 bytes
 #include "Util.h"
 #include "Segment.h"
 
-
-
 //
 // External

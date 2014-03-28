@@ -33,7 +33,6 @@
 		603981731819A444002EBDA8 /* Edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 603981711819A444002EBDA8 /* Edge.cpp */; };
 		603981741819A444002EBDA8 /* Edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 603981721819A444002EBDA8 /* Edge.h */; };
 		603BA5C617E87392007CE822 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6055CFD217417DCB009F1F46 /* Camera.cpp */; };
-		603BA5C817E87437007CE822 /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D17C76861584B6010083E2B0 /* Log.cpp */; };
 		603BA5D017E87437007CE822 /* Polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6011C37616D0EE9100CD34F9 /* Polygon.cpp */; };
 		603BA5D117E87437007CE822 /* Rect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC781658308B0051947E /* Rect.cpp */; };
 		603BA5D217E87437007CE822 /* GeometryPrimitives.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60C41BB21691BF5600DD0C09 /* GeometryPrimitives.cpp */; };
@@ -162,7 +161,6 @@
 		60C6D03C174961470009EC3C /* Workspace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F4A157FE79600566119 /* Workspace.cpp */; };
 		60C6D03D174961470009EC3C /* Pad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F4F157FE91900566119 /* Pad.cpp */; };
 		60C6D03E174961470009EC3C /* HUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F53157FE9D200566119 /* HUD.cpp */; };
-		60C6D041174961470009EC3C /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D17C76861584B6010083E2B0 /* Log.cpp */; };
 		60C6D043174961470009EC3C /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D13D718115AF949100143662 /* Node.cpp */; };
 		60C6D044174961470009EC3C /* BodyNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D13D718515AF96F000143662 /* BodyNode.cpp */; };
 		60C6D045174961470009EC3C /* ModelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1E54CAD157BED250083FB90 /* ModelFactory.cpp */; };
@@ -193,7 +191,6 @@
 		60C6D076174961470009EC3C /* Workspace.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F4B157FE79600566119 /* Workspace.h */; };
 		60C6D077174961470009EC3C /* Pad.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F50157FE91900566119 /* Pad.h */; };
 		60C6D078174961470009EC3C /* HUD.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F54157FE9D200566119 /* HUD.h */; };
-		60C6D07B174961470009EC3C /* Log.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76871584B6010083E2B0 /* Log.h */; };
 		60C6D07C174961470009EC3C /* GLError.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76AB1584E3900083E2B0 /* GLError.h */; };
 		60C6D07E174961470009EC3C /* Node.h in Headers */ = {isa = PBXBuildFile; fileRef = D13D718215AF949100143662 /* Node.h */; };
 		60C6D07F174961470009EC3C /* BodyNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D13D718615AF96F000143662 /* BodyNode.h */; };
@@ -352,12 +349,15 @@
 		D1693B8818E58CB0000AFE41 /* ModelTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B6C18E58BAE000AFE41 /* ModelTree.cpp */; };
 		D1693B8918E58CB2000AFE41 /* Octree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B6E18E58BAE000AFE41 /* Octree.cpp */; };
 		D1693B8A18E58CB5000AFE41 /* PointNodeIterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B7018E58BAE000AFE41 /* PointNodeIterator.cpp */; };
+		D1693B8D18E5B04C000AFE41 /* Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B8B18E5B04C000AFE41 /* Constants.cpp */; };
+		D1693B8E18E5B04C000AFE41 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = D1693B8C18E5B04C000AFE41 /* Constants.h */; };
+		D1693B8F18E5B195000AFE41 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = D1693B8C18E5B04C000AFE41 /* Constants.h */; };
+		D1693B9018E5B1BC000AFE41 /* Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B8B18E5B04C000AFE41 /* Constants.cpp */; };
+		D1693B9118E5B1BD000AFE41 /* Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B8B18E5B04C000AFE41 /* Constants.cpp */; };
 		D16D270318D5E8FB0095B177 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Triangle.cpp */; };
 		D16D270418D5E8FB0095B177 /* Triangle.h in Headers */ = {isa = PBXBuildFile; fileRef = D16D270218D5E8FB0095B177 /* Triangle.h */; };
 		D16D270718D5F5330095B177 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Triangle.cpp */; };
 		D17C76651583BF440083E2B0 /* FactoryEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76641583BF440083E2B0 /* FactoryEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D17C76881584B6010083E2B0 /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D17C76861584B6010083E2B0 /* Log.cpp */; };
-		D17C76891584B6010083E2B0 /* Log.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76871584B6010083E2B0 /* Log.h */; };
 		D17C76AC1584E3900083E2B0 /* GLError.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76AB1584E3900083E2B0 /* GLError.h */; };
 		D1A920FF18E1876A0034336A /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
 		D1A9210018E1876A0034336A /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = D1A920FE18E1876A0034336A /* Geometry.h */; };
@@ -567,12 +567,12 @@
 		D1693B6F18E58BAE000AFE41 /* Octree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Octree.h; sourceTree = "<group>"; };
 		D1693B7018E58BAE000AFE41 /* PointNodeIterator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointNodeIterator.cpp; sourceTree = "<group>"; };
 		D1693B7118E58BAE000AFE41 /* PointNodeIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointNodeIterator.h; sourceTree = "<group>"; };
+		D1693B8B18E5B04C000AFE41 /* Constants.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Constants.cpp; sourceTree = "<group>"; };
+		D1693B8C18E5B04C000AFE41 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D16D270118D5E8FB0095B177 /* Triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
 		D16D270218D5E8FB0095B177 /* Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangle.h; sourceTree = "<group>"; };
 		D16D270518D5F1980095B177 /* TestTriangle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestTriangle.mm; sourceTree = "<group>"; };
 		D17C76641583BF440083E2B0 /* FactoryEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FactoryEngine.h; sourceTree = "<group>"; };
-		D17C76861584B6010083E2B0 /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
-		D17C76871584B6010083E2B0 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		D17C76AB1584E3900083E2B0 /* GLError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLError.h; sourceTree = "<group>"; };
 		D1A920FD18E1876A0034336A /* Geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Geometry.cpp; sourceTree = "<group>"; };
 		D1A920FE18E1876A0034336A /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
@@ -903,8 +903,6 @@
 			isa = PBXGroup;
 			children = (
 				60A575E61690DDEE0050FAFC /* Prefix.pch */,
-				D17C76861584B6010083E2B0 /* Log.cpp */,
-				D17C76871584B6010083E2B0 /* Log.h */,
 				D17C76AB1584E3900083E2B0 /* GLError.h */,
 				604E93D116A1D14C00143522 /* Macros.h */,
 			);
@@ -950,6 +948,8 @@
 			children = (
 				D1A920FD18E1876A0034336A /* Geometry.cpp */,
 				D1A920FE18E1876A0034336A /* Geometry.h */,
+				D1693B8B18E5B04C000AFE41 /* Constants.cpp */,
+				D1693B8C18E5B04C000AFE41 /* Constants.h */,
 				60D7DC781658308B0051947E /* Rect.cpp */,
 				60D7DC791658308B0051947E /* Rect.h */,
 				60C41BB21691BF5600DD0C09 /* GeometryPrimitives.cpp */,
@@ -999,7 +999,6 @@
 				6032717A17EB17C700249562 /* SceneRenderer.h in Headers */,
 				60C6D077174961470009EC3C /* Pad.h in Headers */,
 				60C6D078174961470009EC3C /* HUD.h in Headers */,
-				60C6D07B174961470009EC3C /* Log.h in Headers */,
 				60C6D07C174961470009EC3C /* GLError.h in Headers */,
 				60C6D07E174961470009EC3C /* Node.h in Headers */,
 				60C6D07F174961470009EC3C /* BodyNode.h in Headers */,
@@ -1031,6 +1030,7 @@
 				60C6D0A4174961470009EC3C /* PolygonRenderer.h in Headers */,
 				60C6D0A5174961470009EC3C /* RectangleRenderer.h in Headers */,
 				60C6D0A6174961470009EC3C /* Bounds.h in Headers */,
+				D1693B8F18E5B195000AFE41 /* Constants.h in Headers */,
 				60C6D0A7174961470009EC3C /* PointRenderer.h in Headers */,
 				60C6D0AC174961470009EC3C /* TestRectangle.h in Headers */,
 				60C6D0BB1749737F0009EC3C /* Rect.h in Headers */,
@@ -1064,7 +1064,6 @@
 				D1F44F4D157FE79600566119 /* Workspace.h in Headers */,
 				D1F44F52157FE91900566119 /* Pad.h in Headers */,
 				D1F44F56157FE9D200566119 /* HUD.h in Headers */,
-				D17C76891584B6010083E2B0 /* Log.h in Headers */,
 				D17C76AC1584E3900083E2B0 /* GLError.h in Headers */,
 				D13D718415AF949100143662 /* Node.h in Headers */,
 				D13D718815AF96F000143662 /* BodyNode.h in Headers */,
@@ -1087,6 +1086,7 @@
 				D11D1D5F18DF70980091521F /* sweep_context.h in Headers */,
 				60B3F3BE1805667B0010484D /* Segment.h in Headers */,
 				D11D1D5318DF70980091521F /* poly2tri.h in Headers */,
+				D1693B8E18E5B04C000AFE41 /* Constants.h in Headers */,
 				60A4ED6116FE28BA0083DCD2 /* RotationInteraction.h in Headers */,
 				60A4ED6816FE59D50083DCD2 /* ScaleInteraction.h in Headers */,
 				D11D1D5218DF70980091521F /* utils.h in Headers */,
@@ -1251,7 +1251,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				603BA5C817E87437007CE822 /* Log.cpp in Sources */,
 				60CE9A4917EC646600A775C0 /* ShadingProgram.cpp in Sources */,
 				603BA5D017E87437007CE822 /* Polygon.cpp in Sources */,
 				603BA5D117E87437007CE822 /* Rect.cpp in Sources */,
@@ -1279,6 +1278,7 @@
 				603BA5E417E87437007CE822 /* LigthtingModelFactory.cpp in Sources */,
 				6032717817EB17C700249562 /* SceneRenderer.cpp in Sources */,
 				60B3F3C0180577560010484D /* Segment.cpp in Sources */,
+				D1693B9118E5B1BD000AFE41 /* Constants.cpp in Sources */,
 				603BA5E517E87437007CE822 /* LightingModel.cpp in Sources */,
 				60D63216181C0C3000CEB0D0 /* Edge.cpp in Sources */,
 				60A05FC71809DB15004DD045 /* PointSnap.cpp in Sources */,
@@ -1352,7 +1352,6 @@
 				60DFE3AD18253C7400A32D7A /* Vector.cpp in Sources */,
 				60C6D03D174961470009EC3C /* Pad.cpp in Sources */,
 				60C6D03E174961470009EC3C /* HUD.cpp in Sources */,
-				60C6D041174961470009EC3C /* Log.cpp in Sources */,
 				60C6D043174961470009EC3C /* Node.cpp in Sources */,
 				60C6D044174961470009EC3C /* BodyNode.cpp in Sources */,
 				60A05FCF180AD1BA004DD045 /* SnappingQueue.cpp in Sources */,
@@ -1376,6 +1375,7 @@
 				60C6D053174961470009EC3C /* RotationInteraction.cpp in Sources */,
 				60A05FCB1809DB48004DD045 /* Snap.cpp in Sources */,
 				D11D1D6318DF70D10091521F /* sweep_context.cc in Sources */,
+				D1693B9018E5B1BC000AFE41 /* Constants.cpp in Sources */,
 				60EB2F651812C385008DCA37 /* Cylinder.cpp in Sources */,
 				60C6D054174961470009EC3C /* ScaleInteraction.cpp in Sources */,
 				60CE9A6217EC646F00A775C0 /* ShadingLibrary.cpp in Sources */,
@@ -1423,7 +1423,6 @@
 				6032717617EB17C700249562 /* SceneRenderer.cpp in Sources */,
 				D1F44F51157FE91900566119 /* Pad.cpp in Sources */,
 				D1F44F55157FE9D200566119 /* HUD.cpp in Sources */,
-				D17C76881584B6010083E2B0 /* Log.cpp in Sources */,
 				D13D718315AF949100143662 /* Node.cpp in Sources */,
 				D11D1CC218DF4FBA0091521F /* Description.cpp in Sources */,
 				D13D718715AF96F000143662 /* BodyNode.cpp in Sources */,
@@ -1472,6 +1471,7 @@
 				60BD328A1744039D00C2E593 /* LightingModel.cpp in Sources */,
 				60BD328E174436BD00C2E593 /* LightingCollection.cpp in Sources */,
 				60BD3292174436EA00C2E593 /* DefaultLighting.cpp in Sources */,
+				D1693B8D18E5B04C000AFE41 /* Constants.cpp in Sources */,
 				D11D1D5418DF70980091521F /* advancing_front.cc in Sources */,
 				D16D270318D5E8FB0095B177 /* Triangle.cpp in Sources */,
 				D11D1D7418E0507B0091521F /* Polyline.cpp in Sources */,

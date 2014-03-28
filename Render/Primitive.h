@@ -31,7 +31,7 @@ public:
     virtual ~Primitive() {
         if(mRenderData) {
             delete[] mRenderData;
-            mRenderData=0;
+            mRenderData=NULL;
         }
     }
     
