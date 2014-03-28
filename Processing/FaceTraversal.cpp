@@ -24,6 +24,11 @@ bool FaceTraversal::IsSameFace(const Result& resultA, const Result& resultB)
     return result;
 }
     
+FaceTraversal::~FaceTraversal()
+{
+    FT_DELETE(mTriangle);
+}
+    
     
 FaceTraversal::FaceTraversal(Edge& startEdge)
     : mStartEdge(&startEdge),

@@ -4,27 +4,31 @@
 namespace ftr {
 
 LightingModel::LightingModel()
+    :mData(NULL)
 {
     
 }
 
 LightingModel::~LightingModel()
 {
-    
+    delete[] mData;
+    mData = NULL;
 }
     
-Light::Data* LightingModel::Data() const
+Light::Data* LightingModel::Data()
 {
 #ifndef GLES
-    assert(mLightsVector.size() <= mShadingInterface->mSettings.lightsCount);
-    Light::Data* data = reinterpret_cast<Light::Data*>(new char[ModelDataSize()]);
-    for (int i = 0; i < mLightsVector.size(); ++i) {
-        data[i] = mLightsVector[i]->mData;
+    if (!mData) {
+        assert(mLightsVector.size() <= mShadingInterface->mSettings.lightsCount);
+        mData = reinterpret_cast<Light::Data*>(new char[ModelDataSize()]);
+        for (int i = 0; i < mLightsVector.size(); ++i) {
+            mData[i] = mLightsVector[i]->mData;
+        }
+        for (size_t i = mLightsVector.size(); i < mShadingInterface->mSettings.lightsCount; ++i) {
+            mData[i] = Light::Data();
+        }
     }
-    for (size_t i = mLightsVector.size(); i < mShadingInterface->mSettings.lightsCount; ++i) {
-        data[i] = Light::Data();
-    }
-    return data;
+    return mData;
 #endif
 }
     

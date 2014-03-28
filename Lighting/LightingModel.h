@@ -27,7 +27,9 @@ protected:
     
 private:
     size_t ModelDataSize() const;
-    Light::Data* Data() const;
+    Light::Data* Data();
+    
+    Light::Data* mData;
     
 };
     

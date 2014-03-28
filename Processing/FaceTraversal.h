@@ -18,7 +18,7 @@ public:
     };
     
     FaceTraversal(Edge& startEdge);
-    virtual ~FaceTraversal() {}
+    virtual ~FaceTraversal();
     
     void Find(Result& result);
     
