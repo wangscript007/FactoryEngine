@@ -59,8 +59,8 @@ using namespace ftr;
 - (void)testConnect1
 {
     
-    PointNode::ConnectionResult e12 = v1->ConnectTo(v2);
-    PointNode::ConnectionResult e23 = v2->ConnectTo(v3);
+    v1->ConnectTo(v2);
+    v2->ConnectTo(v3);
     PointNode::ConnectionResult e31 = v3->ConnectTo(v1);
     
     XCTAssert(e31.faceA || e31.faceB);
@@ -68,26 +68,27 @@ using namespace ftr;
 
 - (void)testConnect2
 {
-    PointNode::ConnectionResult e12 = v1->ConnectTo(v2);
-    PointNode::ConnectionResult e23 = v2->ConnectTo(v3);
+    v1->ConnectTo(v2);
+    v2->ConnectTo(v3);
     PointNode::ConnectionResult e13 = v1->ConnectTo(v3);
     XCTAssert(e13.faceA ||  e13.faceB);
     
-    PointNode::ConnectionResult e53 = v5->ConnectTo(v3);
-    PointNode::ConnectionResult e43 = v4->ConnectTo(v3);
-    XCTAssert(e43.faceA ||  e43.faceB);
-    
+    v5->ConnectTo(v3);
+    v4->ConnectTo(v3);
     PointNode::ConnectionResult e45 = v4->ConnectTo(v5);
+    XCTAssert(e45.faceA ||  e45.faceB);
+    
+
     PointNode::ConnectionResult e41 = v4->ConnectTo(v1);
     XCTAssert(e41.faceA ||  e41.faceB);
 }
 
 - (void)testConnect3
 {
-    PointNode::ConnectionResult e12 = v1->ConnectTo(v2);
-    PointNode::ConnectionResult e23 = v2->ConnectTo(v3);
+    v1->ConnectTo(v2);
+    v2->ConnectTo(v3);
     PointNode::ConnectionResult e31 = v3->ConnectTo(v1);
-    PointNode::ConnectionResult e34 = v3->ConnectTo(v4);
+    v3->ConnectTo(v4);
     PointNode::ConnectionResult e41 = v4->ConnectTo(v1);
     
     XCTAssert(e31.faceA || e31.faceB);
@@ -96,9 +97,9 @@ using namespace ftr;
 
 - (void)testConnect4
 {
-    PointNode::ConnectionResult e12 = v1->ConnectTo(v2);
-    PointNode::ConnectionResult e23 = v2->ConnectTo(v3);
-    PointNode::ConnectionResult e34 = v3->ConnectTo(v4);
+    v1->ConnectTo(v2);
+    v2->ConnectTo(v3);
+    v3->ConnectTo(v4);
     PointNode::ConnectionResult e41 = v4->ConnectTo(v1);
     
     XCTAssert(e41.faceA || e41.faceB);
