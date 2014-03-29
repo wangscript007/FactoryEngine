@@ -10,7 +10,13 @@ bool Triangle::IsInOneLine(const glm::vec3& p1,const  glm::vec3& p2, const glm::
     return glm::isNull(glm::cross(p2 - p1, p3 - p2), 0.0000001f);
 }
     
-    
+Triangle::Triangle(const std::vector<glm::vec3>& points)
+    : Geometry(points)
+{
+    // points can't be in one line
+    assert(!glm::isNull(Cross(), 0.0000001f));
+
+}
     
 Triangle::Triangle(const glm::vec3& p1, const glm::vec3& p2, const glm::vec3&  p3)
 {
@@ -19,8 +25,7 @@ Triangle::Triangle(const glm::vec3& p1, const glm::vec3& p2, const glm::vec3&  p
     mPoints.push_back(p3);
     
     // points can't be in one line
-    mCross = Cross();
-    assert(!glm::isNull(mCross, 0.0000001f));
+    assert(!glm::isNull(Cross(), 0.0000001f));
     
 }
     
@@ -33,7 +38,7 @@ bool Triangle::PlaneContains(const glm::vec3& p) const
     
 glm::vec3 Triangle::SurfaceNormal() const
 {
-    return glm::normalize(mCross);
+    return glm::normalize(Cross());
 }
     
 glm::vec3 Triangle::Cross() const

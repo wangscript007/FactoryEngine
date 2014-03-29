@@ -47,7 +47,14 @@ using namespace ftr;
     polygon.AddPoint(glm::vec3(1.0, 0.0f, 0.0f));
     
     polygon.Triangulate();
+    
     XCTAssert(polygon.GetTriangles().size() == 2);
+    
+    glm::vec3 triangleNormal0 = polygon.GetTriangles()[0]->SurfaceNormal();
+    glm::vec3 triangleNormal1 = polygon.GetTriangles()[1]->SurfaceNormal();
+    XCTAssert(Vector::IsParallel(triangleNormal0, polygon.SurfaceNormal()));
+    XCTAssert(Vector::IsParallel(triangleNormal1, polygon.SurfaceNormal()));
+    
     polygon.DebugPrintTriangles();
     
 }
@@ -65,8 +72,17 @@ using namespace ftr;
     polygon.DebugPrintTriangles();
     
     XCTAssert(polygon.GetTriangles().size() == 2);
-    XCTAssert(Vector::IsParallel(polygon.GetTriangles()[0]->SurfaceNormal(), polygon.SurfaceNormal()));
-    XCTAssert(Vector::IsParallel(polygon.GetTriangles()[1]->SurfaceNormal(), polygon.SurfaceNormal()));
+    
+    Triangle* triangle0 = polygon.GetTriangles().at(0);
+    Triangle* triangle1 = polygon.GetTriangles().at(1);
+    
+    glm::vec3 triangleNormal0 = triangle0->SurfaceNormal();
+    glm::vec3 triangleNormal1 = triangle1->SurfaceNormal();
+    glm::vec3 polygonNormal = polygon.SurfaceNormal();
+    
+    
+    XCTAssert(Vector::IsParallel(triangleNormal0, polygonNormal));
+    XCTAssert(Vector::IsParallel(triangleNormal1, polygonNormal));
 }
 
 @end

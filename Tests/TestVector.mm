@@ -41,7 +41,8 @@ using namespace ftr;
     glm::vec3 v3 = p4 - p2;
     
     XCTAssertFalse(Vector::IsCWOrder(v1, v2));
-    XCTAssertTrue(Vector::IsCWOrder(v1, v3));
+    XCTAssert(Vector::IsParallel(v1, v3));
+    XCTAssertFalse(Vector::IsCWOrder(v1, v3));
 }
 
 - (void)testIsParallel
@@ -66,8 +67,9 @@ using namespace ftr;
     glm::vec3 v2 = p3 - p2;
     glm::vec3 v3 = p4 - p2;
     
+    XCTAssert(Vector::IsParallel(v1, v2));
     XCTAssertFalse(Vector::IsCWOrder(v1, v2));
-    XCTAssertTrue(Vector::IsCWOrder(v1, v3));
+    XCTAssertFalse(Vector::IsCWOrder(v1, v3));
 }
 
 - (void)testIsCWInYZPlane
@@ -82,7 +84,7 @@ using namespace ftr;
     glm::vec3 v3 = p4 - p2;
     
     XCTAssertFalse(Vector::IsCWOrder(v1, v2));
-    XCTAssertTrue(Vector::IsCWOrder(v1, v3));
+    XCTAssertFalse(Vector::IsCWOrder(v1, v3));
 }
 
 - (void)testCWAngle
