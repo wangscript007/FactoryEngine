@@ -19,10 +19,9 @@ public:
     typedef PointNodeIterator Iterator;
     
     struct ConnectionResult {
-        FaceNode* faceA;
-        FaceNode* faceB;
+        FaceNode* faces[2];
         Edge* edge;
-        ConnectionResult() : faceA(NULL), faceB(NULL), edge(NULL) {};
+        ConnectionResult() : edge(NULL) { faces[0] = NULL; faces[1] = NULL; };
     };
     
     static const float c_fR;

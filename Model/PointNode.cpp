@@ -195,8 +195,8 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
     bool thisHasUsed = traverseResultThis.hasUsedEdges;
     bool otherHasUsed = traverseResultOther.hasUsedEdges;
     
-    result.faceA = NULL;
-    result.faceB = NULL;
+    result.faces[0] = NULL;
+    result.faces[1] = NULL;
     
     if (thisFoundFace && otherFoundFace)
     {
@@ -204,32 +204,32 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
         {
             if (thisHasUsed && !otherHasUsed)
             {
-                result.faceA = new FaceNode(traverseResultOther.edgesVector);
+                result.faces[0] = new FaceNode(traverseResultOther.edgesVector);
             }
             else if (!thisHasUsed && otherHasUsed)
             {
-                result.faceA = new FaceNode(traverseResultThis.edgesVector);
+                result.faces[1] = new FaceNode(traverseResultThis.edgesVector);
             }
             else
             {
                 // I believe we could change orientation of all body here
-                result.faceA = new FaceNode(traverseResultOther.edgesVector);
-                //result.faceA = new FaceNode(traverseResultThis.edgesVector);
+                result.faces[0] = new FaceNode(traverseResultOther.edgesVector);
+                //result.faces[0] = new FaceNode(traverseResultThis.edgesVector);
             }
         }
         else {
             // we must create two faces in this case, if at least one has used edges we must reverse both
-            result.faceA = thisHasUsed ? NULL : new FaceNode(traverseResultThis.edgesVector);
-            result.faceB = otherHasUsed ? NULL : new FaceNode(traverseResultOther.edgesVector);
+            result.faces[0] = thisHasUsed ? NULL : new FaceNode(traverseResultThis.edgesVector);
+            result.faces[1] = otherHasUsed ? NULL : new FaceNode(traverseResultOther.edgesVector);
         }
     }
     else if (thisFoundFace)
     {
-        result.faceA = thisHasUsed ? NULL : new FaceNode(traverseResultThis.edgesVector);
+        result.faces[0] = thisHasUsed ? NULL : new FaceNode(traverseResultThis.edgesVector);
     }
     else if (otherFoundFace)
     {
-        result.faceA = otherHasUsed ? NULL : new FaceNode(traverseResultOther.edgesVector);
+        result.faces[1] = otherHasUsed ? NULL : new FaceNode(traverseResultOther.edgesVector);
     }
     
     return result;

@@ -20,6 +20,8 @@ using namespace ftr;
     PointNode* v3;
     PointNode* l4;
     PointNode* h4;
+    
+    PointNode* v5;
 //    FaceTraversal traversal;
 }
 
@@ -35,6 +37,8 @@ using namespace ftr;
     v3 = new PointNode(glm::vec3(-0.5f, 0.0f, 0.3f));
     l4 = new PointNode(glm::vec3(0.0f, 0.3f, 0.0f)); // low
     h4 = new PointNode(glm::vec3(0.0f, 3.0f, 0.0f)); // high
+    
+    v5 = new PointNode(glm::vec3(5.0f, 5.0f, 5.0f));
     
     v1->mName = "1";
     v2->mName = "2";
@@ -54,6 +58,7 @@ using namespace ftr;
     [super tearDown];
 }
 
+
 - (void)testConnectingLowTetrahedron
 {
     PointNode::ConnectionResult e12 = v1->ConnectTo(v2);
@@ -64,14 +69,26 @@ using namespace ftr;
     PointNode::ConnectionResult e24 = v2->ConnectTo(l4);
     PointNode::ConnectionResult e34 = v3->ConnectTo(l4);
     
-    XCTAssert(e31.faceA || e31.faceB);
-    XCTAssert(e24.faceA || e24.faceB);
-    XCTAssert(e34.faceA && e34.faceB);
+    XCTAssert(e31.faces[0] || e31.faces[1]);
+    XCTAssert(e24.faces[0] || e24.faces[1]);
+    XCTAssert(e34.faces[0] && e34.faces[1]);
 }
 
-- (void)testConnectingHighTetrahedron
+- (void)testConnectingHighTetrahedronAndExtraEdge
 {
+    PointNode::ConnectionResult e12 = v1->ConnectTo(v2);
+    PointNode::ConnectionResult e23 = v2->ConnectTo(v3);
+    PointNode::ConnectionResult e31 = v3->ConnectTo(v1);
     
+    PointNode::ConnectionResult e14 = v1->ConnectTo(l4);
+    PointNode::ConnectionResult e24 = v2->ConnectTo(l4);
+    PointNode::ConnectionResult e34 = v3->ConnectTo(l4);
+    
+    PointNode::ConnectionResult e35 = v3->ConnectTo(v5);
+    
+    XCTAssert(e31.faces[0] || e31.faces[1]);
+    XCTAssert(e24.faces[0] || e24.faces[1]);
+    XCTAssert(e34.faces[0] && e34.faces[1]);
 }
 
 @end

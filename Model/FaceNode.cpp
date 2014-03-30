@@ -42,6 +42,22 @@ bool FaceNode::IsValid(std::vector<Edge*>& edges) const
     return true;
 }
     
+bool FaceNode::IsValid() const
+{
+    int counter = 0;
+    Edge* currentEdge = mOuterEdge;
+    do {
+        if (!currentEdge->next()) {
+            return false;
+        }
+        currentEdge = currentEdge->next();
+        counter++;
+    } while ((currentEdge != mOuterEdge) && (counter < 1000));
+    
+    return currentEdge == mOuterEdge;
+}
+
+    
 FaceNode::FaceNode()
 {
     

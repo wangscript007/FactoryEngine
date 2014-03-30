@@ -27,8 +27,11 @@ public:
     
     std::string Description() const;
     
-private:
+    bool IsValid() const;
     bool IsValid(std::vector<Edge*>& edges) const;
+    
+private:
+    
     void MarkIncidentFaceInLoopWithEdge(Edge& Edge);
     
     std::vector<Edge*> mInnerEdges;
