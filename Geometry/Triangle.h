@@ -19,9 +19,9 @@ public:
     glm::vec3 Cross() const;
     
     static bool IsInOneLine(const glm::vec3& p1,const  glm::vec3& p2, const glm::vec3&  p3);
-    
-    
+
 private:
+
 };
     
 }

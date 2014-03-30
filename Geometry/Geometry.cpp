@@ -27,5 +27,11 @@ void Geometry::Transform(const glm::mat4& mat)
         p = glm::vec3(vec.x, vec.y, vec.z);
     }
 }
+    
+const glm::vec3& Geometry::operator[](const int index)
+{
+    return mPoints[index];
+}
+
 
 }

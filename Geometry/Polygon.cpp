@@ -3,6 +3,8 @@
 #include <Geometry/Vector.h>
 #include <Utils/Description.h>
 #include <Geometry/Constants.h>
+#include <External/poly2tri/poly2tri.h>
+#include <Geometry/GeometryPrimitives.h>
 
 namespace ftr {
     
@@ -26,24 +28,24 @@ void Polygon::Triangulate()
         rotatedPolygon.Transform(rotationMatrix);
     }
     
-    float xyzOffset = 0.0f;
-    int dimensionsToUse[2] = { 0, 1 };
-    int dim = 0;
-    for (int i = 0; i < kDimensionsCount; i++) {
-        if (closestNormal[i] == 0) {
-            dimensionsToUse[dim] = i;
-            dim++;
-        } else {
-            xyzOffset = rotatedPolygon.mPoints[0][i];
+    int componentIndex = 0;
+    for (int i = 0; i < 3; ++i) {
+        if (closestNormal[i] != 0) {
+            componentIndex = i;
+            break;
         }
     }
+    float offset = rotatedPolygon[0][componentIndex];
+    
+    for (auto &point : rotatedPolygon.mPoints) {
+        assert(offset - point[componentIndex] < 0.001f);
+    }
+
     
     std::vector<p2t::Point*> polyline;
-    for (auto &polygonPoint : mPoints) {
-        float x = polygonPoint[dimensionsToUse[0]];
-        float y = polygonPoint[dimensionsToUse[1]];
-        std::cout << "x: " << x << " y: " << y << std::endl;
-        polyline.push_back(new p2t::Point(x, y));
+    for (auto &polygonPoint : rotatedPolygon.mPoints) {
+        glm::vec2 vec = Vec3WithoutComponent(polygonPoint, componentIndex);
+        polyline.push_back(new p2t::Point(vec.x, vec.y));
     }
     
     p2t::CDT cdt(polyline);
@@ -53,23 +55,11 @@ void Polygon::Triangulate()
     for (auto &triangle : triangles)
     {
         glm::vec3 points[3];
-        
-        for(int pi = 0; pi < kDimensionsCount; pi++)
+        for(int pi = 0; pi < 3; pi++)
         {
-            int dim = 0;
-            for (int di = 0; di < kDimensionsCount; ++di)
-            {
-                if (closestNormal[di] == 0) {
-                    if (dim == 0) {
-                        points[pi][di] = triangle->GetPoint(pi)->x;
-                    } else {
-                        points[pi][di] = triangle->GetPoint(pi)->y;
-                    }
-                    dim++;
-                } else {
-                    points[pi][di] = xyzOffset;
-                }
-            }
+            p2t::Point* point = triangle->GetPoint(pi);
+            glm::vec2 vec = glm::vec2(point->x, point->y);
+            points[pi] = Vec2ByAppendingComponent(vec, offset, componentIndex);
         }
         mTriangles.push_back(new Triangle(points[0], points[1], points[2]));
     }
@@ -81,6 +71,35 @@ void Polygon::Triangulate()
     FT_DELETE_VECTOR(polyline);
 }
     
+glm::vec2 Polygon::Vec3WithoutComponent(const glm::vec3& vec, const int index)
+{
+    glm::vec2 result;
+    for (int i = 0; i < kDimensionsCount; i++) {
+        if (i < index) {
+            result[i] = vec[i];
+        } else if (i > index) {
+            result[i-1] = vec[i];
+        }
+    }
+    return result;
+}
+    
+glm::vec3 Polygon::Vec2ByAppendingComponent(const glm::vec2& vec, float component, int index)
+{
+    glm::vec3 result;
+    for (int i = 0; i < kDimensionsCount; i++) {
+        if (i < index) {
+            result[i] = vec[i];
+        }
+        else if (i == index) {
+            result[i] = component;
+        }
+        else if (i > index) {
+            result[i] = vec[i-1];
+        }
+    }
+    return result;
+}
     
 void Polygon::TransformTriangles(const glm::mat4& tranformation)
 {
@@ -94,7 +113,6 @@ void Polygon::RotateToSurfaceNormal(const glm::vec3& targedNormal)
 {
     Transform(RotationToSurfaceNormal(targedNormal));
 }
-    
     
 glm::mat4 Polygon::RotationToSurfaceNormal(const glm::vec3& targedNormal)
 {
@@ -120,6 +138,22 @@ glm::vec3 Polygon::SurfaceNormal() const
                       mPoints[2]);
     glm::vec3 normal = triangle.SurfaceNormal();
     return normal;
+}
+    
+int Polygon::DebugTrianglesMatchingPointsCount() const
+{
+    int matchingPointsCount = 0;
+    for (auto &triangle : mTriangles) {
+        for (int i = 0; i < 3; ++i) {
+            for (const glm::vec3 &polygonPoint : mPoints) {
+                const glm::vec3& trianglePoint = triangle->GetPoints()[i];
+                if (glm::isNull(polygonPoint - trianglePoint, 0.01f)) {
+                    matchingPointsCount++;
+                }
+            }
+        }
+    }
+    return matchingPointsCount;
 }
     
     

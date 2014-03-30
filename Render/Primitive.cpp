@@ -2,6 +2,7 @@
 #include <Render/Primitive.h>
 #include <Main/GLError.h>
 #include <Geometry/Polygon.h>
+#include <Geometry/Triangle.h>
 
 namespace ftr {
 
@@ -151,9 +152,8 @@ char* PolygonPrimitive::CreateRenderData(ShadingInterface& shadingInterface)
     if (mVec.size() > 3) {
         Polygon polygon(mVec);
         polygon.Triangulate();
-        std::vector<Triangle*> triangles = polygon.GetTriangles();
-        for (auto &triangle : triangles) {
-            PolygonPrimitive* primitive = new PolygonPrimitive(triangle->GetPoints());
+        for (auto &triangle : polygon.GetTriangles()) {
+            PolygonPrimitive* primitive = new PolygonPrimitive(((Triangle*)triangle)->GetPoints());
             primitive->mColor = mColor;
             primitive->mPickingColor = mPickingColor;
             

@@ -20,16 +20,13 @@ public:
 
     virtual std::vector<glm::vec3>& GetPoints() { return mPoints; }
     
-    glm::vec3& operator[](int index);
+    const glm::vec3& operator[](const int index);
     
 protected:
+    
     std::vector<glm::vec3> mPoints;
 };
     
-inline glm::vec3& Geometry::operator[](int index)
-{
-    return GetPoints()[index];
-}
     
     
 }
