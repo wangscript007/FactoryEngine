@@ -86,9 +86,20 @@ using namespace ftr;
     
     PointNode::ConnectionResult e35 = v3->ConnectTo(v5);
     
-    XCTAssert(e31.count());
-    XCTAssert(e24.count());
-    XCTAssert(e34.count() == 2);
+    std::vector<PointNode::ConnectionResult> listToCheck;
+    listToCheck.push_back(e12);
+    listToCheck.push_back(e23);
+    listToCheck.push_back(e31);
+    listToCheck.push_back(e14);
+    listToCheck.push_back(e24);
+    listToCheck.push_back(e34);
+    listToCheck.push_back(e35);
+    
+    for (auto &result : listToCheck) {
+        for (int i = 0; i < result.count(); i++) {
+            XCTAssert(result.faces[i]->IsValid(), @"%@", [NSString stringWithCString:result.edge->Name().c_str() length:result.edge->Name().length()]);
+        }
+    }
 }
 
 @end

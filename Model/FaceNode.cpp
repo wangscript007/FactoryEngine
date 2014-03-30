@@ -54,7 +54,7 @@ bool FaceNode::IsValid() const
         counter++;
     } while ((currentEdge != mOuterEdge) && (counter < 1000));
     
-    return currentEdge == mOuterEdge;
+    return currentEdge == mOuterEdge && (counter > 2);
 }
 
     
