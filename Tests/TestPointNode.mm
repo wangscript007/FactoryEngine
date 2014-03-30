@@ -63,7 +63,7 @@ using namespace ftr;
     v2->ConnectTo(v3);
     PointNode::ConnectionResult e31 = v3->ConnectTo(v1);
     
-    XCTAssert(e31.faces[0] || e31.faces[1]);
+    XCTAssert(e31.count());
 }
 
 - (void)testConnect2
@@ -71,16 +71,16 @@ using namespace ftr;
     v1->ConnectTo(v2);
     v2->ConnectTo(v3);
     PointNode::ConnectionResult e13 = v1->ConnectTo(v3);
-    XCTAssert(e13.faces[0] ||  e13.faces[1]);
+    XCTAssert(e13.count());
     
     v5->ConnectTo(v3);
     v4->ConnectTo(v3);
     PointNode::ConnectionResult e45 = v4->ConnectTo(v5);
-    XCTAssert(e45.faces[0] ||  e45.faces[1]);
+    XCTAssert(e45.count());
     
 
     PointNode::ConnectionResult e41 = v4->ConnectTo(v1);
-    XCTAssert(e41.faces[0] ||  e41.faces[1]);
+    XCTAssert(e41.count());
 }
 
 - (void)testConnect3
@@ -91,8 +91,8 @@ using namespace ftr;
     v3->ConnectTo(v4);
     PointNode::ConnectionResult e41 = v4->ConnectTo(v1);
     
-    XCTAssert(e31.faces[0] || e31.faces[1]);
-    XCTAssert(e41.faces[0] || e41.faces[1]);
+    XCTAssert(e31.count());
+    XCTAssert(e41.count());
 }
 
 - (void)testConnect4
@@ -102,7 +102,7 @@ using namespace ftr;
     v3->ConnectTo(v4);
     PointNode::ConnectionResult e41 = v4->ConnectTo(v1);
     
-    XCTAssert(e41.faces[0] || e41.faces[1]);
+    XCTAssert(e41.count());
 }
 
 - (void)testIteratorOperations

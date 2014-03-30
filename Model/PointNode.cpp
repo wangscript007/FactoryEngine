@@ -204,32 +204,40 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
         {
             if (thisHasUsed && !otherHasUsed)
             {
-                result.faces[0] = new FaceNode(traverseResultOther.edgesVector);
+                result.AddFace(new FaceNode(traverseResultOther.edgesVector));
             }
             else if (!thisHasUsed && otherHasUsed)
             {
-                result.faces[1] = new FaceNode(traverseResultThis.edgesVector);
+                result.AddFace(new FaceNode(traverseResultThis.edgesVector));
             }
             else
             {
                 // I believe we could change orientation of all body here
-                result.faces[0] = new FaceNode(traverseResultOther.edgesVector);
+                result.AddFace(new FaceNode(traverseResultOther.edgesVector));
                 //result.faces[0] = new FaceNode(traverseResultThis.edgesVector);
             }
         }
         else {
             // we must create two faces in this case, if at least one has used edges we must reverse both
-            result.faces[0] = thisHasUsed ? NULL : new FaceNode(traverseResultThis.edgesVector);
-            result.faces[1] = otherHasUsed ? NULL : new FaceNode(traverseResultOther.edgesVector);
+            if (!thisHasUsed) {
+                result.AddFace(new FaceNode(traverseResultThis.edgesVector));
+            }
+            if (!otherHasUsed) {
+                result.AddFace(new FaceNode(traverseResultOther.edgesVector));
+            }
         }
     }
     else if (thisFoundFace)
     {
-        result.faces[0] = thisHasUsed ? NULL : new FaceNode(traverseResultThis.edgesVector);
+        if (!thisHasUsed) {
+            result.AddFace(new FaceNode(traverseResultThis.edgesVector));
+        }
     }
     else if (otherFoundFace)
     {
-        result.faces[1] = otherHasUsed ? NULL : new FaceNode(traverseResultOther.edgesVector);
+        if (!otherHasUsed) {
+            result.AddFace(new FaceNode(traverseResultOther.edgesVector));
+        }
     }
     
     return result;

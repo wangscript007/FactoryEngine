@@ -69,9 +69,9 @@ using namespace ftr;
     PointNode::ConnectionResult e24 = v2->ConnectTo(l4);
     PointNode::ConnectionResult e34 = v3->ConnectTo(l4);
     
-    XCTAssert(e31.faces[0] || e31.faces[1]);
-    XCTAssert(e24.faces[0] || e24.faces[1]);
-    XCTAssert(e34.faces[0] && e34.faces[1]);
+    XCTAssert(e31.count());
+    XCTAssert(e24.count());
+    XCTAssert(e34.count() == 2);
 }
 
 - (void)testConnectingHighTetrahedronAndExtraEdge
@@ -86,9 +86,9 @@ using namespace ftr;
     
     PointNode::ConnectionResult e35 = v3->ConnectTo(v5);
     
-    XCTAssert(e31.faces[0] || e31.faces[1]);
-    XCTAssert(e24.faces[0] || e24.faces[1]);
-    XCTAssert(e34.faces[0] && e34.faces[1]);
+    XCTAssert(e31.count());
+    XCTAssert(e24.count());
+    XCTAssert(e34.count() == 2);
 }
 
 @end

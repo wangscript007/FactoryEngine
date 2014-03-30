@@ -153,14 +153,7 @@ using namespace ftr;
             PointNode* p2 = (*it).second;
             
             PointNode::ConnectionResult result = p1->ConnectTo(p2);
-            if (result.faces[0]) {
-                facesCount++;
-            }
-            
-            if (result.faces[1]) {
-                facesCount++;
-            }
-            
+            facesCount += result.count();   
         }
         XCTAssertEqual(3, facesCount);
         

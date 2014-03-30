@@ -18,10 +18,16 @@ class PointNode : public Node
 public:
     typedef PointNodeIterator Iterator;
     
-    struct ConnectionResult {
-        FaceNode* faces[2];
-        Edge* edge;
-        ConnectionResult() : edge(NULL) { faces[0] = NULL; faces[1] = NULL; };
+    class ConnectionResult {
+        public:
+            int count() const { return mCount; }
+            FaceNode* faces[2];
+            Edge* edge;
+            ConnectionResult() : mCount(0), edge(NULL) { faces[0] = NULL; faces[1] = NULL; };
+            void AddFace(FaceNode* face) { faces[mCount] = face; mCount++; };
+        
+        private:
+            int mCount;
     };
     
     static const float c_fR;
