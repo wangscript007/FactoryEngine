@@ -44,6 +44,7 @@ public:
     void setOctreeLeaf(Octree::Leaf* leaf) { mOctreeLeaf = leaf; }
     void setActive(bool active) { mIsActive = active; }
     bool Active() const { return mIsActive; }
+    bool ContainsFreeEdges() const;
     
     ConnectionResult ConnectTo(PointNode* other, bool skipTraversal = false);
     Edge* mEdge;

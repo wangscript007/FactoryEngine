@@ -28,6 +28,7 @@ PointNode::~PointNode()
         FT_DELETE(mEdge);
     }
 }
+    
 
 PointNode::PointNode(glm::vec3 origin)
 :mOrigin(origin)
@@ -39,13 +40,13 @@ PointNode::PointNode(glm::vec3 origin)
     PointNode();
 }
     
+    
 void PointNode::Transform(const glm::mat4& m4Transformation)
 {
     //mOrigin *= m4Transformation;
 }
-
-#pragma mark - Instance
-
+    
+    
 void PointNode::Render(Layer& layer)
 {
     Node::Render(layer);
@@ -53,6 +54,18 @@ void PointNode::Render(Layer& layer)
     primitive.mColor = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
     primitive.setOption(Primitive::kUseDepth, false);
     layer.AddPrimitive(primitive);
+}
+
+#pragma mark - Instance
+
+    
+bool PointNode::ContainsFreeEdges() const
+{
+    for(PointNode::Iterator it = Begin(); it != End(); ++it)
+    {
+        if ((*it)->IsFree()) return true;
+    }
+    return false;
 }
     
 #pragma mark - List
@@ -62,11 +75,13 @@ PointNode::Iterator PointNode::Begin() const
     assert(mEdge);
     return IteratorFromEdge(mEdge);
 }
+    
 
 PointNode::Iterator PointNode::End() const
 {
     return Iterator(*this, NULL);
 }
+    
     
 PointNode::Iterator PointNode::IteratorFromEdge(Edge* edge) const
 {

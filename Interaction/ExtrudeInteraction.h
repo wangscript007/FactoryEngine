@@ -7,15 +7,15 @@
 #include <Snapping/PointSnap.h>
 
 namespace ftr {
-
+    
 class ModelEditor;
 class PointNode;
 
-class LineInteraction : public Node
+class ExtrudeInteraction : public Node
 {
 public:
-    LineInteraction(ModelEditor& modelEditor, const Viewport& viewport);
-    virtual ~LineInteraction();
+    ExtrudeInteraction(ModelEditor& modelEditor, const Viewport& viewport);
+    virtual ~ExtrudeInteraction();
     void Render(Layer& layer);
     
     void Begin();

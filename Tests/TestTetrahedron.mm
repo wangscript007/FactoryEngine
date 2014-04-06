@@ -80,11 +80,13 @@ using namespace ftr;
     PointNode::ConnectionResult e23 = v2->ConnectTo(v3);
     PointNode::ConnectionResult e31 = v3->ConnectTo(v1);
     
+    PointNode::ConnectionResult e35 = v3->ConnectTo(v5);
+    
     PointNode::ConnectionResult e14 = v1->ConnectTo(l4);
     PointNode::ConnectionResult e24 = v2->ConnectTo(l4);
     PointNode::ConnectionResult e34 = v3->ConnectTo(l4);
     
-    PointNode::ConnectionResult e35 = v3->ConnectTo(v5);
+    
     
     std::vector<PointNode::ConnectionResult> listToCheck;
     listToCheck.push_back(e12);
