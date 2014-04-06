@@ -1,11 +1,3 @@
-//
-//  FaceTraversal.cpp
-//  FactoryEngine
-//
-//  Created by Edvinas on 10/20/13.
-//  Copyright (c) 2013 Dimention. All rights reserved.
-//
-
 
 #include <Geometry/Triangle.h>
 #include <Processing/FaceTraversal.h>
@@ -82,7 +74,7 @@ bool FaceTraversal::Find(ftr::Edge *startEdge)
     std::vector<Edge*>& edgesVector = mResult->edgesVector;
     assert(edgesVector.size() >= 1); // must contain initial edge
     
-    std::cout << "Checking " << startEdge->Name() << " size: " << edgesVector.size() << std::endl;
+    //std::cout << "Checking " << startEdge->Name() << " size: " << edgesVector.size() << std::endl;
     PointNode* originNode = startEdge->originNode();
     
     assert(edgesVector.size() < 20); // too far for simple tests
@@ -120,7 +112,7 @@ bool FaceTraversal::Find(ftr::Edge *startEdge)
                 if (samePlane && isCW)
                 {
                     edgesVector.push_back(iEdge);
-                    std::cout << "Route: "; PrintEdgesRoute();
+                    //std::cout << "Route: "; PrintEdgesRoute();
                     
                     if ( Find(iEdge->next()) ) {
                         return true;
@@ -171,7 +163,7 @@ void FaceTraversal::CreatePlane()
             std::cout << "Points are in one line";
         } else {
             mTriangle = new Triangle(e1->origin(), e1->target(), e2->target());
-            std::cout << "Created Triangle: " << mTriangle->Description();
+            //std::cout << "Created Triangle: " << mTriangle->Description();
         }
     }
 }

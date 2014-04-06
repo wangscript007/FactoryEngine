@@ -1,5 +1,6 @@
 
 #include <Processing/ModelEditor.h>
+#include <Processing/FaceExtruder.h>
 
 namespace ftr {
 
@@ -65,6 +66,14 @@ LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
     mSelectedNode->AddNode(line);
     if (result.faces[0]) {
         mSelectedNode->AddNode(result.faces[0]);
+        static bool extruded = false;
+        if (!extruded) {
+            extruded = true;
+            FaceExtruder extruder(*this);
+            
+            extruder.Extrude(*result.faces[0]);
+            
+        }
     }
     if (result.faces[1]) {
         mSelectedNode->AddNode(result.faces[1]);

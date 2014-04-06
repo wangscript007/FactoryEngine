@@ -16,8 +16,9 @@ class Edge;
 class FaceNode : public Node
 {
 public:
-    FaceNode();
-    FaceNode(std::vector<Edge*>& edges);
+    FaceNode() {}
+    FaceNode(const std::vector<Edge*>& edges);
+    FaceNode(const std::vector<glm::vec3>& points);
     ~FaceNode();
     
     void Render(Layer& layer);
@@ -28,7 +29,14 @@ public:
     std::string Description() const;
     
     bool IsValid() const;
-    bool IsValid(std::vector<Edge*>& edges) const;
+    bool IsValid(const std::vector<Edge*>& edges) const;
+    
+    std::vector<Edge*> GetEdges() const;
+    std::vector<PointNode*> GetPointNodes() const;
+    
+    Edge* outerEdge() const { return mOuterEdge; };
+    
+    glm::vec3 SurfaceNormal() const;
     
 private:
     

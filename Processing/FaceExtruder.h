@@ -1,15 +1,31 @@
-//
-//  FaceExtruder.h
-//  FactoryEngine
-//
-//  Created by Edvinas Sarkus on 06/04/14.
-//  Copyright (c) 2014 Dimention. All rights reserved.
-//
 
 #pragma once
+
+
+namespace ftr {
+
+class ModelEditor;
+class FaceNode;
 
 class FaceExtruder
 {
 public:
+    struct Result {
+        int createdEdges;
+        int createdFaces;
+        Result() : createdEdges(0), createdFaces(0) {};
+    };
+    
+    FaceExtruder(ModelEditor& modelEditor);
+    virtual ~FaceExtruder();
+    
+    void Extrude(FaceNode& faceNode);
+    
+private:
+    ModelEditor& mModelEditor;
+    FaceNode* mFaceNode;
+    
 };
+    
+}
 

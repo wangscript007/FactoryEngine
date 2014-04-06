@@ -46,8 +46,6 @@ glm::vec3 Triangle::Cross() const
     return glm::cross(mPoints[1] - mPoints[0], mPoints[2] - mPoints[0]);
 }
     
-
-    
 std::string Triangle::Description() const
 {
     std::stringstream ss;

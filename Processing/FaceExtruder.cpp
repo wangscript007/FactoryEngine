@@ -1,10 +1,56 @@
-//
-//  FaceExtruder.cpp
-//  FactoryEngine
-//
-//  Created by Edvinas Sarkus on 06/04/14.
-//  Copyright (c) 2014 Dimention. All rights reserved.
-//
 
-#include "FaceExtruder.h"
+#include <Processing/FaceExtruder.h>
+#include <Processing/ModelEditor.h>
+#include <Model/FaceNode.h>
+#include <Model/Edge.h>
 
+const float kExtrudeMinOffset = 2.0f;
+
+namespace ftr {
+    
+FaceExtruder::FaceExtruder(ModelEditor& modelEditor)
+    :mModelEditor(modelEditor)
+{
+    
+}
+    
+FaceExtruder::~FaceExtruder()
+{
+    
+}
+    
+
+void FaceExtruder::Extrude(FaceNode &faceNode)
+{
+    mFaceNode = &faceNode;
+    
+    glm::vec3 offsetVec = mFaceNode->SurfaceNormal()*kExtrudeMinOffset;
+    
+    std::vector<PointNode*> pointNodes = mFaceNode->GetPointNodes();
+    
+    PointNode* startPointNode = NULL;
+    PointNode* lastPointNode = NULL;
+    
+    for (int i = 0; i < pointNodes.size(); ++i)
+    {
+        PointNode* twinPointNode = mModelEditor.CreatePoint(pointNodes[i]->mOrigin + offsetVec);
+        mModelEditor.CreateLine(twinPointNode, pointNodes[i]);
+        
+        if (i > 0) {
+            mModelEditor.CreateLine(lastPointNode, twinPointNode);
+        } else {
+            startPointNode = twinPointNode;
+        }
+        
+        lastPointNode = twinPointNode;
+    }
+    
+    mModelEditor.CreateLine(lastPointNode, startPointNode);
+}
+
+
+    
+
+
+    
+}

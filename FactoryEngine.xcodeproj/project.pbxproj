@@ -358,6 +358,10 @@
 		D185302318F145D5001A7AB1 /* ExtrudeInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = D185302118F145D5001A7AB1 /* ExtrudeInteraction.h */; };
 		D185302618F148A8001A7AB1 /* FaceExtruder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302418F148A8001A7AB1 /* FaceExtruder.cpp */; };
 		D185302718F148A8001A7AB1 /* FaceExtruder.h in Headers */ = {isa = PBXBuildFile; fileRef = D185302518F148A8001A7AB1 /* FaceExtruder.h */; };
+		D185302918F14BE4001A7AB1 /* TestExtrudeInteraction.mm in Sources */ = {isa = PBXBuildFile; fileRef = D185302818F14BE4001A7AB1 /* TestExtrudeInteraction.mm */; };
+		D185302B18F14C1A001A7AB1 /* TestFaceExtruder.mm in Sources */ = {isa = PBXBuildFile; fileRef = D185302A18F14C1A001A7AB1 /* TestFaceExtruder.mm */; };
+		D185302C18F16A76001A7AB1 /* FaceExtruder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302418F148A8001A7AB1 /* FaceExtruder.cpp */; };
+		D185302D18F16A76001A7AB1 /* FaceExtruder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302418F148A8001A7AB1 /* FaceExtruder.cpp */; };
 		D1A920FF18E1876A0034336A /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
 		D1A9210018E1876A0034336A /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = D1A920FE18E1876A0034336A /* Geometry.h */; };
 		D1C708C115B36D0E00D64823 /* GroupNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1C708BF15B36D0E00D64823 /* GroupNode.cpp */; };
@@ -369,6 +373,8 @@
 		D1F44F52157FE91900566119 /* Pad.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F50157FE91900566119 /* Pad.h */; };
 		D1F44F55157FE9D200566119 /* HUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F53157FE9D200566119 /* HUD.cpp */; };
 		D1F44F56157FE9D200566119 /* HUD.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F54157FE9D200566119 /* HUD.h */; };
+		D1FDC88418F192960075176E /* ExtrudeInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302018F145D5001A7AB1 /* ExtrudeInteraction.cpp */; };
+		D1FDC88518F192960075176E /* ExtrudeInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302018F145D5001A7AB1 /* ExtrudeInteraction.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -575,6 +581,8 @@
 		D185302118F145D5001A7AB1 /* ExtrudeInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtrudeInteraction.h; sourceTree = "<group>"; };
 		D185302418F148A8001A7AB1 /* FaceExtruder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FaceExtruder.cpp; sourceTree = "<group>"; };
 		D185302518F148A8001A7AB1 /* FaceExtruder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceExtruder.h; sourceTree = "<group>"; };
+		D185302818F14BE4001A7AB1 /* TestExtrudeInteraction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestExtrudeInteraction.mm; sourceTree = "<group>"; };
+		D185302A18F14C1A001A7AB1 /* TestFaceExtruder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestFaceExtruder.mm; sourceTree = "<group>"; };
 		D1A920FD18E1876A0034336A /* Geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Geometry.cpp; sourceTree = "<group>"; };
 		D1A920FE18E1876A0034336A /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
 		D1C708BF15B36D0E00D64823 /* GroupNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GroupNode.cpp; sourceTree = "<group>"; };
@@ -712,6 +720,8 @@
 				D16D270518D5F1980095B177 /* TestTriangle.mm */,
 				D1FBAF6C18DEE73B000A083E /* TestPoly2tri.mm */,
 				D13CAE0318E1CBE700C2A180 /* TestPolygon.mm */,
+				D185302818F14BE4001A7AB1 /* TestExtrudeInteraction.mm */,
+				D185302A18F14C1A001A7AB1 /* TestFaceExtruder.mm */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1269,6 +1279,7 @@
 				D152782018E5890B00C48850 /* TestFaceNode.mm in Sources */,
 				D152781E18E5890B00C48850 /* TestVector.mm in Sources */,
 				D16D270718D5F5330095B177 /* Triangle.cpp in Sources */,
+				D185302B18F14C1A001A7AB1 /* TestFaceExtruder.mm in Sources */,
 				D1693B8A18E58CB5000AFE41 /* PointNodeIterator.cpp in Sources */,
 				603BA5DD17E87437007CE822 /* LayerRenderer.cpp in Sources */,
 				603BA5DE17E87437007CE822 /* Layer.cpp in Sources */,
@@ -1288,6 +1299,7 @@
 				603BA5E617E87437007CE822 /* DefaultLighting.cpp in Sources */,
 				603BA5E717E87437007CE822 /* Light.cpp in Sources */,
 				D11D1D6418DF70D40091521F /* advancing_front.cc in Sources */,
+				D1FDC88518F192960075176E /* ExtrudeInteraction.cpp in Sources */,
 				D152781C18E5890B00C48850 /* TestPointNode.mm in Sources */,
 				603BA5EA17E87437007CE822 /* ModelFactory.cpp in Sources */,
 				6032716317EB08E700249562 /* Framebuffer.cpp in Sources */,
@@ -1306,6 +1318,7 @@
 				603BA5F117E87437007CE822 /* BodyNode.cpp in Sources */,
 				D152782118E5890B00C48850 /* TestTetrahedron.mm in Sources */,
 				603BA5F217E87437007CE822 /* GroupNode.cpp in Sources */,
+				D185302918F14BE4001A7AB1 /* TestExtrudeInteraction.mm in Sources */,
 				603BA5F317E87437007CE822 /* InteractionProvider.cpp in Sources */,
 				603BA5F417E87437007CE822 /* RectangleInteraction.cpp in Sources */,
 				603BA5F517E87437007CE822 /* LineInteraction.cpp in Sources */,
@@ -1319,6 +1332,7 @@
 				60DFE3AC18253C7400A32D7A /* Vector.cpp in Sources */,
 				603BA5F817E87437007CE822 /* ScaleInteraction.cpp in Sources */,
 				D11D1CC418DF4FBA0091521F /* Description.cpp in Sources */,
+				D185302C18F16A76001A7AB1 /* FaceExtruder.cpp in Sources */,
 				603BA5FA17E87437007CE822 /* CameraInteraction.cpp in Sources */,
 				D13CAE0218E1C30F00C2A180 /* Geometry.cpp in Sources */,
 				60A05FBD1809D457004DD045 /* Viewport.cpp in Sources */,
@@ -1366,6 +1380,7 @@
 				60C6D04C174961470009EC3C /* PolylineNode.cpp in Sources */,
 				60A05FC81809DB16004DD045 /* PointSnap.cpp in Sources */,
 				D1693B8618E58CA4000AFE41 /* PointNodeIterator.cpp in Sources */,
+				D1FDC88418F192960075176E /* ExtrudeInteraction.cpp in Sources */,
 				D157A5DC18E3098500840C77 /* Triangle.cpp in Sources */,
 				60C6D04E174961470009EC3C /* RectangleInteraction.cpp in Sources */,
 				60D63217181C0C3000CEB0D0 /* Edge.cpp in Sources */,
@@ -1389,6 +1404,7 @@
 				60C6D063174961470009EC3C /* Layer.cpp in Sources */,
 				60C6D064174961470009EC3C /* PrimitiveRenderer.cpp in Sources */,
 				60CE9A6717EC654900A775C0 /* ShadingProgram.cpp in Sources */,
+				D185302D18F16A76001A7AB1 /* FaceExtruder.cpp in Sources */,
 				60CE9A6417EC646F00A775C0 /* Shader.cpp in Sources */,
 				60C6D065174961470009EC3C /* LineRenderer.cpp in Sources */,
 				D11D1D7518E0507B0091521F /* Polyline.cpp in Sources */,
