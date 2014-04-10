@@ -364,6 +364,8 @@
 		D185302D18F16A76001A7AB1 /* FaceExtruder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302418F148A8001A7AB1 /* FaceExtruder.cpp */; };
 		D1A920FF18E1876A0034336A /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
 		D1A9210018E1876A0034336A /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = D1A920FE18E1876A0034336A /* Geometry.h */; };
+		D1BE952818F721C40022D7C7 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
+		D1BE952918F721C40022D7C7 /* SelectInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = D1BE952718F721C40022D7C7 /* SelectInteraction.h */; };
 		D1C708C115B36D0E00D64823 /* GroupNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1C708BF15B36D0E00D64823 /* GroupNode.cpp */; };
 		D1C708C215B36D0E00D64823 /* GroupNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D1C708C015B36D0E00D64823 /* GroupNode.h */; };
 		D1E54CB0157BED250083FB90 /* ModelFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D1E54CAE157BED250083FB90 /* ModelFactory.h */; };
@@ -585,6 +587,8 @@
 		D185302A18F14C1A001A7AB1 /* TestFaceExtruder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestFaceExtruder.mm; sourceTree = "<group>"; };
 		D1A920FD18E1876A0034336A /* Geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Geometry.cpp; sourceTree = "<group>"; };
 		D1A920FE18E1876A0034336A /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
+		D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectInteraction.cpp; sourceTree = "<group>"; };
+		D1BE952718F721C40022D7C7 /* SelectInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectInteraction.h; sourceTree = "<group>"; };
 		D1C708BF15B36D0E00D64823 /* GroupNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GroupNode.cpp; sourceTree = "<group>"; };
 		D1C708C015B36D0E00D64823 /* GroupNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupNode.h; sourceTree = "<group>"; };
 		D1E54CAD157BED250083FB90 /* ModelFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelFactory.cpp; sourceTree = "<group>"; };
@@ -646,6 +650,8 @@
 				601EC86A175B2901003DE2B8 /* CameraInteraction.h */,
 				D185302018F145D5001A7AB1 /* ExtrudeInteraction.cpp */,
 				D185302118F145D5001A7AB1 /* ExtrudeInteraction.h */,
+				D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */,
+				D1BE952718F721C40022D7C7 /* SelectInteraction.h */,
 			);
 			path = Interaction;
 			sourceTree = "<group>";
@@ -1107,6 +1113,7 @@
 				60CE9A5717EC646E00A775C0 /* Shader.h in Headers */,
 				60D7457D17228DC40062CDF1 /* InteractionProvider.h in Headers */,
 				60D74588172299390062CDF1 /* LayerRenderer.h in Headers */,
+				D1BE952918F721C40022D7C7 /* SelectInteraction.h in Headers */,
 				60D7458C1722994B0062CDF1 /* Primitive.h in Headers */,
 				6021AFC017230E82001EAEBE /* Layer.h in Headers */,
 				6021AFC817232B8F001EAEBE /* PrimitiveRenderer.h in Headers */,
@@ -1453,6 +1460,7 @@
 				60D7DC761657D07C0051947E /* LineNode.cpp in Sources */,
 				60C41BB41691BF5600DD0C09 /* GeometryPrimitives.cpp in Sources */,
 				6032716117EB08E700249562 /* Framebuffer.cpp in Sources */,
+				D1BE952818F721C40022D7C7 /* SelectInteraction.cpp in Sources */,
 				6091E37516AC554E001DE0A7 /* PolylineNode.cpp in Sources */,
 				6047DB9316B46A890012286F /* RectangleInteraction.cpp in Sources */,
 				603981731819A444002EBDA8 /* Edge.cpp in Sources */,
