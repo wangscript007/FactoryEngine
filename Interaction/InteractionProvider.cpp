@@ -9,6 +9,7 @@
 #include <Interaction/ScaleInteraction.h>
 #include <Interaction/CameraInteraction.h>
 #include <Interaction/ExtrudeInteraction.h>
+#include <Interaction/SelectInteraction.h>
 
 
 namespace ftr {
@@ -17,6 +18,7 @@ InteractionProvider::InteractionProvider(ModelEditor& modelEditor, Camera& camer
 {
     mRectangleInteraction = new class RectangleInteraction(modelEditor);
     mLineInteraction = new class LineInteraction(modelEditor, camera.viewport());
+    mSelectInteraction = new class SelectInteraction(modelEditor, camera.viewport());
     mExtrudeInteraction = new class ExtrudeInteraction(modelEditor, camera.viewport());
     mMoveInteraction = new class MoveInteraction(modelEditor);
     mRotationInteraction = new class RotationInteraction(modelEditor);
@@ -29,6 +31,7 @@ InteractionProvider::~InteractionProvider()
     FT_DELETE(mRectangleInteraction);
     FT_DELETE(mLineInteraction);
     FT_DELETE(mExtrudeInteraction);
+    FT_DELETE(mSelectInteraction);
     FT_DELETE(mMoveInteraction);
     FT_DELETE(mRotationInteraction);
     FT_DELETE(mScaleInteraction);

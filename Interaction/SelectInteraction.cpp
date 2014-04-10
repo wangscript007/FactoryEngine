@@ -27,11 +27,8 @@ void SelectInteraction::Begin()
 {
     if (!mActive) {
         mActive = true;
-        
-        
         mEnd = glm::vec3();
         mStart = glm::vec3();
-        
     }
 }
 
