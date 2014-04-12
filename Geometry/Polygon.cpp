@@ -38,7 +38,7 @@ void Polygon::Triangulate()
     float offset = rotatedPolygon[0][componentIndex];
     
     for (auto &point : rotatedPolygon.mPoints) {
-        assert(offset - point[componentIndex] < 0.001f);
+        assert(offset - point[componentIndex] < 0.01f);
     }
 
     

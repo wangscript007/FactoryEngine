@@ -34,13 +34,6 @@ public:
     void              PrepareShadingProgram();
     
     // Model
-    void              Select(Node* pNode) { mModelEditor->Select(pNode); }
-    FaceNode*         CreateFace(const glm::vec3& origin);
-    PointNode*        CreatePoint(const glm::vec3& origin);
-    LineNode*         CreateLine(PointNode* startPoint, PointNode* endPoint);
-    PointNode*        NearestPointToCenterInSphere(const Sphere& sSphere);
-    void              UpdateNode(Node* pNode);
-    void              RemoveNode(Node* pNode);
     unsigned long     Size() { return mModelEditor->Size(); }
     
     InteractionProvider* InteractionProvider() const { return mInteractionProvider; }

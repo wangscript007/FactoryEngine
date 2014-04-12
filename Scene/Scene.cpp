@@ -93,33 +93,5 @@ void Scene::AddShader(const std::string& name, const std::string& source, GLenum
     mShadingLibrary->Add(name, source, type);
 }
     
-#pragma mark Model
-
-PointNode* Scene::CreatePoint(const glm::vec3& origin)
-{
-    return mModelEditor->CreatePoint(origin);
-}
-
-
-LineNode* Scene::CreateLine(PointNode* startPoint, PointNode* endPoint)
-{
-    return mModelEditor->CreateLine(startPoint, endPoint);
-}
-
-PointNode* Scene::NearestPointToCenterInSphere(const Sphere& sSphere)
-{
-    return mModelEditor->NearestPointToCenterInSphere(sSphere);
-}
-
-void Scene::UpdateNode(Node* pNode)
-{
-    mModelEditor->UpdateNode(pNode);
-}
-
-void Scene::RemoveNode(Node* pNode)
-{
-    mModelEditor->RemoveNode(pNode);
-    mWorkspace->RemoveNode(pNode);
-}
 
 }
