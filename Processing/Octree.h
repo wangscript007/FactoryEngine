@@ -3,12 +3,13 @@
 
 #include <Geometry/GeometryPrimitives.h>
 #include <Geometry/Cylinder.h>
+#include <Model/Node.h>
 
 namespace ftr {
 
 class PointNode;
     
-class Octree
+class Octree : public Node
 {
 public:
     class Node;
@@ -24,7 +25,7 @@ public:
     Octree(Box sBox);
     ~Octree();
     
-    void Render();
+    void Render(Layer& layer);
     unsigned long Size();
     void InsertPoint(PointNode* pPoint);
     void RemovePoint(PointNode* pPoint);
@@ -50,7 +51,8 @@ public:
         Node(Box sBox);
         virtual ~Node() {}
         
-        virtual void Render() const;
+        virtual void Render(Layer& layer);
+        
         virtual unsigned long Size() const { return 0; }
         NodeType Type() const { return m_eType; }
         Node* Parent() const { return mParent; }
@@ -81,7 +83,7 @@ public:
         Branch(struct Box sBox);
         virtual ~Branch();
         
-        void Render() const;
+        void Render(Layer& layer);
         Node* Child(int x, int y, int z) const { return mChildrenArray[x][y][z]; };
         void setChild(int x, int y, int z, Node* pNode);
         void setChild(SIndex& sIndex, Node* pNode);
@@ -100,13 +102,14 @@ public:
         virtual ~Leaf() {}
         
         
-        void Render() const;
+        void Render(Layer& layer);
         unsigned long Size() const { return mPointsList.size(); }
         void InsertPoint(PointNode* pPoint);
         void RemovePoint(PointNode* pPoint);
         const TPointsList& PointNodes() const { return mPointsList; }
     private:
         TPointsList mPointsList;
+        LinePrimitive linePrimitive[12];
     };
     
 private:

@@ -23,10 +23,9 @@ Octree::~Octree()
 
 #pragma mark Instance
 
-void Octree::Render()
+void Octree::Render(Layer& layer)
 {
-    return;
-    static_cast<Node*>(mRootNode)->Render();
+    static_cast<Node*>(mRootNode)->Render(layer);
 }
 
 
@@ -209,12 +208,12 @@ Octree::Node::Node(ftr::Box sBox)
     
 }
 
-void Octree::Node::Render() const
+void Octree::Node::Render(Layer& layer)
 {
     if (Type() == kLeaf) {
-        static_cast<const Leaf*>(this)->Render();
+        static_cast<Leaf*>(this)->Render(layer);
     } else {
-        static_cast<const Branch*>(this)->Render();
+        static_cast<Branch*>(this)->Render(layer);
     }
 }
 
@@ -321,12 +320,12 @@ Octree::Branch::~Branch()
 }
 
 
-void Octree::Branch::Render() const
+void Octree::Branch::Render(Layer& layer)
 {
     for(int x = 0; x < 2; x++) {
         for(int y = 0; y < 2; y++) {
             for(int z = 0; z < 2; z++) {
-                Child(x, y, z)->Render();
+                Child(x, y, z)->Render(layer);
             }
         }
     }
@@ -365,48 +364,37 @@ unsigned long Octree::Branch::Size() const
 
 #pragma mark Leaf
 
-void Octree::Leaf::Render() const
+void Octree::Leaf::Render(Layer& layer)
 {
-//    const Vertice3 vertices[]= {
-//        // 0
-//        mBox.mCenter.x - mBox.mHalfDimention.x,
-//        mBox.mCenter.y - mBox.mHalfDimention.y,
-//        mBox.mCenter.z + mBox.mHalfDimention.z,
-//        // 1
-//        mBox.mCenter.x - mBox.mHalfDimention.x,
-//        mBox.mCenter.y + mBox.mHalfDimention.y,
-//        mBox.mCenter.z + mBox.mHalfDimention.z,
-//        // 2
-//        mBox.mCenter.x + mBox.mHalfDimention.x,
-//        mBox.mCenter.y + mBox.mHalfDimention.y,
-//        mBox.mCenter.z + mBox.mHalfDimention.z,
-//        // 3
-//        mBox.mCenter.x + mBox.mHalfDimention.x,
-//        mBox.mCenter.y - mBox.mHalfDimention.y,
-//        mBox.mCenter.z + mBox.mHalfDimention.z,
-//        // 4
-//        mBox.mCenter.x - mBox.mHalfDimention.x,
-//        mBox.mCenter.y - mBox.mHalfDimention.y,
-//        mBox.mCenter.z - mBox.mHalfDimention.z,
-//        // 5
-//        mBox.mCenter.x - mBox.mHalfDimention.x,
-//        mBox.mCenter.y + mBox.mHalfDimention.y,
-//        mBox.mCenter.z - mBox.mHalfDimention.z,
-//        // 6
-//        mBox.mCenter.x + mBox.mHalfDimention.x,
-//        mBox.mCenter.y + mBox.mHalfDimention.y,
-//        mBox.mCenter.z - mBox.mHalfDimention.z,
-//        // 7
-//        mBox.mCenter.x + mBox.mHalfDimention.x,
-//        mBox.mCenter.y - mBox.mHalfDimention.y,
-//        mBox.mCenter.z - mBox.mHalfDimention.z,
-//    };
-//    
-//    static const GLubyte indices[] = {
-//        0, 1,   1, 2,   2, 3,   3, 0,
-//        4, 5,   5, 6,   6, 7,   7, 4,
-//        0, 4,   1, 5,   2, 6,   3, 7
-//    };
+    const glm::vec3 c = mBox.mCenter;
+    const glm::vec3 h = mBox.mHalfDimention;
+
+    glm::vec3 p[] = {
+        glm::vec3(c.x - h.x, c.y - h.y, c.z + h.z),
+        glm::vec3(c.x - h.x, c.y + h.y, c.z + h.z),
+        glm::vec3(c.x + h.x, c.y + h.y, c.z + h.z),
+        glm::vec3(c.x + h.x, c.y - h.y, c.z + h.z),
+        glm::vec3(c.x - h.x, c.y - h.y, c.z - h.z),
+        glm::vec3(c.x - h.x, c.y + h.y, c.z - h.z),
+        glm::vec3(c.x + h.x, c.y + h.y, c.z - h.z),
+        glm::vec3(c.x + h.x, c.y - h.y, c.z - h.z)
+    };
+    
+    static const GLubyte indices[] = {
+                0, 1,   1, 2,   2, 3,   3, 0,
+                4, 5,   5, 6,   6, 7,   7, 4,
+                0, 4,   1, 5,   2, 6,   3, 7
+    };
+    
+    for (int i = 0; i < 12; i++) {
+        linePrimitive[i].mBegin = p[indices[i*2]];
+        linePrimitive[i].mEnd = p[indices[i*2+1]];
+        linePrimitive[i].mColor = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
+        linePrimitive[i].setOption(Primitive::kUseLighting, false);
+        linePrimitive[i].setOption(Primitive::kUseDepth, false);
+        layer.AddPrimitive(linePrimitive[i]);
+    }
+    
     
 }
 
