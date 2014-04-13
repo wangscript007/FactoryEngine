@@ -11,6 +11,8 @@ namespace ftr {
 class SceneRenderer : public LayerRenderer
 {
 public:
+    
+    
     SceneRenderer(ShadingLibrary& shadingLibrary, Camera& camera);
     virtual ~SceneRenderer();
     
@@ -20,14 +22,21 @@ public:
     
     Framebuffer* colorMarkingFramebuffer() const { return mColorMarkingFramebuffer; }
     
+    void setMarkingBufferVisible(bool visible);
+    
 private:
-    void RenderToScreen(Layer &layer);
-    void RenderToColorFramebuffer(Layer &layer);
+    bool mMarkingBufferVisible;
+    
+    void RenderMainContent(Layer &layer);
+    void RenderMarkingContent(Layer &layer);
     
     Framebuffer* mColorMarkingFramebuffer;
-     glm::vec4 mFrame;
+    glm::vec4 mFrame;
     ShadingLibrary& mShadingLibrary;
     Camera& mCamera;
+    
+    ShadingProgram::Type mProgramTypeForVisibleBuffer;
+    ShadingProgram::Type mProgramTypeForMarkingBuffer;
 };
     
 }

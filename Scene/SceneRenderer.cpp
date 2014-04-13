@@ -10,6 +10,10 @@ SceneRenderer::SceneRenderer(ShadingLibrary& shadingLibrary, Camera& camera)
     mShadingLibrary(shadingLibrary)
 {
     glClearColor(0.23f,0.23f,0.23f,1.0);
+    setMarkingBufferVisible(false);
+    
+    mProgramTypeForMarkingBuffer = ShadingProgram::kColor;
+    mProgramTypeForVisibleBuffer = ShadingProgram::kMain;
 }
     
 SceneRenderer::~SceneRenderer()
@@ -17,29 +21,45 @@ SceneRenderer::~SceneRenderer()
     FT_DELETE(mColorMarkingFramebuffer);
 }
     
+void SceneRenderer::setMarkingBufferVisible(bool visible)
+{
+    if (visible == mMarkingBufferVisible) return;
+    
+    mMarkingBufferVisible = visible;
+    
+    if (mMarkingBufferVisible) {
+        mProgramTypeForMarkingBuffer = ShadingProgram::kMain;
+        mProgramTypeForVisibleBuffer = ShadingProgram::kColor;
+    }
+    else {
+        mProgramTypeForMarkingBuffer = ShadingProgram::kColor;
+        mProgramTypeForVisibleBuffer = ShadingProgram::kMain;
+    }
+}
+    
 void SceneRenderer::Render(Layer &layer)
 {
     mCamera.CreateTransformations();
-    RenderToScreen(layer);
-    RenderToColorFramebuffer(layer);
+    RenderMainContent(layer);
+    RenderMarkingContent(layer);
 }
     
-void SceneRenderer::RenderToScreen(Layer &layer)
+void SceneRenderer::RenderMainContent(Layer &layer)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    mShadingLibrary.UseProgramWithType(ShadingProgram::kMain);
+    mShadingLibrary.UseProgramWithType(mProgramTypeForVisibleBuffer);
     mCamera.CommitTransformations();
     RenderInternal(layer);
 }
     
-void SceneRenderer::RenderToColorFramebuffer(Layer &layer)
+void SceneRenderer::RenderMarkingContent(Layer &layer)
 {
     assert(mColorMarkingFramebuffer);
     mColorMarkingFramebuffer->Bind();
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    mShadingLibrary.UseProgramWithType(ShadingProgram::kColor);
+    mShadingLibrary.UseProgramWithType(mProgramTypeForMarkingBuffer);
     mCamera.CommitTransformations();
     LayerRenderer::RenderInternal(layer);
     mColorMarkingFramebuffer->Unbind();

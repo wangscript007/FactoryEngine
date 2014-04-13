@@ -3,25 +3,32 @@
 //
 #pragma once
 
-#include <Model/FaceNode.h>
-#include <Workspace/Workspace.h>
-#include <Scene/Camera.h>
 #include <Processing/ModelEditor.h>
 #include <Interaction/InteractionProvider.h>
-#include <Shading/ShadingLibrary.h>
-#include <Lighting/LightingCollection.h>
 #include <Leap/LeapListener.h>
 #include <Scene/SceneRenderer.h>
-#include <Scene/Viewport.h>
+
 
 namespace ftr {
 
 class Layer;
 class LayerRenderer;
+class Viewport;
+class Camera;
+class ShadingLibrary;
+class Workspace;
+class LightingCollection;
     
 class Scene
 {
 public:
+    
+    enum Option {
+        kOptionShowNone           = 0,
+        kOptionShowMarkingView    = 1 << 1,
+        kOptionShowOctree         = 1 << 2
+    };
+
                       Scene();
                       ~Scene();
     void              Prepare();
@@ -43,10 +50,15 @@ public:
     
     Framebuffer*        colorMarkingFramebuffer() const { return mSceneRenderer->colorMarkingFramebuffer(); }
     const Viewport&     viewport() const { return mViewport; }
-        
+    
+    void setOption(Option option, bool value);
+    bool option(Option option) const { return (mOptions & static_cast<unsigned int>(option)) != 0; }
+    
 private:
+    unsigned int        mOptions;
+    
     Workspace*          mWorkspace;
-    class Camera*       mCamera;
+    ftr::Camera*        mCamera;
     ModelEditor*        mModelEditor;
     ShadingLibrary*     mShadingLibrary;
     LightingCollection* mLightingCollection;
@@ -57,7 +69,7 @@ private:
     
     Layer*              mLayer;
     SceneRenderer*      mSceneRenderer;
-    class InteractionProvider* mInteractionProvider;
+    ftr::InteractionProvider* mInteractionProvider;
     
     float mFPS;
     int mFramesCount;

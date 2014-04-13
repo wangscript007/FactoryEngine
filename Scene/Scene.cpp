@@ -6,7 +6,11 @@
 #include <Scene/Scene.h>
 #include <Render/Layer.h>
 #include <Render/LayerRenderer.h>
-
+#include <Scene/Viewport.h>
+#include <Leap/LeapListener.h>
+#include <Shading/ShadingLibrary.h>
+#include <Workspace/Workspace.h>
+#include <Lighting/LightingCollection.h>
 
 namespace ftr {
 
@@ -16,16 +20,18 @@ namespace ftr {
 Scene::Scene() :
     mSceneRenderer(NULL),
     mCamera(NULL), 
-    mFramesCount(0)
+    mFramesCount(0),
+    mOptions(kOptionShowNone)
 {
     mShadingLibrary = new ShadingLibrary();
     mLightingCollection = new LightingCollection();
     mLayer = new Layer();
     mWorkspace = new Workspace(mLayer);
+
     mModelEditor = new ModelEditor();
     mModelEditor->ModelTree()->setRootNode(reinterpret_cast<Node*>(mWorkspace));
     mModelEditor->Select(mWorkspace);
-    
+    mWorkspace->setOctree(*mModelEditor->ModelTree()->Octree());
     mLeapController.addListener(mleapListener);
 }
     
@@ -40,6 +46,16 @@ Scene::~Scene()
     FT_DELETE(mShadingLibrary);
     FT_DELETE(mLightingCollection);
 }
+    
+void Scene::setOption(Option option, bool value)
+{
+    if (value) {
+        mOptions |= static_cast<unsigned int>(option);
+    } else {
+        mOptions &= ~(static_cast<unsigned int>(option));
+    }
+}
+
     
 void Scene::Prepare()
 {
@@ -65,6 +81,9 @@ void Scene::Prepare()
 
 void Scene::Render()
 {
+    mSceneRenderer->setMarkingBufferVisible(option(kOptionShowMarkingView));
+    mWorkspace->mRenderOctree = option(kOptionShowOctree);
+
     mWorkspace->Render(*mLayer);
     mSceneRenderer->Render(*mLayer);
     mLayer->Clear();

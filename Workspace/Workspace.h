@@ -14,7 +14,11 @@
 
 
 
+
+
 namespace ftr {
+    
+class Octree;
 
 class Workspace : public Node
 {
@@ -23,7 +27,13 @@ public:
     ~Workspace();
     virtual void Render(Layer& layer);
     
+    
+    void setOctree(Octree& octree) { mOctree = &octree; };
+    
+    bool mRenderOctree;
 private:
+    
+    Octree* mOctree;
     Pad* mPad;
     HUD* mHUD;
     Bounds* mBounds;
@@ -34,6 +44,8 @@ private:
     Layer* mBoundsLayer;
     Layer* mModelLayer;
     Layer* mTestLayer;
+    Layer* mOctreeLayer;
+    
     
 };
 
