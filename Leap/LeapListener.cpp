@@ -3,7 +3,7 @@
 //  FactoryEngine
 //
 //  Created by Edvinas on 9/11/13.
-//  Copyright (c) 2013 Dimention. All rights reserved.
+//  Copyright (c) 2013 Dimension. All rights reserved.
 //
 
 #include <Leap/LeapListener.h>

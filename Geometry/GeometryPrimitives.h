@@ -11,10 +11,10 @@ class Box
 {
 public:
     glm::vec3 mCenter;
-    glm::vec3 mHalfDimention;
+    glm::vec3 mHalfDimension;
     
-    Box() : mCenter(glm::vec3()), mHalfDimention(glm::vec3()) {};
-    Box(glm::vec3 center, glm::vec3 halfDimension) : mCenter(center), mHalfDimention(halfDimension) {};
+    Box() : mCenter(glm::vec3()), mHalfDimension(glm::vec3()) {};
+    Box(glm::vec3 center, glm::vec3 halfDimension) : mCenter(center), mHalfDimension(halfDimension) {};
     bool Contains(const glm::vec3& vec) const;
     bool Intersects(const Box& other) const;
     float Diagonal2() const;
@@ -23,28 +23,28 @@ public:
 
 inline bool Box::Contains(const glm::vec3& vec) const
 {
-    if (vec.x <= mCenter.x - mHalfDimention.x) return false;
-    if (vec.x > mCenter.x + mHalfDimention.x) return false;
+    if (vec.x <= mCenter.x - mHalfDimension.x) return false;
+    if (vec.x > mCenter.x + mHalfDimension.x) return false;
     
-    if (vec.y <= mCenter.y - mHalfDimention.y) return false;
-    if (vec.y > mCenter.y + mHalfDimention.y) return false;
+    if (vec.y <= mCenter.y - mHalfDimension.y) return false;
+    if (vec.y > mCenter.y + mHalfDimension.y) return false;
     
-    if (vec.z <= mCenter.z - mHalfDimention.z) return false;
-    if (vec.z > mCenter.z + mHalfDimention.z) return false;
+    if (vec.z <= mCenter.z - mHalfDimension.z) return false;
+    if (vec.z > mCenter.z + mHalfDimension.z) return false;
         
     return true;
 }
 
 inline bool Box::Intersects(const Box& other) const
 {
-    if (mCenter.x + mHalfDimention.x <= other.mCenter.x - other.mHalfDimention.x) return false;
-    if (mCenter.x - mHalfDimention.x > other.mCenter.x + other.mHalfDimention.x) return false;
+    if (mCenter.x + mHalfDimension.x <= other.mCenter.x - other.mHalfDimension.x) return false;
+    if (mCenter.x - mHalfDimension.x > other.mCenter.x + other.mHalfDimension.x) return false;
     
-    if (mCenter.y + mHalfDimention.y <= other.mCenter.y - other.mHalfDimention.y) return false;
-    if (mCenter.y - mHalfDimention.y > other.mCenter.y + other.mHalfDimention.y) return false;
+    if (mCenter.y + mHalfDimension.y <= other.mCenter.y - other.mHalfDimension.y) return false;
+    if (mCenter.y - mHalfDimension.y > other.mCenter.y + other.mHalfDimension.y) return false;
     
-    if (mCenter.z + mHalfDimention.z <= other.mCenter.z - other.mHalfDimention.z) return false;
-    if (mCenter.z - mHalfDimention.z > other.mCenter.z + other.mHalfDimention.z) return false;
+    if (mCenter.z + mHalfDimension.z <= other.mCenter.z - other.mHalfDimension.z) return false;
+    if (mCenter.z - mHalfDimension.z > other.mCenter.z + other.mHalfDimension.z) return false;
 
     return true; // boxes overlap
 }
@@ -52,13 +52,13 @@ inline bool Box::Intersects(const Box& other) const
     
 inline float Box::Diagonal2() const
 {
-    float a = mHalfDimention.x*2;
+    float a = mHalfDimension.x*2;
     return sqrtf(2*(a*a));
 }
 
 inline float Box::Diagonal3() const
 {
-    float a = mHalfDimention.x*2;
+    float a = mHalfDimension.x*2;
     float b = Diagonal2();
     return sqrtf((a*a)+(b*b));
 }

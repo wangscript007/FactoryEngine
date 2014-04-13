@@ -1,10 +1,4 @@
-//
-//  TestFaceTraversal.m
-//  FactoryEngine
-//
-//  Created by Edvinas Sarkus on 15/12/13.
-//  Copyright (c) 2013 Dimention. All rights reserved.
-//
+
 
 #import <XCTest/XCTest.h>
 #import <Model/PointNode.h>

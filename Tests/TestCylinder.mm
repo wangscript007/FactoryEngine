@@ -1,10 +1,3 @@
-//
-//  TestCylinderBoxIntersection.m
-//  FactoryEngine
-//
-//  Created by Edvinas on 10/16/13.
-//  Copyright (c) 2013 Dimention. All rights reserved.
-//
 
 #import <XCTest/XCTest.h>
 #include <Geometry/Cylinder.h>

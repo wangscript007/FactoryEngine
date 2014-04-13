@@ -3,7 +3,7 @@
 //  FactoryEngine
 //
 //  Created by Edvinas on 10/9/13.
-//  Copyright (c) 2013 Dimention. All rights reserved.
+//  Copyright (c) 2013 Dimension. All rights reserved.
 //
 
 #include <Geometry/Segment.h>
@@ -134,13 +134,13 @@ bool Segment::IntersectsBox(const Box& box) const
     const glm::vec3& Dir = Direction();
     
 	Diff.x = mStart.x - box.mCenter[0];
-	BoxExtents.x = box.mHalfDimention[0];
+	BoxExtents.x = box.mHalfDimension[0];
     
 	Diff.y = mStart.y - box.mCenter[1];
-	BoxExtents.y = box.mHalfDimention[1];
+	BoxExtents.y = box.mHalfDimension[1];
     
 	Diff.z = mStart.z - box.mCenter[2];
-    BoxExtents.z = box.mHalfDimention[2];
+    BoxExtents.z = box.mHalfDimension[2];
     
 	float fAWdU[3];
 	fAWdU[0] = fabsf(Dir.x);

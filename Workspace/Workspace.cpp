@@ -1,6 +1,4 @@
-// 
-//  Copyright (c) 2012 Dimention. All rights reserved.
-//
+
 
 #include <Workspace/Workspace.h>
 #include <Main/GLError.h>

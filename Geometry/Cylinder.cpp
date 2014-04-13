@@ -13,45 +13,45 @@ bool Cylinder::Intersects(const Box& box) const
     const glm::vec3 vertices[]= {
         // 0
         glm::vec3(
-        box.mCenter.x - box.mHalfDimention.x,
-        box.mCenter.y - box.mHalfDimention.y,
-        box.mCenter.z + box.mHalfDimention.z),
+        box.mCenter.x - box.mHalfDimension.x,
+        box.mCenter.y - box.mHalfDimension.y,
+        box.mCenter.z + box.mHalfDimension.z),
         // 1
         glm::vec3(
-        box.mCenter.x - box.mHalfDimention.x,
-        box.mCenter.y + box.mHalfDimention.y,
-        box.mCenter.z + box.mHalfDimention.z),
+        box.mCenter.x - box.mHalfDimension.x,
+        box.mCenter.y + box.mHalfDimension.y,
+        box.mCenter.z + box.mHalfDimension.z),
         // 2
         glm::vec3(
-        box.mCenter.x + box.mHalfDimention.x,
-        box.mCenter.y + box.mHalfDimention.y,
-        box.mCenter.z + box.mHalfDimention.z),
+        box.mCenter.x + box.mHalfDimension.x,
+        box.mCenter.y + box.mHalfDimension.y,
+        box.mCenter.z + box.mHalfDimension.z),
         // 3
         glm::vec3(
-        box.mCenter.x + box.mHalfDimention.x,
-        box.mCenter.y - box.mHalfDimention.y,
-        box.mCenter.z + box.mHalfDimention.z),
+        box.mCenter.x + box.mHalfDimension.x,
+        box.mCenter.y - box.mHalfDimension.y,
+        box.mCenter.z + box.mHalfDimension.z),
                           
         // 4
         glm::vec3(
-        box.mCenter.x - box.mHalfDimention.x,
-        box.mCenter.y - box.mHalfDimention.y,
-        box.mCenter.z - box.mHalfDimention.z),
+        box.mCenter.x - box.mHalfDimension.x,
+        box.mCenter.y - box.mHalfDimension.y,
+        box.mCenter.z - box.mHalfDimension.z),
         // 5
         glm::vec3(
-        box.mCenter.x - box.mHalfDimention.x,
-        box.mCenter.y + box.mHalfDimention.y,
-        box.mCenter.z - box.mHalfDimention.z),
+        box.mCenter.x - box.mHalfDimension.x,
+        box.mCenter.y + box.mHalfDimension.y,
+        box.mCenter.z - box.mHalfDimension.z),
         // 6
         glm::vec3(
-        box.mCenter.x + box.mHalfDimention.x,
-        box.mCenter.y + box.mHalfDimention.y,
-        box.mCenter.z - box.mHalfDimention.z),
+        box.mCenter.x + box.mHalfDimension.x,
+        box.mCenter.y + box.mHalfDimension.y,
+        box.mCenter.z - box.mHalfDimension.z),
         // 7
         glm::vec3(
-        box.mCenter.x + box.mHalfDimention.x,
-        box.mCenter.y - box.mHalfDimention.y,
-        box.mCenter.z - box.mHalfDimention.z)
+        box.mCenter.x + box.mHalfDimension.x,
+        box.mCenter.y - box.mHalfDimension.y,
+        box.mCenter.z - box.mHalfDimension.z)
     };
     
     static const GLubyte indices[] = {

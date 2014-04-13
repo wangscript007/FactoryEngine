@@ -1,10 +1,4 @@
-//
-//  TestLineInteraction.m
-//  FactoryEngine
-//
-//  Created by Edvinas on 10/12/13.
-//  Copyright (c) 2013 Dimention. All rights reserved.
-//
+
 
 #import <XCTest/XCTest.h>
 #include <Processing/ModelEditor.h>

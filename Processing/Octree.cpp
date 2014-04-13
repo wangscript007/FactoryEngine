@@ -44,7 +44,7 @@ Octree::Branch* Octree::Split(Octree::Leaf *leaf)
     }
     Leaf* childLeaf;
     Box sBox = leaf->Box();
-    glm::vec3 half = sBox.mHalfDimention/2.0f;
+    glm::vec3 half = sBox.mHalfDimension/2.0f;
     glm::vec3 center;
     for(int x = 0; x < 2; x++) {
         for(int y = 0; y < 2; y++) {
@@ -367,7 +367,7 @@ unsigned long Octree::Branch::Size() const
 void Octree::Leaf::Render(Layer& layer)
 {
     const glm::vec3 c = mBox.mCenter;
-    const glm::vec3 h = mBox.mHalfDimention;
+    const glm::vec3 h = mBox.mHalfDimension;
 
     glm::vec3 p[] = {
         glm::vec3(c.x - h.x, c.y - h.y, c.z + h.z),
