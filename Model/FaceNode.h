@@ -38,6 +38,8 @@ public:
     
     glm::vec3 SurfaceNormal() const;
     
+    
+    PointNode* mReferencePoint;
 private:
     
     void MarkIncidentFaceInLoopWithEdge(Edge& Edge);

@@ -32,7 +32,7 @@ private:
     
     class ModelFactory* mModelFactory;
     class ModelTree*    mModelTree;
-    Group*              mRootGroup;
+    GroupNode*              mRootGroup;
     Node*               mSelectedNode;
 };
     

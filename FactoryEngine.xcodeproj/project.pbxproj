@@ -319,6 +319,8 @@
 		D152782318E5890B00C48850 /* TestPoly2tri.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1FBAF6C18DEE73B000A083E /* TestPoly2tri.mm */; };
 		D152782418E5890B00C48850 /* TestPolygon.mm in Sources */ = {isa = PBXBuildFile; fileRef = D13CAE0318E1CBE700C2A180 /* TestPolygon.mm */; };
 		D157A5DC18E3098500840C77 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Triangle.cpp */; };
+		D15A7DDD18FB15B1004CB791 /* ColorPickingMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */; };
+		D15A7DDE18FB15B1004CB791 /* ColorPickingMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = D15A7DDC18FB15B1004CB791 /* ColorPickingMapper.h */; };
 		D1693B7218E58BAE000AFE41 /* FaceTraversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B6818E58BAE000AFE41 /* FaceTraversal.cpp */; };
 		D1693B7318E58BAE000AFE41 /* FaceTraversal.h in Headers */ = {isa = PBXBuildFile; fileRef = D1693B6918E58BAE000AFE41 /* FaceTraversal.h */; };
 		D1693B7418E58BAE000AFE41 /* ModelEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B6A18E58BAE000AFE41 /* ModelEditor.cpp */; };
@@ -562,6 +564,8 @@
 		D13DC912157A9FF500C84006 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		D143779D157BCF0200A05B3B /* FaceNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FaceNode.cpp; sourceTree = "<group>"; };
 		D143779E157BCF0200A05B3B /* FaceNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceNode.h; sourceTree = "<group>"; };
+		D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ColorPickingMapper.cpp; sourceTree = "<group>"; };
+		D15A7DDC18FB15B1004CB791 /* ColorPickingMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickingMapper.h; sourceTree = "<group>"; };
 		D1693B6818E58BAE000AFE41 /* FaceTraversal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FaceTraversal.cpp; sourceTree = "<group>"; };
 		D1693B6918E58BAE000AFE41 /* FaceTraversal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceTraversal.h; sourceTree = "<group>"; };
 		D1693B6A18E58BAE000AFE41 /* ModelEditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelEditor.cpp; sourceTree = "<group>"; };
@@ -859,6 +863,8 @@
 				D1693B6F18E58BAE000AFE41 /* Octree.h */,
 				D1693B7018E58BAE000AFE41 /* PointNodeIterator.cpp */,
 				D1693B7118E58BAE000AFE41 /* PointNodeIterator.h */,
+				D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */,
+				D15A7DDC18FB15B1004CB791 /* ColorPickingMapper.h */,
 			);
 			path = Processing;
 			sourceTree = "<group>";
@@ -1146,6 +1152,7 @@
 				60C6D0BE174973850009EC3C /* Polygon.h in Headers */,
 				601EC86C175B2901003DE2B8 /* CameraInteraction.h in Headers */,
 				60CE9A5117EC646E00A775C0 /* ShadingInterfaceCore.h in Headers */,
+				D15A7DDE18FB15B1004CB791 /* ColorPickingMapper.h in Headers */,
 				D1693B7318E58BAE000AFE41 /* FaceTraversal.h in Headers */,
 				605FFDF317DFDC4C00DE90A9 /* Leap.h in Headers */,
 				D11D1D5118DF70980091521F /* shapes.h in Headers */,
@@ -1508,6 +1515,7 @@
 				601EC86B175B2901003DE2B8 /* CameraInteraction.cpp in Sources */,
 				D1A920FF18E1876A0034336A /* Geometry.cpp in Sources */,
 				D11D1D5A18DF70980091521F /* sweep.cc in Sources */,
+				D15A7DDD18FB15B1004CB791 /* ColorPickingMapper.cpp in Sources */,
 				605FFDFB17DFDD3400DE90A9 /* LeapListener.cpp in Sources */,
 				D1693B7818E58BAE000AFE41 /* Octree.cpp in Sources */,
 			);
