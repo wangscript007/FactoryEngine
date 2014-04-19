@@ -11,6 +11,7 @@ LineInteraction::LineInteraction(ModelEditor& modelEditor, const Viewport& viewp
     ,mActive(false)
     ,mStartPoint(NULL)
     ,mEndPoint(NULL)
+    ,mViewport(&viewport)
 {
     mSnappingQueue = new SnappingQueue(viewport, *modelEditor.ModelTree());
     mPointSnap = new PointSnap(viewport, *modelEditor.ModelTree());
@@ -55,6 +56,7 @@ void LineInteraction::Render(Layer& layer)
     }
 
     linePrimitive.Invalidate();
+    linePrimitive.setOption(Primitive::kUseDepth, false);
     layer.AddPrimitive(linePrimitive);
 }
 
@@ -82,7 +84,7 @@ void LineInteraction::Step()
         if (!mStartPoint) {
             mPointSnap->setStartScene(mStart, true);
             PointNode* snappedPoint = mPointSnap->SnappedPoint();
-            if (snappedPoint) {
+            if (snappedPoint && snappedPoint->ContainsFreeEdges()) {
                 mStartPoint = snappedPoint;
             } else {
                 mStartPoint = mModelEditor.CreatePoint(mStart);
@@ -93,7 +95,7 @@ void LineInteraction::Step()
         if (!mEndPoint) {
             mPointSnap->setStartScene(mEnd, true);
             PointNode* snappedPoint = mPointSnap->SnappedPoint();
-            if (snappedPoint) {
+            if (snappedPoint && snappedPoint->ContainsFreeEdges()) {
                 mEndPoint = snappedPoint;
             } else {
                 mEndPoint = mModelEditor.CreatePoint(mEnd);
@@ -101,8 +103,11 @@ void LineInteraction::Step()
             
         }
         
-        mModelEditor.CreateLine(mStartPoint, mEndPoint);
-        mStartPoint = mEndPoint;
+        if (mStartPoint != mEndPoint) {
+            mModelEditor.CreateLine(mStartPoint, mEndPoint);
+            mStartPoint = mEndPoint;
+
+        }
         mEndPoint = NULL;
     }
 }
@@ -130,6 +135,10 @@ void LineInteraction::setEnd(const glm::vec2& endViewport)
     mSnappingQueue->setEndViewport(endViewport, true);
     
     mEnd = mSnappingQueue->Snapped();
+    if (mEnd == mStart) {
+        mEnd = mViewport->SceneCoordsAt(endViewport);
+    }
+    
 }
 
 

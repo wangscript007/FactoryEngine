@@ -32,6 +32,7 @@ const glm::vec3& Edge::target() const
     return targetNode()->mOrigin;
 }
     
+    
 std::string Edge::Name() const
 {
     

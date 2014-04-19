@@ -61,9 +61,11 @@ void PointNode::Render(Layer& layer)
     
 bool PointNode::ContainsFreeEdges() const
 {
+    if (IsEmpty()) return false;
+    
     for(PointNode::Iterator it = Begin(); it != End(); ++it)
     {
-        if ((*it)->IsFree()) return true;
+        if ((*it)->IsFree() || (*it)->twin()->IsFree()) return true;
     }
     return false;
 }

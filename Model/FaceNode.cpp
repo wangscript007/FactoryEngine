@@ -135,6 +135,9 @@ void FaceNode::Render(Layer& layer)
     Edge* currentEdge = mOuterEdge;
     do {
         mPolygonPrimitive.mVec.push_back(currentEdge->origin());
+        if (!currentEdge->next()) {
+            assert(false); // face is messed up!
+        }
         currentEdge = currentEdge->next();
     } while (currentEdge != mOuterEdge);
     mPolygonPrimitive.setOption(Primitive::kUseDepth, true);

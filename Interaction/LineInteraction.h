@@ -38,6 +38,7 @@ private:
     ModelEditor& mModelEditor;
     SnappingQueue* mSnappingQueue;
     PointSnap* mPointSnap;
+    const Viewport* mViewport;
     
     std::vector<glm::vec3> mDebugPoints;
 };
