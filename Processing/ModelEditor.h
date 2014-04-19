@@ -3,6 +3,7 @@
 
 #include <Model/ModelFactory.h>
 #include <Model/GroupNode.h>
+#include <Model/BodyNode.h>
 #include <Processing/ModelTree.h>
 
 namespace ftr {
@@ -18,22 +19,24 @@ public:
     PointNode*      NearestPointToCenterInSphere(const Sphere& sSphere) const;
     void            UpdateNode(Node* pNode) { mModelTree->UpdateNode(pNode); }
     void            RemoveNode(Node* pNode) { mModelTree->RemoveNode(pNode); }
-    void            Select(Node* pNode);
-    Node*           SelectedNode() const { return mSelectedNode; }
+    
+    GroupNode*      activeGroup() const { return mActiveGroup; }
+    BodyNode*       activeBody() const { return mActiveBody; }
+    
     unsigned long   Size() { return mModelTree->Size(); }
     //
     // Creating
     //
     PointNode*      CreatePoint(glm::vec3 origin);
     LineNode*       CreateLine(PointNode* startPoint, PointNode* endPoint);
-    
-    
+    BodyNode*       CreateBody();
+    GroupNode*      CreateGroup();
 private:
     
     class ModelFactory* mModelFactory;
     class ModelTree*    mModelTree;
-    GroupNode*              mRootGroup;
-    Node*               mSelectedNode;
+    GroupNode*          mActiveGroup;
+    BodyNode*           mActiveBody;
 };
     
 }

@@ -25,7 +25,6 @@ void ScaleInteraction::setStart(glm::vec3 start)
 void ScaleInteraction::setEnd(glm::vec3 end)
 {
     mEnd = end;
-    assert(mModelEditor.SelectedNode()->Type() == Node::kLine);
     glm::vec3 scale = mEnd - mStart;
     scale.x = std::min(std::max(scale.x, 1.0f), 2.0f);
     scale.y = std::min(std::max(scale.y, 1.0f), 2.0f);

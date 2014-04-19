@@ -64,7 +64,7 @@ void LineInteraction::Begin()
 {
     if (!mActive) {
         mActive = true;
-        mModelEditor.SelectedNode()->AddNode(this);
+        mModelEditor.activeBody()->AddNode(this);
         
         mEndPoint = NULL;
         mStartPoint = NULL;
@@ -79,7 +79,7 @@ void LineInteraction::Step()
 {
     if (mActive) {
         mActive = false;
-        mModelEditor.SelectedNode()->RemoveNode(this);
+        mModelEditor.activeBody()->RemoveNode(this);
         
         if (!mStartPoint) {
             mPointSnap->setStartScene(mStart, true);

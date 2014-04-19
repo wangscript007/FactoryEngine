@@ -46,7 +46,7 @@ void RectangleInteraction::Render()
 void RectangleInteraction::Begin()
 {
     mActive = true;
-    mModelEditor.SelectedNode()->AddNode(this);
+//    mModelEditor.activeGroup()->AddNode(this);
     mRect3.mA = glm::vec3();
 }
 
@@ -55,7 +55,7 @@ void RectangleInteraction::End()
     if (mActive) {
         mActive = false;
         //mModelEditor.CreateRectangle(mOrigin, mSize);
-        mModelEditor.SelectedNode()->RemoveNode(this);
+//        mModelEditor.SelectedNode()->RemoveNode(this);
     }
 }
 

@@ -10,6 +10,8 @@ namespace ftr {
 class ColorPickingMapper
 {
 public:
+    ColorPickingMapper() {};
+    ~ColorPickingMapper() {};
     void MapLevel(GroupNode::Level level);
     
     
@@ -19,7 +21,6 @@ private:
     
     std::map<int, Node*> mIntToNodeMap;
     GroupNode* mRootNode;
-    
 };
     
 }

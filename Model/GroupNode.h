@@ -5,6 +5,7 @@
 namespace ftr {
 
 class FaceNode;
+class BodyNode;
     
 class GroupNode : public Node
 {
@@ -15,7 +16,8 @@ public:
         kGroup
     };
     
-    std::vector<FaceNode*> mFaces;
+    void AddBody(BodyNode* bodyNode);
+
     
 private:
     Level mLevel;

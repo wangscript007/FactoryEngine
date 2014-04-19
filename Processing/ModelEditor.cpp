@@ -5,21 +5,19 @@
 namespace ftr {
 
 ModelEditor::ModelEditor()
-    :mSelectedNode(NULL)
 {
     mModelTree = new class ModelTree();
     mModelFactory = new class ModelFactory(*mModelTree);
-    mRootGroup = new GroupNode();
-    mModelTree->setRootNode(mRootGroup);
-    Select(mRootGroup);
-    
+    mActiveGroup = CreateGroup();
+    mActiveBody = CreateBody();
 }
 
 ModelEditor::~ModelEditor()
 {
     FT_DELETE(mModelFactory);
     FT_DELETE(mModelTree);
-    FT_DELETE(mRootGroup);
+    FT_DELETE(mActiveBody);
+    FT_DELETE(mActiveGroup)
 }
 
 #pragma mark - Instance
@@ -44,28 +42,23 @@ PointNode* ModelEditor::NearestPointToCenterInSphere(const Sphere& sSphere) cons
     return pNearestPoint;
 }
 
-void ModelEditor::Select(Node* pNode)
-{
-    mSelectedNode = pNode;
-}
-
 PointNode* ModelEditor::CreatePoint(glm::vec3 origin)
 {
-    assert(mSelectedNode);
+    assert(mActiveBody);
     PointNode* pPoint = mModelFactory->CreatePoint(origin);
-    mSelectedNode->AddNode(pPoint);
+    mActiveBody->AddNode(pPoint);
     mModelTree->AddNode(pPoint);
     return pPoint;
 }
 
 LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
 {
-    assert(mSelectedNode);
+    assert(mActiveBody);
     LineNode* line = mModelFactory->CreateLine(startPoint, endPoint);
     PointNode::ConnectionResult result = startPoint->ConnectTo(endPoint);
-    mSelectedNode->AddNode(line);
+    mActiveBody->AddNode(line);
     if (result.faces[0]) {
-        mSelectedNode->AddNode(result.faces[0]);
+        mActiveBody->AddNode(result.faces[0]);
         static bool extruded = false;
         if (!extruded) {
             extruded = true;
@@ -76,11 +69,23 @@ LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
         }
     }
     if (result.faces[1]) {
-        mSelectedNode->AddNode(result.faces[1]);
+        mActiveBody->AddNode(result.faces[1]);
     }
-    mSelectedNode = line;
     return line;
+}
     
+BodyNode* ModelEditor::CreateBody()
+{
+    BodyNode* body = mModelFactory->CreateBody();
+    mActiveGroup->AddBody(body);
+    return body;
+}
+    
+GroupNode* ModelEditor::CreateGroup()
+{
+    GroupNode* group = mModelFactory->CreateGroup();
+    mModelTree->AddGroup(group);
+    return group;
 }
     
     

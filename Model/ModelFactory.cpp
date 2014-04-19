@@ -1,6 +1,3 @@
-// 
-//  Copyright (c) 2012 Dimension. All rights reserved.
-//
 
 #include <Model/ModelFactory.h>
 #include <Processing/FaceTraversal.h>
@@ -30,5 +27,18 @@ LineNode* ModelFactory::CreateLine(PointNode* startPoint, PointNode* endPoint) c
     LineNode* line = new LineNode(startPoint, endPoint);
     return line;
 }
+    
+BodyNode* ModelFactory::CreateBody()
+{
+    BodyNode* body = new BodyNode();
+    return body;
+}
+    
+GroupNode* ModelFactory::CreateGroup()
+{
+    GroupNode* group = new GroupNode();
+    return group;
+}
+
         
 }

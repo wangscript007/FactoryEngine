@@ -24,7 +24,6 @@ void MoveInteraction::setStart(glm::vec3 start)
 void MoveInteraction::setEnd(glm::vec3 end)
 {
     mEnd = end;
-    assert(mModelEditor.SelectedNode()->Type() == Node::kLine);
 //    mModelEditor.SelectedNode()->Transform(Transformation::Translate(mEnd - mStart));
     mStart = end;
 }
