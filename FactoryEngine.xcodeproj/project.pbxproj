@@ -366,6 +366,8 @@
 		D185302D18F16A76001A7AB1 /* FaceExtruder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302418F148A8001A7AB1 /* FaceExtruder.cpp */; };
 		D1A920FF18E1876A0034336A /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
 		D1A9210018E1876A0034336A /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = D1A920FE18E1876A0034336A /* Geometry.h */; };
+		D1B990F718FEC88600DC5843 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
+		D1B990F818FEC88600DC5843 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
 		D1BE952818F721C40022D7C7 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
 		D1BE952918F721C40022D7C7 /* SelectInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = D1BE952718F721C40022D7C7 /* SelectInteraction.h */; };
 		D1C708C115B36D0E00D64823 /* GroupNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1C708BF15B36D0E00D64823 /* GroupNode.cpp */; };
@@ -1312,6 +1314,7 @@
 				60A05FC71809DB15004DD045 /* PointSnap.cpp in Sources */,
 				603BA5E617E87437007CE822 /* DefaultLighting.cpp in Sources */,
 				603BA5E717E87437007CE822 /* Light.cpp in Sources */,
+				D1B990F818FEC88600DC5843 /* SelectInteraction.cpp in Sources */,
 				D11D1D6418DF70D40091521F /* advancing_front.cc in Sources */,
 				D1FDC88518F192960075176E /* ExtrudeInteraction.cpp in Sources */,
 				D152781C18E5890B00C48850 /* TestPointNode.mm in Sources */,
@@ -1407,6 +1410,7 @@
 				60A05FCB1809DB48004DD045 /* Snap.cpp in Sources */,
 				D11D1D6318DF70D10091521F /* sweep_context.cc in Sources */,
 				D1693B9018E5B1BC000AFE41 /* Constants.cpp in Sources */,
+				D1B990F718FEC88600DC5843 /* SelectInteraction.cpp in Sources */,
 				60EB2F651812C385008DCA37 /* Cylinder.cpp in Sources */,
 				60C6D054174961470009EC3C /* ScaleInteraction.cpp in Sources */,
 				60CE9A6217EC646F00A775C0 /* ShadingLibrary.cpp in Sources */,
