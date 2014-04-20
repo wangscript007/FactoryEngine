@@ -9,11 +9,13 @@ namespace ftr {
 class LineNode : public Node
 {
 public:
+    virtual NodeType Type() const { return kLine; }
+    
     LineNode(PointNode* startPoint, PointNode* endPoint);
     virtual ~LineNode() {}
     
     virtual void Render(Layer& layer);
-    virtual NodeType Type() const { return kLine; }
+    
     void setEndPoint(PointNode* endPoint) { mEndPoint = endPoint; }
     void setStartPoint(PointNode* startPoint) { mStartPoint = startPoint; }
     PointNode* StartPoint() const { return mStartPoint; }

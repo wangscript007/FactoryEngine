@@ -16,6 +16,8 @@ class Edge;
 class FaceNode : public Node
 {
 public:
+    virtual NodeType        Type() const { return kFace; }
+    
     FaceNode() {}
     FaceNode(const std::vector<Edge*>& edges);
     FaceNode(const std::vector<glm::vec3>& points);

@@ -33,17 +33,17 @@ void Node::RemoveNode(Node* pNode)
 
 void Node::Render(Layer& layer)
 {
-    for(auto i = mSubnodes.begin(); i != mSubnodes.end(); ++i)
+    for(auto &node : mSubnodes)
     {
-        (*i)->Render(layer);
+        node->Render(layer);
     }
 }
 
 void Node::Transform(const glm::mat4& m4Transformation)
 {    
-    for(auto i = mSubnodes.begin(); i != mSubnodes.end(); ++i)
+    for(auto &node : mSubnodes)
     {
-        (*i)->Transform(m4Transformation);
+        node->Transform(m4Transformation);
     }
 }
 

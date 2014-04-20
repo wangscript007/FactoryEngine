@@ -1,7 +1,6 @@
 
 #pragma once
 
-
 #include <Model/Node.h>
 #include <Processing/Octree.h>
 
@@ -9,15 +8,22 @@ namespace ftr {
 //
 // Manages model tree
 //
+    
+class GroupNode;
+
 class ModelTree
 {
 public:
     ModelTree();
     ~ModelTree();
     
-    void        setRootNode(Node* pRootNode);
+    void Render(Layer& layer);
     
-    Octree*   Octree() const { return mOctree; }
+    
+    Octree*     Octree() const { return mOctree; }
+    
+    void        AddGroup(GroupNode* groupNode);
+    
     void        AddNode(Node* pNode);
     void        UpdateNode(Node* pNode);
     void        RemoveNode(Node* pNode);
@@ -32,8 +38,8 @@ public:
     unsigned long Size() { return mOctree->Size(); }
     
 private:
-    Node*     mRootNode;
-    ftr::Octree*   mOctree;
+    ftr::Octree* mOctree;
+    std::vector<GroupNode*> mGroups;
 };
 
 }

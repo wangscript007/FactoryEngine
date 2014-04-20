@@ -2,16 +2,17 @@
 
 #include "ColorPickingMapper.h"
 
-int B_MASK = 255;
-int G_MASK = 255<<8; //65280
-int R_MASK = 255<<16; //16711680
 
 namespace ftr {
-
-void ColorPickingMapper::MapLevel(GroupNode::Level level)
-{
     
-}
+const int B_MASK = 255;
+const int G_MASK = 255<<8; //65280
+const int R_MASK = 255<<16; //16711680
+    
+//void ColorPickingMapper::MapLevel(GroupNode::Level level)
+//{
+//    
+//}
     
 int ColorPickingMapper::IntFromColor(glm::vec3& vec)
 {

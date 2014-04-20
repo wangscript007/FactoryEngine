@@ -1,6 +1,7 @@
 
 #include <Processing/ModelTree.h>
 #include <Model/PointNode.h>
+#include <Model/GroupNode.h>
 
 namespace ftr {
 
@@ -15,10 +16,17 @@ ModelTree::~ModelTree()
 }
 
 #pragma mark Instance
-
-void ModelTree::setRootNode(Node *pRootNode)
+    
+void ModelTree::Render(Layer& layer)
 {
-    mRootNode = pRootNode;
+    for (int i = 0; i < mGroups.size(); ++i) {
+        mGroups[i]->Render(layer);
+    }
+}
+    
+void ModelTree::AddGroup(GroupNode* groupNode)
+{
+    mGroups.push_back(groupNode);
 }
 
 void ModelTree::AddNode(Node* pNode)
@@ -44,5 +52,6 @@ void ModelTree::RemoveNode(Node* pNode)
     assert(supernode);
     supernode->RemoveNode(pNode);
 }
+    
 
 }

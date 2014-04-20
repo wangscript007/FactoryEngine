@@ -29,9 +29,9 @@ Scene::Scene() :
     mWorkspace = new Workspace(mLayer);
 
     mModelEditor = new ModelEditor();
-    mModelEditor->ModelTree()->setRootNode(reinterpret_cast<Node*>(mWorkspace));
-    mModelEditor->Select(mWorkspace);
+
     mWorkspace->setOctree(*mModelEditor->ModelTree()->Octree());
+    mWorkspace->setModelTree(mModelEditor->ModelTree());
     mLeapController.addListener(mleapListener);
 }
     

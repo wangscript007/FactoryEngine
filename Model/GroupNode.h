@@ -5,20 +5,18 @@
 namespace ftr {
 
 class FaceNode;
+class BodyNode;
     
 class GroupNode : public Node
 {
 public:
-    enum Level {
-        kFace,
-        kBody,
-        kGroup
-    };
     
-    std::vector<FaceNode*> mFaces;
+    virtual NodeType Type() const { return kGroup; }
+    void AddBody(BodyNode* bodyNode);
+
+    virtual void            Render(Layer& layer);
     
 private:
-    Level mLevel;
 };
 
 }
