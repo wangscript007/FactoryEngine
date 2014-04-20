@@ -14,6 +14,8 @@ class FaceNode;
 class BodyNode : public Node
 {
 public:
+    virtual NodeType Type() const { return kBody; }
+    
     GroupNode* groupNode() const { return reinterpret_cast<GroupNode*>(Supernode()); }
     
     void AddPointNode(PointNode* pointNode);

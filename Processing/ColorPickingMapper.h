@@ -12,7 +12,7 @@ class ColorPickingMapper
 public:
     ColorPickingMapper() {};
     ~ColorPickingMapper() {};
-    void MapLevel(GroupNode::Level level);
+//    void MapLevel(GroupNode::Level level);
     
     
 private:

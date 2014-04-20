@@ -31,6 +31,7 @@ Scene::Scene() :
     mModelEditor = new ModelEditor();
 
     mWorkspace->setOctree(*mModelEditor->ModelTree()->Octree());
+    mWorkspace->setModelTree(mModelEditor->ModelTree());
     mLeapController.addListener(mleapListener);
 }
     

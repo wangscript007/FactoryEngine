@@ -9,10 +9,10 @@ const int B_MASK = 255;
 const int G_MASK = 255<<8; //65280
 const int R_MASK = 255<<16; //16711680
     
-void ColorPickingMapper::MapLevel(GroupNode::Level level)
-{
-    
-}
+//void ColorPickingMapper::MapLevel(GroupNode::Level level)
+//{
+//    
+//}
     
 int ColorPickingMapper::IntFromColor(glm::vec3& vec)
 {

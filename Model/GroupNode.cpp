@@ -10,4 +10,9 @@ void GroupNode::AddBody(BodyNode* bodyNode)
     AddNode(bodyNode);
 }
     
+void GroupNode::Render(Layer& layer)
+{
+    Node::Render(layer);
+}
+    
 }

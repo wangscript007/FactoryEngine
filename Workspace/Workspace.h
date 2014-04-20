@@ -17,6 +17,7 @@
 namespace ftr {
     
 class Octree;
+class ModelTree;
 
 class Workspace : public Node
 {
@@ -27,11 +28,14 @@ public:
     
     
     void setOctree(Octree& octree) { mOctree = &octree; };
+    void setModelTree(ModelTree* modelTree) { mModelTree = modelTree; }
+    
     
     bool mRenderOctree;
 private:
     
     Octree* mOctree;
+    ModelTree* mModelTree;
     Pad* mPad;
     HUD* mHUD;
     Bounds* mBounds;

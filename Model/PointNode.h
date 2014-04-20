@@ -16,6 +16,8 @@ class PointNodeIterator;
 class PointNode : public Node
 {
 public:
+    virtual NodeType Type() const { return kPoint; }
+    
     typedef PointNodeIterator Iterator;
     
     class ConnectionResult {
@@ -38,7 +40,6 @@ public:
     glm::vec3 mOrigin;
     
     virtual void Render(Layer& layer);
-    virtual NodeType Type() const { return kPoint; }
     virtual void Transform(const glm::mat4& m4Transformation);
     Octree::Leaf* OctreeLeaf() const { return mOctreeLeaf; }
     void setOctreeLeaf(Octree::Leaf* leaf) { mOctreeLeaf = leaf; }

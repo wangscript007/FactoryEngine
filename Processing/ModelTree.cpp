@@ -19,8 +19,8 @@ ModelTree::~ModelTree()
     
 void ModelTree::Render(Layer& layer)
 {
-    for (auto &group : mGroups) {
-        group->Render(layer);
+    for (int i = 0; i < mGroups.size(); ++i) {
+        mGroups[i]->Render(layer);
     }
 }
     
@@ -53,6 +53,5 @@ void ModelTree::RemoveNode(Node* pNode)
     supernode->RemoveNode(pNode);
 }
     
-
 
 }

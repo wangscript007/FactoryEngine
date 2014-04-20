@@ -20,7 +20,6 @@ public:
     void Render(Layer& layer);
     
     
-    
     Octree*     Octree() const { return mOctree; }
     
     void        AddGroup(GroupNode* groupNode);

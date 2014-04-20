@@ -3,10 +3,12 @@
 #include <Workspace/Workspace.h>
 #include <Main/GLError.h>
 #include <Processing/Octree.h>
+#include <Processing/ModelTree.h>
 
 namespace ftr {
 
 Workspace::Workspace(Layer* layer)
+    :mModelTree(NULL)
 {
     mRenderOctree = false;
     
@@ -37,6 +39,7 @@ Workspace::Workspace(Layer* layer)
     layer->AddSublayer(mModelLayer);
     layer->AddSublayer(mTestLayer);
     layer->AddSublayer(mOctreeLayer);
+    layer->AddSublayer(mModelLayer);
 }
 
 Workspace::~Workspace()
@@ -51,6 +54,7 @@ Workspace::~Workspace()
     FT_DELETE(mTestRactangle);
     FT_DELETE(mTestLayer);
     FT_DELETE(mOctreeLayer);
+    FT_DELETE(mModelLayer);
 }
 
 void Workspace::Render(Layer& layer)
@@ -61,7 +65,9 @@ void Workspace::Render(Layer& layer)
     if (mRenderOctree) {
         mOctree->Render(*mOctreeLayer);
     }
-    //mBounds->Render(*mBoundsLayer);
+    if (mModelTree) {
+        mModelTree->Render(*mModelLayer);
+    }
     Node::Render(*mModelLayer);
 }
 
