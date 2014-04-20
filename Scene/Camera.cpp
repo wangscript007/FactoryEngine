@@ -14,8 +14,8 @@ Camera::Camera(Viewport& viewport)
     mViewport(viewport)
 {
     mEyePosition = glm::vec3(0.0f, 0.0f, 10.0f);
-    mTranslation = glm::vec3();
-    mRotation = glm::vec3();
+    mTranslation = glm::vec3(-3.74917746, -2.3571105, -2.03182578);
+    mRotation = glm::vec3(-27, 55.5, 0);
 }
     
 void Camera::CreateTransformations()

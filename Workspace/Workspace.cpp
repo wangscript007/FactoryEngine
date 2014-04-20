@@ -59,9 +59,9 @@ Workspace::~Workspace()
 
 void Workspace::Render(Layer& layer)
 {
-    mTestRactangle->Render(*mTestLayer);
+    //mTestRactangle->Render(*mTestLayer);
     mPad->Render(*mPadLayer);
-    mHUD->Render(*mHudLayer);
+    //mHUD->Render(*mHudLayer);
     if (mRenderOctree) {
         mOctree->Render(*mOctreeLayer);
     }
