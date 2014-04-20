@@ -34,6 +34,7 @@ void DefaultLighting::SetupLights()
     pointLight->mData.useLocalCoordinates = 1;
     */
     
+    /*
     Light* spotLight = AddLightWithType(Light::kLightSpot);
     spotLight->mData.position = glm::vec4(0.0f, 20.0f, 0.0f, 1.0f);
     spotLight->mData.specular = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
@@ -47,6 +48,7 @@ void DefaultLighting::SetupLights()
     spotLight->mData.spotCosCutoff = 0.01;
     spotLight->mData.spotDirection = glm::vec3(0.0, -1.0, 0.0);
     spotLight->mData.useLocalCoordinates = 1;
+    */
     
     Light* directionalLight = AddLightWithType(Light::kLightDirectional);
     directionalLight->mData.position = glm::vec4(0.0, 0.0, 1.0, 0.0);
