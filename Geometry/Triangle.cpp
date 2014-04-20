@@ -33,7 +33,7 @@ bool Triangle::PlaneContains(const glm::vec3& p) const
 {
     glm::vec3 cross = glm::cross(mPoints[1] - p, mPoints[1] - mPoints[0]);
     glm::vec3 surfaceNormal = SurfaceNormal();
-    return glm::isNull(glm::cross(surfaceNormal, cross), 0.3f);
+    return glm::isNull(glm::cross(surfaceNormal, cross), 0.01f);
 }
     
 glm::vec3 Triangle::SurfaceNormal() const

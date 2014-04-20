@@ -126,11 +126,11 @@ void Camera::setProjection(Projection projectionMode)
     mProjection = projectionMode;
     switch (projectionMode) {
         case kProjectionPerspective: {
-            mViewport.projectionMatrix = glm::perspective(60.0f, 1.0f, 0.1f, 10000.f);
+            mViewport.projectionMatrix = glm::perspective(50.0f, 1.0f, 1.0f, 1000.f);
             
         } break;
         case kProjectionOrthographic: {
-            mViewport.projectionMatrix = glm::perspective(60.0f, 1.0f, 0.1f, 10000.f);;
+            mViewport.projectionMatrix = glm::perspective(50.0f, 1.0f, 1.0f, 1000.f);;
         } break;
     }
 }
