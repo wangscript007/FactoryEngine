@@ -22,7 +22,7 @@ void Pad::Render(Layer& layer)
         if ((i%((int)mfA/2) != 0)  || (i == 0) || (i == mfA)) {
             linePrimitive[index].mBegin = glm::vec3(x, offset, -a2);
             linePrimitive[index].mEnd = glm::vec3(x, 0, a2);
-            linePrimitive[index].mColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0);
+            linePrimitive[index].mColor = glm::vec4(0.5f, 0.5f, 0.5f, 1.0);
             linePrimitive[index].setOption(Primitive::kUseDepth, true);
             linePrimitive[index].setOption(Primitive::kUseLighting, false);
             layer.AddPrimitive(linePrimitive[index++]);
@@ -37,7 +37,7 @@ void Pad::Render(Layer& layer)
         if ((i%((int)mfA/2) != 0) || (i == 0) || (i == mfA)) {
             linePrimitive[index].mBegin = glm::vec3(-a2, offset, z);
             linePrimitive[index].mEnd = glm::vec3(a2, offset, z);
-            linePrimitive[index].mColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0);
+            linePrimitive[index].mColor = glm::vec4(0.5f, 0.5f, 0.5f, 1.0);
             linePrimitive[index].setOption(Primitive::kUseDepth, true);
             linePrimitive[index].setOption(Primitive::kUseLighting, false);
             layer.AddPrimitive(linePrimitive[index++]);
