@@ -30,6 +30,7 @@ void SelectInteraction::Begin()
         mEnd = glm::vec3();
         mStart = glm::vec3();
     }
+    mModelEditor.StartSelecting(ftr::Node::kGroup);
 }
 
 void SelectInteraction::Step()

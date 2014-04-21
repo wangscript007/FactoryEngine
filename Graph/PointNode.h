@@ -16,7 +16,7 @@ class PointNodeIterator;
 class PointNode : public Node
 {
 public:
-    virtual NodeType Type() const { return kPoint; }
+    virtual enum Type Type() const { return kPoint; }
     
     typedef PointNodeIterator Iterator;
     

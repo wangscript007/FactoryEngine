@@ -34,7 +34,7 @@ public:
     void PointNodesInBox(const Box& sBox, std::vector<PointNode*>& pointsVector) const;
     void PointNodesInCylinder(const Cylinder& cylinder, std::vector<PointNode*>& pointsVector) const;
     
-    enum NodeType { kBranch, kLeaf };
+    enum Type { kBranch, kLeaf };
     
     class Node
     {
@@ -54,7 +54,7 @@ public:
         virtual void Render(Layer& layer);
         
         virtual unsigned long Size() const { return 0; }
-        NodeType Type() const { return m_eType; }
+        Type Type() const { return m_eType; }
         Node* Parent() const { return mParent; }
         void setParent(Node* pParent)  { mParent = pParent; }
         Box& Box() { return mBox; }
@@ -70,7 +70,7 @@ public:
         ftr::Box mBox;
         Node* mParent;
         SIndex mIndex;
-        NodeType m_eType;
+        enum Type m_eType;
         int mDepth;
     private:
         

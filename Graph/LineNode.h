@@ -9,7 +9,7 @@ namespace ftr {
 class LineNode : public Node
 {
 public:
-    virtual NodeType Type() const { return kLine; }
+    virtual enum Type Type() const { return kLine; }
     
     LineNode(PointNode* startPoint, PointNode* endPoint);
     virtual ~LineNode() {}

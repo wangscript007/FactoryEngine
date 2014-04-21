@@ -37,9 +37,10 @@ public:
 
     unsigned long Size() { return mOctree->Size(); }
     
+    std::vector<GroupNode*> mGroups;
 private:
     ftr::Octree* mOctree;
-    std::vector<GroupNode*> mGroups;
+    
 };
 
 }

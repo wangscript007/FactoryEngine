@@ -5,9 +5,9 @@
 namespace ftr {
     
 Node::Node() :
-    mSupernode(NULL)
+    mSupernode(NULL),
+    mPickingId(-1)
 {
-    
 }
 
 Node::~Node()
@@ -44,6 +44,14 @@ void Node::Transform(const glm::mat4& m4Transformation)
     for(auto &node : mSubnodes)
     {
         node->Transform(m4Transformation);
+    }
+}
+    
+void Node::setPickingId(int pickingId)
+{
+    mPickingId = pickingId;
+    for(auto &node : mSubnodes) {
+        node->setPickingId(pickingId);
     }
 }
 

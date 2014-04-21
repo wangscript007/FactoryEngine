@@ -16,7 +16,7 @@ class Edge;
 class FaceNode : public Node
 {
 public:
-    virtual NodeType        Type() const { return kFace; }
+    virtual enum Type        Type() const { return kFace; }
     
     FaceNode() {}
     FaceNode(const std::vector<Edge*>& edges);

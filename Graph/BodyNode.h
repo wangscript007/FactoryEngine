@@ -14,7 +14,7 @@ class FaceNode;
 class BodyNode : public Node
 {
 public:
-    virtual NodeType Type() const { return kBody; }
+    virtual enum Type Type() const { return kBody; }
     
     GroupNode* groupNode() const { return reinterpret_cast<GroupNode*>(Supernode()); }
     

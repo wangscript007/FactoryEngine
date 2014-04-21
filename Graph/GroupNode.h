@@ -11,7 +11,7 @@ class GroupNode : public Node
 {
 public:
     
-    virtual NodeType Type() const { return kGroup; }
+    virtual enum Type Type() const { return kGroup; }
     void AddBody(BodyNode* bodyNode);
 
     virtual void            Render(Layer& layer);

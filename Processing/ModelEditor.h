@@ -1,12 +1,15 @@
 
 #pragma once
 
+#include <Graph/Node.h>
 #include <Graph/ModelFactory.h>
 #include <Graph/GroupNode.h>
 #include <Graph/BodyNode.h>
 #include <Processing/ModelTree.h>
 
 namespace ftr {
+    
+class ColorPickingMapper;
 
 class ModelEditor
 {
@@ -24,19 +27,21 @@ public:
     BodyNode*       activeBody() const { return mActiveBody; }
     
     unsigned long   Size() { return mModelTree->Size(); }
-    //
-    // Creating
-    //
+
     PointNode*      CreatePoint(glm::vec3 origin);
     LineNode*       CreateLine(PointNode* startPoint, PointNode* endPoint);
     BodyNode*       CreateBody();
     GroupNode*      CreateGroup();
+    
+    void            StartSelecting(enum Node::Type nodeType);
+    
 private:
     
     class ModelFactory* mModelFactory;
     class ModelTree*    mModelTree;
     GroupNode*          mActiveGroup;
     BodyNode*           mActiveBody;
+    ColorPickingMapper* mColorPickingMapper;
 };
     
 }

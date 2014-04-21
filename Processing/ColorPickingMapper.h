@@ -7,20 +7,27 @@
 
 namespace ftr {
     
+class ModelTree;
+    
 class ColorPickingMapper
 {
 public:
-    ColorPickingMapper() {};
+    static int IntFromColor(glm::vec3& vec);
+    static glm::vec4 ColorFromInt(int number);
+    
+    ColorPickingMapper(ModelTree& modelTree);
     ~ColorPickingMapper() {};
-//    void MapLevel(GroupNode::Level level);
+    
+    void MapPickingColors(enum Node::Type nodeType);
     
     
 private:
-    static int IntFromColor(glm::vec3& vec);
-    static glm::vec3 ColorFromInt(int number);
+    
+    void MapPickingColorsForGroups();
     
     std::map<int, Node*> mIntToNodeMap;
-    GroupNode* mRootNode;
+    
+    ModelTree* mModelTree;
 };
     
 }

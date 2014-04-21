@@ -5,6 +5,7 @@
 #include <Processing/PointNodeIterator.h>
 #include <Graph/Edge.h>
 #include <Geometry/Triangle.h>
+#include <Processing/ColorPickingMapper.h>
 
 
 namespace ftr {
@@ -132,6 +133,7 @@ void FaceNode::Render(Layer& layer)
 {
     Node::Render(layer);
     mPolygonPrimitive.mColor = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
+    mPolygonPrimitive.mPickingColor = ColorPickingMapper::ColorFromInt(pickingId());
     Edge* currentEdge = mOuterEdge;
     do {
         mPolygonPrimitive.mVec.push_back(currentEdge->origin());

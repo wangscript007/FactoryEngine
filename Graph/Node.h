@@ -15,7 +15,7 @@ typedef std::vector <Node*> NodesList;
 class Node
 {
 public:
-    enum NodeType {
+    enum Type {
         kNone,
         kPoint,
         kLine,
@@ -28,16 +28,20 @@ public:
                             ~Node();
     
     virtual void            Render(Layer& layer);
-    virtual NodeType        Type() const { return kNone; }
+    virtual Type            Type() const { return kNone; }
     void                    AddNode(Node* pNode);
     void                    RemoveNode(Node* pMode);
     Node*                   Supernode() const { return mSupernode; }
     virtual void            Transform(const glm::mat4& m4Transformation);
     virtual std::vector<PointNode*>* PointNodes() const { return NULL; }
+    void                    setPickingId(int pickingId);
+    int                     pickingId() const { return mPickingId; }
     
 private:
     Node*                   mSupernode;
     NodesList               mSubnodes;
+    int                     mPickingId;
+    
 };
 
 }
