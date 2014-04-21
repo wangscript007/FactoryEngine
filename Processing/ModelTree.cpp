@@ -1,7 +1,9 @@
 
+
+
 #include <Processing/ModelTree.h>
-#include <Model/PointNode.h>
-#include <Model/GroupNode.h>
+#include <Graph/PointNode.h>
+#include <Graph/GroupNode.h>
 
 namespace ftr {
 

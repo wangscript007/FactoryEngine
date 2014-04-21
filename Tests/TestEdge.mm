@@ -1,7 +1,7 @@
 
 #import <XCTest/XCTest.h>
-#include <Model/PointNode.h>
-#include <Model/Edge.h>
+#include <Graph/PointNode.h>
+#include <Graph/Edge.h>
 
 using namespace ftr;
 

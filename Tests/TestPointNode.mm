@@ -1,9 +1,9 @@
 
 
 #import <XCTest/XCTest.h>
-#include <Model/PointNode.h>
+#include <Graph/PointNode.h>
 #include <Processing/PointNodeIterator.h>
-#include <Model/Edge.h>
+#include <Graph/Edge.h>
 
 using namespace ftr;
 

@@ -1,6 +1,6 @@
 
 #import <XCTest/XCTest.h>
-#include <Model/PointNode.h>
+#include <Graph/PointNode.h>
 #include <External/poly2tri/poly2tri.h>
 
 using namespace ftr;

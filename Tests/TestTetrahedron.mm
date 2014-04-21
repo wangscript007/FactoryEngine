@@ -1,8 +1,8 @@
 
 
 #import <XCTest/XCTest.h>
-#import <Model/PointNode.h>
-#import <Model/Edge.h>
+#import <Graph/PointNode.h>
+#import <Graph/Edge.h>
 #import <Processing/FaceTraversal.h>
 
 using namespace ftr;

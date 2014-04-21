@@ -1,5 +1,5 @@
 
-#include <Model/ModelFactory.h>
+#include <Graph/ModelFactory.h>
 #include <Processing/FaceTraversal.h>
 
 namespace ftr {

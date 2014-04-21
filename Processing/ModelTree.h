@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include <Model/Node.h>
+#include <Graph/Node.h>
 #include <Processing/Octree.h>
 
 namespace ftr {

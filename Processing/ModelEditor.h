@@ -1,9 +1,9 @@
 
 #pragma once
 
-#include <Model/ModelFactory.h>
-#include <Model/GroupNode.h>
-#include <Model/BodyNode.h>
+#include <Graph/ModelFactory.h>
+#include <Graph/GroupNode.h>
+#include <Graph/BodyNode.h>
 #include <Processing/ModelTree.h>
 
 namespace ftr {

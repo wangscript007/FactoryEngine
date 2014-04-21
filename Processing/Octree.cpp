@@ -1,6 +1,6 @@
 
 #include <Processing/Octree.h>
-#include <Model/PointNode.h>
+#include <Graph/PointNode.h>
 #include <Main/GLError.h>
 
 

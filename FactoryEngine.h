@@ -44,15 +44,15 @@ typedef unsigned long long int  Quadrupleword;    // 8 bytes
 #include "Geometry/Rect.h"
 
 //
-// Model
+// Grapth
 //
-#include "Model/Node.h"
-#include "Model/PointNode.h"
-#include "Model/LineNode.h"
-#include "Model/FaceNode.h"
-#include "Model/BodyNode.h"
-#include "Model/GroupNode.h"
-#include "Model/ModelFactory.h"
+#include "Graph/Node.h"
+#include "Graph/PointNode.h"
+#include "Graph/LineNode.h"
+#include "Graph/FaceNode.h"
+#include "Graph/BodyNode.h"
+#include "Graph/GroupNode.h"
+#include "Graph/ModelFactory.h"
 
 //
 // Workspace

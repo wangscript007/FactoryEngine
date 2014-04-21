@@ -1,7 +1,7 @@
 
 
-#include <Model/BodyNode.h>
-#include <Model/GroupNode.h>
+#include <Graph/BodyNode.h>
+#include <Graph/GroupNode.h>
 
 namespace ftr {
     

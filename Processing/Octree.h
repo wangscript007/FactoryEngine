@@ -3,7 +3,7 @@
 
 #include <Geometry/GeometryPrimitives.h>
 #include <Geometry/Cylinder.h>
-#include <Model/Node.h>
+#include <Graph/Node.h>
 
 namespace ftr {
 

@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include <Model/FaceNode.h>
+#include <Graph/FaceNode.h>
 
 namespace ftr {
     

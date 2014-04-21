@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include <Model/Node.h>
+#include <Graph/Node.h>
 #include <Shading/ShadingInterface.h>
 #include <Scene/Viewport.h>
 

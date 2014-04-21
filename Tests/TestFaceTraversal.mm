@@ -1,9 +1,9 @@
 
 
 #import <XCTest/XCTest.h>
-#import <Model/PointNode.h>
-#import <Model/Edge.h>
-#import <Model/FaceNode.h>
+#import <Graph/PointNode.h>
+#import <Graph/Edge.h>
+#import <Graph/FaceNode.h>
 #import <Processing/FaceTraversal.h>
 #import <random>
 

@@ -1,7 +1,7 @@
 
-#include <Model/PointNode.h>
-#include <Model/Edge.h>
-#include <Model/FaceNode.h>
+#include <Graph/PointNode.h>
+#include <Graph/Edge.h>
+#include <Graph/FaceNode.h>
 #include <Processing/FaceTraversal.h>
 
 

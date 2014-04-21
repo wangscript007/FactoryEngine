@@ -1,7 +1,7 @@
 
-#include <Model/Edge.h>
+#include <Graph/Edge.h>
 #include <Geometry/Vector.h>
-#include <Model/PointNode.h>
+#include <Graph/PointNode.h>
 
 namespace ftr {
     

@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include <Model/Edge.h>
+#include <Graph/Edge.h>
 
 namespace ftr {
 

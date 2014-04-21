@@ -1,8 +1,8 @@
 
 #pragma once
 
-#include <Model/Node.h>
-#include <Model/PointNode.h>
+#include <Graph/Node.h>
+#include <Graph/PointNode.h>
 
 namespace ftr {
 

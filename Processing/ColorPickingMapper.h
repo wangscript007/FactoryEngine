@@ -2,8 +2,8 @@
 
 #pragma once
 
-#include <Model/Node.h>
-#include <Model/GroupNode.h>
+#include <Graph/Node.h>
+#include <Graph/GroupNode.h>
 
 namespace ftr {
     

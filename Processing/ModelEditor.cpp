@@ -5,6 +5,11 @@
 namespace ftr {
 
 ModelEditor::ModelEditor()
+    :mModelFactory(NULL),
+    mModelTree(NULL),
+    mActiveGroup(NULL),
+    mActiveBody(NULL)
+    
 {
     mModelTree = new class ModelTree();
     mModelFactory = new class ModelFactory(*mModelTree);

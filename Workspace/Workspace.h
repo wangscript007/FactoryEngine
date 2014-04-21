@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include <Model/Node.h>
+#include <Graph/Node.h>
 #include <Geometry/Rect.h>
 #include <Workspace/Pad.h>
 #include <Workspace/HUD.h>

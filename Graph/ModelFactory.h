@@ -4,11 +4,11 @@
 
 #pragma once
 
-#include <Model/PointNode.h>
-#include <Model/LineNode.h>
-#include <Model/FaceNode.h>
-#include <Model/GroupNode.h>
-#include <Model/BodyNode.h>
+#include <Graph/PointNode.h>
+#include <Graph/LineNode.h>
+#include <Graph/FaceNode.h>
+#include <Graph/GroupNode.h>
+#include <Graph/BodyNode.h>
 
 
 

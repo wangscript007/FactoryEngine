@@ -1,6 +1,6 @@
 
 #include <Processing/PointNodeIterator.h>
-#include <Model/PointNode.h>
+#include <Graph/PointNode.h>
 
 namespace ftr {
 

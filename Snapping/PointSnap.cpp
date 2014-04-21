@@ -1,6 +1,6 @@
 
 #include <Snapping/PointSnap.h>
-#include <Model/PointNode.h>
+#include <Graph/PointNode.h>
 
 namespace ftr {
     

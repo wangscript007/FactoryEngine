@@ -1,5 +1,5 @@
 
-#include <Model/LineNode.h>
+#include <Graph/LineNode.h>
 
 namespace ftr {
 

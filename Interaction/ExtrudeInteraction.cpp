@@ -1,5 +1,5 @@
 
-#include <Model/PointNode.h>
+#include <Graph/PointNode.h>
 #include <Processing/ModelEditor.h>
 #include <Interaction/ExtrudeInteraction.h>
 #include <Snapping/SnappingQueue.h>

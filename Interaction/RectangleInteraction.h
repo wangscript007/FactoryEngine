@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include <Model/Node.h>
+#include <Graph/Node.h>
 #include <Geometry/GeometryPrimitives.h>
 #include <Geometry/Polygon.h>
 

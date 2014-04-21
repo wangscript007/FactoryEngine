@@ -1,6 +1,6 @@
 
-#include <Model/PointNode.h>
-#include <Model/Node.h>
+#include <Graph/PointNode.h>
+#include <Graph/Node.h>
 
 namespace ftr {
     

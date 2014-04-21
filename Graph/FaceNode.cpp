@@ -1,9 +1,9 @@
 
-#include <Model/FaceNode.h>
-#include <Model/LineNode.h>
-#include <Model/PointNode.h>
+#include <Graph/FaceNode.h>
+#include <Graph/LineNode.h>
+#include <Graph/PointNode.h>
 #include <Processing/PointNodeIterator.h>
-#include <Model/Edge.h>
+#include <Graph/Edge.h>
 #include <Geometry/Triangle.h>
 
 
