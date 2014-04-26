@@ -9,6 +9,7 @@
 namespace ftr {
     
 const int kGamaSize = 255;
+const int kGranularity = 10000;
     
 const int R_MASK = kGamaSize;
 const int G_MASK = kGamaSize<<8; //65280
@@ -43,7 +44,7 @@ void ColorPickingMapper::MapPickingColors(enum Node::Type nodeType)
     switch (nodeType) {
         case Node::kPoint: break;
         case Node::kLine: break;
-        case Node::kFace: break;
+        case Node::kFace: MapPickingColorsForFaces(); break;
         case Node::kBody: break;
         case Node::kGroup: MapPickingColorsForGroups(); break;
             
@@ -58,10 +59,27 @@ void ColorPickingMapper::MapPickingColorsForGroups()
     mIntToNodeMap.clear();
     std::vector<GroupNode*>& groups = mModelTree->mGroups;
     for(int i = 0; i < groups.size(); ++i) {
-        mIntToNodeMap[i] = groups[i+1000];
-        groups[i]->setPickingId(i+1000);
+        int pickingId = (1+i)*kGranularity;
+        mIntToNodeMap[pickingId] = groups[i];
+        groups[i]->setPickingId(pickingId);
     }
 }
+    
+void ColorPickingMapper::MapPickingColorsForFaces()
+{
+    mIntToNodeMap.clear();
+    std::vector<GroupNode*>& groups = mModelTree->mGroups;
+    for(auto &groupNode : groups) {
+        for(auto &bodyNode : groupNode->mSubnodes) {
+            for(int i = 0; i < bodyNode->mSubnodes.size(); ++i) {
+                int pickingId = (1+i)*kGranularity;
+                mIntToNodeMap[pickingId] = bodyNode->mSubnodes[i];
+                bodyNode->mSubnodes[i]->setPickingId(pickingId);
+            }
+        }
+    }
+}
+
 
     
     

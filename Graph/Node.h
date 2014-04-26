@@ -38,11 +38,11 @@ public:
     virtual std::vector<PointNode*>* PointNodes() const { return NULL; }
     void                    setPickingId(int pickingId);
     int                     pickingId() const { return mPickingId; }
-    
+    NodesList               mSubnodes;
     
 protected:
     Node*                   mSupernode;
-    NodesList               mSubnodes;
+
     int                     mPickingId;
     
 };

@@ -41,7 +41,7 @@ void SelectInteraction::Begin()
         mEnd = glm::vec3();
         mStart = glm::vec3();
     }
-    mModelEditor.StartSelecting(ftr::Node::kGroup);
+    mModelEditor.StartSelecting(ftr::Node::kFace);
 }
 
 void SelectInteraction::Step()

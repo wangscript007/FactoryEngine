@@ -24,6 +24,7 @@ public:
 private:
     
     void MapPickingColorsForGroups();
+    void MapPickingColorsForFaces();
     
     std::map<int, Node*> mIntToNodeMap;
     
