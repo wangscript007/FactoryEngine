@@ -18,13 +18,19 @@ void LineNode::Render(Layer& layer)
         mStartPoint->Render(layer);
         mEndPoint->Render(layer);
         
-        linePrimitive.mBegin = mStartPoint->mOrigin;
-        linePrimitive.mEnd = mEndPoint->mOrigin;
-        linePrimitive.mColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-        linePrimitive.setOption(Primitive::kUseDepth, false);
-        layer.AddPrimitive(linePrimitive);
+        mLinePrimitive.mBegin = mStartPoint->mOrigin;
+        mLinePrimitive.mEnd = mEndPoint->mOrigin;
+        mLinePrimitive.mColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+        mLinePrimitive.setOption(Primitive::kUseDepth, false);
+        layer.AddPrimitive(mLinePrimitive);
     }
     
+}
+    
+void LineNode::Invalidate()
+{
+    Node::Invalidate();
+    mLinePrimitive.Invalidate();
 }
 
 void LineNode::Transform(const glm::mat4& m4Transformation)
@@ -32,6 +38,8 @@ void LineNode::Transform(const glm::mat4& m4Transformation)
     mStartPoint->Transform(m4Transformation);
     mEndPoint->Transform(m4Transformation);
 }
+    
+
     
 }
 

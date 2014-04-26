@@ -14,7 +14,8 @@ public:
     LineNode(PointNode* startPoint, PointNode* endPoint);
     virtual ~LineNode() {}
     
-    virtual void Render(Layer& layer);
+    void Render(Layer& layer);
+    void Invalidate();
     
     void setEndPoint(PointNode* endPoint) { mEndPoint = endPoint; }
     void setStartPoint(PointNode* startPoint) { mStartPoint = startPoint; }
@@ -23,7 +24,7 @@ public:
     virtual void Transform(const glm::mat4& m4Transformation);
 
 private:
-    LinePrimitive linePrimitive;
+    LinePrimitive mLinePrimitive;
     PointNode* mStartPoint;
     PointNode* mEndPoint;
 };

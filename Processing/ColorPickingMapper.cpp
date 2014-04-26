@@ -8,24 +8,26 @@
 
 namespace ftr {
     
-const int B_MASK = 255;
-const int G_MASK = 255<<8; //65280
-const int R_MASK = 255<<16; //16711680
+const int kGamaSize = 255;
     
-int ColorPickingMapper::IntFromColor(glm::vec3& vec)
+const int R_MASK = kGamaSize;
+const int G_MASK = kGamaSize<<8; //65280
+const int B_MASK = kGamaSize<<16; //16711680
+    
+int ColorPickingMapper::IntFromColor(const glm::vec3& vec)
 {
-    int r = vec.x;
-    int g = vec.y;
-    int b = vec.z;
+    int r = static_cast<int>(vec.x*kGamaSize);
+    int g = static_cast<int>(vec.y*kGamaSize);
+    int b = static_cast<int>(vec.z*kGamaSize);
     return r | (g << 8) | (b << 16);
 }
 
-glm::vec4 ColorPickingMapper::ColorFromInt(int number)
+glm::vec3 ColorPickingMapper::ColorFromInt(const int number)
 {
-    int r = number & R_MASK;
-    int g = number & G_MASK;
-    int b = number & B_MASK;
-    return glm::vec4(r, g, b, 1.0f);
+    float r = (number & R_MASK)/255.0f;
+    float g = ((number & G_MASK) >> 8)/255.0f;
+    float b = ((number & B_MASK) >> 16)/255.0f;
+    return glm::vec3(r, g, b);
 }
 
         
@@ -56,8 +58,8 @@ void ColorPickingMapper::MapPickingColorsForGroups()
     mIntToNodeMap.clear();
     std::vector<GroupNode*>& groups = mModelTree->mGroups;
     for(int i = 0; i < groups.size(); ++i) {
-        mIntToNodeMap[i] = groups[i];
-        groups[i]->setPickingId(i);
+        mIntToNodeMap[i] = groups[i+1000];
+        groups[i]->setPickingId(i+1000);
     }
 }
 

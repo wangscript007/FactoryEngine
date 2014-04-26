@@ -12,8 +12,8 @@ class ModelTree;
 class ColorPickingMapper
 {
 public:
-    static int IntFromColor(glm::vec3& vec);
-    static glm::vec4 ColorFromInt(int number);
+    static int IntFromColor(const glm::vec3& vec);
+    static glm::vec3 ColorFromInt(const int number);
     
     ColorPickingMapper(ModelTree& modelTree);
     ~ColorPickingMapper() {};

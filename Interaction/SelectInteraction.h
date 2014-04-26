@@ -19,6 +19,9 @@ public:
     void Step();
     void Finish();
     
+    void setStart(const glm::vec2& start);
+    void setEnd(const glm::vec2& end);
+    
     const glm::vec3& start() const { return mStart; }
     const glm::vec3& end() const { return mEnd; }
     

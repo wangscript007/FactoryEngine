@@ -30,6 +30,30 @@ FaceNode::FaceNode(const std::vector<Edge*>& edges)
     BoundByLoopWithEdge(*edges.front());
 }
     
+void FaceNode::Render(Layer& layer)
+{
+    Node::Render(layer);
+    mPolygonPrimitive.mColor = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
+    glm::vec3 color = glm::vec3(ColorPickingMapper::ColorFromInt(mPickingId));
+    mPolygonPrimitive.mPickingColor = glm::vec4(color.x, color.y, color.z, 1.0f);
+    Edge* currentEdge = mOuterEdge;
+    do {
+        mPolygonPrimitive.mVec.push_back(currentEdge->origin());
+        if (!currentEdge->next()) {
+            assert(false); // face is messed up!
+        }
+        currentEdge = currentEdge->next();
+    } while (currentEdge != mOuterEdge);
+    mPolygonPrimitive.setOption(Primitive::kUseDepth, true);
+    layer.AddPrimitive(mPolygonPrimitive);
+}
+    
+void FaceNode::Invalidate()
+{
+    Node::Invalidate();
+    mPolygonPrimitive.Invalidate();
+}
+    
 FaceNode::FaceNode(const std::vector<glm::vec3>& points)
 {
     assert(points.size() > 2);
@@ -128,23 +152,6 @@ std::vector<PointNode*> FaceNode::GetPointNodes() const
 }
 
     
-
-void FaceNode::Render(Layer& layer)
-{
-    Node::Render(layer);
-    mPolygonPrimitive.mColor = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
-    mPolygonPrimitive.mPickingColor = ColorPickingMapper::ColorFromInt(pickingId());
-    Edge* currentEdge = mOuterEdge;
-    do {
-        mPolygonPrimitive.mVec.push_back(currentEdge->origin());
-        if (!currentEdge->next()) {
-            assert(false); // face is messed up!
-        }
-        currentEdge = currentEdge->next();
-    } while (currentEdge != mOuterEdge);
-    mPolygonPrimitive.setOption(Primitive::kUseDepth, true);
-    layer.AddPrimitive(mPolygonPrimitive);
-}
 
 #pragma mark - Instance
     

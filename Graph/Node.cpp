@@ -1,6 +1,8 @@
 
 #include <Graph/PointNode.h>
 #include <Graph/Node.h>
+#include <Utils/Description.h>
+#include <Processing/ColorPickingMapper.h>
 
 namespace ftr {
     
@@ -38,6 +40,14 @@ void Node::Render(Layer& layer)
         node->Render(layer);
     }
 }
+    
+void Node::Invalidate()
+{
+    for(auto &node : mSubnodes)
+    {
+        node->Invalidate();
+    }
+}
 
 void Node::Transform(const glm::mat4& m4Transformation)
 {    
@@ -53,6 +63,11 @@ void Node::setPickingId(int pickingId)
     for(auto &node : mSubnodes) {
         node->setPickingId(pickingId);
     }
+    std::cout << Description::Described(ColorPickingMapper::ColorFromInt(mPickingId)) << std::endl;
+    Invalidate();
+
 }
+    
+
 
 }

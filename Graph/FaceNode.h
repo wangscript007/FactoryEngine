@@ -24,6 +24,8 @@ public:
     ~FaceNode();
     
     void Render(Layer& layer);
+    void Invalidate();
+    
     static void OrderAscending(Edge& edge1, Edge& edge2);
     void BoundByLoopWithEdge(Edge& outerEdge);
     void AddHoleBoundedByLoopWithEdge(Edge& innerEdge);

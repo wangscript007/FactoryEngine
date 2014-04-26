@@ -265,6 +265,10 @@
 		D13CAE0118E1C30400C2A180 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
 		D13CAE0218E1C30F00C2A180 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
 		D13DC913157A9FF500C84006 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13DC912157A9FF500C84006 /* OpenGL.framework */; };
+		D15130D5190BDCB200BA09AB /* TestColorPickingMapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = D15130D4190BDCB200BA09AB /* TestColorPickingMapper.mm */; };
+		D15130D6190BDE0400BA09AB /* ColorPickingMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = D15A7DDC18FB15B1004CB791 /* ColorPickingMapper.h */; };
+		D15130D7190BDE0800BA09AB /* ColorPickingMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */; };
+		D15130D8190BDE0800BA09AB /* ColorPickingMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */; };
 		D152781918E5890B00C48850 /* TestSegment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60988087180584A60064477E /* TestSegment.mm */; };
 		D152781A18E5890B00C48850 /* TestLineInteraction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60A05FC31809DA8A004DD045 /* TestLineInteraction.mm */; };
 		D152781B18E5890B00C48850 /* TestCylinder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60758B6D180F3020004BE067 /* TestCylinder.mm */; };
@@ -558,6 +562,7 @@
 		D13CAE0318E1CBE700C2A180 /* TestPolygon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPolygon.mm; sourceTree = "<group>"; };
 		D13DC90B157A9F8C00C84006 /* libFactoryEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFactoryEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13DC912157A9FF500C84006 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		D15130D4190BDCB200BA09AB /* TestColorPickingMapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestColorPickingMapper.mm; sourceTree = "<group>"; };
 		D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ColorPickingMapper.cpp; sourceTree = "<group>"; };
 		D15A7DDC18FB15B1004CB791 /* ColorPickingMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickingMapper.h; sourceTree = "<group>"; };
 		D1693B6818E58BAE000AFE41 /* FaceTraversal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FaceTraversal.cpp; sourceTree = "<group>"; };
@@ -744,6 +749,7 @@
 				D13CAE0318E1CBE700C2A180 /* TestPolygon.mm */,
 				D185302818F14BE4001A7AB1 /* TestExtrudeInteraction.mm */,
 				D185302A18F14C1A001A7AB1 /* TestFaceExtruder.mm */,
+				D15130D4190BDCB200BA09AB /* TestColorPickingMapper.mm */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1075,6 +1081,7 @@
 				D1693B8518E58CA4000AFE41 /* Octree.h in Headers */,
 				60BD72221756807D007D7DC6 /* LigthtingModelFactory.h in Headers */,
 				D18ECC84190517A400189A01 /* LineNode.h in Headers */,
+				D15130D6190BDE0400BA09AB /* ColorPickingMapper.h in Headers */,
 				60BD72241756807D007D7DC6 /* LightingModel.h in Headers */,
 				60BD72261756807D007D7DC6 /* DefaultLighting.h in Headers */,
 				D18ECC89190517A400189A01 /* ModelFactory.h in Headers */,
@@ -1317,6 +1324,7 @@
 				603BA5DE17E87437007CE822 /* Layer.cpp in Sources */,
 				603BA5DF17E87437007CE822 /* LineRenderer.cpp in Sources */,
 				603BA5E017E87437007CE822 /* PolygonRenderer.cpp in Sources */,
+				D15130D5190BDCB200BA09AB /* TestColorPickingMapper.mm in Sources */,
 				603BA5E117E87437007CE822 /* RectangleRenderer.cpp in Sources */,
 				603BA5E217E87437007CE822 /* PointRenderer.cpp in Sources */,
 				60A05FC61809DB06004DD045 /* Snap.cpp in Sources */,
@@ -1330,6 +1338,7 @@
 				60A05FC71809DB15004DD045 /* PointSnap.cpp in Sources */,
 				D18ECC7D190517A400189A01 /* GroupNode.cpp in Sources */,
 				603BA5E617E87437007CE822 /* DefaultLighting.cpp in Sources */,
+				D15130D8190BDE0800BA09AB /* ColorPickingMapper.cpp in Sources */,
 				603BA5E717E87437007CE822 /* Light.cpp in Sources */,
 				D1B990F818FEC88600DC5843 /* SelectInteraction.cpp in Sources */,
 				D11D1D6418DF70D40091521F /* advancing_front.cc in Sources */,
@@ -1455,6 +1464,7 @@
 				D18ECC95190517A400189A01 /* PolylineNode.cpp in Sources */,
 				60BD72231756807D007D7DC6 /* LightingModel.cpp in Sources */,
 				60BD72251756807D007D7DC6 /* DefaultLighting.cpp in Sources */,
+				D15130D7190BDE0800BA09AB /* ColorPickingMapper.cpp in Sources */,
 				60BD72271756807D007D7DC6 /* Light.cpp in Sources */,
 				60458B25175B8EF8000679CE /* CameraInteraction.cpp in Sources */,
 			);

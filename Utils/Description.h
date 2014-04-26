@@ -10,6 +10,7 @@ class Description
 {
 public:
     static std::string Described(const glm::vec3 v);
+    static std::string Described(const glm::vec4 v);
     
 private:
     

@@ -28,7 +28,9 @@ public:
                             ~Node();
     
     virtual void            Render(Layer& layer);
+    virtual void            Invalidate();
     virtual Type            Type() const { return kNone; }
+  
     void                    AddNode(Node* pNode);
     void                    RemoveNode(Node* pMode);
     Node*                   Supernode() const { return mSupernode; }
@@ -37,7 +39,8 @@ public:
     void                    setPickingId(int pickingId);
     int                     pickingId() const { return mPickingId; }
     
-private:
+    
+protected:
     Node*                   mSupernode;
     NodesList               mSubnodes;
     int                     mPickingId;

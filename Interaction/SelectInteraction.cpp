@@ -17,6 +17,17 @@ SelectInteraction::~SelectInteraction()
 }
 
 #pragma mark Instance
+    
+void SelectInteraction::setStart(const glm::vec2& start)
+{
+    
+}
+
+void SelectInteraction::setEnd(const glm::vec2& endViewport)
+{
+    
+}
+
 
 void SelectInteraction::Render(Layer& layer)
 {
@@ -35,6 +46,7 @@ void SelectInteraction::Begin()
 
 void SelectInteraction::Step()
 {
+    
 }
 
 void SelectInteraction::Finish()
