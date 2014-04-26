@@ -37,6 +37,7 @@ void FaceNode::Render(Layer& layer)
     glm::vec3 color = glm::vec3(ColorPickingMapper::ColorFromInt(mPickingId));
     mPolygonPrimitive.mPickingColor = glm::vec4(color.x, color.y, color.z, 1.0f);
     Edge* currentEdge = mOuterEdge;
+    mPolygonPrimitive.mVec.clear();
     do {
         mPolygonPrimitive.mVec.push_back(currentEdge->origin());
         if (!currentEdge->next()) {

@@ -13,6 +13,7 @@ void PolygonRenderer::Render(Primitive& primitive)
 {
     PolygonPrimitive& polygonPrimitive = reinterpret_cast<PolygonPrimitive&>(primitive);
     if (polygonPrimitive.mSubpolygons.size()) {
+        primitive.renderData(mShadingInterface);
         for (int i = 0; i < polygonPrimitive.mSubpolygons.size(); ++i) {
             PolygonPrimitive* subprimitive = polygonPrimitive.mSubpolygons[i];
             subprimitive->renderData(mShadingInterface);

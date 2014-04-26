@@ -150,16 +150,15 @@ void RectanglePrimitive::AssignSurfaceNormals(RectanglePrimitive::Data* data)
 char* PolygonPrimitive::CreateRenderData(ShadingInterface& shadingInterface)
 {
     if (mVec.size() > 3) {
+        mSubpolygons.clear();
         Polygon polygon(mVec);
         polygon.Triangulate();
         for (auto &triangle : polygon.GetTriangles()) {
             PolygonPrimitive* primitive = new PolygonPrimitive(((Triangle*)triangle)->GetPoints());
             primitive->mColor = mColor;
             primitive->mPickingColor = mPickingColor;
-            
             mSubpolygons.push_back(primitive);
         }
-        
     }
     else {
         PolygonPrimitive::Data* data = reinterpret_cast<PolygonPrimitive::Data*>(new char[sizeof(PolygonPrimitive::Data)]);
