@@ -57,15 +57,10 @@ using namespace ftr;
 - (void)testTwoTriangles3D
 {
     FaceNode* face = NULL;
-    
     v1->ConnectTo(v3);
-    
     v3->ConnectTo(v4);
-    
     v4->ConnectTo(v1);
-    
     v1->ConnectTo(v2h);
-    
     v2h->ConnectTo(v3);
     
 }
@@ -73,27 +68,12 @@ using namespace ftr;
 - (void)testTwoTrianglesOrdered
 {
     FaceNode* face = NULL;
-    
     v1->ConnectTo(v2);
-    
-    
-    
     v2->ConnectTo(v3);
-    
-    
-    
     v3->ConnectTo(v1);
-    
-    
-    
     v4->ConnectTo(v3);
-    
-    
     v1->ConnectTo(v4);
-    
-    
     v5->ConnectTo(v4);
-    
 }
 
 
@@ -166,13 +146,9 @@ using namespace ftr;
 - (void)testQuadrate
 {
     FaceNode* face = NULL;
-    
     v2->ConnectTo(v3);
-    
     v1->ConnectTo(v2);
-    
     v4->ConnectTo(v3);
-    
     v4->ConnectTo(v1);
     
 }

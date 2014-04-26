@@ -7,6 +7,7 @@ namespace ftr {
     
 class ModelEditor;
 class PointNode;
+class Picker;
 
 class SelectInteraction : public Node
 {
@@ -15,20 +16,10 @@ public:
     virtual ~SelectInteraction();
     void Render(Layer& layer);
     
-    void Begin();
-    void Step();
-    void Finish();
-    
-    void setStart(const glm::vec2& start);
-    void setEnd(const glm::vec2& end);
-    
-    const glm::vec3& start() const { return mStart; }
-    const glm::vec3& end() const { return mEnd; }
-    
+    void Select(const glm::vec2& point);    
+    void TurnOn();
+    void TurnOff();
 private:
-    glm::vec3 mStart;
-    glm::vec3 mEnd;
-    bool mActive;
     
     ModelEditor& mModelEditor;
 };

@@ -18,6 +18,7 @@ class Camera;
 class ShadingLibrary;
 class Workspace;
 class LightingCollection;
+class Picker;
     
 class Scene
 {
@@ -51,6 +52,8 @@ public:
     Framebuffer*        colorMarkingFramebuffer() const { return mSceneRenderer->colorMarkingFramebuffer(); }
     const Viewport&     viewport() const { return mViewport; }
     
+
+    
     void setOption(Option option, bool value);
     bool option(Option option) const { return (mOptions & static_cast<unsigned int>(option)) != 0; }
     
@@ -63,6 +66,8 @@ private:
     ShadingLibrary*     mShadingLibrary;
     LightingCollection* mLightingCollection;
     Viewport            mViewport;
+    Picker*             mPicker;
+    
     
     Leap::Controller    mLeapController;
     LeapListener        mleapListener;

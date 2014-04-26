@@ -269,6 +269,11 @@
 		D15130D6190BDE0400BA09AB /* ColorPickingMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = D15A7DDC18FB15B1004CB791 /* ColorPickingMapper.h */; };
 		D15130D7190BDE0800BA09AB /* ColorPickingMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */; };
 		D15130D8190BDE0800BA09AB /* ColorPickingMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */; };
+		D15130DC190C3DD800BA09AB /* Picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15130DA190C3DD800BA09AB /* Picker.cpp */; };
+		D15130DD190C3DD800BA09AB /* Picker.h in Headers */ = {isa = PBXBuildFile; fileRef = D15130DB190C3DD800BA09AB /* Picker.h */; };
+		D15130DE190C3E9F00BA09AB /* Picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15130DA190C3DD800BA09AB /* Picker.cpp */; };
+		D15130DF190C3EA000BA09AB /* Picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15130DA190C3DD800BA09AB /* Picker.cpp */; };
+		D15130E0190C3EA300BA09AB /* Picker.h in Headers */ = {isa = PBXBuildFile; fileRef = D15130DB190C3DD800BA09AB /* Picker.h */; };
 		D152781918E5890B00C48850 /* TestSegment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60988087180584A60064477E /* TestSegment.mm */; };
 		D152781A18E5890B00C48850 /* TestLineInteraction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60A05FC31809DA8A004DD045 /* TestLineInteraction.mm */; };
 		D152781B18E5890B00C48850 /* TestCylinder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60758B6D180F3020004BE067 /* TestCylinder.mm */; };
@@ -563,6 +568,8 @@
 		D13DC90B157A9F8C00C84006 /* libFactoryEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFactoryEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13DC912157A9FF500C84006 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		D15130D4190BDCB200BA09AB /* TestColorPickingMapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestColorPickingMapper.mm; sourceTree = "<group>"; };
+		D15130DA190C3DD800BA09AB /* Picker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Picker.cpp; sourceTree = "<group>"; };
+		D15130DB190C3DD800BA09AB /* Picker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Picker.h; sourceTree = "<group>"; };
 		D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ColorPickingMapper.cpp; sourceTree = "<group>"; };
 		D15A7DDC18FB15B1004CB791 /* ColorPickingMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickingMapper.h; sourceTree = "<group>"; };
 		D1693B6818E58BAE000AFE41 /* FaceTraversal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FaceTraversal.cpp; sourceTree = "<group>"; };
@@ -708,6 +715,8 @@
 		6056C56D15DC5522008F8E92 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				D15130DA190C3DD800BA09AB /* Picker.cpp */,
+				D15130DB190C3DD800BA09AB /* Picker.h */,
 				6032717417EB17C700249562 /* SceneRenderer.cpp */,
 				6032717517EB17C700249562 /* SceneRenderer.h */,
 				6055CFD217417DCB009F1F46 /* Camera.cpp */,
@@ -1069,6 +1078,7 @@
 				60C6D0A3174961470009EC3C /* LineRenderer.h in Headers */,
 				60C6D0A4174961470009EC3C /* PolygonRenderer.h in Headers */,
 				60C6D0A5174961470009EC3C /* RectangleRenderer.h in Headers */,
+				D15130E0190C3EA300BA09AB /* Picker.h in Headers */,
 				60C6D0A6174961470009EC3C /* Bounds.h in Headers */,
 				D1693B8F18E5B195000AFE41 /* Constants.h in Headers */,
 				60C6D0A7174961470009EC3C /* PointRenderer.h in Headers */,
@@ -1109,6 +1119,7 @@
 				D1F44F56157FE9D200566119 /* HUD.h in Headers */,
 				D17C76AC1584E3900083E2B0 /* GLError.h in Headers */,
 				D185302318F145D5001A7AB1 /* ExtrudeInteraction.h in Headers */,
+				D15130DD190C3DD800BA09AB /* Picker.h in Headers */,
 				D19B99D31902F003000BF781 /* GroupInteraction.h in Headers */,
 				D16D270418D5E8FB0095B177 /* Triangle.h in Headers */,
 				60A575E71690DDEE0050FAFC /* Prefix.pch in Headers */,
@@ -1309,6 +1320,7 @@
 				603BA5D217E87437007CE822 /* GeometryPrimitives.cpp in Sources */,
 				D1693B7F18E58C9E000AFE41 /* FaceTraversal.cpp in Sources */,
 				603BA5D917E87437007CE822 /* ShadingLibrary.cpp in Sources */,
+				D15130DF190C3EA000BA09AB /* Picker.cpp in Sources */,
 				D152781918E5890B00C48850 /* TestSegment.mm in Sources */,
 				D18ECC87190517A400189A01 /* ModelFactory.cpp in Sources */,
 				603BA5DA17E87437007CE822 /* Shader.cpp in Sources */,
@@ -1461,6 +1473,7 @@
 				60C6D0C11749739B0009EC3C /* Rect.cpp in Sources */,
 				60BD722017568077007D7DC6 /* LigthtingModelFactory.cpp in Sources */,
 				D18ECC81190517A400189A01 /* LineNode.cpp in Sources */,
+				D15130DE190C3E9F00BA09AB /* Picker.cpp in Sources */,
 				D18ECC95190517A400189A01 /* PolylineNode.cpp in Sources */,
 				60BD72231756807D007D7DC6 /* LightingModel.cpp in Sources */,
 				60BD72251756807D007D7DC6 /* DefaultLighting.cpp in Sources */,
@@ -1492,6 +1505,7 @@
 				D1BE952818F721C40022D7C7 /* SelectInteraction.cpp in Sources */,
 				6047DB9316B46A890012286F /* RectangleInteraction.cpp in Sources */,
 				606BC00D1808639500EC4F37 /* Snap.cpp in Sources */,
+				D15130DC190C3DD800BA09AB /* Picker.cpp in Sources */,
 				605CD4FC16FDE992005CCAA2 /* MoveInteraction.cpp in Sources */,
 				605CD4FE16FDF820005CCAA2 /* LineInteraction.cpp in Sources */,
 				60A4ED6016FE28BA0083DCD2 /* RotationInteraction.cpp in Sources */,

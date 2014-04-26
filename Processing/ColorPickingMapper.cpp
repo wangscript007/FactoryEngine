@@ -31,6 +31,19 @@ glm::vec3 ColorPickingMapper::ColorFromInt(const int number)
     return glm::vec3(r, g, b);
 }
 
+Node* ColorPickingMapper::NodeForColor(const glm::vec3& color)
+{
+    int pickingId = IntFromColor(color);
+    if (Exist(pickingId)) {
+        return mIntToNodeMap[pickingId];
+    }
+    return NULL;
+}
+    
+bool ColorPickingMapper::Exist(int pickingId)
+{
+    return mIntToNodeMap.find(pickingId) != mIntToNodeMap.end();
+}
         
 ColorPickingMapper::ColorPickingMapper(ModelTree& modelTree)
     : mModelTree(&modelTree)

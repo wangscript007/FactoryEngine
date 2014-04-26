@@ -19,12 +19,16 @@ public:
     ~ColorPickingMapper() {};
     
     void MapPickingColors(enum Node::Type nodeType);
+    Node* NodeForColor(const glm::vec3& color);
+    
     
     
 private:
     
     void MapPickingColorsForGroups();
     void MapPickingColorsForFaces();
+    
+    bool Exist(int pickingId);
     
     std::map<int, Node*> mIntToNodeMap;
     

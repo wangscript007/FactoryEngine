@@ -2,13 +2,14 @@
 #include <Graph/PointNode.h>
 #include <Processing/ModelEditor.h>
 #include <Interaction/SelectInteraction.h>
+#include <Scene/Picker.h>
 
 namespace ftr {
     
 SelectInteraction::SelectInteraction(ModelEditor& modelEditor, const Viewport& viewport)
-:mModelEditor(modelEditor)
-,mActive(false)
+    :mModelEditor(modelEditor)
 {
+
 }
 
 SelectInteraction::~SelectInteraction()
@@ -18,42 +19,24 @@ SelectInteraction::~SelectInteraction()
 
 #pragma mark Instance
     
-void SelectInteraction::setStart(const glm::vec2& start)
+void SelectInteraction::Select(const glm::vec2& point)
 {
-    
+    Node* node = mModelEditor.picker()->Pick(point);
 }
-
-void SelectInteraction::setEnd(const glm::vec2& endViewport)
+    
+void SelectInteraction::TurnOn()
 {
-    
+    mModelEditor.picker()->setOn(true);
 }
-
-
+    
+void SelectInteraction::TurnOff()
+{
+    mModelEditor.picker()->setOn(false);
+}
+    
 void SelectInteraction::Render(Layer& layer)
 {
     Node::Render(layer);
 }
-
-void SelectInteraction::Begin()
-{
-    if (!mActive) {
-        mActive = true;
-        mEnd = glm::vec3();
-        mStart = glm::vec3();
-    }
-    mModelEditor.StartSelecting(ftr::Node::kFace);
-}
-
-void SelectInteraction::Step()
-{
     
-}
-
-void SelectInteraction::Finish()
-{
-    mActive = false;
-}
-
-
-
 }

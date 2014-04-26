@@ -2,6 +2,7 @@
 #include <Processing/ModelEditor.h>
 #include <Processing/FaceExtruder.h>
 #include <Processing/ColorPickingMapper.h>
+#include <Scene/Picker.h>
 
 namespace ftr {
 
@@ -14,7 +15,6 @@ ModelEditor::ModelEditor()
 {
     mModelTree = new class ModelTree();
     mModelFactory = new class ModelFactory(*mModelTree);
-    mColorPickingMapper = new ColorPickingMapper(*mModelTree);
     mActiveGroup = CreateGroup();
     mActiveBody = CreateBody();
 }
@@ -23,18 +23,12 @@ ModelEditor::~ModelEditor()
 {
     FT_DELETE(mModelFactory);
     FT_DELETE(mModelTree);
-    FT_DELETE(mColorPickingMapper);
     FT_DELETE(mActiveBody);
     FT_DELETE(mActiveGroup);
 }
 
 #pragma mark - Instance
     
-void ModelEditor::StartSelecting(enum Node::Type nodeType)
-{
-    mColorPickingMapper->MapPickingColors(nodeType);
-}
-
 PointNode* ModelEditor::NearestPointToCenterInSphere(const Sphere& sSphere) const
 {
     std::vector<PointNode*> cPointsVector;

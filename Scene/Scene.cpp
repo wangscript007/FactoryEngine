@@ -4,6 +4,7 @@
 
 
 #include <Scene/Scene.h>
+#include <Scene/Picker.h>
 #include <Render/Layer.h>
 #include <Render/LayerRenderer.h>
 #include <Scene/Viewport.h>
@@ -29,6 +30,7 @@ Scene::Scene() :
     mWorkspace = new Workspace(mLayer);
 
     mModelEditor = new ModelEditor();
+    
 
     mWorkspace->setOctree(*mModelEditor->ModelTree()->Octree());
     mWorkspace->setModelTree(mModelEditor->ModelTree());
@@ -45,6 +47,7 @@ Scene::~Scene()
     FT_DELETE(mLayer);
     FT_DELETE(mShadingLibrary);
     FT_DELETE(mLightingCollection);
+    FT_DELETE(mPicker);
 }
     
 void Scene::setOption(Option option, bool value)
@@ -75,6 +78,9 @@ void Scene::Prepare()
     activeLightingModel->SetupLights();
     activeLightingModel->SendDataToShader();
     mSceneRenderer = new SceneRenderer(*mShadingLibrary, *mCamera);
+    
+    mPicker = new Picker(*mModelEditor->ModelTree(), *mSceneRenderer);
+    mModelEditor->setPicker(mPicker);
 }
 
 #pragma mark Workspace
@@ -111,6 +117,6 @@ void Scene::AddShader(const std::string& name, const std::string& source, GLenum
 {
     mShadingLibrary->Add(name, source, type);
 }
-    
+
 
 }

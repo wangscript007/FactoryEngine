@@ -10,6 +10,7 @@
 namespace ftr {
     
 class ColorPickingMapper;
+class Picker;
 
 class ModelEditor
 {
@@ -28,12 +29,14 @@ public:
     
     unsigned long   Size() { return mModelTree->Size(); }
 
+    
     PointNode*      CreatePoint(glm::vec3 origin);
     LineNode*       CreateLine(PointNode* startPoint, PointNode* endPoint);
     BodyNode*       CreateBody();
     GroupNode*      CreateGroup();
     
-    void            StartSelecting(enum Node::Type nodeType);
+    Picker*         picker() const { return mPicker; }
+    void            setPicker(Picker* picker) { mPicker = picker; }
     
 private:
     
@@ -41,7 +44,7 @@ private:
     class ModelTree*    mModelTree;
     GroupNode*          mActiveGroup;
     BodyNode*           mActiveBody;
-    ColorPickingMapper* mColorPickingMapper;
+    Picker*             mPicker;
 };
     
 }
