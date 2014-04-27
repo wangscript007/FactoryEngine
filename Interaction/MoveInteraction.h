@@ -12,18 +12,19 @@ public:
     MoveInteraction(ModelEditor& ModelEditor);
     virtual ~MoveInteraction() {}
     
-    void Render();
-    void setStart(glm::vec3 start);
-    void setEnd(glm::vec3 end);
+    void Render(Layer &layer);
     
-    void Select(const glm::vec2& point);
+    void Select(const glm::vec2& startPoint);
+    void MoveTo(const glm::vec2& targetPoint);
+    
     void TurnOn();
     void TurnOff();
     
 private:
-    glm::vec3 mStart;
-    glm::vec3 mEnd;
-    Node* mNode;
+    glm::vec2 mStart;
+    glm::vec2 mTarget;
+    
+    Node* mSelectedNode;
     ModelEditor& mModelEditor;
     bool mActive;
 };

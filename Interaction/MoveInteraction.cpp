@@ -10,27 +10,28 @@ MoveInteraction::MoveInteraction(ModelEditor& ModelEditor)
 ,mActive(false)
 {}
 
-void MoveInteraction::Render()
+void MoveInteraction::Render(Layer &layer)
 {
-    
+    Node::Render(layer);
 }
 
 #pragma mark Instance
-
-void MoveInteraction::setStart(glm::vec3 start)
-{
-    mStart = start;
-}
-
-void MoveInteraction::setEnd(glm::vec3 end)
-{
-    mEnd = end;
-    mStart = end;
-}
     
 void MoveInteraction::Select(const glm::vec2& point)
 {
     Node* node = mModelEditor.picker()->Pick(point);
+    if (node && node != mSelectedNode) {
+        if (mSelectedNode) {
+            mSelectedNode->setSelected(false);
+        }
+        mSelectedNode = node;
+        mSelectedNode->setSelected(true);
+    }    
+}
+    
+void MoveInteraction::MoveTo(const glm::vec2& targetPoint)
+{
+    
 }
 
 void MoveInteraction::TurnOn()
