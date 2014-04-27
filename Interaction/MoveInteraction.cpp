@@ -1,6 +1,7 @@
 
 #include <Interaction/MoveInteraction.h>
 #include <Processing/ModelEditor.h>
+#include <Scene/Picker.h>
 
 namespace ftr {
 
@@ -24,8 +25,23 @@ void MoveInteraction::setStart(glm::vec3 start)
 void MoveInteraction::setEnd(glm::vec3 end)
 {
     mEnd = end;
-//    mModelEditor.SelectedNode()->Transform(Transformation::Translate(mEnd - mStart));
     mStart = end;
 }
+    
+void MoveInteraction::Select(const glm::vec2& point)
+{
+    Node* node = mModelEditor.picker()->Pick(point);
+}
+
+void MoveInteraction::TurnOn()
+{
+    mModelEditor.picker()->setOn(true);
+}
+
+void MoveInteraction::TurnOff()
+{
+    mModelEditor.picker()->setOn(false);
+}
+
 
 }

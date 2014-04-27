@@ -65,9 +65,13 @@ void Node::setPickingId(int pickingId)
     }
     std::cout << Description::Described(ColorPickingMapper::ColorFromInt(mPickingId)) << std::endl;
     Invalidate();
-
 }
     
-
+void Node::setSelected(bool selected)
+{
+    mSelected = selected;
+    Invalidate();
+}
+    
 
 }

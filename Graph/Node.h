@@ -40,10 +40,13 @@ public:
     int                     pickingId() const { return mPickingId; }
     NodesList               mSubnodes;
     
+    void                    setSelected(bool selected);
+    
 protected:
     Node*                   mSupernode;
 
     int                     mPickingId;
+    bool                    mSelected;
     
 };
 

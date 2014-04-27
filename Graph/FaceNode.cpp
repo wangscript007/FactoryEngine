@@ -33,7 +33,11 @@ FaceNode::FaceNode(const std::vector<Edge*>& edges)
 void FaceNode::Render(Layer& layer)
 {
     Node::Render(layer);
-    mPolygonPrimitive.mColor = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
+    if (mSelected) {
+        mPolygonPrimitive.mColor = glm::vec4(44/255.0f, 64/255.0f, 0.5f, 127/2555.0f);
+    } else {
+        mPolygonPrimitive.mColor = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
+    }
     glm::vec3 color = glm::vec3(ColorPickingMapper::ColorFromInt(mPickingId));
     mPolygonPrimitive.mPickingColor = glm::vec4(color.x, color.y, color.z, 1.0f);
     Edge* currentEdge = mOuterEdge;

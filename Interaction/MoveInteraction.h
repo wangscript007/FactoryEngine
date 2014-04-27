@@ -16,6 +16,10 @@ public:
     void setStart(glm::vec3 start);
     void setEnd(glm::vec3 end);
     
+    void Select(const glm::vec2& point);
+    void TurnOn();
+    void TurnOff();
+    
 private:
     glm::vec3 mStart;
     glm::vec3 mEnd;

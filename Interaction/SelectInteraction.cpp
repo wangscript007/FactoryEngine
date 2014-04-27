@@ -7,7 +7,8 @@
 namespace ftr {
     
 SelectInteraction::SelectInteraction(ModelEditor& modelEditor, const Viewport& viewport)
-    :mModelEditor(modelEditor)
+    :mModelEditor(modelEditor),
+    mSelectedNode(NULL)
 {
 
 }
@@ -22,6 +23,13 @@ SelectInteraction::~SelectInteraction()
 void SelectInteraction::Select(const glm::vec2& point)
 {
     Node* node = mModelEditor.picker()->Pick(point);
+    if (node && node != mSelectedNode) {
+        if (mSelectedNode) {
+            mSelectedNode->setSelected(false);
+        }
+        mSelectedNode = node;
+        mSelectedNode->setSelected(true);
+    }
 }
     
 void SelectInteraction::TurnOn()

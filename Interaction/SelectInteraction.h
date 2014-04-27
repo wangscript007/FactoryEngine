@@ -21,6 +21,7 @@ public:
     void TurnOff();
 private:
     
+    Node* mSelectedNode;
     ModelEditor& mModelEditor;
 };
     
