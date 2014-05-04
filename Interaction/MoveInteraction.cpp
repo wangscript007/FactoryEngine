@@ -31,7 +31,6 @@ void MoveInteraction::Select(const glm::vec2& point)
     
 void MoveInteraction::MoveTo(const glm::vec2& targetPoint)
 {
-    
 }
 
 void MoveInteraction::TurnOn()

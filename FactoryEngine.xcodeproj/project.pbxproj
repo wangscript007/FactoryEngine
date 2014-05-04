@@ -332,6 +332,7 @@
 		D185302B18F14C1A001A7AB1 /* TestFaceExtruder.mm in Sources */ = {isa = PBXBuildFile; fileRef = D185302A18F14C1A001A7AB1 /* TestFaceExtruder.mm */; };
 		D185302C18F16A76001A7AB1 /* FaceExtruder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302418F148A8001A7AB1 /* FaceExtruder.cpp */; };
 		D185302D18F16A76001A7AB1 /* FaceExtruder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302418F148A8001A7AB1 /* FaceExtruder.cpp */; };
+		D189C66B1916420D00E9FB1A /* TestGeometry.mm in Sources */ = {isa = PBXBuildFile; fileRef = D189C66A1916420D00E9FB1A /* TestGeometry.mm */; };
 		D18ECC6C190517A400189A01 /* BodyNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC5A190517A400189A01 /* BodyNode.cpp */; };
 		D18ECC6D190517A400189A01 /* BodyNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC5A190517A400189A01 /* BodyNode.cpp */; };
 		D18ECC6E190517A400189A01 /* BodyNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC5A190517A400189A01 /* BodyNode.cpp */; };
@@ -595,6 +596,7 @@
 		D185302518F148A8001A7AB1 /* FaceExtruder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceExtruder.h; sourceTree = "<group>"; };
 		D185302818F14BE4001A7AB1 /* TestExtrudeInteraction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestExtrudeInteraction.mm; sourceTree = "<group>"; };
 		D185302A18F14C1A001A7AB1 /* TestFaceExtruder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestFaceExtruder.mm; sourceTree = "<group>"; };
+		D189C66A1916420D00E9FB1A /* TestGeometry.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestGeometry.mm; sourceTree = "<group>"; };
 		D18ECC5A190517A400189A01 /* BodyNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BodyNode.cpp; sourceTree = "<group>"; };
 		D18ECC5B190517A400189A01 /* BodyNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BodyNode.h; sourceTree = "<group>"; };
 		D18ECC5C190517A400189A01 /* Edge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Edge.cpp; sourceTree = "<group>"; };
@@ -759,6 +761,7 @@
 				D185302818F14BE4001A7AB1 /* TestExtrudeInteraction.mm */,
 				D185302A18F14C1A001A7AB1 /* TestFaceExtruder.mm */,
 				D15130D4190BDCB200BA09AB /* TestColorPickingMapper.mm */,
+				D189C66A1916420D00E9FB1A /* TestGeometry.mm */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1377,6 +1380,7 @@
 				60EB2F661812C385008DCA37 /* Cylinder.cpp in Sources */,
 				603BA5F717E87437007CE822 /* RotationInteraction.cpp in Sources */,
 				D1693B8918E58CB2000AFE41 /* Octree.cpp in Sources */,
+				D189C66B1916420D00E9FB1A /* TestGeometry.mm in Sources */,
 				D18ECC8C190517A400189A01 /* Node.cpp in Sources */,
 				60DFE3AC18253C7400A32D7A /* Vector.cpp in Sources */,
 				603BA5F817E87437007CE822 /* ScaleInteraction.cpp in Sources */,

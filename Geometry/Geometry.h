@@ -18,7 +18,9 @@ public:
     
     virtual void Transform(const glm::mat4& mat);
 
-    virtual std::vector<glm::vec3>& GetPoints() { return mPoints; }
+    virtual const std::vector<glm::vec3>& GetPoints() const { return mPoints; }
+    
+    glm::vec3 Center() const;
     
     const glm::vec3& operator[](const int index);
     
