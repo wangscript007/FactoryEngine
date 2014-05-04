@@ -5,11 +5,13 @@
 namespace ftr {
 
 class ModelEditor;
+class Camera;
+class Triangle;
 
 class MoveInteraction : public Node
 {
 public:
-    MoveInteraction(ModelEditor& ModelEditor);
+    MoveInteraction(ModelEditor& ModelEditor, Camera& camera);
     virtual ~MoveInteraction() {}
     
     void Render(Layer &layer);
@@ -21,11 +23,13 @@ public:
     void TurnOff();
     
 private:
+    
     glm::vec2 mStart;
     glm::vec2 mTarget;
     
     Node* mSelectedNode;
     ModelEditor& mModelEditor;
+    Camera& mCamera;
     bool mActive;
 };
     

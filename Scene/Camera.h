@@ -6,8 +6,9 @@
 #include <Scene/Viewport.h>
 
 
-
 namespace ftr {
+    
+class Triangle;
     
 typedef enum {
     kProjectionPerspective,
@@ -33,6 +34,8 @@ public:
     void setViewport(const  glm::vec4& frame);
     const Viewport& viewport() const { return mViewport; }
     void CommitTransformations();
+    
+    Triangle PlaneAtCoords(const glm::vec3& sceneCoords);
     
 private:
     glm::vec3 RotateVector(const glm::vec3& vec);

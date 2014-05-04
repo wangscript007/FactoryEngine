@@ -1,8 +1,7 @@
 
 
 #include <Scene/Camera.h>
-#include <glm/glm.hpp>
-#include <glm/ext.hpp>
+#include <Geometry/Triangle.h>
 
 
 namespace ftr {
@@ -146,6 +145,26 @@ void Camera::setViewport(const  glm::vec4& frame)
     mShadingInterface->InputWindowSize(glm::vec2(size, size));
 #endif
 }
+    
+Triangle Camera::PlaneAtCoords(const glm::vec3& sceneCoords)
+{
+    glm::vec3 up        = glm::vec3(0.0f, 1.0f, 0.0f);
+    glm::vec3 forward   = mEyePosition;
+    glm::vec3 side      = glm::cross(up, forward);
+    
+    up      = RotateVector(up);
+    side    = RotateVector(side);
+
+    glm::vec3 p[] = {
+        sceneCoords,
+        sceneCoords + up,
+        sceneCoords + forward,
+    };
+    
+    return Triangle(p[0], p[1], p[2]);
+    
+}
+
     
 }
 
