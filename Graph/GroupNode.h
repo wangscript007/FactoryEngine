@@ -14,7 +14,7 @@ public:
     virtual enum Type Type() const { return kGroup; }
     void AddBody(BodyNode* bodyNode);
 
-    virtual void            Render(Layer& layer);
+    virtual void Render(Layer& layer);
     
 private:
 };

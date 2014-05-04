@@ -15,6 +15,8 @@ const int R_MASK = kGamaSize;
 const int G_MASK = kGamaSize<<8; //65280
 const int B_MASK = kGamaSize<<16; //16711680
     
+#pragma mark - Class
+    
 int ColorPickingMapper::IntFromColor(const glm::vec3& vec)
 {
     int r = static_cast<int>(vec.x*kGamaSize);
@@ -30,6 +32,15 @@ glm::vec3 ColorPickingMapper::ColorFromInt(const int number)
     float b = ((number & B_MASK) >> 16)/255.0f;
     return glm::vec3(r, g, b);
 }
+    
+#pragma mark - Instance
+    
+ColorPickingMapper::ColorPickingMapper(ModelTree& modelTree)
+: mModelTree(&modelTree)
+{
+    
+}
+
 
 Node* ColorPickingMapper::NodeForColor(const glm::vec3& color)
 {
@@ -45,11 +56,6 @@ bool ColorPickingMapper::Exist(int pickingId)
     return mIntToNodeMap.find(pickingId) != mIntToNodeMap.end();
 }
         
-ColorPickingMapper::ColorPickingMapper(ModelTree& modelTree)
-    : mModelTree(&modelTree)
-{
-    
-}
     
 void ColorPickingMapper::MapPickingColors(enum Node::Type nodeType)
 {
