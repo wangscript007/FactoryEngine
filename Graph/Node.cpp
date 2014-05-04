@@ -14,9 +14,7 @@ Node::Node() :
 
 Node::~Node()
 {
-    for(auto i = mSubnodes.begin(); i != mSubnodes.end(); ++i) {
-        FT_DELETE(*i);
-    }
+    FT_DELETE_VECTOR(mSubnodes)
 }
 
 void Node::AddNode(Node* pNode)

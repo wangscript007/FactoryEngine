@@ -23,7 +23,6 @@ ModelEditor::~ModelEditor()
 {
     FT_DELETE(mModelFactory);
     FT_DELETE(mModelTree);
-    FT_DELETE(mActiveBody);
     FT_DELETE(mActiveGroup);
 }
 
