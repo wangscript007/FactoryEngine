@@ -1,9 +1,8 @@
 
 
 #import <XCTest/XCTest.h>
-#include <glm/glm.hpp>
-#include <glm/ext.hpp>
 #include <Geometry/Segment.h>
+#include <Geometry/Triangle.h>
 
 using namespace ftr;
 
@@ -15,6 +14,7 @@ static const float kFloatAccuracy = 0.001;
 @property (nonatomic, assign) Segment segment;
 @property (nonatomic, assign) Segment testSegment;
 @property (nonatomic, assign) Segment testLine;
+@property (nonatomic, assign) Triangle testTriangle;
 
 @end
 
@@ -33,6 +33,10 @@ static const float kFloatAccuracy = 0.001;
     
     _testLine.mStart = glm::vec3(0.0f, 0.0f, 0.0f);
     _testLine.mEnd = glm::vec3(-1.0f, 0.0f, 0.0f);
+    
+    _testTriangle = Triangle(glm::vec3(0.0f, 0.0f, 0.0f),
+                             glm::vec3(0.0f, 5.0f, 0.0f),
+                             glm::vec3(5.0f, 0.0f, 0.0f));
 
 }
 
@@ -150,11 +154,84 @@ static const float kFloatAccuracy = 0.001;
     segment6.mEnd = glm::vec3(4.0f, 0.0f, -0.5f);
     
     XCTAssertFalse(segment6.IntersectsBox(box));
+}
 
-
-
+-(void)testIntersectionWithTriangle
+{
+    {
+        Segment segment;
+        segment.mStart = glm::vec3(2.0f, 1.0f, 1.0f);
+        segment.mEnd = glm::vec3(2.0f, 1.0f, -1.0f);
+        glm::vec3 intersectionPoint;
+        Segment::IntersectionSituation situation = segment.IntersectionWithTriangle(_testTriangle, intersectionPoint);
+        XCTAssertEqual(situation, Segment::kIntersectionSituationInside);
+        XCTAssert(intersectionPoint == glm::vec3(2.0f, 1.0f, 0.0f));
+    }
+    
+    {
+        Segment segment;
+        segment.mStart = glm::vec3(10.0f, 1.0f, 1.0f);
+        segment.mEnd = glm::vec3(10.0f, 1.0f, -1.0f);
+        glm::vec3 intersectionPoint;
+        Segment::IntersectionSituation situation = segment.IntersectionWithTriangle(_testTriangle, intersectionPoint);
+        XCTAssertEqual(situation, Segment::kIntersectionSituationOutside);
+        XCTAssert(intersectionPoint == glm::vec3(10.0f, 1.0f, 0.0f));
+    }
+    
+    {
+        Segment segment;
+        segment.mStart = glm::vec3(2.0f, 1.0f, 1.0f);
+        segment.mEnd = glm::vec3(2.0f, 1.0f, 2.0f);
+        glm::vec3 intersectionPoint;
+        Segment::IntersectionSituation situation = segment.IntersectionWithTriangle(_testTriangle, intersectionPoint);
+        XCTAssertEqual(situation, Segment::kIntersectionSituationDisjoint);
+        XCTAssert(intersectionPoint == glm::vec3(0.0f, 0.0f, 0.0f));
+    }
+    
+    {
+        Segment segment;
+        segment.mStart = glm::vec3(2.0f, 1.0f, 2.0f);
+        segment.mEnd = glm::vec3(2.0f, 1.0f, 1.0f);
+        glm::vec3 intersectionPoint;
+        Segment::IntersectionSituation situation = segment.IntersectionWithTriangle(_testTriangle, intersectionPoint);
+        XCTAssertEqual(situation, Segment::kIntersectionSituationInside);
+        XCTAssert(intersectionPoint == glm::vec3(2.0f, 1.0f, 0.0f));
+    }
+    
+    {
+        Segment segment;
+        segment.mStart = glm::vec3(2.0f, 1.0f, 2.0f);
+        segment.mEnd = glm::vec3(2.0f, 1.0f, 1.0f);
+        glm::vec3 intersectionPoint;
+        Segment::IntersectionSituation situation = segment.IntersectionWithTriangle(_testTriangle, intersectionPoint);
+        XCTAssertEqual(situation, Segment::kIntersectionSituationInside);
+        XCTAssert(intersectionPoint == glm::vec3(2.0f, 1.0f, 0.0f));
+    }
+    
+    {
+        Segment segment;
+        segment.mStart = glm::vec3(2.0f, 1.0f, 0.0f);
+        segment.mEnd = glm::vec3(2.0f, 1.0f, 0.0f);
+        glm::vec3 intersectionPoint;
+        Segment::IntersectionSituation situation = segment.IntersectionWithTriangle(_testTriangle, intersectionPoint);
+        XCTAssertEqual(situation, Segment::kIntersectionSituationLiesIn);
+        XCTAssert(intersectionPoint == glm::vec3(0.0f, 0.0f, 0.0f));
+        
+    }
+    
+    {
+        Segment segment;
+        segment.mStart = glm::vec3(2.0f, 2.0f, 1.0f);
+        segment.mEnd = glm::vec3(2.0f, 1.0f, 1.0f);
+        glm::vec3 intersectionPoint;
+        Segment::IntersectionSituation situation = segment.IntersectionWithTriangle(_testTriangle, intersectionPoint);
+        XCTAssertEqual(situation, Segment::kIntersectionSituationParallel);
+        XCTAssert(intersectionPoint == glm::vec3(0.0f, 0.0f, 0.0f));
+    }
 
 }
+
+
 
 
 

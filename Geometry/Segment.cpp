@@ -1,16 +1,11 @@
-//
-//  Segment.cpp
-//  FactoryEngine
-//
-//  Created by Edvinas on 10/9/13.
-//  Copyright (c) 2013 Dimension. All rights reserved.
-//
+
 
 #include <Geometry/Segment.h>
+#include <Geometry/Triangle.h>
 
 namespace ftr {
     
-#define SMALL_NUM   0.00000001f
+const float kEpsilon = 0.00000001f;
 
 float Segment::DistanceFromPoint(const glm::vec3& point) const
 {
@@ -38,7 +33,7 @@ Segment Segment::ShortestSegmentFromLine(const Segment& segment) const
     float    sc, tc;
     
     // compute the line parameters of the two closest points
-    if (D < SMALL_NUM) {          // the lines are almost parallel
+    if (D < kEpsilon) {          // the lines are almost parallel
         sc = 0.0;
         tc = (b>c ? d/b : e/c);    // use the largest denominator
     }
@@ -72,7 +67,7 @@ float Segment::DistanceFromSegment(const Segment& segment) const
     float    tc, tN, tD = D;       // tc = tN / tD, default tD = D >= 0
     
     // compute the line parameters of the two closest points
-    if (D < SMALL_NUM) { // the lines are almost parallel
+    if (D < kEpsilon) { // the lines are almost parallel
         sN = 0.0;         // force using point P0 on segment S1
         sD = 1.0;         // to prevent possible division by 0.0 later
         tN = e;
@@ -118,8 +113,8 @@ float Segment::DistanceFromSegment(const Segment& segment) const
         }
     }
     // finally do the division to get sc and tc
-    sc = (fabs(sN) < SMALL_NUM ? 0.0 : sN / sD);
-    tc = (fabs(tN) < SMALL_NUM ? 0.0 : tN / tD);
+    sc = (fabs(sN) < kEpsilon ? 0.0 : sN / sD);
+    tc = (fabs(tN) < kEpsilon ? 0.0 : tN / tD);
     
     // get the difference of the two closest points
     glm::vec3 dP = w + (sc * u) - (tc * v);  // =  S1(sc) - S2(tc)
@@ -153,6 +148,64 @@ bool Segment::IntersectsBox(const Box& box) const
 	f = Dir.x * Diff.y - Dir.y * Diff.x;	if(fabsf(f)>BoxExtents.x*fAWdU[1] + BoxExtents.y*fAWdU[0])	return false;
     
 	return true;
+}
+    
+Segment::IntersectionSituation Segment::IntersectionWithTriangle(const Triangle& T, glm::vec3& I) const
+{
+    glm::vec3  u, v, n;              // triangle vectors
+    glm::vec3  dir, w0, w;           // ray vectors
+    float     r, a, b;              // params to calc ray-plane intersect
+    
+    // get triangle edge vectors and plane normal
+    u = T[1] - T[0];
+    v = T[2] - T[0];
+    n = T.Cross();
+    
+    if (glm::isNull(n, kEpsilon)) {       // triangle is degenerate
+        assert(false);                     // do not deal with this case
+        return kIntersectionSituationInvalid;
+    }
+    
+    dir = Direction();              // ray direction vector
+    w0 = mStart - T[0];
+    a = -glm::dot(n,w0);
+    b = glm::dot(n,dir);
+    if (fabs(b) < kEpsilon) {     // ray is  parallel to triangle plane
+        if (a == 0) return kIntersectionSituationLiesIn;
+        else        return kIntersectionSituationParallel;
+    }
+    
+    // get intersect point of ray with triangle plane
+    r = a / b;
+    if (r < 0.0) {                               // ray goes away from triangle
+        return kIntersectionSituationDisjoint;  // => no intersect
+    }
+    // for a segment, also test if (r > 1.0) => no intersect
+    
+    I = mStart + r * dir;            // intersect point of ray and plane
+    
+    // is I inside T?
+    float    uu, uv, vv, wu, wv, D;
+    uu = glm::dot(u,u);
+    uv = glm::dot(u,v);
+    vv = glm::dot(v,v);
+    w = I - T[0];
+    wu = glm::dot(w,u);
+    wv = glm::dot(w,v);
+    D = uv * uv - uu * vv;
+    
+    // get and test parametric coords
+    float s, t;
+    s = (uv * wv - vv * wu) / D;
+    if (s < 0.0 || s > 1.0) {
+        return kIntersectionSituationOutside;
+    }
+    t = (uv * wu - uu * wv) / D;
+    if (t < 0.0 || (s + t) > 1.0) {
+        return kIntersectionSituationOutside;
+    }
+    
+    return kIntersectionSituationInside;                       // I is in T
 }
     
     

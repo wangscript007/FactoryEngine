@@ -230,6 +230,8 @@
 		60F2406F16B5BCA700291ED0 /* LineInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F2406D16B5BCA700291ED0 /* LineInteraction.h */; };
 		60F6D98F17368DB500935A76 /* TestRectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60F6D98D17368DB500935A76 /* TestRectangle.cpp */; };
 		60F6D99017368DB500935A76 /* TestRectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F6D98E17368DB500935A76 /* TestRectangle.h */; };
+		D116AC081917544500153AEC /* Intersection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D116AC061917544500153AEC /* Intersection.cpp */; };
+		D116AC091917544500153AEC /* Intersection.h in Headers */ = {isa = PBXBuildFile; fileRef = D116AC071917544500153AEC /* Intersection.h */; };
 		D11D1CC218DF4FBA0091521F /* Description.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1CC018DF4FBA0091521F /* Description.cpp */; };
 		D11D1CC318DF4FBA0091521F /* Description.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1CC018DF4FBA0091521F /* Description.cpp */; };
 		D11D1CC418DF4FBA0091521F /* Description.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1CC018DF4FBA0091521F /* Description.cpp */; };
@@ -556,6 +558,8 @@
 		60F6D98E17368DB500935A76 /* TestRectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRectangle.h; sourceTree = "<group>"; };
 		60FD3CFA16DA3C65001F789D /* cpp_convention.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = cpp_convention.py; sourceTree = "<group>"; };
 		60FD3CFB16DA4C9A001F789D /* parsing.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = parsing.py; sourceTree = "<group>"; };
+		D116AC061917544500153AEC /* Intersection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Intersection.cpp; sourceTree = "<group>"; };
+		D116AC071917544500153AEC /* Intersection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Intersection.h; sourceTree = "<group>"; };
 		D11D1CC018DF4FBA0091521F /* Description.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Description.cpp; sourceTree = "<group>"; };
 		D11D1CC118DF4FBA0091521F /* Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Description.h; sourceTree = "<group>"; };
 		D11D1D4218DF70980091521F /* shapes.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shapes.cc; sourceTree = "<group>"; };
@@ -1036,6 +1040,8 @@
 				D11D1D7318E0507B0091521F /* Polyline.h */,
 				6011C37616D0EE9100CD34F9 /* Polygon.cpp */,
 				6011C37716D0EE9100CD34F9 /* Polygon.h */,
+				D116AC061917544500153AEC /* Intersection.cpp */,
+				D116AC071917544500153AEC /* Intersection.h */,
 			);
 			path = Geometry;
 			sourceTree = "<group>";
@@ -1139,6 +1145,7 @@
 				D17C76AC1584E3900083E2B0 /* GLError.h in Headers */,
 				D185302318F145D5001A7AB1 /* ExtrudeInteraction.h in Headers */,
 				D15130DD190C3DD800BA09AB /* Picker.h in Headers */,
+				D116AC091917544500153AEC /* Intersection.h in Headers */,
 				D19B99D31902F003000BF781 /* GroupInteraction.h in Headers */,
 				D16D270418D5E8FB0095B177 /* Triangle.h in Headers */,
 				60A575E71690DDEE0050FAFC /* Prefix.pch in Headers */,
@@ -1577,6 +1584,7 @@
 				6011AF1B1747C2FC0022E7A9 /* LigthtingModelFactory.cpp in Sources */,
 				60C6D0C01749738A0009EC3C /* Polygon.cpp in Sources */,
 				D18ECC85190517A400189A01 /* ModelFactory.cpp in Sources */,
+				D116AC081917544500153AEC /* Intersection.cpp in Sources */,
 				60C6D0C21749739B0009EC3C /* Rect.cpp in Sources */,
 				D18ECC8A190517A400189A01 /* Node.cpp in Sources */,
 				D1693B7418E58BAE000AFE41 /* ModelEditor.cpp in Sources */,

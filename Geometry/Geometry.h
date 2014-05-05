@@ -22,7 +22,7 @@ public:
     
     glm::vec3 Center() const;
     
-    const glm::vec3& operator[](const int index);
+    const glm::vec3& operator[](const int index) const;
     
 protected:
     

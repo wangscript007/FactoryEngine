@@ -36,7 +36,7 @@ glm::vec3 Geometry::Center() const
     return sum/static_cast<float>(mPoints.size());
 }
     
-const glm::vec3& Geometry::operator[](const int index)
+const glm::vec3& Geometry::operator[](const int index) const
 {
     return mPoints[index];
 }
