@@ -56,7 +56,7 @@ void Camera::CommitTransformations()
     }
 }
     
-glm::vec3 Camera::RotateVector(const glm::vec3& vec)
+glm::vec3 Camera::RotateVector(const glm::vec3& vec) const
 {
     static const glm::vec3 axisY = glm::vec3(0.0f, 1.0f, 0.0f);
     static glm::vec3 forward = glm::normalize(mEyePosition);
@@ -129,12 +129,12 @@ void Camera::setProjection(Projection projectionMode)
             
         } break;
         case kProjectionOrthographic: {
-            mViewport.projectionMatrix = glm::perspective(50.0f, 1.0f, 1.0f, 1000.f);;
+            mViewport.projectionMatrix = glm::perspective(50.0f, 1.0f, 1.0f, 1000.f);
         } break;
     }
 }
     
-void Camera::setViewport(const  glm::vec4& frame)
+void Camera::setViewport(const glm::vec4& frame)
 {
     float width = fabsf(frame[0] - frame[2]);
     float height = fabsf(frame[1] - frame[3]);
@@ -146,7 +146,7 @@ void Camera::setViewport(const  glm::vec4& frame)
 #endif
 }
     
-Triangle Camera::PlaneAtCoords(const glm::vec3& sceneCoords)
+Triangle Camera::PlaneAtCoords(const glm::vec3& sceneCoords) const
 {
     glm::vec3 up        = glm::vec3(0.0f, 1.0f, 0.0f);
     glm::vec3 forward   = mEyePosition;
@@ -154,14 +154,10 @@ Triangle Camera::PlaneAtCoords(const glm::vec3& sceneCoords)
     
     up      = RotateVector(up);
     side    = RotateVector(side);
-
-    glm::vec3 p[] = {
-        sceneCoords,
-        sceneCoords + up,
-        sceneCoords + forward,
-    };
     
-    return Triangle(p[0], p[1], p[2]);
+    return Triangle(sceneCoords,
+                    sceneCoords + up,
+                    sceneCoords + forward);
     
 }
 

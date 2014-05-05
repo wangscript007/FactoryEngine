@@ -35,10 +35,10 @@ public:
     const Viewport& viewport() const { return mViewport; }
     void CommitTransformations();
     
-    Triangle PlaneAtCoords(const glm::vec3& sceneCoords);
+    Triangle PlaneAtCoords(const glm::vec3& sceneCoords) const;
     
 private:
-    glm::vec3 RotateVector(const glm::vec3& vec);
+    glm::vec3 RotateVector(const glm::vec3& vec) const;
     glm::mat4 RotationMatrix();
     glm::mat4 TranslationMatrix();
     glm::mat4 InitialMatrix();

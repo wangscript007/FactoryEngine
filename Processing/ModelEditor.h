@@ -38,6 +38,7 @@ public:
     Picker*         picker() const { return mPicker; }
     void            setPicker(Picker* picker) { mPicker = picker; }
     
+    void            DebugCreateCube();
 private:
     
     class ModelFactory* mModelFactory;

@@ -130,6 +130,7 @@ void Octree::InsertPoint(PointNode *pPoint)
         }
     }
     mUpdateSize = true;
+    Invalidate();
 }
 
 void Octree::RemovePoint(PointNode *pPoint)
@@ -146,6 +147,7 @@ void Octree::RemovePoint(PointNode *pPoint)
         Merge(branch);
     }
     mUpdateSize = true;
+    Invalidate();
 }
 
 void Octree::UpdatePoint(PointNode* pPoint)
@@ -165,6 +167,7 @@ void Octree::UpdatePoint(PointNode* pPoint)
             InsertPoint(pPoint);
         }
     }
+    Invalidate();
 }
 
 Octree::Node* Octree::NodeContainingPoint(const glm::vec3& point)

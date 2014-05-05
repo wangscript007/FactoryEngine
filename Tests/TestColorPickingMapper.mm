@@ -61,8 +61,6 @@ using namespace ftr;
     
 }
 
-
-
 - (void)testIntFromColor
 {
     int number = 10004;

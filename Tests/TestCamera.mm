@@ -3,6 +3,7 @@
 #import <XCTest/XCTest.h>
 #import <Scene/Camera.h>
 #import <Scene/Viewport.h>
+#import <Geometry/Triangle.h>
 
 using namespace ftr;
 
@@ -39,9 +40,14 @@ using namespace ftr;
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testPlaneAtCoords
 {
-    
+    {
+        _camera->CreateTransformations();
+        glm::vec3 sceneCoords(5.0f, 0.0f, 0.0f);
+        Triangle plane = _camera->PlaneAtCoords(sceneCoords);
+        XCTAssert(plane.Cross() != glm::vec3());
+    }
 }
 
 @end

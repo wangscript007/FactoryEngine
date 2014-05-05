@@ -17,6 +17,7 @@ ModelEditor::ModelEditor()
     mModelFactory = new class ModelFactory(*mModelTree);
     mActiveGroup = CreateGroup();
     mActiveBody = CreateBody();
+    DebugCreateCube();
 }
 
 ModelEditor::~ModelEditor()
@@ -66,7 +67,7 @@ LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
     if (result.faces[0]) {
         mActiveBody->AddNode(result.faces[0]);
         static bool extruded = false;
-        if (!extruded) {
+        if (!extruded && false) {
             extruded = true;
             FaceExtruder extruder(*this);
             
@@ -93,6 +94,42 @@ GroupNode* ModelEditor::CreateGroup()
     mModelTree->AddGroup(group);
     return group;
 }
+    
+#pragma mark Debug
+    
+void ModelEditor::DebugCreateCube()
+{
+    Box box(glm::vec3(0.0, 3.0, 0.0), glm::vec3(2.0, 2.0, 3.0));
+    const glm::vec3 c = box.mCenter;
+    const glm::vec3 h = box.mHalfDimension;
+    
+    glm::vec3 p[] = {
+        glm::vec3(c.x - h.x, c.y - h.y, c.z + h.z),
+        glm::vec3(c.x - h.x, c.y + h.y, c.z + h.z),
+        glm::vec3(c.x + h.x, c.y + h.y, c.z + h.z),
+        glm::vec3(c.x + h.x, c.y - h.y, c.z + h.z),
+        glm::vec3(c.x - h.x, c.y - h.y, c.z - h.z),
+        glm::vec3(c.x - h.x, c.y + h.y, c.z - h.z),
+        glm::vec3(c.x + h.x, c.y + h.y, c.z - h.z),
+        glm::vec3(c.x + h.x, c.y - h.y, c.z - h.z)
+    };
+    
+    static const GLubyte indices[] = {
+        0, 1,   1, 2,   2, 3,   3, 0,
+        4, 5,   5, 6,   6, 7,   7, 4,
+        0, 4,   1, 5,   2, 6,   3, 7
+    };
+    
+    PointNode* nodes[8];
+    for(int i = 0; i < 8; ++i) {
+        nodes[i] = CreatePoint(p[i]);
+    }
+    
+    for (int i = 0; i < 12; i++) {
+        CreateLine(nodes[indices[i*2]], nodes[indices[i*2+1]]);
+    }
+}
+
     
     
 }
