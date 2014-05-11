@@ -13,8 +13,8 @@ LineInteraction::LineInteraction(ModelEditor& modelEditor, const Viewport& viewp
     ,mEndPoint(NULL)
     ,mViewport(&viewport)
 {
-    mSnappingQueue = new SnappingQueue(viewport, *modelEditor.ModelTree());
-    mPointSnap = new PointSnap(viewport, *modelEditor.ModelTree());
+    mSnappingQueue = new SnappingQueue(viewport, *modelEditor.modelTree());
+    mPointSnap = new PointSnap(viewport, *modelEditor.modelTree());
 }
     
 LineInteraction::~LineInteraction()

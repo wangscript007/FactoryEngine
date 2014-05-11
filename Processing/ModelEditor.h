@@ -18,8 +18,6 @@ public:
                     ModelEditor();
                     ~ModelEditor();
     
-    ModelFactory*   ModelFactory() const { return mModelFactory; }
-    ModelTree*      ModelTree() const { return  mModelTree; }
     PointNode*      NearestPointToCenterInSphere(const Sphere& sSphere) const;
     void            UpdateNode(Node* pNode) { mModelTree->UpdateNode(pNode); }
     void            RemoveNode(Node* pNode) { mModelTree->RemoveNode(pNode); }
@@ -35,12 +33,16 @@ public:
     BodyNode*       CreateBody();
     GroupNode*      CreateGroup();
     
+    ModelFactory*   modelFactory() const { return mModelFactory; }
+    ModelTree*      modelTree() const { return  mModelTree; }
     Picker*         picker() const { return mPicker; }
+    
     void            setPicker(Picker* picker) { mPicker = picker; }
     
     void            DebugCreateCube();
-private:
+    int             mDebugFacesCreated;
     
+private:
     class ModelFactory* mModelFactory;
     class ModelTree*    mModelTree;
     GroupNode*          mActiveGroup;

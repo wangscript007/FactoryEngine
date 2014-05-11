@@ -398,6 +398,7 @@
 		D1B990F818FEC88600DC5843 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
 		D1BE952818F721C40022D7C7 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
 		D1BE952918F721C40022D7C7 /* SelectInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = D1BE952718F721C40022D7C7 /* SelectInteraction.h */; };
+		D1F22A84191FCE90002E0767 /* TestModelEditor.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1F22A83191FCE90002E0767 /* TestModelEditor.mm */; };
 		D1F44F4C157FE79600566119 /* Workspace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F4A157FE79600566119 /* Workspace.cpp */; };
 		D1F44F4D157FE79600566119 /* Workspace.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F4B157FE79600566119 /* Workspace.h */; };
 		D1F44F51157FE91900566119 /* Pad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F4F157FE91900566119 /* Pad.cpp */; };
@@ -636,6 +637,7 @@
 		D1A920FE18E1876A0034336A /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
 		D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectInteraction.cpp; sourceTree = "<group>"; };
 		D1BE952718F721C40022D7C7 /* SelectInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectInteraction.h; sourceTree = "<group>"; };
+		D1F22A83191FCE90002E0767 /* TestModelEditor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestModelEditor.mm; sourceTree = "<group>"; };
 		D1F44F4A157FE79600566119 /* Workspace.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Workspace.cpp; sourceTree = "<group>"; };
 		D1F44F4B157FE79600566119 /* Workspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workspace.h; sourceTree = "<group>"; };
 		D1F44F4F157FE91900566119 /* Pad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pad.cpp; sourceTree = "<group>"; };
@@ -781,6 +783,7 @@
 				D189C66A1916420D00E9FB1A /* TestGeometry.mm */,
 				D189C6731916A3AC00E9FB1A /* TestCamera.mm */,
 				D189C6771916C2F400E9FB1A /* TestMoveInteraction.mm */,
+				D1F22A83191FCE90002E0767 /* TestModelEditor.mm */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1360,6 +1363,7 @@
 				D185302B18F14C1A001A7AB1 /* TestFaceExtruder.mm in Sources */,
 				D1693B8A18E58CB5000AFE41 /* PointNodeIterator.cpp in Sources */,
 				603BA5DD17E87437007CE822 /* LayerRenderer.cpp in Sources */,
+				D1F22A84191FCE90002E0767 /* TestModelEditor.mm in Sources */,
 				603BA5DE17E87437007CE822 /* Layer.cpp in Sources */,
 				603BA5DF17E87437007CE822 /* LineRenderer.cpp in Sources */,
 				603BA5E017E87437007CE822 /* PolygonRenderer.cpp in Sources */,

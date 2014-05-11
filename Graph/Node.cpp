@@ -72,13 +72,13 @@ void Node::setSelected(bool selected)
 }
     
     
-void Node::AddSubnodesWithType(enum Type nodeType, std::vector<Node*>& result) const
+void Node::SubnodesWithType(enum Type nodeType, std::vector<Node*>& result) const
 {
     for(auto &node : mSubnodes) {
         if (node->Type() == nodeType) {
             result.push_back(node);
         } else {
-            node->AddSubnodesWithType(nodeType, result);
+            node->SubnodesWithType(nodeType, result);
         }
     }
 }

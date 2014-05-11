@@ -12,8 +12,8 @@ ExtrudeInteraction::ExtrudeInteraction(ModelEditor& modelEditor, const Viewport&
 ,mStartPoint(NULL)
 ,mEndPoint(NULL)
 {
-    mSnappingQueue = new SnappingQueue(viewport, *modelEditor.ModelTree());
-    mPointSnap = new PointSnap(viewport, *modelEditor.ModelTree());
+    mSnappingQueue = new SnappingQueue(viewport, *modelEditor.modelTree());
+    mPointSnap = new PointSnap(viewport, *modelEditor.modelTree());
 }
 
 ExtrudeInteraction::~ExtrudeInteraction()

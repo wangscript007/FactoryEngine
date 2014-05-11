@@ -30,10 +30,10 @@ Scene::Scene() :
     mWorkspace = new Workspace(mLayer);
 
     mModelEditor = new ModelEditor();
-    
+    mModelEditor->DebugCreateCube();
 
-    mWorkspace->setOctree(*mModelEditor->ModelTree()->Octree());
-    mWorkspace->setModelTree(mModelEditor->ModelTree());
+    mWorkspace->setOctree(*mModelEditor->modelTree()->Octree());
+    mWorkspace->setModelTree(mModelEditor->modelTree());
     mLeapController.addListener(mleapListener);
 }
     
@@ -79,7 +79,7 @@ void Scene::Prepare()
     activeLightingModel->SendDataToShader();
     mSceneRenderer = new SceneRenderer(*mShadingLibrary, *mCamera);
     
-    mPicker = new Picker(*mModelEditor->ModelTree(), *mSceneRenderer);
+    mPicker = new Picker(*mModelEditor->modelTree(), *mSceneRenderer);
     mModelEditor->setPicker(mPicker);
 }
 

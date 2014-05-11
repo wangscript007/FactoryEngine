@@ -38,7 +38,7 @@ public:
     virtual std::vector<PointNode*>* PointNodes() const { return NULL; }
     void                    setPickingId(int pickingId);
     int                     pickingId() const { return mPickingId; }
-    void                    AddSubnodesWithType(enum Type nodeType, std::vector<Node*>& result) const;
+    void                    SubnodesWithType(enum Type nodeType, std::vector<Node*>& result) const;
     
     NodesList               mSubnodes;
     

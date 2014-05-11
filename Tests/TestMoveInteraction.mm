@@ -55,7 +55,7 @@ using namespace ftr;
 {
     _modelEditor->DebugCreateCube();
     std::vector<Node*> nodes;
-    _modelEditor->activeGroup()->AddSubnodesWithType(Node::kFace, nodes);
+    _modelEditor->activeGroup()->SubnodesWithType(Node::kFace, nodes);
     XCTAssert(nodes.size() == 6);
 }
 

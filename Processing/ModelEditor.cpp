@@ -10,14 +10,14 @@ ModelEditor::ModelEditor()
     :mModelFactory(NULL),
     mModelTree(NULL),
     mActiveGroup(NULL),
-    mActiveBody(NULL)
+    mActiveBody(NULL),
+    mDebugFacesCreated(0)
     
 {
     mModelTree = new class ModelTree();
     mModelFactory = new class ModelFactory(*mModelTree);
     mActiveGroup = CreateGroup();
     mActiveBody = CreateBody();
-    DebugCreateCube();
 }
 
 ModelEditor::~ModelEditor()
@@ -63,6 +63,7 @@ LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
     assert(mActiveBody);
     LineNode* line = mModelFactory->CreateLine(startPoint, endPoint);
     PointNode::ConnectionResult result = startPoint->ConnectTo(endPoint);
+    mDebugFacesCreated += result.count();
     mActiveBody->AddNode(line);
     if (result.faces[0]) {
         mActiveBody->AddNode(result.faces[0]);
@@ -70,9 +71,7 @@ LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
         if (!extruded && false) {
             extruded = true;
             FaceExtruder extruder(*this);
-            
             extruder.Extrude(*result.faces[0]);
-            
         }
     }
     if (result.faces[1]) {
