@@ -56,6 +56,9 @@ using namespace ftr;
     PointNode* nodes[8];
     for(int i = 0; i < 8; ++i) {
         nodes[i] = _modelEditor.CreatePoint(p[i]);
+        std::stringstream ss;
+        ss << i;
+        nodes[i]->mName = ss.str();
     }
     
     for (int i = 0; i < 12; i++) {

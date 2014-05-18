@@ -33,7 +33,7 @@ private:
     
     Edge* mStartEdge;
     PointNode* mTargetNode;
-    Triangle* mTriangle;
+    Triangle* mPlane;
     Result* mResult;
     
 };

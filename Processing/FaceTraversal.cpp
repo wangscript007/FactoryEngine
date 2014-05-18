@@ -18,13 +18,13 @@ bool FaceTraversal::IsSameFace(const Result& resultA, const Result& resultB)
     
 FaceTraversal::~FaceTraversal()
 {
-    FT_DELETE(mTriangle);
+    FT_DELETE(mPlane);
 }
     
     
 FaceTraversal::FaceTraversal(Edge& startEdge)
     : mStartEdge(&startEdge),
-    mTriangle(NULL),
+    mPlane(NULL),
     mTargetNode(startEdge.originNode())
 {
     
@@ -34,24 +34,25 @@ void FaceTraversal::Find(Result& result)
 {
     mResult = &result;
     std::vector<Edge*>& edgesVector = mResult->edgesVector;
-    if (mTriangle) {
-        FT_DELETE(mTriangle);
-    }
+    
+    FT_DELETE(mPlane);
     
     std::cout
     << "----------------------------------" << std::endl
     << "Find route from " << mStartEdge->targetNode()->mName
     << " to "<<  mStartEdge->originNode()->mName << std::endl;
+    
     edgesVector.clear();
     edgesVector.push_back(mStartEdge);
     
     Find(mStartEdge->twin());
     
     mResult->hasUsedEdges = false;
-    if (edgesVector.size() < 3) {
+    if (edgesVector.size() < 3)
+    {
         edgesVector.clear();
-    } else {
-        
+    }
+    else {
         for(int i = 0; i < edgesVector.size(); ++i) {
             Edge* edge = edgesVector[i];
             if (!edge->IsFree()) {
@@ -72,12 +73,11 @@ void FaceTraversal::Find(Result& result)
 bool FaceTraversal::Find(ftr::Edge *startEdge)
 {
     std::vector<Edge*>& edgesVector = mResult->edgesVector;
+    
     assert(edgesVector.size() >= 1); // must contain initial edge
+    assert(edgesVector.size() < 1000);
     
-    //std::cout << "Checking " << startEdge->Name() << " size: " << edgesVector.size() << std::endl;
     PointNode* originNode = startEdge->originNode();
-    
-    assert(edgesVector.size() < 20); // too far for simple tests
     
     for(PointNode::Iterator i = originNode->Begin(); i != originNode->End(); ++i)
     {
@@ -93,33 +93,21 @@ bool FaceTraversal::Find(ftr::Edge *startEdge)
                     return true;
                 }
             }
-            else if (iEdge->next() && !PathContainsNode(edgesVector, *iEdge->targetNode())) {
-                bool samePlane = true;
-                bool isCW = true;
+            else if (iEdge->next() && !PathContainsNode(edgesVector, *iEdge->targetNode()))
+            {
                 if (edgesVector.size() > 0) {
-                    //isCW = iEdge->IsCCWCountingFrom(*edgesVector.back());
-                    if (edgesVector.size() > 1) {
-                        CreatePlane();
-                    } else {
-                        FT_DELETE(mTriangle);
-                    }
-                    if (mTriangle) {
-                        samePlane = mTriangle->PlaneContains(iEdge->target());
-                    }
-                } else {
-                    FT_DELETE(mTriangle);
-                }
-                if (samePlane && isCW)
-                {
-                    edgesVector.push_back(iEdge);
-                    //std::cout << "Route: "; PrintEdgesRoute();
                     
-                    if ( Find(iEdge->next()) ) {
-                        return true;
-                    } else {
-                        edgesVector.pop_back();
+                    if (edgesVector.size() > 1 && !mPlane) CreatePlane();
+                    else FT_DELETE(mPlane);
+                    
+                    if ( !mPlane || (mPlane && mPlane->PlaneContains(iEdge->target())) )
+                    {
+                        edgesVector.push_back(iEdge);
+                        if ( Find(iEdge->next()) ) return true;
+                        else edgesVector.pop_back();
                     }
                 }
+                else FT_DELETE(mPlane);
             }
         }
     }
@@ -148,23 +136,22 @@ void FaceTraversal::PrintEdgesRoute() const
     
 void FaceTraversal::CreatePlane()
 {
-    if (!mTriangle) {
-        std::vector<Edge*>& edgesVector = mResult->edgesVector;
-        assert(edgesVector.size() > 1);
-        size_t size = edgesVector.size();
-        Edge* e1 = edgesVector[size-2];
-        Edge* e2 = edgesVector[size-1];
-        
-        glm::vec3 p1 = e1->origin();
-        glm::vec3 p2 = e1->target();
-        glm::vec3 p3 = e2->target();
-        
-        if (Triangle::IsInOneLine(p1, p2, p3)) {
-            std::cout << "Points are in one line";
-        } else {
-            mTriangle = new Triangle(e1->origin(), e1->target(), e2->target());
-            //std::cout << "Created Triangle: " << mTriangle->Description();
-        }
+    assert(!mPlane);
+    std::vector<Edge*>& edgesVector = mResult->edgesVector;
+    assert(edgesVector.size() > 1);
+    size_t size = edgesVector.size();
+    Edge* e1 = edgesVector[size-2];
+    Edge* e2 = edgesVector[size-1];
+    
+    glm::vec3 p1 = e1->origin();
+    glm::vec3 p2 = e1->target();
+    glm::vec3 p3 = e2->target();
+    
+    if (Triangle::IsInOneLine(p1, p2, p3)) {
+        std::cout << "Points are in one line";
+    } else {
+        mPlane = new Triangle(e1->origin(), e1->target(), e2->target());
+        //std::cout << "Created Triangle: " << mPlane->Description();
     }
 }
     
