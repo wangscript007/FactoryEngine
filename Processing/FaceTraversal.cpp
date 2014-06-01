@@ -16,6 +16,16 @@ bool FaceTraversal::IsSameFace(const Result& resultA, const Result& resultB)
     return result;
 }
     
+void FaceTraversal::Reverse(Result& result)
+{
+    std::vector<Edge*>& edgesVector = result.edgesVector;
+    size_t size = edgesVector.size();
+    for (int i = 0; i < size; ++i) {
+        edgesVector[i] = edgesVector[i]->twin();
+    }
+    std::reverse(edgesVector.begin(),edgesVector.end());
+}
+    
 FaceTraversal::~FaceTraversal()
 {
     FT_DELETE(mPlane);
@@ -25,14 +35,16 @@ FaceTraversal::~FaceTraversal()
 FaceTraversal::FaceTraversal(Edge& startEdge)
     : mStartEdge(&startEdge),
     mPlane(NULL),
+    mIgnoreResult(NULL),
     mTargetNode(startEdge.originNode())
 {
     
 }
 
-void FaceTraversal::Find(Result& result)
+void FaceTraversal::Find(Result& result, Result* ignoreResult)
 {
     mResult = &result;
+    mIgnoreResult = ignoreResult;
     std::vector<Edge*>& edgesVector = mResult->edgesVector;
     
     FT_DELETE(mPlane);
@@ -62,6 +74,7 @@ void FaceTraversal::Find(Result& result)
             
         }
         
+        
         std::cout << "FOUND: ";
         for(int i = 0; i < edgesVector.size(); ++i) {
             std::cout << edgesVector[i]->Name() << " ";
@@ -90,6 +103,15 @@ bool FaceTraversal::Find(ftr::Edge *startEdge)
                     return false;
                 } else {
                     edgesVector.push_back(iEdge);
+                    if (mIgnoreResult) {
+                        if (IsSameFace(*mResult, *mIgnoreResult)) {
+                            edgesVector.pop_back();
+                            return false;
+                        } else {
+                            return true;
+                        }
+                        
+                    }
                     return true;
                 }
             }

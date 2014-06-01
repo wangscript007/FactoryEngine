@@ -20,9 +20,10 @@ public:
     FaceTraversal(Edge& startEdge);
     virtual ~FaceTraversal();
     
-    void Find(Result& result);
+    void Find(Result& result, Result* ignoreResult = NULL);
     
     static bool IsSameFace(const Result& resultA, const Result& resultB);
+    static void Reverse(Result& result);
     
 private:
     bool Find(Edge* startEdge);
@@ -35,6 +36,7 @@ private:
     PointNode* mTargetNode;
     Triangle* mPlane;
     Result* mResult;
+    Result* mIgnoreResult;
     
 };
     
