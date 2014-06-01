@@ -215,32 +215,20 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
     result.faces[0] = NULL;
     result.faces[1] = NULL;
     
-    if (thisFoundFace && otherFoundFace)
-    {
-            // we must create two faces in this case
-            if (thisHasUsed) {
-                FaceTraversal::Reverse(traverseResultThis);
-            }
-            result.AddFace(new FaceNode(traverseResultThis.edgesVector));
-            if (otherHasUsed) {
-                FaceTraversal::Reverse(traverseResultOther);
-            }
-            result.AddFace(new FaceNode(traverseResultOther.edgesVector));
-    }
-    else if (thisFoundFace)
-    {
+    if (thisFoundFace) {
         if (thisHasUsed) {
             FaceTraversal::Reverse(traverseResultThis);
         }
         result.AddFace(new FaceNode(traverseResultThis.edgesVector));
     }
-    else if (otherFoundFace)
-    {
+    
+    if (otherFoundFace) {
         if (otherHasUsed) {
             FaceTraversal::Reverse(traverseResultOther);
         }
         result.AddFace(new FaceNode(traverseResultOther.edgesVector));
     }
+    
     
     return result;
 }
