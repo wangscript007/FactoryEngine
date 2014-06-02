@@ -31,7 +31,9 @@ private:
     void CreatePlane();
     void PrintEdgesRoute() const;
     
-    static bool PathContainsNode(const std::vector<Edge*>& edges, const PointNode& pointNode);
+    bool PathContainsNode(const PointNode& pointNode);
+    bool IsSamePlane(const ftr::Edge& edge);
+    bool IsNotTraversingBackwards(const ftr::Edge& edge) const;
     
     Edge* mStartEdge;
     PointNode* mTargetNode;
