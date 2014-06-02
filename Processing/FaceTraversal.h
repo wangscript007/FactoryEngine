@@ -24,6 +24,7 @@ public:
     
     static bool IsSameFace(const Result& resultA, const Result& resultB);
     static void Reverse(Result& result);
+    static bool HasUsedEdges(const Result& result);
     
 private:
     bool Find(Edge* startEdge);

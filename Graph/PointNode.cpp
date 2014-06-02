@@ -2,7 +2,7 @@
 #include <Graph/PointNode.h>
 #include <Graph/Edge.h>
 #include <Graph/FaceNode.h>
-#include <Processing/FaceTraversal.h>
+
 
 
 namespace ftr {
@@ -160,6 +160,8 @@ void PointNode::Remove(PointNode::Iterator position)
 PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTraversal)
 {
     ConnectionResult result;
+    result.faces[0] = NULL;
+    result.faces[1] = NULL;
     
     ftr::Edge* newEdge = new ftr::Edge(this);
     ftr::Edge* newEdgeTwin = new ftr::Edge(other);
@@ -206,33 +208,34 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
         traversal.Find(traverseResultOther, &traverseResultThis);
     }
     
-    bool thisFoundFace = traverseResultThis.edgesVector.size() > 0;
-    bool otherFoundFace = traverseResultOther.edgesVector.size() > 0;
-    
-    bool thisHasUsed = traverseResultThis.hasUsedEdges;
-    bool otherHasUsed = traverseResultOther.hasUsedEdges;
-    
-    result.faces[0] = NULL;
-    result.faces[1] = NULL;
-    
-    if (thisFoundFace) {
-        if (thisHasUsed) {
-            FaceTraversal::Reverse(traverseResultThis);
-        }
-        result.AddFace(new FaceNode(traverseResultThis.edgesVector));
+    FaceNode* face1 = FaceFromTraversalResult(traverseResultThis);
+    if (face1) {
+        result.AddFace(face1);
     }
-    
-    if (otherFoundFace) {
-        if (otherHasUsed) {
-            FaceTraversal::Reverse(traverseResultOther);
-        }
-        result.AddFace(new FaceNode(traverseResultOther.edgesVector));
+    FaceNode* face2 = FaceFromTraversalResult(traverseResultOther);
+    if (face2) {
+        result.AddFace(face2);
     }
-    
-    
+
     return result;
 }
     
+FaceNode* PointNode::FaceFromTraversalResult(FaceTraversal::Result& traversalResult) 
+{
+    FaceNode* face = NULL;
+    if (traversalResult.edgesVector.size() > 0) {
+        if (traversalResult.hasUsedEdges) {
+            FaceTraversal::Reverse(traversalResult);
+        }
+        if (!traversalResult.hasUsedEdges) {
+            face = new FaceNode(traversalResult.edgesVector);
+        }
+        else {
+            assert(false);
+        }
+    }
+    return face;
+}
     
 void PointNode::Move(Iterator fromPosition, Iterator toPosition)
 {
