@@ -107,14 +107,9 @@ bool FaceTraversal::Find(ftr::Edge *startEdge)
                     
                     if (edge->targetNode() == mTargetNode) {
                         edgesVector.push_back(edge);
-                        if (mIgnoreResult) {
-                            if (IsSameFace(*mResult, *mIgnoreResult)) {
-                                edgesVector.pop_back();
-                                return false;
-                            } else {
-                                return true;
-                            }
-                            
+                        if (mIgnoreResult && IsSameFace(*mResult, *mIgnoreResult)) {
+                            edgesVector.pop_back();
+                            return false;
                         }
                         return true;
                     }

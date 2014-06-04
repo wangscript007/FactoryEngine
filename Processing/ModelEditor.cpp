@@ -98,7 +98,7 @@ GroupNode* ModelEditor::CreateGroup()
     
 void ModelEditor::DebugCreateCube()
 {
-    return;
+//    return;
     Box box(glm::vec3(0.0, 3.0, 0.0), glm::vec3(2.0, 2.0, 3.0));
     const glm::vec3 c = box.mCenter;
     const glm::vec3 h = box.mHalfDimension;

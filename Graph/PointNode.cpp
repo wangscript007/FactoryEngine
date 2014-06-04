@@ -224,6 +224,7 @@ FaceNode* PointNode::FaceFromTraversalResult(FaceTraversal::Result& traversalRes
 {
     FaceNode* face = NULL;
     if (traversalResult.edgesVector.size() > 0) {
+        assert(traversalResult.edgesVector.size() < 5);
         if (traversalResult.hasUsedEdges) {
             FaceTraversal::Reverse(traversalResult);
         }
@@ -231,7 +232,7 @@ FaceNode* PointNode::FaceFromTraversalResult(FaceTraversal::Result& traversalRes
             face = new FaceNode(traversalResult.edgesVector);
         }
         else {
-            assert(false);
+            //assert(false);
         }
     }
     return face;
