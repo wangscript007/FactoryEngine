@@ -24,19 +24,18 @@ void FaceTraversal::Reverse(Result& result)
         edgesVector[i] = edgesVector[i]->twin();
     }
     std::reverse(edgesVector.begin(),edgesVector.end());
-    bool had = result.hasUsedEdges;
-    result.hasUsedEdges = HasUsedEdges(result);
+    result.hasUsedEdges = AnyUsedEdge(result) != NULL;
 }
     
-bool FaceTraversal::HasUsedEdges(const Result& result)
+Edge* FaceTraversal::AnyUsedEdge(const Result& result)
 {
     for(int i = 0; i < result.edgesVector.size(); ++i) {
         Edge* edge = result.edgesVector[i];
         if (!edge->IsFree()) {
-            return true;
+            return edge;
         }
     }
-    return false;
+    return NULL;
 }
     
 FaceTraversal::~FaceTraversal()
@@ -73,12 +72,11 @@ void FaceTraversal::Find(Result& result, Result* ignoreResult)
     Find(mStartEdge->twin());
     
     mResult->hasUsedEdges = false;
-    if (edgesVector.size() < 3)
-    {
-        edgesVector.clear();
+    if (!mResult->FoundFace()) {
+        mResult->Clear();
     }
     else {
-        mResult->hasUsedEdges = HasUsedEdges(*mResult);
+        mResult->hasUsedEdges = AnyUsedEdge(*mResult) != NULL;
         
         std::cout << "FOUND: ";
         for(int i = 0; i < edgesVector.size(); ++i) {

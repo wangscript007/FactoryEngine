@@ -2,6 +2,7 @@
 #include <Graph/PointNode.h>
 #include <Graph/Edge.h>
 #include <Graph/FaceNode.h>
+#include <Processing/FaceReversal.h>
 
 
 
@@ -208,32 +209,40 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
         traversal.Find(traverseResultOther, &traverseResultThis);
     }
     
-    FaceNode* face1 = FaceFromTraversalResult(traverseResultThis);
-    if (face1) {
-        result.AddFace(face1);
+    if (traverseResultThis.FoundFace()) {
+        FaceNode* face1 = FaceFromTraversalResult(traverseResultThis);
+        if (face1) {
+            result.AddFace(face1);
+        } else {
+            FaceReversal reversal;
+            reversal.ReverseIslandWithBridgeEdge(*newEdgeTwin);
+        }
     }
-    FaceNode* face2 = FaceFromTraversalResult(traverseResultOther);
-    if (face2) {
-        result.AddFace(face2);
+    
+    if (traverseResultOther.FoundFace()) {
+        FaceNode* face2 = FaceFromTraversalResult(traverseResultOther);
+        if (face2) {
+            result.AddFace(face2);
+        } else {
+            FaceReversal reversal;
+            reversal.ReverseIslandWithBridgeEdge(*newEdge);
+        }
     }
 
     return result;
 }
-    
+        
 FaceNode* PointNode::FaceFromTraversalResult(FaceTraversal::Result& traversalResult) 
 {
     FaceNode* face = NULL;
-    if (traversalResult.edgesVector.size() > 0) {
-        assert(traversalResult.edgesVector.size() < 5);
-        if (traversalResult.hasUsedEdges) {
-            FaceTraversal::Reverse(traversalResult);
-        }
-        if (!traversalResult.hasUsedEdges) {
-            face = new FaceNode(traversalResult.edgesVector);
-        }
-        else {
-            //assert(false);
-        }
+    if (traversalResult.hasUsedEdges) {
+        FaceTraversal::Reverse(traversalResult);
+    }
+    if (!traversalResult.hasUsedEdges) {
+        face = new FaceNode(traversalResult.edgesVector);
+    }
+    else {
+        return NULL;
     }
     return face;
 }

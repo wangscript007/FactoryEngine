@@ -394,6 +394,10 @@
 		D19B99D41902F003000BF781 /* GroupInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = D19B99CF1902F003000BF781 /* GroupInteraction.h */; };
 		D1A920FF18E1876A0034336A /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
 		D1A9210018E1876A0034336A /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = D1A920FE18E1876A0034336A /* Geometry.h */; };
+		D1AD41961942483700CD00C4 /* FaceReversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1AD41951942483700CD00C4 /* FaceReversal.cpp */; };
+		D1AD41971942483700CD00C4 /* FaceReversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1AD41951942483700CD00C4 /* FaceReversal.cpp */; };
+		D1AD41991942484C00CD00C4 /* FaceReversal.h in Headers */ = {isa = PBXBuildFile; fileRef = D1AD41981942484C00CD00C4 /* FaceReversal.h */; };
+		D1AD419A1942484C00CD00C4 /* FaceReversal.h in Headers */ = {isa = PBXBuildFile; fileRef = D1AD41981942484C00CD00C4 /* FaceReversal.h */; };
 		D1B990F718FEC88600DC5843 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
 		D1B990F818FEC88600DC5843 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
 		D1BE952818F721C40022D7C7 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
@@ -635,6 +639,8 @@
 		D19B99CF1902F003000BF781 /* GroupInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupInteraction.h; sourceTree = "<group>"; };
 		D1A920FD18E1876A0034336A /* Geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Geometry.cpp; sourceTree = "<group>"; };
 		D1A920FE18E1876A0034336A /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
+		D1AD41951942483700CD00C4 /* FaceReversal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FaceReversal.cpp; sourceTree = "<group>"; };
+		D1AD41981942484C00CD00C4 /* FaceReversal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceReversal.h; sourceTree = "<group>"; };
 		D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectInteraction.cpp; sourceTree = "<group>"; };
 		D1BE952718F721C40022D7C7 /* SelectInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectInteraction.h; sourceTree = "<group>"; };
 		D1F22A83191FCE90002E0767 /* TestModelEditor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestModelEditor.mm; sourceTree = "<group>"; };
@@ -917,6 +923,8 @@
 				D1693B7118E58BAE000AFE41 /* PointNodeIterator.h */,
 				D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */,
 				D15A7DDC18FB15B1004CB791 /* ColorPickingMapper.h */,
+				D1AD41981942484C00CD00C4 /* FaceReversal.h */,
+				D1AD41951942483700CD00C4 /* FaceReversal.cpp */,
 			);
 			path = Processing;
 			sourceTree = "<group>";
@@ -1090,6 +1098,7 @@
 				D11D1CC618DF4FBA0091521F /* Description.h in Headers */,
 				60C6D08D174961470009EC3C /* RectangleInteraction.h in Headers */,
 				60C6D08F174961470009EC3C /* RotationInteraction.h in Headers */,
+				D1AD419A1942484C00CD00C4 /* FaceReversal.h in Headers */,
 				D18ECC98190517A400189A01 /* PolylineNode.h in Headers */,
 				60CE9A5D17EC646F00A775C0 /* ShadingInterface.h in Headers */,
 				60C6D090174961470009EC3C /* ScaleInteraction.h in Headers */,
@@ -1204,6 +1213,7 @@
 				60BD328B1744039D00C2E593 /* LightingModel.h in Headers */,
 				60BD328F174436BD00C2E593 /* LightingCollection.h in Headers */,
 				60BD3293174436EA00C2E593 /* DefaultLighting.h in Headers */,
+				D1AD41991942484C00CD00C4 /* FaceReversal.h in Headers */,
 				D1693B7B18E58BAE000AFE41 /* PointNodeIterator.h in Headers */,
 				6011AF1C1747C2FC0022E7A9 /* LigthtingModelFactory.h in Headers */,
 				D11D1D5618DF70980091521F /* advancing_front.h in Headers */,
@@ -1490,6 +1500,7 @@
 				60C6D063174961470009EC3C /* Layer.cpp in Sources */,
 				60C6D064174961470009EC3C /* PrimitiveRenderer.cpp in Sources */,
 				D19B99D11902F003000BF781 /* GroupInteraction.cpp in Sources */,
+				D1AD41971942483700CD00C4 /* FaceReversal.cpp in Sources */,
 				60CE9A6717EC654900A775C0 /* ShadingProgram.cpp in Sources */,
 				D185302D18F16A76001A7AB1 /* FaceExtruder.cpp in Sources */,
 				60CE9A6417EC646F00A775C0 /* Shader.cpp in Sources */,
@@ -1598,6 +1609,7 @@
 				D18ECC94190517A400189A01 /* PolylineNode.cpp in Sources */,
 				D11D1D5A18DF70980091521F /* sweep.cc in Sources */,
 				D15A7DDD18FB15B1004CB791 /* ColorPickingMapper.cpp in Sources */,
+				D1AD41961942483700CD00C4 /* FaceReversal.cpp in Sources */,
 				605FFDFB17DFDD3400DE90A9 /* LeapListener.cpp in Sources */,
 				D1693B7818E58BAE000AFE41 /* Octree.cpp in Sources */,
 			);

@@ -15,6 +15,8 @@ public:
     {
         bool hasUsedEdges;
         std::vector<Edge*> edgesVector;
+        bool FoundFace() const { return edgesVector.size() > 2; }
+        void Clear() { edgesVector.clear(); } 
     };
     
     FaceTraversal(Edge& startEdge);
@@ -22,9 +24,9 @@ public:
     
     void Find(Result& result, Result* ignoreResult = NULL);
     
-    static bool IsSameFace(const Result& resultA, const Result& resultB);
-    static void Reverse(Result& result);
-    static bool HasUsedEdges(const Result& result);
+    static bool  IsSameFace(const Result& resultA, const Result& resultB);
+    static void  Reverse(Result& result);
+    static Edge* AnyUsedEdge(const Result& result);
     
 private:
     bool Find(Edge* startEdge);
