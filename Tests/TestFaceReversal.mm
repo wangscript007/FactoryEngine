@@ -68,13 +68,16 @@ using namespace ftr;
         _modelEditor.modelFactory()->CreateLine(startPoint, endPoint);
         PointNode::ConnectionResult result = startPoint->ConnectTo(endPoint);
         
-//        if (i == 8) {
-//            ftr::FaceReversal faceReversal;
-//            faceReversal.ReverseIslandWithBridgeEdge(*result.edge);
-//        }
-        
         if (i == 7) {
             FaceReversal faceReversal;
+            faceReversal.ReverseIslandStartingAtNode(*result.edge->targetNode());
+            XCTAssertEqual(faceReversal.stats().visitedNodes, 4);
+            XCTAssertEqual(faceReversal.stats().reversedEdges, 4);
+            
+            faceReversal.ReverseIslandStartingAtNode(*result.edge->targetNode());
+            XCTAssertEqual(faceReversal.stats().visitedNodes, 4);
+            XCTAssertEqual(faceReversal.stats().reversedEdges, 4);
+            
             faceReversal.ReverseIslandStartingAtNode(*result.edge->targetNode());
             XCTAssertEqual(faceReversal.stats().visitedNodes, 4);
             XCTAssertEqual(faceReversal.stats().reversedEdges, 4);

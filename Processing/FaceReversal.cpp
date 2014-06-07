@@ -4,6 +4,40 @@
 #include <Graph/PointNode.h>
 
 namespace ftr {
+
+FaceReversal::Conflict FaceReversal::ConflictInTraversalResult(const FaceTraversal::Result& traversalResult)
+{
+    Conflict conflict;
+    assert(traversalResult.hasUsedEdges);
+    int count = 0;
+    int index = 0;
+    for (auto &edge : traversalResult.edgesVector) {
+        if (!edge->IsFree()) {
+            conflict.usedEdge = edge;
+            count++;
+        } else {
+            index++;
+        }
+        
+    }
+    assert(count == 1);
+    assert(conflict.usedEdge);
+    
+    if (index == 0) {
+        conflict.incomingEdge = traversalResult.edgesVector.back();
+        conflict.outgoingEdge = traversalResult.edgesVector[1];
+    } else if (index == traversalResult.edgesVector.size()) {
+        conflict.incomingEdge = traversalResult.edgesVector[index-1];
+        conflict.outgoingEdge = traversalResult.edgesVector.front();
+    } else {
+        conflict.incomingEdge = traversalResult.edgesVector[index-1];
+        conflict.outgoingEdge = traversalResult.edgesVector[index+1];
+    }
+    assert(conflict.incomingEdge);
+    assert(conflict.outgoingEdge);
+    
+    return conflict;
+}
     
 FaceReversal::FaceReversal()
     :   mStopNode(NULL),
@@ -25,6 +59,11 @@ void FaceReversal::ReverseIslandWithBridgeEdge(Edge& edge)
 {
     mStopNode = edge.targetNode();
     ReverseIslandStartingAtNode(*edge.originNode());
+}
+    
+void FaceReversal::ReverseIslandToResolveConflict(const Conflict& conflict)
+{
+    
 }
     
 void FaceReversal::ReverseRecursively(PointNode& pointNode)

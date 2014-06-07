@@ -1,4 +1,6 @@
 
+#include <Processing/FaceTraversal.h>
+
 namespace ftr {
     
 class Edge;
@@ -20,8 +22,21 @@ public:
         }
     };
     
+    struct Conflict
+    {
+        Edge* usedEdge;
+        Edge* incomingEdge;
+        Edge* outgoingEdge;
+        Conflict() {
+            usedEdge = incomingEdge = outgoingEdge = NULL;
+        }
+    };
+    
+    static Conflict ConflictInTraversalResult(const FaceTraversal::Result& traversalResult);
+    
     void ReverseIslandStartingAtNode(PointNode& startNode);
     void ReverseIslandWithBridgeEdge(Edge& edge);
+    void ReverseIslandToResolveConflict(const Conflict& conflict);
     
     Stats stats() const { return mStats; }
     

@@ -216,9 +216,14 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
         if (face1) {
             result.AddFace(face1);
         } else {
-//            assert(false);
+            FaceReversal::Conflict conflict = FaceReversal::ConflictInTraversalResult(traverseResultThis);
             FaceReversal reversal;
-            //reversal.ReverseIslandWithBridgeEdge(*newEdgeTwin);
+            reversal.ReverseIslandToResolveConflict(conflict);
+            FaceTraversal traversal(*newEdgeTwin);
+            traversal.Find(traverseResultThis);
+            FaceNode* face1 = FaceFromTraversalResult(traverseResultThis);
+            assert(face1);
+            result.AddFace(face1);
         }
     }
     
@@ -227,9 +232,14 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
         if (face2) {
             result.AddFace(face2);
         } else {
-//            assert(false);
+            FaceReversal::Conflict conflict = FaceReversal::ConflictInTraversalResult(traverseResultOther);
             FaceReversal reversal;
-            //reversal.ReverseIslandWithBridgeEdge(*newEdge);
+            reversal.ReverseIslandToResolveConflict(conflict);
+            FaceTraversal traversal(*newEdge);
+            traversal.Find(traverseResultOther, &traverseResultThis);
+            FaceNode* face2 = FaceFromTraversalResult(traverseResultOther);
+            assert(face2);
+            result.AddFace(face2);
         }
     }
 
