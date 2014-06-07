@@ -145,6 +145,7 @@ std::vector<Edge*> FaceNode::GetEdges() const
     return result;
 }
     
+    
 std::vector<PointNode*> FaceNode::GetPointNodes() const
 {
     std::vector<PointNode*> result;

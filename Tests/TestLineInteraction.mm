@@ -32,13 +32,15 @@ using namespace ftr;
     
     _viewport.frame = glm::vec4(0.000000, 0.000000, 1680.000000, 1680.000000);
     
-    Viewport::mDebugPoints.push_back(glm::vec3(779.417969, 729.011719, 0.991431)); // glm::vec3(1.013757, -0.000978, -2.034651)
-    Viewport::mDebugPoints.push_back(glm::vec3(1145.417969, 621.011719, 0.991026)); // glm::vec3(1.008763, -0.000977, -5.010907)
-    Viewport::mDebugPoints.push_back(glm::vec3(774.246094, 715.984375, 0.991379)); // glm::vec3(1.140808, 0.003359, -2.037147) 
-    Viewport::mDebugPoints.push_back(glm::vec3(627.246094, 375.984375, 0.990102)); // glm::vec3(3.989027, 0.002965, -1.992242) 
+    Viewport::mDebugPoints.push_back(glm::vec3(779.417969, 729.011719, 0.991431));
+    // glm::vec3(1.013757, -0.000978, -2.034651)
+    Viewport::mDebugPoints.push_back(glm::vec3(1145.417969, 621.011719, 0.991026));
+    // glm::vec3(1.008763, -0.000977, -5.010907)
+    Viewport::mDebugPoints.push_back(glm::vec3(774.246094, 715.984375, 0.991379));
+    // glm::vec3(1.140808, 0.003359, -2.037147)
+    Viewport::mDebugPoints.push_back(glm::vec3(627.246094, 375.984375, 0.990102));
+    // glm::vec3(3.989027, 0.002965, -1.992242)
 
-
-    
     _modelEditor = new ModelEditor();
     _lineInteraction = new LineInteraction(*_modelEditor, _viewport);
 }

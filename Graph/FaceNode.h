@@ -39,6 +39,7 @@ public:
     std::vector<PointNode*> GetPointNodes() const;
     
     Edge* outerEdge() const { return mOuterEdge; };
+    void setOuterEdge(Edge* outerEdge) { mOuterEdge = outerEdge; };
     
     glm::vec3 SurfaceNormal() const;
     

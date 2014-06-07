@@ -64,6 +64,7 @@ public:
     std::string Description() const;
     std::string mName;
     
+    bool mVisited;
 private:
     static FaceNode* FaceFromTraversalResult(FaceTraversal::Result& traversalResults);
     

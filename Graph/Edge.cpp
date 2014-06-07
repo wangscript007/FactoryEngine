@@ -10,7 +10,8 @@ Edge::Edge(PointNode* originNode)
     mNext(NULL),
     mPrev(NULL),
     mTwin(NULL),
-    mIncidentFace(NULL)
+    mIncidentFace(NULL),
+    mVisited(false)
 {
     
 }
@@ -44,6 +45,18 @@ std::string Edge::Name() const
         return str;
     }
     return "-";
+}
+    
+void Edge::ReverseFaceProperties()
+{
+    assert(mTwin);
+    if (mIncidentFace && mIncidentFace->outerEdge() == this) {
+        mIncidentFace->setOuterEdge(mTwin);
+    }
+    if (mTwin->mIncidentFace && mTwin->mIncidentFace->outerEdge() == mTwin) {
+        mTwin->mIncidentFace->setOuterEdge(this);
+    }
+    std::swap(mIncidentFace, mTwin->mIncidentFace);
 }
     
 std::string Edge::Description() const

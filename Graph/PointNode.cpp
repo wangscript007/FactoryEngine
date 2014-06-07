@@ -15,6 +15,7 @@ PointNode::PointNode()
     :mOctreeLeaf(NULL)
     ,mEdge(NULL)
     ,mIsActive(false)
+    ,mVisited(false)
     ,mName("")
 {
     
@@ -35,6 +36,7 @@ PointNode::PointNode(glm::vec3 origin)
 :mOrigin(origin)
     ,mEdge(NULL)
     ,mIsActive(false)
+    ,mVisited(false)
     ,mName("")
     
 {
@@ -214,8 +216,9 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
         if (face1) {
             result.AddFace(face1);
         } else {
+//            assert(false);
             FaceReversal reversal;
-            reversal.ReverseIslandWithBridgeEdge(*newEdgeTwin);
+            //reversal.ReverseIslandWithBridgeEdge(*newEdgeTwin);
         }
     }
     
@@ -224,8 +227,9 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
         if (face2) {
             result.AddFace(face2);
         } else {
+//            assert(false);
             FaceReversal reversal;
-            reversal.ReverseIslandWithBridgeEdge(*newEdge);
+            //reversal.ReverseIslandWithBridgeEdge(*newEdge);
         }
     }
 

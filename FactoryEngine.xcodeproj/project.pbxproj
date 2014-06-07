@@ -291,6 +291,9 @@
 		D157A5DC18E3098500840C77 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Triangle.cpp */; };
 		D15A7DDD18FB15B1004CB791 /* ColorPickingMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */; };
 		D15A7DDE18FB15B1004CB791 /* ColorPickingMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = D15A7DDC18FB15B1004CB791 /* ColorPickingMapper.h */; };
+		D1670B1C19437943003BCD75 /* TestFaceReversal.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1670B1B19437943003BCD75 /* TestFaceReversal.mm */; };
+		D1670B1F19438EDF003BCD75 /* FaceReversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1AD41951942483700CD00C4 /* FaceReversal.cpp */; };
+		D1670B2019438EE0003BCD75 /* FaceReversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1AD41951942483700CD00C4 /* FaceReversal.cpp */; };
 		D1693B7218E58BAE000AFE41 /* FaceTraversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B6818E58BAE000AFE41 /* FaceTraversal.cpp */; };
 		D1693B7318E58BAE000AFE41 /* FaceTraversal.h in Headers */ = {isa = PBXBuildFile; fileRef = D1693B6918E58BAE000AFE41 /* FaceTraversal.h */; };
 		D1693B7418E58BAE000AFE41 /* ModelEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B6A18E58BAE000AFE41 /* ModelEditor.cpp */; };
@@ -394,14 +397,13 @@
 		D19B99D41902F003000BF781 /* GroupInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = D19B99CF1902F003000BF781 /* GroupInteraction.h */; };
 		D1A920FF18E1876A0034336A /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
 		D1A9210018E1876A0034336A /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = D1A920FE18E1876A0034336A /* Geometry.h */; };
-		D1AD41961942483700CD00C4 /* FaceReversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1AD41951942483700CD00C4 /* FaceReversal.cpp */; };
-		D1AD41971942483700CD00C4 /* FaceReversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1AD41951942483700CD00C4 /* FaceReversal.cpp */; };
 		D1AD41991942484C00CD00C4 /* FaceReversal.h in Headers */ = {isa = PBXBuildFile; fileRef = D1AD41981942484C00CD00C4 /* FaceReversal.h */; };
 		D1AD419A1942484C00CD00C4 /* FaceReversal.h in Headers */ = {isa = PBXBuildFile; fileRef = D1AD41981942484C00CD00C4 /* FaceReversal.h */; };
 		D1B990F718FEC88600DC5843 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
 		D1B990F818FEC88600DC5843 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
 		D1BE952818F721C40022D7C7 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
 		D1BE952918F721C40022D7C7 /* SelectInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = D1BE952718F721C40022D7C7 /* SelectInteraction.h */; };
+		D1F0A5A019438FD500169A95 /* FaceReversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1AD41951942483700CD00C4 /* FaceReversal.cpp */; };
 		D1F22A84191FCE90002E0767 /* TestModelEditor.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1F22A83191FCE90002E0767 /* TestModelEditor.mm */; };
 		D1F44F4C157FE79600566119 /* Workspace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F4A157FE79600566119 /* Workspace.cpp */; };
 		D1F44F4D157FE79600566119 /* Workspace.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F4B157FE79600566119 /* Workspace.h */; };
@@ -589,6 +591,7 @@
 		D15130DB190C3DD800BA09AB /* Picker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Picker.h; sourceTree = "<group>"; };
 		D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ColorPickingMapper.cpp; sourceTree = "<group>"; };
 		D15A7DDC18FB15B1004CB791 /* ColorPickingMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickingMapper.h; sourceTree = "<group>"; };
+		D1670B1B19437943003BCD75 /* TestFaceReversal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestFaceReversal.mm; sourceTree = "<group>"; };
 		D1693B6818E58BAE000AFE41 /* FaceTraversal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FaceTraversal.cpp; sourceTree = "<group>"; };
 		D1693B6918E58BAE000AFE41 /* FaceTraversal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceTraversal.h; sourceTree = "<group>"; };
 		D1693B6A18E58BAE000AFE41 /* ModelEditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelEditor.cpp; sourceTree = "<group>"; };
@@ -790,6 +793,7 @@
 				D189C6731916A3AC00E9FB1A /* TestCamera.mm */,
 				D189C6771916C2F400E9FB1A /* TestMoveInteraction.mm */,
 				D1F22A83191FCE90002E0767 /* TestModelEditor.mm */,
+				D1670B1B19437943003BCD75 /* TestFaceReversal.mm */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -913,6 +917,8 @@
 				D185302518F148A8001A7AB1 /* FaceExtruder.h */,
 				D1693B6818E58BAE000AFE41 /* FaceTraversal.cpp */,
 				D1693B6918E58BAE000AFE41 /* FaceTraversal.h */,
+				D1AD41951942483700CD00C4 /* FaceReversal.cpp */,
+				D1AD41981942484C00CD00C4 /* FaceReversal.h */,
 				D1693B6A18E58BAE000AFE41 /* ModelEditor.cpp */,
 				D1693B6B18E58BAE000AFE41 /* ModelEditor.h */,
 				D1693B6C18E58BAE000AFE41 /* ModelTree.cpp */,
@@ -923,8 +929,6 @@
 				D1693B7118E58BAE000AFE41 /* PointNodeIterator.h */,
 				D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */,
 				D15A7DDC18FB15B1004CB791 /* ColorPickingMapper.h */,
-				D1AD41981942484C00CD00C4 /* FaceReversal.h */,
-				D1AD41951942483700CD00C4 /* FaceReversal.cpp */,
 			);
 			path = Processing;
 			sourceTree = "<group>";
@@ -1299,7 +1303,7 @@
 		D13DC902157A9F8B00C84006 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = Dimention;
 				TargetAttributes = {
 					60607E0D17E63CF600708358 = {
@@ -1384,6 +1388,7 @@
 				603BA5E317E87437007CE822 /* LightingCollection.cpp in Sources */,
 				603BA5E417E87437007CE822 /* LigthtingModelFactory.cpp in Sources */,
 				6032717817EB17C700249562 /* SceneRenderer.cpp in Sources */,
+				D1F0A5A019438FD500169A95 /* FaceReversal.cpp in Sources */,
 				60B3F3C0180577560010484D /* Segment.cpp in Sources */,
 				D1693B9118E5B1BD000AFE41 /* Constants.cpp in Sources */,
 				D19B99D21902F003000BF781 /* GroupInteraction.cpp in Sources */,
@@ -1425,6 +1430,7 @@
 				60DFE3AC18253C7400A32D7A /* Vector.cpp in Sources */,
 				603BA5F817E87437007CE822 /* ScaleInteraction.cpp in Sources */,
 				D18ECC73190517A400189A01 /* Edge.cpp in Sources */,
+				D1670B1C19437943003BCD75 /* TestFaceReversal.mm in Sources */,
 				D11D1CC418DF4FBA0091521F /* Description.cpp in Sources */,
 				D18ECC6E190517A400189A01 /* BodyNode.cpp in Sources */,
 				D185302C18F16A76001A7AB1 /* FaceExtruder.cpp in Sources */,
@@ -1500,10 +1506,10 @@
 				60C6D063174961470009EC3C /* Layer.cpp in Sources */,
 				60C6D064174961470009EC3C /* PrimitiveRenderer.cpp in Sources */,
 				D19B99D11902F003000BF781 /* GroupInteraction.cpp in Sources */,
-				D1AD41971942483700CD00C4 /* FaceReversal.cpp in Sources */,
 				60CE9A6717EC654900A775C0 /* ShadingProgram.cpp in Sources */,
 				D185302D18F16A76001A7AB1 /* FaceExtruder.cpp in Sources */,
 				60CE9A6417EC646F00A775C0 /* Shader.cpp in Sources */,
+				D1670B2019438EE0003BCD75 /* FaceReversal.cpp in Sources */,
 				60C6D065174961470009EC3C /* LineRenderer.cpp in Sources */,
 				D11D1D7518E0507B0091521F /* Polyline.cpp in Sources */,
 				60C6D066174961470009EC3C /* PolygonRenderer.cpp in Sources */,
@@ -1590,6 +1596,7 @@
 				6055CFD017417D46009F1F46 /* Light.cpp in Sources */,
 				6055CFD417417DCB009F1F46 /* Camera.cpp in Sources */,
 				60BD328A1744039D00C2E593 /* LightingModel.cpp in Sources */,
+				D1670B1F19438EDF003BCD75 /* FaceReversal.cpp in Sources */,
 				60BD328E174436BD00C2E593 /* LightingCollection.cpp in Sources */,
 				60BD3292174436EA00C2E593 /* DefaultLighting.cpp in Sources */,
 				D1693B8D18E5B04C000AFE41 /* Constants.cpp in Sources */,
@@ -1609,7 +1616,6 @@
 				D18ECC94190517A400189A01 /* PolylineNode.cpp in Sources */,
 				D11D1D5A18DF70980091521F /* sweep.cc in Sources */,
 				D15A7DDD18FB15B1004CB791 /* ColorPickingMapper.cpp in Sources */,
-				D1AD41961942483700CD00C4 /* FaceReversal.cpp in Sources */,
 				605FFDFB17DFDD3400DE90A9 /* LeapListener.cpp in Sources */,
 				D1693B7818E58BAE000AFE41 /* Octree.cpp in Sources */,
 			);
@@ -1785,8 +1791,10 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -1821,9 +1829,11 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1846,6 +1856,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_X86_VECTOR_INSTRUCTIONS = default;
+				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1871,6 +1882,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_X86_VECTOR_INSTRUCTIONS = default;
+				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
