@@ -24,7 +24,8 @@ FaceReversal::Conflict FaceReversal::ConflictInTraversalResult(const FaceTravers
     
     assert(conflictsCount == 1);
     assert(conflict.edge);
-    assert(!edgesVector[conflictIndex]->IsFree());
+    assert(!conflict.edge->IsFree());
+    assert(conflict.edge->twin()->IsFree());
     
     if (conflictIndex == 0) {
         conflict.edgeBefore = edgesVector.back();

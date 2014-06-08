@@ -19,6 +19,11 @@ FaceNode::~FaceNode()
     
 FaceNode::FaceNode(const std::vector<Edge*>& edges)
 {
+    InitWithEdges(edges);
+}
+    
+void FaceNode::InitWithEdges(const std::vector<Edge*>& edges)
+{
     assert(edges.size() > 2);
     for (int i = 0; i < edges.size()-1; ++i) {
         Edge* currentEdge = edges[i]->twin();
@@ -28,6 +33,7 @@ FaceNode::FaceNode(const std::vector<Edge*>& edges)
     OrderAscending(*edges.front(), *edges.back()->twin());
     assert(IsValid(edges));
     BoundByLoopWithEdge(*edges.front());
+
 }
     
 void FaceNode::Render(Layer& layer)
@@ -62,23 +68,27 @@ void FaceNode::Invalidate()
 FaceNode::FaceNode(const std::vector<glm::vec3>& points)
 {
     assert(points.size() > 2);
+    
+    std::vector<Edge*> edges;
+    
     PointNode* startPointNode = new PointNode(points[0]);
     startPointNode->mName = "1";
     PointNode* lastPointNode = startPointNode;
-    for (int i = 1; i < points.size(); ++i) {
-        
+    for (int i = 1; i < points.size(); ++i)
+    {
         PointNode* currentPointNode = new PointNode(points[i]);
         
         std::stringstream ss;
         ss << i+1;
         currentPointNode->mName = ss.str();
         
-        lastPointNode->ConnectTo(currentPointNode);
+        edges.push_back(lastPointNode->ConnectTo(currentPointNode, true).edge);
         lastPointNode = currentPointNode;
     }
-    mOuterEdge = lastPointNode->ConnectTo(startPointNode).edge;
-    BoundByLoopWithEdge(*mOuterEdge);
-    assert(IsValid());
+    mOuterEdge = lastPointNode->ConnectTo(startPointNode, true).edge;
+    edges.push_back(mOuterEdge);
+    InitWithEdges(edges);
+    
 }
     
 void FaceNode::OrderAscending(Edge& edge1, Edge& edge2)
@@ -178,7 +188,7 @@ void FaceNode::MarkIncidentFaceInLoopWithEdge(Edge& edge)
     Edge* currentEdge = &edge;
     do {
         currentEdge->mIncidentFace = this;
-        //printf("Mark %s\n", currentEdge->Name().c_str());
+        printf("Mark %s\n", currentEdge->Name().c_str());
         currentEdge = currentEdge->next();
     } while ( currentEdge->IsFree() );
 }

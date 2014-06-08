@@ -177,9 +177,10 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
     
     if (mEdge)
     {
+        Insert(End(), *newEdgeTwin);
         if (!skipTraversal)
         {
-            Insert(End(), *newEdgeTwin);
+            
             traverseThis = true;
         }
     } else {
@@ -187,9 +188,10 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
     }
     if (other->mEdge)
     {
+        other->Insert(other->End(), *newEdge);
         if (!skipTraversal)
         {
-            other->Insert(other->End(), *newEdge);
+            
             traverseOther = true;
         }
     } else {
@@ -245,8 +247,6 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
     return result;
 }
     
-
-        
 FaceNode* PointNode::FaceFromTraversalResult(FaceTraversal::Result& traversalResult) 
 {
     FaceNode* face = NULL;

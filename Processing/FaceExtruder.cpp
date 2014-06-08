@@ -23,9 +23,7 @@ FaceExtruder::~FaceExtruder()
 void FaceExtruder::Extrude(FaceNode &faceNode)
 {
     mFaceNode = &faceNode;
-    
     glm::vec3 offsetVec = mFaceNode->SurfaceNormal()*kExtrudeMinOffset;
-    
     std::vector<PointNode*> pointNodes = mFaceNode->GetPointNodes();
     
     PointNode* startPointNode = NULL;
@@ -35,16 +33,13 @@ void FaceExtruder::Extrude(FaceNode &faceNode)
     {
         PointNode* twinPointNode = mModelEditor.CreatePoint(pointNodes[i]->mOrigin + offsetVec);
         mModelEditor.CreateLine(twinPointNode, pointNodes[i]);
-        
         if (i > 0) {
             mModelEditor.CreateLine(lastPointNode, twinPointNode);
         } else {
             startPointNode = twinPointNode;
         }
-        
         lastPointNode = twinPointNode;
     }
-    
     mModelEditor.CreateLine(lastPointNode, startPointNode);
 }
 

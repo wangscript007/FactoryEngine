@@ -46,7 +46,7 @@ public:
     
     PointNode* mReferencePoint;
 private:
-    
+    void InitWithEdges(const std::vector<Edge*>& edges);
     void MarkIncidentFaceInLoopWithEdge(Edge& Edge);
     
     std::vector<Edge*> mInnerEdges;
