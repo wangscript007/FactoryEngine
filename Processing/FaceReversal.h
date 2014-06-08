@@ -24,12 +24,10 @@ public:
     
     struct Conflict
     {
-        Edge* usedEdge;
-        Edge* incomingEdge;
-        Edge* outgoingEdge;
-        Conflict() {
-            usedEdge = incomingEdge = outgoingEdge = NULL;
-        }
+        Edge* edge;
+        Edge* edgeBefore;
+        Edge* edgeAfter;
+        Conflict() : edge(NULL), edgeBefore(NULL), edgeAfter(NULL) {}
     };
     
     static Conflict ConflictInTraversalResult(const FaceTraversal::Result& traversalResult);
@@ -47,9 +45,14 @@ private:
     void VisitNode(PointNode& node);
     void PrintStats();
     
+    static void PrintConflict(const Conflict& conflict);
+    
+    bool WouldCrossConflictedIslandBorder(const PointNode& pointNode) const;
+    
     PointNode* mStartNode;
     PointNode* mStopNode;
     
+    Conflict mConflict;
     Stats mStats;
   
     std::vector<Edge*> mVisitedEdges;

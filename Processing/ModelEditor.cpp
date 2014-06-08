@@ -116,8 +116,8 @@ void ModelEditor::DebugCreateCube()
     
     static const GLubyte indices[] = {
         0, 1,   1, 2,   2, 3,   3, 0,
-        0, 4,   1, 5,   2, 6,   3, 7,
-        4, 5,   5, 6,   6, 7,   7, 4
+        4, 5,   5, 6,   6, 7,   7, 4,
+        0, 4,   1, 5,   2, 6,   3, 7
     };
     
     PointNode* nodes[8];

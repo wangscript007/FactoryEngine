@@ -8,33 +8,41 @@ namespace ftr {
 FaceReversal::Conflict FaceReversal::ConflictInTraversalResult(const FaceTraversal::Result& traversalResult)
 {
     Conflict conflict;
-    assert(traversalResult.hasUsedEdges);
-    int count = 0;
-    int index = 0;
-    for (auto &edge : traversalResult.edgesVector) {
-        if (!edge->IsFree()) {
-            conflict.usedEdge = edge;
-            count++;
-        } else {
-            index++;
-        }
-        
-    }
-    assert(count == 1);
-    assert(conflict.usedEdge);
+    const std::vector<Edge*> &edgesVector = traversalResult.edgesVector;
     
-    if (index == 0) {
-        conflict.incomingEdge = traversalResult.edgesVector.back();
-        conflict.outgoingEdge = traversalResult.edgesVector[1];
-    } else if (index == traversalResult.edgesVector.size()) {
-        conflict.incomingEdge = traversalResult.edgesVector[index-1];
-        conflict.outgoingEdge = traversalResult.edgesVector.front();
-    } else {
-        conflict.incomingEdge = traversalResult.edgesVector[index-1];
-        conflict.outgoingEdge = traversalResult.edgesVector[index+1];
+    assert(traversalResult.hasUsedEdges);
+    int conflictsCount = 0;
+    int conflictIndex = 0;
+    for (int i = 0; i < edgesVector.size(); ++i) {
+        Edge* edge = edgesVector[i];
+        if (!edge->IsFree()) {
+            conflict.edge = edge;
+            conflictIndex = i;
+            conflictsCount++;
+        }
     }
-    assert(conflict.incomingEdge);
-    assert(conflict.outgoingEdge);
+    
+    assert(conflictsCount == 1);
+    assert(conflict.edge);
+    assert(!edgesVector[conflictIndex]->IsFree());
+    
+    if (conflictIndex == 0) {
+        conflict.edgeBefore = edgesVector.back();
+        conflict.edgeAfter = edgesVector[1];
+    }
+    else if (conflictIndex == edgesVector.size())
+    {
+        conflict.edgeBefore = edgesVector[conflictIndex-1];
+        conflict.edgeAfter = edgesVector.front();
+    }
+    else {
+        conflict.edgeBefore = edgesVector[conflictIndex-1];
+        conflict.edgeAfter = edgesVector[conflictIndex+1];
+    }
+    assert(conflict.edgeBefore);
+    assert(conflict.edgeAfter);
+    
+    PrintConflict(conflict);
     
     return conflict;
 }
@@ -63,12 +71,21 @@ void FaceReversal::ReverseIslandWithBridgeEdge(Edge& edge)
     
 void FaceReversal::ReverseIslandToResolveConflict(const Conflict& conflict)
 {
+    mStats.Reset();
     
+    mConflict = conflict;
+    ReverseRecursively(*mConflict.edge->originNode());
+    
+    PrintStats();
+    ResetVisitStates();
 }
     
 void FaceReversal::ReverseRecursively(PointNode& pointNode)
 {
-    if (pointNode.mVisited || &pointNode == mStopNode) return;
+    bool reachedStopNode = pointNode.mVisited || &pointNode == mStopNode;
+    if (reachedStopNode || WouldCrossConflictedIslandBorder(pointNode)) {
+        return;
+    }
     
     VisitNode(pointNode);
     
@@ -81,6 +98,18 @@ void FaceReversal::ReverseRecursively(PointNode& pointNode)
             ReverseRecursively(*edge->targetNode());
         }
     }
+}
+    
+bool FaceReversal::WouldCrossConflictedIslandBorder(const PointNode& pointNode) const
+{
+    if (mConflict.edge) {
+        if (&pointNode == mConflict.edgeAfter->targetNode() ||
+            &pointNode == mConflict.edgeBefore->originNode())
+        {
+            return true;
+        }
+    }
+    return false;
 }
     
 void FaceReversal::VisitNode(PointNode& pointNode)
@@ -120,6 +149,15 @@ void FaceReversal::PrintStats()
     std::cout << "FACES REVERSED: " << std::endl;
     std::cout << "Visited nodes: " << mStats.visitedNodes << std::endl;
     std::cout << "Reversed edges: " << mStats.reversedEdges << std::endl;
+    std::cout << std::endl;
+}
+    
+void FaceReversal::PrintConflict(const Conflict& conflict)
+{
+    std::cout << std::endl;
+    std::cout << "CONFLICT EDGE: " << conflict.edge->Description() << std::endl;
+    std::cout << "Edge before: " << conflict.edgeBefore->Description() << std::endl;
+    std::cout << "Edge after: " << conflict.edgeAfter->Description() << std::endl;
     std::cout << std::endl;
 }
 

@@ -242,9 +242,10 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
             result.AddFace(face2);
         }
     }
-
     return result;
 }
+    
+
         
 FaceNode* PointNode::FaceFromTraversalResult(FaceTraversal::Result& traversalResult) 
 {
