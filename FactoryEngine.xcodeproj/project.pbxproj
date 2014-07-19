@@ -473,7 +473,6 @@
 		603BA60117E874FE007CE822 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		6047DB9116B46A890012286F /* RectangleInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleInteraction.cpp; sourceTree = "<group>"; };
 		6047DB9216B46A890012286F /* RectangleInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleInteraction.h; sourceTree = "<group>"; };
-		604E939A16A1C6E700143522 /* fix_includes.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = fix_includes.py; sourceTree = "<group>"; };
 		604E93D116A1D14C00143522 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		6055CFCE17417D45009F1F46 /* Light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Light.cpp; sourceTree = "<group>"; };
 		6055CFCF17417D45009F1F46 /* Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Light.h; sourceTree = "<group>"; };
@@ -520,7 +519,6 @@
 		608D700E17357A46000A92F7 /* ShadingProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadingProgram.h; sourceTree = "<group>"; };
 		608D701117357B3C000A92F7 /* ShadingLibrary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadingLibrary.cpp; sourceTree = "<group>"; };
 		608D701217357B3C000A92F7 /* ShadingLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadingLibrary.h; sourceTree = "<group>"; };
-		6090C57E1711AE2400F23DBB /* rename.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = rename.py; sourceTree = "<group>"; };
 		60919945185DB33900C7524F /* TestFaceTraversal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestFaceTraversal.mm; sourceTree = "<group>"; };
 		60937FB7186D9F1200E6C23E /* TestTetrahedron.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestTetrahedron.mm; sourceTree = "<group>"; };
 		60988087180584A60064477E /* TestSegment.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestSegment.mm; sourceTree = "<group>"; };
@@ -563,8 +561,6 @@
 		60F2406D16B5BCA700291ED0 /* LineInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineInteraction.h; sourceTree = "<group>"; };
 		60F6D98D17368DB500935A76 /* TestRectangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestRectangle.cpp; sourceTree = "<group>"; };
 		60F6D98E17368DB500935A76 /* TestRectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRectangle.h; sourceTree = "<group>"; };
-		60FD3CFA16DA3C65001F789D /* cpp_convention.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = cpp_convention.py; sourceTree = "<group>"; };
-		60FD3CFB16DA4C9A001F789D /* parsing.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = parsing.py; sourceTree = "<group>"; };
 		D116AC061917544500153AEC /* Intersection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Intersection.cpp; sourceTree = "<group>"; };
 		D116AC071917544500153AEC /* Intersection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Intersection.h; sourceTree = "<group>"; };
 		D11D1CC018DF4FBA0091521F /* Description.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Description.cpp; sourceTree = "<group>"; };
@@ -583,6 +579,12 @@
 		D11D1D4E18DF70980091521F /* sweep_context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sweep_context.h; sourceTree = "<group>"; };
 		D11D1D7218E0507B0091521F /* Polyline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Polyline.cpp; sourceTree = "<group>"; };
 		D11D1D7318E0507B0091521F /* Polyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polyline.h; sourceTree = "<group>"; };
+		D1273815197A771300FA38F3 /* cpp_convention.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = cpp_convention.py; sourceTree = "<group>"; };
+		D1273816197A771300FA38F3 /* fix_includes.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = fix_includes.py; sourceTree = "<group>"; };
+		D1273817197A771300FA38F3 /* parsing.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = parsing.py; sourceTree = "<group>"; };
+		D1273818197A771300FA38F3 /* parsing.pyc */ = {isa = PBXFileReference; lastKnownFileType = file; path = parsing.pyc; sourceTree = "<group>"; };
+		D1273819197A771300FA38F3 /* rename.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = rename.py; sourceTree = "<group>"; };
+		D127381B197A773500FA38F3 /* DebugBuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = DebugBuild.sh; sourceTree = "<group>"; };
 		D13CAE0318E1CBE700C2A180 /* TestPolygon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPolygon.mm; sourceTree = "<group>"; };
 		D13DC90B157A9F8C00C84006 /* libFactoryEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFactoryEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13DC912157A9FF500C84006 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -715,10 +717,8 @@
 		604E939816A1C6CF00143522 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				604E939A16A1C6E700143522 /* fix_includes.py */,
-				60FD3CFA16DA3C65001F789D /* cpp_convention.py */,
-				60FD3CFB16DA4C9A001F789D /* parsing.py */,
-				6090C57E1711AE2400F23DBB /* rename.py */,
+				D1273814197A771300FA38F3 /* Python */,
+				D127381A197A771300FA38F3 /* xctool */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -931,6 +931,26 @@
 				D15A7DDC18FB15B1004CB791 /* ColorPickingMapper.h */,
 			);
 			path = Processing;
+			sourceTree = "<group>";
+		};
+		D1273814197A771300FA38F3 /* Python */ = {
+			isa = PBXGroup;
+			children = (
+				D1273815197A771300FA38F3 /* cpp_convention.py */,
+				D1273816197A771300FA38F3 /* fix_includes.py */,
+				D1273817197A771300FA38F3 /* parsing.py */,
+				D1273818197A771300FA38F3 /* parsing.pyc */,
+				D1273819197A771300FA38F3 /* rename.py */,
+			);
+			path = Python;
+			sourceTree = "<group>";
+		};
+		D127381A197A771300FA38F3 /* xctool */ = {
+			isa = PBXGroup;
+			children = (
+				D127381B197A773500FA38F3 /* DebugBuild.sh */,
+			);
+			path = xctool;
 			sourceTree = "<group>";
 		};
 		D13DC900157A9F8B00C84006 = {
