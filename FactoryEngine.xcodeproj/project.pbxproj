@@ -411,6 +411,7 @@
 		D1F44F52157FE91900566119 /* Pad.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F50157FE91900566119 /* Pad.h */; };
 		D1F44F55157FE9D200566119 /* HUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F53157FE9D200566119 /* HUD.cpp */; };
 		D1F44F56157FE9D200566119 /* HUD.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F54157FE9D200566119 /* HUD.h */; };
+		D1FBBC89197AD187001A38C3 /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = D1FBBC88197AD187001A38C3 /* Scripts */; };
 		D1FDC88418F192960075176E /* ExtrudeInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302018F145D5001A7AB1 /* ExtrudeInteraction.cpp */; };
 		D1FDC88518F192960075176E /* ExtrudeInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302018F145D5001A7AB1 /* ExtrudeInteraction.cpp */; };
 /* End PBXBuildFile section */
@@ -453,7 +454,6 @@
 		6011AF1A1747C2FC0022E7A9 /* LigthtingModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LigthtingModelFactory.h; sourceTree = "<group>"; };
 		6011C37616D0EE9100CD34F9 /* Polygon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Polygon.cpp; sourceTree = "<group>"; };
 		6011C37716D0EE9100CD34F9 /* Polygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polygon.h; sourceTree = "<group>"; };
-		60127559163BDB0000E98E34 /* Readme.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Readme.rtf; sourceTree = "<group>"; };
 		601EC869175B2901003DE2B8 /* CameraInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraInteraction.cpp; sourceTree = "<group>"; };
 		601EC86A175B2901003DE2B8 /* CameraInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraInteraction.h; sourceTree = "<group>"; };
 		602055C418A6BE790005F379 /* Docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Docs; sourceTree = "<group>"; };
@@ -493,7 +493,6 @@
 		60607E1917E63CF600708358 /* FactoryEngine Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FactoryEngine Tests-Prefix.pch"; sourceTree = "<group>"; };
 		60666D3E175A4ABE007FF45F /* ShadingInterfaceES.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadingInterfaceES.cpp; sourceTree = "<group>"; };
 		60666D3F175A4ABE007FF45F /* ShadingInterfaceES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadingInterfaceES.h; sourceTree = "<group>"; };
-		606A7F5C163C0C0700E4F243 /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
 		606BC0051808639500EC4F37 /* AxisSnap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AxisSnap.cpp; sourceTree = "<group>"; };
 		606BC0061808639500EC4F37 /* AxisSnap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxisSnap.h; sourceTree = "<group>"; };
 		606BC0071808639500EC4F37 /* Snap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Snap.cpp; sourceTree = "<group>"; };
@@ -579,12 +578,6 @@
 		D11D1D4E18DF70980091521F /* sweep_context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sweep_context.h; sourceTree = "<group>"; };
 		D11D1D7218E0507B0091521F /* Polyline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Polyline.cpp; sourceTree = "<group>"; };
 		D11D1D7318E0507B0091521F /* Polyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polyline.h; sourceTree = "<group>"; };
-		D1273815197A771300FA38F3 /* cpp_convention.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = cpp_convention.py; sourceTree = "<group>"; };
-		D1273816197A771300FA38F3 /* fix_includes.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = fix_includes.py; sourceTree = "<group>"; };
-		D1273817197A771300FA38F3 /* parsing.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = parsing.py; sourceTree = "<group>"; };
-		D1273818197A771300FA38F3 /* parsing.pyc */ = {isa = PBXFileReference; lastKnownFileType = file; path = parsing.pyc; sourceTree = "<group>"; };
-		D1273819197A771300FA38F3 /* rename.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = rename.py; sourceTree = "<group>"; };
-		D127381B197A773500FA38F3 /* DebugBuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = DebugBuild.sh; sourceTree = "<group>"; };
 		D13CAE0318E1CBE700C2A180 /* TestPolygon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPolygon.mm; sourceTree = "<group>"; };
 		D13DC90B157A9F8C00C84006 /* libFactoryEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFactoryEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13DC912157A9FF500C84006 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -656,6 +649,7 @@
 		D1F44F53157FE9D200566119 /* HUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HUD.cpp; sourceTree = "<group>"; };
 		D1F44F54157FE9D200566119 /* HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUD.h; sourceTree = "<group>"; };
 		D1FBAF6C18DEE73B000A083E /* TestPoly2tri.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPoly2tri.mm; sourceTree = "<group>"; };
+		D1FBBC88197AD187001A38C3 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -712,15 +706,6 @@
 				D19B99CF1902F003000BF781 /* GroupInteraction.h */,
 			);
 			path = Interaction;
-			sourceTree = "<group>";
-		};
-		604E939816A1C6CF00143522 /* Scripts */ = {
-			isa = PBXGroup;
-			children = (
-				D1273814197A771300FA38F3 /* Python */,
-				D127381A197A771300FA38F3 /* xctool */,
-			);
-			path = Scripts;
 			sourceTree = "<group>";
 		};
 		6055CFCD17417BB3009F1F46 /* Lighting */ = {
@@ -933,35 +918,11 @@
 			path = Processing;
 			sourceTree = "<group>";
 		};
-		D1273814197A771300FA38F3 /* Python */ = {
-			isa = PBXGroup;
-			children = (
-				D1273815197A771300FA38F3 /* cpp_convention.py */,
-				D1273816197A771300FA38F3 /* fix_includes.py */,
-				D1273817197A771300FA38F3 /* parsing.py */,
-				D1273818197A771300FA38F3 /* parsing.pyc */,
-				D1273819197A771300FA38F3 /* rename.py */,
-			);
-			path = Python;
-			sourceTree = "<group>";
-		};
-		D127381A197A771300FA38F3 /* xctool */ = {
-			isa = PBXGroup;
-			children = (
-				D127381B197A773500FA38F3 /* DebugBuild.sh */,
-			);
-			path = xctool;
-			sourceTree = "<group>";
-		};
 		D13DC900157A9F8B00C84006 = {
 			isa = PBXGroup;
 			children = (
-				60127559163BDB0000E98E34 /* Readme.rtf */,
 				D17C76641583BF440083E2B0 /* FactoryEngine.h */,
-				602055C418A6BE790005F379 /* Docs */,
-				606A7F5C163C0C0700E4F243 /* Documentation */,
 				605FFDF017DFDC4C00DE90A9 /* Leap */,
-				604E939816A1C6CF00143522 /* Scripts */,
 				D1C708B915B3495400D64823 /* External */,
 				D17C766B1583C1580083E2B0 /* Main */,
 				D11D1CBF18DF4FAF0091521F /* Utils */,
@@ -978,6 +939,8 @@
 				60607E1117E63CF600708358 /* Tests */,
 				D1E75032157BC4DB005C4CCF /* Frameworks */,
 				D13DC90C157A9F8C00C84006 /* Products */,
+				602055C418A6BE790005F379 /* Docs */,
+				D1FBBC88197AD187001A38C3 /* Scripts */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1355,6 +1318,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1FBBC89197AD187001A38C3 /* Scripts in Resources */,
 				602A43A41800A59600EC071F /* glm in Resources */,
 				602055C518A6BE790005F379 /* Docs in Resources */,
 			);

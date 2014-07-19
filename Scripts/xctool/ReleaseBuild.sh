@@ -1,7 +1,7 @@
 #!/bin/sh
 SCHEME=FactoryEngine
 PROJECT=FactoryEngine.xcodeproj
-CONFIG=Debug
+CONFIG=Release
 SDK=macosx
 
 xctool \
