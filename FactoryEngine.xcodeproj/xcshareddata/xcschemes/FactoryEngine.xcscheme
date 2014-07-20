@@ -41,6 +41,9 @@
                <Test
                   Identifier = "TestPointNode/testIteratorOperations">
                </Test>
+               <Test
+                  Identifier = "TestTetrahedron/testConnectingHighTetrahedronAndExtraEdge">
+               </Test>
             </SkippedTests>
          </TestableReference>
       </Testables>
