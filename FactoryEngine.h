@@ -4,7 +4,6 @@
 //
 // Macros
 //
-
 #include <cassert>
 #include <cstdio>
 #include <cstdlib>
@@ -70,4 +69,8 @@ typedef unsigned long long int  Quadrupleword;    // 8 bytes
 //
 #include "Scene/Scene.h"
 #include "Scene/Camera.h"
+//
+// Repository polling test
+//
+
 
