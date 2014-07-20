@@ -9,6 +9,8 @@ xctool \
 -scheme $SCHEME \
 -configuration $CONFIG \
 -sdk $SDK \
+-reporter junit:test-results.xml \
+-reporter plain \
 test
 
 
