@@ -1,6 +1,6 @@
 #!/bin/sh
-SCHEME=Factory
-PROJECT=Factory.xcodeproj
+SCHEME=FactoryEngine
+PROJECT=FactoryEngine.xcodeproj
 CONFIG=Debug
 SDK=macosx
 
