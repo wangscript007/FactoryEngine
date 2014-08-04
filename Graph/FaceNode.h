@@ -39,13 +39,14 @@ public:
     std::vector<PointNode*> GetPointNodes() const;
     
     Edge* outerEdge() const { return mOuterEdge; };
+    void setOuterEdge(Edge* outerEdge) { mOuterEdge = outerEdge; };
     
     glm::vec3 SurfaceNormal() const;
     
     
     PointNode* mReferencePoint;
 private:
-    
+    void InitWithEdges(const std::vector<Edge*>& edges);
     void MarkIncidentFaceInLoopWithEdge(Edge& Edge);
     
     std::vector<Edge*> mInnerEdges;

@@ -16,6 +16,28 @@ bool FaceTraversal::IsSameFace(const Result& resultA, const Result& resultB)
     return result;
 }
     
+void FaceTraversal::Reverse(Result& result)
+{
+    std::vector<Edge*>& edgesVector = result.edgesVector;
+    size_t size = edgesVector.size();
+    for (int i = 0; i < size; ++i) {
+        edgesVector[i] = edgesVector[i]->twin();
+    }
+    std::reverse(edgesVector.begin(),edgesVector.end());
+    result.hasUsedEdges = AnyUsedEdge(result) != NULL;
+}
+    
+Edge* FaceTraversal::AnyUsedEdge(const Result& result)
+{
+    for(int i = 0; i < result.edgesVector.size(); ++i) {
+        Edge* edge = result.edgesVector[i];
+        if (!edge->IsFree()) {
+            return edge;
+        }
+    }
+    return NULL;
+}
+    
 FaceTraversal::~FaceTraversal()
 {
     FT_DELETE(mPlane);
@@ -25,14 +47,16 @@ FaceTraversal::~FaceTraversal()
 FaceTraversal::FaceTraversal(Edge& startEdge)
     : mStartEdge(&startEdge),
     mPlane(NULL),
+    mIgnoreResult(NULL),
     mTargetNode(startEdge.originNode())
 {
     
 }
 
-void FaceTraversal::Find(Result& result)
+void FaceTraversal::Find(Result& result, Result* ignoreResult)
 {
     mResult = &result;
+    mIgnoreResult = ignoreResult;
     std::vector<Edge*>& edgesVector = mResult->edgesVector;
     
     FT_DELETE(mPlane);
@@ -48,19 +72,11 @@ void FaceTraversal::Find(Result& result)
     Find(mStartEdge->twin());
     
     mResult->hasUsedEdges = false;
-    if (edgesVector.size() < 3)
-    {
-        edgesVector.clear();
+    if (!mResult->FoundFace()) {
+        mResult->Clear();
     }
     else {
-        for(int i = 0; i < edgesVector.size(); ++i) {
-            Edge* edge = edgesVector[i];
-            if (!edge->IsFree()) {
-                mResult->hasUsedEdges = true;
-                break;
-            }
-            
-        }
+        mResult->hasUsedEdges = AnyUsedEdge(*mResult) != NULL;
         
         std::cout << "FOUND: ";
         for(int i = 0; i < edgesVector.size(); ++i) {
@@ -81,41 +97,58 @@ bool FaceTraversal::Find(ftr::Edge *startEdge)
     
     for(PointNode::Iterator i = originNode->Begin(); i != originNode->End(); ++i)
     {
-        ftr::Edge* iEdge = *i;
-        if (iEdge != edgesVector.back()->twin())
-        {
-            if (iEdge->targetNode() == mTargetNode)
-            {
-                if(PathContainsNode(edgesVector, *iEdge->targetNode())) {
-                    return false;
-                } else {
-                    edgesVector.push_back(iEdge);
-                    return true;
-                }
-            }
-            else if (iEdge->next() && !PathContainsNode(edgesVector, *iEdge->targetNode()))
-            {
-                if (edgesVector.size() > 0) {
+        ftr::Edge* edge = *i;
+        
+        if (IsNotTraversingBackwards(*edge)) {
+            if (!PathContainsNode(*edge->targetNode())) {
+                if (IsSamePlane(*edge)) {
                     
-                    if (edgesVector.size() > 1 && !mPlane) CreatePlane();
-                    else FT_DELETE(mPlane);
+                    if (edge->targetNode() == mTargetNode) {
+                        edgesVector.push_back(edge);
+                        if (mIgnoreResult && IsSameFace(*mResult, *mIgnoreResult)) {
+                            edgesVector.pop_back();
+                            return false;
+                        }
+                        return true;
+                    }
                     
-                    if ( !mPlane || (mPlane && mPlane->PlaneContains(iEdge->target())) )
+                    else if (edge->next())
                     {
-                        edgesVector.push_back(iEdge);
-                        if ( Find(iEdge->next()) ) return true;
+                        edgesVector.push_back(edge);
+                        if ( Find(edge->next()) ) return true;
                         else edgesVector.pop_back();
                     }
                 }
-                else FT_DELETE(mPlane);
             }
         }
     }
     return false;
 }
     
-bool FaceTraversal::PathContainsNode(const std::vector<Edge*>& edges, const PointNode& pointNode)
+bool FaceTraversal::IsNotTraversingBackwards(const ftr::Edge& edge) const
 {
+    const std::vector<Edge*>& edgesVector = mResult->edgesVector;
+    return &edge != edgesVector.back()->twin();
+}
+    
+bool FaceTraversal::IsSamePlane(const ftr::Edge& edge)
+{
+    std::vector<Edge*>& edgesVector = mResult->edgesVector;
+    if (edgesVector.size() < 2) {
+        FT_DELETE(mPlane);
+    }
+    if (edgesVector.size() > 1 && !mPlane) {
+        CreatePlane();
+    }
+    if (mPlane) {
+        return mPlane->PlaneContains(edge.target());
+    }
+    return true;
+}
+    
+bool FaceTraversal::PathContainsNode(const PointNode& pointNode)
+{
+    const std::vector<Edge*>& edges = mResult->edgesVector;
     for (int i = 0; i < edges.size(); ++i) {
         Edge* edge = edges[i];
         if (edge->targetNode() == &pointNode) {

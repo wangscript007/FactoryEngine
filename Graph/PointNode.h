@@ -4,7 +4,7 @@
 #include <Graph/Node.h>
 #include <Processing/Octree.h>
 #include <Processing/PointNodeIterator.h>
-
+#include <Processing/FaceTraversal.h>
 
 namespace ftr {
 
@@ -64,7 +64,10 @@ public:
     std::string Description() const;
     std::string mName;
     
+    bool mVisited;
 private:
+    static FaceNode* FaceFromTraversalResult(FaceTraversal::Result& traversalResults);
+    
     Octree::Leaf* mOctreeLeaf;
     bool mIsActive;
     PointPrimitive primitive;

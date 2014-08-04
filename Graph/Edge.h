@@ -42,6 +42,10 @@ public:
     void DisconnectPrev() { mPrev = NULL; }
     
     void DoublyConnectCCWOrderedAtOrigin();
+
+    void ReverseFaceProperties();
+    
+    bool mVisited;
     
 private:
     

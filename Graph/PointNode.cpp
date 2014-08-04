@@ -2,7 +2,8 @@
 #include <Graph/PointNode.h>
 #include <Graph/Edge.h>
 #include <Graph/FaceNode.h>
-#include <Processing/FaceTraversal.h>
+#include <Processing/FaceReversal.h>
+
 
 
 namespace ftr {
@@ -14,6 +15,7 @@ PointNode::PointNode()
     :mOctreeLeaf(NULL)
     ,mEdge(NULL)
     ,mIsActive(false)
+    ,mVisited(false)
     ,mName("")
 {
     
@@ -34,6 +36,7 @@ PointNode::PointNode(glm::vec3 origin)
 :mOrigin(origin)
     ,mEdge(NULL)
     ,mIsActive(false)
+    ,mVisited(false)
     ,mName("")
     
 {
@@ -160,6 +163,8 @@ void PointNode::Remove(PointNode::Iterator position)
 PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTraversal)
 {
     ConnectionResult result;
+    result.faces[0] = NULL;
+    result.faces[1] = NULL;
     
     ftr::Edge* newEdge = new ftr::Edge(this);
     ftr::Edge* newEdgeTwin = new ftr::Edge(other);
@@ -172,9 +177,10 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
     
     if (mEdge)
     {
+        Insert(End(), *newEdgeTwin);
         if (!skipTraversal)
         {
-            Insert(End(), *newEdgeTwin);
+            
             traverseThis = true;
         }
     } else {
@@ -182,9 +188,10 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
     }
     if (other->mEdge)
     {
+        other->Insert(other->End(), *newEdge);
         if (!skipTraversal)
         {
-            other->Insert(other->End(), *newEdge);
+            
             traverseOther = true;
         }
     } else {
@@ -203,64 +210,57 @@ PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTrav
     if (traverseOther)
     {
         FaceTraversal traversal(*newEdge);
-        traversal.Find(traverseResultOther);
+        traversal.Find(traverseResultOther, &traverseResultThis);
     }
     
-    bool thisFoundFace = traverseResultThis.edgesVector.size() > 0;
-    bool otherFoundFace = traverseResultOther.edgesVector.size() > 0;
-    
-    bool thisHasUsed = traverseResultThis.hasUsedEdges;
-    bool otherHasUsed = traverseResultOther.hasUsedEdges;
-    
-    result.faces[0] = NULL;
-    result.faces[1] = NULL;
-    
-    if (thisFoundFace && otherFoundFace)
-    {
-        if (FaceTraversal::IsSameFace(traverseResultThis, traverseResultOther))
-        {
-            if (thisHasUsed && !otherHasUsed)
-            {
-                result.AddFace(new FaceNode(traverseResultOther.edgesVector));
-            }
-            else if (!thisHasUsed && otherHasUsed)
-            {
-                result.AddFace(new FaceNode(traverseResultThis.edgesVector));
-            }
-            else
-            {
-                // I believe we could change orientation of all body here
-                result.AddFace(new FaceNode(traverseResultOther.edgesVector));
-                //result.faces[0] = new FaceNode(traverseResultThis.edgesVector);
-            }
-        }
-        else {
-            // we must create two faces in this case, if at least one has used edges we must reverse both
-            if (!thisHasUsed) {
-                result.AddFace(new FaceNode(traverseResultThis.edgesVector));
-            }
-            if (!otherHasUsed) {
-                result.AddFace(new FaceNode(traverseResultOther.edgesVector));
-            }
-        }
-    }
-    else if (thisFoundFace)
-    {
-        if (!thisHasUsed) {
-            result.AddFace(new FaceNode(traverseResultThis.edgesVector));
-        }
-    }
-    else if (otherFoundFace)
-    {
-        if (!otherHasUsed) {
-            result.AddFace(new FaceNode(traverseResultOther.edgesVector));
+    if (traverseResultThis.FoundFace()) {
+        FaceNode* face1 = FaceFromTraversalResult(traverseResultThis);
+        if (face1) {
+            result.AddFace(face1);
+        } else {
+            FaceReversal::Conflict conflict = FaceReversal::ConflictInTraversalResult(traverseResultThis);
+            FaceReversal reversal;
+            reversal.ReverseIslandToResolveConflict(conflict);
+            FaceTraversal traversal(*newEdgeTwin);
+            traversal.Find(traverseResultThis);
+            FaceNode* face1 = FaceFromTraversalResult(traverseResultThis);
+            assert(face1);
+            result.AddFace(face1);
         }
     }
     
+    if (traverseResultOther.FoundFace()) {
+        FaceNode* face2 = FaceFromTraversalResult(traverseResultOther);
+        if (face2) {
+            result.AddFace(face2);
+        } else {
+            FaceReversal::Conflict conflict = FaceReversal::ConflictInTraversalResult(traverseResultOther);
+            FaceReversal reversal;
+            reversal.ReverseIslandToResolveConflict(conflict);
+            FaceTraversal traversal(*newEdge);
+            traversal.Find(traverseResultOther, &traverseResultThis);
+            FaceNode* face2 = FaceFromTraversalResult(traverseResultOther);
+            assert(face2);
+            result.AddFace(face2);
+        }
+    }
     return result;
 }
     
-
+FaceNode* PointNode::FaceFromTraversalResult(FaceTraversal::Result& traversalResult) 
+{
+    FaceNode* face = NULL;
+    if (traversalResult.hasUsedEdges) {
+        FaceTraversal::Reverse(traversalResult);
+    }
+    if (!traversalResult.hasUsedEdges) {
+        face = new FaceNode(traversalResult.edgesVector);
+    }
+    else {
+        return NULL;
+    }
+    return face;
+}
     
 void PointNode::Move(Iterator fromPosition, Iterator toPosition)
 {
