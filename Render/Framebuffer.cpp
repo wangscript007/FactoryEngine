@@ -44,7 +44,8 @@ Framebuffer::Framebuffer(const glm::vec2& size)
                            0);
     // redirect fragment shader output 0 used to the texture that we just bound
     GLenum draw_bufs[] = { GL_COLOR_ATTACHMENT0 };
-    glDrawBuffers (1, draw_bufs);
+    
+//    glDrawBuffers (1, draw_bufs);
     
     Unbind();
 }

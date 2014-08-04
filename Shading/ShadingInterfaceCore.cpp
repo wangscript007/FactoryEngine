@@ -68,7 +68,12 @@ void ShadingInterface::BindOutput(GLuint programId)
     glBindAttribLocation(programId, kNormalAttributeIndex, "normal");
     glBindAttribLocation(programId, kColorAttributeIndex, "color");
     glBindAttribLocation(programId, kPickingColorAttributeIndex, "pickingColor");
+#ifndef GLES
     glBindFragDataLocation(programId, 0, "outputF");
+#else
+    
+#endif
+    
     
 }
     
@@ -85,7 +90,8 @@ GLuint ShadingInterface::UniformLocation(const std::string& name, GLuint program
     assert(location != -1);
     return location;
 }
-    
+ 
+#ifndef GLES
 GLuint ShadingInterface::BlockBuffer(const std::string& name, GLuint programId) const
 {
     static GLuint bindingPoint = 1;
@@ -98,6 +104,7 @@ GLuint ShadingInterface::BlockBuffer(const std::string& name, GLuint programId) 
     bindingPoint++;
     return buffer;
 }
+#endif
     
 void ShadingInterface::InputSettings(const Settings& settings)
 {

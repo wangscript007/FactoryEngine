@@ -8,7 +8,6 @@
 #include <Render/Layer.h>
 #include <Render/LayerRenderer.h>
 #include <Scene/Viewport.h>
-#include <Leap/LeapListener.h>
 #include <Shading/ShadingLibrary.h>
 #include <Workspace/Workspace.h>
 #include <Lighting/LightingCollection.h>
@@ -34,7 +33,9 @@ Scene::Scene() :
 
     mWorkspace->setOctree(*mModelEditor->modelTree()->Octree());
     mWorkspace->setModelTree(mModelEditor->modelTree());
+#ifdef LEAP_ENABLED
     mLeapController.addListener(mleapListener);
+#endif
 }
     
 Scene::~Scene()
@@ -70,7 +71,9 @@ void Scene::Prepare()
     ShadingInterface& shadingInterface = mShadingLibrary->interface();
     mCamera->setShadingInterface(&shadingInterface);
     mInteractionProvider = new class InteractionProvider(*mModelEditor, *mCamera);
+#ifdef LEAP_ENABLED
     mleapListener.setCameraInteraction(mInteractionProvider->CameraInteraction());
+#endif
     
     mShadingLibrary->UseProgramWithType(ShadingProgram::kMain);
     LightingModel* activeLightingModel = mLightingCollection->activeModel();

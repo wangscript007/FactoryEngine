@@ -5,7 +5,9 @@
 
 #include <Processing/ModelEditor.h>
 #include <Interaction/InteractionProvider.h>
+#ifdef LEAP_ENABLED
 #include <Leap/LeapListener.h>
+#endif
 #include <Scene/SceneRenderer.h>
 
 
@@ -68,9 +70,10 @@ private:
     Viewport            mViewport;
     Picker*             mPicker;
     
-    
+#ifdef LEAP_ENABLED
     Leap::Controller    mLeapController;
     LeapListener        mleapListener;
+#endif
     
     Layer*              mLayer;
     SceneRenderer*      mSceneRenderer;

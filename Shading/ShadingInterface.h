@@ -4,5 +4,5 @@
 #ifndef GLES
 #include <Shading/ShadingInterfaceCore.h>
 #else 
-#include <Shading/ShadingInterfaceES.h>
+#include <Shading/ShadingInterfaceCore.h>
 #endif

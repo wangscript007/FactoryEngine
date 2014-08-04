@@ -1,47 +1,97 @@
 
+
 #pragma once
 
-namespace ftr {
+#include <Lighting/Light.h>
+#include <Shading/ShadingProgram.h>
+#include <Scene/Viewport.h>
 
+#define MAX_LIGHTS_COUNT 5
+
+namespace ftr {
+    
 class ShadingInterface
 {
 public:
-    struct Input {
-        struct Transform {
-            GLuint view;
-            GLuint projection;
-            GLuint rotation;
-            GLuint translation;
-        } transform;
+    
+    enum {
+        kVertexAttributeIndex,
+        kNormalAttributeIndex,
+        kColorAttributeIndex,
+        kPickingColorAttributeIndex
+    };
+    
+    struct Bond {
         GLuint vertex;
         GLuint normal;
         GLuint color;
-        GLuint light;
-    };
-        
-    struct LightData {
-        glm::vec4 position;
-        float intensity;
+        GLuint pickingColor;
+        struct Transform {
+            GLuint view;
+            GLuint projection;
+        } transform;
+        struct Settings {
+            GLuint lightsCount;
+            GLuint debugLineWidth;
+            GLuint debugOn;
+            GLuint debugFloatScale;
+        } settings;
+        GLuint windowSize;
+        struct Light {
+            GLuint ambient;
+            GLuint diffuse;
+            GLuint specular;
+            GLuint position;
+            GLuint halfVector;
+            GLuint spotDirection;
+            GLuint spotExponent;
+            GLuint spotCutoff;
+            GLuint spotCosCutoff;
+            GLuint constantAttenuation;
+            GLuint linearAttenuation;
+            GLuint quadraticAttenuation;
+            GLuint useLocalCoordinates;
+        } light[MAX_LIGHTS_COUNT];
     };
     
-    ShadingInterface(GLuint programId) : mProgramId(programId) {}
+    struct Settings {
+        int lightsCount;
+        int debugLineWidth;
+        int debugOn;
+        float debugFloatScale;
+        Settings() :
+        lightsCount(2),
+        debugOn(0),
+        debugLineWidth(2.0f),
+        debugFloatScale(1.0f) {}
+    };
+    
     virtual ~ShadingInterface() {}
-    void BindOutput();
-    void Init();
+    void BindOutput(GLuint programId);
+    void CreateInterfaceForProgram(ShadingProgram::Type type, GLuint programID);
     
-    GLuint AttributeLocation(const std::string& name) const;
-    GLuint UniformLocation(const std::string& name) const;
+    void ActvateBondForProgramType(ShadingProgram::Type type);
     
-    GLuint colorLocation() const { return mInput.color; }
-    GLuint normalLocation() const { return mInput.normal; }
-    GLuint vertexLocation() const { return mInput.vertex; }
+    GLuint AttributeLocation(const std::string& name, GLuint programID) const;
+    GLuint UniformLocation(const std::string& name, GLuint programID) const;
     
-    void InputTransform(const Input::Transform& transform);
-    void InputLight(const LightData& lightData);
+    GLuint colorLocation() const { return mActiveBond->color; }
+    GLuint normalLocation() const { return mActiveBond->normal; }
+    GLuint vertexLocation() const { return mActiveBond->vertex; }
     
+    void InputViewport(const Viewport& viewport);
+    void InputSettings(const Settings& settings);
+    void InputLight(const Light::Data& lightData);
+    void InputWindowSize(const glm::vec2& windowSize);
+    
+    Settings mSettings;
 private:
-    GLuint mProgramId;
-    Input mInput;
+    typedef std::map<ShadingProgram::Type, Bond> BondsMap;
+    static Bond BondForProgramType(ShadingProgram::Type type);
+    
+    Bond* mActiveBond;
+    BondsMap mBondsMap;
+    
 };
     
 }

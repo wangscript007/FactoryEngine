@@ -72,7 +72,9 @@ public:
     
     GLuint AttributeLocation(const std::string& name, GLuint programID) const;
     GLuint UniformLocation(const std::string& name, GLuint programID) const;
+#ifndef GLES
     GLuint BlockBuffer(const std::string& name, GLuint programID) const;
+#endif
     
     GLuint colorLocation() const { return mActiveBond->color; }
     GLuint normalLocation() const { return mActiveBond->normal; }
