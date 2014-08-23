@@ -65,8 +65,8 @@ Copyright (C) 2012 Apple Inc. All Rights Reserved.
 
 #if GLES
 
-#import <OpenGLES/ES2/gl.h>
-#import <OpenGLES/ES2/glext.h>
+#import <OpenGLES/ES3/gl.h>
+#import <OpenGLES/ES3/glext.h>
 #define FTDouble float
 
 #else
@@ -95,10 +95,6 @@ Copyright (C) 2012 Apple Inc. All Rights Reserved.
 // OpenGLES, OpenGL Core Profile, and OpenGL Legacy
 // The arguments are exactly the same across these APIs however
 #if GLES
-
-#define glBindVertexArray glBindVertexArrayOES
-#define glGenVertexArrays glGenVertexArraysOES
-#define glDeleteVertexArrays glDeleteVertexArraysOES
 
 #else
 

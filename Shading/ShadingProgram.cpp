@@ -24,7 +24,6 @@ void ShadingProgram::Activate()
         
 void ShadingProgram::AddShader(const Shader& shader)
 {
-    assert(shader.identifier() > 0);
     assert(mId > 0);
     attachedVector.push_back(shader);
 }
