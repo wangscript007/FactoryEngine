@@ -154,7 +154,6 @@
 		60C6D054174961470009EC3C /* ScaleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED6516FE59D40083DCD2 /* ScaleInteraction.cpp */; };
 		60C6D05F174961470009EC3C /* InteractionProvider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7457E17228E100062CDF1 /* InteractionProvider.cpp */; };
 		60C6D062174961470009EC3C /* LayerRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFBB17230800001EAEBE /* LayerRenderer.cpp */; };
-		60C6D063174961470009EC3C /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFBD17230E82001EAEBE /* Layer.cpp */; };
 		60C6D064174961470009EC3C /* PrimitiveRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFC517232B8E001EAEBE /* PrimitiveRenderer.cpp */; };
 		60C6D065174961470009EC3C /* LineRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFC9172332F6001EAEBE /* LineRenderer.cpp */; };
 		60C6D066174961470009EC3C /* PolygonRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */; };
@@ -265,6 +264,7 @@
 		D13CAE0118E1C30400C2A180 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
 		D13CAE0218E1C30F00C2A180 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
 		D13DC913157A9FF500C84006 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13DC912157A9FF500C84006 /* OpenGL.framework */; };
+		D1410EB219AA89420081C545 /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFBD17230E82001EAEBE /* Layer.cpp */; };
 		D15130D5190BDCB200BA09AB /* TestColorPickingMapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = D15130D4190BDCB200BA09AB /* TestColorPickingMapper.mm */; };
 		D15130D6190BDE0400BA09AB /* ColorPickingMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = D15A7DDC18FB15B1004CB791 /* ColorPickingMapper.h */; };
 		D15130D7190BDE0800BA09AB /* ColorPickingMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */; };
@@ -1471,6 +1471,7 @@
 				D18ECC77190517A400189A01 /* FaceNode.cpp in Sources */,
 				60C6D051174961470009EC3C /* LineInteraction.cpp in Sources */,
 				D18ECC8B190517A400189A01 /* Node.cpp in Sources */,
+				D1410EB219AA89420081C545 /* Layer.cpp in Sources */,
 				60C6D053174961470009EC3C /* RotationInteraction.cpp in Sources */,
 				60A05FCB1809DB48004DD045 /* Snap.cpp in Sources */,
 				D11D1D6318DF70D10091521F /* sweep_context.cc in Sources */,
@@ -1487,7 +1488,6 @@
 				60C6D062174961470009EC3C /* LayerRenderer.cpp in Sources */,
 				6032716217EB08E700249562 /* Framebuffer.cpp in Sources */,
 				D18ECC90190517A400189A01 /* PointNode.cpp in Sources */,
-				60C6D063174961470009EC3C /* Layer.cpp in Sources */,
 				60C6D064174961470009EC3C /* PrimitiveRenderer.cpp in Sources */,
 				D19B99D11902F003000BF781 /* GroupInteraction.cpp in Sources */,
 				60CE9A6717EC654900A775C0 /* ShadingProgram.cpp in Sources */,

@@ -20,7 +20,7 @@ void ShadingInterface::CreateInterfaceForProgram(ShadingProgram::Type type, GLui
             bond.settings.debugLineWidth = UniformLocation("settingsVar.debugLineWidth", programId);
             bond.settings.debugOn = UniformLocation("settingsVar.debugOn", programId);
             bond.settings.debugFloatScale = UniformLocation("settingsVar.debugFloatScale", programId);
-            bond.windowSize = UniformLocation("windowSize", programId);
+//            bond.windowSize = UniformLocation("windowSize", programId);
             for (int i = 0; i < 2; i++) {
                 std::stringstream streamLocation;
                 streamLocation << "light"<< i << ".";

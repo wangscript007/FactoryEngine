@@ -66,8 +66,9 @@ void Scene::Prepare()
     mCamera = new class Camera(mViewport);
     mCamera->setProjection(kProjectionPerspective);
 #ifndef GLES
-    mShadingLibrary->BuildProgramWithType(ShadingProgram::kMain);
+    
 #endif
+    mShadingLibrary->BuildProgramWithType(ShadingProgram::kMain);
     mShadingLibrary->BuildProgramWithType(ShadingProgram::kColor);
     
     ShadingInterface& shadingInterface = mShadingLibrary->interface();
@@ -79,7 +80,8 @@ void Scene::Prepare()
 #ifndef GLES
     mShadingLibrary->UseProgramWithType(ShadingProgram::kMain);
 #else
-    mShadingLibrary->UseProgramWithType(ShadingProgram::kColor);
+    mShadingLibrary->UseProgramWithType(ShadingProgram::kMain);
+//    mShadingLibrary->UseProgramWithType(ShadingProgram::kColor);
 #endif
     
     LightingModel* activeLightingModel = mLightingCollection->activeModel();

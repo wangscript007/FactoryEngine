@@ -42,6 +42,7 @@ typedef unsigned long long int  Quadrupleword;    // 8 bytes
 //
 #include "Geometry/Rect.h"
 
+
 //
 // Grapth
 //
