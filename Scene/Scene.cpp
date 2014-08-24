@@ -65,9 +65,6 @@ void Scene::Prepare()
 {
     mCamera = new class Camera(mViewport);
     mCamera->setProjection(kProjectionPerspective);
-#ifndef GLES
-    
-#endif
     mShadingLibrary->BuildProgramWithType(ShadingProgram::kMain);
     mShadingLibrary->BuildProgramWithType(ShadingProgram::kColor);
     
@@ -77,12 +74,8 @@ void Scene::Prepare()
 #ifdef LEAP_ENABLED
     mleapListener.setCameraInteraction(mInteractionProvider->CameraInteraction());
 #endif
-#ifndef GLES
+
     mShadingLibrary->UseProgramWithType(ShadingProgram::kMain);
-#else
-    mShadingLibrary->UseProgramWithType(ShadingProgram::kMain);
-//    mShadingLibrary->UseProgramWithType(ShadingProgram::kColor);
-#endif
     
     LightingModel* activeLightingModel = mLightingCollection->activeModel();
     activeLightingModel->setShadingInterface(&shadingInterface);

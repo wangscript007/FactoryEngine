@@ -1,9 +1,9 @@
 
-#include <Shading/ShadingInterfaceCore.h>
+#include <Shading/ShadingInterface.h>
 #include <Main/GLError.h>
 
 namespace ftr {
-
+        
 void ShadingInterface::ActvateBondForProgramType(ShadingProgram::Type type)
 {
     mActiveBond = &mBondsMap[type];
@@ -20,7 +20,7 @@ void ShadingInterface::CreateInterfaceForProgram(ShadingProgram::Type type, GLui
             bond.settings.debugLineWidth = UniformLocation("settingsVar.debugLineWidth", programId);
             bond.settings.debugOn = UniformLocation("settingsVar.debugOn", programId);
             bond.settings.debugFloatScale = UniformLocation("settingsVar.debugFloatScale", programId);
-            bond.windowSize = UniformLocation("windowSize", programId);
+//            bond.windowSize = UniformLocation("windowSize", programId);
             for (int i = 0; i < 2; i++) {
                 std::stringstream streamLocation;
                 streamLocation << "light"<< i << ".";
@@ -40,7 +40,7 @@ void ShadingInterface::CreateInterfaceForProgram(ShadingProgram::Type type, GLui
                 bond.light[i].useLocalCoordinates = UniformLocation(locationString + "useLocalCoordinates", programId);
             }
         } break;
-            
+    
         case ShadingProgram::kColor: {
             bond.transform.view = UniformLocation("transformVar.view", programId);
             bond.transform.projection = UniformLocation("transformVar.projection", programId);
@@ -49,7 +49,7 @@ void ShadingInterface::CreateInterfaceForProgram(ShadingProgram::Type type, GLui
         case ShadingProgram::kTest: {
             
         } break;
-            
+    
         default:
             assert(false);
             break;
@@ -59,7 +59,7 @@ void ShadingInterface::CreateInterfaceForProgram(ShadingProgram::Type type, GLui
     bond.color          = kColorAttributeIndex;
     bond.pickingColor   = kColorAttributeIndex;
     
-    
+
 }
 
 void ShadingInterface::BindOutput(GLuint programId)
@@ -68,10 +68,15 @@ void ShadingInterface::BindOutput(GLuint programId)
     glBindAttribLocation(programId, kNormalAttributeIndex, "normal");
     glBindAttribLocation(programId, kColorAttributeIndex, "color");
     glBindAttribLocation(programId, kPickingColorAttributeIndex, "pickingColor");
-//    glBindFragDataLocation(programId, 0, "outputF");
+#ifndef GLES
+    glBindFragDataLocation(programId, 0, "outputF");
+#else
+    
+#endif
+    
     
 }
-
+    
 GLuint ShadingInterface::AttributeLocation(const std::string& name, GLuint programId) const
 {
     GLint location = glGetAttribLocation(programId, name.c_str());
@@ -85,8 +90,20 @@ GLuint ShadingInterface::UniformLocation(const std::string& name, GLuint program
     assert(location != -1);
     return location;
 }
-
-
+ 
+GLuint ShadingInterface::BlockBuffer(const std::string& name, GLuint programId) const
+{
+    static GLuint bindingPoint = 1;
+    GLuint buffer, blockIndex;
+    blockIndex = glGetUniformBlockIndex(programId, name.c_str());
+    assert(blockIndex != GL_INVALID_INDEX);
+    glUniformBlockBinding(programId, blockIndex, bindingPoint);
+    glGenBuffers(1, &buffer);
+    glBindBufferBase(GL_UNIFORM_BUFFER, bindingPoint, buffer);
+    bindingPoint++;
+    return buffer;
+}
+    
 void ShadingInterface::InputSettings(const Settings& settings)
 {
     glUniform1i(mActiveBond->settings.lightsCount, settings.lightsCount);
@@ -94,19 +111,19 @@ void ShadingInterface::InputSettings(const Settings& settings)
     glUniform1i(mActiveBond->settings.debugOn, settings.debugOn);
     glUniform1f(mActiveBond->settings.debugFloatScale, settings.debugFloatScale);
 }
-
+    
 void ShadingInterface::InputViewport(const Viewport& viewport)
 {
     glUniformMatrix4fv(mActiveBond->transform.view,  1, false, glm::value_ptr(viewport.modelviewMatrix));
     glUniformMatrix4fv(mActiveBond->transform.projection,  1, false, glm::value_ptr(viewport.projectionMatrix));
     InputSettings(mSettings);
 }
-
+    
 void ShadingInterface::InputWindowSize(const glm::vec2& windowSize)
 {
     glUniform2fv(mActiveBond->windowSize, 1, glm::value_ptr(windowSize));
 }
-
+    
 void ShadingInterface::InputLight(const Light::Data& lightData)
 {
     const Light::Data* lightDataArray = &lightData;
@@ -126,8 +143,8 @@ void ShadingInterface::InputLight(const Light::Data& lightData)
         glUniform1i(mActiveBond->light[i].useLocalCoordinates, lightDataArray[i].useLocalCoordinates);
     }
 }
-
-
-
+    
+    
+    
 }
 
