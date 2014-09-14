@@ -257,6 +257,7 @@
 		D11D1D7618E0507B0091521F /* Polyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D7218E0507B0091521F /* Polyline.cpp */; };
 		D11D1D7718E0507B0091521F /* Polyline.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D7318E0507B0091521F /* Polyline.h */; };
 		D11D1D7818E0507B0091521F /* Polyline.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D7318E0507B0091521F /* Polyline.h */; };
+		D131581F19C5FFED009F85BC /* Shaders in Resources */ = {isa = PBXBuildFile; fileRef = D131581E19C5FFED009F85BC /* Shaders */; };
 		D13CAE0118E1C30400C2A180 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
 		D13CAE0218E1C30F00C2A180 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
 		D13DC913157A9FF500C84006 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13DC912157A9FF500C84006 /* OpenGL.framework */; };
@@ -570,6 +571,7 @@
 		D11D1D4E18DF70980091521F /* sweep_context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sweep_context.h; sourceTree = "<group>"; };
 		D11D1D7218E0507B0091521F /* Polyline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Polyline.cpp; sourceTree = "<group>"; };
 		D11D1D7318E0507B0091521F /* Polyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polyline.h; sourceTree = "<group>"; };
+		D131581E19C5FFED009F85BC /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Shaders; path = ../factoryengine/Shaders; sourceTree = "<group>"; };
 		D13CAE0318E1CBE700C2A180 /* TestPolygon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPolygon.mm; sourceTree = "<group>"; };
 		D13DC90B157A9F8C00C84006 /* libFactoryEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFactoryEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13DC912157A9FF500C84006 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -928,6 +930,7 @@
 				60607E1117E63CF600708358 /* Tests */,
 				D1E75032157BC4DB005C4CCF /* Frameworks */,
 				D13DC90C157A9F8C00C84006 /* Products */,
+				D131581E19C5FFED009F85BC /* Shaders */,
 				602055C418A6BE790005F379 /* Docs */,
 				D1FBBC88197AD187001A38C3 /* Scripts */,
 			);
@@ -1304,6 +1307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1FBBC89197AD187001A38C3 /* Scripts in Resources */,
+				D131581F19C5FFED009F85BC /* Shaders in Resources */,
 				602A43A41800A59600EC071F /* glm in Resources */,
 				602055C518A6BE790005F379 /* Docs in Resources */,
 			);
