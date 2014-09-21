@@ -1,4 +1,3 @@
-#version 150
 
 #define LIGHT0 0
 #define LIGHT1 1
@@ -276,14 +275,7 @@ void main()
     
     outputF = Color + amb * 0.3 + diff * 0.3 + spec * 0.3;
     
-    if (settingsVar.debugOn > 0) {
-        float lineY = round(windowSize.y * debugFloat / settingsVar.debugFloatScale);
-        if (gl_FragCoord.y < lineY+settingsVar.debugLineWidth && gl_FragCoord.y > lineY) {
-            outputF = vec4(1.0, 1.0, 1.0, 1.0);
-            return;
-        }
-    }
-
+    
 
     
 }

@@ -1,4 +1,3 @@
-#version 150
 
 in vec3 Color;
 out vec4 outputF;

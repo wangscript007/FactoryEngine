@@ -1,4 +1,3 @@
-#version 150
 
 struct Transform {
     mat4 view;

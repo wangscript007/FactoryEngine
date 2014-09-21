@@ -1,4 +1,3 @@
-#version 150
 
 in vec3 position;
 in vec4 color;
