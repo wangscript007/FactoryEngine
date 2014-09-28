@@ -1,1 +1,9 @@
 #version 150
+
+#define MAT4 mat4
+#define MAT3 mat3
+#define MAT2 mat2
+
+#define VEC4 vec4
+#define VEC3 vec3
+#define VEC2 vec2

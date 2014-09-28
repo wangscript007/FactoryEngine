@@ -1,24 +1,24 @@
 
 struct Transform {
-    mat4 view;
-    mat4 projection;
+    MAT4 view;
+    MAT4 projection;
 };
 uniform Transform transformVar;
 
 
-in vec4 position;
-in vec4 color;
-in vec4 normal;
+in VEC4 position;
+in VEC4 color;
+in VEC4 normal;
 
-out vec4 localNormal;
-out vec3 localNormal3;
-out vec4 localPosition;
-out vec3 localPosition3;
-out vec4 Color;
-out vec3 Eye;
+out VEC4 localNormal;
+out VEC3 localNormal3;
+out VEC4 localPosition;
+out VEC3 localPosition3;
+out VEC4 Color;
+out VEC3 Eye;
 
 //--------------------------------------------------------------------------------------------------
-vec4 Local(in vec4 coords)
+VEC4 Local(in VEC4 coords)
 {
     return transformVar.view * coords;
 }

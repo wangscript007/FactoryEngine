@@ -1,11 +1,11 @@
 #version 300 es
 
-#define mat4 lowp mat4
-#define mat3 lowp mat3
-#define mat2 lowp mat2
+#define MAT4 lowp mat4
+#define MAT3 lowp mat3
+#define MAT2 lowp mat2
 
-#define vec4 lowp vec4
-#define vec3 lowp vec3
-#define vec2 lowp vec2
+#define VEC4 lowp vec4
+#define VEC3 lowp vec3
+#define VEC2 lowp vec2
 
 #define float lowp float

@@ -1,6 +1,6 @@
 
-in vec3 Color;
-out vec4 outputF;
+in VEC3 Color;
+out VEC4 outputF;
 
 void main()
 {

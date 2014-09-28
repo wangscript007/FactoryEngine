@@ -6,8 +6,8 @@
 #define LIGHT4 4
 
 struct Transform {
-    mat4 view;
-    mat4 projection;
+    MAT4 view;
+    MAT4 projection;
 };
 
 struct Settings {
@@ -18,12 +18,12 @@ struct Settings {
 };
 
 struct Light {
-    vec4 ambient;
-    vec4 diffuse;
-    vec4 specular;
-    vec4 position;
-    vec4 halfVector;
-    vec3 spotDirection;
+    VEC4 ambient;
+    VEC4 diffuse;
+    VEC4 specular;
+    VEC4 position;
+    VEC4 halfVector;
+    VEC3 spotDirection;
     float spotExponent;
     float spotCutoff;
     float spotCosCutoff;
@@ -36,37 +36,37 @@ struct Light {
 uniform Transform transformVar;
 uniform Settings settingsVar;
 uniform Light light0, light1, light2, light3, light4;
-uniform vec2 windowSize;
+uniform VEC2 windowSize;
 
-in vec4 localNormal;
-in vec3 localNormal3;
-in vec4 localPosition;
-in vec3 localPosition3;
-in vec4 Color;
-in vec3 Eye;
+in VEC4 localNormal;
+in VEC3 localNormal3;
+in VEC4 localPosition;
+in VEC3 localPosition3;
+in VEC4 Color;
+in VEC3 Eye;
 
 float debugFloat = 0.0f;
 
-out vec4 outputF;
+out VEC4 outputF;
 
 //--------------------------------------------------------------------------------------------------
-vec4 Local(in vec4 coords)
+VEC4 Local(in VEC4 coords)
 {
     return transformVar.view * coords;
 }
 
 //--------------------------------------------------------------------------------------------------
 void DirectionalLight(in Light light,
-in vec3 normal,
-inout vec4 ambient,
-inout vec4 diffuse,
-inout vec4 specular)
+                      in VEC3 normal,
+                      inout VEC4 ambient,
+                      inout VEC4 diffuse,
+                      inout VEC4 specular)
 {
     float nDotVP;         // normal . light direction
     float nDotHV;         // normal . light half vector
     float pf;             // power factor
     
-    vec4 lightPosition = light.position;
+    VEC4 lightPosition = light.position;
     if (light.useLocalCoordinates > 0) {
         lightPosition = Local(light.position);
     } 
@@ -85,20 +85,20 @@ inout vec4 specular)
 
 //--------------------------------------------------------------------------------------------------
 void PointLight(in Light light,
-                in vec3 eye,
-                in vec3 ecPosition3,
-                in vec3 normal,
-                inout vec4 ambient,
-                inout vec4 diffuse,
-                inout vec4 specular)
+                in VEC3 eye,
+                in VEC3 ecPosition3,
+                in VEC3 normal,
+                inout VEC4 ambient,
+                inout VEC4 diffuse,
+                inout VEC4 specular)
 {
     float nDotVP;         // normal . light direction
     float nDotHV;         // normal . light half vector
     float pf;             // power factor
     float attenuation;    // computed attenuation factor
     float d;              // distance from surface to light source
-    vec3  VP;             // direction from surface to light    position
-    vec3  halfVector;     // direction of maximum highlights
+    VEC3  VP;             // direction from surface to light    position
+    VEC3  halfVector;     // direction of maximum highlights
 
     if (light.useLocalCoordinates > 0) {
         VP = vec3(Local(light.position)) - ecPosition3;
@@ -139,12 +139,12 @@ void PointLight(in Light light,
 
 //--------------------------------------------------------------------------------------------------
 void SpotLight(in Light light,
-               in vec3 eye,
-               in vec3 ecPosition3,
-               in vec3 normal,
-               inout vec4 ambient,
-               inout vec4 diffuse,
-               inout vec4 specular)
+               in VEC3 eye,
+               in VEC3 ecPosition3,
+               in VEC3 normal,
+               inout VEC4 ambient,
+               inout VEC4 diffuse,
+               inout VEC4 specular)
 {
     float nDotVP;           // normal . light direction
     float nDotHV;           // normal . light half vector
@@ -153,10 +153,10 @@ void SpotLight(in Light light,
     float spotAttenuation;  // spotlight attenuation factor
     float attenuation;      // computed attenuation factor
     float d;                // distance from surface to light source
-    vec3 VP;                // direction from surface to light position
-    vec3 halfVector;        // direction of maximum highlights
-    vec4 lightPosition;
-    vec3 spotDirection;
+    VEC3 VP;                // direction from surface to light position
+    VEC3 halfVector;        // direction of maximum highlights
+    VEC4 lightPosition;
+    VEC3 spotDirection;
     
     spotDirection = light.spotDirection;
     if (light.useLocalCoordinates > 0) {
@@ -214,9 +214,9 @@ void SpotLight(in Light light,
 //--------------------------------------------------------------------------------------------------
 void main()
 {
-    vec4 amb  = vec4(0.0);
-    vec4 diff = vec4(0.0);
-    vec4 spec = vec4(0.0);
+    VEC4 amb  = vec4(0.0);
+    VEC4 diff = vec4(0.0);
+    VEC4 spec = vec4(0.0);
     Light light;
     
     if (gl_FrontFacing) {
@@ -245,7 +245,7 @@ void main()
         }
     }
     else {
-        vec3 backLocalNormal3 = -localNormal3;
+        VEC3 backLocalNormal3 = -localNormal3;
         
         for (int i = 0; i < settingsVar.lightsCount; i++)
         {
@@ -268,14 +268,7 @@ void main()
             else {
                 SpotLight(light, Eye, localPosition3, backLocalNormal3, amb, diff, spec);
             }
-        }
-        
-        
+        }   
     }
-    
     outputF = Color + amb * 0.3 + diff * 0.3 + spec * 0.3;
-    
-    
-
-    
 }
