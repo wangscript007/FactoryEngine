@@ -41,9 +41,7 @@ void SceneRenderer::Render(Layer &layer)
 {
     mCamera.CreateTransformations();
     RenderMainContent(layer);
-//#ifndef GLES
     RenderMarkingContent(layer);
-//#endif
 }
     
 void SceneRenderer::RenderMainContent(Layer &layer)

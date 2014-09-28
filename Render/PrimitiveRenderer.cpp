@@ -20,7 +20,6 @@ void PrimitiveRenderer::Begin(Primitive& primitive)
     
 void PrimitiveRenderer::End(Primitive& primitive)
 {
-    glDisable(GL_BLEND);
     glDisable(GL_DEPTH_TEST);
 }
 
