@@ -17,7 +17,6 @@ LightingModel::~LightingModel()
     
 Light::Data* LightingModel::Data()
 {
-#ifndef GLES
     if (!mData) {
         assert(mLightsVector.size() <= mShadingInterface->mSettings.lightsCount);
         mData = reinterpret_cast<Light::Data*>(new char[ModelDataSize()]);
@@ -29,22 +28,17 @@ Light::Data* LightingModel::Data()
         }
     }
     return mData;
-#endif
 }
     
 size_t LightingModel::ModelDataSize() const
 {
-#ifndef GLES
     return sizeof(Light::Data) * mShadingInterface->mSettings.lightsCount;
-#endif
 }
     
 void LightingModel::SendDataToShader()
 {
-#ifndef GLES
     mShadingInterface->mSettings.lightsCount = static_cast<int>(mLightsVector.size());
     mShadingInterface->InputLight(*Data());
-#endif
 }
     
 }
