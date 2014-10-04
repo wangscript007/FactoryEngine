@@ -13,7 +13,7 @@ ShadingProgram::ShadingProgram()
     
 ShadingProgram:: ~ShadingProgram()
 {
-//    glDeleteProgram(mId);
+    glDeleteProgram(mId);
     FT_DELETE(mInterface);
 }
     
