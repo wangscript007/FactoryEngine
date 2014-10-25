@@ -38,6 +38,7 @@ public:
     virtual ~PointNode();
     
     glm::vec3 mOrigin;
+    glm::vec3 Center() const { return mOrigin; }
     
     virtual void Render(Layer& layer);
     virtual void Transform(const glm::mat4& m4Transformation);

@@ -44,6 +44,8 @@ public:
     
     void                    setSelected(bool selected);
     
+    virtual glm::vec3       Center() const;
+    
 protected:
     Node*                   mSupernode;
 

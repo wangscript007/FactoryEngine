@@ -83,5 +83,13 @@ void Node::SubnodesWithType(enum Type nodeType, std::vector<Node*>& result) cons
     }
 }
     
+glm::vec3 Node::Center() const
+{
+    glm::vec3 sum;
+    for (auto &node : mSubnodes) {
+        sum += node->Center();
+    }
+    return sum/static_cast<float>(mSubnodes.size());
+}
 
 }

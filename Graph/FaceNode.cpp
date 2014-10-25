@@ -59,6 +59,20 @@ void FaceNode::Render(Layer& layer)
     layer.AddPrimitive(mPolygonPrimitive);
 }
     
+glm::vec3 FaceNode::Center() const
+{
+    glm::vec3 sum;
+    int count = 0;
+    Edge* currentEdge = mOuterEdge;
+    do {
+        count++;
+        sum += currentEdge->originNode()->mOrigin;
+        currentEdge = currentEdge->next();
+    } while (currentEdge != mOuterEdge);
+    return sum/static_cast<float>(count);
+}
+
+    
 void FaceNode::Invalidate()
 {
     Node::Invalidate();
@@ -88,7 +102,6 @@ FaceNode::FaceNode(const std::vector<glm::vec3>& points)
     mOuterEdge = lastPointNode->ConnectTo(startPointNode, true).edge;
     edges.push_back(mOuterEdge);
     InitWithEdges(edges);
-    
 }
     
 void FaceNode::OrderAscending(Edge& edge1, Edge& edge2)

@@ -37,6 +37,8 @@ public:
     
     std::vector<Edge*> GetEdges() const;
     std::vector<PointNode*> GetPointNodes() const;
+    glm::vec3 Center() const;
+    
     
     Edge* outerEdge() const { return mOuterEdge; };
     void setOuterEdge(Edge* outerEdge) { mOuterEdge = outerEdge; };

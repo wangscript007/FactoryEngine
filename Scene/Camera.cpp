@@ -146,21 +146,6 @@ void Camera::setViewport(const glm::vec4& frame)
 #endif
 }
     
-Triangle Camera::PlaneAtCoords(const glm::vec3& sceneCoords) const
-{
-    glm::vec3 up        = glm::vec3(0.0f, 1.0f, 0.0f);
-    glm::vec3 forward   = mEyePosition;
-    glm::vec3 side      = glm::cross(up, forward);
-    
-    up      = RotateVector(up);
-    side    = RotateVector(side);
-    
-    return Triangle(sceneCoords,
-                    sceneCoords + up,
-                    sceneCoords + forward);
-    
-}
-
     
 }
 
