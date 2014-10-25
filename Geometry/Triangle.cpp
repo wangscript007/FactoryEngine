@@ -46,6 +46,16 @@ glm::vec3 Triangle::Cross() const
     return glm::cross(mPoints[1] - mPoints[0], mPoints[2] - mPoints[0]);
 }
     
+bool Triangle::IsParallelTo(const Triangle& other) const
+{
+    return  glm::isNull(glm::cross(SurfaceNormal(), other.SurfaceNormal()), 0.00001f);
+}
+
+Triangle Triangle::MoveToPoint(const glm::vec3& vec) const
+{
+    return Triangle();
+}
+    
 std::string Triangle::Description() const
 {
     std::stringstream ss;

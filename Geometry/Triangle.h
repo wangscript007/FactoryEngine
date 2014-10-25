@@ -14,9 +14,11 @@ public:
     Triangle(const std::vector<glm::vec3>& points);
     
     bool PlaneContains(const glm::vec3& p) const;
+    bool IsParallelTo(const Triangle& other) const;
     std::string Description() const;
     glm::vec3 SurfaceNormal() const;
     glm::vec3 Cross() const;
+    Triangle MoveToPoint(const glm::vec3& vec) const;
     
     static bool IsInOneLine(const glm::vec3& p1,const  glm::vec3& p2, const glm::vec3&  p3);
 

@@ -221,6 +221,7 @@
 		60F2406F16B5BCA700291ED0 /* LineInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F2406D16B5BCA700291ED0 /* LineInteraction.h */; };
 		60F6D98F17368DB500935A76 /* TestRectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60F6D98D17368DB500935A76 /* TestRectangle.cpp */; };
 		60F6D99017368DB500935A76 /* TestRectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F6D98E17368DB500935A76 /* TestRectangle.h */; };
+		D116459719FBF2430015ED78 /* TestViewport.mm in Sources */ = {isa = PBXBuildFile; fileRef = D116459619FBF2430015ED78 /* TestViewport.mm */; };
 		D116AC081917544500153AEC /* Intersection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D116AC061917544500153AEC /* Intersection.cpp */; };
 		D116AC091917544500153AEC /* Intersection.h in Headers */ = {isa = PBXBuildFile; fileRef = D116AC071917544500153AEC /* Intersection.h */; };
 		D11D1CC218DF4FBA0091521F /* Description.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1CC018DF4FBA0091521F /* Description.cpp */; };
@@ -335,7 +336,6 @@
 		D189C67019165F0B00E9FB1A /* Pivot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D189C66C19165F0B00E9FB1A /* Pivot.cpp */; };
 		D189C67119165F0B00E9FB1A /* Pivot.h in Headers */ = {isa = PBXBuildFile; fileRef = D189C66D19165F0B00E9FB1A /* Pivot.h */; };
 		D189C67219165F0B00E9FB1A /* Pivot.h in Headers */ = {isa = PBXBuildFile; fileRef = D189C66D19165F0B00E9FB1A /* Pivot.h */; };
-		D189C6761916A3AC00E9FB1A /* TestCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = D189C6731916A3AC00E9FB1A /* TestCamera.mm */; };
 		D189C67A1916C2F400E9FB1A /* TestMoveInteraction.mm in Sources */ = {isa = PBXBuildFile; fileRef = D189C6771916C2F400E9FB1A /* TestMoveInteraction.mm */; };
 		D18ECC6C190517A400189A01 /* BodyNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC5A190517A400189A01 /* BodyNode.cpp */; };
 		D18ECC6D190517A400189A01 /* BodyNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC5A190517A400189A01 /* BodyNode.cpp */; };
@@ -549,6 +549,7 @@
 		60F2406D16B5BCA700291ED0 /* LineInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineInteraction.h; sourceTree = "<group>"; };
 		60F6D98D17368DB500935A76 /* TestRectangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestRectangle.cpp; sourceTree = "<group>"; };
 		60F6D98E17368DB500935A76 /* TestRectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRectangle.h; sourceTree = "<group>"; };
+		D116459619FBF2430015ED78 /* TestViewport.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestViewport.mm; path = ../../factoryengine/Tests/TestViewport.mm; sourceTree = "<group>"; };
 		D116AC061917544500153AEC /* Intersection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Intersection.cpp; sourceTree = "<group>"; };
 		D116AC071917544500153AEC /* Intersection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Intersection.h; sourceTree = "<group>"; };
 		D11D1CC018DF4FBA0091521F /* Description.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Description.cpp; sourceTree = "<group>"; };
@@ -602,7 +603,6 @@
 		D189C66A1916420D00E9FB1A /* TestGeometry.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestGeometry.mm; sourceTree = "<group>"; };
 		D189C66C19165F0B00E9FB1A /* Pivot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pivot.cpp; sourceTree = "<group>"; };
 		D189C66D19165F0B00E9FB1A /* Pivot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pivot.h; sourceTree = "<group>"; };
-		D189C6731916A3AC00E9FB1A /* TestCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestCamera.mm; sourceTree = "<group>"; };
 		D189C6771916C2F400E9FB1A /* TestMoveInteraction.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestMoveInteraction.mm; sourceTree = "<group>"; };
 		D18ECC5A190517A400189A01 /* BodyNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BodyNode.cpp; sourceTree = "<group>"; };
 		D18ECC5B190517A400189A01 /* BodyNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BodyNode.h; sourceTree = "<group>"; };
@@ -765,10 +765,10 @@
 				D185302A18F14C1A001A7AB1 /* TestFaceExtruder.mm */,
 				D15130D4190BDCB200BA09AB /* TestColorPickingMapper.mm */,
 				D189C66A1916420D00E9FB1A /* TestGeometry.mm */,
-				D189C6731916A3AC00E9FB1A /* TestCamera.mm */,
 				D189C6771916C2F400E9FB1A /* TestMoveInteraction.mm */,
 				D1F22A83191FCE90002E0767 /* TestModelEditor.mm */,
 				D1670B1B19437943003BCD75 /* TestFaceReversal.mm */,
+				D116459619FBF2430015ED78 /* TestViewport.mm */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1361,6 +1361,7 @@
 				60A05FC71809DB15004DD045 /* PointSnap.cpp in Sources */,
 				D18ECC7D190517A400189A01 /* GroupNode.cpp in Sources */,
 				603BA5E617E87437007CE822 /* DefaultLighting.cpp in Sources */,
+				D116459719FBF2430015ED78 /* TestViewport.mm in Sources */,
 				D189C67A1916C2F400E9FB1A /* TestMoveInteraction.mm in Sources */,
 				D15130D8190BDE0800BA09AB /* ColorPickingMapper.cpp in Sources */,
 				603BA5E717E87437007CE822 /* Light.cpp in Sources */,
@@ -1373,7 +1374,6 @@
 				6076A1531806AE5400770486 /* Primitive.cpp in Sources */,
 				D11D1D7618E0507B0091521F /* Polyline.cpp in Sources */,
 				D11D1D6818DF71080091521F /* cdt.cc in Sources */,
-				D189C6761916A3AC00E9FB1A /* TestCamera.mm in Sources */,
 				D152781D18E5890B00C48850 /* TestEdge.mm in Sources */,
 				D152782418E5890B00C48850 /* TestPolygon.mm in Sources */,
 				D152782318E5890B00C48850 /* TestPoly2tri.mm in Sources */,

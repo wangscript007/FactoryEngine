@@ -2,6 +2,7 @@
 #pragma once
 
 #include <Geometry/Segment.h>
+#include <Geometry/Triangle.h>
 
 namespace ftr {
 
@@ -22,6 +23,7 @@ public:
     glm::vec2 CoordsAt(const glm::vec3& sceneCoords) const;
     glm::vec3 SceneCoordsAt(const glm::vec2& viewportCoords) const;
     Segment RayAtPoint(const glm::vec2& point) const;
+    Triangle Plane() const;
     
 private:
     glm::vec3 Project(const glm::vec3& sceneVec) const;

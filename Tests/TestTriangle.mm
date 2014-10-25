@@ -5,7 +5,7 @@
 
 using namespace ftr;
 
-@interface TestPlane : XCTestCase
+@interface TestTriangle : XCTestCase
 {
     Triangle triangle;
     glm::vec3 p1, p2, p3, p4, p5;
@@ -13,7 +13,7 @@ using namespace ftr;
 
 @end
 
-@implementation TestPlane
+@implementation TestTriangle
 
 - (void)setUp
 {
@@ -39,5 +39,26 @@ using namespace ftr;
     XCTAssert(triangle.PlaneContains(p4));
     XCTAssert(!triangle.PlaneContains(p5));
 }
+
+-(void)testIsParallelTo
+{
+    Triangle t1(glm::vec3(0.0, 0.0, 0.0),
+                glm::vec3(0.0, 1.0, 0.0),
+                glm::vec3(1.0, 1.0, 0.0));
+    
+    Triangle t2(glm::vec3(0.0, 0.0, 2.0),
+                glm::vec3(0.0, 1.0, 2.0),
+                glm::vec3(1.0, 1.0, 2.0));
+    
+    XCTAssert(t1.IsParallelTo(t2));
+    
+    Triangle t3(glm::vec3(0.0, 0.0, 2.0),
+                glm::vec3(0.0, 1.0, 2.0),
+                glm::vec3(1.0, 1.0, 3.0));
+    
+    XCTAssertFalse(t1.IsParallelTo(t3));
+}
+
+
 
 @end
