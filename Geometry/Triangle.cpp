@@ -10,6 +10,31 @@ bool Triangle::IsInOneLine(const glm::vec3& p1,const  glm::vec3& p2, const glm::
     return glm::isNull(glm::cross(p2 - p1, p3 - p2), 0.0000001f);
 }
     
+Triangle Triangle::XY()
+{
+    Triangle triangle(glm::vec3(0.0, 0.0, 0.0),
+                      glm::vec3(1.0, 0.0, 0.0),
+                      glm::vec3(0.0, 1.0, 0.0));
+    return triangle;
+}
+    
+Triangle Triangle::XZ()
+{
+    Triangle triangle(glm::vec3(0.0, 0.0, 0.0),
+                      glm::vec3(1.0, 0.0, 0.0),
+                      glm::vec3(0.0, 0.0, 1.0));
+    return triangle;
+}
+    
+Triangle Triangle::YZ()
+{
+    Triangle triangle(glm::vec3(0.0, 0.0, 0.0),
+                      glm::vec3(0.0, 1.0, 0.0),
+                      glm::vec3(0.0, 0.0, 1.0));
+    return triangle;
+}
+
+    
 Triangle::Triangle(const std::vector<glm::vec3>& points)
     : Geometry(points)
 {

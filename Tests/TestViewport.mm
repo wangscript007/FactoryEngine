@@ -60,24 +60,14 @@ using namespace ftr;
     
     {
         [self orientateCameraFrontToXYPlane];
-        Triangle plane(glm::vec3(0.0, 0.0, 1.0),
-                       glm::vec3(0.0, 1.0, 1.0),
-                       glm::vec3(1.0, 1.0, 1.0));
-        
         Triangle testPlane = _viewport.Plane();
-        
-        XCTAssert(testPlane.IsParallelTo(plane));
+        XCTAssert(testPlane.IsParallelTo(Triangle::XY()));
     }
     
     {
         [self orientateCameraFrontToOtherPlane];
-        Triangle plane(glm::vec3(0.0, 0.0, 1.0),
-                       glm::vec3(0.0, 1.0, 1.0),
-                       glm::vec3(1.0, 1.0, 1.0));
-        
         Triangle testPlane = _viewport.Plane();
-        
-        XCTAssertFalse(testPlane.IsParallelTo(plane));
+        XCTAssertFalse(testPlane.IsParallelTo(Triangle::XY()));
     }
     
 }

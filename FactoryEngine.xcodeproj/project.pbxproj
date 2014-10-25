@@ -550,6 +550,7 @@
 		60F6D98D17368DB500935A76 /* TestRectangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestRectangle.cpp; sourceTree = "<group>"; };
 		60F6D98E17368DB500935A76 /* TestRectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRectangle.h; sourceTree = "<group>"; };
 		D116459619FBF2430015ED78 /* TestViewport.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestViewport.mm; path = ../../factoryengine/Tests/TestViewport.mm; sourceTree = "<group>"; };
+		D116459819FC29DC0015ED78 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../../factoryengine/Main/Constants.h; sourceTree = "<group>"; };
 		D116AC061917544500153AEC /* Intersection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Intersection.cpp; sourceTree = "<group>"; };
 		D116AC071917544500153AEC /* Intersection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Intersection.h; sourceTree = "<group>"; };
 		D11D1CC018DF4FBA0091521F /* Description.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Description.cpp; sourceTree = "<group>"; };
@@ -965,6 +966,7 @@
 				60A575E61690DDEE0050FAFC /* Prefix.pch */,
 				D17C76AB1584E3900083E2B0 /* GLError.h */,
 				604E93D116A1D14C00143522 /* Macros.h */,
+				D116459819FC29DC0015ED78 /* Constants.h */,
 			);
 			path = Main;
 			sourceTree = "<group>";

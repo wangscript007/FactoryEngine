@@ -21,6 +21,11 @@ public:
     Triangle MoveToPoint(const glm::vec3& vec) const;
     
     static bool IsInOneLine(const glm::vec3& p1,const  glm::vec3& p2, const glm::vec3&  p3);
+    
+    // planes
+    static Triangle XY();
+    static Triangle XZ();
+    static Triangle YZ();
 
 private:
 
