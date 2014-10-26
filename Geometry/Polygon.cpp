@@ -120,7 +120,7 @@ glm::mat4 Polygon::RotationToSurfaceNormal(const glm::vec3& targedNormal)
     glm::vec3 rotationAxis  = glm::normalize(glm::cross(targedNormal, surfaceNormal));
     float rotationAngle     = glm::angle(targedNormal, surfaceNormal);
     
-    return glm::rotate(rotationAngle, rotationAxis);
+    return glm::rotate(-rotationAngle, rotationAxis);
 }
     
     
