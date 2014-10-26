@@ -11,12 +11,13 @@ class Triangle;
 class MoveInteraction : public Node
 {
 public:
-    MoveInteraction(ModelEditor& ModelEditor, Camera& camera);
+    MoveInteraction(ModelEditor& ModelEditor, const Viewport& viewport);
     virtual ~MoveInteraction() {}
     
     void Render(Layer &layer);
     
     void Select(const glm::vec2& startPoint);
+    void Select(Node* node);
     void MoveTo(const glm::vec2& targetPoint);
     
     void TurnOn();
@@ -29,7 +30,7 @@ private:
     
     Node* mSelectedNode;
     ModelEditor& mModelEditor;
-    Camera& mCamera;
+    const Viewport& mViewport;
     bool mActive;
 };
     

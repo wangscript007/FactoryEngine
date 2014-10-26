@@ -39,6 +39,7 @@ public:
     void                    setPickingId(int pickingId);
     int                     pickingId() const { return mPickingId; }
     void                    SubnodesWithType(enum Type nodeType, std::vector<Node*>& result) const;
+    Node*                   SubnodeWithCenterNearestToPoint(const glm::vec3& point, enum Type nodeType) const;
     
     NodesList               mSubnodes;
     

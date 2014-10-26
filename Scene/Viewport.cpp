@@ -39,11 +39,17 @@ glm::vec3 Viewport::SceneCoordsAt(const glm::vec2& viewportCoords) const
     return UnProject(glm::vec3(viewportCoords.x, viewportCoords.y, DepthAtPoint(viewportCoords)));
 }
     
+glm::vec3 Viewport::SceneCoordsAtCenter() const
+{
+    return SceneCoordsAt(glm::vec2(frame[2]/2, frame[3]/2));
+}
+    
 Segment Viewport::RayAtPoint(const glm::vec2& point) const
 {
     return Segment(UnProject(glm::vec3(point.x, point.y, 0.0f)),
                    UnProject(glm::vec3(point.x, point.y, 1.0f)));
 }
+    
     
 Triangle Viewport::Plane() const
 {

@@ -20,7 +20,7 @@ InteractionProvider::InteractionProvider(ModelEditor& modelEditor, Camera& camer
     mLineInteraction = new class LineInteraction(modelEditor, camera.viewport());
     mSelectInteraction = new class SelectInteraction(modelEditor, camera.viewport());
     mExtrudeInteraction = new class ExtrudeInteraction(modelEditor, camera.viewport());
-    mMoveInteraction = new class MoveInteraction(modelEditor, camera);
+    mMoveInteraction = new class MoveInteraction(modelEditor, camera.viewport());
     mRotationInteraction = new class RotationInteraction(modelEditor);
     mScaleInteraction = new class ScaleInteraction(modelEditor);
     mCameraInteraction = new class CameraInteraction(camera);

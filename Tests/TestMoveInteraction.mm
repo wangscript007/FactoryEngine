@@ -6,6 +6,7 @@
 #include <Scene/Viewport.h>
 #include <Graph/PointNode.h>
 #include <Graph/LineNode.h>
+#include <Graph/GroupNode.h>
 
 using namespace ftr;
 
@@ -14,7 +15,6 @@ using namespace ftr;
 @property (nonatomic) MoveInteraction* interaction;
 @property (nonatomic) Viewport viewport;
 @property (nonatomic) ModelEditor* modelEditor;
-@property (nonatomic) Camera* camera;
 
 
 @end
@@ -29,16 +29,15 @@ using namespace ftr;
                                            glm::vec4(0.000000, 0.000000, -1.000020, -1.000000),
                                            glm::vec4(0.000000, 0.000000, -0.200002, 0.000000));
     
-    _viewport.modelviewMatrix = glm::mat4(glm::vec4(-0.319405, -0.787539, 0.527032, 0.000000),
-                                          glm::vec4(0.000000, 0.556165, 0.831072, 0.000000),
-                                          glm::vec4(-0.947618, 0.265449, -0.177642, 0.000000),
-                                          glm::vec4(-2.089686, 0.449766, -12.551600, 1.000000));
+    _viewport.modelviewMatrix = glm::mat4(glm::vec4(1.000000, 0.000000, 0.000000, 0.000000),
+                                          glm::vec4(0.000000, 1.000000, 0.000000, 0.000000),
+                                          glm::vec4(0.000000, 0.000000, 1.000000, 0.000000),
+                                          glm::vec4(-3.749177, -2.357111, -12.031826, 1.000000));
     
-    _viewport.frame = glm::vec4(0.000000, 0.000000, 1680.000000, 1680.000000);
+    _viewport.frame = glm::vec4(0.000000, 0.000000, 920.000000, 920.000000);
     
     _modelEditor = new ModelEditor();
-    _camera = new Camera(_viewport);
-    _interaction = new MoveInteraction(*_modelEditor, *_camera);
+    _interaction = new MoveInteraction(*_modelEditor, _viewport);
 
 
 }
@@ -47,16 +46,42 @@ using namespace ftr;
 {
     FT_DELETE(_interaction);
     FT_DELETE(_modelEditor);
-    FT_DELETE(_camera);
     [super tearDown];
+}
+
+- (void)testSelect
+{
+     _modelEditor->DebugCreateCube();
+    GroupNode* group = _modelEditor->activeGroup();
+    
+    Node* node = group->SubnodeWithCenterNearestToPoint(glm::vec3(0.0, -5.0, 0.0), Node::kFace);
+    
+    XCTAssert(node->Type() == Node::kFace);
+    XCTAssert(node->Center() == glm::vec3(0.0, 1.0, 0.0));
+    
+    _interaction->Select(node);
 }
 
 - (void)testMoveTo
 {
     _modelEditor->DebugCreateCube();
-    std::vector<Node*> nodes;
-    _modelEditor->activeGroup()->SubnodesWithType(Node::kFace, nodes);
-    XCTAssert(nodes.size() == 6);
+    GroupNode* group = _modelEditor->activeGroup();
+    
+    Node* node = group->SubnodeWithCenterNearestToPoint(glm::vec3(0.0, -5.0, 0.0), Node::kFace);
+    
+    XCTAssert(node->Type() == Node::kFace);
+    XCTAssert(node->Center() == glm::vec3(0.0, 1.0, 0.0));
+    
+    _interaction->Select(node);
+    
+    _interaction->MoveTo(glm::vec2(460, 460));
+    XCTAssert(glm::isNull(node->Center() - glm::vec3(3.7f, 2.3f, 0.0f), 0.1f));
+    
+    _interaction->MoveTo(glm::vec2(460, 460));
+    XCTAssert(glm::isNull(node->Center() - glm::vec3(3.7f, 2.3f, 0.0f), 0.1f));
+    
+    
+    
 }
 
 @end

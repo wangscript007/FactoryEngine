@@ -7,10 +7,11 @@
 
 namespace ftr {
 
-MoveInteraction::MoveInteraction(ModelEditor& ModelEditor, Camera& camera)
+MoveInteraction::MoveInteraction(ModelEditor& ModelEditor, const Viewport& viewport)
 :mModelEditor(ModelEditor),
-mCamera(camera),
-mActive(false)
+mViewport(viewport),
+mActive(false),
+mSelectedNode(NULL)
 {}
 
 void MoveInteraction::Render(Layer &layer)
@@ -33,16 +34,27 @@ void MoveInteraction::Select(const glm::vec2& point)
     }
 }
     
+void MoveInteraction::Select(Node* node)
+{
+    mStart = mViewport.CoordsAt(node->Center());
+    if (node && node != mSelectedNode) {
+        if (mSelectedNode) {
+            mSelectedNode->setSelected(false);
+        }
+        mSelectedNode = node;
+        mSelectedNode->setSelected(true);
+    }
+}
+    
 void MoveInteraction::MoveTo(const glm::vec2& targetPoint)
 {
     mTarget = targetPoint;
-    const Viewport& viewport = mCamera.viewport();
-    Triangle viewportPlane = viewport.Plane();
-    glm::vec3 offset = viewportPlane.Center() - mSelectedNode->Center();
+    Triangle viewportPlane = mViewport.Plane();
+    glm::vec3 offset = mSelectedNode->Center() - viewportPlane.Center();
     viewportPlane.Translate(offset);
     
-    Segment startRay = viewport.RayAtPoint(mStart);
-    Segment endRay = viewport.RayAtPoint(mTarget);
+    Segment startRay = mViewport.RayAtPoint(mStart);
+    Segment endRay = mViewport.RayAtPoint(mTarget);
     
     glm::vec3 startIntersection;
     Segment::IntersectionSituation startSituation = startRay.IntersectionWithTriangle(viewportPlane, startIntersection);
@@ -56,6 +68,7 @@ void MoveInteraction::MoveTo(const glm::vec2& targetPoint)
     
     mSelectedNode->Transform(glm::translate(distance));
     
+    mStart = mTarget;
 }
     
 void MoveInteraction::TurnOn()

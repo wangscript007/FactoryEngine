@@ -79,6 +79,15 @@ void FaceNode::Invalidate()
     mPolygonPrimitive.Invalidate();
 }
     
+void FaceNode::Transform(const glm::mat4& transform)
+{
+    Edge* currentEdge = mOuterEdge;
+    do {
+        currentEdge->originNode()->Transform(transform);
+        currentEdge = currentEdge->next();
+    } while (currentEdge != mOuterEdge);
+}
+    
 FaceNode::FaceNode(const std::vector<glm::vec3>& points)
 {
     assert(points.size() > 2);

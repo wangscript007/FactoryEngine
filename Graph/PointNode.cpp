@@ -44,11 +44,12 @@ PointNode::PointNode(glm::vec3 origin)
 }
     
     
-void PointNode::Transform(const glm::mat4& m4Transformation)
+void PointNode::Transform(const glm::mat4& transform)
 {
-    //mOrigin *= m4Transformation;
+    glm::vec4 vec(mOrigin.x, mOrigin.y, mOrigin.z, 1.0f);
+    vec = transform * vec;
+    mOrigin = glm::vec3(vec.x, vec.y, vec.z);
 }
-    
     
 void PointNode::Render(Layer& layer)
 {

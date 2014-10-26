@@ -22,6 +22,7 @@ public:
     
     glm::vec2 CoordsAt(const glm::vec3& sceneCoords) const;
     glm::vec3 SceneCoordsAt(const glm::vec2& viewportCoords) const;
+    glm::vec3 SceneCoordsAtCenter() const;
     Segment RayAtPoint(const glm::vec2& point) const;
     Triangle Plane() const;
     

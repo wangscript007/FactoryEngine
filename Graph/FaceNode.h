@@ -24,6 +24,7 @@ public:
     ~FaceNode();
     
     void Render(Layer& layer);
+    virtual void Transform(const glm::mat4& transform);
     void Invalidate();
     
     static void OrderAscending(Edge& edge1, Edge& edge2);

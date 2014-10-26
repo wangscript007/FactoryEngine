@@ -47,11 +47,11 @@ void Node::Invalidate()
     }
 }
 
-void Node::Transform(const glm::mat4& m4Transformation)
+void Node::Transform(const glm::mat4& transformation)
 {    
     for(auto &node : mSubnodes)
     {
-        node->Transform(m4Transformation);
+        node->Transform(transformation);
     }
 }
     
@@ -81,6 +81,22 @@ void Node::SubnodesWithType(enum Type nodeType, std::vector<Node*>& result) cons
             node->SubnodesWithType(nodeType, result);
         }
     }
+}
+    
+Node* Node::SubnodeWithCenterNearestToPoint(const glm::vec3& point, enum Type nodeType) const
+{
+    std::vector<Node*> subnodesWithType;
+    SubnodesWithType(nodeType, subnodesWithType);
+    float minLenght = INFINITY;
+    Node* result = NULL;
+    for(auto &node : subnodesWithType) {
+        float length = glm::length(point - node->Center());
+        if (length < minLenght) {
+            result = node;
+            minLenght = length;
+        }
+    }
+    return result;
 }
     
 glm::vec3 Node::Center() const

@@ -320,6 +320,7 @@
 		D16D270318D5E8FB0095B177 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Triangle.cpp */; };
 		D16D270418D5E8FB0095B177 /* Triangle.h in Headers */ = {isa = PBXBuildFile; fileRef = D16D270218D5E8FB0095B177 /* Triangle.h */; };
 		D16D270718D5F5330095B177 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Triangle.cpp */; };
+		D178BEDF19FD333800B6C4C0 /* TestNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = D178BEDE19FD333800B6C4C0 /* TestNode.mm */; };
 		D17C76651583BF440083E2B0 /* FactoryEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76641583BF440083E2B0 /* FactoryEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D17C76AC1584E3900083E2B0 /* GLError.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76AB1584E3900083E2B0 /* GLError.h */; };
 		D185302218F145D5001A7AB1 /* ExtrudeInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302018F145D5001A7AB1 /* ExtrudeInteraction.cpp */; };
@@ -593,6 +594,7 @@
 		D16D270118D5E8FB0095B177 /* Triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
 		D16D270218D5E8FB0095B177 /* Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangle.h; sourceTree = "<group>"; };
 		D16D270518D5F1980095B177 /* TestTriangle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestTriangle.mm; sourceTree = "<group>"; };
+		D178BEDE19FD333800B6C4C0 /* TestNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestNode.mm; path = ../../factoryengine/Tests/TestNode.mm; sourceTree = "<group>"; };
 		D17C76641583BF440083E2B0 /* FactoryEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FactoryEngine.h; sourceTree = "<group>"; };
 		D17C76AB1584E3900083E2B0 /* GLError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLError.h; sourceTree = "<group>"; };
 		D185302018F145D5001A7AB1 /* ExtrudeInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtrudeInteraction.cpp; sourceTree = "<group>"; };
@@ -751,6 +753,7 @@
 			children = (
 				60607E1217E63CF600708358 /* Supporting Files */,
 				60988087180584A60064477E /* TestSegment.mm */,
+				D189C6771916C2F400E9FB1A /* TestMoveInteraction.mm */,
 				60A05FC31809DA8A004DD045 /* TestLineInteraction.mm */,
 				60758B6D180F3020004BE067 /* TestCylinder.mm */,
 				60D473A51815CFB2007BB63D /* TestPointNode.mm */,
@@ -766,10 +769,10 @@
 				D185302A18F14C1A001A7AB1 /* TestFaceExtruder.mm */,
 				D15130D4190BDCB200BA09AB /* TestColorPickingMapper.mm */,
 				D189C66A1916420D00E9FB1A /* TestGeometry.mm */,
-				D189C6771916C2F400E9FB1A /* TestMoveInteraction.mm */,
 				D1F22A83191FCE90002E0767 /* TestModelEditor.mm */,
 				D1670B1B19437943003BCD75 /* TestFaceReversal.mm */,
 				D116459619FBF2430015ED78 /* TestViewport.mm */,
+				D178BEDE19FD333800B6C4C0 /* TestNode.mm */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1365,6 +1368,7 @@
 				603BA5E617E87437007CE822 /* DefaultLighting.cpp in Sources */,
 				D116459719FBF2430015ED78 /* TestViewport.mm in Sources */,
 				D189C67A1916C2F400E9FB1A /* TestMoveInteraction.mm in Sources */,
+				D178BEDF19FD333800B6C4C0 /* TestNode.mm in Sources */,
 				D15130D8190BDE0800BA09AB /* ColorPickingMapper.cpp in Sources */,
 				603BA5E717E87437007CE822 /* Light.cpp in Sources */,
 				D1B990F818FEC88600DC5843 /* SelectInteraction.cpp in Sources */,

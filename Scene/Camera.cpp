@@ -19,7 +19,11 @@ Camera::Camera(Viewport& viewport)
     
 void Camera::CreateTransformations()
 {
-    mViewport.modelviewMatrix = RotationMatrix() * TranslationMatrix() * InitialMatrix();
+//    mViewport.modelviewMatrix = RotationMatrix() * TranslationMatrix() * InitialMatrix();
+    mViewport.modelviewMatrix = glm::mat4(glm::vec4(1.000000, 0.000000, 0.000000, 0.000000),
+                                          glm::vec4(0.000000, 1.000000, 0.000000, 0.000000),
+                                          glm::vec4(0.000000, 0.000000, 1.000000, 0.000000),
+                                          glm::vec4(-3.749177, -2.357111, -12.031826, 1.000000));
 }
     
 glm::mat4 Camera::RotationMatrix()
