@@ -2,7 +2,9 @@
 #include <Graph/PointNode.h>
 #include <Graph/Edge.h>
 #include <Graph/FaceNode.h>
+#include <Graph/LineNode.h>
 #include <Processing/FaceReversal.h>
+
 
 
 
@@ -58,6 +60,19 @@ void PointNode::Render(Layer& layer)
     primitive.mColor = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
     primitive.setOption(Primitive::kUseDepth, false);
     layer.AddPrimitive(primitive);
+}
+    
+void PointNode::Invalidate(bool recursively)
+{
+    if (mInvalid) return;
+    
+    Node::Invalidate(recursively);
+    
+    if (recursively) {
+        for(PointNode::Iterator i = Begin(); i != End(); ++i) {
+            (*i)->lineNode()->Invalidate(false);
+        }
+    }
 }
 
 #pragma mark - Instance

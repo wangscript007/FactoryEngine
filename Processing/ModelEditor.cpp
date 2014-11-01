@@ -63,10 +63,12 @@ LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
     assert(mActiveBody);
     LineNode* line = mModelFactory->CreateLine(startPoint, endPoint);
     PointNode::ConnectionResult result = startPoint->ConnectTo(endPoint);
+    result.edge->setLineNode(line);
     mDebugFacesCreated += result.count();
     mActiveBody->AddNode(line);
     if (result.faces[0]) {
         mActiveBody->AddNode(result.faces[0]);
+        // Debug extruder
         static bool extruded = false;
         if (!extruded && false) {
             extruded = true;

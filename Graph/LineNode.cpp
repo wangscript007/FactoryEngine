@@ -27,10 +27,16 @@ void LineNode::Render(Layer& layer)
     
 }
     
-void LineNode::Invalidate()
+void LineNode::Invalidate(bool recursively)
 {
-    Node::Invalidate();
+    if (mInvalid) return;
+    
+    Node::Invalidate(recursively);
     mLinePrimitive.Invalidate();
+    if (recursively) {
+        mEndPoint->Invalidate(recursively);
+        mStartPoint->Invalidate(recursively);
+    }
 }
 
 void LineNode::Transform(const glm::mat4& m4Transformation)

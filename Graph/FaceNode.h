@@ -25,7 +25,7 @@ public:
     
     void Render(Layer& layer);
     virtual void Transform(const glm::mat4& transform);
-    void Invalidate();
+    void Invalidate(bool recursively);
     
     static void OrderAscending(Edge& edge1, Edge& edge2);
     void BoundByLoopWithEdge(Edge& outerEdge);

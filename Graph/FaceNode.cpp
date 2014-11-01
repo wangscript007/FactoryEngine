@@ -73,10 +73,20 @@ glm::vec3 FaceNode::Center() const
 }
 
     
-void FaceNode::Invalidate()
+void FaceNode::Invalidate(bool recursively)
 {
-    Node::Invalidate();
+    if (mInvalid) return;
+    
+    Node::Invalidate(recursively);
     mPolygonPrimitive.Invalidate();
+    
+    if (recursively) {
+        Edge* currentEdge = mOuterEdge;
+        do {
+            currentEdge->originNode()->Invalidate(true);
+            currentEdge = currentEdge->next();
+        } while (currentEdge != mOuterEdge);
+    }
 }
     
 void FaceNode::Transform(const glm::mat4& transform)

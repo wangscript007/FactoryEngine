@@ -8,6 +8,7 @@ namespace ftr {
     
 Node::Node() :
     mSupernode(NULL),
+    mInvalid(false),
     mPickingId(-1)
 {
 }
@@ -37,13 +38,19 @@ void Node::Render(Layer& layer)
     {
         node->Render(layer);
     }
+    mInvalid = false;
 }
     
-void Node::Invalidate()
+void Node::Invalidate(bool recursively)
 {
-    for(auto &node : mSubnodes)
-    {
-        node->Invalidate();
+    if (mInvalid) return;
+    
+    mInvalid = true;
+    if (recursively) {
+        for(auto &node : mSubnodes)
+        {
+            node->Invalidate(recursively);
+        }
     }
 }
 
@@ -62,13 +69,13 @@ void Node::setPickingId(int pickingId)
         node->setPickingId(pickingId);
     }
     std::cout << Description::Described(ColorPickingMapper::ColorFromInt(mPickingId)) << std::endl;
-    Invalidate();
+    Invalidate(false);
 }
     
 void Node::setSelected(bool selected)
 {
     mSelected = selected;
-    Invalidate();
+    Invalidate(false);
 }
     
     

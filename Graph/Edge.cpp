@@ -2,6 +2,7 @@
 #include <Graph/Edge.h>
 #include <Geometry/Vector.h>
 #include <Graph/PointNode.h>
+#include <Graph/LineNode.h>
 
 namespace ftr {
     
@@ -11,6 +12,7 @@ Edge::Edge(PointNode* originNode)
     mPrev(NULL),
     mTwin(NULL),
     mIncidentFace(NULL),
+    mLineNode(NULL),
     mVisited(false)
 {
     
@@ -33,6 +35,13 @@ const glm::vec3& Edge::target() const
     return targetNode()->mOrigin;
 }
     
+void Edge::setLineNode(LineNode* lineNode)
+{
+    assert(mTwin);
+    
+    mLineNode = lineNode;
+    mTwin->mLineNode = lineNode;
+}
     
 std::string Edge::Name() const
 {

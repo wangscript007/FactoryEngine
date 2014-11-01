@@ -6,6 +6,7 @@
 namespace ftr {
     
 class PointNode;
+class LineNode;
 
 class Edge
 {
@@ -29,6 +30,9 @@ public:
     Edge* prev() const { return mPrev; }
     PointNode* originNode() const { return mOriginNode; }
     PointNode* targetNode() const { return mTwin->mOriginNode; }
+    
+    LineNode* lineNode() const { return mLineNode; }
+    void setLineNode(LineNode* lineNode);
     
     void MakeTwinsWith(Edge* twin);
     void DeleteTwin() { FT_DELETE(mTwin); }
@@ -57,6 +61,7 @@ private:
     PointNode* mOriginNode;
     Edge* mNext;
     Edge* mPrev;
+    LineNode* mLineNode;
     
     glm::vec3 Direction() const;
 

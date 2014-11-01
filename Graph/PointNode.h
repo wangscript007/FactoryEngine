@@ -41,12 +41,14 @@ public:
     glm::vec3 Center() const { return mOrigin; }
     
     virtual void Render(Layer& layer);
+    virtual void Invalidate(bool recursively);
     virtual void Transform(const glm::mat4& m4Transformation);
     Octree::Leaf* OctreeLeaf() const { return mOctreeLeaf; }
     void setOctreeLeaf(Octree::Leaf* leaf) { mOctreeLeaf = leaf; }
     void setActive(bool active) { mIsActive = active; }
     bool Active() const { return mIsActive; }
     bool ContainsFreeEdges() const;
+    
     
     ConnectionResult ConnectTo(PointNode* other, bool skipTraversal = false);
     Edge* mEdge;
@@ -66,6 +68,7 @@ public:
     std::string mName;
     
     bool mVisited;
+    
 private:
     static FaceNode* FaceFromTraversalResult(FaceTraversal::Result& traversalResults);
     

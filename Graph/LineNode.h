@@ -15,7 +15,7 @@ public:
     virtual ~LineNode() {}
     
     void Render(Layer& layer);
-    void Invalidate();
+    void Invalidate(bool recursively);
     
     void setEndPoint(PointNode* endPoint) { mEndPoint = endPoint; }
     void setStartPoint(PointNode* startPoint) { mStartPoint = startPoint; }

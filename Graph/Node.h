@@ -28,7 +28,7 @@ public:
                             ~Node();
     
     virtual void            Render(Layer& layer);
-    virtual void            Invalidate();
+    virtual void            Invalidate(bool recursively);
     virtual Type            Type() const { return kNone; }
   
     void                    AddNode(Node* pNode);
@@ -46,12 +46,14 @@ public:
     void                    setSelected(bool selected);
     
     virtual glm::vec3       Center() const;
+
     
 protected:
     Node*                   mSupernode;
 
     int                     mPickingId;
     bool                    mSelected;
+    bool                    mInvalid;
     
 };
 
