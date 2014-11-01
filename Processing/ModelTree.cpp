@@ -33,15 +33,18 @@ void ModelTree::AddGroup(GroupNode* groupNode)
 
 void ModelTree::AddNode(Node* pNode)
 {
+    
     if (pNode->Type() == Node::kPoint) {
         mOctree->InsertPoint(static_cast<PointNode*>(pNode));
     }
 }
 
-void ModelTree::UpdateNode(Node* pNode)
+void ModelTree::UpdateNode(Node* node)
 {
-    if (pNode->Type() == Node::kPoint) {
-        mOctree->UpdatePoint(static_cast<PointNode*>(pNode));
+    std::vector<Node*> pointNodes;
+    node->PointNodes(pointNodes);
+    for (auto &pointNode : pointNodes) {
+        mOctree->UpdatePoint(static_cast<PointNode*>(pointNode));
     }
 }
 

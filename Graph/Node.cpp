@@ -62,6 +62,13 @@ void Node::Transform(const glm::mat4& transformation)
     }
 }
     
+void Node::PointNodes(std::vector<Node*>& result) const
+{
+    for(auto &node : mSubnodes) {
+        node->PointNodes(result);
+    }
+}
+    
 void Node::setPickingId(int pickingId)
 {
     mPickingId = pickingId;
@@ -105,6 +112,7 @@ Node* Node::SubnodeWithCenterNearestToPoint(const glm::vec3& point, enum Type no
     }
     return result;
 }
+    
     
 glm::vec3 Node::Center() const
 {

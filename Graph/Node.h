@@ -35,7 +35,7 @@ public:
     void                    RemoveNode(Node* pMode);
     Node*                   Supernode() const { return mSupernode; }
     virtual void            Transform(const glm::mat4& m4Transformation);
-    virtual std::vector<PointNode*>* PointNodes() const { return NULL; }
+    virtual void            PointNodes(std::vector<Node*>& result) const;
     void                    setPickingId(int pickingId);
     int                     pickingId() const { return mPickingId; }
     bool                    invalid() const { return mInvalid; }

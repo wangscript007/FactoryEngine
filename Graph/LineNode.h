@@ -16,6 +16,7 @@ public:
     
     void Render(Layer& layer);
     void Invalidate(bool recursively);
+    void PointNodes(std::vector<Node*>& result) const;
     
     void setEndPoint(PointNode* endPoint) { mEndPoint = endPoint; }
     void setStartPoint(PointNode* startPoint) { mStartPoint = startPoint; }

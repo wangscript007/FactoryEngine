@@ -89,6 +89,17 @@ void FaceNode::Invalidate(bool recursively)
     }
 }
     
+void FaceNode::PointNodes(std::vector<Node*>& result) const
+{
+    Node::PointNodes(result);
+    Edge* currentEdge = mOuterEdge;
+    do {
+        result.push_back(currentEdge->originNode());
+        currentEdge = currentEdge->next();
+    } while (currentEdge != mOuterEdge);
+
+}
+    
 void FaceNode::Transform(const glm::mat4& transform)
 {
     Edge* currentEdge = mOuterEdge;

@@ -11,6 +11,7 @@ ModelEditor::ModelEditor()
     mModelTree(NULL),
     mActiveGroup(NULL),
     mActiveBody(NULL),
+    mSelectedNode(NULL),
     mDebugFacesCreated(0)
     
 {
@@ -49,6 +50,8 @@ PointNode* ModelEditor::NearestPointToCenterInSphere(const Sphere& sSphere) cons
     return pNearestPoint;
 }
 
+#pragma mark Creating
+    
 PointNode* ModelEditor::CreatePoint(glm::vec3 origin)
 {
     assert(mActiveBody);
@@ -95,6 +98,40 @@ GroupNode* ModelEditor::CreateGroup()
     mModelTree->AddGroup(group);
     return group;
 }
+    
+#pragma mark Editing
+    
+void ModelEditor::Select(Node* node)
+{
+    if (node && node != mSelectedNode) {
+        if (mSelectedNode) {
+            mSelectedNode->setSelected(false);
+        }
+        mSelectedNode = node;
+        mSelectedNode->setSelected(true);
+    }
+}
+    
+Node* ModelEditor::Select(const glm::vec2& point)
+{
+    Node* node = mPicker->Pick(point);
+    if (node && node != mSelectedNode) {
+        if (mSelectedNode) {
+            mSelectedNode->setSelected(false);
+        }
+        mSelectedNode = node;
+        mSelectedNode->setSelected(true);
+    }
+    return mSelectedNode;
+}
+    
+void ModelEditor::Move(const glm::vec3 &offset)
+{
+    mSelectedNode->Transform(glm::translate(offset));
+    mSelectedNode->Invalidate(true);
+    UpdateNode(mSelectedNode);
+}
+
     
 #pragma mark Debug
     

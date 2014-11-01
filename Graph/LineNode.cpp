@@ -46,6 +46,14 @@ void LineNode::Transform(const glm::mat4& m4Transformation)
     mEndPoint->Transform(m4Transformation);
 }
     
+void LineNode::PointNodes(std::vector<Node*>& result) const
+{
+    Node::PointNodes(result);
+    result.push_back(mStartPoint);
+    result.push_back(mEndPoint);
+    
+}
+    
 
     
 }

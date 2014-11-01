@@ -43,6 +43,7 @@ public:
     virtual void Render(Layer& layer);
     virtual void Invalidate(bool recursively);
     virtual void Transform(const glm::mat4& m4Transformation);
+    void PointNodes(std::vector<Node*>& result);
     Octree::Leaf* OctreeLeaf() const { return mOctreeLeaf; }
     void setOctreeLeaf(Octree::Leaf* leaf) { mOctreeLeaf = leaf; }
     void setActive(bool active) { mIsActive = active; }

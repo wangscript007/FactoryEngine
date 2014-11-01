@@ -28,7 +28,6 @@ private:
     glm::vec2 mStart;
     glm::vec2 mTarget;
     
-    Node* mSelectedNode;
     ModelEditor& mModelEditor;
     const Viewport& mViewport;
     bool mActive;

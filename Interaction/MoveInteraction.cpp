@@ -10,8 +10,7 @@ namespace ftr {
 MoveInteraction::MoveInteraction(ModelEditor& ModelEditor, const Viewport& viewport)
 :mModelEditor(ModelEditor),
 mViewport(viewport),
-mActive(false),
-mSelectedNode(NULL)
+mActive(false)
 {}
 
 void MoveInteraction::Render(Layer &layer)
@@ -24,33 +23,20 @@ void MoveInteraction::Render(Layer &layer)
 void MoveInteraction::Select(const glm::vec2& point)
 {
     mStart = point;
-    Node* node = mModelEditor.picker()->Pick(point);
-    if (node && node != mSelectedNode) {
-        if (mSelectedNode) {
-            mSelectedNode->setSelected(false);
-        }
-        mSelectedNode = node;
-        mSelectedNode->setSelected(true);
-    }
+    mModelEditor.Select(point);
 }
     
 void MoveInteraction::Select(Node* node)
 {
     mStart = mViewport.CoordsAt(node->Center());
-    if (node && node != mSelectedNode) {
-        if (mSelectedNode) {
-            mSelectedNode->setSelected(false);
-        }
-        mSelectedNode = node;
-        mSelectedNode->setSelected(true);
-    }
+    mModelEditor.Select(node);
 }
     
 void MoveInteraction::MoveTo(const glm::vec2& targetPoint)
 {
     mTarget = targetPoint;
     Triangle viewportPlane = mViewport.Plane();
-    glm::vec3 offset = mSelectedNode->Center() - viewportPlane.Center();
+    glm::vec3 offset = mModelEditor.selectedNode()->Center() - viewportPlane.Center();
     viewportPlane.Translate(offset);
     
     Segment startRay = mViewport.RayAtPoint(mStart);
@@ -66,7 +52,7 @@ void MoveInteraction::MoveTo(const glm::vec2& targetPoint)
     
     glm::vec3 distance = endIntersection - startIntersection;
     
-    mSelectedNode->Transform(glm::translate(distance));
+    mModelEditor.Move(distance);
     
     mStart = mTarget;
 }

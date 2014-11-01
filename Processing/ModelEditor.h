@@ -24,6 +24,7 @@ public:
     
     GroupNode*      activeGroup() const { return mActiveGroup; }
     BodyNode*       activeBody() const { return mActiveBody; }
+    Node*           selectedNode() const { return mSelectedNode; }
     
     unsigned long   Size() { return mModelTree->Size(); }
 
@@ -32,6 +33,10 @@ public:
     LineNode*       CreateLine(PointNode* startPoint, PointNode* endPoint);
     BodyNode*       CreateBody();
     GroupNode*      CreateGroup();
+    
+    void            Select(Node* node);
+    Node*           Select(const glm::vec2& point);
+    void            Move(const glm::vec3 &offset);
     
     ModelFactory*   modelFactory() const { return mModelFactory; }
     ModelTree*      modelTree() const { return  mModelTree; }
@@ -42,11 +47,13 @@ public:
     void            DebugCreateCube();
     int             mDebugFacesCreated;
     
+    
 private:
     class ModelFactory* mModelFactory;
     class ModelTree*    mModelTree;
     GroupNode*          mActiveGroup;
     BodyNode*           mActiveBody;
+    Node*               mSelectedNode;
     Picker*             mPicker;
 };
     

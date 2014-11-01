@@ -74,6 +74,13 @@ void PointNode::Invalidate(bool recursively)
         }
     }
 }
+    
+void PointNode::PointNodes(std::vector<Node*>& result)
+{
+    Node::PointNodes(result);
+    result.push_back(reinterpret_cast<Node*>(this));
+}
+
 
 #pragma mark - Instance
 
