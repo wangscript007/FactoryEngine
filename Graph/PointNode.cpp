@@ -70,7 +70,7 @@ void PointNode::Invalidate(bool recursively)
     
     if (recursively) {
         for(PointNode::Iterator i = Begin(); i != End(); ++i) {
-            (*i)->lineNode()->Invalidate(false);
+            (*i)->Invalidate();
         }
     }
 }

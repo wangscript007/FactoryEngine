@@ -38,6 +38,7 @@ public:
     virtual std::vector<PointNode*>* PointNodes() const { return NULL; }
     void                    setPickingId(int pickingId);
     int                     pickingId() const { return mPickingId; }
+    bool                    invalid() const { return mInvalid; }
     void                    SubnodesWithType(enum Type nodeType, std::vector<Node*>& result) const;
     Node*                   SubnodeWithCenterNearestToPoint(const glm::vec3& point, enum Type nodeType) const;
     

@@ -36,6 +36,7 @@ public:
     
     void MakeTwinsWith(Edge* twin);
     void DeleteTwin() { FT_DELETE(mTwin); }
+    void Invalidate();
     
     std::string Name() const;
     std::string Description() const;

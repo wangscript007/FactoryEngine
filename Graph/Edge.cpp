@@ -88,7 +88,20 @@ void Edge::MakeTwinsWith(Edge* twin)
     mTwin = twin;
     twin->mTwin = this;
 }
-        
+    
+void Edge::Invalidate()
+{
+    assert(mTwin);
+    
+    mLineNode->Invalidate(false);
+    if (mIncidentFace) {
+        mIncidentFace->Invalidate(false);
+    }
+    if (mTwin->mIncidentFace) {
+        mTwin->mIncidentFace->Invalidate(false);
+    }
+}
+    
 Edge* Edge::CWNeighbourWithSameOrigin()
 {
     assert(this != mOriginNode->mEdge);

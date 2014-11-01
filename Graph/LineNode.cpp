@@ -33,6 +33,7 @@ void LineNode::Invalidate(bool recursively)
     
     Node::Invalidate(recursively);
     mLinePrimitive.Invalidate();
+    
     if (recursively) {
         mEndPoint->Invalidate(recursively);
         mStartPoint->Invalidate(recursively);

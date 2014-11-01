@@ -1,9 +1,11 @@
 
 
 #import <XCTest/XCTest.h>
+
 #include <Graph/PointNode.h>
-#include <Processing/PointNodeIterator.h>
 #include <Graph/Edge.h>
+#include <Processing/PointNodeIterator.h>
+#include <Processing/ModelEditor.h>
 
 using namespace ftr;
 
@@ -134,6 +136,40 @@ using namespace ftr;
     v1->Remove(v1->Begin());
     v1->Remove(v1->Begin());
     XCTAssert(v1->IsEmpty());
+}
+
+- (void)testInvalidate
+{
+    ModelEditor editor;
+    editor.DebugCreateCube();
+    BodyNode* activeBody = editor.activeBody();
+    
+    std::vector<Node*> pointNodes;
+    std::vector<Node*> lineNodes;
+    std::vector<Node*> faceNodes;
+    activeBody->SubnodesWithType(Node::kPoint, pointNodes);
+    activeBody->SubnodesWithType(Node::kLine, lineNodes);
+    activeBody->SubnodesWithType(Node::kFace, faceNodes);
+    
+    PointNode* pointNode = reinterpret_cast<PointNode*>(pointNodes[0]);
+    
+    pointNode->Invalidate(true);
+    
+    XCTAssertEqual(pointNodes.size(), 8);
+    XCTAssertEqual(lineNodes.size(), 12);
+    XCTAssertEqual(faceNodes.size(), 6);
+    
+    int invalidPointsCount = 0;
+    for (auto& point : pointNodes) invalidPointsCount += point->invalid();
+    XCTAssertEqual(invalidPointsCount, 1);
+    
+    int invalidLinesCount = 0;
+    for (auto& line : lineNodes) invalidLinesCount += line->invalid();
+    XCTAssertEqual(invalidLinesCount, 3);
+    
+    int invalidFacesCount = 0;
+    for (auto& face : faceNodes) invalidFacesCount += face->invalid();
+    XCTAssertEqual(invalidFacesCount, 3);
 }
 
 

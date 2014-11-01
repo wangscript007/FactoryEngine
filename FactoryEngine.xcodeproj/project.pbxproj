@@ -390,6 +390,7 @@
 		D19B99D41902F003000BF781 /* GroupInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = D19B99CF1902F003000BF781 /* GroupInteraction.h */; };
 		D1A920FF18E1876A0034336A /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
 		D1A9210018E1876A0034336A /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = D1A920FE18E1876A0034336A /* Geometry.h */; };
+		D1AA003F1A05585E0040FA70 /* TestLineNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1AA003E1A05585E0040FA70 /* TestLineNode.mm */; };
 		D1AD41991942484C00CD00C4 /* FaceReversal.h in Headers */ = {isa = PBXBuildFile; fileRef = D1AD41981942484C00CD00C4 /* FaceReversal.h */; };
 		D1AD419A1942484C00CD00C4 /* FaceReversal.h in Headers */ = {isa = PBXBuildFile; fileRef = D1AD41981942484C00CD00C4 /* FaceReversal.h */; };
 		D1B990F718FEC88600DC5843 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
@@ -629,6 +630,7 @@
 		D19B99CF1902F003000BF781 /* GroupInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupInteraction.h; sourceTree = "<group>"; };
 		D1A920FD18E1876A0034336A /* Geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Geometry.cpp; sourceTree = "<group>"; };
 		D1A920FE18E1876A0034336A /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
+		D1AA003E1A05585E0040FA70 /* TestLineNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestLineNode.mm; path = ../../factoryengine/Tests/TestLineNode.mm; sourceTree = "<group>"; };
 		D1AD41951942483700CD00C4 /* FaceReversal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FaceReversal.cpp; sourceTree = "<group>"; };
 		D1AD41981942484C00CD00C4 /* FaceReversal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceReversal.h; sourceTree = "<group>"; };
 		D1B0650019CF4327008CB25D /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Shaders; path = ../factoryengine/Shaders; sourceTree = "<group>"; };
@@ -773,6 +775,7 @@
 				D1670B1B19437943003BCD75 /* TestFaceReversal.mm */,
 				D116459619FBF2430015ED78 /* TestViewport.mm */,
 				D178BEDE19FD333800B6C4C0 /* TestNode.mm */,
+				D1AA003E1A05585E0040FA70 /* TestLineNode.mm */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1383,6 +1386,7 @@
 				D152781D18E5890B00C48850 /* TestEdge.mm in Sources */,
 				D152782418E5890B00C48850 /* TestPolygon.mm in Sources */,
 				D152782318E5890B00C48850 /* TestPoly2tri.mm in Sources */,
+				D1AA003F1A05585E0040FA70 /* TestLineNode.mm in Sources */,
 				D18ECC91190517A400189A01 /* PointNode.cpp in Sources */,
 				D152782118E5890B00C48850 /* TestTetrahedron.mm in Sources */,
 				D185302918F14BE4001A7AB1 /* TestExtrudeInteraction.mm in Sources */,
