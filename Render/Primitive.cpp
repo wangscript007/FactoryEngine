@@ -5,13 +5,37 @@
 #include <Geometry/Triangle.h>
 
 namespace ftr {
+    
+Primitive::Primitive() :
+    mIsInvalid(true),
+    mOptions(kUseNone),
+    mRenderData(NULL),
+    mBuffersCount(0),
+    mVertexArrayObjectId(0)
+{
+    
+}
+
+Primitive::~Primitive()
+{
+    ClearRenderData();
+}
+    
+void Primitive::ClearRenderData()
+{
+    if(mRenderData) {
+        delete[] mRenderData;
+        mRenderData=NULL;
+        glDeleteBuffers(mBuffersCount, mBuffers);
+        glDeleteVertexArrays(1, &mVertexArrayObjectId);
+        
+    }
+}
+
 
 char* Primitive::renderData(ShadingInterface& shadingInterface) {
     if (mIsInvalid) {
-        if (mRenderData) {
-            delete[] mRenderData;
-            mRenderData = NULL;
-        }
+        ClearRenderData();
         mRenderData = CreateRenderData(shadingInterface);
         mIsInvalid = false;
     }
@@ -28,7 +52,6 @@ void Primitive::setOption(Option option, bool value)
 }
     
     
-    
 char* PointPrimitive::CreateRenderData()
 {
     PointPrimitive::Data* data = reinterpret_cast<PointPrimitive::Data*>(new char[sizeof(PointPrimitive::Data)]);
@@ -37,8 +60,7 @@ char* PointPrimitive::CreateRenderData()
     data->vertices[0].color = mColor;
     return reinterpret_cast<char*>(data);
 }
-    
-    
+        
 char* LinePrimitive::CreateRenderData(ShadingInterface& shadingInterface)
 {    
     LinePrimitive::Data* data = reinterpret_cast<LinePrimitive::Data*>(new char[sizeof(LinePrimitive::Data)]);
@@ -50,18 +72,19 @@ char* LinePrimitive::CreateRenderData(ShadingInterface& shadingInterface)
     const GLuint colorLoc = shadingInterface.colorLocation();
     const GLuint vertexLoc = shadingInterface.vertexLocation();
     
+    
     glGenVertexArrays(1, &mVertexArrayObjectId);
     glBindVertexArray(mVertexArrayObjectId);
     
-    GLuint buffers[2];
-    glGenBuffers(2, buffers);
+    mBuffersCount = 2;
+    glGenBuffers(mBuffersCount, mBuffers);
     
-    glBindBuffer(GL_ARRAY_BUFFER, buffers[0]);
+    glBindBuffer(GL_ARRAY_BUFFER, mBuffers[0]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*2, data->vertices, GL_STATIC_DRAW);
     glEnableVertexAttribArray(vertexLoc);
     glVertexAttribPointer(vertexLoc, 4, GL_FLOAT, 0, 0, 0);
     
-    glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
+    glBindBuffer(GL_ARRAY_BUFFER, mBuffers[1]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*2, data->colors, GL_STATIC_DRAW);
     glEnableVertexAttribArray(colorLoc);
     glVertexAttribPointer(colorLoc, 4, GL_FLOAT, 0, 0, 0);
@@ -103,25 +126,25 @@ char* RectanglePrimitive::CreateRenderData(ShadingInterface& shadingInterface)
     glGenVertexArrays(1, &mVertexArrayObjectId);
     glBindVertexArray(mVertexArrayObjectId);
     
-    GLuint buffers[4];
-    glGenBuffers(4, buffers);
+    mBuffersCount = 4;
+    glGenBuffers(mBuffersCount, mBuffers);
     
-    glBindBuffer(GL_ARRAY_BUFFER, buffers[0]);
+    glBindBuffer(GL_ARRAY_BUFFER, mBuffers[0]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*4, data->vertices, GL_STATIC_DRAW);
     glEnableVertexAttribArray(vertexLoc);
     glVertexAttribPointer(vertexLoc, 4, GL_FLOAT, 0, 0, 0);
     
-    glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
+    glBindBuffer(GL_ARRAY_BUFFER, mBuffers[1]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*4, data->normals, GL_STATIC_DRAW);
     glEnableVertexAttribArray(normalLoc);
     glVertexAttribPointer(normalLoc, 4, GL_FLOAT, 0, 0, 0);
     
-    glBindBuffer(GL_ARRAY_BUFFER, buffers[2]);
+    glBindBuffer(GL_ARRAY_BUFFER, mBuffers[2]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*4, data->colors, GL_STATIC_DRAW);
     glEnableVertexAttribArray(colorLoc);
     glVertexAttribPointer(colorLoc, 4, GL_FLOAT, 0, 0, 0);
     
-    glBindBuffer(GL_ARRAY_BUFFER, buffers[3]);
+    glBindBuffer(GL_ARRAY_BUFFER, mBuffers[3]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*4, data->pickingColors, GL_STATIC_DRAW);
     glEnableVertexAttribArray(pickingColorLoc);
     glVertexAttribPointer(pickingColorLoc, 4, GL_FLOAT, 0, 0, 0);
@@ -146,11 +169,15 @@ void RectanglePrimitive::AssignSurfaceNormals(RectanglePrimitive::Data* data)
     }
 }
 
+PolygonPrimitive::~PolygonPrimitive()
+{
+    FT_DELETE_VECTOR(mSubpolygons)
+}
     
 char* PolygonPrimitive::CreateRenderData(ShadingInterface& shadingInterface)
 {
     if (mVec.size() > 3) {
-        mSubpolygons.clear();
+        FT_DELETE_VECTOR(mSubpolygons)
         Polygon polygon(mVec);
         polygon.Triangulate();
         for (auto &triangle : polygon.GetTriangles()) {
@@ -185,25 +212,25 @@ char* PolygonPrimitive::CreateRenderData(ShadingInterface& shadingInterface)
         glGenVertexArrays(1, &mVertexArrayObjectId);
         glBindVertexArray(mVertexArrayObjectId);
         
-        GLuint buffers[4];
-        glGenBuffers(4, buffers);
+        mBuffersCount = 4;
+        glGenBuffers(mBuffersCount, mBuffers);
         
-        glBindBuffer(GL_ARRAY_BUFFER, buffers[0]);
+        glBindBuffer(GL_ARRAY_BUFFER, mBuffers[0]);
         glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*3, data->vertices, GL_STATIC_DRAW);
         glEnableVertexAttribArray(vertexLoc);
         glVertexAttribPointer(vertexLoc, 4, GL_FLOAT, 0, 0, 0);
         
-        glBindBuffer(GL_ARRAY_BUFFER, buffers[1]);
+        glBindBuffer(GL_ARRAY_BUFFER, mBuffers[1]);
         glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*3, data->normals, GL_STATIC_DRAW);
         glEnableVertexAttribArray(normalLoc);
         glVertexAttribPointer(normalLoc, 4, GL_FLOAT, 0, 0, 0);
         
-        glBindBuffer(GL_ARRAY_BUFFER, buffers[2]);
+        glBindBuffer(GL_ARRAY_BUFFER, mBuffers[2]);
         glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*3, data->colors, GL_STATIC_DRAW);
         glEnableVertexAttribArray(colorLoc);
         glVertexAttribPointer(colorLoc, 4, GL_FLOAT, 0, 0, 0);
         
-        glBindBuffer(GL_ARRAY_BUFFER, buffers[3]);
+        glBindBuffer(GL_ARRAY_BUFFER, mBuffers[3]);
         glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*3, data->pickingColors, GL_STATIC_DRAW);
         glEnableVertexAttribArray(pickingColorLoc);
         glVertexAttribPointer(pickingColorLoc, 4, GL_FLOAT, 0, 0, 0);

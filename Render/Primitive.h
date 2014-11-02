@@ -27,13 +27,8 @@ public:
     };
     
     
-    Primitive(): mIsInvalid(true), mOptions(kUseNone), mRenderData(NULL) {}
-    virtual ~Primitive() {
-        if(mRenderData) {
-            delete[] mRenderData;
-            mRenderData=NULL;
-        }
-    }
+    Primitive();
+    virtual ~Primitive();
     
     void Invalidate() { mIsInvalid = true; }
     
@@ -43,10 +38,13 @@ public:
     void setOption(Option option, bool value);
     bool option(Option option) const { return (mOptions & static_cast<unsigned int>(option)) != 0; }
     GLuint vertexArrayObjectId() const { return mVertexArrayObjectId; }
+    void ClearRenderData();
     
 protected:
     virtual char* CreateRenderData(ShadingInterface& shadingInterface) { return NULL; }
     GLuint mVertexArrayObjectId;
+    GLuint mBuffers[4];
+    GLuint mBuffersCount;
     char* mRenderData;
     
 private:
@@ -95,13 +93,14 @@ public:
         glm::vec4 colors[2];
     };
     
-    LinePrimitive() {}
+    LinePrimitive() {};
     virtual ~LinePrimitive() {}
     
     Type type() const { return kLine; }
     glm::vec3 mBegin;
     glm::vec3 mEnd;
     glm::vec4 mColor;
+
 protected:
     char* CreateRenderData(ShadingInterface& shadingInterface);
     
@@ -148,7 +147,7 @@ public:
     
     PolygonPrimitive() {}
     PolygonPrimitive(const std::vector<glm::vec3>& vecs) { mVec = vecs; }
-    virtual ~PolygonPrimitive() {}
+    virtual ~PolygonPrimitive();
     
     Type type() const { return kPolygon; }
     std::vector<glm::vec3> mVec;
