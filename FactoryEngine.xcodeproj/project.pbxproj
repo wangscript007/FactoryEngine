@@ -408,6 +408,7 @@
 		D1F44F56157FE9D200566119 /* HUD.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F54157FE9D200566119 /* HUD.h */; };
 		D1FDC88418F192960075176E /* ExtrudeInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302018F145D5001A7AB1 /* ExtrudeInteraction.cpp */; };
 		D1FDC88518F192960075176E /* ExtrudeInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302018F145D5001A7AB1 /* ExtrudeInteraction.cpp */; };
+		D1FE762D1A06624B00FB7535 /* TestOctree.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1FE762C1A06624B00FB7535 /* TestOctree.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -645,6 +646,7 @@
 		D1F44F54157FE9D200566119 /* HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUD.h; sourceTree = "<group>"; };
 		D1FBAF6C18DEE73B000A083E /* TestPoly2tri.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPoly2tri.mm; sourceTree = "<group>"; };
 		D1FBBC88197AD187001A38C3 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
+		D1FE762C1A06624B00FB7535 /* TestOctree.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestOctree.mm; path = ../../factoryengine/Tests/TestOctree.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -776,6 +778,7 @@
 				D116459619FBF2430015ED78 /* TestViewport.mm */,
 				D178BEDE19FD333800B6C4C0 /* TestNode.mm */,
 				D1AA003E1A05585E0040FA70 /* TestLineNode.mm */,
+				D1FE762C1A06624B00FB7535 /* TestOctree.mm */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1415,6 +1418,7 @@
 				D11D1D6018DF70CD0091521F /* sweep.cc in Sources */,
 				603BA5FB17E87437007CE822 /* Pad.cpp in Sources */,
 				603BA5FC17E87437007CE822 /* HUD.cpp in Sources */,
+				D1FE762D1A06624B00FB7535 /* TestOctree.mm in Sources */,
 				603BA5FD17E87437007CE822 /* Workspace.cpp in Sources */,
 				603BA5FE17E87437007CE822 /* Bounds.cpp in Sources */,
 				6076A1561806AE8F00770486 /* ShadingInterface.cpp in Sources */,

@@ -35,7 +35,6 @@ void Geometry::Transform(const glm::mat4& mat)
         glm::vec4 vec(p.x, p.y, p.z, 1.0f);
         vec = mat * vec;
         p = glm::vec3(vec.x, vec.y, vec.z);
-        std::cout << Description::Described(p) << std::endl;
     }
 }
     

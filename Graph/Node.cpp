@@ -9,7 +9,8 @@ namespace ftr {
 Node::Node() :
     mSupernode(NULL),
     mInvalid(false),
-    mPickingId(-1)
+    mPickingId(-1),
+    mSelected(false)
 {
 }
 
