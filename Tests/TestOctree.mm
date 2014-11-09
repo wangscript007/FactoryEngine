@@ -75,17 +75,22 @@ using namespace ftr;
 {
     ftr::Octree octree(Box(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(100.0f, 100.0f, 100.0f)));
     
+    for (int j = 0; j < 8; ++j) {
+        octree.UpdatePoint(_points[j]);
+    }
     
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 8; ++j) {
-            _points[j]->mOrigin.x += 10.0f;
-            _points[j]->mOrigin.z += 0.0f;
-            _points[j]->mOrigin.y += 0.0f;
+            _points[j]->mOrigin.x += 2.0f;
+            _points[j]->mOrigin.z += 2.0f;
+            _points[j]->mOrigin.y += 2.0f;
+        }
+        for (int j = 0; j < 8; ++j) {
             octree.UpdatePoint(_points[j]);
         }
     }
     
-    
+    XCTAssertEqual(octree.Size(), 8);
     
 }
 

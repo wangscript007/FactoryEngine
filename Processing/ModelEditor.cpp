@@ -129,7 +129,7 @@ void ModelEditor::Move(const glm::vec3 &offset)
 {
     mSelectedNode->Transform(glm::translate(offset));
     mSelectedNode->Invalidate(true);
-//    UpdateNode(mSelectedNode);
+    UpdateNode(mSelectedNode);
 }
 
     

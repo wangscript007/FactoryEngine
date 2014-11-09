@@ -4,7 +4,7 @@
 #include <Graph/FaceNode.h>
 #include <Graph/LineNode.h>
 #include <Processing/FaceReversal.h>
-
+#include <Processing/Octree.h>
 
 
 
@@ -92,6 +92,14 @@ bool PointNode::ContainsFreeEdges() const
     for(PointNode::Iterator it = Begin(); it != End(); ++it)
     {
         if ((*it)->IsFree() || (*it)->twin()->IsFree()) return true;
+    }
+    return false;
+}
+
+bool PointNode::OctreeLeafIsInvalid() const
+{
+    if (mOctreeLeaf) {
+        return !mOctreeLeaf->Box().Contains(mOrigin);
     }
     return false;
 }

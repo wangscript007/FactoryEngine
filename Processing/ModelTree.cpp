@@ -42,9 +42,17 @@ void ModelTree::AddNode(Node* pNode)
 void ModelTree::UpdateNode(Node* node)
 {
     std::vector<Node*> pointNodes;
+    std::vector<PointNode*> pointNodesToInsert;
     node->PointNodes(pointNodes);
     for (auto &pointNode : pointNodes) {
-        mOctree->UpdatePoint(static_cast<PointNode*>(pointNode));
+        PointNode* pointNode2 = static_cast<PointNode*>(pointNode);
+        if (pointNode2->OctreeLeafIsInvalid()) {
+            mOctree->RemovePoint(pointNode2);
+            pointNodesToInsert.push_back(pointNode2);
+        }
+    }
+    for (auto &pointNode : pointNodesToInsert) {
+        mOctree->InsertPoint(pointNode);
     }
 }
 

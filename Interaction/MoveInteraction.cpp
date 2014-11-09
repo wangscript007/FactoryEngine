@@ -34,6 +34,8 @@ void MoveInteraction::Select(Node* node)
     
 void MoveInteraction::MoveTo(const glm::vec2& targetPoint)
 {
+    if (!mModelEditor.selectedNode()) return;
+    
     mTarget = targetPoint;
     Triangle viewportPlane = mViewport.Plane();
     glm::vec3 offset = mModelEditor.selectedNode()->Center() - viewportPlane.Center();

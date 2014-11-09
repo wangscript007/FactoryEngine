@@ -107,6 +107,8 @@ public:
         void InsertPoint(PointNode* pPoint);
         void RemovePoint(PointNode* pPoint);
         const TPointsList& PointNodes() const { return mPointsList; }
+        
+        std::string Description() const;
     private:
         TPointsList mPointsList;
         LinePrimitive linePrimitive[12];

@@ -78,6 +78,8 @@ Octree::Branch* Octree::Split(Octree::Leaf *leaf)
             }
         }
     }
+    // This would fail in case some points nodes in the box changed coordinates
+    // without updating tree
     assert(iCounter == iInitialCount);
     FT_DELETE(leaf);
     mUpdateSize = true;
@@ -157,7 +159,7 @@ void Octree::UpdatePoint(PointNode* pPoint)
         if (pPoint->Active()) {
             RemovePoint(pPoint);
         } else {
-            if (!leaf->Box().Contains(pPoint->mOrigin)) {
+            if (pPoint->OctreeLeafIsInvalid()) {
                 RemovePoint(pPoint);
                 InsertPoint(pPoint);
             }
@@ -412,6 +414,13 @@ void Octree::Leaf::RemovePoint(PointNode* pPoint)
 {
     mPointsList.remove(pPoint);
     pPoint->setOctreeLeaf(NULL);
+}
+    
+std::string Octree::Leaf::Description() const
+{
+    // Node 1:{e12, e12, e13}
+    std::string description = "Node : {";
+    return description;
 }
 
 }

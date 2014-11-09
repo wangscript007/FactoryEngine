@@ -46,6 +46,7 @@ public:
     void PointNodes(std::vector<Node*>& result);
     Octree::Leaf* OctreeLeaf() const { return mOctreeLeaf; }
     void setOctreeLeaf(Octree::Leaf* leaf) { mOctreeLeaf = leaf; }
+    bool OctreeLeafIsInvalid() const;
     void setActive(bool active) { mIsActive = active; }
     bool Active() const { return mIsActive; }
     bool ContainsFreeEdges() const;
