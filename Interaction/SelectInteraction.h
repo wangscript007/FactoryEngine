@@ -19,9 +19,8 @@ public:
     void Select(const glm::vec2& point);    
     void TurnOn();
     void TurnOff();
-private:
     
-    Node* mSelectedNode;
+private:
     ModelEditor& mModelEditor;
 };
     
