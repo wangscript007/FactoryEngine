@@ -14,9 +14,9 @@ LayerRenderer::LayerRenderer(ShadingInterface& shadingInterface)
     : mDepth(0)
 {
     //AddRenderer(new PointRenderer());
-    AddRenderer(new LineRenderer(shadingInterface));
     AddRenderer(new RectangleRenderer(shadingInterface));
     AddRenderer(new PolygonRenderer(shadingInterface));
+    AddRenderer(new LineRenderer(shadingInterface));
 }
     
 void LayerRenderer::AddRenderer(PrimitiveRenderer* primitiveRenderer)

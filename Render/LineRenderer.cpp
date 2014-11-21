@@ -7,8 +7,6 @@ namespace ftr {
 void LineRenderer::Begin(Primitive& primitive)
 {
     PrimitiveRenderer::Begin(primitive);
-    
-    
 }
     
 void LineRenderer::Render(Primitive& primitive)
@@ -22,6 +20,7 @@ void LineRenderer::Render(Primitive& primitive)
 void LineRenderer::End(Primitive& primitive)
 {
     PrimitiveRenderer::End(primitive);
+ 
 }
 
 }
