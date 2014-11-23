@@ -20,45 +20,12 @@
 		6021AFCC172332F6001EAEBE /* LineRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFCA172332F6001EAEBE /* LineRenderer.h */; };
 		6032716117EB08E700249562 /* Framebuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6032715F17EB08E700249562 /* Framebuffer.cpp */; };
 		6032716217EB08E700249562 /* Framebuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6032715F17EB08E700249562 /* Framebuffer.cpp */; };
-		6032716317EB08E700249562 /* Framebuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6032715F17EB08E700249562 /* Framebuffer.cpp */; };
 		6032716417EB08E700249562 /* Framebuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6032716017EB08E700249562 /* Framebuffer.h */; };
 		6032716517EB08E700249562 /* Framebuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6032716017EB08E700249562 /* Framebuffer.h */; };
 		6032717617EB17C700249562 /* SceneRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6032717417EB17C700249562 /* SceneRenderer.cpp */; };
 		6032717717EB17C700249562 /* SceneRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6032717417EB17C700249562 /* SceneRenderer.cpp */; };
-		6032717817EB17C700249562 /* SceneRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6032717417EB17C700249562 /* SceneRenderer.cpp */; };
 		6032717917EB17C700249562 /* SceneRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6032717517EB17C700249562 /* SceneRenderer.h */; };
 		6032717A17EB17C700249562 /* SceneRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6032717517EB17C700249562 /* SceneRenderer.h */; };
-		603BA5C617E87392007CE822 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6055CFD217417DCB009F1F46 /* Camera.cpp */; };
-		603BA5D017E87437007CE822 /* Polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6011C37616D0EE9100CD34F9 /* Polygon.cpp */; };
-		603BA5D117E87437007CE822 /* Rect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC781658308B0051947E /* Rect.cpp */; };
-		603BA5D217E87437007CE822 /* GeometryPrimitives.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60C41BB21691BF5600DD0C09 /* GeometryPrimitives.cpp */; };
-		603BA5D917E87437007CE822 /* ShadingLibrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D701117357B3C000A92F7 /* ShadingLibrary.cpp */; };
-		603BA5DA17E87437007CE822 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D700517357571000A92F7 /* Shader.cpp */; };
-		603BA5DC17E87437007CE822 /* PrimitiveRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFC517232B8E001EAEBE /* PrimitiveRenderer.cpp */; };
-		603BA5DD17E87437007CE822 /* LayerRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFBB17230800001EAEBE /* LayerRenderer.cpp */; };
-		603BA5DE17E87437007CE822 /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFBD17230E82001EAEBE /* Layer.cpp */; };
-		603BA5DF17E87437007CE822 /* LineRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFC9172332F6001EAEBE /* LineRenderer.cpp */; };
-		603BA5E017E87437007CE822 /* PolygonRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */; };
-		603BA5E117E87437007CE822 /* RectangleRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB13172C838100357B47 /* RectangleRenderer.cpp */; };
-		603BA5E217E87437007CE822 /* PointRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6086605C17343C5400E67B54 /* PointRenderer.cpp */; };
-		603BA5E317E87437007CE822 /* LightingCollection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BD328C174436BD00C2E593 /* LightingCollection.cpp */; };
-		603BA5E417E87437007CE822 /* LigthtingModelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6011AF191747C2FC0022E7A9 /* LigthtingModelFactory.cpp */; };
-		603BA5E517E87437007CE822 /* LightingModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BD32881744039C00C2E593 /* LightingModel.cpp */; };
-		603BA5E617E87437007CE822 /* DefaultLighting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BD3290174436EA00C2E593 /* DefaultLighting.cpp */; };
-		603BA5E717E87437007CE822 /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6055CFCE17417D45009F1F46 /* Light.cpp */; };
-		603BA5F317E87437007CE822 /* InteractionProvider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7457E17228E100062CDF1 /* InteractionProvider.cpp */; };
-		603BA5F417E87437007CE822 /* RectangleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6047DB9116B46A890012286F /* RectangleInteraction.cpp */; };
-		603BA5F517E87437007CE822 /* LineInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60F2406C16B5BCA700291ED0 /* LineInteraction.cpp */; };
-		603BA5F617E87437007CE822 /* MoveInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 605CD4FA16FDE992005CCAA2 /* MoveInteraction.cpp */; };
-		603BA5F717E87437007CE822 /* RotationInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED5E16FE28BA0083DCD2 /* RotationInteraction.cpp */; };
-		603BA5F817E87437007CE822 /* ScaleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED6516FE59D40083DCD2 /* ScaleInteraction.cpp */; };
-		603BA5FA17E87437007CE822 /* CameraInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 601EC869175B2901003DE2B8 /* CameraInteraction.cpp */; };
-		603BA5FB17E87437007CE822 /* Pad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F4F157FE91900566119 /* Pad.cpp */; };
-		603BA5FC17E87437007CE822 /* HUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F53157FE9D200566119 /* HUD.cpp */; };
-		603BA5FD17E87437007CE822 /* Workspace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F4A157FE79600566119 /* Workspace.cpp */; };
-		603BA5FE17E87437007CE822 /* Bounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60866058173436E500E67B54 /* Bounds.cpp */; };
-		603BA5FF17E87437007CE822 /* TestRectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60F6D98D17368DB500935A76 /* TestRectangle.cpp */; };
-		603BA60217E874FE007CE822 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 603BA60117E874FE007CE822 /* OpenGL.framework */; };
 		60458B25175B8EF8000679CE /* CameraInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 601EC869175B2901003DE2B8 /* CameraInteraction.cpp */; };
 		60458B26175B8EFB000679CE /* CameraInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 601EC86A175B2901003DE2B8 /* CameraInteraction.h */; };
 		6047DB9316B46A890012286F /* RectangleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6047DB9116B46A890012286F /* RectangleInteraction.cpp */; };
@@ -86,10 +53,8 @@
 		606BC014180863C100EC4F37 /* PointSnap.h in Headers */ = {isa = PBXBuildFile; fileRef = 606BC012180863C100EC4F37 /* PointSnap.h */; };
 		606BC0171808666700EC4F37 /* Viewport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0151808666700EC4F37 /* Viewport.cpp */; };
 		606BC0181808666700EC4F37 /* Viewport.h in Headers */ = {isa = PBXBuildFile; fileRef = 606BC0161808666700EC4F37 /* Viewport.h */; };
-		6076A1531806AE5400770486 /* Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D745891722994B0062CDF1 /* Primitive.cpp */; };
 		6076A1541806AE5400770486 /* Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D745891722994B0062CDF1 /* Primitive.cpp */; };
 		6076A1551806AE5400770486 /* Primitive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D745891722994B0062CDF1 /* Primitive.cpp */; };
-		6076A1561806AE8F00770486 /* ShadingInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B7E4B2173AEA4000EF0834 /* ShadingInterface.cpp */; };
 		6076A1571806AE9000770486 /* ShadingInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B7E4B2173AEA4000EF0834 /* ShadingInterface.cpp */; };
 		607BFB11172C7F3500357B47 /* PolygonRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */; };
 		607BFB12172C7F3500357B47 /* PolygonRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 607BFB10172C7F3500357B47 /* PolygonRenderer.h */; };
@@ -101,15 +66,10 @@
 		6086605F17343C5400E67B54 /* PointRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6086605D17343C5400E67B54 /* PointRenderer.h */; };
 		60A03E411752423100D650B5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A03E401752423100D650B5 /* OpenGLES.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		60A03E42175244EB00D650B5 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6056C56E15DC5522008F8E92 /* Scene.cpp */; };
-		60A05FBD1809D457004DD045 /* Viewport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0151808666700EC4F37 /* Viewport.cpp */; };
-		60A05FC61809DB06004DD045 /* Snap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0071808639500EC4F37 /* Snap.cpp */; };
-		60A05FC71809DB15004DD045 /* PointSnap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC011180863C100EC4F37 /* PointSnap.cpp */; };
 		60A05FC81809DB16004DD045 /* PointSnap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC011180863C100EC4F37 /* PointSnap.cpp */; };
-		60A05FC91809DB35004DD045 /* AxisSnap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0051808639500EC4F37 /* AxisSnap.cpp */; };
 		60A05FCA1809DB36004DD045 /* AxisSnap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0051808639500EC4F37 /* AxisSnap.cpp */; };
 		60A05FCB1809DB48004DD045 /* Snap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0071808639500EC4F37 /* Snap.cpp */; };
 		60A05FCC1809DB5E004DD045 /* Viewport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0151808666700EC4F37 /* Viewport.cpp */; };
-		60A05FCE180AD1BA004DD045 /* SnappingQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0091808639500EC4F37 /* SnappingQueue.cpp */; };
 		60A05FCF180AD1BA004DD045 /* SnappingQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0091808639500EC4F37 /* SnappingQueue.cpp */; };
 		60A4ED6016FE28BA0083DCD2 /* RotationInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A4ED5E16FE28BA0083DCD2 /* RotationInteraction.cpp */; };
 		60A4ED6116FE28BA0083DCD2 /* RotationInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60A4ED5F16FE28BA0083DCD2 /* RotationInteraction.h */; };
@@ -118,7 +78,6 @@
 		60A575E71690DDEE0050FAFC /* Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 60A575E61690DDEE0050FAFC /* Prefix.pch */; };
 		60B3F3BD1805667B0010484D /* Segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B3F3BB1805667B0010484D /* Segment.cpp */; };
 		60B3F3BE1805667B0010484D /* Segment.h in Headers */ = {isa = PBXBuildFile; fileRef = 60B3F3BC1805667B0010484D /* Segment.h */; };
-		60B3F3C0180577560010484D /* Segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B3F3BB1805667B0010484D /* Segment.cpp */; };
 		60B3F3C1180577580010484D /* Segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B3F3BB1805667B0010484D /* Segment.cpp */; };
 		60BD328A1744039D00C2E593 /* LightingModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60BD32881744039C00C2E593 /* LightingModel.cpp */; };
 		60BD328B1744039D00C2E593 /* LightingModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 60BD32891744039C00C2E593 /* LightingModel.h */; };
@@ -190,7 +149,6 @@
 		60C6D0C01749738A0009EC3C /* Polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6011C37616D0EE9100CD34F9 /* Polygon.cpp */; };
 		60C6D0C11749739B0009EC3C /* Rect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC781658308B0051947E /* Rect.cpp */; };
 		60C6D0C21749739B0009EC3C /* Rect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60D7DC781658308B0051947E /* Rect.cpp */; };
-		60CE9A4917EC646600A775C0 /* ShadingProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D700D17357A46000A92F7 /* ShadingProgram.cpp */; };
 		60CE9A4E17EC646E00A775C0 /* ShadingProgram.h in Headers */ = {isa = PBXBuildFile; fileRef = 608D700E17357A46000A92F7 /* ShadingProgram.h */; };
 		60CE9A5117EC646E00A775C0 /* ShadingInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 60B7E4B3173AEA4000EF0834 /* ShadingInterface.h */; };
 		60CE9A5417EC646E00A775C0 /* ShadingLibrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 608D701117357B3C000A92F7 /* ShadingLibrary.cpp */; };
@@ -211,22 +169,42 @@
 		60D7458C1722994B0062CDF1 /* Primitive.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7458A1722994B0062CDF1 /* Primitive.h */; };
 		60DFE3A81825389500A32D7A /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60DFE3A61825389500A32D7A /* Vector.cpp */; };
 		60DFE3A91825389500A32D7A /* Vector.h in Headers */ = {isa = PBXBuildFile; fileRef = 60DFE3A71825389500A32D7A /* Vector.h */; };
-		60DFE3AC18253C7400A32D7A /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60DFE3A61825389500A32D7A /* Vector.cpp */; };
 		60DFE3AD18253C7400A32D7A /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60DFE3A61825389500A32D7A /* Vector.cpp */; };
 		60EB2F641812C385008DCA37 /* Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60EB2F621812C385008DCA37 /* Cylinder.cpp */; };
 		60EB2F651812C385008DCA37 /* Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60EB2F621812C385008DCA37 /* Cylinder.cpp */; };
-		60EB2F661812C385008DCA37 /* Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60EB2F621812C385008DCA37 /* Cylinder.cpp */; };
 		60EB2F671812C385008DCA37 /* Cylinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 60EB2F631812C385008DCA37 /* Cylinder.h */; };
 		60EB2F681812C385008DCA37 /* Cylinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 60EB2F631812C385008DCA37 /* Cylinder.h */; };
 		60F2406F16B5BCA700291ED0 /* LineInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F2406D16B5BCA700291ED0 /* LineInteraction.h */; };
 		60F6D98F17368DB500935A76 /* TestRectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60F6D98D17368DB500935A76 /* TestRectangle.cpp */; };
 		60F6D99017368DB500935A76 /* TestRectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 60F6D98E17368DB500935A76 /* TestRectangle.h */; };
-		D116459719FBF2430015ED78 /* TestViewport.mm in Sources */ = {isa = PBXBuildFile; fileRef = D116459619FBF2430015ED78 /* TestViewport.mm */; };
+		D10D48B01A222A7B00B956E9 /* TestSegment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60988087180584A60064477E /* TestSegment.mm */; };
+		D10D48B11A222A7B00B956E9 /* TestMoveInteraction.mm in Sources */ = {isa = PBXBuildFile; fileRef = D189C6771916C2F400E9FB1A /* TestMoveInteraction.mm */; };
+		D10D48B21A222A7B00B956E9 /* TestLineInteraction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60A05FC31809DA8A004DD045 /* TestLineInteraction.mm */; };
+		D10D48B31A222A7B00B956E9 /* TestCylinder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60758B6D180F3020004BE067 /* TestCylinder.mm */; };
+		D10D48B41A222A7B00B956E9 /* TestPointNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60D473A51815CFB2007BB63D /* TestPointNode.mm */; };
+		D10D48B51A222A7B00B956E9 /* TestEdge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60D63214181C08F600CEB0D0 /* TestEdge.mm */; };
+		D10D48B61A222A7B00B956E9 /* TestVector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60DFE3AA18253C6900A32D7A /* TestVector.mm */; };
+		D10D48B71A222A7B00B956E9 /* TestFaceTraversal.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60919945185DB33900C7524F /* TestFaceTraversal.mm */; };
+		D10D48B81A222A7B00B956E9 /* TestFaceNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60379DD518678813009A9EBC /* TestFaceNode.mm */; };
+		D10D48B91A222A7B00B956E9 /* TestTetrahedron.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60937FB7186D9F1200E6C23E /* TestTetrahedron.mm */; };
+		D10D48BA1A222A7B00B956E9 /* TestTriangle.mm in Sources */ = {isa = PBXBuildFile; fileRef = D16D270518D5F1980095B177 /* TestTriangle.mm */; };
+		D10D48BB1A222A7B00B956E9 /* TestPoly2tri.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1FBAF6C18DEE73B000A083E /* TestPoly2tri.mm */; };
+		D10D48BC1A222A7B00B956E9 /* TestPolygon.mm in Sources */ = {isa = PBXBuildFile; fileRef = D13CAE0318E1CBE700C2A180 /* TestPolygon.mm */; };
+		D10D48BD1A222A7B00B956E9 /* TestExtrudeInteraction.mm in Sources */ = {isa = PBXBuildFile; fileRef = D185302818F14BE4001A7AB1 /* TestExtrudeInteraction.mm */; };
+		D10D48BE1A222A7B00B956E9 /* TestFaceExtruder.mm in Sources */ = {isa = PBXBuildFile; fileRef = D185302A18F14C1A001A7AB1 /* TestFaceExtruder.mm */; };
+		D10D48BF1A222A7B00B956E9 /* TestColorPickingMapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = D15130D4190BDCB200BA09AB /* TestColorPickingMapper.mm */; };
+		D10D48C01A222A7B00B956E9 /* TestGeometry.mm in Sources */ = {isa = PBXBuildFile; fileRef = D189C66A1916420D00E9FB1A /* TestGeometry.mm */; };
+		D10D48C11A222A7B00B956E9 /* TestModelEditor.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1F22A83191FCE90002E0767 /* TestModelEditor.mm */; };
+		D10D48C21A222A7B00B956E9 /* TestFaceReversal.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1670B1B19437943003BCD75 /* TestFaceReversal.mm */; };
+		D10D48C31A222A7B00B956E9 /* TestViewport.mm in Sources */ = {isa = PBXBuildFile; fileRef = D116459619FBF2430015ED78 /* TestViewport.mm */; };
+		D10D48C41A222A7B00B956E9 /* TestNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = D178BEDE19FD333800B6C4C0 /* TestNode.mm */; };
+		D10D48C51A222A7B00B956E9 /* TestLineNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1AA003E1A05585E0040FA70 /* TestLineNode.mm */; };
+		D10D48C61A222A7B00B956E9 /* TestOctree.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1FE762C1A06624B00FB7535 /* TestOctree.mm */; };
+		D10D48C71A222A7B00B956E9 /* TestModelImporter.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1E012301A221E9900583D0A /* TestModelImporter.mm */; };
 		D116AC081917544500153AEC /* Intersection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D116AC061917544500153AEC /* Intersection.cpp */; };
 		D116AC091917544500153AEC /* Intersection.h in Headers */ = {isa = PBXBuildFile; fileRef = D116AC071917544500153AEC /* Intersection.h */; };
 		D11D1CC218DF4FBA0091521F /* Description.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1CC018DF4FBA0091521F /* Description.cpp */; };
 		D11D1CC318DF4FBA0091521F /* Description.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1CC018DF4FBA0091521F /* Description.cpp */; };
-		D11D1CC418DF4FBA0091521F /* Description.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1CC018DF4FBA0091521F /* Description.cpp */; };
 		D11D1CC518DF4FBA0091521F /* Description.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1CC118DF4FBA0091521F /* Description.h */; };
 		D11D1CC618DF4FBA0091521F /* Description.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1CC118DF4FBA0091521F /* Description.h */; };
 		D11D1D4F18DF70980091521F /* shapes.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4218DF70980091521F /* shapes.cc */; };
@@ -241,50 +219,31 @@
 		D11D1D5C18DF70980091521F /* sweep.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D4C18DF70980091521F /* sweep.h */; };
 		D11D1D5D18DF70980091521F /* sweep_context.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4D18DF70980091521F /* sweep_context.cc */; };
 		D11D1D5F18DF70980091521F /* sweep_context.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D4E18DF70980091521F /* sweep_context.h */; };
-		D11D1D6018DF70CD0091521F /* sweep.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4B18DF70980091521F /* sweep.cc */; };
 		D11D1D6118DF70CE0091521F /* sweep.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4B18DF70980091521F /* sweep.cc */; };
-		D11D1D6218DF70D00091521F /* sweep_context.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4D18DF70980091521F /* sweep_context.cc */; };
 		D11D1D6318DF70D10091521F /* sweep_context.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4D18DF70980091521F /* sweep_context.cc */; };
-		D11D1D6418DF70D40091521F /* advancing_front.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4718DF70980091521F /* advancing_front.cc */; };
 		D11D1D6518DF70D40091521F /* advancing_front.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4718DF70980091521F /* advancing_front.cc */; };
 		D11D1D6618DF70D80091521F /* shapes.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4218DF70980091521F /* shapes.cc */; };
-		D11D1D6718DF70D80091521F /* shapes.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4218DF70980091521F /* shapes.cc */; };
-		D11D1D6818DF71080091521F /* cdt.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4918DF70980091521F /* cdt.cc */; };
 		D11D1D6918DF71080091521F /* cdt.cc in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D4918DF70980091521F /* cdt.cc */; };
 		D11D1D7418E0507B0091521F /* Polyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D7218E0507B0091521F /* Polyline.cpp */; };
 		D11D1D7518E0507B0091521F /* Polyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D7218E0507B0091521F /* Polyline.cpp */; };
-		D11D1D7618E0507B0091521F /* Polyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1D7218E0507B0091521F /* Polyline.cpp */; };
 		D11D1D7718E0507B0091521F /* Polyline.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D7318E0507B0091521F /* Polyline.h */; };
 		D11D1D7818E0507B0091521F /* Polyline.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1D7318E0507B0091521F /* Polyline.h */; };
+		D11D8DAA1A2235BB00BDAC6F /* libFactoryEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D13DC90B157A9F8C00C84006 /* libFactoryEngine.a */; };
+		D11D8E0E1A22503D00BDAC6F /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D11D8E0D1A22503D00BDAC6F /* OpenGL.framework */; };
+		D1376AB21A23EA8800C7EA8E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1376AB11A23EA8800C7EA8E /* libz.dylib */; };
+		D1376AB31A23ECAF00C7EA8E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1376AB11A23EA8800C7EA8E /* libz.dylib */; };
 		D13CAE0118E1C30400C2A180 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
-		D13CAE0218E1C30F00C2A180 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
 		D13DC913157A9FF500C84006 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13DC912157A9FF500C84006 /* OpenGL.framework */; };
 		D1410EB219AA89420081C545 /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFBD17230E82001EAEBE /* Layer.cpp */; };
-		D15130D5190BDCB200BA09AB /* TestColorPickingMapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = D15130D4190BDCB200BA09AB /* TestColorPickingMapper.mm */; };
 		D15130D6190BDE0400BA09AB /* ColorPickingMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = D15A7DDC18FB15B1004CB791 /* ColorPickingMapper.h */; };
 		D15130D7190BDE0800BA09AB /* ColorPickingMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */; };
-		D15130D8190BDE0800BA09AB /* ColorPickingMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */; };
 		D15130DC190C3DD800BA09AB /* Picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15130DA190C3DD800BA09AB /* Picker.cpp */; };
 		D15130DD190C3DD800BA09AB /* Picker.h in Headers */ = {isa = PBXBuildFile; fileRef = D15130DB190C3DD800BA09AB /* Picker.h */; };
 		D15130DE190C3E9F00BA09AB /* Picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15130DA190C3DD800BA09AB /* Picker.cpp */; };
-		D15130DF190C3EA000BA09AB /* Picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15130DA190C3DD800BA09AB /* Picker.cpp */; };
 		D15130E0190C3EA300BA09AB /* Picker.h in Headers */ = {isa = PBXBuildFile; fileRef = D15130DB190C3DD800BA09AB /* Picker.h */; };
-		D152781918E5890B00C48850 /* TestSegment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60988087180584A60064477E /* TestSegment.mm */; };
-		D152781A18E5890B00C48850 /* TestLineInteraction.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60A05FC31809DA8A004DD045 /* TestLineInteraction.mm */; };
-		D152781B18E5890B00C48850 /* TestCylinder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60758B6D180F3020004BE067 /* TestCylinder.mm */; };
-		D152781C18E5890B00C48850 /* TestPointNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60D473A51815CFB2007BB63D /* TestPointNode.mm */; };
-		D152781D18E5890B00C48850 /* TestEdge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60D63214181C08F600CEB0D0 /* TestEdge.mm */; };
-		D152781E18E5890B00C48850 /* TestVector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60DFE3AA18253C6900A32D7A /* TestVector.mm */; };
-		D152781F18E5890B00C48850 /* TestFaceTraversal.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60919945185DB33900C7524F /* TestFaceTraversal.mm */; };
-		D152782018E5890B00C48850 /* TestFaceNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60379DD518678813009A9EBC /* TestFaceNode.mm */; };
-		D152782118E5890B00C48850 /* TestTetrahedron.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60937FB7186D9F1200E6C23E /* TestTetrahedron.mm */; };
-		D152782218E5890B00C48850 /* TestTriangle.mm in Sources */ = {isa = PBXBuildFile; fileRef = D16D270518D5F1980095B177 /* TestTriangle.mm */; };
-		D152782318E5890B00C48850 /* TestPoly2tri.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1FBAF6C18DEE73B000A083E /* TestPoly2tri.mm */; };
-		D152782418E5890B00C48850 /* TestPolygon.mm in Sources */ = {isa = PBXBuildFile; fileRef = D13CAE0318E1CBE700C2A180 /* TestPolygon.mm */; };
 		D157A5DC18E3098500840C77 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Triangle.cpp */; };
 		D15A7DDD18FB15B1004CB791 /* ColorPickingMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */; };
 		D15A7DDE18FB15B1004CB791 /* ColorPickingMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = D15A7DDC18FB15B1004CB791 /* ColorPickingMapper.h */; };
-		D1670B1C19437943003BCD75 /* TestFaceReversal.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1670B1B19437943003BCD75 /* TestFaceReversal.mm */; };
 		D1670B1F19438EDF003BCD75 /* FaceReversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1AD41951942483700CD00C4 /* FaceReversal.cpp */; };
 		D1670B2019438EE0003BCD75 /* FaceReversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1AD41951942483700CD00C4 /* FaceReversal.cpp */; };
 		D1693B7218E58BAE000AFE41 /* FaceTraversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B6818E58BAE000AFE41 /* FaceTraversal.cpp */; };
@@ -297,10 +256,8 @@
 		D1693B7918E58BAE000AFE41 /* Octree.h in Headers */ = {isa = PBXBuildFile; fileRef = D1693B6F18E58BAE000AFE41 /* Octree.h */; };
 		D1693B7A18E58BAE000AFE41 /* PointNodeIterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B7018E58BAE000AFE41 /* PointNodeIterator.cpp */; };
 		D1693B7B18E58BAE000AFE41 /* PointNodeIterator.h in Headers */ = {isa = PBXBuildFile; fileRef = D1693B7118E58BAE000AFE41 /* PointNodeIterator.h */; };
-		D1693B7C18E58C91000AFE41 /* ModelEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B6A18E58BAE000AFE41 /* ModelEditor.cpp */; };
 		D1693B7D18E58C92000AFE41 /* ModelEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B6A18E58BAE000AFE41 /* ModelEditor.cpp */; };
 		D1693B7E18E58C9E000AFE41 /* FaceTraversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B6818E58BAE000AFE41 /* FaceTraversal.cpp */; };
-		D1693B7F18E58C9E000AFE41 /* FaceTraversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B6818E58BAE000AFE41 /* FaceTraversal.cpp */; };
 		D1693B8018E58CA4000AFE41 /* FaceTraversal.h in Headers */ = {isa = PBXBuildFile; fileRef = D1693B6918E58BAE000AFE41 /* FaceTraversal.h */; };
 		D1693B8118E58CA4000AFE41 /* ModelEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = D1693B6B18E58BAE000AFE41 /* ModelEditor.h */; };
 		D1693B8218E58CA4000AFE41 /* ModelTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B6C18E58BAE000AFE41 /* ModelTree.cpp */; };
@@ -309,97 +266,74 @@
 		D1693B8518E58CA4000AFE41 /* Octree.h in Headers */ = {isa = PBXBuildFile; fileRef = D1693B6F18E58BAE000AFE41 /* Octree.h */; };
 		D1693B8618E58CA4000AFE41 /* PointNodeIterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B7018E58BAE000AFE41 /* PointNodeIterator.cpp */; };
 		D1693B8718E58CA4000AFE41 /* PointNodeIterator.h in Headers */ = {isa = PBXBuildFile; fileRef = D1693B7118E58BAE000AFE41 /* PointNodeIterator.h */; };
-		D1693B8818E58CB0000AFE41 /* ModelTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B6C18E58BAE000AFE41 /* ModelTree.cpp */; };
-		D1693B8918E58CB2000AFE41 /* Octree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B6E18E58BAE000AFE41 /* Octree.cpp */; };
-		D1693B8A18E58CB5000AFE41 /* PointNodeIterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B7018E58BAE000AFE41 /* PointNodeIterator.cpp */; };
 		D1693B8D18E5B04C000AFE41 /* Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B8B18E5B04C000AFE41 /* Constants.cpp */; };
 		D1693B8E18E5B04C000AFE41 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = D1693B8C18E5B04C000AFE41 /* Constants.h */; };
 		D1693B8F18E5B195000AFE41 /* Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = D1693B8C18E5B04C000AFE41 /* Constants.h */; };
 		D1693B9018E5B1BC000AFE41 /* Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B8B18E5B04C000AFE41 /* Constants.cpp */; };
-		D1693B9118E5B1BD000AFE41 /* Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B8B18E5B04C000AFE41 /* Constants.cpp */; };
 		D16D270318D5E8FB0095B177 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Triangle.cpp */; };
 		D16D270418D5E8FB0095B177 /* Triangle.h in Headers */ = {isa = PBXBuildFile; fileRef = D16D270218D5E8FB0095B177 /* Triangle.h */; };
-		D16D270718D5F5330095B177 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Triangle.cpp */; };
-		D178BEDF19FD333800B6C4C0 /* TestNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = D178BEDE19FD333800B6C4C0 /* TestNode.mm */; };
 		D17C76651583BF440083E2B0 /* FactoryEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76641583BF440083E2B0 /* FactoryEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D17C76AC1584E3900083E2B0 /* GLError.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76AB1584E3900083E2B0 /* GLError.h */; };
 		D185302218F145D5001A7AB1 /* ExtrudeInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302018F145D5001A7AB1 /* ExtrudeInteraction.cpp */; };
 		D185302318F145D5001A7AB1 /* ExtrudeInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = D185302118F145D5001A7AB1 /* ExtrudeInteraction.h */; };
 		D185302618F148A8001A7AB1 /* FaceExtruder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302418F148A8001A7AB1 /* FaceExtruder.cpp */; };
 		D185302718F148A8001A7AB1 /* FaceExtruder.h in Headers */ = {isa = PBXBuildFile; fileRef = D185302518F148A8001A7AB1 /* FaceExtruder.h */; };
-		D185302918F14BE4001A7AB1 /* TestExtrudeInteraction.mm in Sources */ = {isa = PBXBuildFile; fileRef = D185302818F14BE4001A7AB1 /* TestExtrudeInteraction.mm */; };
-		D185302B18F14C1A001A7AB1 /* TestFaceExtruder.mm in Sources */ = {isa = PBXBuildFile; fileRef = D185302A18F14C1A001A7AB1 /* TestFaceExtruder.mm */; };
-		D185302C18F16A76001A7AB1 /* FaceExtruder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302418F148A8001A7AB1 /* FaceExtruder.cpp */; };
 		D185302D18F16A76001A7AB1 /* FaceExtruder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302418F148A8001A7AB1 /* FaceExtruder.cpp */; };
-		D189C66B1916420D00E9FB1A /* TestGeometry.mm in Sources */ = {isa = PBXBuildFile; fileRef = D189C66A1916420D00E9FB1A /* TestGeometry.mm */; };
 		D189C66E19165F0B00E9FB1A /* Pivot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D189C66C19165F0B00E9FB1A /* Pivot.cpp */; };
 		D189C66F19165F0B00E9FB1A /* Pivot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D189C66C19165F0B00E9FB1A /* Pivot.cpp */; };
-		D189C67019165F0B00E9FB1A /* Pivot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D189C66C19165F0B00E9FB1A /* Pivot.cpp */; };
 		D189C67119165F0B00E9FB1A /* Pivot.h in Headers */ = {isa = PBXBuildFile; fileRef = D189C66D19165F0B00E9FB1A /* Pivot.h */; };
 		D189C67219165F0B00E9FB1A /* Pivot.h in Headers */ = {isa = PBXBuildFile; fileRef = D189C66D19165F0B00E9FB1A /* Pivot.h */; };
-		D189C67A1916C2F400E9FB1A /* TestMoveInteraction.mm in Sources */ = {isa = PBXBuildFile; fileRef = D189C6771916C2F400E9FB1A /* TestMoveInteraction.mm */; };
 		D18ECC6C190517A400189A01 /* BodyNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC5A190517A400189A01 /* BodyNode.cpp */; };
 		D18ECC6D190517A400189A01 /* BodyNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC5A190517A400189A01 /* BodyNode.cpp */; };
-		D18ECC6E190517A400189A01 /* BodyNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC5A190517A400189A01 /* BodyNode.cpp */; };
 		D18ECC6F190517A400189A01 /* BodyNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC5B190517A400189A01 /* BodyNode.h */; };
 		D18ECC70190517A400189A01 /* BodyNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC5B190517A400189A01 /* BodyNode.h */; };
 		D18ECC71190517A400189A01 /* Edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC5C190517A400189A01 /* Edge.cpp */; };
 		D18ECC72190517A400189A01 /* Edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC5C190517A400189A01 /* Edge.cpp */; };
-		D18ECC73190517A400189A01 /* Edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC5C190517A400189A01 /* Edge.cpp */; };
 		D18ECC74190517A400189A01 /* Edge.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC5D190517A400189A01 /* Edge.h */; };
 		D18ECC75190517A400189A01 /* Edge.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC5D190517A400189A01 /* Edge.h */; };
 		D18ECC76190517A400189A01 /* FaceNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC5E190517A400189A01 /* FaceNode.cpp */; };
 		D18ECC77190517A400189A01 /* FaceNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC5E190517A400189A01 /* FaceNode.cpp */; };
-		D18ECC78190517A400189A01 /* FaceNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC5E190517A400189A01 /* FaceNode.cpp */; };
 		D18ECC79190517A400189A01 /* FaceNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC5F190517A400189A01 /* FaceNode.h */; };
 		D18ECC7A190517A400189A01 /* FaceNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC5F190517A400189A01 /* FaceNode.h */; };
 		D18ECC7B190517A400189A01 /* GroupNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC60190517A400189A01 /* GroupNode.cpp */; };
 		D18ECC7C190517A400189A01 /* GroupNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC60190517A400189A01 /* GroupNode.cpp */; };
-		D18ECC7D190517A400189A01 /* GroupNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC60190517A400189A01 /* GroupNode.cpp */; };
 		D18ECC7E190517A400189A01 /* GroupNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC61190517A400189A01 /* GroupNode.h */; };
 		D18ECC7F190517A400189A01 /* GroupNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC61190517A400189A01 /* GroupNode.h */; };
 		D18ECC80190517A400189A01 /* LineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC62190517A400189A01 /* LineNode.cpp */; };
 		D18ECC81190517A400189A01 /* LineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC62190517A400189A01 /* LineNode.cpp */; };
-		D18ECC82190517A400189A01 /* LineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC62190517A400189A01 /* LineNode.cpp */; };
 		D18ECC83190517A400189A01 /* LineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC63190517A400189A01 /* LineNode.h */; };
 		D18ECC84190517A400189A01 /* LineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC63190517A400189A01 /* LineNode.h */; };
 		D18ECC85190517A400189A01 /* ModelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC64190517A400189A01 /* ModelFactory.cpp */; };
 		D18ECC86190517A400189A01 /* ModelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC64190517A400189A01 /* ModelFactory.cpp */; };
-		D18ECC87190517A400189A01 /* ModelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC64190517A400189A01 /* ModelFactory.cpp */; };
 		D18ECC88190517A400189A01 /* ModelFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC65190517A400189A01 /* ModelFactory.h */; };
 		D18ECC89190517A400189A01 /* ModelFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC65190517A400189A01 /* ModelFactory.h */; };
 		D18ECC8A190517A400189A01 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC66190517A400189A01 /* Node.cpp */; };
 		D18ECC8B190517A400189A01 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC66190517A400189A01 /* Node.cpp */; };
-		D18ECC8C190517A400189A01 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC66190517A400189A01 /* Node.cpp */; };
 		D18ECC8D190517A400189A01 /* Node.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC67190517A400189A01 /* Node.h */; };
 		D18ECC8E190517A400189A01 /* Node.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC67190517A400189A01 /* Node.h */; };
 		D18ECC8F190517A400189A01 /* PointNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC68190517A400189A01 /* PointNode.cpp */; };
 		D18ECC90190517A400189A01 /* PointNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC68190517A400189A01 /* PointNode.cpp */; };
-		D18ECC91190517A400189A01 /* PointNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC68190517A400189A01 /* PointNode.cpp */; };
 		D18ECC92190517A400189A01 /* PointNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC69190517A400189A01 /* PointNode.h */; };
 		D18ECC93190517A400189A01 /* PointNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC69190517A400189A01 /* PointNode.h */; };
 		D18ECC94190517A400189A01 /* PolylineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC6A190517A400189A01 /* PolylineNode.cpp */; };
 		D18ECC95190517A400189A01 /* PolylineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC6A190517A400189A01 /* PolylineNode.cpp */; };
-		D18ECC96190517A400189A01 /* PolylineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC6A190517A400189A01 /* PolylineNode.cpp */; };
 		D18ECC97190517A400189A01 /* PolylineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC6B190517A400189A01 /* PolylineNode.h */; };
 		D18ECC98190517A400189A01 /* PolylineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC6B190517A400189A01 /* PolylineNode.h */; };
 		D19B99D01902F003000BF781 /* GroupInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D19B99CE1902F003000BF781 /* GroupInteraction.cpp */; };
 		D19B99D11902F003000BF781 /* GroupInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D19B99CE1902F003000BF781 /* GroupInteraction.cpp */; };
-		D19B99D21902F003000BF781 /* GroupInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D19B99CE1902F003000BF781 /* GroupInteraction.cpp */; };
 		D19B99D31902F003000BF781 /* GroupInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = D19B99CF1902F003000BF781 /* GroupInteraction.h */; };
 		D19B99D41902F003000BF781 /* GroupInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = D19B99CF1902F003000BF781 /* GroupInteraction.h */; };
 		D1A920FF18E1876A0034336A /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
 		D1A9210018E1876A0034336A /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = D1A920FE18E1876A0034336A /* Geometry.h */; };
-		D1AA003F1A05585E0040FA70 /* TestLineNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1AA003E1A05585E0040FA70 /* TestLineNode.mm */; };
 		D1AD41991942484C00CD00C4 /* FaceReversal.h in Headers */ = {isa = PBXBuildFile; fileRef = D1AD41981942484C00CD00C4 /* FaceReversal.h */; };
 		D1AD419A1942484C00CD00C4 /* FaceReversal.h in Headers */ = {isa = PBXBuildFile; fileRef = D1AD41981942484C00CD00C4 /* FaceReversal.h */; };
 		D1B990F718FEC88600DC5843 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
-		D1B990F818FEC88600DC5843 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
 		D1BE952818F721C40022D7C7 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
 		D1BE952918F721C40022D7C7 /* SelectInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = D1BE952718F721C40022D7C7 /* SelectInteraction.h */; };
 		D1DB2AF219902E7B00CEEF38 /* ShadingInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B7E4B2173AEA4000EF0834 /* ShadingInterface.cpp */; };
-		D1F0A5A019438FD500169A95 /* FaceReversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1AD41951942483700CD00C4 /* FaceReversal.cpp */; };
-		D1F22A84191FCE90002E0767 /* TestModelEditor.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1F22A83191FCE90002E0767 /* TestModelEditor.mm */; };
+		D1E0121E1A22116900583D0A /* libassimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E0121D1A22116900583D0A /* libassimp.a */; };
+		D1E0122E1A2218D100583D0A /* ModelImporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1E0122C1A2218D100583D0A /* ModelImporter.cpp */; };
+		D1E0122F1A2218D100583D0A /* ModelImporter.h in Headers */ = {isa = PBXBuildFile; fileRef = D1E0122D1A2218D100583D0A /* ModelImporter.h */; };
 		D1F44F4C157FE79600566119 /* Workspace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F4A157FE79600566119 /* Workspace.cpp */; };
 		D1F44F4D157FE79600566119 /* Workspace.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F4B157FE79600566119 /* Workspace.h */; };
 		D1F44F51157FE91900566119 /* Pad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F4F157FE91900566119 /* Pad.cpp */; };
@@ -407,21 +341,9 @@
 		D1F44F55157FE9D200566119 /* HUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F53157FE9D200566119 /* HUD.cpp */; };
 		D1F44F56157FE9D200566119 /* HUD.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F54157FE9D200566119 /* HUD.h */; };
 		D1FDC88418F192960075176E /* ExtrudeInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302018F145D5001A7AB1 /* ExtrudeInteraction.cpp */; };
-		D1FDC88518F192960075176E /* ExtrudeInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302018F145D5001A7AB1 /* ExtrudeInteraction.cpp */; };
-		D1FE762D1A06624B00FB7535 /* TestOctree.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1FE762C1A06624B00FB7535 /* TestOctree.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
-		606A7F5E163C0C5400E4F243 /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.proxy.script;
-			fileType = pattern.proxy;
-			isEditable = 1;
-			outputFiles = (
-				"",
-			);
-			script = "";
-		};
 		60C6D0AE174961470009EC3C /* PBXBuildRule */ = {
 			isa = PBXBuildRule;
 			compilerSpec = com.apple.compilers.proxy.script;
@@ -572,6 +494,10 @@
 		D11D1D4E18DF70980091521F /* sweep_context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sweep_context.h; sourceTree = "<group>"; };
 		D11D1D7218E0507B0091521F /* Polyline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Polyline.cpp; sourceTree = "<group>"; };
 		D11D1D7318E0507B0091521F /* Polyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polyline.h; sourceTree = "<group>"; };
+		D11D8E0B1A224FCE00BDAC6F /* assimp */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assimp; path = ../../factoryengine/External/assimp; sourceTree = "<group>"; };
+		D11D8E0D1A22503D00BDAC6F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
+		D1376AAF1A23E97B00C7EA8E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		D1376AB11A23EA8800C7EA8E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
 		D13CAE0318E1CBE700C2A180 /* TestPolygon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPolygon.mm; sourceTree = "<group>"; };
 		D13DC90B157A9F8C00C84006 /* libFactoryEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFactoryEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13DC912157A9FF500C84006 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -637,6 +563,11 @@
 		D1B0650019CF4327008CB25D /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Shaders; path = ../factoryengine/Shaders; sourceTree = "<group>"; };
 		D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectInteraction.cpp; sourceTree = "<group>"; };
 		D1BE952718F721C40022D7C7 /* SelectInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectInteraction.h; sourceTree = "<group>"; };
+		D1E0121D1A22116900583D0A /* libassimp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libassimp.a; path = ../factoryengine/External/assimp/libassimp.a; sourceTree = "<group>"; };
+		D1E0122C1A2218D100583D0A /* ModelImporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelImporter.cpp; sourceTree = "<group>"; };
+		D1E0122D1A2218D100583D0A /* ModelImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelImporter.h; sourceTree = "<group>"; };
+		D1E012301A221E9900583D0A /* TestModelImporter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestModelImporter.mm; path = ../../factoryengine/Tests/TestModelImporter.mm; sourceTree = "<group>"; };
+		D1E012321A22231200583D0A /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Models; path = ../../factoryengine/Tests/Models; sourceTree = "<group>"; };
 		D1F22A83191FCE90002E0767 /* TestModelEditor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestModelEditor.mm; sourceTree = "<group>"; };
 		D1F44F4A157FE79600566119 /* Workspace.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Workspace.cpp; sourceTree = "<group>"; };
 		D1F44F4B157FE79600566119 /* Workspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workspace.h; sourceTree = "<group>"; };
@@ -654,7 +585,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				603BA60217E874FE007CE822 /* OpenGL.framework in Frameworks */,
+				D1376AB21A23EA8800C7EA8E /* libz.dylib in Frameworks */,
+				D11D8E0E1A22503D00BDAC6F /* OpenGL.framework in Frameworks */,
+				D11D8DAA1A2235BB00BDAC6F /* libFactoryEngine.a in Frameworks */,
 				60607E1017E63CF600708358 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -671,6 +604,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1376AB31A23ECAF00C7EA8E /* libz.dylib in Frameworks */,
+				D1E0121E1A22116900583D0A /* libassimp.a in Frameworks */,
 				D13DC913157A9FF500C84006 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -755,6 +690,7 @@
 		60607E1117E63CF600708358 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				D1E012321A22231200583D0A /* Models */,
 				60607E1217E63CF600708358 /* Supporting Files */,
 				60988087180584A60064477E /* TestSegment.mm */,
 				D189C6771916C2F400E9FB1A /* TestMoveInteraction.mm */,
@@ -779,6 +715,7 @@
 				D178BEDE19FD333800B6C4C0 /* TestNode.mm */,
 				D1AA003E1A05585E0040FA70 /* TestLineNode.mm */,
 				D1FE762C1A06624B00FB7535 /* TestOctree.mm */,
+				D1E012301A221E9900583D0A /* TestModelImporter.mm */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -921,6 +858,7 @@
 				D17C76641583BF440083E2B0 /* FactoryEngine.h */,
 				605FFDF017DFDC4C00DE90A9 /* Leap */,
 				D1C708B915B3495400D64823 /* External */,
+				D1E0122B1A2218D100583D0A /* ImportExport */,
 				D17C766B1583C1580083E2B0 /* Main */,
 				D11D1CBF18DF4FAF0091521F /* Utils */,
 				D1E54CA7157BE5120083FB90 /* Geometry */,
@@ -1008,10 +946,21 @@
 		D1C708B915B3495400D64823 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				D11D8E0B1A224FCE00BDAC6F /* assimp */,
 				D11D1D4018DF70980091521F /* poly2tri */,
 				602A43A31800A59600EC071F /* glm */,
 			);
 			path = External;
+			sourceTree = "<group>";
+		};
+		D1E0122B1A2218D100583D0A /* ImportExport */ = {
+			isa = PBXGroup;
+			children = (
+				D1E0122C1A2218D100583D0A /* ModelImporter.cpp */,
+				D1E0122D1A2218D100583D0A /* ModelImporter.h */,
+			);
+			name = ImportExport;
+			path = ../factoryengine/ImportExport;
 			sourceTree = "<group>";
 		};
 		D1E54CA7157BE5120083FB90 /* Geometry */ = {
@@ -1046,6 +995,10 @@
 		D1E75032157BC4DB005C4CCF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1376AB11A23EA8800C7EA8E /* libz.dylib */,
+				D1376AAF1A23E97B00C7EA8E /* Cocoa.framework */,
+				D11D8E0D1A22503D00BDAC6F /* OpenGL.framework */,
+				D1E0121D1A22116900583D0A /* libassimp.a */,
 				603BA60117E874FE007CE822 /* OpenGL.framework */,
 				D13DC912157A9FF500C84006 /* OpenGL.framework */,
 				60A03E401752423100D650B5 /* OpenGLES.framework */,
@@ -1143,6 +1096,7 @@
 				D15130DD190C3DD800BA09AB /* Picker.h in Headers */,
 				D116AC091917544500153AEC /* Intersection.h in Headers */,
 				D19B99D31902F003000BF781 /* GroupInteraction.h in Headers */,
+				D1E0122F1A2218D100583D0A /* ModelImporter.h in Headers */,
 				D16D270418D5E8FB0095B177 /* Triangle.h in Headers */,
 				60A575E71690DDEE0050FAFC /* Prefix.pch in Headers */,
 				60C41BB51691BF5600DD0C09 /* GeometryPrimitives.h in Headers */,
@@ -1266,7 +1220,6 @@
 				605FFDE917DFD84B00DE90A9 /* Resources */,
 			);
 			buildRules = (
-				606A7F5E163C0C5400E4F243 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -1331,104 +1284,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D18ECC78190517A400189A01 /* FaceNode.cpp in Sources */,
-				60CE9A4917EC646600A775C0 /* ShadingProgram.cpp in Sources */,
-				603BA5D017E87437007CE822 /* Polygon.cpp in Sources */,
-				603BA5D117E87437007CE822 /* Rect.cpp in Sources */,
-				D152781A18E5890B00C48850 /* TestLineInteraction.mm in Sources */,
-				D152782218E5890B00C48850 /* TestTriangle.mm in Sources */,
-				603BA5D217E87437007CE822 /* GeometryPrimitives.cpp in Sources */,
-				D1693B7F18E58C9E000AFE41 /* FaceTraversal.cpp in Sources */,
-				603BA5D917E87437007CE822 /* ShadingLibrary.cpp in Sources */,
-				D15130DF190C3EA000BA09AB /* Picker.cpp in Sources */,
-				D152781918E5890B00C48850 /* TestSegment.mm in Sources */,
-				D18ECC87190517A400189A01 /* ModelFactory.cpp in Sources */,
-				603BA5DA17E87437007CE822 /* Shader.cpp in Sources */,
-				60A05FC91809DB35004DD045 /* AxisSnap.cpp in Sources */,
-				603BA5DC17E87437007CE822 /* PrimitiveRenderer.cpp in Sources */,
-				D152782018E5890B00C48850 /* TestFaceNode.mm in Sources */,
-				D18ECC82190517A400189A01 /* LineNode.cpp in Sources */,
-				D152781E18E5890B00C48850 /* TestVector.mm in Sources */,
-				D16D270718D5F5330095B177 /* Triangle.cpp in Sources */,
-				D185302B18F14C1A001A7AB1 /* TestFaceExtruder.mm in Sources */,
-				D1693B8A18E58CB5000AFE41 /* PointNodeIterator.cpp in Sources */,
-				603BA5DD17E87437007CE822 /* LayerRenderer.cpp in Sources */,
-				D1F22A84191FCE90002E0767 /* TestModelEditor.mm in Sources */,
-				603BA5DE17E87437007CE822 /* Layer.cpp in Sources */,
-				603BA5DF17E87437007CE822 /* LineRenderer.cpp in Sources */,
-				603BA5E017E87437007CE822 /* PolygonRenderer.cpp in Sources */,
-				D15130D5190BDCB200BA09AB /* TestColorPickingMapper.mm in Sources */,
-				603BA5E117E87437007CE822 /* RectangleRenderer.cpp in Sources */,
-				603BA5E217E87437007CE822 /* PointRenderer.cpp in Sources */,
-				60A05FC61809DB06004DD045 /* Snap.cpp in Sources */,
-				603BA5E317E87437007CE822 /* LightingCollection.cpp in Sources */,
-				603BA5E417E87437007CE822 /* LigthtingModelFactory.cpp in Sources */,
-				6032717817EB17C700249562 /* SceneRenderer.cpp in Sources */,
-				D1F0A5A019438FD500169A95 /* FaceReversal.cpp in Sources */,
-				60B3F3C0180577560010484D /* Segment.cpp in Sources */,
-				D1693B9118E5B1BD000AFE41 /* Constants.cpp in Sources */,
-				D19B99D21902F003000BF781 /* GroupInteraction.cpp in Sources */,
-				603BA5E517E87437007CE822 /* LightingModel.cpp in Sources */,
-				60A05FC71809DB15004DD045 /* PointSnap.cpp in Sources */,
-				D18ECC7D190517A400189A01 /* GroupNode.cpp in Sources */,
-				603BA5E617E87437007CE822 /* DefaultLighting.cpp in Sources */,
-				D116459719FBF2430015ED78 /* TestViewport.mm in Sources */,
-				D189C67A1916C2F400E9FB1A /* TestMoveInteraction.mm in Sources */,
-				D178BEDF19FD333800B6C4C0 /* TestNode.mm in Sources */,
-				D15130D8190BDE0800BA09AB /* ColorPickingMapper.cpp in Sources */,
-				603BA5E717E87437007CE822 /* Light.cpp in Sources */,
-				D1B990F818FEC88600DC5843 /* SelectInteraction.cpp in Sources */,
-				D11D1D6418DF70D40091521F /* advancing_front.cc in Sources */,
-				D1FDC88518F192960075176E /* ExtrudeInteraction.cpp in Sources */,
-				D152781C18E5890B00C48850 /* TestPointNode.mm in Sources */,
-				6032716317EB08E700249562 /* Framebuffer.cpp in Sources */,
-				D152781F18E5890B00C48850 /* TestFaceTraversal.mm in Sources */,
-				6076A1531806AE5400770486 /* Primitive.cpp in Sources */,
-				D11D1D7618E0507B0091521F /* Polyline.cpp in Sources */,
-				D11D1D6818DF71080091521F /* cdt.cc in Sources */,
-				D152781D18E5890B00C48850 /* TestEdge.mm in Sources */,
-				D152782418E5890B00C48850 /* TestPolygon.mm in Sources */,
-				D152782318E5890B00C48850 /* TestPoly2tri.mm in Sources */,
-				D1AA003F1A05585E0040FA70 /* TestLineNode.mm in Sources */,
-				D18ECC91190517A400189A01 /* PointNode.cpp in Sources */,
-				D152782118E5890B00C48850 /* TestTetrahedron.mm in Sources */,
-				D185302918F14BE4001A7AB1 /* TestExtrudeInteraction.mm in Sources */,
-				603BA5F317E87437007CE822 /* InteractionProvider.cpp in Sources */,
-				603BA5F417E87437007CE822 /* RectangleInteraction.cpp in Sources */,
-				603BA5F517E87437007CE822 /* LineInteraction.cpp in Sources */,
-				603BA5F617E87437007CE822 /* MoveInteraction.cpp in Sources */,
-				60A05FCE180AD1BA004DD045 /* SnappingQueue.cpp in Sources */,
-				D152781B18E5890B00C48850 /* TestCylinder.mm in Sources */,
-				D1693B8818E58CB0000AFE41 /* ModelTree.cpp in Sources */,
-				60EB2F661812C385008DCA37 /* Cylinder.cpp in Sources */,
-				603BA5F717E87437007CE822 /* RotationInteraction.cpp in Sources */,
-				D1693B8918E58CB2000AFE41 /* Octree.cpp in Sources */,
-				D189C66B1916420D00E9FB1A /* TestGeometry.mm in Sources */,
-				D18ECC8C190517A400189A01 /* Node.cpp in Sources */,
-				60DFE3AC18253C7400A32D7A /* Vector.cpp in Sources */,
-				603BA5F817E87437007CE822 /* ScaleInteraction.cpp in Sources */,
-				D18ECC73190517A400189A01 /* Edge.cpp in Sources */,
-				D1670B1C19437943003BCD75 /* TestFaceReversal.mm in Sources */,
-				D11D1CC418DF4FBA0091521F /* Description.cpp in Sources */,
-				D18ECC6E190517A400189A01 /* BodyNode.cpp in Sources */,
-				D185302C18F16A76001A7AB1 /* FaceExtruder.cpp in Sources */,
-				603BA5FA17E87437007CE822 /* CameraInteraction.cpp in Sources */,
-				D13CAE0218E1C30F00C2A180 /* Geometry.cpp in Sources */,
-				60A05FBD1809D457004DD045 /* Viewport.cpp in Sources */,
-				D11D1D6018DF70CD0091521F /* sweep.cc in Sources */,
-				603BA5FB17E87437007CE822 /* Pad.cpp in Sources */,
-				603BA5FC17E87437007CE822 /* HUD.cpp in Sources */,
-				D1FE762D1A06624B00FB7535 /* TestOctree.mm in Sources */,
-				603BA5FD17E87437007CE822 /* Workspace.cpp in Sources */,
-				603BA5FE17E87437007CE822 /* Bounds.cpp in Sources */,
-				6076A1561806AE8F00770486 /* ShadingInterface.cpp in Sources */,
-				D189C67019165F0B00E9FB1A /* Pivot.cpp in Sources */,
-				D11D1D6218DF70D00091521F /* sweep_context.cc in Sources */,
-				D1693B7C18E58C91000AFE41 /* ModelEditor.cpp in Sources */,
-				603BA5FF17E87437007CE822 /* TestRectangle.cpp in Sources */,
-				D18ECC96190517A400189A01 /* PolylineNode.cpp in Sources */,
-				D11D1D6718DF70D80091521F /* shapes.cc in Sources */,
-				603BA5C617E87392007CE822 /* Camera.cpp in Sources */,
+				D10D48B01A222A7B00B956E9 /* TestSegment.mm in Sources */,
+				D10D48B11A222A7B00B956E9 /* TestMoveInteraction.mm in Sources */,
+				D10D48B21A222A7B00B956E9 /* TestLineInteraction.mm in Sources */,
+				D10D48B31A222A7B00B956E9 /* TestCylinder.mm in Sources */,
+				D10D48B41A222A7B00B956E9 /* TestPointNode.mm in Sources */,
+				D10D48B51A222A7B00B956E9 /* TestEdge.mm in Sources */,
+				D10D48B61A222A7B00B956E9 /* TestVector.mm in Sources */,
+				D10D48B71A222A7B00B956E9 /* TestFaceTraversal.mm in Sources */,
+				D10D48B81A222A7B00B956E9 /* TestFaceNode.mm in Sources */,
+				D10D48B91A222A7B00B956E9 /* TestTetrahedron.mm in Sources */,
+				D10D48BA1A222A7B00B956E9 /* TestTriangle.mm in Sources */,
+				D10D48BB1A222A7B00B956E9 /* TestPoly2tri.mm in Sources */,
+				D10D48BC1A222A7B00B956E9 /* TestPolygon.mm in Sources */,
+				D10D48BD1A222A7B00B956E9 /* TestExtrudeInteraction.mm in Sources */,
+				D10D48BE1A222A7B00B956E9 /* TestFaceExtruder.mm in Sources */,
+				D10D48BF1A222A7B00B956E9 /* TestColorPickingMapper.mm in Sources */,
+				D10D48C01A222A7B00B956E9 /* TestGeometry.mm in Sources */,
+				D10D48C11A222A7B00B956E9 /* TestModelEditor.mm in Sources */,
+				D10D48C21A222A7B00B956E9 /* TestFaceReversal.mm in Sources */,
+				D10D48C31A222A7B00B956E9 /* TestViewport.mm in Sources */,
+				D10D48C41A222A7B00B956E9 /* TestNode.mm in Sources */,
+				D10D48C51A222A7B00B956E9 /* TestLineNode.mm in Sources */,
+				D10D48C61A222A7B00B956E9 /* TestOctree.mm in Sources */,
+				D10D48C71A222A7B00B956E9 /* TestModelImporter.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1522,6 +1401,7 @@
 				D185302618F148A8001A7AB1 /* FaceExtruder.cpp in Sources */,
 				D11D1D5718DF70980091521F /* cdt.cc in Sources */,
 				606BC013180863C100EC4F37 /* PointSnap.cpp in Sources */,
+				D1E0122E1A2218D100583D0A /* ModelImporter.cpp in Sources */,
 				D11D1D4F18DF70980091521F /* shapes.cc in Sources */,
 				60DFE3A81825389500A32D7A /* Vector.cpp in Sources */,
 				D1F44F4C157FE79600566119 /* Workspace.cpp in Sources */,
@@ -1625,7 +1505,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -1644,6 +1525,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
@@ -1653,9 +1535,15 @@
 					"${SRCROOT}",
 				);
 				INFOPLIST_FILE = "Tests/FactoryEngine Tests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/edvinassarkus/factory/factoryengine/External/assimp,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -1664,7 +1552,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -1680,6 +1569,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/FactoryEngine Tests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = TEST;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
@@ -1689,9 +1579,15 @@
 					"${SRCROOT}",
 				);
 				INFOPLIST_FILE = "Tests/FactoryEngine Tests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/edvinassarkus/factory/factoryengine/External/assimp,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -1756,6 +1652,155 @@
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
+		};
+		D11D8E111A22537C00BDAC6F /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = "";
+				ONLY_ACTIVE_ARCH = YES;
+				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include;
+				SDKROOT = iphoneos;
+			};
+			name = Test;
+		};
+		D11D8E121A22537C00BDAC6F /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_X86_VECTOR_INSTRUCTIONS = default;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Main/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DEBUG,
+					TEST,
+				);
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/External/Leap",
+					"${SRCROOT}/External",
+					"${SRCROOT}",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Libs\"",
+					/Users/edvinassarkus/factory/factoryengine/External/assimp,
+				);
+				PRODUCT_NAME = FactoryEngine;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Test;
+		};
+		D11D8E131A22537C00BDAC6F /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_X86_VECTOR_INSTRUCTIONS = default;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Main/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DEBUG,
+					GLES,
+				);
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/External/ConvexDecomposition",
+					"${SRCROOT}/External",
+					"${SRCROOT}",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Desktop/LeapDeveloperKit/LeapSDK/lib\"",
+				);
+				PRODUCT_NAME = FactoryEngineIOS;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Test;
+		};
+		D11D8E141A22537C00BDAC6F /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tests/FactoryEngine Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					TEST,
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/External/poly2tri/**",
+					"${SRCROOT}/External",
+					"${SRCROOT}",
+				);
+				INFOPLIST_FILE = "Tests/FactoryEngine Tests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/edvinassarkus/factory/factoryengine/External/assimp,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				VALID_ARCHS = "i386 x86_64";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Test;
 		};
 		D13DC90D157A9F8C00C84006 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1834,6 +1879,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_X86_VECTOR_INSTRUCTIONS = default;
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
@@ -1849,6 +1895,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Libs\"",
+					/Users/edvinassarkus/factory/factoryengine/External/assimp,
 				);
 				PRODUCT_NAME = FactoryEngine;
 				SDKROOT = macosx;
@@ -1860,6 +1907,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_X86_VECTOR_INSTRUCTIONS = default;
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
@@ -1875,6 +1923,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Libs\"",
+					/Users/edvinassarkus/factory/factoryengine/External/assimp,
 				);
 				PRODUCT_NAME = FactoryEngine;
 				SDKROOT = macosx;
@@ -1889,6 +1938,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60607E1C17E63CF600708358 /* Debug */,
+				D11D8E141A22537C00BDAC6F /* Test */,
 				60607E1D17E63CF600708358 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1898,6 +1948,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60C6D0B0174961470009EC3C /* Debug */,
+				D11D8E131A22537C00BDAC6F /* Test */,
 				60C6D0B1174961470009EC3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1907,6 +1958,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D13DC90D157A9F8C00C84006 /* Debug */,
+				D11D8E111A22537C00BDAC6F /* Test */,
 				D13DC90E157A9F8C00C84006 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1916,6 +1968,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D13DC910157A9F8C00C84006 /* Debug */,
+				D11D8E121A22537C00BDAC6F /* Test */,
 				D13DC911157A9F8C00C84006 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

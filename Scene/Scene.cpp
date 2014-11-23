@@ -1,8 +1,6 @@
 //
 //  Copyright (c) 2012 Edvinas Sarkus. All rights reserved.
 //
-
-
 #include <Scene/Scene.h>
 #include <Scene/Picker.h>
 #include <Render/Layer.h>
