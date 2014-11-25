@@ -330,8 +330,8 @@
 		D1B990F718FEC88600DC5843 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
 		D1BE952818F721C40022D7C7 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
 		D1BE952918F721C40022D7C7 /* SelectInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = D1BE952718F721C40022D7C7 /* SelectInteraction.h */; };
+		D1D1C9AA1A25359500BE3057 /* libassimpd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D1C9A91A25359500BE3057 /* libassimpd.a */; };
 		D1DB2AF219902E7B00CEEF38 /* ShadingInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B7E4B2173AEA4000EF0834 /* ShadingInterface.cpp */; };
-		D1E0121E1A22116900583D0A /* libassimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E0121D1A22116900583D0A /* libassimp.a */; };
 		D1E0122E1A2218D100583D0A /* ModelImporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1E0122C1A2218D100583D0A /* ModelImporter.cpp */; };
 		D1E0122F1A2218D100583D0A /* ModelImporter.h in Headers */ = {isa = PBXBuildFile; fileRef = D1E0122D1A2218D100583D0A /* ModelImporter.h */; };
 		D1F44F4C157FE79600566119 /* Workspace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F4A157FE79600566119 /* Workspace.cpp */; };
@@ -563,6 +563,7 @@
 		D1B0650019CF4327008CB25D /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Shaders; path = ../factoryengine/Shaders; sourceTree = "<group>"; };
 		D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectInteraction.cpp; sourceTree = "<group>"; };
 		D1BE952718F721C40022D7C7 /* SelectInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectInteraction.h; sourceTree = "<group>"; };
+		D1D1C9A91A25359500BE3057 /* libassimpd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libassimpd.a; path = ../factoryengine/External/assimp/libassimpd.a; sourceTree = "<group>"; };
 		D1E0121D1A22116900583D0A /* libassimp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libassimp.a; path = ../factoryengine/External/assimp/libassimp.a; sourceTree = "<group>"; };
 		D1E0122C1A2218D100583D0A /* ModelImporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelImporter.cpp; sourceTree = "<group>"; };
 		D1E0122D1A2218D100583D0A /* ModelImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelImporter.h; sourceTree = "<group>"; };
@@ -605,7 +606,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1376AB31A23ECAF00C7EA8E /* libz.dylib in Frameworks */,
-				D1E0121E1A22116900583D0A /* libassimp.a in Frameworks */,
+				D1D1C9AA1A25359500BE3057 /* libassimpd.a in Frameworks */,
 				D13DC913157A9FF500C84006 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -692,6 +693,7 @@
 			children = (
 				D1E012321A22231200583D0A /* Models */,
 				60607E1217E63CF600708358 /* Supporting Files */,
+				D1E012301A221E9900583D0A /* TestModelImporter.mm */,
 				60988087180584A60064477E /* TestSegment.mm */,
 				D189C6771916C2F400E9FB1A /* TestMoveInteraction.mm */,
 				60A05FC31809DA8A004DD045 /* TestLineInteraction.mm */,
@@ -715,7 +717,6 @@
 				D178BEDE19FD333800B6C4C0 /* TestNode.mm */,
 				D1AA003E1A05585E0040FA70 /* TestLineNode.mm */,
 				D1FE762C1A06624B00FB7535 /* TestOctree.mm */,
-				D1E012301A221E9900583D0A /* TestModelImporter.mm */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -995,6 +996,7 @@
 		D1E75032157BC4DB005C4CCF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1D1C9A91A25359500BE3057 /* libassimpd.a */,
 				D1376AB11A23EA8800C7EA8E /* libz.dylib */,
 				D1376AAF1A23E97B00C7EA8E /* Cocoa.framework */,
 				D11D8E0D1A22503D00BDAC6F /* OpenGL.framework */,
