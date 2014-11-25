@@ -1655,7 +1655,7 @@
 			};
 			name = Release;
 		};
-		D11D8E111A22537C00BDAC6F /* Test */ = {
+		D11D8E111A22537C00BDAC6F /* DebugTest */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1691,9 +1691,9 @@
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include;
 				SDKROOT = iphoneos;
 			};
-			name = Test;
+			name = DebugTest;
 		};
-		D11D8E121A22537C00BDAC6F /* Test */ = {
+		D11D8E121A22537C00BDAC6F /* DebugTest */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1723,9 +1723,9 @@
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
-			name = Test;
+			name = DebugTest;
 		};
-		D11D8E131A22537C00BDAC6F /* Test */ = {
+		D11D8E131A22537C00BDAC6F /* DebugTest */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1755,9 +1755,9 @@
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
-			name = Test;
+			name = DebugTest;
 		};
-		D11D8E141A22537C00BDAC6F /* Test */ = {
+		D11D8E141A22537C00BDAC6F /* DebugTest */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1802,7 +1802,7 @@
 				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = xctest;
 			};
-			name = Test;
+			name = DebugTest;
 		};
 		D13DC90D157A9F8C00C84006 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1940,7 +1940,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60607E1C17E63CF600708358 /* Debug */,
-				D11D8E141A22537C00BDAC6F /* Test */,
+				D11D8E141A22537C00BDAC6F /* DebugTest */,
 				60607E1D17E63CF600708358 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1950,7 +1950,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60C6D0B0174961470009EC3C /* Debug */,
-				D11D8E131A22537C00BDAC6F /* Test */,
+				D11D8E131A22537C00BDAC6F /* DebugTest */,
 				60C6D0B1174961470009EC3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1960,7 +1960,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D13DC90D157A9F8C00C84006 /* Debug */,
-				D11D8E111A22537C00BDAC6F /* Test */,
+				D11D8E111A22537C00BDAC6F /* DebugTest */,
 				D13DC90E157A9F8C00C84006 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1970,7 +1970,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D13DC910157A9F8C00C84006 /* Debug */,
-				D11D8E121A22537C00BDAC6F /* Test */,
+				D11D8E121A22537C00BDAC6F /* DebugTest */,
 				D13DC911157A9F8C00C84006 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
