@@ -4,20 +4,16 @@
 
 #pragma once
 
-#include <Graph/PointNode.h>
-#include <Graph/LineNode.h>
-#include <Graph/FaceNode.h>
-#include <Graph/GroupNode.h>
-#include <Graph/BodyNode.h>
-
-
-
 namespace ftr {
 
 class ModelTree;
-//
-// 
-//
+class PointNode;
+class LineNode;
+class FaceNode;
+class BodyNode;
+class GroupNode;
+
+    
 class ModelFactory
 {
 public:
@@ -26,6 +22,7 @@ public:
     
     PointNode* CreatePoint(glm::vec3 origin) const;
     LineNode* CreateLine(PointNode* startPoint, PointNode* endPoint) const;
+    FaceNode* CreateFace(std::vector<PointNode*> pointNodes) const;
     BodyNode* CreateBody();
     GroupNode* CreateGroup();
 

@@ -7,7 +7,7 @@
 namespace ftr {
 
 Octree::Octree(Box sBox)
-    :mMaxCapacity(2)
+    :mMaxCapacity(30)
     ,mMaxDepth(9)
     ,mSize(0)
     ,mUpdateSize(true)

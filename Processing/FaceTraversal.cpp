@@ -61,10 +61,10 @@ void FaceTraversal::Find(Result& result, Result* ignoreResult)
     
     FT_DELETE(mPlane);
     
-    std::cout
-    << "----------------------------------" << std::endl
-    << "Find route from " << mStartEdge->targetNode()->mName
-    << " to "<<  mStartEdge->originNode()->mName << std::endl;
+//    std::cout
+//    << "----------------------------------" << std::endl
+//    << "Find route from " << mStartEdge->targetNode()->mName
+//    << " to "<<  mStartEdge->originNode()->mName << std::endl;
     
     edgesVector.clear();
     edgesVector.push_back(mStartEdge);
@@ -78,11 +78,11 @@ void FaceTraversal::Find(Result& result, Result* ignoreResult)
     else {
         mResult->hasUsedEdges = AnyUsedEdge(*mResult) != NULL;
         
-        std::cout << "FOUND: ";
-        for(int i = 0; i < edgesVector.size(); ++i) {
-            std::cout << edgesVector[i]->Name() << " ";
-        }
-        std::cout << std::endl;
+//        std::cout << "FOUND: ";
+//        for(int i = 0; i < edgesVector.size(); ++i) {
+//            std::cout << edgesVector[i]->Name() << " ";
+//        }
+//        std::cout << std::endl;
     }
 }
     

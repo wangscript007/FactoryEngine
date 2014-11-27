@@ -3,6 +3,13 @@
 #include <Processing/FaceExtruder.h>
 #include <Processing/ColorPickingMapper.h>
 #include <Scene/Picker.h>
+#include <Graph/Node.h>
+#include <Graph/ModelFactory.h>
+#include <Graph/GroupNode.h>
+#include <Graph/BodyNode.h>
+#include <Graph/LineNode.h>
+
+
 
 namespace ftr {
 
@@ -17,8 +24,8 @@ ModelEditor::ModelEditor()
 {
     mModelTree = new class ModelTree();
     mModelFactory = new class ModelFactory(*mModelTree);
-    mActiveGroup = CreateGroup();
-    mActiveBody = CreateBody();
+    CreateGroup();
+    CreateBody();
 }
 
 ModelEditor::~ModelEditor()
@@ -85,18 +92,25 @@ LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
     return line;
 }
     
+FaceNode* ModelEditor::CreateFace(std::vector<PointNode*> pointNodes)
+{
+    FaceNode* face = mModelFactory->CreateFace(pointNodes);
+    mActiveBody->AddFaceNode(face);
+    return face;
+}
+    
 BodyNode* ModelEditor::CreateBody()
 {
-    BodyNode* body = mModelFactory->CreateBody();
-    mActiveGroup->AddBody(body);
-    return body;
+    mActiveBody = mModelFactory->CreateBody();
+    mActiveGroup->AddBody(mActiveBody);
+    return mActiveBody;
 }
     
 GroupNode* ModelEditor::CreateGroup()
 {
-    GroupNode* group = mModelFactory->CreateGroup();
-    mModelTree->AddGroup(group);
-    return group;
+    mActiveGroup = mModelFactory->CreateGroup();
+    mModelTree->AddGroup(mActiveGroup);
+    return mActiveGroup;
 }
     
 #pragma mark Editing

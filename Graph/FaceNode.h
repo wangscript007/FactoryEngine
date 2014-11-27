@@ -20,6 +20,7 @@ public:
     
     FaceNode() {}
     FaceNode(const std::vector<Edge*>& edges);
+    FaceNode(const std::vector<PointNode*>& pointNodes);
     FaceNode(const std::vector<glm::vec3>& points);
     ~FaceNode();
     
@@ -51,6 +52,7 @@ public:
     PointNode* mReferencePoint;
 private:
     void InitWithEdges(const std::vector<Edge*>& edges);
+    void InitWithPointNodes(const std::vector<PointNode*>& pointNodes);
     void MarkIncidentFaceInLoopWithEdge(Edge& Edge);
     
     std::vector<Edge*> mInnerEdges;

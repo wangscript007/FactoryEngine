@@ -9,7 +9,7 @@
 namespace ftr {
     
 const int kGamaSize = 255;
-const int kGranularity = 10000;
+const int kGranularity = 1;
     
 const int R_MASK = kGamaSize;
 const int G_MASK = kGamaSize<<8; //65280

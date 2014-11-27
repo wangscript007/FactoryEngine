@@ -159,18 +159,18 @@ int Polygon::DebugTrianglesMatchingPointsCount() const
     
 void Polygon::DebugPrint() const
 {
-    std::cout << "Polygon \n";
+    //std::cout << "Polygon \n";
     for (int i = 0; i < mPoints.size(); ++i) {
-        std::cout << Description::Described(mPoints[i]) << " ";
+        //std::cout << Description::Described(mPoints[i]) << " ";
     }
 }
     
 void Polygon::DebugPrintTriangles() const
 {
-    std::cout << "Triangles of polygon \n";
+    //std::cout << "Triangles of polygon \n";
     std::vector<Triangle*> triangles = GetTriangles();
     for (int i = 0; i < triangles.size(); ++i) {
-        std::cout << triangles[i]->Description();
+        //std::cout << triangles[i]->Description();
     }
 }
     

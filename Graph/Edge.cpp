@@ -92,8 +92,9 @@ void Edge::MakeTwinsWith(Edge* twin)
 void Edge::Invalidate()
 {
     assert(mTwin);
-    
-    mLineNode->Invalidate(false);
+    if (mLineNode) {
+        mLineNode->Invalidate(false);
+    }
     if (mIncidentFace) {
         mIncidentFace->Invalidate(false);
     }
@@ -160,7 +161,7 @@ bool Edge::IsCCWCountingFrom(const Edge& other) const
     
 void Edge::ConnectToNext(Edge* next)
 {
-    printf("%s connect to next %s\n", Name().c_str(), next->Name().c_str());
+    //printf("%s connect to next %s\n", Name().c_str(), next->Name().c_str());
     assert(next);
     assert(next != this);
     assert(next != mTwin);

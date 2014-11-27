@@ -56,7 +56,7 @@ void LeapListener::onFrame(const Leap::Controller& controller)
     mLastFrame = frame;
     return;
 #ifdef DEBUG
-    std::cout << "Frame id: " << frame.id()
+    //std::cout << "Frame id: " << frame.id()
     << ", timestamp: " << frame.timestamp()
     << ", hands: " << frame.hands().count()
     << ", fingers: " << frame.fingers().count()

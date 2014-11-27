@@ -1,6 +1,12 @@
 
 #include <Graph/ModelFactory.h>
 #include <Processing/FaceTraversal.h>
+#include <Graph/PointNode.h>
+#include <Graph/LineNode.h>
+#include <Graph/FaceNode.h>
+#include <Graph/GroupNode.h>
+#include <Graph/BodyNode.h>
+
 
 namespace ftr {
 
@@ -26,6 +32,12 @@ LineNode* ModelFactory::CreateLine(PointNode* startPoint, PointNode* endPoint) c
 {
     LineNode* line = new LineNode(startPoint, endPoint);
     return line;
+}
+    
+FaceNode* ModelFactory::CreateFace(std::vector<PointNode*> pointNodes) const
+{
+    FaceNode* face = new FaceNode(pointNodes);
+    return face;
 }
     
 BodyNode* ModelFactory::CreateBody()

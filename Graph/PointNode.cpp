@@ -146,7 +146,7 @@ void PointNode::Insert(PointNode::Iterator position, ftr::Edge& edge)
     assert(insertEdge->originNode() == this);
     assert(posEdge->originNode() == this);
     
-    printf("inserting edge %s at position %s\n", edge.Name().c_str(), posEdge->Name().c_str());
+    //printf("inserting edge %s at position %s\n", edge.Name().c_str(), posEdge->Name().c_str());
 
     if (posEdge->prev()) {
         posEdge->prev()->ConnectToNext(insertEdge);

@@ -16,11 +16,27 @@ FaceNode::~FaceNode()
     
 }
 
+FaceNode::FaceNode(const std::vector<glm::vec3>& points)
+{
+    assert(points.size() > 2);
+    
+    std::vector<PointNode*> pointNodes;
+    for (int i = 0; i < points.size(); ++i) {
+        pointNodes.push_back(new PointNode(points[i]));
+    }
+    InitWithPointNodes(pointNodes);
+}
+    
+FaceNode::FaceNode(const std::vector<PointNode*>& pointNodes)
+{
+    InitWithPointNodes(pointNodes);
+}
     
 FaceNode::FaceNode(const std::vector<Edge*>& edges)
 {
     InitWithEdges(edges);
 }
+    
     
 void FaceNode::InitWithEdges(const std::vector<Edge*>& edges)
 {
@@ -33,9 +49,31 @@ void FaceNode::InitWithEdges(const std::vector<Edge*>& edges)
     OrderAscending(*edges.front(), *edges.back()->twin());
     assert(IsValid(edges));
     BoundByLoopWithEdge(*edges.front());
-
 }
     
+void FaceNode::InitWithPointNodes(const std::vector<PointNode*>& pointNodes)
+{
+    std::vector<Edge*> edges;
+    
+    PointNode* startPointNode = pointNodes[0];
+    startPointNode->mName = "1";
+    PointNode* lastPointNode = startPointNode;
+    for (int i = 1; i < pointNodes.size(); ++i)
+    {
+        PointNode* currentPointNode = pointNodes[i];
+        
+        std::stringstream ss;
+        ss << i+1;
+        currentPointNode->mName = ss.str();
+        
+        edges.push_back(lastPointNode->ConnectTo(currentPointNode, true).edge);
+        lastPointNode = currentPointNode;
+    }
+    mOuterEdge = lastPointNode->ConnectTo(startPointNode, true).edge;
+    edges.push_back(mOuterEdge);
+    InitWithEdges(edges);
+}
+
 void FaceNode::Render(Layer& layer)
 {
     Node::Render(layer);
@@ -107,31 +145,6 @@ void FaceNode::Transform(const glm::mat4& transform)
         currentEdge->originNode()->Transform(transform);
         currentEdge = currentEdge->next();
     } while (currentEdge != mOuterEdge);
-}
-    
-FaceNode::FaceNode(const std::vector<glm::vec3>& points)
-{
-    assert(points.size() > 2);
-    
-    std::vector<Edge*> edges;
-    
-    PointNode* startPointNode = new PointNode(points[0]);
-    startPointNode->mName = "1";
-    PointNode* lastPointNode = startPointNode;
-    for (int i = 1; i < points.size(); ++i)
-    {
-        PointNode* currentPointNode = new PointNode(points[i]);
-        
-        std::stringstream ss;
-        ss << i+1;
-        currentPointNode->mName = ss.str();
-        
-        edges.push_back(lastPointNode->ConnectTo(currentPointNode, true).edge);
-        lastPointNode = currentPointNode;
-    }
-    mOuterEdge = lastPointNode->ConnectTo(startPointNode, true).edge;
-    edges.push_back(mOuterEdge);
-    InitWithEdges(edges);
 }
     
 void FaceNode::OrderAscending(Edge& edge1, Edge& edge2)
@@ -231,7 +244,7 @@ void FaceNode::MarkIncidentFaceInLoopWithEdge(Edge& edge)
     Edge* currentEdge = &edge;
     do {
         currentEdge->mIncidentFace = this;
-        printf("Mark %s\n", currentEdge->Name().c_str());
+        //printf("Mark %s\n", currentEdge->Name().c_str());
         currentEdge = currentEdge->next();
     } while ( currentEdge->IsFree() );
 }

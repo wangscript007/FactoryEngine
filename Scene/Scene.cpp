@@ -9,6 +9,7 @@
 #include <Shading/ShadingLibrary.h>
 #include <Workspace/Workspace.h>
 #include <Lighting/LightingCollection.h>
+#include <ImportExport/ModelImporter.h>
 
 namespace ftr {
 
@@ -27,7 +28,12 @@ Scene::Scene() :
     mWorkspace = new Workspace(mLayer);
 
     mModelEditor = new ModelEditor();
-    mModelEditor->DebugCreateCube();
+    //mModelEditor->DebugCreateCube();
+    
+    ModelImporter modelImporter(*mModelEditor);
+    
+    modelImporter.Import("/Users/edvinassarkus/factory/factoryengine/Tests/Models/X/dwarf.x");
+
 
     mWorkspace->setOctree(*mModelEditor->modelTree()->Octree());
     mWorkspace->setModelTree(mModelEditor->modelTree());

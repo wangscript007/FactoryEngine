@@ -2,6 +2,7 @@
 #import <XCTest/XCTest.h>
 
 #import <ImportExport/ModelImporter.h>
+#import <Processing/ModelEditor.h>
 
 using namespace ftr;
 
@@ -21,8 +22,13 @@ using namespace ftr;
 
 - (void)testImport
 {
-    ModelImporter modelImporter;
-    modelImporter.Import("/Users/edvinassarkus/factory/factoryengine/Tests/Models/X/dwarf.x");
+    [self measureBlock:^{
+        ModelEditor modelEditor;
+        ModelImporter modelImporter(modelEditor);
+        
+        modelImporter.Import("/Users/edvinassarkus/factory/factoryengine/Tests/Models/X/dwarf.x");
+
+    }];
 }
 
 @end
