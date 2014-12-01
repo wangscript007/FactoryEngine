@@ -28,7 +28,7 @@ Scene::Scene() :
     mWorkspace = new Workspace(mLayer);
 
     mModelEditor = new ModelEditor();
-    //mModelEditor->DebugCreateCube();
+ //   mModelEditor->DebugCreateCube();
     
     ModelImporter modelImporter(*mModelEditor);
     
@@ -87,7 +87,7 @@ void Scene::Prepare()
     activeLightingModel->SendDataToShader();
     mSceneRenderer = new SceneRenderer(*mShadingLibrary, *mCamera);
     
-    mPicker = new Picker(*mModelEditor->modelTree(), *mSceneRenderer);
+    mPicker = new Picker(*mModelEditor->modelTree(), *mSceneRenderer, *mLayer);
     mModelEditor->setPicker(mPicker);
 }
 
@@ -97,10 +97,10 @@ void Scene::Render()
 {
     mSceneRenderer->setMarkingBufferVisible(option(kOptionShowMarkingView));
     mWorkspace->mRenderOctree = option(kOptionShowOctree);
-
+    
+    mLayer->Clear();
     mWorkspace->Render(*mLayer);
     mSceneRenderer->Render(*mLayer);
-    mLayer->Clear();
     mFramesCount++;
 }
     

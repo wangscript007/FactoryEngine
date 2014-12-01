@@ -36,7 +36,7 @@ void ModelImporter::Import(const std::string& path)
         
         for (int l = 0; l < mesh->mNumVertices; ++l) {
             glm::vec3 vec(mesh->mVertices[l].x, mesh->mVertices[l].y, mesh->mVertices[l].z);
-            printf("%s\n", Description::Described(vec).c_str());
+            //printf("%s\n", Description::Described(vec).c_str());
             mModelEditor.CreatePoint(vec);
             
         }

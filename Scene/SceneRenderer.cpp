@@ -41,7 +41,6 @@ void SceneRenderer::Render(Layer &layer)
 {
     mCamera.CreateTransformations();
     RenderMainContent(layer);
-    RenderMarkingContent(layer);
 }
     
 void SceneRenderer::RenderMainContent(Layer &layer)

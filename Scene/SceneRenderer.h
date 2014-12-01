@@ -23,12 +23,13 @@ public:
     Framebuffer* colorMarkingFramebuffer() const { return mColorMarkingFramebuffer; }
     
     void setMarkingBufferVisible(bool visible);
+    void RenderMarkingContent(Layer &layer);
     
 private:
     bool mMarkingBufferVisible;
     
     void RenderMainContent(Layer &layer);
-    void RenderMarkingContent(Layer &layer);
+    
     
     Framebuffer* mColorMarkingFramebuffer;
     glm::vec4 mFrame;

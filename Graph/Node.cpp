@@ -76,7 +76,7 @@ void Node::setPickingId(int pickingId)
     for(auto &node : mSubnodes) {
         node->setPickingId(pickingId);
     }
-    std::cout << Description::Described(ColorPickingMapper::ColorFromInt(mPickingId)) << std::endl;
+//    std::cout << Description::Described(ColorPickingMapper::ColorFromInt(mPickingId)) << std::endl;
     Invalidate(false);
 }
     
