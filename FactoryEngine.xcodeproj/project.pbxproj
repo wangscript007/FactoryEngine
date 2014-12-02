@@ -327,10 +327,10 @@
 		D1A9210018E1876A0034336A /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = D1A920FE18E1876A0034336A /* Geometry.h */; };
 		D1AD41991942484C00CD00C4 /* FaceReversal.h in Headers */ = {isa = PBXBuildFile; fileRef = D1AD41981942484C00CD00C4 /* FaceReversal.h */; };
 		D1AD419A1942484C00CD00C4 /* FaceReversal.h in Headers */ = {isa = PBXBuildFile; fileRef = D1AD41981942484C00CD00C4 /* FaceReversal.h */; };
+		D1B883F51A2E729A00D6D0EA /* libassimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E0121D1A22116900583D0A /* libassimp.a */; };
 		D1B990F718FEC88600DC5843 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
 		D1BE952818F721C40022D7C7 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
 		D1BE952918F721C40022D7C7 /* SelectInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = D1BE952718F721C40022D7C7 /* SelectInteraction.h */; };
-		D1D1C9AA1A25359500BE3057 /* libassimpd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D1C9A91A25359500BE3057 /* libassimpd.a */; };
 		D1DB2AF219902E7B00CEEF38 /* ShadingInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B7E4B2173AEA4000EF0834 /* ShadingInterface.cpp */; };
 		D1E0122E1A2218D100583D0A /* ModelImporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1E0122C1A2218D100583D0A /* ModelImporter.cpp */; };
 		D1E0122F1A2218D100583D0A /* ModelImporter.h in Headers */ = {isa = PBXBuildFile; fileRef = D1E0122D1A2218D100583D0A /* ModelImporter.h */; };
@@ -606,7 +606,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1376AB31A23ECAF00C7EA8E /* libz.dylib in Frameworks */,
-				D1D1C9AA1A25359500BE3057 /* libassimpd.a in Frameworks */,
+				D1B883F51A2E729A00D6D0EA /* libassimp.a in Frameworks */,
 				D13DC913157A9FF500C84006 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
