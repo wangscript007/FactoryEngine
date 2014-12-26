@@ -2,6 +2,7 @@
 #pragma once
 
 #include <Render/Primitive.h>
+#include <Render/Batch.h>
 
 namespace ftr {
 //
@@ -12,6 +13,7 @@ class Layer
 public:
     typedef std::vector<Primitive*> PrimitivesVector;
     typedef std::vector<Layer*> LayersVector;
+    typedef std::vector<Batch*> BatchVector;
     
     Layer();
     virtual ~Layer() {}

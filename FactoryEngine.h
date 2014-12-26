@@ -58,7 +58,6 @@ typedef unsigned long long int  Quadrupleword;    // 8 bytes
 // Workspace
 //
 #include "Workspace/Pad.h"
-#include "Workspace/HUD.h"
 #include "Workspace/Workspace.h"
 //
 // Managers

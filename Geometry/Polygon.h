@@ -33,7 +33,6 @@ private:
     glm::vec3 XYZClosestNormal() const;
     
     std::vector<Triangle*> mTriangles;
-    Polyline mPolyline;
 };
 
 }

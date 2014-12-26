@@ -76,25 +76,27 @@ void FaceNode::InitWithPointNodes(const std::vector<PointNode*>& pointNodes)
 
 void FaceNode::Render(Layer& layer)
 {
-    Node::Render(layer);
-    if (mSelected) {
-        mPolygonPrimitive.mColor = glm::vec4(44/255.0f, 64/255.0f, 0.5f, 127/2555.0f);
-    } else {
-        mPolygonPrimitive.mColor = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
-    }
-    glm::vec3 color = glm::vec3(ColorPickingMapper::ColorFromInt(mPickingId));
-    mPolygonPrimitive.mPickingColor = glm::vec4(color.x, color.y, color.z, 1.0f);
-    Edge* currentEdge = mOuterEdge;
-    mPolygonPrimitive.mVec.clear();
-    do {
-        mPolygonPrimitive.mVec.push_back(currentEdge->origin());
-        if (!currentEdge->next()) {
-            assert(false); // face is messed up!
+    if (mInvalid) {
+        if (mSelected) {
+            mPolygonPrimitive.mColor = glm::vec4(44/255.0f, 64/255.0f, 0.5f, 127/2555.0f);
+        } else {
+            mPolygonPrimitive.mColor = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
         }
-        currentEdge = currentEdge->next();
-    } while (currentEdge != mOuterEdge);
-    mPolygonPrimitive.setOption(Primitive::kUseDepth, true);
+        glm::vec3 color = glm::vec3(ColorPickingMapper::ColorFromInt(mPickingId));
+        mPolygonPrimitive.mPickingColor = glm::vec4(color.x, color.y, color.z, 1.0f);
+        Edge* currentEdge = mOuterEdge;
+        mPolygonPrimitive.mVec.clear();
+        do {
+            mPolygonPrimitive.mVec.push_back(currentEdge->origin());
+            if (!currentEdge->next()) {
+                assert(false); // face is messed up!
+            }
+            currentEdge = currentEdge->next();
+        } while (currentEdge != mOuterEdge);
+        mPolygonPrimitive.setOption(Primitive::kUseDepth, true);
+    }
     layer.AddPrimitive(mPolygonPrimitive);
+    Node::Render(layer);
 }
     
 glm::vec3 FaceNode::Center() const
@@ -188,6 +190,7 @@ glm::vec3 FaceNode::SurfaceNormal() const
     int counter = 0;
     
     std::vector<glm::vec3> points;
+    points.reserve(3);
     do {
         points.push_back(currentEdge->origin());
         currentEdge = currentEdge->next();

@@ -109,32 +109,6 @@ private:
 };
     
     
-class RectanglePrimitive : public Primitive
-{
-public:
-    struct Data {
-        glm::vec4 vertices[4];
-        glm::vec4 normals[4];
-        glm::vec4 colors[4];
-        glm::vec4 pickingColors[4];
-    };
-    
-    RectanglePrimitive();
-    virtual ~RectanglePrimitive() {}
-    
-    Type type() const { return kRectangle; }
-    glm::vec3 mVec[4];
-    glm::vec4 mColor;
-    glm::vec4 mPickingColor;
-protected:
-    char* CreateRenderData(ShadingInterface& shadingInterface);
-    
-private:
-    void AssignSurfaceNormals(RectanglePrimitive::Data* data);
-    
-};
-
-    
 class PolygonPrimitive : public Primitive
 {
 public:

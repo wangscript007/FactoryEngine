@@ -72,12 +72,16 @@ void Pad::Render(Layer& layer)
     
     static const glm::vec4 color = glm::vec4(0.1f, 0.3f, 0.1f, 1.0f);
     float k = 50;
-    rectanglePrimitive.mVec[0] = glm::vec3(k,0,k);
-    rectanglePrimitive.mVec[1] = glm::vec3(k,0,-k);
-    rectanglePrimitive.mVec[2] = glm::vec3(-k,0,-k);
-    rectanglePrimitive.mVec[3] = glm::vec3(-k,0,k);
-    rectanglePrimitive.mColor = color;
-    layer.AddPrimitive(rectanglePrimitive);
+    if (mInvalid) {
+        mPolygonPrimitive.mVec.clear();
+        mPolygonPrimitive.mVec.push_back(glm::vec3(k,0,k));
+        mPolygonPrimitive.mVec.push_back(glm::vec3(k,0,-k));
+        mPolygonPrimitive.mVec.push_back(glm::vec3(-k,0,-k));
+        mPolygonPrimitive.mVec.push_back(glm::vec3(-k,0,k));
+        mPolygonPrimitive.mColor = color;
+        mPolygonPrimitive.setOption(Primitive::kUseDepth, true);
+    }
+    layer.AddPrimitive(mPolygonPrimitive);
 }
 
 }

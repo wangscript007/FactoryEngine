@@ -5,9 +5,6 @@
 #include <Graph/Node.h>
 #include <Geometry/Rect.h>
 #include <Workspace/Pad.h>
-#include <Workspace/HUD.h>
-#include <Workspace/Bounds.h>
-#include <Workspace/TestRectangle.h>
 #include <Render/Layer.h>
 
 
@@ -37,9 +34,7 @@ private:
     Octree* mOctree;
     ModelTree* mModelTree;
     Pad* mPad;
-    HUD* mHUD;
-    Bounds* mBounds;
-    TestRectangle* mTestRactangle;
+
     
     Layer* mHudLayer;
     Layer* mPadLayer;

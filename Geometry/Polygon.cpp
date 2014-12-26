@@ -51,7 +51,7 @@ void Polygon::Triangulate()
     p2t::CDT cdt(polyline);
     cdt.Triangulate();
     std::vector<p2t::Triangle*> triangles = cdt.GetTriangles();
-    
+    mTriangles.reserve(triangles.size());
     for (auto &triangle : triangles)
     {
         glm::vec3 points[3];

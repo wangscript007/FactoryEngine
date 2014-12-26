@@ -15,9 +15,6 @@ Workspace::Workspace(Layer* layer)
     //glEnable(GL_NORMALIZE);
     GetError();
     mPad = new Pad();
-    mHUD = new HUD();
-    mBounds = new Bounds();
-    mTestRactangle = new TestRectangle();
     
     mHudLayer = new Layer();
     mPadLayer = new Layer();
@@ -45,13 +42,9 @@ Workspace::Workspace(Layer* layer)
 Workspace::~Workspace()
 {
     FT_DELETE(mPad);
-    FT_DELETE(mHUD);
-    FT_DELETE(mBounds);
-    FT_DELETE(mHudLayer);
     FT_DELETE(mPadLayer);
     FT_DELETE(mModelLayer);
     FT_DELETE(mBoundsLayer);
-    FT_DELETE(mTestRactangle);
     FT_DELETE(mTestLayer);
     FT_DELETE(mOctreeLayer);
     FT_DELETE(mModelLayer);

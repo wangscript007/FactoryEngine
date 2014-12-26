@@ -58,6 +58,7 @@ private:
     std::vector<Edge*> mInnerEdges;
     Edge* mOuterEdge;
     PolygonPrimitive mPolygonPrimitive;
+    Polygon* mPolygon;
 };
 
 }
