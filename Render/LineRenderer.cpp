@@ -11,7 +11,7 @@ void LineRenderer::Begin(Primitive& primitive)
     
 void LineRenderer::Render(Primitive& primitive)
 {    
-    primitive.renderData(mShadingInterface);
+    primitive.UpdateRenderData(mShadingInterface);
     glBindVertexArray(primitive.vertexArrayObjectId());
     glDrawArrays(GL_LINES, 0, 2);
     glGetError();

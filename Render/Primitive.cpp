@@ -8,8 +8,8 @@ namespace ftr {
     
 Primitive::Primitive() :
     mIsInvalid(true),
-    mOptions(kUseNone),
     mRenderData(NULL),
+    mOptions(kUseNone),
     mBuffersCount(0),
     mVertexArrayObjectId(0)
 {
@@ -23,23 +23,21 @@ Primitive::~Primitive()
     
 void Primitive::ClearRenderData()
 {
-    if(mRenderData) {
+    if (mRenderData) {
         delete[] mRenderData;
-        mRenderData=NULL;
+        mRenderData = NULL;
         glDeleteBuffers(mBuffersCount, mBuffers);
         glDeleteVertexArrays(1, &mVertexArrayObjectId);
-        
     }
 }
 
 
-char* Primitive::renderData(ShadingInterface& shadingInterface) {
+void Primitive::UpdateRenderData(ShadingInterface& shadingInterface) {
     if (mIsInvalid) {
         ClearRenderData();
-        mRenderData = CreateRenderData(shadingInterface);
+        CreateRenderData(shadingInterface);
         mIsInvalid = false;
     }
-    return mRenderData;
 }
     
 void Primitive::setOption(Option option, bool value)
@@ -52,16 +50,17 @@ void Primitive::setOption(Option option, bool value)
 }
     
     
-char* PointPrimitive::CreateRenderData()
+void PointPrimitive::CreateRenderData()
 {
     PointPrimitive::Data* data = reinterpret_cast<PointPrimitive::Data*>(new char[sizeof(PointPrimitive::Data)]);
     data->indices[0] = 0;
     data->vertices[0].vec = glm::vec4(mPosition.x,mPosition.y, mPosition.z, 0.0f);
     data->vertices[0].color = mColor;
-    return reinterpret_cast<char*>(data);
+    
+    mRenderData = reinterpret_cast<char*>(data);
 }
-        
-char* LinePrimitive::CreateRenderData(ShadingInterface& shadingInterface)
+    
+void LinePrimitive::CreateRenderData(ShadingInterface& shadingInterface)
 {    
     LinePrimitive::Data* data = reinterpret_cast<LinePrimitive::Data*>(new char[sizeof(LinePrimitive::Data)]);
     data->vertices[0] = glm::vec4(mBegin.x,mBegin.y, mBegin.z, 1.0f);
@@ -88,7 +87,8 @@ char* LinePrimitive::CreateRenderData(ShadingInterface& shadingInterface)
     glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*2, data->colors, GL_STATIC_DRAW);
     glEnableVertexAttribArray(colorLoc);
     glVertexAttribPointer(colorLoc, 4, GL_FLOAT, 0, 0, 0);
-    return reinterpret_cast<char*>(data);
+    
+    mRenderData = reinterpret_cast<char*>(data);
 }
     
 PolygonPrimitive::~PolygonPrimitive()
@@ -96,7 +96,7 @@ PolygonPrimitive::~PolygonPrimitive()
     
 }
     
-char* PolygonPrimitive::CreateRenderData(ShadingInterface& shadingInterface)
+void PolygonPrimitive::CreateRenderData(ShadingInterface& shadingInterface)
 {
     Triangulate();
     unsigned long tz = mTriangles.size();
@@ -149,7 +149,8 @@ char* PolygonPrimitive::CreateRenderData(ShadingInterface& shadingInterface)
     glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*3*tz, pickingColors, GL_STATIC_DRAW);
     glEnableVertexAttribArray(pickingColorLoc);
     glVertexAttribPointer(pickingColorLoc, 4, GL_FLOAT, 0, 0, 0);
-    return reinterpret_cast<char*>(data);
+    
+    mRenderData = reinterpret_cast<char*>(data);
 }
     
 }

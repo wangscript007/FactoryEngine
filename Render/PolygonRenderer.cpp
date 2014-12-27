@@ -15,7 +15,7 @@ void PolygonRenderer::Begin(Primitive& primitive)
 void PolygonRenderer::Render(Primitive& primitive)
 {
     PolygonPrimitive& polygonPrimitive = reinterpret_cast<PolygonPrimitive&>(primitive);
-    primitive.renderData(mShadingInterface);
+    primitive.UpdateRenderData(mShadingInterface);
     glBindVertexArray(primitive.vertexArrayObjectId());
     GLint count = static_cast<GLint>(polygonPrimitive.GetTriangles().size());
     glDrawArrays(GL_TRIANGLES, 0, 3*count);

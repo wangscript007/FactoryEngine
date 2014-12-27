@@ -33,7 +33,7 @@ public:
     void Invalidate() { mIsInvalid = true; }
     
     virtual Type type() const { return kNone; }
-    char* renderData(ShadingInterface& shadingInterface);
+    void UpdateRenderData(ShadingInterface& shadingInterface);
     bool isInvalid() const { return mIsInvalid; }
     void setOption(Option option, bool value);
     bool option(Option option) const { return (mOptions & static_cast<unsigned int>(option)) != 0; }
@@ -42,7 +42,7 @@ public:
     
 protected:
     void ClearRenderData();
-    virtual char* CreateRenderData(ShadingInterface& shadingInterface) { return NULL; }
+    virtual void CreateRenderData(ShadingInterface& shadingInterface) {}
     GLuint mVertexArrayObjectId;
     GLuint mBuffers[4];
     GLuint mBuffersCount;
@@ -79,7 +79,7 @@ public:
     glm::vec4 mColor;
     
 protected:
-    char* CreateRenderData();
+    void CreateRenderData();
     
 private:
     
@@ -103,7 +103,7 @@ public:
     glm::vec4 mColor;
 
 protected:
-    char* CreateRenderData(ShadingInterface& shadingInterface);
+    void CreateRenderData(ShadingInterface& shadingInterface);
     
 private:
     
@@ -113,15 +113,6 @@ private:
 class PolygonPrimitive : public Primitive, public Polygon
 {
 public:
-    /*
-    struct Data {
-        glm::vec4
-        glm::vec4 *normals;
-        glm::vec4 *colors;
-        glm::vec4 *pickingColors;
-    };
-    */
-    
     PolygonPrimitive() {}
     PolygonPrimitive(const std::vector<glm::vec3>& vecs) : Polygon(vecs) {}
     virtual ~PolygonPrimitive();
@@ -129,10 +120,8 @@ public:
     Type type() const { return kPolygon; }
     glm::vec4 mColor;
     glm::vec4 mPickingColor;
-    
-    
 protected:
-    char* CreateRenderData(ShadingInterface& shadingInterface);
+    void CreateRenderData(ShadingInterface& shadingInterface);
 };
 
 
