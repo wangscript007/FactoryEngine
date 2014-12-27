@@ -98,23 +98,12 @@ PolygonPrimitive::~PolygonPrimitive()
     
 char* PolygonPrimitive::CreateRenderData(ShadingInterface& shadingInterface)
 {
-    if (mVec.size() > 3) {
-        FT_DELETE_VECTOR(mSubpolygons)
-        Polygon polygon(mVec);
-        polygon.Triangulate();
-        for (auto &triangle : polygon.GetTriangles()) {
-            PolygonPrimitive* primitive = new PolygonPrimitive(((Triangle*)triangle)->GetPoints());
-            primitive->mColor = mColor;
-            primitive->mPickingColor = mPickingColor;
-            mSubpolygons.push_back(primitive);
-        }
-    }
-    else {
+    if (Triangulate() < 2) {
         PolygonPrimitive::Data* data = reinterpret_cast<PolygonPrimitive::Data*>(new char[sizeof(PolygonPrimitive::Data)]);
         
-        data->vertices[0] = glm::vec4(mVec[0].x, mVec[0].y, mVec[0].z, 1.0f);
-        data->vertices[1] = glm::vec4(mVec[1].x, mVec[1].y, mVec[1].z, 1.0f);
-        data->vertices[2] = glm::vec4(mVec[2].x, mVec[2].y, mVec[2].z, 1.0f);
+        data->vertices[0] = glm::vec4(mVec[0], 1.0f);
+        data->vertices[1] = glm::vec4(mVec[1], 1.0f);
+        data->vertices[2] = glm::vec4(mVec[2], 1.0f);
         
         AssignSurfaceNormals(data);
         for(int i = 0; i < 3; ++i) {
@@ -159,6 +148,23 @@ char* PolygonPrimitive::CreateRenderData(ShadingInterface& shadingInterface)
         return reinterpret_cast<char*>(data);
     }
     return NULL;
+}
+    
+int PolygonPrimitive::Triangulate()
+{
+    if (mVec.size() > 3) {
+        FT_DELETE_VECTOR(mSubpolygons)
+        Polygon polygon(mVec);
+        polygon.Triangulate();
+        for (auto &triangle : polygon.GetTriangles()) {
+            PolygonPrimitive* primitive = new PolygonPrimitive(((Triangle*)triangle)->GetPoints());
+            primitive->mColor = mColor;
+            primitive->mPickingColor = mPickingColor;
+            mSubpolygons.push_back(primitive);
+        }
+        return static_cast<int>(mSubpolygons.size());
+    }
+    return 1;
 }
     
 void PolygonPrimitive::AssignSurfaceNormals(PolygonPrimitive::Data* data)

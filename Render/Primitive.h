@@ -129,14 +129,16 @@ public:
     glm::vec4 mPickingColor;
     
     std::vector<PolygonPrimitive*>mSubpolygons;
+    
+    int Triangulate();
+    
+    
 protected:
     char* CreateRenderData(ShadingInterface& shadingInterface);
     
 private:
     void AssignSurfaceNormals(PolygonPrimitive::Data* data);
-
     
-private:
     
 };
 
