@@ -27,7 +27,7 @@ public:
     void DebugPrintTriangles() const;
     int DebugTrianglesMatchingPointsCount() const;
     
-private:
+protected:
     glm::mat4 RotationToSurfaceNormal(const glm::vec3& targedNormal);
     void TransformTriangles(const glm::mat4& tranformation);
     glm::vec3 XYZClosestNormal() const;

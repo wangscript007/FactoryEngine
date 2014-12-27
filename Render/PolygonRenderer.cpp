@@ -15,23 +15,11 @@ void PolygonRenderer::Begin(Primitive& primitive)
 void PolygonRenderer::Render(Primitive& primitive)
 {
     PolygonPrimitive& polygonPrimitive = reinterpret_cast<PolygonPrimitive&>(primitive);
-    if (polygonPrimitive.mSubpolygons.size()) {
-        primitive.renderData(mShadingInterface);
-        for (int i = 0; i < polygonPrimitive.mSubpolygons.size(); ++i) {
-            PolygonPrimitive* subprimitive = polygonPrimitive.mSubpolygons[i];
-            subprimitive->renderData(mShadingInterface);
-            glBindVertexArray(subprimitive->vertexArrayObjectId());
-            glDrawArrays(GL_TRIANGLES, 0, 3);
-            glGetError();
-        }
-    } else {
-        primitive.renderData(mShadingInterface);
-        glBindVertexArray(primitive.vertexArrayObjectId());
-        glDrawArrays(GL_TRIANGLES, 0, 3);
-        glGetError();
-    }
-    
-    
+    primitive.renderData(mShadingInterface);
+    glBindVertexArray(primitive.vertexArrayObjectId());
+    GLint count = static_cast<GLint>(polygonPrimitive.GetTriangles().size());
+    glDrawArrays(GL_TRIANGLES, 0, 3*count);
+    glGetError();
 }
 
 void PolygonRenderer::End(Primitive& primitive)

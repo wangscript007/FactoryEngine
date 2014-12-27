@@ -17,6 +17,12 @@ void Polygon::Triangulate()
 {
     FT_DELETE_VECTOR(mTriangles);
     
+    if (mPoints.size() == 3) {
+        mTriangles.reserve(1);
+        mTriangles.push_back(new Triangle(mPoints));
+        return;
+    }
+    
     glm::vec3 closestNormal = XYZClosestNormal();
     bool isXYZAlligned = Vector::IsParallel(SurfaceNormal(), closestNormal);
     

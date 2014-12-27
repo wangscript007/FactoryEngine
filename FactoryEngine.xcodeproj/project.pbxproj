@@ -273,8 +273,6 @@
 		D18ACE7C1A4D8F7E00CCCDD5 /* Batch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ACE791A4D8F7E00CCCDD5 /* Batch.cpp */; };
 		D18ACE7D1A4D8F7E00CCCDD5 /* Batch.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ACE7A1A4D8F7E00CCCDD5 /* Batch.h */; };
 		D18ACE7E1A4D8F7E00CCCDD5 /* Batch.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ACE7A1A4D8F7E00CCCDD5 /* Batch.h */; };
-		D18ACE811A4D8FA400CCCDD5 /* PolygonBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ACE7F1A4D8FA400CCCDD5 /* PolygonBatch.cpp */; };
-		D18ACE821A4D8FA400CCCDD5 /* PolygonBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ACE7F1A4D8FA400CCCDD5 /* PolygonBatch.cpp */; };
 		D18ACE831A4D8FA400CCCDD5 /* PolygonBatch.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ACE801A4D8FA400CCCDD5 /* PolygonBatch.h */; };
 		D18ACE841A4D8FA400CCCDD5 /* PolygonBatch.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ACE801A4D8FA400CCCDD5 /* PolygonBatch.h */; };
 		D18ECC6C190517A400189A01 /* BodyNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC5A190517A400189A01 /* BodyNode.cpp */; };
@@ -1347,7 +1345,6 @@
 				D18ECC90190517A400189A01 /* PointNode.cpp in Sources */,
 				60C6D064174961470009EC3C /* PrimitiveRenderer.cpp in Sources */,
 				D19B99D11902F003000BF781 /* GroupInteraction.cpp in Sources */,
-				D18ACE821A4D8FA400CCCDD5 /* PolygonBatch.cpp in Sources */,
 				60CE9A6717EC654900A775C0 /* ShadingProgram.cpp in Sources */,
 				D185302D18F16A76001A7AB1 /* FaceExtruder.cpp in Sources */,
 				60CE9A6417EC646F00A775C0 /* Shader.cpp in Sources */,
@@ -1449,7 +1446,6 @@
 				601EC86B175B2901003DE2B8 /* CameraInteraction.cpp in Sources */,
 				D1A920FF18E1876A0034336A /* Geometry.cpp in Sources */,
 				D18ECC6C190517A400189A01 /* BodyNode.cpp in Sources */,
-				D18ACE811A4D8FA400CCCDD5 /* PolygonBatch.cpp in Sources */,
 				D18ECC94190517A400189A01 /* PolylineNode.cpp in Sources */,
 				D11D1D5A18DF70980091521F /* sweep.cc in Sources */,
 				D15A7DDD18FB15B1004CB791 /* ColorPickingMapper.cpp in Sources */,

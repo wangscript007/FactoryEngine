@@ -2,6 +2,7 @@
 #pragma once
 
 #include <Shading/ShadingInterface.h>
+#include <Geometry/Polygon.h>
 
 namespace ftr {
 //
@@ -109,37 +110,29 @@ private:
 };
     
     
-class PolygonPrimitive : public Primitive
+class PolygonPrimitive : public Primitive, public Polygon
 {
 public:
+    /*
     struct Data {
-        glm::vec4 vertices[3];
-        glm::vec4 normals[3];
-        glm::vec4 colors[3];
-        glm::vec4 pickingColors[3];
+        glm::vec4
+        glm::vec4 *normals;
+        glm::vec4 *colors;
+        glm::vec4 *pickingColors;
     };
+    */
     
     PolygonPrimitive() {}
-    PolygonPrimitive(const std::vector<glm::vec3>& vecs) { mVec = vecs; }
+    PolygonPrimitive(const std::vector<glm::vec3>& vecs) : Polygon(vecs) {}
     virtual ~PolygonPrimitive();
     
     Type type() const { return kPolygon; }
-    std::vector<glm::vec3> mVec;
     glm::vec4 mColor;
     glm::vec4 mPickingColor;
-    
-    std::vector<PolygonPrimitive*>mSubpolygons;
-    
-    int Triangulate();
     
     
 protected:
     char* CreateRenderData(ShadingInterface& shadingInterface);
-    
-private:
-    void AssignSurfaceNormals(PolygonPrimitive::Data* data);
-    
-    
 };
 
 

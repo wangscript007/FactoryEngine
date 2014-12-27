@@ -26,6 +26,7 @@ public:
     
     bool IsEqual(const Geometry& other, float epsilon) const;
     
+    void Clear() { mPoints.clear(); }
 protected:
     
     std::vector<glm::vec3> mPoints;
