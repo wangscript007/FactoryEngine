@@ -4,7 +4,6 @@
 #include <Render/Layer.h>
 #include <Render/PointRenderer.h>
 #include <Render/LineRenderer.h>
-#include <Render/RectangleRenderer.h>
 #include <Render/PolygonRenderer.h>
 #include <Shading/ShadingInterface.h>
 
@@ -14,7 +13,6 @@ LayerRenderer::LayerRenderer(ShadingInterface& shadingInterface)
     : mDepth(0)
 {
     //AddRenderer(new PointRenderer());
-    AddRenderer(new RectangleRenderer(shadingInterface));
     AddRenderer(new PolygonRenderer(shadingInterface));
     AddRenderer(new LineRenderer(shadingInterface));
 }

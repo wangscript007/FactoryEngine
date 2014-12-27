@@ -14,7 +14,6 @@ public:
         kNone = 0,
         kPoint,
         kLine,
-        kRectangle,
         kTriangle,
         kPolygon
     };
@@ -38,9 +37,10 @@ public:
     void setOption(Option option, bool value);
     bool option(Option option) const { return (mOptions & static_cast<unsigned int>(option)) != 0; }
     GLuint vertexArrayObjectId() const { return mVertexArrayObjectId; }
-    void ClearRenderData();
+    
     
 protected:
+    void ClearRenderData();
     virtual char* CreateRenderData(ShadingInterface& shadingInterface) { return NULL; }
     GLuint mVertexArrayObjectId;
     GLuint mBuffers[4];

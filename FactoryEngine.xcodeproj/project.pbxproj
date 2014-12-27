@@ -58,8 +58,6 @@
 		6076A1571806AE9000770486 /* ShadingInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B7E4B2173AEA4000EF0834 /* ShadingInterface.cpp */; };
 		607BFB11172C7F3500357B47 /* PolygonRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */; };
 		607BFB12172C7F3500357B47 /* PolygonRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 607BFB10172C7F3500357B47 /* PolygonRenderer.h */; };
-		607BFB15172C838200357B47 /* RectangleRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB13172C838100357B47 /* RectangleRenderer.cpp */; };
-		607BFB16172C838200357B47 /* RectangleRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 607BFB14172C838200357B47 /* RectangleRenderer.h */; };
 		6086605E17343C5400E67B54 /* PointRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6086605C17343C5400E67B54 /* PointRenderer.cpp */; };
 		6086605F17343C5400E67B54 /* PointRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6086605D17343C5400E67B54 /* PointRenderer.h */; };
 		60A03E411752423100D650B5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A03E401752423100D650B5 /* OpenGLES.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -111,7 +109,6 @@
 		60C6D064174961470009EC3C /* PrimitiveRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFC517232B8E001EAEBE /* PrimitiveRenderer.cpp */; };
 		60C6D065174961470009EC3C /* LineRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFC9172332F6001EAEBE /* LineRenderer.cpp */; };
 		60C6D066174961470009EC3C /* PolygonRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */; };
-		60C6D067174961470009EC3C /* RectangleRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB13172C838100357B47 /* RectangleRenderer.cpp */; };
 		60C6D069174961470009EC3C /* PointRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6086605C17343C5400E67B54 /* PointRenderer.cpp */; };
 		60C6D073174961470009EC3C /* FactoryEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76641583BF440083E2B0 /* FactoryEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		60C6D076174961470009EC3C /* Workspace.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F4B157FE79600566119 /* Workspace.h */; };
@@ -131,7 +128,6 @@
 		60C6D0A2174961470009EC3C /* PrimitiveRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFC617232B8F001EAEBE /* PrimitiveRenderer.h */; };
 		60C6D0A3174961470009EC3C /* LineRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFCA172332F6001EAEBE /* LineRenderer.h */; };
 		60C6D0A4174961470009EC3C /* PolygonRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 607BFB10172C7F3500357B47 /* PolygonRenderer.h */; };
-		60C6D0A5174961470009EC3C /* RectangleRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 607BFB14172C838200357B47 /* RectangleRenderer.h */; };
 		60C6D0A7174961470009EC3C /* PointRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6086605D17343C5400E67B54 /* PointRenderer.h */; };
 		60C6D0BB1749737F0009EC3C /* Rect.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC791658308B0051947E /* Rect.h */; };
 		60C6D0BC174973800009EC3C /* Rect.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D7DC791658308B0051947E /* Rect.h */; };
@@ -417,8 +413,6 @@
 		60758B6D180F3020004BE067 /* TestCylinder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestCylinder.mm; sourceTree = "<group>"; };
 		607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolygonRenderer.cpp; sourceTree = "<group>"; };
 		607BFB10172C7F3500357B47 /* PolygonRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonRenderer.h; sourceTree = "<group>"; };
-		607BFB13172C838100357B47 /* RectangleRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleRenderer.cpp; sourceTree = "<group>"; };
-		607BFB14172C838200357B47 /* RectangleRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleRenderer.h; sourceTree = "<group>"; };
 		6086605C17343C5400E67B54 /* PointRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PointRenderer.cpp; sourceTree = "<group>"; };
 		6086605D17343C5400E67B54 /* PointRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointRenderer.h; sourceTree = "<group>"; };
 		608D700517357571000A92F7 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
@@ -772,8 +766,6 @@
 				6021AFCA172332F6001EAEBE /* LineRenderer.h */,
 				607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */,
 				607BFB10172C7F3500357B47 /* PolygonRenderer.h */,
-				607BFB13172C838100357B47 /* RectangleRenderer.cpp */,
-				607BFB14172C838200357B47 /* RectangleRenderer.h */,
 				6086605C17343C5400E67B54 /* PointRenderer.cpp */,
 				6086605D17343C5400E67B54 /* PointRenderer.h */,
 				D18ACE791A4D8F7E00CCCDD5 /* Batch.cpp */,
@@ -1046,7 +1038,6 @@
 				60C6D0A2174961470009EC3C /* PrimitiveRenderer.h in Headers */,
 				60C6D0A3174961470009EC3C /* LineRenderer.h in Headers */,
 				60C6D0A4174961470009EC3C /* PolygonRenderer.h in Headers */,
-				60C6D0A5174961470009EC3C /* RectangleRenderer.h in Headers */,
 				D15130E0190C3EA300BA09AB /* Picker.h in Headers */,
 				D1693B8F18E5B195000AFE41 /* Constants.h in Headers */,
 				60C6D0A7174961470009EC3C /* PointRenderer.h in Headers */,
@@ -1122,7 +1113,6 @@
 				D18ACE7D1A4D8F7E00CCCDD5 /* Batch.h in Headers */,
 				6021AFCC172332F6001EAEBE /* LineRenderer.h in Headers */,
 				607BFB12172C7F3500357B47 /* PolygonRenderer.h in Headers */,
-				607BFB16172C838200357B47 /* RectangleRenderer.h in Headers */,
 				D1A9210018E1876A0034336A /* Geometry.h in Headers */,
 				60CE9A4E17EC646E00A775C0 /* ShadingProgram.h in Headers */,
 				D18ECC79190517A400189A01 /* FaceNode.h in Headers */,
@@ -1365,7 +1355,6 @@
 				60C6D065174961470009EC3C /* LineRenderer.cpp in Sources */,
 				D11D1D7518E0507B0091521F /* Polyline.cpp in Sources */,
 				60C6D066174961470009EC3C /* PolygonRenderer.cpp in Sources */,
-				60C6D067174961470009EC3C /* RectangleRenderer.cpp in Sources */,
 				60C6D069174961470009EC3C /* PointRenderer.cpp in Sources */,
 				D11D1D6118DF70CE0091521F /* sweep.cc in Sources */,
 				D11D1CC318DF4FBA0091521F /* Description.cpp in Sources */,
@@ -1438,7 +1427,6 @@
 				606BC0171808666700EC4F37 /* Viewport.cpp in Sources */,
 				60CE9A6817EC654A00A775C0 /* ShadingProgram.cpp in Sources */,
 				607BFB11172C7F3500357B47 /* PolygonRenderer.cpp in Sources */,
-				607BFB15172C838200357B47 /* RectangleRenderer.cpp in Sources */,
 				6086605E17343C5400E67B54 /* PointRenderer.cpp in Sources */,
 				D18ECC76190517A400189A01 /* FaceNode.cpp in Sources */,
 				6055CFD017417D46009F1F46 /* Light.cpp in Sources */,
