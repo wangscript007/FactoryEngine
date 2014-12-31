@@ -8,6 +8,7 @@ namespace ftr {
 class Layer;
 class PrimitiveRenderer;
 class Primitive;
+class PolygonBatch;
 
 //
 // Renders layer primitives
@@ -29,6 +30,7 @@ protected:
     
     typedef std::vector<PrimitiveRenderer*> RenderersVector;
     RenderersVector mRenderersVector;
+    
     int mDepth;
 };
 

@@ -2,9 +2,10 @@
 #pragma once
 
 #include <Render/Primitive.h>
-#include <Render/Batch.h>
 
 namespace ftr {
+    
+class PolygonBatch;
 //
 // Gathers primitives data for rendering
 //
@@ -13,7 +14,6 @@ class Layer
 public:
     typedef std::vector<Primitive*> PrimitivesVector;
     typedef std::vector<Layer*> LayersVector;
-    typedef std::vector<Batch*> BatchVector;
     
     Layer();
     virtual ~Layer() {}
@@ -25,14 +25,16 @@ public:
     PrimitivesVector& PrimitivesOfType(Primitive::Type type);
     void setDepth(int depth);
     const LayersVector& sublayers() { return mSublayers; }
-private:
+    PolygonBatch* mPolygonBatch;
     
+private:
     typedef std::unordered_map<int, PrimitivesVector> PrimitivesMap;
     void OrderSublayers();
     
     PrimitivesMap mPrimitivesMap;
     LayersVector mSublayers;
     Layer* mParent;
+    
     int mDepth;
     
     struct Comparison
@@ -43,7 +45,6 @@ private:
         }
     };
     Comparison mComparison;
-
 };
 
 }

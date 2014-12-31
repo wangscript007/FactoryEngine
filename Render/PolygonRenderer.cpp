@@ -1,6 +1,7 @@
 
 #include <Render/PolygonRenderer.h>
 #include <Render/Primitive.h>
+#include <Render/PolygonBatch.h>
 
 namespace ftr {
     
@@ -16,11 +17,27 @@ void PolygonRenderer::Render(Primitive& primitive)
 {
     PolygonPrimitive& polygonPrimitive = reinterpret_cast<PolygonPrimitive&>(primitive);
     primitive.UpdateRenderData(mShadingInterface);
-    glBindVertexArray(primitive.vertexArrayObjectId());
     GLint count = static_cast<GLint>(polygonPrimitive.GetTriangles().size());
-    glDrawArrays(GL_TRIANGLES, 0, 3*count);
-    glGetError();
+    if (count) {
+        glBindVertexArray(primitive.vertexArrayObjectId());
+        glDrawArrays(GL_TRIANGLES, 0, 3*count);
+        glGetError();
+    }
 }
+    
+void PolygonRenderer::RenderBatch(PolygonBatch& polygonBatch)
+{
+    polygonBatch.UpdateRenderData(mShadingInterface);
+    GLint count = static_cast<GLint>(polygonBatch.triangesCount());
+    if (count > 0) {
+        glBindVertexArray(polygonBatch.vertexArrayObjectId());
+        glDrawArrays(GL_TRIANGLES, 0, 3*count);
+        glGetError();
+    }
+
+}
+    
+
 
 void PolygonRenderer::End(Primitive& primitive)
 {

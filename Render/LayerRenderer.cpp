@@ -5,6 +5,7 @@
 #include <Render/PointRenderer.h>
 #include <Render/LineRenderer.h>
 #include <Render/PolygonRenderer.h>
+#include <Render/PolygonBatch.h>
 #include <Shading/ShadingInterface.h>
 
 namespace ftr {
@@ -41,12 +42,24 @@ void LayerRenderer::RenderInternal(Layer& layer)
     Layer::PrimitivesVector primitivesVector;
     for(int i = 0; i < mRenderersVector.size(); ++i) {
         primitivesVector = layer.PrimitivesOfType(mRenderersVector[i]->type());
-        for (int j = 0; j < primitivesVector.size(); j++) {
-            mRenderersVector[i]->Begin(*primitivesVector[j]);
-            mRenderersVector[i]->Render(*primitivesVector[j]);
-            mRenderersVector[i]->End(*primitivesVector[j]);
+        if (mRenderersVector[i]->type() == Primitive::kPolygon) {
+            if (layer.mPolygonBatch->size()) {
+                glEnable(GL_DEPTH_TEST);
+                PolygonRenderer* polygonRenderer = reinterpret_cast<PolygonRenderer*>(mRenderersVector[i]);
+                polygonRenderer->RenderBatch(*layer.mPolygonBatch);
+
+            }
+        } else {
+
+            for (int j = 0; j < primitivesVector.size(); j++) {
+                mRenderersVector[i]->Begin(*primitivesVector[j]);
+                mRenderersVector[i]->Render(*primitivesVector[j]);
+                mRenderersVector[i]->End(*primitivesVector[j]);
+            }
         }
+        
     }
+    
     RenderSublayersRecursively(layer);
 }
     

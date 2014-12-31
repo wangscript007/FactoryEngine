@@ -1,37 +1,30 @@
 
 #pragma once
 
-
+#include <Render/Primitive.h>
 
 namespace ftr {
     
 class ShadingInterface;
-class PolygonPrimitive;
 
-class PolygonBatch
+class PolygonBatch : public Primitive
 {
 public:
-    PolygonBatch();
-    struct Data {
-        std::vector<glm::vec4> vertices;
-        std::vector<glm::vec4> normals;
-        std::vector<glm::vec4> colors;
-        std::vector<glm::vec4> pickingColors;
-    };
-    virtual ~PolygonBatch() {}
+    Type type() const { return kPolygon; }
     
+    PolygonBatch();
+    virtual ~PolygonBatch() {}
 
+    int size() const { return mSize; }
+    int triangesCount() const { return mTrianglesCount; }
+    
+    void AddPolygon(Primitive& primitive);
     
 private:
-    void ClearRenderData();
-    char* CreateRenderData(ShadingInterface& shadingInterface);
-    void Triangulate();
-    void AppendRenderData(const PolygonPrimitive& primitive);
-    
+    void CreateRenderData(ShadingInterface& shadingInterface);
     std::vector<PolygonPrimitive*> mPolygons;
-    Data mRenderData;
     int mSize;
+    int mTrianglesCount;
 };
-    
     
 }

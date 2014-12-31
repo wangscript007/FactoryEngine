@@ -1,18 +1,26 @@
 
 #include <Render/Layer.h>
+#include <Render/PolygonBatch.h>
 
 namespace ftr {
     
+    
 Layer::Layer()
     : mDepth(0),
-    mParent(NULL)
+    mParent(NULL),
+    mPolygonBatch(new PolygonBatch())
 {
     
 }
     
 void Layer::AddPrimitive(Primitive& primitive)
 {
-    mPrimitivesMap[primitive.type()].push_back(&primitive);
+    if (primitive.type() == Primitive::kPolygon) {
+        mPolygonBatch->AddPolygon(primitive);
+    } else {
+        mPrimitivesMap[primitive.type()].push_back(&primitive);
+    }
+    
 }
     
 Layer::PrimitivesVector& Layer::PrimitivesOfType(Primitive::Type type)
