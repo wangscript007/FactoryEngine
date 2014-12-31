@@ -5,6 +5,8 @@
 #include <Geometry/Polygon.h>
 
 namespace ftr {
+    
+class PolygonBatch;
 //
 // Formats primitive data for GL
 //
@@ -30,7 +32,7 @@ public:
     Primitive();
     virtual ~Primitive();
     
-    void Invalidate() { mIsInvalid = true; }
+    virtual void Invalidate() { mIsInvalid = true; }
     
     virtual Type type() const { return kNone; }
     void UpdateRenderData(ShadingInterface& shadingInterface);
@@ -47,10 +49,9 @@ protected:
     GLuint mBuffers[4];
     GLuint mBuffersCount;
     char* mRenderData;
+    bool mIsInvalid;
     
 private:
-    
-    bool mIsInvalid;
     unsigned int mOptions;
     
 };
@@ -113,13 +114,16 @@ private:
 class PolygonPrimitive : public Primitive, public Polygon
 {
 public:
-    PolygonPrimitive() {}
+    PolygonPrimitive();
     PolygonPrimitive(const std::vector<glm::vec3>& vecs) : Polygon(vecs) {}
     virtual ~PolygonPrimitive();
+    void InvalidatePolygon();
     
     Type type() const { return kPolygon; }
     glm::vec4 mColor;
     glm::vec4 mPickingColor;
+    PolygonBatch* batch;
+    
 protected:
     void CreateRenderData(ShadingInterface& shadingInterface);
 };

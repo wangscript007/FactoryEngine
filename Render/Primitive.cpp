@@ -1,5 +1,6 @@
 
 #include <Render/Primitive.h>
+#include <Render/PolygonBatch.h>
 #include <Main/GLError.h>
 #include <Geometry/Polygon.h>
 #include <Geometry/Triangle.h>
@@ -91,6 +92,12 @@ void LinePrimitive::CreateRenderData(ShadingInterface& shadingInterface)
     mRenderData = reinterpret_cast<char*>(data);
 }
     
+PolygonPrimitive::PolygonPrimitive() :
+    batch(NULL)
+{
+    
+}
+    
 PolygonPrimitive::~PolygonPrimitive()
 {
     
@@ -151,6 +158,14 @@ void PolygonPrimitive::CreateRenderData(ShadingInterface& shadingInterface)
     glVertexAttribPointer(pickingColorLoc, 4, GL_FLOAT, 0, 0, 0);
     
     mRenderData = reinterpret_cast<char*>(data);
+}
+    
+void PolygonPrimitive::InvalidatePolygon()
+{
+    Invalidate();
+    if (batch) {
+        batch->Invalidate();
+    }
 }
     
 }

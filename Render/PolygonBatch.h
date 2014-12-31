@@ -18,7 +18,9 @@ public:
     int size() const { return mSize; }
     int triangesCount() const { return mTrianglesCount; }
     
+    void Invalidate();
     void AddPolygon(Primitive& primitive);
+    void Clear();
     
 private:
     void CreateRenderData(ShadingInterface& shadingInterface);

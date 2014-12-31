@@ -12,11 +12,30 @@ PolygonBatch::PolygonBatch()
     
 {}
     
+void PolygonBatch::Clear()
+{
+    mPolygons.clear();
+    mSize = 0;
+    mTrianglesCount = 0;
+}
+    
+void PolygonBatch::Invalidate()
+{
+    if (!mIsInvalid) {
+        Primitive::Invalidate();
+        Clear();
+    }
+}
+    
 void PolygonBatch::AddPolygon(Primitive& primitive)
 {
-    PolygonPrimitive& polygonPrimitive = reinterpret_cast<PolygonPrimitive&>(primitive);
-    mPolygons.push_back(&polygonPrimitive);
-    mSize++;
+    
+    if (mIsInvalid) {
+        PolygonPrimitive& polygonPrimitive = reinterpret_cast<PolygonPrimitive&>(primitive);
+        polygonPrimitive.batch = this;
+        mPolygons.push_back(&polygonPrimitive);
+        mSize++;
+    }
 }
 
 void PolygonBatch::CreateRenderData(ShadingInterface& shadingInterface)
