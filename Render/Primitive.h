@@ -6,7 +6,7 @@
 
 namespace ftr {
     
-class PolygonBatch;
+class Batch;
 //
 // Formats primitive data for GL
 //
@@ -32,15 +32,16 @@ public:
     Primitive();
     virtual ~Primitive();
     
-    virtual void Invalidate() { mIsInvalid = true; }
+    virtual void Invalidate();
     
     virtual Type type() const { return kNone; }
     void UpdateRenderData(ShadingInterface& shadingInterface);
     bool isInvalid() const { return mIsInvalid; }
     void setOption(Option option, bool value);
+    
     bool option(Option option) const { return (mOptions & static_cast<unsigned int>(option)) != 0; }
     GLuint vertexArrayObjectId() const { return mVertexArrayObjectId; }
-    
+    Batch* mBatch;
     
 protected:
     void ClearRenderData();
@@ -114,15 +115,13 @@ private:
 class PolygonPrimitive : public Primitive, public Polygon
 {
 public:
-    PolygonPrimitive();
+    PolygonPrimitive() {}
     PolygonPrimitive(const std::vector<glm::vec3>& vecs) : Polygon(vecs) {}
-    virtual ~PolygonPrimitive();
-    void InvalidatePolygon();
+    virtual ~PolygonPrimitive() {}
     
     Type type() const { return kPolygon; }
     glm::vec4 mColor;
     glm::vec4 mPickingColor;
-    PolygonBatch* batch;
     
 protected:
     void CreateRenderData(ShadingInterface& shadingInterface);

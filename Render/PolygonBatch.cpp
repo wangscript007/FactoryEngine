@@ -6,42 +6,24 @@
 
 namespace ftr {
  
-PolygonBatch::PolygonBatch()
-    : mSize(0),
+PolygonBatch::PolygonBatch() :
     mTrianglesCount(0)
-    
 {}
     
-void PolygonBatch::Clear()
-{
-    mPolygons.clear();
-    mSize = 0;
-    mTrianglesCount = 0;
-}
     
 void PolygonBatch::Invalidate()
 {
-    if (!mIsInvalid) {
-        Primitive::Invalidate();
-        Clear();
-    }
+    if (mIsInvalid) return;
+    
+    Batch::Invalidate();
+    mTrianglesCount = 0;
 }
     
-void PolygonBatch::AddPolygon(Primitive& primitive)
-{
-    
-    if (mIsInvalid) {
-        PolygonPrimitive& polygonPrimitive = reinterpret_cast<PolygonPrimitive&>(primitive);
-        polygonPrimitive.batch = this;
-        mPolygons.push_back(&polygonPrimitive);
-        mSize++;
-    }
-}
-
 void PolygonBatch::CreateRenderData(ShadingInterface& shadingInterface)
 {
     mTrianglesCount = 0;
-    for (auto& poly : mPolygons) {
+    for (auto& it : mPrimitives) {
+        PolygonPrimitive* poly = reinterpret_cast<PolygonPrimitive*>(it);
         poly->Triangulate();
         mTrianglesCount += poly->GetTriangles().size();
     }
@@ -54,7 +36,8 @@ void PolygonBatch::CreateRenderData(ShadingInterface& shadingInterface)
     glm::vec4* pickingColors    = data + (3 * mTrianglesCount * 3);
     
     int ti = 0;
-    for (auto& poly : mPolygons) {
+    for (auto& it : mPrimitives) {
+        PolygonPrimitive* poly = reinterpret_cast<PolygonPrimitive*>(it);
         const std::vector<Triangle*>& triangles = poly->GetTriangles();
         glm::vec3 normal = triangles[0]->SurfaceNormal();
         for (int i = 0; i < triangles.size(); ++i) {

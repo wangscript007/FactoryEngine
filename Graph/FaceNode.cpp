@@ -118,7 +118,7 @@ void FaceNode::Invalidate(bool recursively)
     if (mInvalid) return;
     
     Node::Invalidate(recursively);
-    mPolygonPrimitive.InvalidatePolygon();
+    mPolygonPrimitive.Invalidate();
     
     if (recursively) {
         Edge* currentEdge = mOuterEdge;

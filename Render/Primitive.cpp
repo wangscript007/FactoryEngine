@@ -10,6 +10,7 @@ namespace ftr {
 Primitive::Primitive() :
     mIsInvalid(true),
     mRenderData(NULL),
+    mBatch(NULL),
     mOptions(kUseNone),
     mBuffersCount(0),
     mVertexArrayObjectId(0)
@@ -20,6 +21,15 @@ Primitive::Primitive() :
 Primitive::~Primitive()
 {
     ClearRenderData();
+}
+    
+void Primitive::Invalidate()
+{
+    mIsInvalid = true;
+    if (mBatch) {
+        mBatch->Invalidate();
+        mBatch = NULL;
+    }
 }
     
 void Primitive::ClearRenderData()
@@ -91,18 +101,7 @@ void LinePrimitive::CreateRenderData(ShadingInterface& shadingInterface)
     
     mRenderData = reinterpret_cast<char*>(data);
 }
-    
-PolygonPrimitive::PolygonPrimitive() :
-    batch(NULL)
-{
-    
-}
-    
-PolygonPrimitive::~PolygonPrimitive()
-{
-    
-}
-    
+        
 void PolygonPrimitive::CreateRenderData(ShadingInterface& shadingInterface)
 {
     Triangulate();
@@ -158,14 +157,6 @@ void PolygonPrimitive::CreateRenderData(ShadingInterface& shadingInterface)
     glVertexAttribPointer(pickingColorLoc, 4, GL_FLOAT, 0, 0, 0);
     
     mRenderData = reinterpret_cast<char*>(data);
-}
-    
-void PolygonPrimitive::InvalidatePolygon()
-{
-    Invalidate();
-    if (batch) {
-        batch->Invalidate();
-    }
 }
     
 }

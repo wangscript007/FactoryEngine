@@ -1,31 +1,24 @@
 
 #pragma once
 
-#include <Render/Primitive.h>
+#include <Render/Batch.h>
 
 namespace ftr {
     
 class ShadingInterface;
 
-class PolygonBatch : public Primitive
+class PolygonBatch : public Batch
 {
 public:
     Type type() const { return kPolygon; }
-    
     PolygonBatch();
     virtual ~PolygonBatch() {}
-
-    int size() const { return mSize; }
-    int triangesCount() const { return mTrianglesCount; }
     
-    void Invalidate();
-    void AddPolygon(Primitive& primitive);
-    void Clear();
+    int triangesCount() const { return mTrianglesCount; }
+    virtual void Invalidate();
     
 private:
     void CreateRenderData(ShadingInterface& shadingInterface);
-    std::vector<PolygonPrimitive*> mPolygons;
-    int mSize;
     int mTrianglesCount;
 };
     

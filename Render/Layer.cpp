@@ -16,7 +16,7 @@ Layer::Layer()
 void Layer::AddPrimitive(Primitive& primitive)
 {
     if (primitive.type() == Primitive::kPolygon) {
-        mPolygonBatch->AddPolygon(primitive);
+        mPolygonBatch->AddPrimitive(primitive);
     } else {
         mPrimitivesMap[primitive.type()].push_back(&primitive);
     }
