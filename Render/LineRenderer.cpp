@@ -5,21 +5,14 @@
 
 namespace ftr {
     
-void LineRenderer::Begin(Primitive& primitive)
+void LineRenderer::Begin(Batch& batch)
 {
-    PrimitiveRenderer::Begin(primitive);
+    PrimitiveRenderer::Begin(batch);
 }
     
-void LineRenderer::Render(Primitive& primitive)
-{    
-    primitive.UpdateRenderData(mShadingInterface);
-    glBindVertexArray(primitive.vertexArrayObjectId());
-    glDrawArrays(GL_LINES, 0, 2);
-    glGetError();
-}
-    
-void LineRenderer::RenderBatch(LineBatch& lineBatch)
+void LineRenderer::Render(Batch& batch)
 {
+    LineBatch& lineBatch = reinterpret_cast<LineBatch&>(batch);
     lineBatch.UpdateRenderData(mShadingInterface);
     glBindVertexArray(lineBatch.vertexArrayObjectId());
     glDrawArrays(GL_LINES, 0, 2*lineBatch.size());
@@ -27,9 +20,9 @@ void LineRenderer::RenderBatch(LineBatch& lineBatch)
 }
 
 
-void LineRenderer::End(Primitive& primitive)
+void LineRenderer::End(Batch& batch)
 {
-    PrimitiveRenderer::End(primitive);
+    PrimitiveRenderer::End(batch);
  
 }
 

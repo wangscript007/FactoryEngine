@@ -45,27 +45,21 @@ void LayerRenderer::RenderInternal(Layer& layer)
         primitivesVector = layer.PrimitivesOfType(mRenderersVector[i]->type());
         if (mRenderersVector[i]->type() == Primitive::kPolygon) {
             if (layer.mPolygonBatch->size()) {
-                glEnable(GL_DEPTH_TEST);
+                mRenderersVector[i]->Begin(*layer.mPolygonBatch);
                 PolygonRenderer* polygonRenderer = reinterpret_cast<PolygonRenderer*>(mRenderersVector[i]);
-                polygonRenderer->RenderBatch(*layer.mPolygonBatch);
+                polygonRenderer->Render(*layer.mPolygonBatch);
+                mRenderersVector[i]->End(*layer.mPolygonBatch);
 
             }
         }
         else if (mRenderersVector[i]->type() == Primitive::kLine) {
             if (layer.mLineBatch->size()) {
+                mRenderersVector[i]->Begin(*layer.mLineBatch);
                 LineRenderer* lineRenderer = reinterpret_cast<LineRenderer*>(mRenderersVector[i]);
-                lineRenderer->RenderBatch(*layer.mLineBatch);
-                
+                lineRenderer->Render(*layer.mLineBatch);
+                mRenderersVector[i]->End(*layer.mLineBatch);
             }
         }
-        else {
-            for (int j = 0; j < primitivesVector.size(); j++) {
-                mRenderersVector[i]->Begin(*primitivesVector[j]);
-                mRenderersVector[i]->Render(*primitivesVector[j]);
-                mRenderersVector[i]->End(*primitivesVector[j]);
-            }
-        }
-        
     }
     
     RenderSublayersRecursively(layer);

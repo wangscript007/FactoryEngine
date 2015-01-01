@@ -1,33 +1,23 @@
 
 #include <Render/PolygonRenderer.h>
 #include <Render/Primitive.h>
+#include <Render/Batch.h>
 #include <Render/PolygonBatch.h>
 
 namespace ftr {
     
-void PolygonRenderer::Begin(Primitive& primitive)
+void PolygonRenderer::Begin(Batch& batch)
 {
-    PrimitiveRenderer::Begin(primitive);
+    PrimitiveRenderer::Begin(batch);
     glEnable(GL_POLYGON_OFFSET_FILL);
     glPolygonOffset(1.0, 1.0);
  
 }
-
-void PolygonRenderer::Render(Primitive& primitive)
-{
-    PolygonPrimitive& polygonPrimitive = reinterpret_cast<PolygonPrimitive&>(primitive);
-    primitive.UpdateRenderData(mShadingInterface);
-    GLint count = static_cast<GLint>(polygonPrimitive.GetTriangles().size());
-    if (count) {
-        glBindVertexArray(primitive.vertexArrayObjectId());
-        glDrawArrays(GL_TRIANGLES, 0, 3*count);
-        glGetError();
-    }
-}
     
-void PolygonRenderer::RenderBatch(PolygonBatch& polygonBatch)
+void PolygonRenderer::Render(Batch& batch)
 {
-    polygonBatch.UpdateRenderData(mShadingInterface);
+    PolygonBatch& polygonBatch = reinterpret_cast<PolygonBatch&>(batch);
+    batch.UpdateRenderData(mShadingInterface);
     GLint count = static_cast<GLint>(polygonBatch.trianglesCount());
     if (count > 0) {
         glBindVertexArray(polygonBatch.vertexArrayObjectId());
@@ -37,11 +27,9 @@ void PolygonRenderer::RenderBatch(PolygonBatch& polygonBatch)
 
 }
     
-
-
-void PolygonRenderer::End(Primitive& primitive)
+void PolygonRenderer::End(Batch& batch)
 {
-    PrimitiveRenderer::End(primitive);
+    PrimitiveRenderer::End(batch);
     
 }
     

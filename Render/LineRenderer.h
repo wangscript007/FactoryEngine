@@ -1,21 +1,20 @@
 #pragma once
 
 #include <Render/PrimitiveRenderer.h>
+#include <Render/Batch.h>
 
 namespace ftr {
     
 class LinePrimitive;
-class LineBatch;
 
 class LineRenderer : public PrimitiveRenderer
 {
 public:
     LineRenderer(ShadingInterface& ShadingInterface) : PrimitiveRenderer(ShadingInterface) {}
     virtual ~LineRenderer() {}
-    virtual void Begin(Primitive& primitive);
-    virtual void Render(Primitive& primitive);
-    virtual void RenderBatch(LineBatch& lineBatch);
-    virtual void End(Primitive& primitive);
+    virtual void Begin(Batch& batch);
+    virtual void Render(Batch& batch);
+    virtual void End(Batch& batch);
     
     virtual Primitive::Type type() const { return Primitive::kLine; }
 };

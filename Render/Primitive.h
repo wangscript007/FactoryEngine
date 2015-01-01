@@ -42,6 +42,7 @@ public:
     bool option(Option option) const { return (mOptions & static_cast<unsigned int>(option)) != 0; }
     GLuint vertexArrayObjectId() const { return mVertexArrayObjectId; }
     Batch* mBatch;
+    unsigned int mOptions;
     
 protected:
     void ClearRenderData();
@@ -51,9 +52,6 @@ protected:
     GLuint mBuffersCount;
     char* mRenderData;
     bool mIsInvalid;
-    
-private:
-    unsigned int mOptions;
     
 };
 
@@ -82,9 +80,6 @@ public:
     
 protected:
     void CreateRenderData();
-    
-private:
-    
 };
 
     
@@ -106,9 +101,6 @@ public:
 
 protected:
     void CreateRenderData(ShadingInterface& shadingInterface);
-    
-private:
-    
 };
     
     
