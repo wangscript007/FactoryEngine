@@ -74,8 +74,8 @@ void PointPrimitive::CreateRenderData()
 void LinePrimitive::CreateRenderData(ShadingInterface& shadingInterface)
 {    
     LinePrimitive::Data* data = reinterpret_cast<LinePrimitive::Data*>(new char[sizeof(LinePrimitive::Data)]);
-    data->vertices[0] = glm::vec4(mBegin.x,mBegin.y, mBegin.z, 1.0f);
-    data->vertices[1] = glm::vec4(mEnd.x,mEnd.y, mEnd.z, 1.0f);
+    data->vertices[0] = glm::vec4(mBegin, 1.0f);
+    data->vertices[1] = glm::vec4(mEnd, 1.0f);
     data->colors[0] = mColor;
     data->colors[1] = mColor;
     

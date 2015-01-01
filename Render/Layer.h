@@ -6,6 +6,7 @@
 namespace ftr {
     
 class PolygonBatch;
+class LineBatch;
 //
 // Gathers primitives data for rendering
 //
@@ -16,7 +17,7 @@ public:
     typedef std::vector<Layer*> LayersVector;
     
     Layer();
-    virtual ~Layer() {}
+    virtual ~Layer();
     
     void AddPrimitive(Primitive& primitive);
     void Clear();
@@ -26,6 +27,7 @@ public:
     void setDepth(int depth);
     const LayersVector& sublayers() { return mSublayers; }
     PolygonBatch* mPolygonBatch;
+    LineBatch* mLineBatch;
     
 private:
     typedef std::unordered_map<int, PrimitivesVector> PrimitivesMap;

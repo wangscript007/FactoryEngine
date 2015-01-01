@@ -1,6 +1,7 @@
 
 #include <Render/Layer.h>
 #include <Render/PolygonBatch.h>
+#include <Render/LineBatch.h>
 
 namespace ftr {
     
@@ -8,16 +9,27 @@ namespace ftr {
 Layer::Layer()
     : mDepth(0),
     mParent(NULL),
-    mPolygonBatch(new PolygonBatch())
+    mPolygonBatch(new PolygonBatch()),
+    mLineBatch(new LineBatch())
 {
     
+}
+    
+Layer::~Layer()
+{
+    FT_DELETE(mPolygonBatch);
+    FT_DELETE(mLineBatch);
 }
     
 void Layer::AddPrimitive(Primitive& primitive)
 {
     if (primitive.type() == Primitive::kPolygon) {
         mPolygonBatch->AddPrimitive(primitive);
-    } else {
+    }
+    if (primitive.type() == Primitive::kLine) {
+        mLineBatch->AddPrimitive(primitive);
+    }
+    else {
         mPrimitivesMap[primitive.type()].push_back(&primitive);
     }
     

@@ -6,6 +6,7 @@
 #include <Render/LineRenderer.h>
 #include <Render/PolygonRenderer.h>
 #include <Render/PolygonBatch.h>
+#include <Render/LineBatch.h>
 #include <Shading/ShadingInterface.h>
 
 namespace ftr {
@@ -49,8 +50,15 @@ void LayerRenderer::RenderInternal(Layer& layer)
                 polygonRenderer->RenderBatch(*layer.mPolygonBatch);
 
             }
-        } else {
-
+        }
+        else if (mRenderersVector[i]->type() == Primitive::kLine) {
+            if (layer.mLineBatch->size()) {
+                LineRenderer* lineRenderer = reinterpret_cast<LineRenderer*>(mRenderersVector[i]);
+                lineRenderer->RenderBatch(*layer.mLineBatch);
+                
+            }
+        }
+        else {
             for (int j = 0; j < primitivesVector.size(); j++) {
                 mRenderersVector[i]->Begin(*primitivesVector[j]);
                 mRenderersVector[i]->Render(*primitivesVector[j]);

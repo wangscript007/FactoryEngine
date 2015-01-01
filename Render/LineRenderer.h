@@ -5,6 +5,7 @@
 namespace ftr {
     
 class LinePrimitive;
+class LineBatch;
 
 class LineRenderer : public PrimitiveRenderer
 {
@@ -13,6 +14,7 @@ public:
     virtual ~LineRenderer() {}
     virtual void Begin(Primitive& primitive);
     virtual void Render(Primitive& primitive);
+    virtual void RenderBatch(LineBatch& lineBatch);
     virtual void End(Primitive& primitive);
     
     virtual Primitive::Type type() const { return Primitive::kLine; }

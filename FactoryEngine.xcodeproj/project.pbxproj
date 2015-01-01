@@ -224,6 +224,10 @@
 		D13CAE0118E1C30400C2A180 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
 		D13DC913157A9FF500C84006 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13DC912157A9FF500C84006 /* OpenGL.framework */; };
 		D1410EB219AA89420081C545 /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFBD17230E82001EAEBE /* Layer.cpp */; };
+		D146CAD31A559C170068C82C /* LineBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D146CAD11A559C170068C82C /* LineBatch.cpp */; };
+		D146CAD41A559C170068C82C /* LineBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D146CAD11A559C170068C82C /* LineBatch.cpp */; };
+		D146CAD51A559C170068C82C /* LineBatch.h in Headers */ = {isa = PBXBuildFile; fileRef = D146CAD21A559C170068C82C /* LineBatch.h */; };
+		D146CAD61A559C170068C82C /* LineBatch.h in Headers */ = {isa = PBXBuildFile; fileRef = D146CAD21A559C170068C82C /* LineBatch.h */; };
 		D15130D6190BDE0400BA09AB /* ColorPickingMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = D15A7DDC18FB15B1004CB791 /* ColorPickingMapper.h */; };
 		D15130D7190BDE0800BA09AB /* ColorPickingMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */; };
 		D15130DC190C3DD800BA09AB /* Picker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15130DA190C3DD800BA09AB /* Picker.cpp */; };
@@ -487,6 +491,8 @@
 		D13CAE0318E1CBE700C2A180 /* TestPolygon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPolygon.mm; sourceTree = "<group>"; };
 		D13DC90B157A9F8C00C84006 /* libFactoryEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFactoryEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D13DC912157A9FF500C84006 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		D146CAD11A559C170068C82C /* LineBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LineBatch.cpp; path = ../../factoryengine/Render/LineBatch.cpp; sourceTree = "<group>"; };
+		D146CAD21A559C170068C82C /* LineBatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LineBatch.h; path = ../../factoryengine/Render/LineBatch.h; sourceTree = "<group>"; };
 		D15130D4190BDCB200BA09AB /* TestColorPickingMapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestColorPickingMapper.mm; sourceTree = "<group>"; };
 		D15130DA190C3DD800BA09AB /* Picker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Picker.cpp; sourceTree = "<group>"; };
 		D15130DB190C3DD800BA09AB /* Picker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Picker.h; sourceTree = "<group>"; };
@@ -772,6 +778,8 @@
 				D18ACE7A1A4D8F7E00CCCDD5 /* Batch.h */,
 				D18ACE7F1A4D8FA400CCCDD5 /* PolygonBatch.cpp */,
 				D18ACE801A4D8FA400CCCDD5 /* PolygonBatch.h */,
+				D146CAD11A559C170068C82C /* LineBatch.cpp */,
+				D146CAD21A559C170068C82C /* LineBatch.h */,
 			);
 			path = Render;
 			sourceTree = "<group>";
@@ -1052,6 +1060,7 @@
 				D18ECC84190517A400189A01 /* LineNode.h in Headers */,
 				D15130D6190BDE0400BA09AB /* ColorPickingMapper.h in Headers */,
 				60BD72241756807D007D7DC6 /* LightingModel.h in Headers */,
+				D146CAD61A559C170068C82C /* LineBatch.h in Headers */,
 				60BD72261756807D007D7DC6 /* DefaultLighting.h in Headers */,
 				D18ECC89190517A400189A01 /* ModelFactory.h in Headers */,
 				60BD72281756807D007D7DC6 /* Light.h in Headers */,
@@ -1098,6 +1107,7 @@
 				D1693B8E18E5B04C000AFE41 /* Constants.h in Headers */,
 				60A4ED6116FE28BA0083DCD2 /* RotationInteraction.h in Headers */,
 				D18ECC97190517A400189A01 /* PolylineNode.h in Headers */,
+				D146CAD51A559C170068C82C /* LineBatch.h in Headers */,
 				60A4ED6816FE59D50083DCD2 /* ScaleInteraction.h in Headers */,
 				D11D1D5218DF70980091521F /* utils.h in Headers */,
 				D189C67119165F0B00E9FB1A /* Pivot.h in Headers */,
@@ -1334,6 +1344,7 @@
 				60A05FCB1809DB48004DD045 /* Snap.cpp in Sources */,
 				D11D1D6318DF70D10091521F /* sweep_context.cc in Sources */,
 				D1693B9018E5B1BC000AFE41 /* Constants.cpp in Sources */,
+				D146CAD41A559C170068C82C /* LineBatch.cpp in Sources */,
 				D1B990F718FEC88600DC5843 /* SelectInteraction.cpp in Sources */,
 				60EB2F651812C385008DCA37 /* Cylinder.cpp in Sources */,
 				60C6D054174961470009EC3C /* ScaleInteraction.cpp in Sources */,
@@ -1437,6 +1448,7 @@
 				60BD3292174436EA00C2E593 /* DefaultLighting.cpp in Sources */,
 				D1693B8D18E5B04C000AFE41 /* Constants.cpp in Sources */,
 				D11D1D5418DF70980091521F /* advancing_front.cc in Sources */,
+				D146CAD31A559C170068C82C /* LineBatch.cpp in Sources */,
 				D16D270318D5E8FB0095B177 /* Triangle.cpp in Sources */,
 				D11D1D7418E0507B0091521F /* Polyline.cpp in Sources */,
 				6011AF1B1747C2FC0022E7A9 /* LigthtingModelFactory.cpp in Sources */,
