@@ -1,7 +1,5 @@
 
 #include <Render/PolygonBatch.h>
-#include <Render/Primitive.h>
-#include <Geometry/Polygon.h>
 #include <Shading/ShadingInterface.h>
 
 namespace ftr {

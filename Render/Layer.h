@@ -2,6 +2,7 @@
 #pragma once
 
 #include <Render/Primitive.h>
+#include <Render/BatchBucket.h>
 
 namespace ftr {
     
@@ -13,7 +14,6 @@ class LineBatch;
 class Layer
 {
 public:
-    typedef std::vector<Primitive*> PrimitivesVector;
     typedef std::vector<Layer*> LayersVector;
     
     Layer();
@@ -23,19 +23,17 @@ public:
     void Clear();
     void AddSublayer(Layer* layer);
     void RemoveSublayer(Layer* layer);
-    PrimitivesVector& PrimitivesOfType(Primitive::Type type);
+    BatchBucket::OptionToBatchMap& BatchesWithType(Primitive::Type type);
     void setDepth(int depth);
     const LayersVector& sublayers() { return mSublayers; }
-    PolygonBatch* mPolygonBatch;
-    LineBatch* mLineBatch;
     
 private:
-    typedef std::unordered_map<int, PrimitivesVector> PrimitivesMap;
     void OrderSublayers();
     
-    PrimitivesMap mPrimitivesMap;
     LayersVector mSublayers;
     Layer* mParent;
+    
+    BatchBucket mBatchBucket;
     
     int mDepth;
     

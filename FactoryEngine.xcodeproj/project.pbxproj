@@ -336,6 +336,10 @@
 		D1F44F4D157FE79600566119 /* Workspace.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F4B157FE79600566119 /* Workspace.h */; };
 		D1F44F51157FE91900566119 /* Pad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F4F157FE91900566119 /* Pad.cpp */; };
 		D1F44F52157FE91900566119 /* Pad.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F50157FE91900566119 /* Pad.h */; };
+		D1FAA7A11A55BF0400F71C43 /* BatchBucket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1FAA79F1A55BF0400F71C43 /* BatchBucket.cpp */; };
+		D1FAA7A21A55BF0400F71C43 /* BatchBucket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1FAA79F1A55BF0400F71C43 /* BatchBucket.cpp */; };
+		D1FAA7A31A55BF0400F71C43 /* BatchBucket.h in Headers */ = {isa = PBXBuildFile; fileRef = D1FAA7A01A55BF0400F71C43 /* BatchBucket.h */; };
+		D1FAA7A41A55BF0400F71C43 /* BatchBucket.h in Headers */ = {isa = PBXBuildFile; fileRef = D1FAA7A01A55BF0400F71C43 /* BatchBucket.h */; };
 		D1FDC88418F192960075176E /* ExtrudeInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302018F145D5001A7AB1 /* ExtrudeInteraction.cpp */; };
 /* End PBXBuildFile section */
 
@@ -570,6 +574,8 @@
 		D1F44F4B157FE79600566119 /* Workspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workspace.h; sourceTree = "<group>"; };
 		D1F44F4F157FE91900566119 /* Pad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pad.cpp; sourceTree = "<group>"; };
 		D1F44F50157FE91900566119 /* Pad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pad.h; sourceTree = "<group>"; };
+		D1FAA79F1A55BF0400F71C43 /* BatchBucket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BatchBucket.cpp; path = ../../factoryengine/Render/BatchBucket.cpp; sourceTree = "<group>"; };
+		D1FAA7A01A55BF0400F71C43 /* BatchBucket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BatchBucket.h; path = ../../factoryengine/Render/BatchBucket.h; sourceTree = "<group>"; };
 		D1FBAF6C18DEE73B000A083E /* TestPoly2tri.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPoly2tri.mm; sourceTree = "<group>"; };
 		D1FBBC88197AD187001A38C3 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		D1FE762C1A06624B00FB7535 /* TestOctree.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestOctree.mm; path = ../../factoryengine/Tests/TestOctree.mm; sourceTree = "<group>"; };
@@ -780,6 +786,8 @@
 				D18ACE801A4D8FA400CCCDD5 /* PolygonBatch.h */,
 				D146CAD11A559C170068C82C /* LineBatch.cpp */,
 				D146CAD21A559C170068C82C /* LineBatch.h */,
+				D1FAA79F1A55BF0400F71C43 /* BatchBucket.cpp */,
+				D1FAA7A01A55BF0400F71C43 /* BatchBucket.h */,
 			);
 			path = Render;
 			sourceTree = "<group>";
@@ -1025,6 +1033,7 @@
 				60C6D086174961470009EC3C /* Prefix.pch in Headers */,
 				D11D1D7818E0507B0091521F /* Polyline.h in Headers */,
 				60C6D087174961470009EC3C /* GeometryPrimitives.h in Headers */,
+				D1FAA7A41A55BF0400F71C43 /* BatchBucket.h in Headers */,
 				60C6D08A174961470009EC3C /* LineInteraction.h in Headers */,
 				60C6D08C174961470009EC3C /* MoveInteraction.h in Headers */,
 				60CE9A5F17EC646F00A775C0 /* ShadingInterface.h in Headers */,
@@ -1084,6 +1093,7 @@
 				D1F44F4D157FE79600566119 /* Workspace.h in Headers */,
 				D1F44F52157FE91900566119 /* Pad.h in Headers */,
 				D17C76AC1584E3900083E2B0 /* GLError.h in Headers */,
+				D1FAA7A31A55BF0400F71C43 /* BatchBucket.h in Headers */,
 				D185302318F145D5001A7AB1 /* ExtrudeInteraction.h in Headers */,
 				D15130DD190C3DD800BA09AB /* Picker.h in Headers */,
 				D116AC091917544500153AEC /* Intersection.h in Headers */,
@@ -1379,6 +1389,7 @@
 				D18ECC95190517A400189A01 /* PolylineNode.cpp in Sources */,
 				60BD72231756807D007D7DC6 /* LightingModel.cpp in Sources */,
 				60BD72251756807D007D7DC6 /* DefaultLighting.cpp in Sources */,
+				D1FAA7A21A55BF0400F71C43 /* BatchBucket.cpp in Sources */,
 				D15130D7190BDE0800BA09AB /* ColorPickingMapper.cpp in Sources */,
 				60BD72271756807D007D7DC6 /* Light.cpp in Sources */,
 				60458B25175B8EF8000679CE /* CameraInteraction.cpp in Sources */,
@@ -1403,6 +1414,7 @@
 				D11D1CC218DF4FBA0091521F /* Description.cpp in Sources */,
 				6056C57015DC554C008F8E92 /* Scene.cpp in Sources */,
 				606BC00F1808639500EC4F37 /* SnappingQueue.cpp in Sources */,
+				D1FAA7A11A55BF0400F71C43 /* BatchBucket.cpp in Sources */,
 				606BC00B1808639500EC4F37 /* AxisSnap.cpp in Sources */,
 				D11FC6FE1A546B41006355E7 /* PolygonBatch.cpp in Sources */,
 				60C41BB41691BF5600DD0C09 /* GeometryPrimitives.cpp in Sources */,

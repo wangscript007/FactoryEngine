@@ -8,7 +8,6 @@ namespace ftr {
 class Layer;
 class PrimitiveRenderer;
 class Primitive;
-class PolygonBatch;
 
 //
 // Renders layer primitives

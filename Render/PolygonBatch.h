@@ -17,8 +17,9 @@ public:
     int trianglesCount() const { return mTrianglesCount; }
     virtual void Invalidate();
     
-private:
-    void CreateRenderData(ShadingInterface& shadingInterface);
+protected:
+    virtual void CreateRenderData(ShadingInterface& shadingInterface);
+    
     int mTrianglesCount;
 };
     

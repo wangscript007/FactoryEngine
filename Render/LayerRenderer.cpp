@@ -7,6 +7,7 @@
 #include <Render/PolygonRenderer.h>
 #include <Render/PolygonBatch.h>
 #include <Render/LineBatch.h>
+#include <Render/BatchBucket.h>
 #include <Shading/ShadingInterface.h>
 
 namespace ftr {
@@ -14,7 +15,6 @@ namespace ftr {
 LayerRenderer::LayerRenderer(ShadingInterface& shadingInterface)
     : mDepth(0)
 {
-    //AddRenderer(new PointRenderer());
     AddRenderer(new PolygonRenderer(shadingInterface));
     AddRenderer(new LineRenderer(shadingInterface));
 }
@@ -40,28 +40,17 @@ void LayerRenderer::Render(Layer& layer)
     
 void LayerRenderer::RenderInternal(Layer& layer)
 {
-    Layer::PrimitivesVector primitivesVector;
-    for(int i = 0; i < mRenderersVector.size(); ++i) {
-        primitivesVector = layer.PrimitivesOfType(mRenderersVector[i]->type());
-        if (mRenderersVector[i]->type() == Primitive::kPolygon) {
-            if (layer.mPolygonBatch->size()) {
-                mRenderersVector[i]->Begin(*layer.mPolygonBatch);
-                PolygonRenderer* polygonRenderer = reinterpret_cast<PolygonRenderer*>(mRenderersVector[i]);
-                polygonRenderer->Render(*layer.mPolygonBatch);
-                mRenderersVector[i]->End(*layer.mPolygonBatch);
-
-            }
-        }
-        else if (mRenderersVector[i]->type() == Primitive::kLine) {
-            if (layer.mLineBatch->size()) {
-                mRenderersVector[i]->Begin(*layer.mLineBatch);
-                LineRenderer* lineRenderer = reinterpret_cast<LineRenderer*>(mRenderersVector[i]);
-                lineRenderer->Render(*layer.mLineBatch);
-                mRenderersVector[i]->End(*layer.mLineBatch);
-            }
+    for(auto& renderer : mRenderersVector) {
+        BatchBucket::OptionToBatchMap &batches = layer.BatchesWithType(renderer->type());
+        for (auto& pair : batches)
+        {
+            Batch& batch = *pair.second;
+            renderer->Begin(batch);
+            renderer->Render(batch);
+            renderer->End(batch);
         }
     }
-    
+        
     RenderSublayersRecursively(layer);
 }
     

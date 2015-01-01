@@ -17,7 +17,7 @@ void PolygonRenderer::Begin(Batch& batch)
 void PolygonRenderer::Render(Batch& batch)
 {
     PolygonBatch& polygonBatch = reinterpret_cast<PolygonBatch&>(batch);
-    batch.UpdateRenderData(mShadingInterface);
+    polygonBatch.UpdateRenderData(mShadingInterface);
     GLint count = static_cast<GLint>(polygonBatch.trianglesCount());
     if (count > 0) {
         glBindVertexArray(polygonBatch.vertexArrayObjectId());
