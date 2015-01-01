@@ -8,7 +8,9 @@ namespace ftr {
  
 PolygonBatch::PolygonBatch() :
     mTrianglesCount(0)
-{}
+{
+
+}
     
     
 void PolygonBatch::Invalidate()

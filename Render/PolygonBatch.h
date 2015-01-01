@@ -14,7 +14,7 @@ public:
     PolygonBatch();
     virtual ~PolygonBatch() {}
     
-    int triangesCount() const { return mTrianglesCount; }
+    int trianglesCount() const { return mTrianglesCount; }
     virtual void Invalidate();
     
 private:
