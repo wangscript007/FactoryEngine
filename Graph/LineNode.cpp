@@ -13,18 +13,20 @@ LineNode::LineNode(PointNode* startPoint, PointNode* endPoint)
 
 void LineNode::Render(Layer& layer)
 {
-    Node::Render(layer);
     if (mStartPoint && mEndPoint) {
         mStartPoint->Render(layer);
         mEndPoint->Render(layer);
         
-        mLinePrimitive.mBegin = mStartPoint->mOrigin;
-        mLinePrimitive.mEnd = mEndPoint->mOrigin;
-        mLinePrimitive.mColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-        mLinePrimitive.setOption(Primitive::kUseDepth, false);
+        if (mInvalid) {
+            mLinePrimitive.mBegin = mStartPoint->mOrigin;
+            mLinePrimitive.mEnd = mEndPoint->mOrigin;
+            mLinePrimitive.mColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+            mLinePrimitive.setOption(Primitive::kUseDepth, false);
+        }
         layer.AddPrimitive(mLinePrimitive);
     }
     
+    Node::Render(layer);
 }
     
 void LineNode::Invalidate(bool recursively)

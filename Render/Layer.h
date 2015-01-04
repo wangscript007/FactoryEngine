@@ -20,7 +20,6 @@ public:
     virtual ~Layer();
     
     void AddPrimitive(Primitive& primitive);
-    void Clear();
     void AddSublayer(Layer* layer);
     void RemoveSublayer(Layer* layer);
     BatchBucket::OptionToBatchMap& BatchesWithType(Primitive::Type type);

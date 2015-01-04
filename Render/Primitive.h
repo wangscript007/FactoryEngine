@@ -36,12 +36,14 @@ public:
     virtual ~Primitive() {}
     
     virtual void Invalidate();
+    void Validate() { mIsInvalid = false; }
+    
     
     virtual Type type() const { return kNone; }
     bool isInvalid() const { return mIsInvalid; }
-    void setOption(Option option, bool value);
     
     bool option(Option option) const { return (mOptions & static_cast<unsigned int>(option)) != 0; }
+    void setOption(Option option, bool value);
     Batch* mBatch;
     unsigned int mOptions;
     

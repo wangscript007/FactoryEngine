@@ -15,7 +15,7 @@ BatchBucket::~BatchBucket()
 void BatchBucket::AddPrimitive(Primitive& primitive)
 {
     OptionToBatchMap& map = mBatchesMap[primitive.type()];
-    Batch* batch = NULL; ;
+    Batch* batch = NULL;
     auto it = map.find(primitive.mOptions);
     if (it == map.end()) {
         switch (primitive.type()) {

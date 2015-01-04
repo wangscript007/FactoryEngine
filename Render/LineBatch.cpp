@@ -42,7 +42,6 @@ void LineBatch::CreateRenderData(ShadingInterface& shadingInterface)
     glVertexAttribPointer(colorLoc, 4, GL_FLOAT, 0, 0, 0);
     
     mRenderData = reinterpret_cast<char*>(data);
-
 }
     
 }

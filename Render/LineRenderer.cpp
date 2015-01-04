@@ -14,9 +14,11 @@ void LineRenderer::Render(Batch& batch)
 {
     LineBatch& lineBatch = reinterpret_cast<LineBatch&>(batch);
     lineBatch.UpdateRenderData(mShadingInterface);
-    glBindVertexArray(lineBatch.vertexArrayObjectId());
-    glDrawArrays(GL_LINES, 0, 2*lineBatch.size());
-    glGetError();
+    if (lineBatch.size()) {
+        glBindVertexArray(lineBatch.vertexArrayObjectId());
+        glDrawArrays(GL_LINES, 0, 2*lineBatch.size());
+        glGetError();
+    }
 }
 
 

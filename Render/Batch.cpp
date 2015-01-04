@@ -6,7 +6,11 @@ namespace ftr {
 Batch::Batch() :
     mRenderData(NULL),
     mBuffersCount(0),
-    mVertexArrayObjectId(0)
+    mVertexArrayObjectId(0),
+    mChanges(kChangeNone),
+    mAcceptsNewPrimitives(true),
+    mClearPrimitives(false),
+    mUpdatePassed(false)
 {
     
 }
@@ -31,27 +35,44 @@ void Batch::UpdateRenderData(ShadingInterface& shadingInterface) {
         ClearRenderData();
         CreateRenderData(shadingInterface);
         mIsInvalid = false;
+        mChanges = kChangeNone;
+        mAcceptsNewPrimitives = false;
     }
+    
+    mUpdatePassed = true;
 }
 
     
 void Batch::AddPrimitive(Primitive& primitive)
 {
-    if (mIsInvalid) {
+    if (mUpdatePassed && mClearPrimitives) {
+        mPrimitives.clear();
+        mClearPrimitives = false;
+        mAcceptsNewPrimitives = true;
+    }
+
+    if (mAcceptsNewPrimitives || primitive.isInvalid()) {
         if (size() == 0) {
             mOptions = primitive.mOptions;
         }
         primitive.mBatch = this;
+        primitive.Validate();
         mPrimitives.push_back(&primitive);
+        mIsInvalid = true;
     }
+    
+    
+
 }
     
 void Batch::Invalidate()
 {
     if (mIsInvalid) return;
     
+    mClearPrimitives = true;
+    mUpdatePassed = false;
+    
     Primitive::Invalidate();
-    mPrimitives.clear();
 }
 
     

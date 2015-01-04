@@ -25,15 +25,7 @@ BatchBucket::OptionToBatchMap& Layer::BatchesWithType(Primitive::Type type)
 {
     return mBatchBucket.BatchesWithType(type);
 }
-    
-void Layer::Clear()
-{
-//    mBatchBucket.Clear();
-    for (int i = 0; i < mSublayers.size(); ++i) {
-        mSublayers[i]->Clear();
-    }
-}
-    
+        
 void Layer::AddSublayer(Layer* layer)
 {
     mSublayers.push_back(layer);
