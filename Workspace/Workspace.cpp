@@ -57,6 +57,8 @@ void Workspace::Render(Layer& layer)
     //mHUD->Render(*mHudLayer);
     if (mRenderOctree) {
         mOctree->Render(*mOctreeLayer);
+    } else {
+        mOctree->Invalidate(true);
     }
     if (mModelTree) {
         mModelTree->Render(*mModelLayer);

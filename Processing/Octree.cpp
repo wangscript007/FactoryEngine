@@ -1,6 +1,7 @@
 
 #include <Processing/Octree.h>
 #include <Graph/PointNode.h>
+#include <Render/Primitive.h>
 #include <Main/GLError.h>
 
 
@@ -26,8 +27,14 @@ Octree::~Octree()
 void Octree::Render(Layer& layer)
 {
     static_cast<Node*>(mRootNode)->Render(layer);
+    ftr::Node::Render(layer);
 }
 
+void Octree::Invalidate(bool recursively)
+{
+    static_cast<Node*>(mRootNode)->Invalidate();
+    ftr::Node::Invalidate(recursively);
+}
 
 Octree::Branch* Octree::Split(Octree::Leaf *leaf)
 {
@@ -221,6 +228,16 @@ void Octree::Node::Render(Layer& layer)
         static_cast<Branch*>(this)->Render(layer);
     }
 }
+    
+void Octree::Node::Invalidate()
+{
+    if (Type() == kLeaf) {
+        static_cast<Leaf*>(this)->Invalidate();
+    } else {
+        static_cast<Branch*>(this)->Invalidate();
+    }
+}
+
 
 Octree::Node* Octree::Node::NodeContainingPoint(const glm::vec3& point)
 {
@@ -335,6 +352,17 @@ void Octree::Branch::Render(Layer& layer)
         }
     }
 }
+    
+void Octree::Branch::Invalidate()
+{
+    for(int x = 0; x < 2; x++) {
+        for(int y = 0; y < 2; y++) {
+            for(int z = 0; z < 2; z++) {
+                Child(x, y, z)->Invalidate();
+            }
+        }
+    }
+}
 
 void Octree::Branch::setChild(SIndex& sIndex, Node* pNode)
 {
@@ -399,8 +427,14 @@ void Octree::Leaf::Render(Layer& layer)
         linePrimitive[i].setOption(Primitive::kUseDepth, false);
         layer.AddPrimitive(linePrimitive[i]);
     }
+}
     
-    
+void Octree::Leaf::Invalidate()
+{
+    for (int i = 0; i < 12; i++)
+    {
+        linePrimitive[i].Invalidate();
+    }
 }
 
 

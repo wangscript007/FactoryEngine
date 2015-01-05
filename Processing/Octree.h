@@ -26,6 +26,7 @@ public:
     ~Octree();
     
     void Render(Layer& layer);
+    void Invalidate(bool recursively);
     unsigned long Size();
     void InsertPoint(PointNode* pPoint);
     void RemovePoint(PointNode* pPoint);
@@ -52,6 +53,7 @@ public:
         virtual ~Node() {}
         
         virtual void Render(Layer& layer);
+        virtual void Invalidate();
         
         virtual unsigned long Size() const { return 0; }
         Type Type() const { return m_eType; }
@@ -84,6 +86,7 @@ public:
         virtual ~Branch();
         
         void Render(Layer& layer);
+        void Invalidate();
         Node* Child(int x, int y, int z) const { return mChildrenArray[x][y][z]; };
         void setChild(int x, int y, int z, Node* pNode);
         void setChild(SIndex& sIndex, Node* pNode);
@@ -99,6 +102,7 @@ public:
         
         
         Leaf(struct Box sBox) : Node(sBox) { m_eType = kLeaf; }
+        void Invalidate();
         virtual ~Leaf() {}
         
         

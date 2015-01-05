@@ -31,6 +31,14 @@ void Batch::ClearRenderData()
 }
     
 void Batch::UpdateRenderData(ShadingInterface& shadingInterface) {
+    
+    if (mUpdatePassed && mClearPrimitives) {
+        mPrimitives.clear();
+        mClearPrimitives = false;
+        mAcceptsNewPrimitives = true;
+        ClearRenderData();
+    }
+
     if (mIsInvalid) {
         ClearRenderData();
         CreateRenderData(shadingInterface);

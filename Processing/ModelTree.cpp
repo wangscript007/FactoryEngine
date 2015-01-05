@@ -60,7 +60,7 @@ void ModelTree::RemoveNode(Node* pNode)
 {
     if (pNode->Type() == Node::kPoint) {
         mOctree->RemovePoint(static_cast<PointNode*>(pNode));
-    }
+    } 
     Node* supernode = pNode->Supernode();
     assert(supernode);
     supernode->RemoveNode(pNode);
