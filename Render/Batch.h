@@ -29,16 +29,16 @@ public:
 protected:
     std::vector<Primitive*> mPrimitives;
     void ClearRenderData();
+    void ClearPrimitives();
     virtual void CreateRenderData(ShadingInterface& shadingInterface) {}
     GLuint mVertexArrayObjectId;
     GLuint mBuffers[4];
     GLuint mBuffersCount;
     char* mRenderData;
 
-    bool mAcceptsNewPrimitives;
-    
-    bool mClearPrimitives;
-    bool mUpdatePassed;
+    bool mAcceptsValidPrimitives;
+    bool mPrimitivesClearPending;
+    bool mPrimitivesClearAllowed;
     
     unsigned int mChanges;
 

@@ -8,9 +8,9 @@ Batch::Batch() :
     mBuffersCount(0),
     mVertexArrayObjectId(0),
     mChanges(kChangeNone),
-    mAcceptsNewPrimitives(true),
-    mClearPrimitives(false),
-    mUpdatePassed(false)
+    mAcceptsValidPrimitives(true),
+    mPrimitivesClearPending(false),
+    mPrimitivesClearAllowed(false)
 {
     
 }
@@ -30,36 +30,27 @@ void Batch::ClearRenderData()
     }
 }
     
-void Batch::UpdateRenderData(ShadingInterface& shadingInterface) {
+void Batch::UpdateRenderData(ShadingInterface& shadingInterface)
+{
+    ClearPrimitives();
     
-    if (mUpdatePassed && mClearPrimitives) {
-        mPrimitives.clear();
-        mClearPrimitives = false;
-        mAcceptsNewPrimitives = true;
-        ClearRenderData();
-    }
-
     if (mIsInvalid) {
         ClearRenderData();
         CreateRenderData(shadingInterface);
         mIsInvalid = false;
         mChanges = kChangeNone;
-        mAcceptsNewPrimitives = false;
+        mAcceptsValidPrimitives = false;
     }
     
-    mUpdatePassed = true;
+    mPrimitivesClearAllowed = true;
 }
 
     
 void Batch::AddPrimitive(Primitive& primitive)
 {
-    if (mUpdatePassed && mClearPrimitives) {
-        mPrimitives.clear();
-        mClearPrimitives = false;
-        mAcceptsNewPrimitives = true;
-    }
-
-    if (mAcceptsNewPrimitives || primitive.isInvalid()) {
+    ClearPrimitives();
+    
+    if (mAcceptsValidPrimitives || primitive.isInvalid()) {
         if (size() == 0) {
             mOptions = primitive.mOptions;
         }
@@ -68,17 +59,26 @@ void Batch::AddPrimitive(Primitive& primitive)
         mPrimitives.push_back(&primitive);
         mIsInvalid = true;
     }
-    
-    
-
 }
+    
+void Batch::ClearPrimitives()
+{
+    if (mPrimitivesClearAllowed && mPrimitivesClearPending) {
+        mPrimitives.clear();
+        mPrimitivesClearPending = false;
+        mAcceptsValidPrimitives = true;
+    }
+}
+    
     
 void Batch::Invalidate()
 {
     if (mIsInvalid) return;
     
-    mClearPrimitives = true;
-    mUpdatePassed = false;
+    mPrimitivesClearPending = true;
+    // Primitive can be invalidate in the middle of render
+    // so allowing to clear only after data update
+    mPrimitivesClearAllowed = false;
     
     Primitive::Invalidate();
 }

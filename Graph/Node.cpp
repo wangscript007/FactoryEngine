@@ -39,9 +39,6 @@ void Node::Render(Layer& layer)
     {
         node->Render(layer);
     }
-    if (mInvalid) {
-        std::cout << "Validate \n";
-    }
     mInvalid = false;
     
 }
@@ -49,7 +46,7 @@ void Node::Render(Layer& layer)
 void Node::Invalidate(bool recursively)
 {
     if (mInvalid) return;
-    std::cout << "Invalited \n";
+
     mInvalid = true;
     if (recursively) {
         for(auto &node : mSubnodes)
