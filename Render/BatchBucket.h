@@ -11,7 +11,8 @@ class Primitive;
 class BatchBucket
 {
 public:
-    typedef std::unordered_map<unsigned int, Batch*> OptionToBatchMap;
+    typedef std::vector<Batch*> BatchVector;
+    typedef std::unordered_map<unsigned int, BatchVector> OptionToBatchMap;
     typedef std::unordered_map<int, OptionToBatchMap> TypeToBatchedMap;
     
     BatchBucket() {}

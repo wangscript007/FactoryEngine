@@ -44,10 +44,12 @@ void LayerRenderer::RenderInternal(Layer& layer)
         BatchBucket::OptionToBatchMap &batches = layer.BatchesWithType(renderer->type());
         for (auto& pair : batches)
         {
-            Batch& batch = *pair.second;
-            renderer->Begin(batch);
-            renderer->Render(batch);
-            renderer->End(batch);
+            BatchBucket::BatchVector& batchVector = pair.second;
+            for (auto& batch : batchVector) {
+                renderer->Begin(*batch);
+                renderer->Render(*batch);
+                renderer->End(*batch);
+            }
         }
     }
         

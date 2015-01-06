@@ -3,16 +3,18 @@
 
 namespace ftr {
     
+const int kSizeLimit = 10000;
+    
+    
 Batch::Batch() :
     mRenderData(NULL),
     mBuffersCount(0),
     mVertexArrayObjectId(0),
-    mChanges(kChangeNone),
     mAcceptsValidPrimitives(true),
     mPrimitivesClearPending(false),
     mPrimitivesClearAllowed(false)
 {
-    
+    std::cout << "Create \n";
 }
     
 Batch::~Batch()
@@ -38,7 +40,6 @@ void Batch::UpdateRenderData(ShadingInterface& shadingInterface)
         ClearRenderData();
         CreateRenderData(shadingInterface);
         mIsInvalid = false;
-        mChanges = kChangeNone;
         mAcceptsValidPrimitives = false;
     }
     
@@ -56,7 +57,11 @@ void Batch::AddPrimitive(Primitive& primitive)
         }
         primitive.mBatch = this;
         primitive.Validate();
+        
         mPrimitives.push_back(&primitive);
+        if (size() > kSizeLimit) {
+            setFull(true);
+        }
         mIsInvalid = true;
     }
 }
@@ -65,6 +70,7 @@ void Batch::ClearPrimitives()
 {
     if (mPrimitivesClearAllowed && mPrimitivesClearPending) {
         mPrimitives.clear();
+        setFull(false);
         mPrimitivesClearPending = false;
         mAcceptsValidPrimitives = true;
     }

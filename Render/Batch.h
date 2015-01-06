@@ -8,29 +8,27 @@ namespace ftr {
 class Batch : public Primitive
 {
 public:
-    enum Change {
-        kChangeNone                = 0,
-        kChangeNewPrimitive        = 1 << 1,
-        kChangeRemovedPrimitive    = 1 << 2
-    };
-    
     Batch();
     virtual ~Batch();
     virtual void AddPrimitive(Primitive& primitive);
     virtual void Invalidate();
     
-    void AddChange(Change change) { mChanges |= static_cast<unsigned int>(change); }
-    bool ContainsChange(Change change) { return (mChanges & static_cast<unsigned int>(change)) != 0; }
-    
     void UpdateRenderData(ShadingInterface& shadingInterface);
     GLuint size() const { return  static_cast<GLuint>(mPrimitives.size()); }
     GLuint vertexArrayObjectId() const { return mVertexArrayObjectId; }
     
+    bool IsFull() const { return option(kBatchFull); }
+    
 protected:
-    std::vector<Primitive*> mPrimitives;
     void ClearRenderData();
     void ClearPrimitives();
+    
+    void setFull(bool full) { setOption(kBatchFull, full); }
+    
     virtual void CreateRenderData(ShadingInterface& shadingInterface) {}
+    
+    std::vector<Primitive*> mPrimitives;
+    
     GLuint mVertexArrayObjectId;
     GLuint mBuffers[4];
     GLuint mBuffersCount;
@@ -39,9 +37,6 @@ protected:
     bool mAcceptsValidPrimitives;
     bool mPrimitivesClearPending;
     bool mPrimitivesClearAllowed;
-    
-    unsigned int mChanges;
-
 };
     
 }

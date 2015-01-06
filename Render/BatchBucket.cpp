@@ -3,8 +3,6 @@
 #include <Render/PolygonBatch.h>
 #include <Render/LineBatch.h>
 
-const int kBatchSizeLimit = 300;
-
 namespace ftr {
     
 BatchBucket::~BatchBucket()
@@ -32,11 +30,21 @@ void BatchBucket::AddPrimitive(Primitive& primitive)
             } break;
         }
     } else {
-        batch = it->second;
+        batch = it->second.back();
     }
+    
     if (batch) {
         batch->AddPrimitive(primitive);
-        map[primitive.mOptions] = batch;
+        
+        if (it != map.end()) {
+            if (batch->IsFull()) {
+                map.erase(it);
+                map[batch->mOptions].push_back(batch);
+            }
+        } else {
+            map[batch->mOptions].push_back(batch);
+        }
+        
     }
     
 }
@@ -46,7 +54,7 @@ void BatchBucket::Clear()
     for (auto& ipair : mBatchesMap) {
         OptionToBatchMap& map = ipair.second;
         for (auto& jpair : map) {
-            delete jpair.second;
+            FT_DELETE_VECTOR(jpair.second);
         }
     }
     mBatchesMap.clear();
