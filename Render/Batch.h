@@ -4,6 +4,8 @@
 #include <Render/Primitive.h>
 
 namespace ftr {
+    
+extern const int kBatchSizeLimit;
 
 class Batch : public Primitive
 {

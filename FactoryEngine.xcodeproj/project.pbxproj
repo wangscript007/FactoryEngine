@@ -188,6 +188,7 @@
 		D10D48C71A222A7B00B956E9 /* TestModelImporter.mm in Sources */ = {isa = PBXBuildFile; fileRef = D1E012301A221E9900583D0A /* TestModelImporter.mm */; };
 		D116AC081917544500153AEC /* Intersection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D116AC061917544500153AEC /* Intersection.cpp */; };
 		D116AC091917544500153AEC /* Intersection.h in Headers */ = {isa = PBXBuildFile; fileRef = D116AC071917544500153AEC /* Intersection.h */; };
+		D11A0F981A5C9166007EB04F /* TestBatchBucket.mm in Sources */ = {isa = PBXBuildFile; fileRef = D11A0F971A5C9166007EB04F /* TestBatchBucket.mm */; };
 		D11D1CC218DF4FBA0091521F /* Description.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1CC018DF4FBA0091521F /* Description.cpp */; };
 		D11D1CC318DF4FBA0091521F /* Description.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D11D1CC018DF4FBA0091521F /* Description.cpp */; };
 		D11D1CC518DF4FBA0091521F /* Description.h in Headers */ = {isa = PBXBuildFile; fileRef = D11D1CC118DF4FBA0091521F /* Description.h */; };
@@ -472,6 +473,7 @@
 		D116459819FC29DC0015ED78 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../../factoryengine/Main/Constants.h; sourceTree = "<group>"; };
 		D116AC061917544500153AEC /* Intersection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Intersection.cpp; sourceTree = "<group>"; };
 		D116AC071917544500153AEC /* Intersection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Intersection.h; sourceTree = "<group>"; };
+		D11A0F971A5C9166007EB04F /* TestBatchBucket.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestBatchBucket.mm; path = ../../factoryengine/Tests/TestBatchBucket.mm; sourceTree = "<group>"; };
 		D11D1CC018DF4FBA0091521F /* Description.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Description.cpp; sourceTree = "<group>"; };
 		D11D1CC118DF4FBA0091521F /* Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Description.h; sourceTree = "<group>"; };
 		D11D1D4218DF70980091521F /* shapes.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shapes.cc; sourceTree = "<group>"; };
@@ -717,6 +719,7 @@
 				D178BEDE19FD333800B6C4C0 /* TestNode.mm */,
 				D1AA003E1A05585E0040FA70 /* TestLineNode.mm */,
 				D1FE762C1A06624B00FB7535 /* TestOctree.mm */,
+				D11A0F971A5C9166007EB04F /* TestBatchBucket.mm */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1308,6 +1311,7 @@
 				D10D48C31A222A7B00B956E9 /* TestViewport.mm in Sources */,
 				D10D48C41A222A7B00B956E9 /* TestNode.mm in Sources */,
 				D10D48C51A222A7B00B956E9 /* TestLineNode.mm in Sources */,
+				D11A0F981A5C9166007EB04F /* TestBatchBucket.mm in Sources */,
 				D10D48C61A222A7B00B956E9 /* TestOctree.mm in Sources */,
 				D10D48C71A222A7B00B956E9 /* TestModelImporter.mm in Sources */,
 			);

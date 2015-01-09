@@ -33,7 +33,7 @@ public:
     
     
     Primitive();
-    virtual ~Primitive() {}
+    virtual ~Primitive();
     
     virtual void Invalidate();
     void Validate() { mIsInvalid = false; }

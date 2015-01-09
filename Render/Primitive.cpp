@@ -15,6 +15,11 @@ Primitive::Primitive() :
     
 }
     
+Primitive::~Primitive()
+{
+    
+}
+    
 void Primitive::Invalidate()
 {
     mIsInvalid = true;

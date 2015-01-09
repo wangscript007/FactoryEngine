@@ -4,13 +4,18 @@
 #include <Render/LineBatch.h>
 
 namespace ftr {
+ 
+BatchBucket::BatchBucket()
+    :mBatchCount(0),
+    mBatchSizeLimit(200)
+{}
     
 BatchBucket::~BatchBucket()
 {
     Clear();
 }
 
-void BatchBucket::AddPrimitive(Primitive& primitive)
+Batch* BatchBucket::AddPrimitive(Primitive& primitive)
 {
     OptionToBatchMap& map = mBatchesMap[primitive.type()];
     Batch* batch = NULL;
@@ -19,10 +24,12 @@ void BatchBucket::AddPrimitive(Primitive& primitive)
         switch (primitive.type()) {
             case Primitive::kLine: {
                 batch = reinterpret_cast<Batch*>(new LineBatch());
+                mBatchCount++;
             } break;
                 
             case Primitive::kPolygon: {
                 batch = reinterpret_cast<Batch*>(new PolygonBatch());
+                mBatchCount++;
             } break;
                 
             default: {
@@ -43,10 +50,24 @@ void BatchBucket::AddPrimitive(Primitive& primitive)
             }
         } else {
             map[batch->mOptions].push_back(batch);
-        }
-        
+        }   
     }
+    return batch;
+}
     
+void BatchBucket::DeleteBatch(Batch* batch)
+{
+    assert(batch);
+    OptionToBatchMap& map = mBatchesMap[batch->type()];
+    BatchBucket::BatchVector& batchVector = map[batch->mOptions];
+    auto it = std::find(batchVector.begin(), batchVector.end(), batch);
+    if (it != batchVector.end()) {
+        batchVector.erase(it);
+        mBatchCount--;
+    }
+    if (!batchVector.size()) {
+        map.erase(batch->mOptions);
+    }
 }
     
 void BatchBucket::Clear()
@@ -58,6 +79,35 @@ void BatchBucket::Clear()
         }
     }
     mBatchesMap.clear();
+    mBatchCount = 0;
 }
+    
+#pragma mark - Debug
+    
+BatchBucket::DebugData BatchBucket::GetDebugData()
+{
+    DebugData data;
+    for(auto &batches : mBatchesMap) {
+        for (auto& pair : batches.second) {
+            BatchBucket::BatchVector& batchVector = pair.second;
+            DebugData::TypeData typeData;
+            for (auto& batch : batchVector) {
+                typeData.batchesCount++;
+                typeData.primitivesCount += batch->size();
+                if (batch->IsFull()) {
+                    typeData.fullBatchesCount++;
+                }
+                typeData.mapSize = batches.second.size();
+            }
+            switch (batches.first) {
+                case Primitive::kLine: data.mLinesData = typeData;  break;
+                case Primitive::kPolygon: data.mPolygonsData = typeData; break;
+                default: assert(false); break;
+            }
+        }
+    }
+    return data;
+}
+    
     
 }

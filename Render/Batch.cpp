@@ -3,8 +3,7 @@
 
 namespace ftr {
     
-const int kSizeLimit = 10000;
-    
+const int kBatchSizeLimit = 300;
     
 Batch::Batch() :
     mRenderData(NULL),
@@ -59,7 +58,7 @@ void Batch::AddPrimitive(Primitive& primitive)
         primitive.Validate();
         
         mPrimitives.push_back(&primitive);
-        if (size() > kSizeLimit) {
+        if (size() >= kBatchSizeLimit) {
             setFull(true);
         }
         mIsInvalid = true;
