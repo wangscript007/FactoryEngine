@@ -4,7 +4,7 @@
 
 namespace ftr {
     
-const int kBatchSizeLimit = 300;
+const int kBatchSizeLimit = 10000;
     
 Batch::Batch() :
     mRenderData(NULL),
@@ -64,9 +64,6 @@ void Batch::AddPrimitive(Primitive& primitive)
         primitive.Validate();
         
         mPrimitives.push_back(&primitive);
-        if (size() >= kBatchSizeLimit) {
-            setFull(true);
-        }
         mIsInvalid = true;
     }
 }
@@ -75,7 +72,6 @@ void Batch::ClearPrimitives()
 {
     if (mPrimitivesClearAllowed && mPrimitivesClearPending) {
         mPrimitives.clear();
-        setFull(false);
         mPrimitivesClearPending = false;
         mAcceptsValidPrimitives = true;
     }

@@ -21,14 +21,11 @@ public:
     GLuint size() const { return  static_cast<GLuint>(mPrimitives.size()); }
     GLuint vertexArrayObjectId() const { return mVertexArrayObjectId; }
     
-    bool IsFull() const { return option(kBatchFull); }
     BatchBucket* mBatchBucket;
     
 protected:
     void ClearRenderData();
     void ClearPrimitives();
-    
-    void setFull(bool full) { setOption(kBatchFull, full); }
     
     virtual void CreateRenderData(ShadingInterface& shadingInterface) {}
     

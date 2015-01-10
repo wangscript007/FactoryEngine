@@ -45,13 +45,7 @@ Batch* BatchBucket::AddPrimitive(Primitive& primitive)
     
     if (batch) {
         batch->AddPrimitive(primitive);
-        
-        if (it != map.end()) {
-            if (batch->IsFull()) {
-                map.erase(it);
-                map[batch->mOptions].push_back(batch);
-            }
-        } else {
+        if (it == map.end()) {
             map[batch->mOptions].push_back(batch);
         }   
     }
@@ -98,9 +92,6 @@ BatchBucket::DebugData BatchBucket::GetDebugData()
             for (auto& batch : batchVector) {
                 typeData.batchesCount++;
                 typeData.primitivesCount += batch->size();
-                if (batch->IsFull()) {
-                    typeData.fullBatchesCount++;
-                }
                 typeData.mapSize = batches.second.size();
             }
             switch (batches.first) {

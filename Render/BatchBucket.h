@@ -17,9 +17,8 @@ public:
         struct TypeData{
             int batchesCount;
             int primitivesCount;
-            int fullBatchesCount;
             int mapSize;
-            TypeData() : batchesCount(0), primitivesCount(0), fullBatchesCount(0), mapSize(0) {}
+            TypeData() : batchesCount(0), primitivesCount(0), mapSize(0) {}
         };
         
         TypeData mLinesData;
