@@ -24,12 +24,15 @@ Batch* BatchBucket::AddPrimitive(Primitive& primitive)
         switch (primitive.type()) {
             case Primitive::kLine: {
                 batch = reinterpret_cast<Batch*>(new LineBatch());
+                batch->mBatchBucket = this;
                 mBatchCount++;
             } break;
                 
             case Primitive::kPolygon: {
                 batch = reinterpret_cast<Batch*>(new PolygonBatch());
+                batch->mBatchBucket = this;
                 mBatchCount++;
+                
             } break;
                 
             default: {
@@ -68,6 +71,7 @@ void BatchBucket::DeleteBatch(Batch* batch)
     if (!batchVector.size()) {
         map.erase(batch->mOptions);
     }
+    FT_DELETE(batch);
 }
     
 void BatchBucket::Clear()

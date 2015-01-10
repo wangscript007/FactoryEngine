@@ -46,9 +46,11 @@ void LayerRenderer::RenderInternal(Layer& layer)
         {
             BatchBucket::BatchVector& batchVector = pair.second;
             for (auto& batch : batchVector) {
-                renderer->Begin(*batch);
-                renderer->Render(*batch);
-                renderer->End(*batch);
+                if (batch->size()) {
+                    renderer->Begin(*batch);
+                    renderer->Render(*batch);
+                    renderer->End(*batch);
+                }
             }
         }
     }

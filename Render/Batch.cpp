@@ -1,5 +1,6 @@
 
 #include <Render/Batch.h>
+#include <Render/BatchBucket.h>
 
 namespace ftr {
     
@@ -7,6 +8,7 @@ const int kBatchSizeLimit = 300;
     
 Batch::Batch() :
     mRenderData(NULL),
+    mBatchBucket(NULL),
     mBuffersCount(0),
     mVertexArrayObjectId(0),
     mAcceptsValidPrimitives(true),
@@ -18,6 +20,11 @@ Batch::Batch() :
     
 Batch::~Batch()
 {
+    if (mPrimitives.size()) {
+        for (auto& primitive : mPrimitives) {
+            primitive->mBatch = NULL;
+        }
+    }
     ClearRenderData();
 }
     
@@ -34,7 +41,6 @@ void Batch::ClearRenderData()
 void Batch::UpdateRenderData(ShadingInterface& shadingInterface)
 {
     ClearPrimitives();
-    
     if (mIsInvalid) {
         ClearRenderData();
         CreateRenderData(shadingInterface);

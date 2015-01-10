@@ -6,6 +6,8 @@
 namespace ftr {
     
 extern const int kBatchSizeLimit;
+    
+class BatchBucket;
 
 class Batch : public Primitive
 {
@@ -20,6 +22,7 @@ public:
     GLuint vertexArrayObjectId() const { return mVertexArrayObjectId; }
     
     bool IsFull() const { return option(kBatchFull); }
+    BatchBucket* mBatchBucket;
     
 protected:
     void ClearRenderData();
