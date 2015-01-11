@@ -4,11 +4,8 @@
 
 namespace ftr {
     
-const int kBatchSizeLimit = 10000;
-    
 Batch::Batch() :
     mRenderData(NULL),
-    mBatchBucket(NULL),
     mBuffersCount(0),
     mVertexArrayObjectId(0),
     mAcceptsValidPrimitives(true),
@@ -20,9 +17,12 @@ Batch::Batch() :
     
 Batch::~Batch()
 {
+    std::cout << "Delete \n";
     if (mPrimitives.size()) {
         for (auto& primitive : mPrimitives) {
-            primitive->mBatch = NULL;
+            if (primitive->mBatch == this) {
+                primitive->mBatch = NULL;
+            }
         }
     }
     ClearRenderData();
@@ -41,6 +41,7 @@ void Batch::ClearRenderData()
 void Batch::UpdateRenderData(ShadingInterface& shadingInterface)
 {
     ClearPrimitives();
+    
     if (mIsInvalid) {
         ClearRenderData();
         CreateRenderData(shadingInterface);
@@ -68,13 +69,14 @@ void Batch::AddPrimitive(Primitive& primitive)
     }
 }
     
-void Batch::ClearPrimitives()
+bool Batch::ClearPrimitives()
 {
     if (mPrimitivesClearAllowed && mPrimitivesClearPending) {
         mPrimitives.clear();
         mPrimitivesClearPending = false;
         mAcceptsValidPrimitives = true;
     }
+    return true;
 }
     
     
@@ -84,7 +86,7 @@ void Batch::Invalidate()
     
     mPrimitivesClearPending = true;
     // Primitive can be invalidate in the middle of render
-    // so allowing to clear only after data update
+    // so allowing to clear only after rendering is comlete
     mPrimitivesClearAllowed = false;
     
     Primitive::Invalidate();

@@ -99,6 +99,7 @@ void Scene::Render()
     mWorkspace->mRenderOctree = option(kOptionShowOctree);
     mWorkspace->Render(*mLayer);
     mSceneRenderer->Render(*mLayer);
+    mLayer->Cleanup();
     mFramesCount++;
 }
     

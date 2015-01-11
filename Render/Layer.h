@@ -25,6 +25,7 @@ public:
     BatchBucket::OptionToBatchMap& BatchesWithType(Primitive::Type type);
     void setDepth(int depth);
     const LayersVector& sublayers() { return mSublayers; }
+    void Cleanup();
     
 private:
     void OrderSublayers();

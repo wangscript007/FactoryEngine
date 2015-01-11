@@ -5,10 +5,6 @@
 
 namespace ftr {
     
-extern const int kBatchSizeLimit;
-    
-class BatchBucket;
-
 class Batch : public Primitive
 {
 public:
@@ -21,11 +17,11 @@ public:
     GLuint size() const { return  static_cast<GLuint>(mPrimitives.size()); }
     GLuint vertexArrayObjectId() const { return mVertexArrayObjectId; }
     
-    BatchBucket* mBatchBucket;
+    bool ClearPrimitives();
+    bool mPrimitivesClearPending;
     
 protected:
     void ClearRenderData();
-    void ClearPrimitives();
     
     virtual void CreateRenderData(ShadingInterface& shadingInterface) {}
     
@@ -37,7 +33,6 @@ protected:
     char* mRenderData;
 
     bool mAcceptsValidPrimitives;
-    bool mPrimitivesClearPending;
     bool mPrimitivesClearAllowed;
 };
     

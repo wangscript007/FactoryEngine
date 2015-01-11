@@ -17,37 +17,46 @@ BatchBucket::~BatchBucket()
 
 Batch* BatchBucket::AddPrimitive(Primitive& primitive)
 {
+    if (primitive.type() == Primitive::kPoint) return NULL;
+    
     OptionToBatchMap& map = mBatchesMap[primitive.type()];
     Batch* batch = NULL;
     auto it = map.find(primitive.mOptions);
-    if (it == map.end()) {
-        switch (primitive.type()) {
-            case Primitive::kLine: {
-                batch = reinterpret_cast<Batch*>(new LineBatch());
-                batch->mBatchBucket = this;
-                mBatchCount++;
-            } break;
-                
-            case Primitive::kPolygon: {
-                batch = reinterpret_cast<Batch*>(new PolygonBatch());
-                batch->mBatchBucket = this;
-                mBatchCount++;
-                
-            } break;
-                
-            default: {
-                
-            } break;
-        }
-    } else {
+    if (it == map.end()){
+        // batch for options not yet exist
+        batch = CreateBatch(primitive.type());
+        map[primitive.mOptions].push_back(batch);
+        batch->AddPrimitive(primitive);
+    }
+    else {
+        // batch for options already exist
         batch = it->second.back();
+        if (batch->size() >= mBatchSizeLimit || batch->mPrimitivesClearPending) {
+            batch = CreateBatch(primitive.type());
+            map[primitive.mOptions].push_back(batch);
+        }
+        batch->AddPrimitive(primitive);
     }
     
-    if (batch) {
-        batch->AddPrimitive(primitive);
-        if (it == map.end()) {
-            map[batch->mOptions].push_back(batch);
-        }   
+    return batch;
+}
+    
+Batch* BatchBucket::CreateBatch(Primitive::Type type)
+{
+    Batch* batch = NULL;
+    switch (type) {
+        case Primitive::kLine: {
+            batch = reinterpret_cast<Batch*>(new LineBatch());
+            mBatchCount++;
+        } break;
+            
+        case Primitive::kPolygon: {
+            batch = reinterpret_cast<Batch*>(new PolygonBatch());
+            mBatchCount++;
+            
+        } break;
+            
+        default: {} break;
     }
     return batch;
 }
@@ -78,6 +87,23 @@ void BatchBucket::Clear()
     }
     mBatchesMap.clear();
     mBatchCount = 0;
+}
+    
+void BatchBucket::Cleanup()
+{
+    for(auto &batches : mBatchesMap) {
+        
+        for (auto& pair : batches.second) {
+            BatchBucket::BatchVector& batchVector = pair.second;
+            for (auto& batch : batchVector) {
+                if (batch->size() == 0 || batch->mPrimitivesClearPending) {
+                    DeleteBatch(batch);
+                }
+            }
+        }
+    }
+    
+    
 }
     
 #pragma mark - Debug

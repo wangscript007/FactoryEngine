@@ -24,15 +24,14 @@ using namespace ftr;
 - (void)testAddPrimitive
 {
     BatchBucket bucket;
-    for (int i = 0; i < kBatchSizeLimit*10; ++i) {
+    for (int i = 0; i < bucket.batchSizeLimit()*10; ++i) {
         PolygonPrimitive* polygonPrimitive = new PolygonPrimitive();
         bucket.AddPrimitive(*polygonPrimitive);
     }
     
     BatchBucket::DebugData data = bucket.GetDebugData();
-    XCTAssertEqual(data.mPolygonsData.primitivesCount, kBatchSizeLimit*10);
+    XCTAssertEqual(data.mPolygonsData.primitivesCount, bucket.batchSizeLimit()*10);
     XCTAssertEqual(data.mPolygonsData.batchesCount, 10);
-    XCTAssertEqual(data.mPolygonsData.fullBatchesCount, 10);
     XCTAssertEqual(data.mLinesData.primitivesCount, 0);
     XCTAssertEqual(bucket.batchCount(), 10);
     
@@ -42,7 +41,7 @@ using namespace ftr;
 - (void)testDeleteBatch
 {
     BatchBucket bucket;
-    for (int i = 0; i < kBatchSizeLimit*10-1; ++i) {
+    for (int i = 0; i < bucket.batchSizeLimit()*10-1; ++i) {
         PolygonPrimitive* polygonPrimitive = new PolygonPrimitive();
         bucket.AddPrimitive(*polygonPrimitive);
     }
@@ -59,11 +58,10 @@ using namespace ftr;
     bucket.DeleteBatch(batch2);
     
     data = bucket.GetDebugData();
-    XCTAssertEqual(data.mPolygonsData.primitivesCount, kBatchSizeLimit*9);
+    XCTAssertEqual(data.mPolygonsData.primitivesCount, bucket.batchSizeLimit()*9);
     XCTAssertEqual(data.mPolygonsData.batchesCount, 9);
-    XCTAssertEqual(data.mPolygonsData.fullBatchesCount, 9);
     XCTAssertEqual(data.mLinesData.primitivesCount, 0);
-    XCTAssertEqual(data.mPolygonsData.primitivesCount, kBatchSizeLimit*9);
+    XCTAssertEqual(data.mPolygonsData.primitivesCount, bucket.batchSizeLimit()*9);
     XCTAssertEqual(data.mPolygonsData.mapSize, 1);
     XCTAssertEqual(bucket.batchCount(), 9);
     

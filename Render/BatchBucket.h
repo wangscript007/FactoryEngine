@@ -42,7 +42,13 @@ public:
     
     DebugData GetDebugData();
     
+    void Cleanup();
+    
+    int batchSizeLimit() const { return mBatchSizeLimit; }
+    
 private:
+    Batch* CreateBatch(Primitive::Type type);
+    
     TypeToBatchedMap mBatchesMap;
     int mBatchCount;
     int mBatchSizeLimit;

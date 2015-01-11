@@ -26,9 +26,6 @@ public:
         kUseDepth          = 1 << 1,
         kUseBlend          = 1 << 2,
         kUseLighting       = 1 << 3,
-        
-        kBatchFull          = 1 << 4,
-        kBatchActive        = 1 << 5
     };
     
     
