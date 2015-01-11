@@ -23,6 +23,9 @@ public:
         
         TypeData mLinesData;
         TypeData mPolygonsData;
+        
+        std::string Description() const;
+        std::string TypeDataDescription(TypeData typeData) const;
     };
     
     typedef std::vector<Batch*> BatchVector;
@@ -38,6 +41,8 @@ public:
     OptionToBatchMap& BatchesWithType(Primitive::Type type) { return mBatchesMap[type]; }
     void DeleteBatch(Batch* batch);
     
+    std::string Description() const;
+    
     int batchCount() const { return mBatchCount; }
     
     DebugData GetDebugData();
@@ -46,8 +51,11 @@ public:
     
     int batchSizeLimit() const { return mBatchSizeLimit; }
     
+    
 private:
     Batch* CreateBatch(Primitive::Type type);
+    void Zombies(BatchVector& batchVector);
+    
     
     TypeToBatchedMap mBatchesMap;
     int mBatchCount;

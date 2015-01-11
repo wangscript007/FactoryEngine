@@ -17,6 +17,8 @@ BatchBucket::~BatchBucket()
 
 Batch* BatchBucket::AddPrimitive(Primitive& primitive)
 {
+    if (primitive.mBatch) return NULL;
+    
     if (primitive.type() == Primitive::kPoint) return NULL;
     
     OptionToBatchMap& map = mBatchesMap[primitive.type()];
@@ -31,7 +33,7 @@ Batch* BatchBucket::AddPrimitive(Primitive& primitive)
     else {
         // batch for options already exist
         batch = it->second.back();
-        if (batch->size() >= mBatchSizeLimit || batch->mPrimitivesClearPending) {
+        if (batch->size() >= mBatchSizeLimit || batch->isZombie()) {
             batch = CreateBatch(primitive.type());
             map[primitive.mOptions].push_back(batch);
         }
@@ -91,22 +93,47 @@ void BatchBucket::Clear()
     
 void BatchBucket::Cleanup()
 {
+    std::cout << Description();
+    BatchVector zombiesVector;
+    Zombies(zombiesVector);
+    for (auto& zombie : zombiesVector) {
+        DeleteBatch(zombie);
+    }
+}
+    
+void BatchBucket::Zombies(BatchBucket::BatchVector& zombiesVector)
+{
     for(auto &batches : mBatchesMap) {
         
         for (auto& pair : batches.second) {
             BatchBucket::BatchVector& batchVector = pair.second;
             for (auto& batch : batchVector) {
-                if (batch->size() == 0 || batch->mPrimitivesClearPending) {
-                    DeleteBatch(batch);
+                if (batch->isZombie()) {
+                    zombiesVector.push_back(batch);
                 }
             }
         }
     }
-    
-    
 }
     
+    
 #pragma mark - Debug
+    
+std::string BatchBucket::Description() const
+{
+    std::stringstream ss;
+    ss << "-------------------\n";
+    for(auto &batches : mBatchesMap) {
+        for (auto& pair : batches.second) {
+            const BatchBucket::BatchVector& batchVector = pair.second;
+            for (auto& batch : batchVector) {
+                ss << batch->Description() << "\n";
+            }
+        }
+    }
+    ss << "-------------------\n";
+    return ss.str();
+}
     
 BatchBucket::DebugData BatchBucket::GetDebugData()
 {
@@ -130,5 +157,17 @@ BatchBucket::DebugData BatchBucket::GetDebugData()
     return data;
 }
     
+std::string BatchBucket::DebugData::Description() const
+{
+    std::stringstream ss;
+    return ss.str();
+}
     
+std::string BatchBucket::DebugData::TypeDataDescription(BatchBucket::DebugData::TypeData typeData) const
+{
+    std::stringstream ss;
+    ss << "batches: ";
+    return ss.str();
+}
+
 }

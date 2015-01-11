@@ -17,8 +17,9 @@ public:
     GLuint size() const { return  static_cast<GLuint>(mPrimitives.size()); }
     GLuint vertexArrayObjectId() const { return mVertexArrayObjectId; }
     
-    bool ClearPrimitives();
-    bool mPrimitivesClearPending;
+    std::string Description() const;
+    
+    bool isZombie() const { return mDeletePending; }
     
 protected:
     void ClearRenderData();
@@ -32,8 +33,7 @@ protected:
     GLuint mBuffersCount;
     char* mRenderData;
 
-    bool mAcceptsValidPrimitives;
-    bool mPrimitivesClearAllowed;
+    bool mDeletePending;
 };
     
 }
