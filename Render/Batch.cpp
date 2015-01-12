@@ -10,12 +10,12 @@ Batch::Batch() :
     mVertexArrayObjectId(0),
     mDeletePending(false)
 {
-    std::cout << "Create \n";
+//    std::cout << "Create \n";
 }
     
 Batch::~Batch()
 {
-    std::cout << "Delete " << size() << "\n";
+//    std::cout << "Delete " << size() << "\n";
     if (mPrimitives.size()) {
         for (auto& primitive : mPrimitives) {
             if (primitive->mBatch == this) {
@@ -57,6 +57,8 @@ void Batch::AddPrimitive(Primitive& primitive)
         primitive.Validate();
         
         mPrimitives.push_back(&primitive);
+    } else {
+        assert(false);
     }
 }
     

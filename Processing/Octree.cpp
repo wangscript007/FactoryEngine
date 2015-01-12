@@ -12,6 +12,7 @@ Octree::Octree(Box sBox)
     ,mMaxDepth(9)
     ,mSize(0)
     ,mUpdateSize(true)
+    ,mIsInvalid(true)
 
 {
     mRootNode = Split(new Leaf(sBox));
@@ -28,12 +29,16 @@ void Octree::Render(Layer& layer)
 {
     static_cast<Node*>(mRootNode)->Render(layer);
     ftr::Node::Render(layer);
+    mIsInvalid = false;
 }
 
 void Octree::Invalidate(bool recursively)
 {
+    if (mIsInvalid) return;
+    
     static_cast<Node*>(mRootNode)->Invalidate();
     ftr::Node::Invalidate(recursively);
+    mIsInvalid = true;
 }
 
 Octree::Branch* Octree::Split(Octree::Leaf *leaf)

@@ -33,7 +33,7 @@ Batch* BatchBucket::AddPrimitive(Primitive& primitive)
     else {
         // batch for options already exist
         batch = it->second.back();
-        if (batch->size() >= mBatchSizeLimit || batch->isZombie()) {
+        if (batch->size() >= mBatchSizeLimit || batch->isZombie() || !batch->isInvalid()) {
             batch = CreateBatch(primitive.type());
             map[primitive.mOptions].push_back(batch);
         }
@@ -49,17 +49,16 @@ Batch* BatchBucket::CreateBatch(Primitive::Type type)
     switch (type) {
         case Primitive::kLine: {
             batch = reinterpret_cast<Batch*>(new LineBatch());
-            mBatchCount++;
         } break;
             
         case Primitive::kPolygon: {
             batch = reinterpret_cast<Batch*>(new PolygonBatch());
-            mBatchCount++;
             
         } break;
             
         default: {} break;
     }
+    if (batch) mBatchCount++;
     return batch;
 }
     
@@ -93,7 +92,6 @@ void BatchBucket::Clear()
     
 void BatchBucket::Cleanup()
 {
-    std::cout << Description();
     BatchVector zombiesVector;
     Zombies(zombiesVector);
     for (auto& zombie : zombiesVector) {
@@ -104,7 +102,6 @@ void BatchBucket::Cleanup()
 void BatchBucket::Zombies(BatchBucket::BatchVector& zombiesVector)
 {
     for(auto &batches : mBatchesMap) {
-        
         for (auto& pair : batches.second) {
             BatchBucket::BatchVector& batchVector = pair.second;
             for (auto& batch : batchVector) {
@@ -114,6 +111,9 @@ void BatchBucket::Zombies(BatchBucket::BatchVector& zombiesVector)
             }
         }
     }
+//    if (zombiesVector.size()) {
+//        std::cout << Description();
+//    }
 }
     
     
@@ -122,17 +122,22 @@ void BatchBucket::Zombies(BatchBucket::BatchVector& zombiesVector)
 std::string BatchBucket::Description() const
 {
     std::stringstream ss;
-    ss << "-------------------\n";
+    bool exist = false;
     for(auto &batches : mBatchesMap) {
         for (auto& pair : batches.second) {
             const BatchBucket::BatchVector& batchVector = pair.second;
             for (auto& batch : batchVector) {
                 ss << batch->Description() << "\n";
+                exist = true;
             }
         }
     }
     ss << "-------------------\n";
-    return ss.str();
+    
+    if (exist) {
+        return ss.str();
+    }
+    return "";
 }
     
 BatchBucket::DebugData BatchBucket::GetDebugData()

@@ -74,6 +74,7 @@ public:
         SIndex mIndex;
         enum Type m_eType;
         int mDepth;
+        
     private:
         
     };
@@ -127,6 +128,8 @@ private:
     int mMaxDepth;
     bool mUpdateSize;
     unsigned long mSize;
+    
+    bool mIsInvalid;
 };
     
 }
