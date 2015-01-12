@@ -18,6 +18,7 @@ void PolygonRenderer::Render(Batch& batch)
 {
     PolygonBatch& polygonBatch = reinterpret_cast<PolygonBatch&>(batch);
     polygonBatch.CreateRenderData(mShadingInterface);
+    assert(!polygonBatch.IsZombie()); // Invalidating polygon during rendering
     GLint count = static_cast<GLint>(polygonBatch.trianglesCount());
     if (count > 0) {
         glBindVertexArray(polygonBatch.vertexArrayObjectId());
