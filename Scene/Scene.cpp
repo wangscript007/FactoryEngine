@@ -97,9 +97,9 @@ void Scene::Render()
 {
     mSceneRenderer->setMarkingBufferVisible(option(kOptionShowMarkingView));
     mWorkspace->mRenderOctree = option(kOptionShowOctree);
+    mLayer->Cleanup();
     mWorkspace->Render(*mLayer);
     mSceneRenderer->Render(*mLayer);
-    mLayer->Cleanup();
     mFramesCount++;
 }
     
