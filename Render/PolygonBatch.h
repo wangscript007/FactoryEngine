@@ -13,13 +13,11 @@ public:
     Type type() const { return kPolygon; }
     PolygonBatch();
     virtual ~PolygonBatch() {}
-    
-    int trianglesCount() const { return mTrianglesCount; }
-    virtual void Invalidate();
-    
-protected:
     virtual void CreateRenderData(ShadingInterface& shadingInterface);
     
+    int trianglesCount() const { return mTrianglesCount; }
+    
+private:
     int mTrianglesCount;
 };
     

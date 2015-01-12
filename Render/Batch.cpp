@@ -7,8 +7,7 @@ namespace ftr {
 Batch::Batch() :
     mRenderData(NULL),
     mBuffersCount(0),
-    mVertexArrayObjectId(0),
-    mDeletePending(false)
+    mVertexArrayObjectId(0)
 {
 //    std::cout << "Create \n";
 }
@@ -35,51 +34,28 @@ void Batch::ClearRenderData()
         glDeleteVertexArrays(1, &mVertexArrayObjectId);
     }
 }
-    
-void Batch::UpdateRenderData(ShadingInterface& shadingInterface)
-{
-    if (mIsInvalid) {
-        ClearRenderData();
-        CreateRenderData(shadingInterface);
-        mIsInvalid = false;
-    }
-}
 
     
 void Batch::AddPrimitive(Primitive& primitive)
 {
-    assert(!mDeletePending);
-    if (mIsInvalid) {
-        if (size() == 0) {
-            mOptions = primitive.mOptions;
-        }
-        primitive.mBatch = this;
-        primitive.Validate();
-        
-        mPrimitives.push_back(&primitive);
-    } else {
-        assert(false);
+    assert(AcceptsPrimitives());
+    if (size() == 0) {
+        mOptions = primitive.mOptions;
     }
-}
+    primitive.mBatch = this;
+    primitive.Validate();
     
-void Batch::Invalidate()
-{
-    mDeletePending = true;
-    // Primitive can be invalidate in the middle of render
-    // so allowing to clear only after rendering is comlete;
-    
-    Primitive::Invalidate();
+    mPrimitives.push_back(&primitive);
 }
-
     
 #pragma mark - Debug
     
 std::string Batch::Description() const
 {
     std::stringstream ss;
-    ss << "size: " << size() << " zombie: " << (isZombie() ? "YES" : "NO");
+    ss << "size: " << size() << " invalid: " << (isInvalid() ? "YES" : "NO");
     return ss.str();
 }
-    
+        
 }
 

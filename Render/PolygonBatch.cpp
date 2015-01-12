@@ -10,17 +10,11 @@ PolygonBatch::PolygonBatch() :
 
 }
     
-    
-void PolygonBatch::Invalidate()
-{
-    if (mIsInvalid) return;
-    
-    Batch::Invalidate();
-    mTrianglesCount = 0;
-}
-    
 void PolygonBatch::CreateRenderData(ShadingInterface& shadingInterface)
 {
+    if (mRenderData) return;
+    Validate();
+    
     mTrianglesCount = 0;
     for (auto& it : mPrimitives) {
         PolygonPrimitive* poly = reinterpret_cast<PolygonPrimitive*>(it);
@@ -83,6 +77,7 @@ void PolygonBatch::CreateRenderData(ShadingInterface& shadingInterface)
     glVertexAttribPointer(pickingColorLoc, 4, GL_FLOAT, 0, 0, 0);
     
     mRenderData = reinterpret_cast<char*>(data);
+    
 }
     
     

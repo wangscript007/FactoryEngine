@@ -6,6 +6,9 @@ namespace ftr {
 
 void LineBatch::CreateRenderData(ShadingInterface& shadingInterface)
 {
+    if (mRenderData) return;
+    Validate();
+    
     glm::vec4* data = reinterpret_cast<glm::vec4*>(new char[sizeof(glm::vec4)*2*size()*2]);
     
     glm::vec4* vertices         = data;

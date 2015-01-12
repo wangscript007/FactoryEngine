@@ -14,9 +14,10 @@ public:
     
     LineBatch() {}
     virtual ~LineBatch() {}
+    void CreateRenderData(ShadingInterface& shadingInterface);
     
 private:
-    void CreateRenderData(ShadingInterface& shadingInterface);
+    
 };
 
 }

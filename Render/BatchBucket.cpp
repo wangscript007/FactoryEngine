@@ -33,7 +33,7 @@ Batch* BatchBucket::AddPrimitive(Primitive& primitive)
     else {
         // batch for options already exist
         batch = it->second.back();
-        if (batch->size() >= mBatchSizeLimit || batch->isZombie() || !batch->isInvalid()) {
+        if (batch->size() >= mBatchSizeLimit || !batch->AcceptsPrimitives()) {
             batch = CreateBatch(primitive.type());
             map[primitive.mOptions].push_back(batch);
         }
@@ -105,7 +105,7 @@ void BatchBucket::Zombies(BatchBucket::BatchVector& zombiesVector)
         for (auto& pair : batches.second) {
             BatchBucket::BatchVector& batchVector = pair.second;
             for (auto& batch : batchVector) {
-                if (batch->isZombie()) {
+                if (batch->IsZombie()) {
                     zombiesVector.push_back(batch);
                 }
             }
