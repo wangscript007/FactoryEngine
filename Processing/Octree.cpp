@@ -427,9 +427,10 @@ void Octree::Leaf::Render(Layer& layer)
     for (int i = 0; i < 12; i++) {
         linePrimitive[i].mBegin = p[indices[i*2]];
         linePrimitive[i].mEnd = p[indices[i*2+1]];
-        linePrimitive[i].mColor = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
+        linePrimitive[i].mColor = glm::vec4(0.0f, 0.0f, 0.0f, 0.2f);
         linePrimitive[i].setOption(Primitive::kUseLighting, false);
         linePrimitive[i].setOption(Primitive::kUseDepth, false);
+        linePrimitive[i].setOption(Primitive::kUseBlend, true);
         layer.AddPrimitive(linePrimitive[i]);
     }
 }

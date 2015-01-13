@@ -28,7 +28,7 @@ public:
     void setModelTree(ModelTree* modelTree) { mModelTree = modelTree; }
     
     
-    bool mRenderOctree;
+    void SetRenderOctree(bool renderOctree);
 private:
     
     Octree* mOctree;
@@ -43,7 +43,7 @@ private:
     Layer* mTestLayer;
     Layer* mOctreeLayer;
     
-    
+    bool mRenderOctree;
 };
 
 }

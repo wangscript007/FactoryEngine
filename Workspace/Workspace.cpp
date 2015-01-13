@@ -38,6 +38,15 @@ Workspace::Workspace(Layer* layer)
     layer->AddSublayer(mOctreeLayer);
     layer->AddSublayer(mModelLayer);
 }
+    
+void Workspace::SetRenderOctree(bool renderOctree)
+{
+    if (mRenderOctree == renderOctree) return;
+    
+    mRenderOctree = renderOctree;
+    mOctree->Invalidate(true);
+    
+}
 
 Workspace::~Workspace()
 {
@@ -57,9 +66,7 @@ void Workspace::Render(Layer& layer)
     //mHUD->Render(*mHudLayer);
     if (mRenderOctree) {
         mOctree->Render(*mOctreeLayer);
-    } else {
-        mOctree->Invalidate(true);
-    }
+    } 
     if (mModelTree) {
         mModelTree->Render(*mModelLayer);
     }

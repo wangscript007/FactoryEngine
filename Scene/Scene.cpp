@@ -96,7 +96,7 @@ void Scene::Prepare()
 void Scene::Render()
 {
     mSceneRenderer->setMarkingBufferVisible(option(kOptionShowMarkingView));
-    mWorkspace->mRenderOctree = option(kOptionShowOctree);
+    mWorkspace->SetRenderOctree(option(kOptionShowOctree));
     mLayer->Cleanup();
     mWorkspace->Render(*mLayer);
     mSceneRenderer->Render(*mLayer);
