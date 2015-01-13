@@ -28,10 +28,10 @@ Scene::Scene() :
     mWorkspace = new Workspace(mLayer);
 
     mModelEditor = new ModelEditor();
- //   mModelEditor->DebugCreateCube();
+    mModelEditor->DebugCreateCube();
     
     ModelImporter modelImporter(*mModelEditor);
-    
+
     modelImporter.Import("/Users/edvinassarkus/factory/factoryengine/Tests/Models/X/dwarf.x");
 
 

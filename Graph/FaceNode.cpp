@@ -115,7 +115,7 @@ glm::vec3 FaceNode::Center() const
     
 void FaceNode::Invalidate(bool recursively)
 {
-    if (mInvalid) return;
+    //if (mInvalid) return;
     
     Node::Invalidate(recursively);
     mPolygonPrimitive.Invalidate();
@@ -194,7 +194,7 @@ glm::vec3 FaceNode::SurfaceNormal() const
     do {
         points.push_back(currentEdge->origin());
         currentEdge = currentEdge->next();
-        counter++;
+        counter++; 
         
     } while (counter < 3);
     Triangle triangle(points);

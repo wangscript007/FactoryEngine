@@ -64,7 +64,7 @@ void PointNode::Render(Layer& layer)
     
 void PointNode::Invalidate(bool recursively)
 {
-    if (mInvalid) return;
+//    if (mInvalid) return;
     
     Node::Invalidate(recursively);
     

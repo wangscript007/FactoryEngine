@@ -31,7 +31,7 @@ void LineNode::Render(Layer& layer)
     
 void LineNode::Invalidate(bool recursively)
 {
-    if (mInvalid) return;
+//    if (mInvalid) return;
     
     Node::Invalidate(recursively);
     mLinePrimitive.Invalidate();
