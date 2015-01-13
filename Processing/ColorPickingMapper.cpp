@@ -88,12 +88,14 @@ void ColorPickingMapper::MapPickingColorsForFaces()
 {
     mIntToNodeMap.clear();
     std::vector<GroupNode*>& groups = mModelTree->mGroups;
+    int count = 0;
     for(auto &groupNode : groups) {
         for(auto &bodyNode : groupNode->mSubnodes) {
             for(int i = 0; i < bodyNode->mSubnodes.size(); ++i) {
-                int pickingId = (1+i)*kGranularity;
+                int pickingId = (1+count)*kGranularity;
                 mIntToNodeMap[pickingId] = bodyNode->mSubnodes[i];
                 bodyNode->mSubnodes[i]->setPickingId(pickingId);
+                count++;
             }
         }
     }
