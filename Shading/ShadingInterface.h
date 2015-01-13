@@ -30,9 +30,6 @@ public:
         } transform;
         struct Settings {
             GLuint lightsCount;
-            GLuint debugLineWidth;
-            GLuint debugOn;
-            GLuint debugFloatScale;
         } settings;
         GLuint windowSize;
         struct Light {
@@ -54,14 +51,8 @@ public:
     
     struct Settings {
         int lightsCount;
-        int debugLineWidth;
-        int debugOn;
-        float debugFloatScale;
         Settings() :
-        lightsCount(2),
-        debugOn(0),
-        debugLineWidth(2.0f),
-        debugFloatScale(1.0f) {}
+        lightsCount(2) {}
     };
     
     virtual ~ShadingInterface() {}

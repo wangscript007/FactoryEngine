@@ -17,10 +17,6 @@ void ShadingInterface::CreateInterfaceForProgram(ShadingProgram::Type type, GLui
             bond.transform.view = UniformLocation("transformVar.view", programId);
             bond.transform.projection = UniformLocation("transformVar.projection", programId);
             bond.settings.lightsCount = UniformLocation("settingsVar.lightsCount", programId);
-            bond.settings.debugLineWidth = UniformLocation("settingsVar.debugLineWidth", programId);
-            bond.settings.debugOn = UniformLocation("settingsVar.debugOn", programId);
-            bond.settings.debugFloatScale = UniformLocation("settingsVar.debugFloatScale", programId);
-//            bond.windowSize = UniformLocation("windowSize", programId);
             for (int i = 0; i < 2; i++) {
                 std::stringstream streamLocation;
                 streamLocation << "light"<< i << ".";
@@ -107,9 +103,6 @@ GLuint ShadingInterface::BlockBuffer(const std::string& name, GLuint programId) 
 void ShadingInterface::InputSettings(const Settings& settings)
 {
     glUniform1i(mActiveBond->settings.lightsCount, settings.lightsCount);
-    glUniform1i(mActiveBond->settings.debugLineWidth, settings.debugLineWidth);
-    glUniform1i(mActiveBond->settings.debugOn, settings.debugOn);
-    glUniform1f(mActiveBond->settings.debugFloatScale, settings.debugFloatScale);
 }
     
 void ShadingInterface::InputViewport(const Viewport& viewport)

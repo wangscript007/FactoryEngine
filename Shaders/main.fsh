@@ -12,9 +12,6 @@ struct Transform {
 
 struct Settings {
     int lightsCount;
-    int debugLineWidth;
-    int debugOn;
-    float debugFloatScale;
 };
 
 struct Light {
@@ -44,8 +41,6 @@ in VEC4 localPosition;
 in VEC3 localPosition3;
 in VEC4 Color;
 in VEC3 Eye;
-
-float debugFloat = 0.0f;
 
 out VEC4 outputF;
 
@@ -211,6 +206,7 @@ void SpotLight(in Light light,
 }
 
 
+
 //--------------------------------------------------------------------------------------------------
 void main()
 {
@@ -270,5 +266,5 @@ void main()
             }
         }   
     }
-    outputF = Color + amb * 0.3 + diff * 0.3 + spec * 0.3;
+    outputF = Color + amb * 0.33 + diff * 0.33 + spec * 0.33;
 }
