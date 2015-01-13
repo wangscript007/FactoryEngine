@@ -65,7 +65,7 @@ public:
 class LinePrimitive : public Primitive
 {
 public:
-    LinePrimitive() {};
+    LinePrimitive() { setOption(kUseLighting, false), setOption(kUseDepth, false); };
     virtual ~LinePrimitive() {}
     
     Type type() const { return kLine; }
@@ -78,7 +78,7 @@ public:
 class PolygonPrimitive : public Primitive, public Polygon
 {
 public:
-    PolygonPrimitive() {}
+    PolygonPrimitive() { setOption(kUseLighting, true); }
     PolygonPrimitive(const std::vector<glm::vec3>& vecs) : Polygon(vecs) {}
     virtual ~PolygonPrimitive() {}
     

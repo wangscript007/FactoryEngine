@@ -54,7 +54,7 @@ public:
         Settings() :
         lightsCount(2) {}
     };
-    
+    ShadingInterface();
     virtual ~ShadingInterface() {}
     void BindOutput(GLuint programId);
     void CreateInterfaceForProgram(ShadingProgram::Type type, GLuint programID);
@@ -73,6 +73,8 @@ public:
     void InputSettings(const Settings& settings);
     void InputLight(const Light::Data& lightData);
     void InputWindowSize(const glm::vec2& windowSize);
+    
+    void SetLightingOn(bool lightingOn);
         
     Settings mSettings;
 private:
@@ -81,6 +83,7 @@ private:
     
     Bond* mActiveBond;
     BondsMap mBondsMap;
+    bool mLightingOn;
     
 };
     

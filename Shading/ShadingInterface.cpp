@@ -3,7 +3,25 @@
 #include <Main/GLError.h>
 
 namespace ftr {
-        
+    
+ShadingInterface::ShadingInterface() :
+mLightingOn(false)
+{
+    std::cout << "Create\n";
+}
+    
+void ShadingInterface::SetLightingOn(bool lightingOn)
+{
+    mLightingOn = lightingOn;
+    if (mLightingOn) {
+        InputSettings(mSettings);
+    } else {
+        Settings settings;
+        settings.lightsCount = 0;
+        InputSettings(settings);
+    }
+}
+    
 void ShadingInterface::ActvateBondForProgramType(ShadingProgram::Type type)
 {
     mActiveBond = &mBondsMap[type];
@@ -109,7 +127,6 @@ void ShadingInterface::InputViewport(const Viewport& viewport)
 {
     glUniformMatrix4fv(mActiveBond->transform.view,  1, false, glm::value_ptr(viewport.modelviewMatrix));
     glUniformMatrix4fv(mActiveBond->transform.projection,  1, false, glm::value_ptr(viewport.projectionMatrix));
-    InputSettings(mSettings);
 }
     
 void ShadingInterface::InputWindowSize(const glm::vec2& windowSize)

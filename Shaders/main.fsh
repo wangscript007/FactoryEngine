@@ -210,61 +210,64 @@ void SpotLight(in Light light,
 //--------------------------------------------------------------------------------------------------
 void main()
 {
-    VEC4 amb  = vec4(0.0);
-    VEC4 diff = vec4(0.0);
-    VEC4 spec = vec4(0.0);
-    Light light;
-    
-    if (gl_FrontFacing) {
-    
-        for (int i = 0; i < settingsVar.lightsCount; i++)
-        {
-            if (i == LIGHT0) {
-                light = light0;
-            } else if (i == LIGHT1) {
-                light = light1;
-            } else if (i == LIGHT2) {
-                light = light2;
-            } else if (i == LIGHT3) {
-                light = light3;
-            } else if (i == LIGHT4) {
-                light = light4;
-            }
-            if (light.position.w == 0.0) {
-                DirectionalLight(light, localNormal3, amb, diff, spec);
-            } else if (light.spotCutoff == 180.0) {
-                PointLight(light, Eye, localPosition3, localNormal3, amb, diff, spec);
-            }
-            else {
-                SpotLight(light, Eye, localPosition3, localNormal3, amb, diff, spec);
+    if (settingsVar.lightsCount > 0) {
+        VEC4 amb  = vec4(0.0);
+        VEC4 diff = vec4(0.0);
+        VEC4 spec = vec4(0.0);
+        Light light;
+        if (gl_FrontFacing) {
+
+            for (int i = 0; i < settingsVar.lightsCount; i++)
+            {
+                if (i == LIGHT0) {
+                    light = light0;
+                } else if (i == LIGHT1) {
+                    light = light1;
+                } else if (i == LIGHT2) {
+                    light = light2;
+                } else if (i == LIGHT3) {
+                    light = light3;
+                } else if (i == LIGHT4) {
+                    light = light4;
+                }
+                if (light.position.w == 0.0) {
+                    DirectionalLight(light, localNormal3, amb, diff, spec);
+                } else if (light.spotCutoff == 180.0) {
+                    PointLight(light, Eye, localPosition3, localNormal3, amb, diff, spec);
+                }
+                else {
+                    SpotLight(light, Eye, localPosition3, localNormal3, amb, diff, spec);
+                }
             }
         }
+        else {
+            VEC3 backLocalNormal3 = -localNormal3;
+            
+            for (int i = 0; i < settingsVar.lightsCount; i++)
+            {
+                if (i == LIGHT0) {
+                    light = light0;
+                } else if (i == LIGHT1) {
+                    light = light1;
+                } else if (i == LIGHT2) {
+                    light = light2;
+                } else if (i == LIGHT3) {
+                    light = light3;
+                } else if (i == LIGHT4) {
+                    light = light4;
+                }
+                if (light.position.w == 0.0) {
+                    DirectionalLight(light, backLocalNormal3, amb, diff, spec);
+                } else if (light.spotCutoff == 180.0) {
+                    PointLight(light, Eye, localPosition3, backLocalNormal3, amb, diff, spec);
+                }
+                else {
+                    SpotLight(light, Eye, localPosition3, backLocalNormal3, amb, diff, spec);
+                }
+            }   
+        }
+        outputF = Color + amb * 0.33 + diff * 0.33 + spec * 0.33;
+    } else {
+        outputF = Color;
     }
-    else {
-        VEC3 backLocalNormal3 = -localNormal3;
-        
-        for (int i = 0; i < settingsVar.lightsCount; i++)
-        {
-            if (i == LIGHT0) {
-                light = light0;
-            } else if (i == LIGHT1) {
-                light = light1;
-            } else if (i == LIGHT2) {
-                light = light2;
-            } else if (i == LIGHT3) {
-                light = light3;
-            } else if (i == LIGHT4) {
-                light = light4;
-            }
-            if (light.position.w == 0.0) {
-                DirectionalLight(light, backLocalNormal3, amb, diff, spec);
-            } else if (light.spotCutoff == 180.0) {
-                PointLight(light, Eye, localPosition3, backLocalNormal3, amb, diff, spec);
-            }
-            else {
-                SpotLight(light, Eye, localPosition3, backLocalNormal3, amb, diff, spec);
-            }
-        }   
-    }
-    outputF = Color + amb * 0.33 + diff * 0.33 + spec * 0.33;
 }
