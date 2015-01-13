@@ -25,6 +25,7 @@ Picker::~Picker()
 
 Node* Picker::Pick(const glm::vec2& atPoint)
 {
+    mLayer.Cleanup();
     mSceneRenderer.RenderMarkingContent(mLayer);
     const glm::vec4 color = mSceneRenderer.colorMarkingFramebuffer()->ColorAtPoint(atPoint);
     return mColorPickingMapper->NodeForColor(glm::vec3(color.x, color.y, color.z));
