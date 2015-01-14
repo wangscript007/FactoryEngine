@@ -190,6 +190,19 @@ void PointNode::Remove(PointNode::Iterator position)
     
 #pragma mark - Connecting
     
+bool PointNode::IsConnectedTo(PointNode* other)
+{
+    if (!mEdge) return false;
+    
+    for(PointNode::Iterator i = Begin(); i != End(); ++i)
+    {
+        if ((*i)->targetNode() == other) {
+            return true;
+        }
+    }
+    return false;
+}
+    
 // Work with connections from both directions
 PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTraversal)
 {

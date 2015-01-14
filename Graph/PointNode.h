@@ -52,6 +52,7 @@ public:
     bool ContainsFreeEdges() const;
     
     
+    bool IsConnectedTo(PointNode* other);
     ConnectionResult ConnectTo(PointNode* other, bool skipTraversal = false);
     Edge* mEdge;
     ftr::Edge* FindOutgoingFreeEdge() const;

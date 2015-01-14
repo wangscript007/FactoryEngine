@@ -3,6 +3,7 @@
 #include <Processing/ModelEditor.h>
 #include <Graph/BodyNode.h>
 #include <Utils/Description.h>
+#include <Graph/PointNode.h>
 
 #include <assimp/cimport.h>
 #include <assimp/config.h>
@@ -41,14 +42,28 @@ void ModelImporter::Import(const std::string& path)
             
         }
         std::cout << "mesh " << i << ": " << mesh->mNumFaces << " faces" << std::endl;
+        std::vector<PointNode*> nodes;
+        nodes.reserve(3);
         for (int j = 0; j < mesh->mNumFaces; ++j) {
             aiFace& face = mesh->mFaces[j];
-            std::vector<PointNode*> nodes;
+            
             for (int k = 0; k < face.mNumIndices; ++k) {
                 unsigned int ind = face.mIndices[k];
                 nodes.push_back(reinterpret_cast<PointNode*>(mModelEditor.activeBody()->mSubnodes[ind]));
             }
-            mModelEditor.CreateFace(nodes);
+            // faces with lines
+            for (int k = 0; k < nodes.size()-1; k++ ) {
+                if (!nodes[k]->IsConnectedTo(nodes[k+1])) {
+                    mModelEditor.CreateLine(nodes[k], nodes[k+1]);
+                }
+            }
+            if (!nodes.back()->IsConnectedTo(nodes.front())) {
+                mModelEditor.CreateLine(nodes.back(), nodes.front());
+            }
+            
+            // faces without line
+            //mModelEditor.CreateFace(nodes);
+            nodes.clear();
         }
     }
 }
