@@ -312,6 +312,10 @@
 		D1B990F718FEC88600DC5843 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
 		D1BE952818F721C40022D7C7 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
 		D1BE952918F721C40022D7C7 /* SelectInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = D1BE952718F721C40022D7C7 /* SelectInteraction.h */; };
+		D1C15CD61A6B175D00E4CC45 /* Edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1C15CD41A6B175D00E4CC45 /* Edge.cpp */; };
+		D1C15CD71A6B175D00E4CC45 /* Edge.h in Headers */ = {isa = PBXBuildFile; fileRef = D1C15CD51A6B175D00E4CC45 /* Edge.h */; };
+		D1C15CDE1A6B17A500E4CC45 /* FaceTraversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1C15CDC1A6B17A500E4CC45 /* FaceTraversal.cpp */; };
+		D1C15CDF1A6B17A500E4CC45 /* FaceTraversal.h in Headers */ = {isa = PBXBuildFile; fileRef = D1C15CDD1A6B17A500E4CC45 /* FaceTraversal.h */; };
 		D1DB2AF219902E7B00CEEF38 /* ShadingInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60B7E4B2173AEA4000EF0834 /* ShadingInterface.cpp */; };
 		D1E0122E1A2218D100583D0A /* ModelImporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1E0122C1A2218D100583D0A /* ModelImporter.cpp */; };
 		D1E0122F1A2218D100583D0A /* ModelImporter.h in Headers */ = {isa = PBXBuildFile; fileRef = D1E0122D1A2218D100583D0A /* ModelImporter.h */; };
@@ -324,6 +328,8 @@
 		D1FAA7A31A55BF0400F71C43 /* BatchBucket.h in Headers */ = {isa = PBXBuildFile; fileRef = D1FAA7A01A55BF0400F71C43 /* BatchBucket.h */; };
 		D1FAA7A41A55BF0400F71C43 /* BatchBucket.h in Headers */ = {isa = PBXBuildFile; fileRef = D1FAA7A01A55BF0400F71C43 /* BatchBucket.h */; };
 		D1FDC88418F192960075176E /* ExtrudeInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302018F145D5001A7AB1 /* ExtrudeInteraction.cpp */; };
+		D1FFDC021A6B16BB00DD77CB /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1FFDC001A6B16BB00DD77CB /* Vertex.cpp */; };
+		D1FFDC031A6B16BB00DD77CB /* Vertex.h in Headers */ = {isa = PBXBuildFile; fileRef = D1FFDC011A6B16BB00DD77CB /* Vertex.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -537,6 +543,10 @@
 		D1B0650019CF4327008CB25D /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Shaders; path = ../factoryengine/Shaders; sourceTree = "<group>"; };
 		D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectInteraction.cpp; sourceTree = "<group>"; };
 		D1BE952718F721C40022D7C7 /* SelectInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectInteraction.h; sourceTree = "<group>"; };
+		D1C15CD41A6B175D00E4CC45 /* Edge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Edge.cpp; sourceTree = "<group>"; };
+		D1C15CD51A6B175D00E4CC45 /* Edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Edge.h; sourceTree = "<group>"; };
+		D1C15CDC1A6B17A500E4CC45 /* FaceTraversal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FaceTraversal.cpp; sourceTree = "<group>"; };
+		D1C15CDD1A6B17A500E4CC45 /* FaceTraversal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceTraversal.h; sourceTree = "<group>"; };
 		D1D1C9A91A25359500BE3057 /* libassimpd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libassimpd.a; path = ../factoryengine/External/assimp/libassimpd.a; sourceTree = "<group>"; };
 		D1E0121D1A22116900583D0A /* libassimp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libassimp.a; path = ../factoryengine/External/assimp/libassimp.a; sourceTree = "<group>"; };
 		D1E0122C1A2218D100583D0A /* ModelImporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelImporter.cpp; sourceTree = "<group>"; };
@@ -553,6 +563,8 @@
 		D1FBAF6C18DEE73B000A083E /* TestPoly2tri.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPoly2tri.mm; sourceTree = "<group>"; };
 		D1FBBC88197AD187001A38C3 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		D1FE762C1A06624B00FB7535 /* TestOctree.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestOctree.mm; path = ../../factoryengine/Tests/TestOctree.mm; sourceTree = "<group>"; };
+		D1FFDC001A6B16BB00DD77CB /* Vertex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vertex.cpp; path = ../../factoryengine/Graph/Vertex.cpp; sourceTree = "<group>"; };
+		D1FFDC011A6B16BB00DD77CB /* Vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vertex.h; path = ../../factoryengine/Graph/Vertex.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -812,6 +824,8 @@
 		D11D1D6A18E04CF70091521F /* Processing */ = {
 			isa = PBXGroup;
 			children = (
+				D1C15CDC1A6B17A500E4CC45 /* FaceTraversal.cpp */,
+				D1C15CDD1A6B17A500E4CC45 /* FaceTraversal.h */,
 				D185302418F148A8001A7AB1 /* FaceExtruder.cpp */,
 				D185302518F148A8001A7AB1 /* FaceExtruder.h */,
 				D1693B6A18E58BAE000AFE41 /* ModelEditor.cpp */,
@@ -905,6 +919,10 @@
 				D18ECC69190517A400189A01 /* PointNode.h */,
 				D18ECC6A190517A400189A01 /* PolylineNode.cpp */,
 				D18ECC6B190517A400189A01 /* PolylineNode.h */,
+				D1FFDC001A6B16BB00DD77CB /* Vertex.cpp */,
+				D1FFDC011A6B16BB00DD77CB /* Vertex.h */,
+				D1C15CD41A6B175D00E4CC45 /* Edge.cpp */,
+				D1C15CD51A6B175D00E4CC45 /* Edge.h */,
 			);
 			path = Graph;
 			sourceTree = "<group>";
@@ -1052,6 +1070,7 @@
 				D11D1CC518DF4FBA0091521F /* Description.h in Headers */,
 				D18ECC83190517A400189A01 /* LineNode.h in Headers */,
 				D1F44F4D157FE79600566119 /* Workspace.h in Headers */,
+				D1FFDC031A6B16BB00DD77CB /* Vertex.h in Headers */,
 				D1F44F52157FE91900566119 /* Pad.h in Headers */,
 				D17C76AC1584E3900083E2B0 /* GLError.h in Headers */,
 				D1FAA7A31A55BF0400F71C43 /* BatchBucket.h in Headers */,
@@ -1116,6 +1135,7 @@
 				60C6D0BC174973800009EC3C /* Rect.h in Headers */,
 				60C6D0BE174973850009EC3C /* Polygon.h in Headers */,
 				D18ECC7E190517A400189A01 /* GroupNode.h in Headers */,
+				D1C15CD71A6B175D00E4CC45 /* Edge.h in Headers */,
 				601EC86C175B2901003DE2B8 /* CameraInteraction.h in Headers */,
 				60CE9A5117EC646E00A775C0 /* ShadingInterface.h in Headers */,
 				D15A7DDE18FB15B1004CB791 /* ColorPickingMapper.h in Headers */,
@@ -1124,6 +1144,7 @@
 				D11D1D5118DF70980091521F /* shapes.h in Headers */,
 				605FFDF417DFDC4C00DE90A9 /* LeapMath.h in Headers */,
 				60EB2F671812C385008DCA37 /* Cylinder.h in Headers */,
+				D1C15CDF1A6B17A500E4CC45 /* FaceTraversal.h in Headers */,
 				D18ECC6F190517A400189A01 /* BodyNode.h in Headers */,
 				605FFDFC17DFDD3400DE90A9 /* LeapListener.h in Headers */,
 				D18ECC92190517A400189A01 /* PointNode.h in Headers */,
@@ -1359,6 +1380,7 @@
 				D11D1D4F18DF70980091521F /* shapes.cc in Sources */,
 				60DFE3A81825389500A32D7A /* Vector.cpp in Sources */,
 				D1F44F4C157FE79600566119 /* Workspace.cpp in Sources */,
+				D1C15CDE1A6B17A500E4CC45 /* FaceTraversal.cpp in Sources */,
 				6032717617EB17C700249562 /* SceneRenderer.cpp in Sources */,
 				D1F44F51157FE91900566119 /* Pad.cpp in Sources */,
 				D189C66E19165F0B00E9FB1A /* Pivot.cpp in Sources */,
@@ -1373,6 +1395,7 @@
 				6032716117EB08E700249562 /* Framebuffer.cpp in Sources */,
 				D1BE952818F721C40022D7C7 /* SelectInteraction.cpp in Sources */,
 				6047DB9316B46A890012286F /* RectangleInteraction.cpp in Sources */,
+				D1FFDC021A6B16BB00DD77CB /* Vertex.cpp in Sources */,
 				606BC00D1808639500EC4F37 /* Snap.cpp in Sources */,
 				D15130DC190C3DD800BA09AB /* Picker.cpp in Sources */,
 				605CD4FC16FDE992005CCAA2 /* MoveInteraction.cpp in Sources */,
@@ -1381,6 +1404,7 @@
 				6076A1571806AE9000770486 /* ShadingInterface.cpp in Sources */,
 				60A4ED6716FE59D50083DCD2 /* ScaleInteraction.cpp in Sources */,
 				D18ECC8F190517A400189A01 /* PointNode.cpp in Sources */,
+				D1C15CD61A6B175D00E4CC45 /* Edge.cpp in Sources */,
 				D185302218F145D5001A7AB1 /* ExtrudeInteraction.cpp in Sources */,
 				D18ECC80190517A400189A01 /* LineNode.cpp in Sources */,
 				60CE9A5617EC646E00A775C0 /* Shader.cpp in Sources */,

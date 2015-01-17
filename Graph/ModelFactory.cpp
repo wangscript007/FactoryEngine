@@ -1,6 +1,5 @@
 
 #include <Graph/ModelFactory.h>
-#include <Processing/FaceTraversal.h>
 #include <Graph/PointNode.h>
 #include <Graph/LineNode.h>
 #include <Graph/FaceNode.h>
