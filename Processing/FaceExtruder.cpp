@@ -3,7 +3,6 @@
 #include <Processing/ModelEditor.h>
 #include <Graph/FaceNode.h>
 #include <Graph/PointNode.h>
-#include <Graph/Edge.h>
 
 const float kExtrudeMinOffset = 2.0f;
 

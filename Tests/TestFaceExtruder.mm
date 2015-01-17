@@ -49,10 +49,10 @@ using namespace ftr;
         glm::vec3(1.0f, 0.0f, 0.0f)
     });
     
-    std::vector<Edge*> edges = faceNode->GetEdges();
-    for(int i = 0; i < edges.size(); ++i) {
-        XCTAssert(edges[i]->twin()->IsFree());
-    }
+//    std::vector<Edge*> edges = faceNode->GetEdges();
+//    for(int i = 0; i < edges.size(); ++i) {
+//        XCTAssert(edges[i]->twin()->IsFree());
+//    }
     
     mFaceExtruder->Extrude(*faceNode);
 }

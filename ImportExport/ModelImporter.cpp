@@ -53,13 +53,13 @@ void ModelImporter::Import(const std::string& path)
             }
             // faces with lines
             for (int k = 0; k < nodes.size()-1; k++ ) {
-                if (!nodes[k]->IsConnectedTo(nodes[k+1])) {
+                //if (!nodes[k]->IsConnectedTo(nodes[k+1])) {
                     mModelEditor.CreateLine(nodes[k], nodes[k+1]);
-                }
+                //}
             }
-            if (!nodes.back()->IsConnectedTo(nodes.front())) {
+//            if (!nodes.back()->IsConnectedTo(nodes.front())) {
                 mModelEditor.CreateLine(nodes.back(), nodes.front());
-            }
+//            }
             
             // faces without line
             //mModelEditor.CreateFace(nodes);

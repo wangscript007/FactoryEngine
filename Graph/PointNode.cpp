@@ -1,9 +1,7 @@
 
 #include <Graph/PointNode.h>
-#include <Graph/Edge.h>
 #include <Graph/FaceNode.h>
 #include <Graph/LineNode.h>
-#include <Processing/FaceReversal.h>
 #include <Processing/Octree.h>
 
 
@@ -15,7 +13,6 @@ const float PointNode::c_fR = 5.0f;
 
 PointNode::PointNode()
     :mOctreeLeaf(NULL)
-    ,mEdge(NULL)
     ,mIsActive(false)
     ,mVisited(false)
     ,mName("")
@@ -25,18 +22,11 @@ PointNode::PointNode()
     
 PointNode::~PointNode()
 {
-    if (mEdge) {
-        assert(mEdge->twin()->originNode()->mEdge != mEdge);
-        mEdge->twin()->originNode()->mEdge = NULL;
-        mEdge->DeleteTwin();
-        FT_DELETE(mEdge);
-    }
 }
     
 
 PointNode::PointNode(glm::vec3 origin)
 :mOrigin(origin)
-    ,mEdge(NULL)
     ,mIsActive(false)
     ,mVisited(false)
     ,mName("")
@@ -67,33 +57,12 @@ void PointNode::Invalidate(bool recursively)
 //    if (mInvalid) return;
     
     Node::Invalidate(recursively);
-    
-    if (recursively) {
-        for(PointNode::Iterator i = Begin(); i != End(); ++i) {
-            (*i)->Invalidate();
-        }
-    }
 }
     
 void PointNode::PointNodes(std::vector<Node*>& result)
 {
     Node::PointNodes(result);
     result.push_back(reinterpret_cast<Node*>(this));
-}
-
-
-#pragma mark - Instance
-
-    
-bool PointNode::ContainsFreeEdges() const
-{
-    if (IsEmpty()) return false;
-    
-    for(PointNode::Iterator it = Begin(); it != End(); ++it)
-    {
-        if ((*it)->IsFree() || (*it)->twin()->IsFree()) return true;
-    }
-    return false;
 }
 
 bool PointNode::OctreeLeafIsInvalid() const
@@ -104,252 +73,10 @@ bool PointNode::OctreeLeafIsInvalid() const
     return false;
 }
     
-#pragma mark - List
-    
-PointNode::Iterator PointNode::Begin() const
-{
-    assert(mEdge);
-    return IteratorFromEdge(mEdge);
-}
-    
-
-PointNode::Iterator PointNode::End() const
-{
-    return Iterator(*this, NULL);
-}
-    
-    
-PointNode::Iterator PointNode::IteratorFromEdge(Edge* edge) const
-{
-    if (edge->originNode() != this) {
-        edge = edge->twin();
-        assert(edge->originNode() == this);
-    }
-    return Iterator(*this, edge);
-}
-
-
-void PointNode::Insert(PointNode::Iterator position, ftr::Edge& edge)
-{
-    bool shouldMarkAsNewBegin = true;
-    if (position == End()) {
-        position = Begin();
-        shouldMarkAsNewBegin = false;
-    }
-    ftr::Edge* posEdge = (*position);
-    ftr::Edge* insertEdge = NULL;
-    if (edge.originNode() != this) {
-        insertEdge = edge.twin();
-    } else {
-        insertEdge = &edge;
-    }
-    assert(insertEdge->originNode() == this);
-    assert(posEdge->originNode() == this);
-    
-    //printf("inserting edge %s at position %s\n", edge.Name().c_str(), posEdge->Name().c_str());
-
-    if (posEdge->prev()) {
-        posEdge->prev()->ConnectToNext(insertEdge);
-    } else {
-        posEdge->twin()->ConnectToNext(insertEdge);
-    }
-    insertEdge->twin()->ConnectToNext(posEdge);
-    
-    if (position == Begin() && shouldMarkAsNewBegin) {
-        // Marking as new begin
-        mEdge = insertEdge;
-    }
-}
-
-void PointNode::Remove(PointNode::Iterator position)
-{
-    assert(position != End());
-    ftr::Edge* posEdge = (*position);
-    
-    ftr::Edge* prev = posEdge->prev();
-    ftr::Edge* next = posEdge->twin()->next();
-    
-    if (position == Begin()) {
-        // mark new begin or NULL if last edge was removed
-        mEdge = next;
-    }
-    if (prev && next) {
-        
-        if (prev->twin() != next) {
-            // true, if there are more than two edges
-            prev->ConnectToNext(next);
-        } else {
-            prev->DisconnectNext();
-            next->DisconnectPrev();
-        }
-    }
-    posEdge->DisconnectPrev();
-    posEdge->twin()->DisconnectNext();
-}
-    
-    
-#pragma mark - Connecting
-    
-bool PointNode::IsConnectedTo(PointNode* other)
-{
-    if (!mEdge) return false;
-    
-    for(PointNode::Iterator i = Begin(); i != End(); ++i)
-    {
-        if ((*i)->targetNode() == other) {
-            return true;
-        }
-    }
-    return false;
-}
-    
-// Work with connections from both directions
-PointNode::ConnectionResult PointNode::ConnectTo(PointNode* other, bool skipTraversal)
-{
-    ConnectionResult result;
-    result.faces[0] = NULL;
-    result.faces[1] = NULL;
-    
-    ftr::Edge* newEdge = new ftr::Edge(this);
-    ftr::Edge* newEdgeTwin = new ftr::Edge(other);
-    
-    newEdge->MakeTwinsWith(newEdgeTwin);
-    result.edge = newEdge;
-    
-    bool traverseThis = false;
-    bool traverseOther = false;
-    
-    if (mEdge)
-    {
-        Insert(End(), *newEdgeTwin);
-        if (!skipTraversal)
-        {
-            
-            traverseThis = true;
-        }
-    } else {
-        mEdge = newEdge;
-    }
-    if (other->mEdge)
-    {
-        other->Insert(other->End(), *newEdge);
-        if (!skipTraversal)
-        {
-            
-            traverseOther = true;
-        }
-    } else {
-        other->mEdge = newEdgeTwin;
-    }
-    
-    FaceTraversal::Result traverseResultThis;
-    FaceTraversal::Result traverseResultOther;
-    
-    if (traverseThis)
-    {
-        FaceTraversal traversal(*newEdgeTwin);
-        traversal.Find(traverseResultThis);
-    }
-    
-    if (traverseOther)
-    {
-        FaceTraversal traversal(*newEdge);
-        traversal.Find(traverseResultOther, &traverseResultThis);
-    }
-    
-    if (traverseResultThis.FoundFace()) {
-        FaceNode* face1 = FaceFromTraversalResult(traverseResultThis);
-        if (face1) {
-            result.AddFace(face1);
-        } else {
-            FaceReversal::Conflict conflict = FaceReversal::ConflictInTraversalResult(traverseResultThis);
-            FaceReversal reversal;
-            reversal.ReverseIslandToResolveConflict(conflict);
-            FaceTraversal traversal(*newEdgeTwin);
-            traversal.Find(traverseResultThis);
-            FaceNode* face1 = FaceFromTraversalResult(traverseResultThis);
-            assert(face1);
-            result.AddFace(face1);
-        }
-    }
-    
-    if (traverseResultOther.FoundFace()) {
-        FaceNode* face2 = FaceFromTraversalResult(traverseResultOther);
-        if (face2) {
-            result.AddFace(face2);
-        } else {
-            FaceReversal::Conflict conflict = FaceReversal::ConflictInTraversalResult(traverseResultOther);
-            FaceReversal reversal;
-            reversal.ReverseIslandToResolveConflict(conflict);
-            FaceTraversal traversal(*newEdge);
-            traversal.Find(traverseResultOther, &traverseResultThis);
-            FaceNode* face2 = FaceFromTraversalResult(traverseResultOther);
-            assert(face2);
-            result.AddFace(face2);
-        }
-    }
-    return result;
-}
-    
-FaceNode* PointNode::FaceFromTraversalResult(FaceTraversal::Result& traversalResult) 
-{
-    FaceNode* face = NULL;
-    if (traversalResult.hasUsedEdges) {
-        FaceTraversal::Reverse(traversalResult);
-    }
-    if (!traversalResult.hasUsedEdges) {
-        face = new FaceNode(traversalResult.edgesVector);
-    }
-    else {
-        return NULL;
-    }
-    return face;
-}
-    
-void PointNode::Move(Iterator fromPosition, Iterator toPosition)
-{
-    ftr::Edge* edgeToMove = (*fromPosition);
-    Move(*edgeToMove, toPosition);
-}
-    
-void PointNode::Move(Edge& edge, Iterator position)
-{
-    assert(edge.originNode() == this);
-    Iterator oldPosition = IteratorFromEdge(&edge);
-    if (oldPosition != position) {
-        Remove(oldPosition);
-        Insert(position, edge);
-    }
-}
-    
-Edge* PointNode::FindOutgoingFreeEdge() const
-{
-    ftr::Edge* edge = mEdge;
-    do {
-        if (edge->originNode() == this) {
-            if (edge->IsFree()) break;
-        }
-        
-        if ((edge->originNode() == this) && edge->prev()) {
-            edge = edge->prev();
-        } else {
-            edge = edge->twin();
-        }
-    } while (edge != mEdge);
-    
-    return edge->IsFree() ? edge : NULL;
-}
-
     
 std::string PointNode::Description() const
 {
-    // Node 1:{e12, e12, e13}
-    std::string description = "Node " + mName + ": {";
-    for(PointNode::Iterator it = Begin(); it != End(); ++it) {
-        description += (*it)->Name() + "; ";
-    }
-    description += "END}";
-    return description;
+    return mName;
 }
 
     

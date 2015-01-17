@@ -87,7 +87,7 @@ void LineInteraction::Step()
         if (!mStartPoint) {
             mPointSnap->setStartScene(mStart, true);
             PointNode* snappedPoint = mPointSnap->SnappedPoint();
-            if (snappedPoint && snappedPoint->ContainsFreeEdges()) {
+            if (snappedPoint) {
                 mStartPoint = snappedPoint;
             } else {
                 mStartPoint = mModelEditor.CreatePoint(mStart);
@@ -98,7 +98,7 @@ void LineInteraction::Step()
         if (!mEndPoint) {
             mPointSnap->setStartScene(mEnd, true);
             PointNode* snappedPoint = mPointSnap->SnappedPoint();
-            if (snappedPoint && snappedPoint->ContainsFreeEdges()) {
+            if (snappedPoint) {
                 mEndPoint = snappedPoint;
             } else {
                 mEndPoint = mModelEditor.CreatePoint(mEnd);

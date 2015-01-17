@@ -2,7 +2,6 @@
 
 #import <XCTest/XCTest.h>
 #import <Graph/FaceNode.h>
-#import <Processing/FaceTraversal.h>
 #import <Geometry/Vector.h>
 #include <Geometry/Constants.h>
 
