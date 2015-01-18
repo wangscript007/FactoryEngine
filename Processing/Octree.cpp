@@ -78,7 +78,7 @@ Octree::Branch* Octree::Split(Octree::Leaf *leaf)
                 }
                 childLeaf = new Leaf(Box(center, half));
                 for(auto i = cPointsList.begin(); i != cPointsList.end(); ++i) {
-                    if (childLeaf->Box().Contains((*i)->mOrigin)) {
+                    if (childLeaf->Box().Contains((*i)->Origin())) {
                         childLeaf->InsertPoint(*i);
                         iCounter++;
                     }
@@ -134,7 +134,7 @@ void Octree::Merge(Branch* branch)
 void Octree::InsertPoint(PointNode *pPoint)
 {
     assert(pPoint);
-    Node* pNode = NodeContainingPoint(pPoint->mOrigin);
+    Node* pNode = NodeContainingPoint(pPoint->Origin());
     if (pNode) {
         assert(pNode->Type() == kLeaf);
         Leaf* leaf = static_cast<Leaf*>(pNode);

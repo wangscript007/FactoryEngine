@@ -46,7 +46,7 @@ PointNode* ModelEditor::NearestPointToCenterInSphere(const Sphere& sSphere) cons
     float fNearestPointDistance = MAXFLOAT;
     float fDistance;
     for(auto i = cPointsVector.begin(); i != cPointsVector.end(); ++i) {
-        fDistance = glm::length(sSphere.mCenter - (*i)->mOrigin);
+        fDistance = glm::length(sSphere.mCenter - (*i)->Origin());
         if (fDistance < sSphere.mRadius) {
             if (fDistance < fNearestPointDistance) {
                 pNearestPoint = *i;

@@ -7,7 +7,7 @@ namespace ftr {
 glm::vec3 PointSnap::Snapped() const
 {
     PointNode* point = SnappedPoint();
-    return point ? point->mOrigin : mStartScene;
+    return point ? point->Origin() : mStartScene;
 }
     
 PointNode* PointSnap::SnappedPoint() const
@@ -31,7 +31,7 @@ PointNode* PointSnap::NearestPointToCenterInSphere(const Sphere& sphere) const
     float nearestPointDistance = MAXFLOAT;
     float distance;
     for(auto i = pointsVector.begin(); i != pointsVector.end(); ++i) {
-        distance = glm::length(sphere.mCenter - (*i)->mOrigin);
+        distance = glm::length(sphere.mCenter - (*i)->Origin());
         if (distance < sphere.mRadius) {
             if (distance < nearestPointDistance) {
                 nearestPoint = *i;
@@ -50,7 +50,7 @@ PointNode* PointSnap::NearestPointToAxisInCylinder(const Cylinder& cylinder) con
     float nearestPointDistance = MAXFLOAT;
     float distance;
     for(auto i = pointsVector.begin(); i != pointsVector.end(); ++i) {
-        distance = cylinder.mAxis.DistanceFromPoint((*i)->mOrigin);
+        distance = cylinder.mAxis.DistanceFromPoint((*i)->Origin());
         if (distance < cylinder.mRadius) {
             if (distance < nearestPointDistance) {
                 nearestPoint = *i;

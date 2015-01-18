@@ -13,9 +13,8 @@ const float PointNode::c_fR = 5.0f;
 
 PointNode::PointNode()
     :mOctreeLeaf(NULL)
-    ,mIsActive(false)
-    ,mVisited(false)
     ,mName("")
+    ,mVertex(Vertex())
 {
     
 }
@@ -26,27 +25,24 @@ PointNode::~PointNode()
     
 
 PointNode::PointNode(glm::vec3 origin)
-:mOrigin(origin)
-    ,mIsActive(false)
-    ,mVisited(false)
+    :mIsActive(false)
     ,mName("")
-    
+    ,mVertex(Vertex(origin))
 {
-    PointNode();
 }
     
     
 void PointNode::Transform(const glm::mat4& transform)
 {
-    glm::vec4 vec(mOrigin.x, mOrigin.y, mOrigin.z, 1.0f);
+    glm::vec4 vec(mVertex.mOrigin, 1.0f);
     vec = transform * vec;
-    mOrigin = glm::vec3(vec.x, vec.y, vec.z);
+    mVertex.mOrigin = glm::vec3(vec);
 }
     
 void PointNode::Render(Layer& layer)
 {
     Node::Render(layer);
-    primitive.mPosition = mOrigin;
+    primitive.mPosition = mVertex.mOrigin;
     primitive.mColor = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
     primitive.setOption(Primitive::kUseDepth, false);
     layer.AddPrimitive(primitive);
@@ -54,8 +50,6 @@ void PointNode::Render(Layer& layer)
     
 void PointNode::Invalidate(bool recursively)
 {
-//    if (mInvalid) return;
-    
     Node::Invalidate(recursively);
 }
     
@@ -68,7 +62,7 @@ void PointNode::PointNodes(std::vector<Node*>& result)
 bool PointNode::OctreeLeafIsInvalid() const
 {
     if (mOctreeLeaf) {
-        return !mOctreeLeaf->Box().Contains(mOrigin);
+        return !mOctreeLeaf->Box().Contains(mVertex.mOrigin);
     }
     return false;
 }

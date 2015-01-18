@@ -18,8 +18,8 @@ void LineNode::Render(Layer& layer)
         mEndPoint->Render(layer);
         
         if (mInvalid) {
-            mLinePrimitive.mBegin = mStartPoint->mOrigin;
-            mLinePrimitive.mEnd = mEndPoint->mOrigin;
+            mLinePrimitive.mBegin = mStartPoint->Origin();
+            mLinePrimitive.mEnd = mEndPoint->Origin();
             mLinePrimitive.mColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
             mLinePrimitive.setOption(Primitive::kUseDepth, false);
         }

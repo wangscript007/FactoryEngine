@@ -19,7 +19,7 @@ PointNode* ModelFactory::CreatePoint(glm::vec3 origin) const
 {
     static int index = 0;
     PointNode* pPoint = new PointNode();
-    pPoint->mOrigin = origin;
+    pPoint->SetOrigin(origin);
     index++;
     std::ostringstream convert;
     convert << index << "n";

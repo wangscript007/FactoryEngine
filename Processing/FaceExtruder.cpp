@@ -31,7 +31,7 @@ void FaceExtruder::Extrude(FaceNode &faceNode)
     
     for (int i = 0; i < pointNodes.size(); ++i)
     {
-        PointNode* twinPointNode = mModelEditor.CreatePoint(pointNodes[i]->mOrigin + offsetVec);
+        PointNode* twinPointNode = mModelEditor.CreatePoint(pointNodes[i]->Origin() + offsetVec);
         mModelEditor.CreateLine(twinPointNode, pointNodes[i]);
         if (i > 0) {
             mModelEditor.CreateLine(lastPointNode, twinPointNode);
