@@ -254,6 +254,7 @@
 		D1693B9018E5B1BC000AFE41 /* Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B8B18E5B04C000AFE41 /* Constants.cpp */; };
 		D16D270318D5E8FB0095B177 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Triangle.cpp */; };
 		D16D270418D5E8FB0095B177 /* Triangle.h in Headers */ = {isa = PBXBuildFile; fileRef = D16D270218D5E8FB0095B177 /* Triangle.h */; };
+		D17086871A6BF32B00A679D8 /* TestFaceTraversal.mm in Sources */ = {isa = PBXBuildFile; fileRef = D17086861A6BF32B00A679D8 /* TestFaceTraversal.mm */; };
 		D17C76651583BF440083E2B0 /* FactoryEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76641583BF440083E2B0 /* FactoryEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D17C76AC1584E3900083E2B0 /* GLError.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76AB1584E3900083E2B0 /* GLError.h */; };
 		D185302218F145D5001A7AB1 /* ExtrudeInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302018F145D5001A7AB1 /* ExtrudeInteraction.cpp */; };
@@ -502,6 +503,7 @@
 		D16D270118D5E8FB0095B177 /* Triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
 		D16D270218D5E8FB0095B177 /* Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangle.h; sourceTree = "<group>"; };
 		D16D270518D5F1980095B177 /* TestTriangle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestTriangle.mm; sourceTree = "<group>"; };
+		D17086861A6BF32B00A679D8 /* TestFaceTraversal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestFaceTraversal.mm; sourceTree = "<group>"; };
 		D178BEDE19FD333800B6C4C0 /* TestNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestNode.mm; path = ../../factoryengine/Tests/TestNode.mm; sourceTree = "<group>"; };
 		D17C76641583BF440083E2B0 /* FactoryEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FactoryEngine.h; sourceTree = "<group>"; };
 		D17C76AB1584E3900083E2B0 /* GLError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLError.h; sourceTree = "<group>"; };
@@ -702,6 +704,7 @@
 				D1AA003E1A05585E0040FA70 /* TestLineNode.mm */,
 				D1FE762C1A06624B00FB7535 /* TestOctree.mm */,
 				D11A0F971A5C9166007EB04F /* TestBatchBucket.mm */,
+				D17086861A6BF32B00A679D8 /* TestFaceTraversal.mm */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1265,6 +1268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D10D48B01A222A7B00B956E9 /* TestSegment.mm in Sources */,
+				D17086871A6BF32B00A679D8 /* TestFaceTraversal.mm in Sources */,
 				D10D48B11A222A7B00B956E9 /* TestMoveInteraction.mm in Sources */,
 				D10D48B21A222A7B00B956E9 /* TestLineInteraction.mm in Sources */,
 				D10D48B31A222A7B00B956E9 /* TestCylinder.mm in Sources */,

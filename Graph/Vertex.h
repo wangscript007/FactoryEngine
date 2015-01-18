@@ -8,11 +8,17 @@ class Edge;
 class Vertex
 {
 public:
-    virtual ~Vertex() {}    
+    Vertex() {};
+    Vertex(glm::vec3 origin);
+    virtual ~Vertex() {}
     Edge* ConnectTo(Vertex& target);
     
-private:
     std::vector<Edge*> mEdges;
+    glm::vec3 mOrigin;
+    
+    std::string mName;
+private:
+    
 };
     
 }

@@ -5,6 +5,13 @@
 
 namespace ftr {
     
+Vertex::Vertex(glm::vec3 origin)
+    :mOrigin(origin)
+    ,mName("-")
+{
+    
+}
+    
 Edge* Vertex::ConnectTo(Vertex& target)
 {
     Edge* edge = new Edge(*this, target);
