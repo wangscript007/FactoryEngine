@@ -30,8 +30,6 @@ public:
     virtual void Invalidate(bool recursively);
     virtual void Transform(const glm::mat4& m4Transformation);
     void PointNodes(std::vector<Node*>& result);
-    void setActive(bool active) { mIsActive = active; }
-    bool Active() const { return mIsActive; }
     
     Octree::Leaf* OctreeLeaf() const { return mOctreeLeaf; }
     void setOctreeLeaf(Octree::Leaf* leaf) { mOctreeLeaf = leaf; }
@@ -39,11 +37,16 @@ public:
     
     std::string Description() const;
     std::string mName;
+    bool mIsActive;
+    
+    Vertex& vertex() { return mVertex; }
     
 private:
+    
+    
     Vertex mVertex;
     Octree::Leaf* mOctreeLeaf;
-    bool mIsActive;
+    
     PointPrimitive primitive;
 };
     

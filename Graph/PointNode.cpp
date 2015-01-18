@@ -27,7 +27,7 @@ PointNode::~PointNode()
 PointNode::PointNode(glm::vec3 origin)
     :mIsActive(false)
     ,mName("")
-    ,mVertex(Vertex(origin))
+    ,mVertex(Vertex(origin, *this))
 {
 }
     
@@ -58,7 +58,9 @@ void PointNode::PointNodes(std::vector<Node*>& result)
     Node::PointNodes(result);
     result.push_back(reinterpret_cast<Node*>(this));
 }
-
+    
+#pragma mark - Octree
+    
 bool PointNode::OctreeLeafIsInvalid() const
 {
     if (mOctreeLeaf) {
@@ -66,8 +68,7 @@ bool PointNode::OctreeLeafIsInvalid() const
     }
     return false;
 }
-    
-    
+
 std::string PointNode::Description() const
 {
     return mName;

@@ -27,17 +27,15 @@ public:
     void Invalidate(bool recursively);
     void PointNodes(std::vector<Node*>& result) const;
     
-    std::string Description() const;
     
-//    std::vector<Edge*> GetEdges() const;
+    
     std::vector<PointNode*> GetPointNodes() const;
     glm::vec3 Center() const;
     
     glm::vec3 SurfaceNormal() const;
     
     
-    PointNode* mReferencePoint;
-    
+    std::string Description() const;
 private:
     PolygonPrimitive mPolygonPrimitive;
 };

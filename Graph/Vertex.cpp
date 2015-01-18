@@ -5,9 +5,10 @@
 
 namespace ftr {
     
-Vertex::Vertex(glm::vec3 origin)
+Vertex::Vertex(glm::vec3 origin, PointNode& pointNode)
     :mOrigin(origin)
     ,mName("-")
+    ,mPointNode(&pointNode)
 {
     
 }

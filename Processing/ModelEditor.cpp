@@ -2,12 +2,14 @@
 #include <Processing/ModelEditor.h>
 #include <Processing/FaceExtruder.h>
 #include <Processing/ColorPickingMapper.h>
+#include <Processing/FaceTraversal.h>
 #include <Scene/Picker.h>
 #include <Graph/Node.h>
 #include <Graph/ModelFactory.h>
 #include <Graph/GroupNode.h>
 #include <Graph/BodyNode.h>
 #include <Graph/LineNode.h>
+#include <Graph/Vertex.h>
 
 
 
@@ -73,6 +75,20 @@ LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
     assert(mActiveBody);
     LineNode* line = mModelFactory->CreateLine(startPoint, endPoint);
     mActiveBody->AddNode(line);
+    
+    Vertex& vertexA = startPoint->vertex();
+    Vertex& vertexB = endPoint->vertex();
+    vertexA.ConnectTo(vertexB);
+    FaceTraversal traversal(vertexA);
+    FaceTraversal::Result result;
+    do {
+        traversal.Find(result);
+        if (result.Found()) {
+            
+        }
+    } while (result.Found());
+    
+    
     return line;
 }
     

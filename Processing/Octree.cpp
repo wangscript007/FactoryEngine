@@ -168,7 +168,7 @@ void Octree::UpdatePoint(PointNode* pPoint)
 {
     Leaf* leaf = pPoint->OctreeLeaf();
     if (leaf) {
-        if (pPoint->Active()) {
+        if (pPoint->mIsActive) {
             RemovePoint(pPoint);
         } else {
             if (pPoint->OctreeLeafIsInvalid()) {
@@ -177,7 +177,7 @@ void Octree::UpdatePoint(PointNode* pPoint)
             }
         }
     } else {
-        if (!pPoint->Active()) {
+        if (!pPoint->mIsActive) {
             InsertPoint(pPoint);
         }
     }
