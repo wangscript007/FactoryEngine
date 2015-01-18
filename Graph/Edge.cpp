@@ -24,5 +24,23 @@ Vertex* Edge::OtherEnd(Vertex& vertex)
     }
 }
     
+size_t Edge::Degree() const
+{
+    return std::min(mVertexA->Degree(), mVertexB->Degree());
+}
+    
+bool Edge::IsFull() const
+{
+    assert(Degree() > mFaces.size());
+    return (Degree() - 1 == mFaces.size());
+}
+    
+std::string Edge::Description() const
+{
+    std::stringstream ss;
+    ss << "(" << mVertexA->mName << (IsFull()? "-#-" : "- -") << mVertexB->mName << ")";
+    return ss.str();
+}
+    
 }
 

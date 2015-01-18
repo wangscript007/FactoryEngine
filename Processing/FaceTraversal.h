@@ -6,22 +6,28 @@ namespace ftr {
     
 class Vertex;
 class Edge;
+class Triangle;
 
 class FaceTraversal
 {
 public:
     struct Result
     {
-        bool Found() const { return mVertexes.size() > 2; }
-        std::vector<Vertex*>mVertexes;
+        bool Found() const { return mEdges.size() > 2; }
+        std::vector<Edge*> mEdges;
     };
+
+    
+    static void EdgesConnectingVertexes(std::vector<Edge*>& edges,
+                                        const std::vector<Vertex*>& vertexes);
+    
     
     FaceTraversal(Vertex& vertex);
     void Find(Result& result);
     virtual ~FaceTraversal() {}
     
-    
     std::string Description() const;
+    std::string Description(Result* result) const;
 private:
     bool Find(Vertex& current);
     
@@ -31,9 +37,11 @@ private:
     bool IsPrev(const Vertex& vertex) const;
     bool IsInResultPath(const Vertex& vertex) const;
     bool IsVisited(const Vertex& vertex) const;
+    void CreatePlane();
     
     Vertex& mVertex;
-    Triangle* mTriangle;
+    std::vector<Vertex*>mVertexes;
+    Triangle* mPlane;
     
     Result* mResult;
 };

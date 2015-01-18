@@ -14,7 +14,12 @@ public:
     
     Vertex* OtherEnd(Vertex& vertex);
     
-    std::vector<FaceNode*>mFaces;
+    std::vector<FaceNode*> mFaces;
+    
+    bool IsFull() const;
+    size_t Degree() const;
+    
+    std::string Description() const;
 private:
     
     Vertex* mVertexA;

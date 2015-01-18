@@ -20,5 +20,15 @@ Edge* Vertex::ConnectTo(Vertex& target)
     return edge;
 }
     
+Edge* Vertex::EdgeTo(Vertex& target)
+{
+    for (auto &edge : mEdges) {
+        if (edge->OtherEnd(*this) == &target) {
+            return edge;
+        }
+    }
+    return NULL;
+}
+    
 }
 
