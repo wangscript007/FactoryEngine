@@ -10,6 +10,7 @@
 #include <Graph/BodyNode.h>
 #include <Graph/LineNode.h>
 #include <Graph/Vertex.h>
+#include <Graph/Edge.h>
 
 
 
@@ -78,13 +79,16 @@ LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
     
     Vertex& vertexA = startPoint->vertex();
     Vertex& vertexB = endPoint->vertex();
-    vertexA.ConnectTo(vertexB);
+    Edge* edge = vertexA.ConnectTo(vertexB);
+    edge->mLineNode = line;
+    
+    
     FaceTraversal traversal(vertexA);
     FaceTraversal::Result result;
     do {
         traversal.Find(result);
         if (result.Found()) {
-            
+            CreateFace(result.mVertexes);
         }
     } while (result.Found());
     
@@ -98,6 +102,14 @@ FaceNode* ModelEditor::CreateFace(std::vector<PointNode*> pointNodes)
     mActiveBody->AddFaceNode(face);
     return face;
 }
+    
+FaceNode* ModelEditor::CreateFace(const std::vector<Vertex*>& vertexes)
+{
+    FaceNode* face = mModelFactory->CreateFace(vertexes);
+    mActiveBody->AddFaceNode(face);
+    return face;
+}
+
     
 BodyNode* ModelEditor::CreateBody()
 {

@@ -43,6 +43,7 @@ void FaceTraversal::Find(Result& result)
     AppendResult(mVertex);
     Find(mVertex);
 
+    result.mVertexes = mVertexes;
     if(mVertexes.size() < 3) {
         mVertexes.clear();
     } else {

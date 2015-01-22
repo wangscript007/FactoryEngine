@@ -5,6 +5,7 @@ namespace ftr {
     
 class Vertex;
 class FaceNode;
+class LineNode;
 
 class Edge
 {
@@ -18,6 +19,8 @@ public:
     
     bool IsFull() const;
     size_t Degree() const;
+    
+    LineNode* mLineNode;
     
     std::string Description() const;
 private:

@@ -12,7 +12,7 @@ class LineNode;
 class FaceNode;
 class BodyNode;
 class GroupNode;
-
+class Vertex;
     
 class ModelFactory
 {
@@ -23,6 +23,7 @@ public:
     PointNode* CreatePoint(glm::vec3 origin) const;
     LineNode* CreateLine(PointNode* startPoint, PointNode* endPoint) const;
     FaceNode* CreateFace(std::vector<PointNode*> pointNodes) const;
+    FaceNode* CreateFace(const std::vector<Vertex*>& vertexes);
     BodyNode* CreateBody();
     GroupNode* CreateGroup();
 

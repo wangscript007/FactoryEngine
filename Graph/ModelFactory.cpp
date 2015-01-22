@@ -5,7 +5,7 @@
 #include <Graph/FaceNode.h>
 #include <Graph/GroupNode.h>
 #include <Graph/BodyNode.h>
-
+#include <Graph/Vertex.h>
 
 namespace ftr {
 
@@ -26,7 +26,7 @@ PointNode* ModelFactory::CreatePoint(glm::vec3 origin) const
     pPoint->mName = convert.str();
     return pPoint;
 }
-
+    
 LineNode* ModelFactory::CreateLine(PointNode* startPoint, PointNode* endPoint) const
 {
     LineNode* line = new LineNode(startPoint, endPoint);
@@ -38,6 +38,13 @@ FaceNode* ModelFactory::CreateFace(std::vector<PointNode*> pointNodes) const
     FaceNode* face = new FaceNode(pointNodes);
     return face;
 }
+    
+FaceNode* ModelFactory::CreateFace(const std::vector<Vertex*>& vertexes)
+{
+    FaceNode* face = new FaceNode(vertexes);
+    return face;
+}
+
     
 BodyNode* ModelFactory::CreateBody()
 {

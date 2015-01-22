@@ -15,6 +15,7 @@ public:
     {
         bool Found() const { return mEdges.size() > 2; }
         std::vector<Edge*> mEdges;
+        std::vector<Vertex*> mVertexes;
     };
 
     

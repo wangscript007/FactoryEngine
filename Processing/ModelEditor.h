@@ -14,6 +14,7 @@ class FaceNode;
 class BodyNode;
 class GroupNode;
 class Node;
+class Vertex;
 
 class ModelEditor
 {
@@ -35,6 +36,7 @@ public:
     PointNode*      CreatePoint(glm::vec3 origin);
     LineNode*       CreateLine(PointNode* startPoint, PointNode* endPoint);
     FaceNode*       CreateFace(std::vector<PointNode*> pointNodes);
+    FaceNode*       CreateFace(const std::vector<Vertex*>& vertexes);
     BodyNode*       CreateBody();
     GroupNode*      CreateGroup();
     

@@ -24,7 +24,8 @@ void FaceExtruder::Extrude(FaceNode &faceNode)
 {
     mFaceNode = &faceNode;
     glm::vec3 offsetVec = mFaceNode->SurfaceNormal()*kExtrudeMinOffset;
-    std::vector<PointNode*> pointNodes = mFaceNode->GetPointNodes();
+    std::vector<PointNode*> pointNodes;
+    mFaceNode->GetPointNodes(pointNodes);
     
     PointNode* startPointNode = NULL;
     PointNode* lastPointNode = NULL;

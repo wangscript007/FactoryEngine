@@ -3,7 +3,9 @@
 #include <Graph/LineNode.h>
 #include <Graph/PointNode.h>
 #include <Geometry/Triangle.h>
+#include <Graph/Edge.h>
 #include <Processing/ColorPickingMapper.h>
+#include <Processing/FaceTraversal.h>
 
 
 namespace ftr {
@@ -12,6 +14,16 @@ namespace ftr {
 FaceNode::~FaceNode()
 {
     
+}
+    
+FaceNode::FaceNode(const std::vector<Vertex*>& vertexes)
+    :mVertexes(vertexes)
+{
+    std::vector<Edge*> edges;
+    GetEdges(edges);
+    for (Edge *edge : edges) {
+        edge->mFaces.push_back(this);
+    }
 }
 
 FaceNode::FaceNode(const std::vector<glm::vec3>& points)
@@ -40,15 +52,8 @@ void FaceNode::Render(Layer& layer)
         }
         glm::vec3 color = glm::vec3(ColorPickingMapper::ColorFromInt(mPickingId));
         mPolygonPrimitive.mPickingColor = glm::vec4(color.x, color.y, color.z, 1.0f);
-//        Edge* currentEdge = mOuterEdge;
         mPolygonPrimitive.Clear();
-//        do {
-//            mPolygonPrimitive.AddPoint(currentEdge->origin());
-//            if (!currentEdge->next()) {
-//                assert(false); // face is messed up!
-//            }
-//            currentEdge = currentEdge->next();
-//        } while (currentEdge != mOuterEdge);
+        for (Vertex *vertex : mVertexes) mPolygonPrimitive.AddPoint(vertex->mOrigin);
         mPolygonPrimitive.setOption(Primitive::kUseDepth, true);
     }
     layer.AddPrimitive(mPolygonPrimitive);
@@ -59,12 +64,10 @@ glm::vec3 FaceNode::Center() const
 {
     glm::vec3 sum;
     int count = 0;
-//    Edge* currentEdge = mOuterEdge;
-//    do {
-//        count++;
-//        sum += currentEdge->originNode()->mOrigin;
-//        currentEdge = currentEdge->next();
-//    } while (currentEdge != mOuterEdge);
+    for (Vertex *vertex : mVertexes) {
+        count++;
+        sum += vertex->mOrigin;
+    }
     return sum/static_cast<float>(count);
 }
 
@@ -75,82 +78,54 @@ void FaceNode::Invalidate(bool recursively)
     
     Node::Invalidate(recursively);
     mPolygonPrimitive.Invalidate();
-    
-//    if (recursively) {
-//        Edge* currentEdge = mOuterEdge;
-//        do {
-//            currentEdge->originNode()->Invalidate(true);
-//            currentEdge = currentEdge->next();
-//        } while (currentEdge != mOuterEdge);
-//    }
+    std::vector<Edge*> edges;
+    GetEdges(edges);
+    for (Edge *edge : edges) {
+        edge->mLineNode->Invalidate(recursively);
+    }
 }
     
 void FaceNode::PointNodes(std::vector<Node*>& result) const
 {
-//    Node::PointNodes(result);
-//    Edge* currentEdge = mOuterEdge;
-//    do {
-//        result.push_back(currentEdge->originNode());
-//        currentEdge = currentEdge->next();
-//    } while (currentEdge != mOuterEdge);
-
+    for (Vertex *vertex : mVertexes) {
+        result.push_back(vertex->pointNode());
+    }
 }
     
 void FaceNode::Transform(const glm::mat4& transform)
 {
-//    Edge* currentEdge = mOuterEdge;
-//    do {
-//        currentEdge->originNode()->Transform(transform);
-//        currentEdge = currentEdge->next();
-//    } while (currentEdge != mOuterEdge);
+    for (Vertex *vertex : mVertexes) {
+        vertex->pointNode()->Transform(transform);
+    }
 }
     
 glm::vec3 FaceNode::SurfaceNormal() const
 {
-//    Edge* currentEdge = mOuterEdge;
-//    int counter = 0;
-//    
-    std::vector<glm::vec3> points;
-//    points.reserve(3);
-//    do {
-//        points.push_back(currentEdge->origin());
-//        currentEdge = currentEdge->next();
-//        counter++; 
-//        
-//    } while (counter < 3);
-    Triangle triangle(points);
+    assert(mVertexes.size() > 2);
+    Triangle triangle(mVertexes[0]->mOrigin, mVertexes[1]->mOrigin, mVertexes[2]->mOrigin);
     return triangle.SurfaceNormal();
     
 }
-
     
-//std::vector<Edge*> FaceNode::GetEdges() const
-//{
-//    std::vector<Edge*> result;
-//    Edge* currentEdge = mOuterEdge;
-//    do {
-//        result.push_back(currentEdge);
-//        currentEdge = currentEdge->next();
-//    } while (currentEdge != mOuterEdge);
-//    return result;
-//}
-    
-    
-std::vector<PointNode*> FaceNode::GetPointNodes() const
+void FaceNode::GetEdges(std::vector<Edge*>& edges) const
 {
-    std::vector<PointNode*> result;
-//    Edge* currentEdge = mOuterEdge;
-//    do {
-//        result.push_back(currentEdge->originNode());
-//        currentEdge = currentEdge->next();
-//    } while (currentEdge != mOuterEdge);
-    return result;
+    FaceTraversal::EdgesConnectingVertexes(edges, mVertexes);
 }
 
+void FaceNode::GetPointNodes(std::vector<PointNode*>& pointNodes) const
+{
+    for (Vertex *vertex : mVertexes) {
+        pointNodes.push_back(vertex->pointNode());
+    }
+}
+    
 std::string FaceNode::Description() const
 {
-    std::string description = "";
-    return description;
+    std::stringstream ss;
+    for (Vertex *vertex : mVertexes) {
+        ss << vertex->mName << " - ";
+    }
+    return ss.str();
 }
 
 }
