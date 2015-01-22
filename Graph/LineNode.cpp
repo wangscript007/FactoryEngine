@@ -1,11 +1,14 @@
 
 #include <Graph/LineNode.h>
+#include <Graph/Edge.h>
+#include <Graph/FaceNode.h>
 
 namespace ftr {
 
 LineNode::LineNode(PointNode* startPoint, PointNode* endPoint)
     :mStartPoint(startPoint)
     ,mEndPoint(endPoint)
+    ,mEdge(NULL)
 {}
 
 #pragma mark - Instance
@@ -31,10 +34,16 @@ void LineNode::Render(Layer& layer)
     
 void LineNode::Invalidate(bool recursively)
 {
-//    if (mInvalid) return;
+    if (mInvalid) return;
     
     Node::Invalidate(recursively);
     mLinePrimitive.Invalidate();
+    
+    if (mEdge) {
+        for (FaceNode* face : mEdge->mFaces) {
+            face->Invalidate(recursively);
+        }
+    }
     
     if (recursively) {
         mEndPoint->Invalidate(recursively);

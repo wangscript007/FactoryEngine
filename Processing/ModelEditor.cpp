@@ -81,6 +81,7 @@ LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
     Vertex& vertexB = endPoint->vertex();
     Edge* edge = vertexA.ConnectTo(vertexB);
     edge->mLineNode = line;
+    line->mEdge = edge;
     
     
     FaceTraversal traversal(vertexA);

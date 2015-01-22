@@ -3,7 +3,8 @@
 #include <Graph/FaceNode.h>
 #include <Graph/LineNode.h>
 #include <Processing/Octree.h>
-
+#include <Graph/Vertex.h>
+#include <Graph/Edge.h>
 
 
 namespace ftr {
@@ -14,7 +15,7 @@ const float PointNode::c_fR = 5.0f;
 PointNode::PointNode()
     :mOctreeLeaf(NULL)
     ,mName("")
-    ,mVertex(Vertex())
+    ,mVertex(Vertex(glm::vec3(), *this))
 {
     
 }
@@ -50,7 +51,16 @@ void PointNode::Render(Layer& layer)
     
 void PointNode::Invalidate(bool recursively)
 {
+    if (mInvalid) return;
+    
     Node::Invalidate(recursively);
+    
+    if (recursively) {
+        for (Edge* edge : mVertex.mEdges) {
+            edge->mLineNode->Invalidate(recursively);
+        }
+    }
+    
 }
     
 void PointNode::PointNodes(std::vector<Node*>& result)

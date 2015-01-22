@@ -5,6 +5,8 @@
 #include <Graph/PointNode.h>
 
 namespace ftr {
+    
+class Edge;
 
 class LineNode : public Node
 {
@@ -24,6 +26,8 @@ public:
     PointNode* EndPoint() const { return mEndPoint; }
     virtual void Transform(const glm::mat4& m4Transformation);
 
+    Edge* mEdge;
+    
 private:
     LinePrimitive mLinePrimitive;
     PointNode* mStartPoint;
