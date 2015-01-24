@@ -41,13 +41,28 @@ glm::vec3 Viewport::SceneCoordsAt(const glm::vec2& viewportCoords) const
     
 glm::vec3 Viewport::SceneCoordsAtCenter() const
 {
-    return SceneCoordsAt(glm::vec2(frame[2]/2, frame[3]/2));
+    return SceneCoordsAt(Center());
 }
     
 Segment Viewport::RayAtPoint(const glm::vec2& point) const
 {
     return Segment(UnProject(glm::vec3(point.x, point.y, 0.0f)),
                    UnProject(glm::vec3(point.x, point.y, 1.0f)));
+}
+    
+bool Viewport::InFront(const glm::vec3& coords) const
+{
+    Segment ray = RayAtPoint(Center());
+    glm::vec3 dirA = ray.Direction();
+    glm::vec3 dirB = coords - ray.mStart;
+    float angle = glm::angle(glm::normalize(dirA), glm::normalize(dirB));
+    return angle < 90.0f;
+    
+}
+    
+glm::vec2 Viewport::Center() const
+{
+    return glm::vec2(frame[2]/2, frame[3]/2);
 }
     
     

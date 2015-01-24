@@ -25,10 +25,12 @@ public:
     glm::vec3 SceneCoordsAtCenter() const;
     Segment RayAtPoint(const glm::vec2& point) const;
     Triangle Plane() const;
+    bool InFront(const glm::vec3& coords) const;
     
 private:
     glm::vec3 Project(const glm::vec3& sceneVec) const;
     glm::vec3 UnProject(const glm::vec3& windowVec) const;
+    glm::vec2 Center() const;
     
     
 };

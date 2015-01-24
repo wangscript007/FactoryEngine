@@ -72,5 +72,12 @@ using namespace ftr;
     
 }
 
+- (void)testInFront
+{
+    [self orientateCameraFrontToXYPlane];
+    XCTAssert(_viewport.InFront(glm::vec3(0, 0, 0)));
+    XCTAssertFalse(_viewport.InFront(glm::vec3(0, 0, 100)));
+}
+
 
 @end

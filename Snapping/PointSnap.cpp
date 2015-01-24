@@ -50,11 +50,13 @@ PointNode* PointSnap::NearestPointToAxisInCylinder(const Cylinder& cylinder) con
     float nearestPointDistance = MAXFLOAT;
     float distance;
     for(auto i = pointsVector.begin(); i != pointsVector.end(); ++i) {
-        distance = cylinder.mAxis.DistanceFromPoint((*i)->Origin());
-        if (distance < cylinder.mRadius) {
-            if (distance < nearestPointDistance) {
-                nearestPoint = *i;
-                nearestPointDistance = distance;
+        if (mViewport.InFront((*i)->Origin())) {
+            distance = cylinder.mAxis.DistanceFromPoint((*i)->Origin());
+            if (distance < cylinder.mRadius) {
+                if (distance < nearestPointDistance) {
+                    nearestPoint = *i;
+                    nearestPointDistance = distance;
+                }
             }
         }
     }
