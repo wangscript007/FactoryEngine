@@ -55,13 +55,13 @@ void Pad::Render(Layer& layer)
     linePrimitive[index].setOption(Primitive::kUseDepth, false);
     linePrimitive[index].setOption(Primitive::kUseLighting, false);
     layer.AddPrimitive(linePrimitive[index++]);
-    // y
-    linePrimitive[index].mBegin = glm::vec3(0, 0, 0);
-    linePrimitive[index].mEnd = glm::vec3(0, a/2, 0);
-    linePrimitive[index].mColor = glm::vec4(0.0f, 1.0f, 0.0f, 1.0);
-    linePrimitive[index].setOption(Primitive::kUseDepth, false);
-    linePrimitive[index].setOption(Primitive::kUseLighting, false);
-    layer.AddPrimitive(linePrimitive[index++]);
+//    // y
+//    linePrimitive[index].mBegin = glm::vec3(0, 0, 0);
+//    linePrimitive[index].mEnd = glm::vec3(0, a/2, 0);
+//    linePrimitive[index].mColor = glm::vec4(0.0f, 1.0f, 0.0f, 1.0);
+//    linePrimitive[index].setOption(Primitive::kUseDepth, false);
+//    linePrimitive[index].setOption(Primitive::kUseLighting, false);
+//    layer.AddPrimitive(linePrimitive[index++]);
     // z
     linePrimitive[index].mBegin = glm::vec3(0, offset, -a/2);
     linePrimitive[index].mEnd = glm::vec3(0, offset, a/2+1);

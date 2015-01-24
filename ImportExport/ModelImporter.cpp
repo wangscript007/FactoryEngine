@@ -24,9 +24,24 @@ void ModelImporter::Import(const std::string& path)
 {
     mModelEditor.CreateGroup();
     
-    unsigned aiPostProccesFlags = aiProcess_OptimizeMeshes;
+    unsigned aiPostProccesFlags = aiProcess_RemoveComponent        |
+    aiProcess_JoinIdenticalVertices       |
+    aiProcess_OptimizeMeshes              |
+    aiProcess_Triangulate              |
+    aiProcess_OptimizeGraph;
     aiPropertyStore* props = aiCreatePropertyStore();
-    aiSetImportPropertyInteger(props, AI_CONFIG_PP_SBP_REMOVE, aiPrimitiveType_LINE | aiPrimitiveType_POINT );
+    aiSetImportPropertyInteger(props, AI_CONFIG_PP_SBP_REMOVE, aiPrimitiveType_LINE | aiPrimitiveType_POINT);
+    aiSetImportPropertyInteger(props, AI_CONFIG_PP_RVC_FLAGS, aiComponent_CAMERAS       |
+                               aiComponent_LIGHTS                                              |
+                               aiComponent_MATERIALS                                      |
+                               aiComponent_TEXTURES                                       |
+                               aiComponent_BONEWEIGHTS                               |
+                               aiComponent_COLORS                                            |
+                               aiComponent_TANGENTS_AND_BITANGENTS |
+                               aiComponent_NORMALS                                         |
+                               aiComponent_ANIMATIONS);
+    
+    
     mScene = (aiScene*) aiImportFileExWithProperties(path.c_str(), aiPostProccesFlags, NULL, props);
     aiReleasePropertyStore(props);
     
@@ -53,13 +68,10 @@ void ModelImporter::Import(const std::string& path)
             }
             // faces with lines
             for (int k = 0; k < nodes.size()-1; k++ ) {
-                //if (!nodes[k]->IsConnectedTo(nodes[k+1])) {
+                if (!nodes[k]->IsConnectedTo(*nodes[k+1])) {
                     mModelEditor.CreateLine(nodes[k], nodes[k+1]);
-                //}
+                }
             }
-//            if (!nodes.back()->IsConnectedTo(nodes.front())) {
-                mModelEditor.CreateLine(nodes.back(), nodes.front());
-//            }
             
             // faces without line
             //mModelEditor.CreateFace(nodes);

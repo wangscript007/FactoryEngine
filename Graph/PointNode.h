@@ -39,6 +39,7 @@ public:
     std::string mName;
     bool mIsActive;
     
+    bool IsConnectedTo(const PointNode& target);
     Vertex& vertex() { return mVertex; }
     
 private:

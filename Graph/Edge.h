@@ -13,7 +13,7 @@ public:
     Edge(Vertex& vertexA, Vertex& vertexB);
     virtual ~Edge() {}
     
-    Vertex* OtherEnd(Vertex& vertex);
+    Vertex* OtherEnd(const Vertex& vertex) const;
     
     std::vector<FaceNode*> mFaces;
     

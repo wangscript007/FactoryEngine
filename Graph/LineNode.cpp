@@ -24,7 +24,7 @@ void LineNode::Render(Layer& layer)
             mLinePrimitive.mBegin = mStartPoint->Origin();
             mLinePrimitive.mEnd = mEndPoint->Origin();
             mLinePrimitive.mColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-            mLinePrimitive.setOption(Primitive::kUseDepth, false);
+            mLinePrimitive.setOption(Primitive::kUseDepth, true);
         }
         layer.AddPrimitive(mLinePrimitive);
     }
@@ -41,13 +41,13 @@ void LineNode::Invalidate(bool recursively)
     
     if (mEdge) {
         for (FaceNode* face : mEdge->mFaces) {
-            face->Invalidate(recursively);
+            face->Invalidate(false);
         }
     }
     
-    if (recursively) {
-        mEndPoint->Invalidate(recursively);
-        mStartPoint->Invalidate(recursively);
+    if (recursively) {   
+        mEndPoint->Invalidate(false);
+        mStartPoint->Invalidate(false);
     }
 }
 

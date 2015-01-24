@@ -12,7 +12,7 @@ Edge::Edge(Vertex& vertexA, Vertex& vertexB)
     
 }
     
-Vertex* Edge::OtherEnd(Vertex& vertex)
+Vertex* Edge::OtherEnd(const Vertex& vertex) const
 {
     if (mVertexA == &vertex) {
         assert(mVertexB != &vertex);
@@ -26,7 +26,7 @@ Vertex* Edge::OtherEnd(Vertex& vertex)
     
 size_t Edge::Degree() const
 {
-    return std::min(mVertexA->Degree(), mVertexB->Degree());
+    return std::max(mVertexA->Degree(), mVertexB->Degree());
 }
     
 bool Edge::IsFull() const

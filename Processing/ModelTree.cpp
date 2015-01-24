@@ -9,7 +9,7 @@ namespace ftr {
 
 ModelTree::ModelTree()
 {
-    mOctree = new ftr::Octree(Box(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(100.0f, 100.0f, 100.0f)));
+    mOctree = new ftr::Octree(Box(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(500.0f, 500, 500.0f)));
 }
 
 ModelTree::~ModelTree()

@@ -73,6 +73,8 @@ PointNode* ModelEditor::CreatePoint(glm::vec3 origin)
 
 LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
 {
+    if (startPoint->IsConnectedTo(*endPoint)) return NULL;
+    
     assert(mActiveBody);
     LineNode* line = mModelFactory->CreateLine(startPoint, endPoint);
     mActiveBody->AddNode(line);

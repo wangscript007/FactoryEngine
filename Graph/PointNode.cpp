@@ -57,10 +57,15 @@ void PointNode::Invalidate(bool recursively)
     
     if (recursively) {
         for (Edge* edge : mVertex.mEdges) {
-            edge->mLineNode->Invalidate(recursively);
+            edge->mLineNode->Invalidate(false);
         }
     }
     
+}
+    
+bool PointNode::IsConnectedTo(const PointNode& target)
+{
+    return mVertex.IsConnectedTo(target.mVertex);
 }
     
 void PointNode::PointNodes(std::vector<Node*>& result)

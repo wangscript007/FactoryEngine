@@ -74,14 +74,18 @@ glm::vec3 FaceNode::Center() const
     
 void FaceNode::Invalidate(bool recursively)
 {
-    //if (mInvalid) return;
+//    std::cout << "Invalidate\n";
+    if (mInvalid) return;
     
     Node::Invalidate(recursively);
     mPolygonPrimitive.Invalidate();
-    std::vector<Edge*> edges;
-    GetEdges(edges);
-    for (Edge *edge : edges) {
-        edge->mLineNode->Invalidate(recursively);
+    
+    if (recursively) {
+        std::vector<PointNode*>nodes;
+        GetPointNodes(nodes);
+        for (PointNode *node : nodes) {
+            node->Invalidate(recursively);
+        }
     }
 }
     

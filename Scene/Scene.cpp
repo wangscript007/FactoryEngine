@@ -32,7 +32,12 @@ Scene::Scene() :
     
     ModelImporter modelImporter(*mModelEditor);
 
-    modelImporter.Import("/Users/edvinassarkus/factory/factoryengine/Tests/Models/X/dwarf.x");
+    modelImporter.Import("/Users/edvinassarkus/factory/factoryengine/Tests/Models/HMP/terrain_withtexture.hmp");
+    
+    //modelImporter.Import("/Users/edvinassarkus/factory/factoryengine/Tests/Models/B3D/turtle1.b3d");
+    //modelImporter.Import("/Users/edvinassarkus/factory/factoryengine/Tests/Models/DXF/rifle.dxf");
+    //modelImporter.Import("/Users/edvinassarkus/factory/factoryengine/Tests/Models/LWO/LWO2/rifle.lwo");
+    //modelImporter.Import("/Users/edvinassarkus/factory/factoryengine/Tests/Models/X/dwarf.x");
 
 
     mWorkspace->setOctree(*mModelEditor->modelTree()->Octree());

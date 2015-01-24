@@ -13,7 +13,8 @@ public:
     Vertex(glm::vec3 origin, PointNode& pointNode);
     virtual ~Vertex() {}
     Edge* ConnectTo(Vertex& target);
-    Edge* EdgeTo(Vertex& target);
+    bool IsConnectedTo(const Vertex& target) const;
+    Edge* EdgeTo(const Vertex& target) const;
     
     PointNode* pointNode() const { return mPointNode; }
     

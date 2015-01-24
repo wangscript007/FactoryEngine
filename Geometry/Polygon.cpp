@@ -43,9 +43,9 @@ void Polygon::Triangulate()
     }
     float offset = rotatedPolygon[0][componentIndex];
     
-    for (auto &point : rotatedPolygon.mPoints) {
-        assert(offset - point[componentIndex] < 0.1f);
-    }
+//    for (auto &point : rotatedPolygon.mPoints) {
+//        assert(offset - point[componentIndex] < 0.1f);
+//    }
 
     
     std::vector<p2t::Point*> polyline;
