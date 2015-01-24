@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
-
+#import <Graph/PointNode.h>
 #include <Processing/Octree.h>
 
 using namespace ftr;
@@ -45,7 +45,7 @@ using namespace ftr;
     
     for(int i = 0; i < 8; ++i) {
         PointNode* point = new PointNode();
-        point->mOrigin = p[i];
+        point->SetOrigin(p[i]);
         _points[i] = point;
     }
 }
@@ -80,10 +80,13 @@ using namespace ftr;
     }
     
     for (int i = 0; i < 10; i++) {
+        
         for (int j = 0; j < 8; ++j) {
-            _points[j]->mOrigin.x += 2.0f;
-            _points[j]->mOrigin.z += 2.0f;
-            _points[j]->mOrigin.y += 2.0f;
+            glm::vec3 origin = _points[j]->Origin();
+            origin.x += 2.0f;
+            origin.z += 2.0f;
+            origin.y += 2.0f;
+            _points[j]->SetOrigin(origin);
         }
         for (int j = 0; j < 8; ++j) {
             octree.UpdatePoint(_points[j]);

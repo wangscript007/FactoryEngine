@@ -110,7 +110,8 @@ using namespace ftr;
     
     Vertex* nodes[8];
     for(int i = 0; i < 8; ++i) {
-        nodes[i] = new Vertex(p[i]);
+        nodes[i] = new Vertex();
+        nodes[i]->mOrigin = p[i];
         std::stringstream ss;
         ss << i;
         nodes[i]->mName = ss.str();

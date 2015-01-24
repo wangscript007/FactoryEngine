@@ -48,7 +48,7 @@ void FaceTraversal::Find(Result& result)
         mVertexes.clear();
     } else {
         FaceTraversal::EdgesConnectingVertexes(mResult->mEdges, mVertexes);
-        std::cout << Description(mResult) << "\n";
+        //std::cout << Description(mResult) << "\n";
     }
 }
  
@@ -56,7 +56,7 @@ bool FaceTraversal::Find(Vertex& current)
 {
     for (auto &edge : current.mEdges) {
         Vertex* vertex = edge->OtherEnd(current);
-        std::cout << Description() << vertex->mName << " " << edge->Description() << "\n" ;
+        //std::cout << Description() << vertex->mName << " " << edge->Description() << "\n" ;
         /* Conditions
         * Must not be already in result pathvertex
         * Must be in same plane as previous vertexes
