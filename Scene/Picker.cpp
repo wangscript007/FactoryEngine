@@ -26,7 +26,7 @@ Picker::~Picker()
 }
 
     
-Node* Picker::PickNode(const glm::vec2& atPoint)
+Node* Picker::PickNode(const glm::vec2& atPoint) const
 {
     mLayer.Cleanup();
     mSceneRenderer.RenderMarkingContent(mLayer);
@@ -34,14 +34,17 @@ Node* Picker::PickNode(const glm::vec2& atPoint)
     return mColorPickingMapper->NodeForColor(glm::vec3(color.x, color.y, color.z));
 }
     
-glm::vec3 Picker::PickSceneCoordinates(const glm::vec2& atPoint)
+glm::vec3 Picker::PickSceneCoordinates(const glm::vec2& atPoint) const
 {
     Node* node = PickNode(atPoint);
-    assert(node->Type() == Node::kFace);
-    FaceNode* face = reinterpret_cast<FaceNode*>(node);
-    const Viewport& viewport = mSceneRenderer.camera().viewport();
-    Segment ray = viewport.RayAtPoint(atPoint);
-    glm::vec3 point = face->IntersectionPoint(ray);
+    glm::vec3 point;
+    if (node) {
+        assert(node->Type() == Node::kFace);
+        FaceNode* face = reinterpret_cast<FaceNode*>(node);
+        const Viewport& viewport = mSceneRenderer.camera().viewport();
+        Segment ray = viewport.RayAtPoint(atPoint);
+        point = face->IntersectionPoint(ray);
+    }
     return point;
 }
     

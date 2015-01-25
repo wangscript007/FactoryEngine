@@ -53,6 +53,7 @@ public:
     
     Framebuffer*        colorMarkingFramebuffer() const { return mSceneRenderer->colorMarkingFramebuffer(); }
     const Viewport&     viewport() const { return mViewport; }
+    const Picker&       picker() const { return *mPicker; }
     
 
     
