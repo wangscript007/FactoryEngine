@@ -21,6 +21,8 @@ public:
     virtual void Render(Layer& layer);
     
     
+    bool mRenderLines;
+    
 protected:
     void RenderSublayersRecursively(Layer& layer);
     void AddRenderer(PrimitiveRenderer* primitiveRenderer);

@@ -1,11 +1,16 @@
 
 #include <Snapping/Snap.h>
+#include <Scene/Viewport.h>
+#include <Scene/Picker.h>
+#include <Processing/ModelTree.h>
 
 namespace ftr {
     
-Snap::Snap(const Viewport& viewport, const ModelTree& modelTree)
+Snap::Snap(const Viewport& viewport, const Picker& picker, const ModelTree& modelTree)
     :mViewport(viewport),
+    mPicker(picker),
      mModelTree(modelTree)
+    
 {
     
 }
@@ -14,7 +19,7 @@ void Snap::setStartViewport(const glm::vec2& startViewport, bool assignScene)
 {
     mStartViewport = startViewport;
     if (assignScene) {
-        mStartScene = mViewport.SceneCoordsAt(startViewport);
+        mStartScene = mPicker.PickSceneCoordinates(startViewport);
     }
 }
     
@@ -22,7 +27,7 @@ void Snap::setEndViewport(const glm::vec2& endViewport, bool assignScene)
 {
     mEndViewport = endViewport;
     if (assignScene) {
-        mEndScene = mViewport.SceneCoordsAt(endViewport);
+        mEndScene = mPicker.PickSceneCoordinates(endViewport);
     }
 }
     

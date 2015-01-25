@@ -1,6 +1,10 @@
 
 #include <Snapping/PointSnap.h>
 #include <Graph/PointNode.h>
+#include <Scene/Picker.h>
+#include <Processing/ModelTree.h>
+#include <Graph/PointNode.h>
+#include <Geometry/Cylinder.h>
 
 namespace ftr {
     

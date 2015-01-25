@@ -1,15 +1,16 @@
 
 #pragma once
 
-#include <Scene/Viewport.h>
-#include <Processing/ModelTree.h>
-
 namespace ftr {
+    
+class Picker;
+class ModelTree;
+class Viewport;
     
 class Snap
 {
 public:
-    Snap(const Viewport& viewport, const ModelTree& modelTree);
+    Snap(const Viewport& viewport, const Picker& picker, const ModelTree& modelTree);
     virtual ~Snap() {}
     
     void setStartScene(const glm::vec3& startScene, bool assignViewport = false);
@@ -28,6 +29,7 @@ protected:
     glm::vec2 mEndViewport;
     
     const Viewport& mViewport;
+    const Picker& mPicker;
     const ModelTree& mModelTree;
 };
     

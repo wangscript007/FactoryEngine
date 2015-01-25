@@ -79,7 +79,6 @@ void Scene::Prepare()
     
     ShadingInterface& shadingInterface = mShadingLibrary->interface();
     mCamera->setShadingInterface(&shadingInterface);
-    mInteractionProvider = new class InteractionProvider(*mModelEditor, *mCamera);
 #ifdef LEAP_ENABLED
     mleapListener.setCameraInteraction(mInteractionProvider->CameraInteraction());
 #endif
@@ -94,6 +93,7 @@ void Scene::Prepare()
     
     mPicker = new Picker(*mModelEditor->modelTree(), *mSceneRenderer, *mLayer);
     mModelEditor->setPicker(mPicker);
+    mInteractionProvider = new class InteractionProvider(*mModelEditor, *mCamera);
 }
 
 #pragma mark Workspace

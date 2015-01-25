@@ -5,11 +5,11 @@
 
 namespace ftr {
     
-SnappingQueue::SnappingQueue(const Viewport& viewport, const ModelTree& modelTree)
-    : Snap::Snap(viewport, modelTree)
+SnappingQueue::SnappingQueue(const Viewport& viewport, const Picker& picker, const ModelTree& modelTree)
+    : Snap::Snap(viewport, picker, modelTree)
 {
-    mSnapsVector.push_back(new PointSnap(viewport, modelTree));
-    mSnapsVector.push_back(new AxisSnap(viewport, modelTree));
+    mSnapsVector.push_back(new PointSnap(viewport, picker, modelTree));
+    mSnapsVector.push_back(new AxisSnap(viewport, picker, modelTree));
 }
     
 glm::vec3 SnappingQueue::Snapped() const

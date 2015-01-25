@@ -5,6 +5,9 @@
 
 namespace ftr {
     
+class PointNode;
+class Cylinder;
+    
 class PointSnap : public Snap
 {
 public:

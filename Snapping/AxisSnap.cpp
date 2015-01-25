@@ -1,6 +1,10 @@
 
 #include <Snapping/AxisSnap.h>
 #include <Geometry/Constants.h>
+#include <Scene/Viewport.h>
+#include <Scene/Picker.h>
+#include <Processing/ModelTree.h>
+
 
 namespace ftr {
     

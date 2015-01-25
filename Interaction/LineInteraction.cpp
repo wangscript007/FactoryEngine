@@ -4,6 +4,8 @@
 #include <Processing/ModelEditor.h>
 #include <Interaction/LineInteraction.h>
 #include <Snapping/SnappingQueue.h>
+#include <Scene/Picker.h>
+
 
 namespace ftr {
 
@@ -13,9 +15,10 @@ LineInteraction::LineInteraction(ModelEditor& modelEditor, const Viewport& viewp
     ,mStartPoint(NULL)
     ,mEndPoint(NULL)
     ,mViewport(&viewport)
+    ,mPicker(modelEditor.picker())
 {
-    mSnappingQueue = new SnappingQueue(viewport, *modelEditor.modelTree());
-    mPointSnap = new PointSnap(viewport, *modelEditor.modelTree());
+    mSnappingQueue = new SnappingQueue(viewport, *modelEditor.picker(), *modelEditor.modelTree());
+    mPointSnap = new PointSnap(viewport, *modelEditor.picker(), *modelEditor.modelTree());
 }
     
 LineInteraction::~LineInteraction()
@@ -66,6 +69,7 @@ void LineInteraction::Render(Layer& layer)
 void LineInteraction::Begin()
 {
     if (!mActive) {
+        mPicker->setOn(true);
         mActive = true;
         mModelEditor.activeBody()->AddNode(this);
         
@@ -118,6 +122,7 @@ void LineInteraction::Step()
 void LineInteraction::Finish()
 {
     mActive = false;
+    mPicker->setOn(false);
 }
     
 void LineInteraction::setStart(const glm::vec2& start)
@@ -140,7 +145,7 @@ void LineInteraction::setEnd(const glm::vec2& endViewport)
     
     mEnd = mSnappingQueue->Snapped();
     if (mEnd == mStart) {
-        mEnd = mViewport->SceneCoordsAt(endViewport);
+        mEnd = mPicker->PickSceneCoordinates(endViewport);
     }
     
 }

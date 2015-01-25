@@ -15,6 +15,7 @@ namespace ftr {
 LayerRenderer::LayerRenderer(ShadingInterface& shadingInterface)
     : mDepth(0)
 {
+    mRenderLines = true;
     AddRenderer(new PolygonRenderer(shadingInterface));
     AddRenderer(new LineRenderer(shadingInterface));
 }
@@ -41,14 +42,16 @@ void LayerRenderer::Render(Layer& layer)
 void LayerRenderer::RenderInternal(Layer& layer)
 {
     for(auto& renderer : mRenderersVector) {
-        BatchBucket::OptionToBatchMap &batches = layer.BatchesWithType(renderer->type());
-        for (auto& pair : batches)
-        {
-            BatchBucket::BatchVector& batchVector = pair.second;
-            for (auto& batch : batchVector) {
-                renderer->Begin(*batch);
-                renderer->Render(*batch);
-                renderer->End(*batch);
+        if ((renderer->type() != Primitive::kLine) || mRenderLines) {
+            BatchBucket::OptionToBatchMap &batches = layer.BatchesWithType(renderer->type());
+            for (auto& pair : batches)
+            {
+                BatchBucket::BatchVector& batchVector = pair.second;
+                for (auto& batch : batchVector) {
+                    renderer->Begin(*batch);
+                    renderer->Render(*batch);
+                    renderer->End(*batch);
+                }
             }
         }
     }

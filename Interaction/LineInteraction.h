@@ -39,7 +39,7 @@ private:
     SnappingQueue* mSnappingQueue;
     PointSnap* mPointSnap;
     const Viewport* mViewport;
-    
+    Picker* mPicker;
     std::vector<glm::vec3> mDebugPoints;
 };
 

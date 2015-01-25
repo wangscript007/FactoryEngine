@@ -46,22 +46,25 @@ void SceneRenderer::Render(Layer &layer)
 void SceneRenderer::RenderMainContent(Layer &layer)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
     mShadingLibrary.UseProgramWithType(mProgramTypeForVisibleBuffer);
     mCamera.CommitTransformations();
+    mRenderLines = mProgramTypeForVisibleBuffer != ShadingProgram::kColor;
     RenderInternal(layer);
 }
     
 void SceneRenderer::RenderMarkingContent(Layer &layer)
 {
+    
     assert(mColorMarkingFramebuffer);
     mColorMarkingFramebuffer->Bind();
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     mShadingLibrary.UseProgramWithType(mProgramTypeForMarkingBuffer);
     mCamera.CommitTransformations();
+    mRenderLines = mProgramTypeForMarkingBuffer != ShadingProgram::kColor;
     LayerRenderer::RenderInternal(layer);
     mColorMarkingFramebuffer->Unbind();
+    
 }
 
 void SceneRenderer::setFrame(const  glm::vec4& frame)
