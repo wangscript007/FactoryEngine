@@ -34,10 +34,11 @@ public:
     void GetPointNodes(std::vector<PointNode*>& pointNodes) const;
     
     glm::vec3 Center() const;
-    
     glm::vec3 SurfaceNormal() const;
     
     std::string Description() const;
+    
+    glm::vec3 IntersectionPoint(const Segment& segment) const;
     
 private:
     PolygonPrimitive mPolygonPrimitive;

@@ -2,10 +2,12 @@
 #include <Graph/FaceNode.h>
 #include <Graph/LineNode.h>
 #include <Graph/PointNode.h>
-#include <Geometry/Triangle.h>
 #include <Graph/Edge.h>
+#include <Geometry/Triangle.h>
+#include <Geometry/Segment.h>
 #include <Processing/ColorPickingMapper.h>
 #include <Processing/FaceTraversal.h>
+#include <Render/Primitive.h>
 
 
 namespace ftr {
@@ -121,6 +123,11 @@ void FaceNode::GetPointNodes(std::vector<PointNode*>& pointNodes) const
     for (Vertex *vertex : mVertexes) {
         pointNodes.push_back(vertex->pointNode());
     }
+}
+    
+glm::vec3 FaceNode::IntersectionPoint(const Segment& segment) const
+{
+    return mPolygonPrimitive.IntersectionPoint(segment);
 }
     
 std::string FaceNode::Description() const

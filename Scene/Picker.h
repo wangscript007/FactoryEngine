@@ -15,7 +15,8 @@ public:
     Picker(ModelTree& modelTree, SceneRenderer& sceneRenderer, Layer& layer);
     virtual ~Picker();
     
-    Node* Pick(const glm::vec2& atPoint);
+    Node* PickNode(const glm::vec2& atPoint);
+    glm::vec3 PickSceneCoordinates(const glm::vec2& atPoint);
     
     bool isOn() const { return mIsOn; }
     void setOn(bool on);

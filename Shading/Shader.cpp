@@ -6,8 +6,6 @@ namespace ftr {
     
 void Shader::Compile()
 {
-    printf("GLSL Version = %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
-    printf("GL Version = %s\n", glGetString(GL_VERSION));
     mId = glCreateShader(mData.type);
     assert(mId != 0);
     const char* source = mData.source.c_str();

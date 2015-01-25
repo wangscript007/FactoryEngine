@@ -26,6 +26,7 @@ public:
     void DebugPrint() const;
     void DebugPrintTriangles() const;
     int DebugTrianglesMatchingPointsCount() const;
+    glm::vec3 IntersectionPoint(const Segment& segment) const;
     
 protected:
     glm::mat4 RotationToSurfaceNormal(const glm::vec3& targedNormal);

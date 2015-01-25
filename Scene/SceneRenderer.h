@@ -25,6 +25,8 @@ public:
     void setMarkingBufferVisible(bool visible);
     void RenderMarkingContent(Layer &layer);
     
+    const Camera& camera() const { return mCamera; }
+    
 private:
     bool mMarkingBufferVisible;
     

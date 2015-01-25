@@ -143,7 +143,7 @@ void ModelEditor::Select(Node* node)
     
 Node* ModelEditor::Select(const glm::vec2& point)
 {
-    Node* node = mPicker->Pick(point);
+    Node* node = mPicker->PickNode(point);
     if (node && node != mSelectedNode) {
         if (mSelectedNode) {
             mSelectedNode->setSelected(false);

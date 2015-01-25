@@ -146,6 +146,21 @@ glm::vec3 Polygon::SurfaceNormal() const
     return normal;
 }
     
+glm::vec3 Polygon::IntersectionPoint(const Segment& segment) const
+{
+    assert(mTriangles.size() > 0);
+    glm::vec3 point;
+    for (const Triangle* triangle : mTriangles) {
+        
+        Segment::IntersectionSituation situation = segment.IntersectionWithTriangle(*triangle, point);
+        assert(situation != Segment::kIntersectionSituationInvalid);
+        if (situation == Segment::kIntersectionSituationInside) {
+            break;
+        }
+    }
+    return point;
+}
+    
 int Polygon::DebugTrianglesMatchingPointsCount() const
 {
     int matchingPointsCount = 0;
