@@ -65,6 +65,7 @@ void LineInteraction::Render(Layer& layer)
     layer.AddPrimitive(linePrimitive);
     Node::Render(layer);
 }
+    
 
 void LineInteraction::Begin()
 {
