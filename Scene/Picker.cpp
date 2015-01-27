@@ -18,11 +18,19 @@ Picker::Picker(ModelTree& modelTree, SceneRenderer& sceneRenderer, Layer& layer)
     
 {
     mColorPickingMapper = new ColorPickingMapper(mModelTree);
+    
+    float k = 10000;
+    mPadPolygon.AddPoint(glm::vec3(k,0,k));
+    mPadPolygon.AddPoint(glm::vec3(k,0,-k));
+    mPadPolygon.AddPoint(glm::vec3(-k,0,-k));
+    mPadPolygon.AddPoint(glm::vec3(-k,0,k));
+    mPadPolygon.Triangulate();
+
 }
     
 Picker::~Picker()
 {
-     FT_DELETE(mColorPickingMapper);
+    FT_DELETE(mColorPickingMapper);
 }
 
     
@@ -38,12 +46,14 @@ glm::vec3 Picker::PickSceneCoordinates(const glm::vec2& atPoint) const
 {
     Node* node = PickNode(atPoint);
     glm::vec3 point;
+    const Viewport& viewport = mSceneRenderer.camera().viewport();
+    Segment ray = viewport.RayAtPoint(atPoint);
     if (node) {
         assert(node->Type() == Node::kFace);
         FaceNode* face = reinterpret_cast<FaceNode*>(node);
-        const Viewport& viewport = mSceneRenderer.camera().viewport();
-        Segment ray = viewport.RayAtPoint(atPoint);
         point = face->IntersectionPoint(ray);
+    } else {
+        point = mPadPolygon.IntersectionPoint(ray);
     }
     return point;
 }

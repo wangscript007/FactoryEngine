@@ -1,6 +1,8 @@
 
 #pragma once
 
+#include <Geometry/Polygon.h>
+
 namespace ftr {
 
 class ColorPickingMapper;
@@ -27,6 +29,7 @@ private:
     SceneRenderer& mSceneRenderer;
     Layer& mLayer;
     bool mIsOn;
+    Polygon mPadPolygon;
 
 };
     

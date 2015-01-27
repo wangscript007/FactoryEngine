@@ -70,8 +70,8 @@ void Pad::Render(Layer& layer)
     linePrimitive[index].setOption(Primitive::kUseLighting, false);
     layer.AddPrimitive(linePrimitive[index++]);
     
-    static const glm::vec4 color = glm::vec4(0.1f, 0.3f, 0.1f, 1.0f);
-    float k = 50;
+    static const glm::vec4 color = glm::vec4(0.1f, 0.3f, 0.1f, 0.1f);
+    float k = 2000;
     if (mInvalid) {
         mPolygonPrimitive.Clear();
         mPolygonPrimitive.AddPoint(glm::vec3(k,0,k));
@@ -79,7 +79,8 @@ void Pad::Render(Layer& layer)
         mPolygonPrimitive.AddPoint(glm::vec3(-k,0,-k));
         mPolygonPrimitive.AddPoint(glm::vec3(-k,0,k));
         mPolygonPrimitive.mColor = color;
-        mPolygonPrimitive.setOption(Primitive::kUseDepth, true);
+        mPolygonPrimitive.setOption(Primitive::kUseDepth, false);
+//        mPolygonPrimitive.setOption(Primitive::kUseBlend, true);
     }
     layer.AddPrimitive(mPolygonPrimitive);
 }
