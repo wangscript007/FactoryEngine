@@ -23,7 +23,7 @@ void Pad::Render(Layer& layer)
             linePrimitive[index].mBegin = glm::vec3(x, offset, -a2);
             linePrimitive[index].mEnd = glm::vec3(x, 0, a2);
             linePrimitive[index].mColor = glm::vec4(0.8f, 0.8f, 0.8f, 1.0);
-            linePrimitive[index].setOption(Primitive::kUseDepth, false);
+            linePrimitive[index].setOption(Primitive::kUseDepth, true);
             linePrimitive[index].setOption(Primitive::kUseLighting, false);
             layer.AddPrimitive(linePrimitive[index++]);
         }
@@ -38,7 +38,7 @@ void Pad::Render(Layer& layer)
             linePrimitive[index].mBegin = glm::vec3(-a2, offset, z);
             linePrimitive[index].mEnd = glm::vec3(a2, offset, z);
             linePrimitive[index].mColor = glm::vec4(0.8f, 0.8f, 0.8f, 1.0);
-            linePrimitive[index].setOption(Primitive::kUseDepth, false);
+            linePrimitive[index].setOption(Primitive::kUseDepth, true);
             linePrimitive[index].setOption(Primitive::kUseLighting, false);
             layer.AddPrimitive(linePrimitive[index++]);
         }
@@ -52,7 +52,7 @@ void Pad::Render(Layer& layer)
     linePrimitive[index].mBegin = glm::vec3(-a/2, offset, 0);
     linePrimitive[index].mEnd = glm::vec3(a/2+1, offset, 0);
     linePrimitive[index].mColor = glm::vec4(1.0f, 0.0f, 0.0f, 1.0);
-    linePrimitive[index].setOption(Primitive::kUseDepth, false);
+    linePrimitive[index].setOption(Primitive::kUseDepth, true);
     linePrimitive[index].setOption(Primitive::kUseLighting, false);
     layer.AddPrimitive(linePrimitive[index++]);
 //    // y
@@ -66,7 +66,7 @@ void Pad::Render(Layer& layer)
     linePrimitive[index].mBegin = glm::vec3(0, offset, -a/2);
     linePrimitive[index].mEnd = glm::vec3(0, offset, a/2+1);
     linePrimitive[index].mColor = glm::vec4(0.0f, 0.0f, 1.0f, 1.0);
-    linePrimitive[index].setOption(Primitive::kUseDepth, false);
+    linePrimitive[index].setOption(Primitive::kUseDepth, true);
     linePrimitive[index].setOption(Primitive::kUseLighting, false);
     layer.AddPrimitive(linePrimitive[index++]);
     

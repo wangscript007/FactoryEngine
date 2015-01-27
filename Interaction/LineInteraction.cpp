@@ -123,6 +123,7 @@ void LineInteraction::Finish()
 {
     mActive = false;
     mPicker->setOn(false);
+    linePrimitive.Invalidate();
 }
     
 void LineInteraction::setStart(const glm::vec2& start)
