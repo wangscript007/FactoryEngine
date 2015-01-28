@@ -236,6 +236,7 @@
 		D157A5DC18E3098500840C77 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Triangle.cpp */; };
 		D15A7DDD18FB15B1004CB791 /* ColorPickingMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */; };
 		D15A7DDE18FB15B1004CB791 /* ColorPickingMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = D15A7DDC18FB15B1004CB791 /* ColorPickingMapper.h */; };
+		D15D42C91A79A5D200E5AB54 /* TestPrimitive.mm in Sources */ = {isa = PBXBuildFile; fileRef = D15D42C81A79A5D200E5AB54 /* TestPrimitive.mm */; };
 		D1693B7418E58BAE000AFE41 /* ModelEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B6A18E58BAE000AFE41 /* ModelEditor.cpp */; };
 		D1693B7518E58BAE000AFE41 /* ModelEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = D1693B6B18E58BAE000AFE41 /* ModelEditor.h */; };
 		D1693B7618E58BAE000AFE41 /* ModelTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1693B6C18E58BAE000AFE41 /* ModelTree.cpp */; };
@@ -491,6 +492,7 @@
 		D15130DB190C3DD800BA09AB /* Picker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Picker.h; sourceTree = "<group>"; };
 		D15A7DDB18FB15B1004CB791 /* ColorPickingMapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ColorPickingMapper.cpp; sourceTree = "<group>"; };
 		D15A7DDC18FB15B1004CB791 /* ColorPickingMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickingMapper.h; sourceTree = "<group>"; };
+		D15D42C81A79A5D200E5AB54 /* TestPrimitive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestPrimitive.mm; path = ../../factoryengine/Tests/TestPrimitive.mm; sourceTree = "<group>"; };
 		D1670B1B19437943003BCD75 /* TestFaceReversal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestFaceReversal.mm; sourceTree = "<group>"; };
 		D1693B6A18E58BAE000AFE41 /* ModelEditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelEditor.cpp; sourceTree = "<group>"; };
 		D1693B6B18E58BAE000AFE41 /* ModelEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelEditor.h; sourceTree = "<group>"; };
@@ -705,6 +707,7 @@
 				D1FE762C1A06624B00FB7535 /* TestOctree.mm */,
 				D11A0F971A5C9166007EB04F /* TestBatchBucket.mm */,
 				D17086861A6BF32B00A679D8 /* TestFaceTraversal.mm */,
+				D15D42C81A79A5D200E5AB54 /* TestPrimitive.mm */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1291,6 +1294,7 @@
 				D11A0F981A5C9166007EB04F /* TestBatchBucket.mm in Sources */,
 				D10D48C61A222A7B00B956E9 /* TestOctree.mm in Sources */,
 				D10D48C71A222A7B00B956E9 /* TestModelImporter.mm in Sources */,
+				D15D42C91A79A5D200E5AB54 /* TestPrimitive.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

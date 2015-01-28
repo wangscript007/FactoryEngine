@@ -124,5 +124,14 @@ glm::vec3 Node::Center() const
     }
     return sum/static_cast<float>(mSubnodes.size());
 }
+    
+
+char Node::Depth() const
+{
+    if (mSupernode) {
+        return mSupernode->Depth()+1;
+    }
+    return 0;
+}
 
 }

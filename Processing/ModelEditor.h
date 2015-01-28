@@ -53,6 +53,8 @@ public:
     void            DebugCreateCube();
     int             mDebugFacesCreated;
     
+    FaceNode*       mActiveFace;
+    
     
 private:
     class ModelFactory* mModelFactory;

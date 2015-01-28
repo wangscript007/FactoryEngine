@@ -47,7 +47,8 @@ public:
     void                    setSelected(bool selected);
     
     virtual glm::vec3       Center() const;
-
+    
+    virtual char            Depth() const;
     
 protected:
     Node*                   mSupernode;

@@ -57,6 +57,7 @@ void FaceNode::Render(Layer& layer)
         mPolygonPrimitive.Clear();
         for (Vertex *vertex : mVertexes) mPolygonPrimitive.AddPoint(vertex->mOrigin);
         mPolygonPrimitive.setOption(Primitive::kUseDepth, true);
+        mPolygonPrimitive.SetDepth(Depth());
     }
     layer.AddPrimitive(mPolygonPrimitive);
     Node::Render(layer);

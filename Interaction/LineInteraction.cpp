@@ -125,6 +125,7 @@ void LineInteraction::Finish()
     mActive = false;
     mPicker->setOn(false);
     linePrimitive.Invalidate();
+    mModelEditor.mActiveFace = NULL;
 }
     
 void LineInteraction::setStart(const glm::vec2& start)
@@ -132,6 +133,7 @@ void LineInteraction::setStart(const glm::vec2& start)
 #ifndef TEST
     Viewport::AddDebugPoint(start);
 #endif
+    mModelEditor.mActiveFace = reinterpret_cast<FaceNode*>(mPicker->PickNode(start));
     
     mSnappingQueue->setStartViewport(start, true);
     mSnappingQueue->setEndViewport(start, true);
@@ -142,6 +144,8 @@ void LineInteraction::setStart(const glm::vec2& start)
     
 void LineInteraction::setEnd(const glm::vec2& endViewport)
 {
+    
+    
     linePrimitive.Invalidate();
     mSnappingQueue->setEndViewport(endViewport, true);
     

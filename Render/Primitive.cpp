@@ -7,6 +7,8 @@
 
 namespace ftr {
     
+const int DEPTH_MASK = 255<<8;
+    
 Primitive::Primitive() :
     mIsInvalid(true),
     mBatch(NULL),
@@ -28,6 +30,18 @@ void Primitive::Invalidate()
         mBatch = NULL;
     }
 }
+
+void Primitive::SetDepth(char depth)
+{
+    mOptions = mOptions & 255;
+    mOptions |= depth<<8;
+}
+    
+char Primitive::Depth() const
+{
+    return (mOptions & DEPTH_MASK) >> 8;
+}
+
     
 void Primitive::setOption(Option option, bool value)
 {

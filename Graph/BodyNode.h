@@ -22,6 +22,7 @@ public:
     void AddLineNode(LineNode* lineNode);
     void AddFaceNode(FaceNode* faceNode);
     
+    virtual char Depth() const { return 0; }
 private:
 };
 

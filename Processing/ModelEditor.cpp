@@ -9,6 +9,7 @@
 #include <Graph/GroupNode.h>
 #include <Graph/BodyNode.h>
 #include <Graph/LineNode.h>
+#include <Graph/FaceNode.h>
 #include <Graph/Vertex.h>
 #include <Graph/Edge.h>
 
@@ -22,6 +23,7 @@ ModelEditor::ModelEditor()
     mActiveGroup(NULL),
     mActiveBody(NULL),
     mSelectedNode(NULL),
+    mActiveFace(NULL),
     mDebugFacesCreated(0)
     
 {
@@ -102,14 +104,22 @@ LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
 FaceNode* ModelEditor::CreateFace(std::vector<PointNode*> pointNodes)
 {
     FaceNode* face = mModelFactory->CreateFace(pointNodes);
-    mActiveBody->AddFaceNode(face);
+    if (mActiveFace) {
+        mActiveFace->AddNode(reinterpret_cast<Node*>(face));
+    } else {
+        mActiveBody->AddNode(reinterpret_cast<Node*>(face));
+    }
     return face;
 }
     
 FaceNode* ModelEditor::CreateFace(const std::vector<Vertex*>& vertexes)
 {
     FaceNode* face = mModelFactory->CreateFace(vertexes);
-    mActiveBody->AddFaceNode(face);
+    if (mActiveFace) {
+        mActiveFace->AddNode(reinterpret_cast<Node*>(face));
+    } else {
+        mActiveBody->AddNode(reinterpret_cast<Node*>(face));
+    }
     return face;
 }
 

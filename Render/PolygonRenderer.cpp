@@ -10,7 +10,7 @@ void PolygonRenderer::Begin(Batch& batch)
 {
     PrimitiveRenderer::Begin(batch);
     glEnable(GL_POLYGON_OFFSET_FILL);
-    glPolygonOffset(1.0, 1.0);
+    glPolygonOffset(2-batch.Depth(), 1.0);
 }
     
 void PolygonRenderer::Render(Batch& batch)

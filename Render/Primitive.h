@@ -44,6 +44,9 @@ public:
     Batch* mBatch;
     unsigned int mOptions;
     
+    void SetDepth(char depth);
+    char Depth() const;
+    
 protected:
     bool mIsInvalid;
     
