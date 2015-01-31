@@ -19,10 +19,12 @@ public:
     
     bool IsFull() const;
     size_t Degree() const;
+    bool ContainsFace(const FaceNode& face) const;
     
     LineNode* mLineNode;
     
     std::string Description() const;
+    
 private:
     
     Vertex* mVertexA;

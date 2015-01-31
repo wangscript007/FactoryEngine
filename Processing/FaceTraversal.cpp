@@ -4,6 +4,7 @@
 #include <Graph/Vertex.h>
 #include <Graph/Edge.h>
 #include <Geometry/Triangle.h>
+#include <Geometry.h>
 
 namespace ftr {
     
@@ -60,19 +61,17 @@ bool FaceTraversal::Find(Vertex& current)
         /* Conditions
         * Must not be already in result pathvertex
         * Must be in same plane as previous vertexes
-        * Must be not visited before?
         */
         if (!IsPrev(*vertex)
             && !edge->IsFull()
             && !IsInResultPath(*vertex)
-            && !IsVisited(*vertex)
             && IsInPlane(*vertex))
         {
             /* End condition
             * Equals to initial vertex
             */
             if (&mVertex == vertex) {
-                return true;
+                return !ContainsFace();
             } else {
                 AppendResult(*vertex);
                 if (Find(*vertex)) return true;
@@ -134,17 +133,35 @@ void FaceTraversal::CreatePlane()
     
 bool FaceTraversal::IsInResultPath(const Vertex& vertex) const
 {
-    auto &vertexes = mVertexes;
-    return std::find(vertexes.begin()+1, vertexes.end(), &vertex) != vertexes.end();
+    return std::find(mVertexes.begin()+1, mVertexes.end(), &vertex) != mVertexes.end();
 }
     
-bool FaceTraversal::IsVisited(const Vertex& vertex) const
+bool FaceTraversal::ContainsFace() const
 {
-    return false;
+    if (mVertexes.size() < 3) return false;
+    
+    std::vector<Edge*> edges;
+    FaceTraversal::EdgesConnectingVertexes(edges, mVertexes);
+    assert(edges.size() > 1);
+    Edge* edge = edges.front();
+    
+    bool contains = false;
+    for (auto& face : edge->mFaces) {
+        contains = true;
+        for (auto& edge : edges) {
+            if (!edge->ContainsFace(*face)) {
+                contains = false;
+                break;
+            }
+        }
+        if (contains) {
+            return true;
+        }
+    }
+    return contains;
 }
     
 #pragma mark - Plane
-    
     
 std::string FaceTraversal::Description() const
 {

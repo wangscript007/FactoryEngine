@@ -7,6 +7,7 @@ namespace ftr {
 class Vertex;
 class Edge;
 class Triangle;
+class FaceNode;
 
 class FaceTraversal
 {
@@ -29,15 +30,16 @@ public:
     
     std::string Description() const;
     std::string Description(Result* result) const;
+    
 private:
     bool Find(Vertex& current);
     
     void AppendResult(Vertex& vertex);
     
+    bool ContainsFace() const;
     bool IsInPlane(const Vertex& vertex);
     bool IsPrev(const Vertex& vertex) const;
     bool IsInResultPath(const Vertex& vertex) const;
-    bool IsVisited(const Vertex& vertex) const;
     void CreatePlane();
     
     Vertex& mVertex;
