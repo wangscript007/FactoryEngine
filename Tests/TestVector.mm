@@ -93,8 +93,8 @@ using namespace ftr;
     glm::vec3 e32 = glm::normalize(v2 - v3);
     glm::vec3 e31 = glm::normalize(v1 - v3);
     
-    XCTAssertEqualWithAccuracy(Vector::CCWAngle(e53, e31), 135.0f, 0.01f);
-    XCTAssertEqualWithAccuracy(Vector::CCWAngle(e53, e32), 90.0f, 0.01f);
+    XCTAssertEqualWithAccuracy(Vector::CWAngle(e31, e53), 135.0f, 0.01f);
+    XCTAssertEqualWithAccuracy(Vector::CWAngle(e32, e53), 90.0f, 0.01f);
 }
 
 bool IsEqualVec(const glm::vec3& vec1, const glm::vec3& vec2)

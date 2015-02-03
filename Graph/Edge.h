@@ -25,6 +25,9 @@ public:
     
     std::string Description() const;
     
+    
+    
+    
 private:
     
     Vertex* mVertexA;

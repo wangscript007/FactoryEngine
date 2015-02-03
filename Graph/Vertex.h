@@ -5,6 +5,7 @@ namespace ftr {
     
 class Edge;
 class PointNode;
+class Triangle;
 
 class Vertex
 {
@@ -24,7 +25,11 @@ public:
     std::string mName;
     
     
+    void Neighbours(std::vector<Vertex*>& neighbours) const;
+    void Neighbours(std::vector<Vertex*>& neighbours, const Triangle& plane) const;
+    
     size_t Degree() const { return mEdges.size(); }
+
 private:
     
     PointNode* mPointNode;

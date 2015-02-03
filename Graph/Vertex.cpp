@@ -2,6 +2,8 @@
 
 #include <Graph/Edge.h>
 #include <Graph/Vertex.h>
+#include <Geometry/Triangle.h>
+#include <Geometry/Vector.h>
 
 namespace ftr {
     
@@ -35,6 +37,33 @@ Edge* Vertex::EdgeTo(const Vertex& target) const
         }
     }
     return NULL;
+}
+    
+void Vertex::Neighbours(std::vector<Vertex*>& neighbours) const
+{
+    for (auto &edge : mEdges) {
+        neighbours.push_back(edge->OtherEnd(*this));
+    }
+}
+    
+    
+void Vertex::Neighbours(std::vector<Vertex*>& neighbours, const Triangle& plane) const
+{
+    for (auto &edge : mEdges) {
+        Vertex* otherEnd = edge->OtherEnd(*this);
+        if (plane.PlaneContains(otherEnd->mOrigin)) {
+            neighbours.push_back(otherEnd);
+        }
+    }
+    
+    struct Comparator {
+        bool operator () (Vertex* vertexA, Vertex* vertexB) {
+            return Vector::IsCWOrder(vertexA->mOrigin, vertexB->mOrigin);
+        }
+    };
+
+    std::sort(neighbours.begin(), neighbours.end(), Comparator());
+
 }
     
 }

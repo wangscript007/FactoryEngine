@@ -40,7 +40,7 @@ private:
     bool IsInPlane(const Vertex& vertex);
     bool IsPrev(const Vertex& vertex) const;
     bool IsInResultPath(const Vertex& vertex) const;
-    void CreatePlane();
+    void UpdatePlane();
     
     Vertex& mVertex;
     std::vector<Vertex*>mVertexes;

@@ -18,7 +18,7 @@ glm::vec3 AxisSnap::Snapped() const
     
     glm::vec3 angle;
 
-    if (glm::isNull(currentViewport, 0.0f)) {
+    if (glm::isNull(currentViewport, kEpsilonBig)) {
         return mEndScene;
     }
     

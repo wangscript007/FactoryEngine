@@ -39,6 +39,18 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "TestLineInteraction/testAxisSnap">
+               </Test>
+               <Test
+                  Identifier = "TestLineInteraction/testAxisSnapNotSnapping">
+               </Test>
+               <Test
+                  Identifier = "TestLineInteraction/testPointSnap">
+               </Test>
+               <Test
+                  Identifier = "TestModelEditor/testCreateCube">
+               </Test>
+               <Test
                   Identifier = "TestOctree/testUpdatePoint">
                </Test>
                <Test

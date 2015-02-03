@@ -55,15 +55,22 @@ void FaceTraversal::Find(Result& result)
  
 bool FaceTraversal::Find(Vertex& current)
 {
-    for (auto &edge : current.mEdges) {
-        Vertex* vertex = edge->OtherEnd(current);
+    UpdatePlane();
+    std::vector<Vertex*> neighbours;
+    if (mPlane) {
+        current.Neighbours(neighbours, *mPlane);
+    } else {
+        current.Neighbours(neighbours);
+    }
+    
+    for (Vertex* vertex : neighbours) {
         //std::cout << Description() << vertex->mName << " " << edge->Description() << "\n" ;
         /* Conditions
         * Must not be already in result pathvertex
         * Must be in same plane as previous vertexes
         */
         if (!IsPrev(*vertex)
-            && !edge->IsFull()
+            && !current.EdgeTo(*vertex)->IsFull()
             && !IsInResultPath(*vertex)
             && IsInPlane(*vertex))
         {
@@ -102,31 +109,29 @@ bool FaceTraversal::IsPrev(const Vertex& vertex) const
     
 bool FaceTraversal::IsInPlane(const Vertex& vertex)
 {
-    if (mVertexes.size() < 3) {
-        FT_DELETE(mPlane);
-    }
-    if (mVertexes.size() > 2 && !mPlane) {
-        CreatePlane();
-    }
+    UpdatePlane();
     if (mPlane) {
         return mPlane->PlaneContains(vertex.mOrigin);
     }
     return true;
 }
     
-void FaceTraversal::CreatePlane()
+void FaceTraversal::UpdatePlane()
 {
-    assert(!mPlane);
-    assert(mVertexes.size() > 2);
-    size_t size = mVertexes.size();
-    glm::vec3 p1 = mVertexes[size-3]->mOrigin;
-    glm::vec3 p2 = mVertexes[size-2]->mOrigin;
-    glm::vec3 p3 = mVertexes[size-1]->mOrigin;
-    
-    if (Triangle::IsInOneLine(p1, p2, p3)) {
-        //std::cout << "Points are in one line";
-    } else {
-        mPlane = new Triangle(p1, p2, p3);
+    if (mVertexes.size() < 3) {
+        FT_DELETE(mPlane);
+    }
+    else if (mVertexes.size() > 2 && !mPlane) {
+        size_t size = mVertexes.size();
+        glm::vec3 p1 = mVertexes[size-3]->mOrigin;
+        glm::vec3 p2 = mVertexes[size-2]->mOrigin;
+        glm::vec3 p3 = mVertexes[size-1]->mOrigin;
+        
+        if (Triangle::IsInOneLine(p1, p2, p3)) {
+            //std::cout << "Points are in one line";
+        } else {
+            mPlane = new Triangle(p1, p2, p3);
+        }
     }
 }
 

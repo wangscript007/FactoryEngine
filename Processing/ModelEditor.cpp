@@ -21,8 +21,7 @@ ModelEditor::ModelEditor()
     mModelTree(NULL),
     mActiveGroup(NULL),
     mActiveBody(NULL),
-    mSelectedNode(NULL),
-    mDebugFacesCreated(0)
+    mSelectedNode(NULL)
     
 {
     mModelTree = new class ModelTree();
