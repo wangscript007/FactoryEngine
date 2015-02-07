@@ -26,6 +26,7 @@ FaceNode::FaceNode(const std::vector<Vertex*>& vertexes)
     for (Edge *edge : edges) {
         edge->mFaces.push_back(this);
     }
+    std::cout << "Found -----------\n" <<  Description() << "\n\n";
 }
 
 FaceNode::FaceNode(const std::vector<glm::vec3>& points)
@@ -105,6 +106,18 @@ void FaceNode::Transform(const glm::mat4& transform)
     }
 }
     
+bool FaceNode::AscendingOrder(const Vertex& begin, const Vertex& end) const
+{
+    auto it = std::find(mVertexes.begin(), mVertexes.end(), &begin);
+    if (it == mVertexes.end()) return false;
+    
+    if (*it == mVertexes.back()) {
+        return &end == mVertexes.front();
+    } else {
+        return &end == *(it+1);
+    }
+}
+    
 glm::vec3 FaceNode::SurfaceNormal() const
 {
     assert(mVertexes.size() > 2);
@@ -138,5 +151,5 @@ std::string FaceNode::Description() const
     }
     return ss.str();
 }
-
+    
 }

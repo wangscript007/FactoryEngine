@@ -218,6 +218,7 @@
 		D11FC6FE1A546B41006355E7 /* PolygonBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ACE7F1A4D8FA400CCCDD5 /* PolygonBatch.cpp */; };
 		D11FC6FF1A546B84006355E7 /* PolygonRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */; };
 		D11FC7001A546B84006355E7 /* PolygonRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */; };
+		D131ABC51A869EA400A17434 /* TestVertex.mm in Sources */ = {isa = PBXBuildFile; fileRef = D131ABC41A869EA400A17434 /* TestVertex.mm */; };
 		D1376AB21A23EA8800C7EA8E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1376AB11A23EA8800C7EA8E /* libz.dylib */; };
 		D1376AB31A23ECAF00C7EA8E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1376AB11A23EA8800C7EA8E /* libz.dylib */; };
 		D13CAE0118E1C30400C2A180 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
@@ -479,6 +480,7 @@
 		D11D1D7318E0507B0091521F /* Polyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polyline.h; sourceTree = "<group>"; };
 		D11D8E0B1A224FCE00BDAC6F /* assimp */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assimp; path = ../../factoryengine/External/assimp; sourceTree = "<group>"; };
 		D11D8E0D1A22503D00BDAC6F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
+		D131ABC41A869EA400A17434 /* TestVertex.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestVertex.mm; path = ../../factoryengine/Tests/TestVertex.mm; sourceTree = "<group>"; };
 		D1376AAF1A23E97B00C7EA8E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		D1376AB11A23EA8800C7EA8E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
 		D13CAE0318E1CBE700C2A180 /* TestPolygon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPolygon.mm; sourceTree = "<group>"; };
@@ -705,6 +707,7 @@
 				D1FE762C1A06624B00FB7535 /* TestOctree.mm */,
 				D11A0F971A5C9166007EB04F /* TestBatchBucket.mm */,
 				D17086861A6BF32B00A679D8 /* TestFaceTraversal.mm */,
+				D131ABC41A869EA400A17434 /* TestVertex.mm */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1291,6 +1294,7 @@
 				D11A0F981A5C9166007EB04F /* TestBatchBucket.mm in Sources */,
 				D10D48C61A222A7B00B956E9 /* TestOctree.mm in Sources */,
 				D10D48C71A222A7B00B956E9 /* TestModelImporter.mm in Sources */,
+				D131ABC51A869EA400A17434 /* TestVertex.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -44,6 +44,19 @@ void Vertex::Neighbours(std::vector<Vertex*>& neighbours) const
     for (auto &edge : mEdges) {
         neighbours.push_back(edge->OtherEnd(*this));
     }
+    
+    struct Comparator {
+        Comparator(const glm::vec3& reference) : mReference(reference) {}
+        glm::vec3 mReference;
+        
+        bool operator () (Vertex* vertexA, Vertex* vertexB) {
+            glm::vec3 vecA = vertexA->mOrigin - mReference;
+            glm::vec3 vecB = vertexB->mOrigin - mReference;
+            return Vector::IsCWOrder(vecA, vecB);
+        }
+    };
+    
+    std::sort(neighbours.begin(), neighbours.end(), Comparator(mOrigin));
 }
     
     
@@ -57,14 +70,21 @@ void Vertex::Neighbours(std::vector<Vertex*>& neighbours, const Triangle& plane)
     }
     
     struct Comparator {
+        Comparator(const glm::vec3& reference) : mReference(reference) {}
+        glm::vec3 mReference;
+        
         bool operator () (Vertex* vertexA, Vertex* vertexB) {
-            return Vector::IsCWOrder(vertexA->mOrigin, vertexB->mOrigin);
+            glm::vec3 vecA = vertexA->mOrigin - mReference;
+            glm::vec3 vecB = vertexB->mOrigin - mReference;
+            return Vector::IsCWOrder(vecA, vecB);
         }
     };
 
-    std::sort(neighbours.begin(), neighbours.end(), Comparator());
+    std::sort(neighbours.begin(), neighbours.end(), Comparator(mOrigin));
 
 }
+    
+
     
 }
 

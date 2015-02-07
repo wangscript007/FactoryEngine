@@ -22,6 +22,13 @@ public:
     void RotateToSurfaceNormal(const glm::vec3& targedNormal);
     glm::vec3 SurfaceNormal() const;
     const std::vector<Triangle*>& GetTriangles() const { return mTriangles; }
+    bool Valid() const;
+    
+    
+    float CWAngle(int atIndex) const;
+    float TotalAngle() const;
+    float TotalCWAngle() const;
+    bool IsCW() const;
     
     void DebugPrint() const;
     void DebugPrintTriangles() const;
@@ -32,6 +39,7 @@ protected:
     glm::mat4 RotationToSurfaceNormal(const glm::vec3& targedNormal);
     void TransformTriangles(const glm::mat4& tranformation);
     glm::vec3 XYZClosestNormal() const;
+    
     
     std::vector<Triangle*> mTriangles;
 };

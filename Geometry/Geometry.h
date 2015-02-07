@@ -27,6 +27,7 @@ public:
     bool IsEqual(const Geometry& other, float epsilon) const;
     
     void Clear() { mPoints.clear(); }
+    void Reverse() { std::reverse(mPoints.begin(), mPoints.end()); };
 protected:
     
     std::vector<glm::vec3> mPoints;

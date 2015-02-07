@@ -21,9 +21,12 @@ public:
     size_t Degree() const;
     bool ContainsFace(const FaceNode& face) const;
     
+    FaceNode* Face(const Vertex& begin, const Vertex& end, const Triangle& plane);
+    
     LineNode* mLineNode;
     
     std::string Description() const;
+    
     
     
     

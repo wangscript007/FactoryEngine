@@ -77,6 +77,66 @@ void Polygon::Triangulate()
     FT_DELETE_VECTOR(polyline);
 }
     
+float Polygon::CWAngle(int atIndex) const
+{
+    unsigned long size = mPoints.size();
+    unsigned long last = size - 1;
+    assert(atIndex < size);
+    
+    glm::vec3 back;
+    glm::vec3 forward;
+    if (atIndex == 0) {
+        back    = mPoints[0] - mPoints[last];
+        forward = mPoints[1] - mPoints[0];
+    }
+    else if (atIndex == last) {
+        back = mPoints[last] - mPoints[last - 1];
+        forward = mPoints[0] - mPoints[last];
+    }
+    else {
+        back = mPoints[atIndex] - mPoints[atIndex - 1];
+        forward = mPoints[atIndex + 1] - mPoints[atIndex];
+    }
+    float angle = Vector::CWAngle(glm::normalize(back), glm::normalize(-forward));
+    return angle;
+}
+    
+bool Polygon::Valid() const
+{
+    unsigned long size = mPoints.size();
+    if (size < 3) return false;
+    if (size == 3) return true;
+    
+    Triangle triangle = Triangle(mPoints[0], mPoints[1], mPoints[2]);
+    
+    for (int i = 3; i < size; ++i) {
+        if (!triangle.PlaneContains(mPoints[i])) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+    
+float Polygon::TotalCWAngle() const
+{
+    float total = 0;
+    for (int i = 0; i < mPoints.size(); ++i) {
+        total += CWAngle(i);
+    }
+    return total;
+}
+    
+float Polygon::TotalAngle() const
+{
+    return (mPoints.size()-2)*180.0f;
+}
+    
+bool Polygon::IsCW() const
+{
+    return abs(TotalCWAngle() - TotalAngle()) < kEpsilonMedium;
+}
+    
 glm::vec2 Polygon::Vec3WithoutComponent(const glm::vec3& vec, const int index)
 {
     glm::vec2 result;

@@ -5,6 +5,8 @@
 #import <Graph/Vertex.h>
 #import <Graph/Edge.h>
 #import <Processing/FaceTraversal.h>
+#import <Processing/ModelEditor.h>
+
 
 using namespace ftr;
 
@@ -43,6 +45,8 @@ using namespace ftr;
 
 - (void)testTwoTriangles
 {
+    ModelEditor editor;
+    
     FaceNode* face = new FaceNode();
     Vertex vertex[4];
     {
@@ -64,23 +68,26 @@ using namespace ftr;
         
         FaceTraversal traversal(vertex[0]);
         FaceTraversal::Result result;
-        traversal.Find(result);
-        XCTAssert(result.Found());
-        
-        
-        for (Edge *edge :result.mEdges) {
-            edge->mFaces.push_back(face);
-        }
+        do {
+            traversal.Find(result);
+            if (result.Found()) {
+                editor.CreateFace(result.mVertexes);
+            }
+        } while (result.Found());
     }
 
     {
         vertex[3].ConnectTo(vertex[1]);
         vertex[3].ConnectTo(vertex[2]);
         
-        FaceTraversal traversal(vertex[1]);
+        FaceTraversal traversal(vertex[3]);
         FaceTraversal::Result result;
-        traversal.Find(result);
-        XCTAssert(result.Found());
+        do {
+            traversal.Find(result);
+            if (result.Found()) {
+                editor.CreateFace(result.mVertexes);
+            }
+        } while (result.Found());
     }
     FT_DELETE(face);
 }

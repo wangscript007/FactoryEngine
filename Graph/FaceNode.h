@@ -33,6 +33,8 @@ public:
     void GetEdges(std::vector<Edge*>& edges) const;
     void GetPointNodes(std::vector<PointNode*>& pointNodes) const;
     
+    bool AscendingOrder(const Vertex& begin, const Vertex& end) const;
+    
     glm::vec3 Center() const;
     glm::vec3 SurfaceNormal() const;
     

@@ -5,6 +5,7 @@
 #include <Graph/Edge.h>
 #include <Geometry/Triangle.h>
 #include <Geometry.h>
+#include <Geometry/Polygon.h>
 
 namespace ftr {
     
@@ -55,8 +56,8 @@ void FaceTraversal::Find(Result& result)
  
 bool FaceTraversal::Find(Vertex& current)
 {
-    UpdatePlane();
     std::vector<Vertex*> neighbours;
+    UpdatePlane();
     if (mPlane) {
         current.Neighbours(neighbours, *mPlane);
     } else {
@@ -64,21 +65,25 @@ bool FaceTraversal::Find(Vertex& current)
     }
     
     for (Vertex* vertex : neighbours) {
-        //std::cout << Description() << vertex->mName << " " << edge->Description() << "\n" ;
+        Edge* edge = current.EdgeTo(*vertex);
+        std::cout << Description() << vertex->mName << " " << edge->Description() << "\n" ;
         /* Conditions
         * Must not be already in result pathvertex
-        * Must be in same plane as previous vertexes
         */
         if (!IsPrev(*vertex)
-            && !current.EdgeTo(*vertex)->IsFull()
+            && !edge->IsFull()
             && !IsInResultPath(*vertex)
-            && IsInPlane(*vertex))
+            && !(mPlane && edge->Face(current, *vertex, *mPlane)) )
         {
             /* End condition
             * Equals to initial vertex
             */
             if (&mVertex == vertex) {
-                return !ContainsFace();
+                Polygon polygon;
+                for (Vertex* ver : mVertexes) {
+                    polygon.AddPoint(ver->mOrigin);
+                }
+                return polygon.IsCW();
             } else {
                 AppendResult(*vertex);
                 if (Find(*vertex)) return true;

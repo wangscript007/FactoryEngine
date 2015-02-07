@@ -2,6 +2,7 @@
 #include <Graph/Edge.h>
 #include <Graph/FaceNode.h>
 #include <Graph/Vertex.h>
+#include <Geometry/Vector.h>
 
 namespace ftr {
     
@@ -38,13 +39,27 @@ bool Edge::IsFull() const
 bool Edge::ContainsFace(const FaceNode& face) const
 {
     auto it = std::find(mFaces.begin(), mFaces.end(), &face);
+    
     return it != mFaces.end();
+}
+    
+FaceNode* Edge::Face(const Vertex& begin, const Vertex& end, const Triangle& plane)
+{
+    glm::vec3 surfaceNormal = plane.SurfaceNormal();
+    for (FaceNode* face : mFaces) {
+        if (face->AscendingOrder(begin, end)) {
+            if (Vector::IsParallel(surfaceNormal, face->SurfaceNormal())) {
+                return face;
+            }
+        }
+    }
+    return NULL;
 }
     
 std::string Edge::Description() const
 {
     std::stringstream ss;
-    ss << "(" << mVertexA->mName << (IsFull()? "-#-" : "- -") << mVertexB->mName << ")";
+    ss << "(" << mVertexA->mName << "-" << mVertexB->mName << ")";
     return ss.str();
 }
     

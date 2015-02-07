@@ -84,7 +84,6 @@ LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
     edge->mLineNode = line;
     line->mEdge = edge;
     
-    
     FaceTraversal traversal(vertexA);
     FaceTraversal::Result result;
     do {
@@ -93,7 +92,6 @@ LineNode* ModelEditor::CreateLine(PointNode* startPoint, PointNode* endPoint)
             CreateFace(result.mVertexes);
         }
     } while (result.Found());
-    
     
     return line;
 }

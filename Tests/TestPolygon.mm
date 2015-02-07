@@ -12,16 +12,6 @@ using namespace ftr;
 
 @implementation TestPolygon
 
-- (void)setUp
-{
-    [super setUp];
-}
-
-- (void)tearDown
-{
-    [super tearDown];
-}
-
 - (void)testRotationToSurfaceNormal
 {
     ftr::Polygon polygon;
@@ -35,7 +25,31 @@ using namespace ftr;
     polygon.RotateToSurfaceNormal(targetNormal);
     polygon.DebugPrint();
     XCTAssert(Vector::IsParallel(polygon.SurfaceNormal(), targetNormal));
+}
+
+- (void)testIsCW
+{
+    {
+        ftr::Polygon polygon;
+        polygon.AddPoint(glm::vec3(0.0, 0.0f, 0.0f));
+        polygon.AddPoint(glm::vec3(0.0, 0.0f, 1.0f));
+        polygon.AddPoint(glm::vec3(1.0, 0.0f, 1.0));
+        polygon.AddPoint(glm::vec3(1.0, 0.0f, 0.0f));
+        XCTAssertTrue(polygon.IsCW());
+        polygon.Reverse();
+        XCTAssertFalse(polygon.IsCW());
+    }
     
+    
+    {
+        ftr::Polygon polygon;
+        polygon.AddPoint(glm::vec3(0.0, 0.0f, 0.0f));
+        polygon.AddPoint(glm::vec3(0.0, 0.0f, 1.0f));
+        polygon.AddPoint(glm::vec3(1.0, 0.0f, 1.0));
+        XCTAssertTrue(polygon.IsCW());
+        polygon.Reverse();
+        XCTAssertFalse(polygon.IsCW());
+    }
 }
 
 - (void)testTriangulateAxisAligned
