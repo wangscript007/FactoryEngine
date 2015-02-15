@@ -28,6 +28,8 @@ public:
     void Neighbours(std::vector<Vertex*>& neighbours) const;
     void Neighbours(std::vector<Vertex*>& neighbours, const Triangle& plane) const;
     
+     Vertex* CWNeighbourForNeighbour(const Vertex& referenceNeighour, const Triangle& plane) const;
+    
     size_t Degree() const { return mEdges.size(); }
 
 private:

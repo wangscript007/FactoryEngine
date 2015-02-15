@@ -81,8 +81,13 @@ void Vertex::Neighbours(std::vector<Vertex*>& neighbours, const Triangle& plane)
     };
 
     std::sort(neighbours.begin(), neighbours.end(), Comparator(mOrigin));
-
 }
+    
+Vertex* Vertex::CWNeighbourForNeighbour(const Vertex& referenceNeighour, const Triangle& plane) const
+{
+    return NULL;
+}
+
     
 
     
