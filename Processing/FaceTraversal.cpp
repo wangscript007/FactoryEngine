@@ -66,7 +66,7 @@ bool FaceTraversal::Find(Vertex& current)
     
     for (Vertex* vertex : neighbours) {
         Edge* edge = current.EdgeTo(*vertex);
-        std::cout << Description() << vertex->mName << " " << edge->Description() << "\n" ;
+        //std::cout << Description() << vertex->mName << " " << edge->Description() << "\n" ;
         /* Conditions
         * Must not be already in result pathvertex
         */

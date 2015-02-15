@@ -15,6 +15,12 @@ Vertex::Vertex(glm::vec3 origin, PointNode& pointNode)
     
 }
     
+Vertex::Vertex(glm::vec3 origin)
+    :mOrigin(origin)
+{
+    
+}
+    
 bool Vertex::IsConnectedTo(const Vertex& target) const
 {
     return EdgeTo(target) != NULL;
@@ -44,19 +50,6 @@ void Vertex::Neighbours(std::vector<Vertex*>& neighbours) const
     for (auto &edge : mEdges) {
         neighbours.push_back(edge->OtherEnd(*this));
     }
-    
-    struct Comparator {
-        Comparator(const glm::vec3& reference) : mReference(reference) {}
-        glm::vec3 mReference;
-        
-        bool operator () (Vertex* vertexA, Vertex* vertexB) {
-            glm::vec3 vecA = vertexA->mOrigin - mReference;
-            glm::vec3 vecB = vertexB->mOrigin - mReference;
-            return Vector::IsCWOrder(vecA, vecB);
-        }
-    };
-    
-    std::sort(neighbours.begin(), neighbours.end(), Comparator(mOrigin));
 }
     
     
@@ -68,20 +61,50 @@ void Vertex::Neighbours(std::vector<Vertex*>& neighbours, const Triangle& plane)
             neighbours.push_back(otherEnd);
         }
     }
+}
     
-    struct Comparator {
-        Comparator(const glm::vec3& reference) : mReference(reference) {}
-        glm::vec3 mReference;
-        
-        bool operator () (Vertex* vertexA, Vertex* vertexB) {
-            glm::vec3 vecA = vertexA->mOrigin - mReference;
-            glm::vec3 vecB = vertexB->mOrigin - mReference;
-            return Vector::IsCWOrder(vecA, vecB);
+Vertex* Vertex::CWNeighbourForNeighbour(const Vertex& ref, const Triangle& plane) const
+{
+    assert(plane.PlaneContains(ref.mOrigin));
+    
+    std::vector<Vertex*> neigbours;
+    Neighbours(neigbours, plane);
+    
+    
+    if (neigbours.size() == 1) {
+        return NULL;
+    }
+    else if (neigbours.size() == 2) {
+        if (neigbours[0] == &ref) {
+            return neigbours[1];
+        } else {
+            return neigbours[0];
         }
-    };
+    }
+    
+    assert(neigbours.size() > 2);
+    
+    float minAngle = 400;
+    int result = 0;
+    for (int i = 0; i < neigbours.size(); ++i) {
 
-    std::sort(neighbours.begin(), neighbours.end(), Comparator(mOrigin));
+        if (neigbours[i] != &ref) {
+            float angle = CWAngle(ref, *neigbours[i]);
+            if (angle < minAngle) {
+                minAngle = angle;
+                result = i;
+            }
+        }
+    }
+    
+    return neigbours[result];
+}
 
+float Vertex::CWAngle(const Vertex& A, const Vertex& B) const
+{
+    glm::vec3 vA = A.mOrigin - mOrigin;
+    glm::vec3 vB = B.mOrigin - mOrigin;
+    return Vector::CWAngle(glm::normalize(vA), glm::normalize(vB));
 }
     
 

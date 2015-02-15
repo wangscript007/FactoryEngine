@@ -11,6 +11,7 @@ class Vertex
 {
 public:
     Vertex() {};
+    Vertex(glm::vec3 origin);
     Vertex(glm::vec3 origin, PointNode& pointNode);
     virtual ~Vertex() {}
     Edge* ConnectTo(Vertex& target);
@@ -28,9 +29,12 @@ public:
     void Neighbours(std::vector<Vertex*>& neighbours) const;
     void Neighbours(std::vector<Vertex*>& neighbours, const Triangle& plane) const;
     
+    Vertex* CWNeighbourForNeighbour(const Vertex& referenceNeighour, const Triangle& plane) const;
+    
     size_t Degree() const { return mEdges.size(); }
 
 private:
+    float CWAngle(const Vertex& A, const Vertex& B) const;
     
     PointNode* mPointNode;
     
