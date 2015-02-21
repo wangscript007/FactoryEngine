@@ -70,7 +70,7 @@ bool FaceTraversal::Find(Vertex& current)
         /* Conditions
         * Must not be already in result pathvertex
         */
-        if (!IsPrev(*vertex)
+        if (Prev() != vertex
             && !edge->IsFull()
             && !IsInResultPath(*vertex)
             && !(mPlane && edge->Face(current, *vertex, *mPlane)) )
@@ -102,14 +102,12 @@ void FaceTraversal::AppendResult(Vertex& vertex)
     
 #pragma mark - Conditions checking
     
-bool FaceTraversal::IsPrev(const Vertex& vertex) const
+Vertex* FaceTraversal::Prev() const
 {
-    auto &vertexes = mVertexes;
-    if (vertexes.size() > 1) {
-        Vertex* prev = *(vertexes.end()-2);
-        return prev == &vertex;
+    if (mVertexes.size() > 1) {
+        return *(mVertexes.end()-2);
     }
-    return false;
+    return NULL;
 }
     
 bool FaceTraversal::IsInPlane(const Vertex& vertex)

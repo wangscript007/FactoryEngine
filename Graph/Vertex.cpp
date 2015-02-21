@@ -61,35 +61,36 @@ void Vertex::Neighbours(std::vector<Vertex*>& neighbours, const Triangle& plane)
             neighbours.push_back(otherEnd);
         }
     }
+    
 }
     
 Vertex* Vertex::CWNeighbourForNeighbour(const Vertex& ref, const Triangle& plane) const
 {
     assert(plane.PlaneContains(ref.mOrigin));
     
-    std::vector<Vertex*> neigbours;
-    Neighbours(neigbours, plane);
+    std::vector<Vertex*> neighbours;
+    Neighbours(neighbours, plane);
     
     
-    if (neigbours.size() == 1) {
+    if (neighbours.size() == 1) {
         return NULL;
     }
-    else if (neigbours.size() == 2) {
-        if (neigbours[0] == &ref) {
-            return neigbours[1];
+    else if (neighbours.size() == 2) {
+        if (neighbours[0] == &ref) {
+            return neighbours[1];
         } else {
-            return neigbours[0];
+            return neighbours[0];
         }
     }
     
-    assert(neigbours.size() > 2);
+    assert(neighbours.size() > 2);
     
     float minAngle = 400;
     int result = 0;
-    for (int i = 0; i < neigbours.size(); ++i) {
+    for (int i = 0; i < neighbours.size(); ++i) {
 
-        if (neigbours[i] != &ref) {
-            float angle = CWAngle(ref, *neigbours[i]);
+        if (neighbours[i] != &ref) {
+            float angle = CWAngle(ref, *neighbours[i]);
             if (angle < minAngle) {
                 minAngle = angle;
                 result = i;
@@ -97,14 +98,45 @@ Vertex* Vertex::CWNeighbourForNeighbour(const Vertex& ref, const Triangle& plane
         }
     }
     
-    return neigbours[result];
+    return neighbours[result];
 }
+    
+void Vertex::CWNeighboursForNeighbour(std::vector<Vertex*>& neighbours, const Vertex& ref, const Triangle& plane) const
+{
+ 
+    Neighbours(neighbours, plane);
+    
+    struct Comparator {
+        Comparator(const Vertex& reference, const Vertex& current)
+        : mReference(reference), mCurrent(current) {}
+        Vertex mReference;
+        Vertex mCurrent;
+        
+        bool operator () (Vertex* vertexA, Vertex* vertexB) {
+            float angleA = CWAngle(mReference, *vertexA, mCurrent);
+            float angleB = CWAngle(mReference, *vertexB, mCurrent);
+            return angleA < angleB;
+        }
+    };
+    
+    std::sort(neighbours.begin(), neighbours.end(), Comparator(ref, *this));
+    if (neighbours.size() > 1) {
+        neighbours.erase(neighbours.begin());
+    }
+}
+
+float Vertex::CWAngle(const Vertex& A, const Vertex& B, const Vertex& ref)
+{
+    glm::vec3 vA = A.mOrigin - ref.mOrigin;
+    glm::vec3 vB = B.mOrigin - ref.mOrigin;
+    return Vector::CWAngle(glm::normalize(vA), glm::normalize(vB));
+
+}
+
 
 float Vertex::CWAngle(const Vertex& A, const Vertex& B) const
 {
-    glm::vec3 vA = A.mOrigin - mOrigin;
-    glm::vec3 vB = B.mOrigin - mOrigin;
-    return Vector::CWAngle(glm::normalize(vA), glm::normalize(vB));
+    return CWAngle(A, B, *this);
 }
     
 

@@ -38,7 +38,7 @@ private:
     
     bool ContainsFace() const;
     bool IsInPlane(const Vertex& vertex);
-    bool IsPrev(const Vertex& vertex) const;
+    Vertex* Prev() const;
     bool IsInResultPath(const Vertex& vertex) const;
     void UpdatePlane();
     
