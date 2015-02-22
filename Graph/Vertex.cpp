@@ -50,6 +50,8 @@ void Vertex::Neighbours(std::vector<Vertex*>& neighbours) const
     for (auto &edge : mEdges) {
         neighbours.push_back(edge->OtherEnd(*this));
     }
+    
+    
 }
     
     
@@ -69,36 +71,12 @@ Vertex* Vertex::CWNeighbourForNeighbour(const Vertex& ref, const Triangle& plane
     assert(plane.PlaneContains(ref.mOrigin));
     
     std::vector<Vertex*> neighbours;
-    Neighbours(neighbours, plane);
+    CWNeighboursForNeighbour(neighbours, ref, plane);
     
-    
-    if (neighbours.size() == 1) {
+    if (neighbours.size() == 0) {
         return NULL;
     }
-    else if (neighbours.size() == 2) {
-        if (neighbours[0] == &ref) {
-            return neighbours[1];
-        } else {
-            return neighbours[0];
-        }
-    }
-    
-    assert(neighbours.size() > 2);
-    
-    float minAngle = 400;
-    int result = 0;
-    for (int i = 0; i < neighbours.size(); ++i) {
-
-        if (neighbours[i] != &ref) {
-            float angle = CWAngle(ref, *neighbours[i]);
-            if (angle < minAngle) {
-                minAngle = angle;
-                result = i;
-            }
-        }
-    }
-    
-    return neighbours[result];
+    return neighbours[0];
 }
     
 void Vertex::CWNeighboursForNeighbour(std::vector<Vertex*>& neighbours, const Vertex& ref, const Triangle& plane) const
@@ -121,9 +99,34 @@ void Vertex::CWNeighboursForNeighbour(std::vector<Vertex*>& neighbours, const Ve
     
     std::sort(neighbours.begin(), neighbours.end(), Comparator(ref, *this));
     if (neighbours.size() > 1) {
-        neighbours.erase(neighbours.begin());
+        neighbours.erase(neighbours.end()-1);
     }
 }
+    
+void Vertex::CWNeighboursForNeighbour(std::vector<Vertex*>& neighbours, const Vertex& ref) const
+{
+    
+    Neighbours(neighbours);
+    
+    struct Comparator {
+        Comparator(const Vertex& reference, const Vertex& current)
+        : mReference(reference), mCurrent(current) {}
+        Vertex mReference;
+        Vertex mCurrent;
+        
+        bool operator () (Vertex* vertexA, Vertex* vertexB) {
+            float angleA = CWAngle(mReference, *vertexA, mCurrent);
+            float angleB = CWAngle(mReference, *vertexB, mCurrent);
+            return angleA < angleB;
+        }
+    };
+    
+    std::sort(neighbours.begin(), neighbours.end(), Comparator(ref, *this));
+    if (neighbours.size() > 1) {
+        neighbours.erase(neighbours.end()-1);
+    }
+}
+
 
 float Vertex::CWAngle(const Vertex& A, const Vertex& B, const Vertex& ref)
 {

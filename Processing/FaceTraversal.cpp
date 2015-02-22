@@ -59,9 +59,15 @@ bool FaceTraversal::Find(Vertex& current)
     std::vector<Vertex*> neighbours;
     UpdatePlane();
     if (mPlane) {
-        current.Neighbours(neighbours, *mPlane);
+        current.CWNeighboursForNeighbour(neighbours, *Prev(), *mPlane);
     } else {
         current.Neighbours(neighbours);
+        if (Prev()) {
+            current.CWNeighboursForNeighbour(neighbours, *Prev());
+        } else {
+            current.Neighbours(neighbours);
+        }
+        
     }
     
     for (Vertex* vertex : neighbours) {
@@ -83,7 +89,7 @@ bool FaceTraversal::Find(Vertex& current)
                 for (Vertex* ver : mVertexes) {
                     polygon.AddPoint(ver->mOrigin);
                 }
-                return polygon.IsCW();
+                return !polygon.IsCW();
             } else {
                 AppendResult(*vertex);
                 if (Find(*vertex)) return true;

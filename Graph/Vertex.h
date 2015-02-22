@@ -32,6 +32,9 @@ public:
     Vertex* CWNeighbourForNeighbour(const Vertex& ref, const Triangle& plane) const;
     void CWNeighboursForNeighbour(std::vector<Vertex*>& neighbours, const Vertex& ref, const Triangle& plane) const;
     
+    void CWNeighboursForNeighbour(std::vector<Vertex*>& neighbours, const Vertex& ref) const;
+
+    
     size_t Degree() const { return mEdges.size(); }
 
     static float CWAngle(const Vertex& A, const Vertex& B, const Vertex& ref);

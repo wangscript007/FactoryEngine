@@ -26,7 +26,7 @@ FaceNode::FaceNode(const std::vector<Vertex*>& vertexes)
     for (Edge *edge : edges) {
         edge->mFaces.push_back(this);
     }
-    std::cout << "Found -----------\n" <<  Description() << "\n\n";
+//    std::cout << "Found -----------\n" <<  Description() << "\n\n";
 }
 
 FaceNode::FaceNode(const std::vector<glm::vec3>& points)
