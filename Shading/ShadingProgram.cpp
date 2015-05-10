@@ -14,7 +14,6 @@ ShadingProgram::ShadingProgram()
 ShadingProgram:: ~ShadingProgram()
 {
     glDeleteProgram(mId);
-    FT_DELETE(mInterface);
 }
     
 void ShadingProgram::Activate()
