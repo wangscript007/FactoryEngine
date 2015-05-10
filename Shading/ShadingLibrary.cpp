@@ -13,11 +13,18 @@ void ShadingLibrary::Add(const std::string& name, const std::string& source, GLe
     Add(data);
 }
     
+    
 void ShadingLibrary::Add(Shader::Data& shaderData)
 {
     ShadingProgram::Type programType = ShadingProgram::TypeForName(shaderData.name);
     ShadingProgram& program = mProgramsMap[programType];
     program.AddShader(Shader(shaderData));
+}
+    
+    
+void ShadingLibrary::clear()
+{
+    mProgramsMap.clear();
 }
     
     
@@ -29,8 +36,8 @@ void ShadingLibrary::BuildProgramWithType(ShadingProgram::Type type)
     mInterface.BindOutput(program.indentifier());
     program.Link();
     mInterface.CreateInterfaceForProgram(program.mType, program.indentifier());
- 
 }
+    
     
 void ShadingLibrary::UseProgramWithType(ShadingProgram::Type type)
 {

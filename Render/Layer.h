@@ -26,6 +26,7 @@ public:
     void setDepth(int depth);
     const LayersVector& sublayers() { return mSublayers; }
     void Cleanup();
+    void Clear();
     
 private:
     void OrderSublayers();

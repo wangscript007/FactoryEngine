@@ -17,6 +17,8 @@ public:
     void Add(const std::string& name, const std::string& source, GLenum type);
     void Add(Shader::Data& shaderData);
     
+    void clear();
+    
     void BuildProgramWithType(ShadingProgram::Type type);
     void UseProgramWithType(ShadingProgram::Type type);
     

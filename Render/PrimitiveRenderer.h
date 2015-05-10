@@ -20,7 +20,7 @@ public:
     virtual Primitive::Type type() const { return Primitive::kNone; }
     
 protected:
-    ShadingInterface mShadingInterface;
+    ShadingInterface& mShadingInterface;
 };
     
 }

@@ -35,6 +35,7 @@ public:
                       Scene();
                       ~Scene();
     void              Prepare();
+    void              Reset();
     // Workspace
     void              Render();
     void              setViewportRect(int x, int y, int width, int height);
@@ -54,6 +55,7 @@ public:
     Framebuffer*        colorMarkingFramebuffer() const { return mSceneRenderer->colorMarkingFramebuffer(); }
     const Viewport&     viewport() const { return mViewport; }
     const Picker&       picker() const { return *mPicker; }
+    ShadingLibrary*     shadingLibrary() const { return mShadingLibrary; }
     
 
     

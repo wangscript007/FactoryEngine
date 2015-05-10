@@ -23,12 +23,27 @@ Scene::Scene() :
     mOptions(kOptionShowNone)
 {
     mShadingLibrary = new ShadingLibrary();
+    ShadingInterface& shadingInterface = mShadingLibrary->interface();
+    
+    
+    mCamera = new class Camera(mViewport);
+    mCamera->setShadingInterface(&shadingInterface);
+    
+    mSceneRenderer = new SceneRenderer(*mShadingLibrary, *mCamera);
+
     mLightingCollection = new LightingCollection();
+    mLightingCollection->activeModel()->setShadingInterface(&shadingInterface);
+    
     mLayer = new Layer();
     mWorkspace = new Workspace(mLayer);
 
     mModelEditor = new ModelEditor();
     mModelEditor->DebugCreateCube();
+    
+    mPicker = new Picker(*mModelEditor->modelTree(), *mSceneRenderer, *mLayer);
+    mModelEditor->setPicker(mPicker);
+    mInteractionProvider = new class InteractionProvider(*mModelEditor, *mCamera);
+
     
     ModelImporter modelImporter(*mModelEditor);
 
@@ -68,32 +83,26 @@ void Scene::setOption(Option option, bool value)
         mOptions &= ~(static_cast<unsigned int>(option));
     }
 }
-
+    
+void Scene::Reset()
+{
+    mLayer->Clear();
+    mShadingLibrary->clear();
+}
     
 void Scene::Prepare()
 {
-    mCamera = new class Camera(mViewport);
-    mCamera->setProjection(kProjectionPerspective);
     mShadingLibrary->BuildProgramWithType(ShadingProgram::kMain);
     mShadingLibrary->BuildProgramWithType(ShadingProgram::kColor);
-    
-    ShadingInterface& shadingInterface = mShadingLibrary->interface();
-    mCamera->setShadingInterface(&shadingInterface);
-#ifdef LEAP_ENABLED
-    mleapListener.setCameraInteraction(mInteractionProvider->CameraInteraction());
-#endif
-
     mShadingLibrary->UseProgramWithType(ShadingProgram::kMain);
     
-    LightingModel* activeLightingModel = mLightingCollection->activeModel();
-    activeLightingModel->setShadingInterface(&shadingInterface);
-    activeLightingModel->SetupLights();
-    activeLightingModel->SendDataToShader();
-    mSceneRenderer = new SceneRenderer(*mShadingLibrary, *mCamera);
+    mCamera->setProjection(kProjectionPerspective);
     
-    mPicker = new Picker(*mModelEditor->modelTree(), *mSceneRenderer, *mLayer);
-    mModelEditor->setPicker(mPicker);
-    mInteractionProvider = new class InteractionProvider(*mModelEditor, *mCamera);
+#ifdef LEAP_ENABLED
+        mleapListener.setCameraInteraction(mInteractionProvider->CameraInteraction());
+#endif
+    mLightingCollection->activeModel()->SetupLights();
+    mLightingCollection->activeModel()->SendDataToShader();
 }
 
 #pragma mark Workspace
@@ -125,10 +134,5 @@ void Scene::Step(float dTime)
     
 #pragma mark Shading
     
-void Scene::AddShader(const std::string& name, const std::string& source, GLenum type)
-{
-    mShadingLibrary->Add(name, source, type);
-}
-
 
 }
