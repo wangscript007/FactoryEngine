@@ -33,6 +33,7 @@ Scene::Scene() :
 
     mLightingCollection = new LightingCollection();
     mLightingCollection->activeModel()->setShadingInterface(&shadingInterface);
+    mLightingCollection->activeModel()->SetupLights();
     
     mLayer = new Layer();
     mWorkspace = new Workspace(mLayer);
@@ -99,10 +100,6 @@ void Scene::Prepare()
     
     mCamera->setProjection(kProjectionPerspective);
     
-#ifdef LEAP_ENABLED
-        mleapListener.setCameraInteraction(mInteractionProvider->CameraInteraction());
-#endif
-    mLightingCollection->activeModel()->SetupLights();
     mLightingCollection->activeModel()->SendDataToShader();
 }
 
