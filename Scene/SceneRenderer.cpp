@@ -9,7 +9,6 @@ SceneRenderer::SceneRenderer(ShadingLibrary& shadingLibrary, Camera& camera)
     mCamera(camera),
     mShadingLibrary(shadingLibrary)
 {
-    glClearColor(0.1f, 0.3f, 0.1f,1.0);
     setMarkingBufferVisible(false);
     
     mProgramTypeForMarkingBuffer = ShadingProgram::kColor;

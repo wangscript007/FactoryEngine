@@ -13,7 +13,7 @@ Workspace::Workspace(Layer* layer)
     mRenderOctree = false;
     
     //glEnable(GL_NORMALIZE);
-    GetError();
+    //GetError();
     mPad = new Pad();
     
     mHudLayer = new Layer();

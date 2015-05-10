@@ -92,6 +92,7 @@ void Scene::Reset()
     
 void Scene::Prepare()
 {
+    glClearColor(0.1f, 0.3f, 0.1f,1.0);
     mShadingLibrary->BuildProgramWithType(ShadingProgram::kMain);
     mShadingLibrary->BuildProgramWithType(ShadingProgram::kColor);
     mShadingLibrary->UseProgramWithType(ShadingProgram::kMain);
