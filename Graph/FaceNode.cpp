@@ -58,16 +58,35 @@ void FaceNode::Render(Layer& layer)
         mPolygonPrimitive.Clear();
         for (Vertex *vertex : mVertexes) mPolygonPrimitive.AddPoint(vertex->mOrigin);
         
-//        for (int i = 0; i < mVertexes.size() - 1; i++) {
-//            Segment segment(mVertexes[i]->mOrigin, mVertexes[i+1]->mOrigin);
-//            segment.Direction();
-//            
-//        }
+        { // debug arrows
+            FT_DELETE_VECTOR(mLinePrimitives);
+            for (int i = 0; i < mVertexes.size() - 1; i++) {
+                mLinePrimitives.push_back(ArrowForSegment(Segment(mVertexes[i]->mOrigin, mVertexes[i+1]->mOrigin)));
+                layer.AddPrimitive(*mLinePrimitives.back());
+            }
+            mLinePrimitives.push_back(ArrowForSegment(Segment((*mVertexes.back()).mOrigin, (*mVertexes.begin())->mOrigin)));
+            layer.AddPrimitive(*mLinePrimitives.back());
+        }
         
         mPolygonPrimitive.setOption(Primitive::kUseDepth, true);
     }
     layer.AddPrimitive(mPolygonPrimitive);
     Node::Render(layer);
+}
+    
+LinePrimitive* FaceNode::ArrowForSegment(const Segment& segment) const
+{
+    LinePrimitive* primitive = new LinePrimitive();
+    segment.Direction();
+    glm::vec3 start = segment.Center();
+    glm::vec3 end =  glm::normalize(glm::cross(SurfaceNormal(), segment.Direction()));
+    end = end - glm::normalize(segment.Direction());
+    end *= 0.2;
+    primitive->mBegin = start;
+    primitive->mEnd = start + end;
+    primitive->mColor = glm::vec4(1.0f, 0.2f, 0.3f, 1.0f);
+    primitive->setOption(Primitive::kUseDepth, true);
+    return primitive;
 }
     
 glm::vec3 FaceNode::Center() const
@@ -84,11 +103,14 @@ glm::vec3 FaceNode::Center() const
     
 void FaceNode::Invalidate(bool recursively)
 {
-//    std::cout << "Invalidate\n";
     if (mInvalid) return;
     
     Node::Invalidate(recursively);
     mPolygonPrimitive.Invalidate();
+    
+    for (LinePrimitive* linePrimitive : mLinePrimitives) {
+        linePrimitive->Invalidate();
+    }
     
     if (recursively) {
         std::vector<PointNode*>nodes;

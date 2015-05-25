@@ -44,9 +44,13 @@ public:
     glm::vec3 IntersectionPoint(const Segment& segment) const;
     
 private:
+    LinePrimitive* ArrowForSegment(const Segment& segment) const;
+    
     PolygonPrimitive mPolygonPrimitive;
     std::vector<LinePrimitive*> mLinePrimitives;
     std::vector<Vertex*> mVertexes;
+    
+
 };
 
 }
