@@ -7,6 +7,7 @@ namespace ftr {
     
 class PointNode;
 class Cylinder;
+class Sphere;
     
 class PointSnap : public Snap
 {

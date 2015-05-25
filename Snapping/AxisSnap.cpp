@@ -52,7 +52,7 @@ glm::vec3 AxisSnap::Snapped() const
     for (int i = 0; i < kDimensionsCount; i++) {
         if (min == perp[i]) {
             glm::vec3 startScene = mStartScene;
-            startScene[i] = shortestSegmentFromRay.mStart[i];
+            startScene[i] = shortestSegmentFromRay.start()[i];
             result = startScene;
             break;
         }

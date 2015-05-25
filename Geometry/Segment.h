@@ -1,15 +1,14 @@
 
 #pragma once
 
-#include <glm/glm.hpp>
-#include <glm/ext.hpp>
-#include <Geometry/GeometryPrimitives.h>
+#include <Geometry/Geometry.h>
 
 namespace ftr {
     
 class Triangle;
+class Box;
 
-class Segment
+class Segment : public Geometry
 {
 public:
     enum IntersectionSituation
@@ -24,14 +23,11 @@ public:
     };
     
     Segment() {};
-    Segment(const glm::vec3& start, const glm::vec3& end) :
-        mStart(start),
-        mEnd(end)
-    {}
+    Segment(const glm::vec3& start, const glm::vec3& end);
     virtual ~Segment() {}
     
-    glm::vec3 mStart;
-    glm::vec3 mEnd;
+    glm::vec3 start() const { return mPoints[0]; }
+    glm::vec3 end()   const { return mPoints[1]; }
     
     float DistanceFromPoint(const glm::vec3& point) const;
     float DistanceFromSegment(const Segment& segment) const;
@@ -42,7 +38,7 @@ public:
     Segment ShortestSegmentFromLine(const Segment& segment) const;
     
     glm::vec3 NearestPoint(const glm::vec3 &testPoint) const;
-    glm::vec3 Direction() const { return mEnd - mStart; }
+    glm::vec3 Direction() const { return end() - start(); }
     
     bool IntersectsBox(const Box& box) const;
 

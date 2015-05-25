@@ -57,6 +57,13 @@ void FaceNode::Render(Layer& layer)
         mPolygonPrimitive.mPickingColor = glm::vec4(color.x, color.y, color.z, 1.0f);
         mPolygonPrimitive.Clear();
         for (Vertex *vertex : mVertexes) mPolygonPrimitive.AddPoint(vertex->mOrigin);
+        
+//        for (int i = 0; i < mVertexes.size() - 1; i++) {
+//            Segment segment(mVertexes[i]->mOrigin, mVertexes[i+1]->mOrigin);
+//            segment.Direction();
+//            
+//        }
+        
         mPolygonPrimitive.setOption(Primitive::kUseDepth, true);
     }
     layer.AddPrimitive(mPolygonPrimitive);

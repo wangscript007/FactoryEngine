@@ -5,6 +5,7 @@
 #include <Processing/ModelTree.h>
 #include <Graph/PointNode.h>
 #include <Geometry/Cylinder.h>
+#include <Geometry/GeometryPrimitives.h>
 
 namespace ftr {
     

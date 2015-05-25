@@ -2,10 +2,17 @@
 
 #include <Geometry/Segment.h>
 #include <Geometry/Triangle.h>
+#include <Geometry/GeometryPrimitives.h>
 
 namespace ftr {
     
 const float kEpsilon = 0.00000001f;
+    
+Segment::Segment(const glm::vec3& start, const glm::vec3& end)
+{
+    mPoints.push_back(start);
+    mPoints.push_back(end);
+}
 
 float Segment::DistanceFromPoint(const glm::vec3& point) const
 {
@@ -14,16 +21,16 @@ float Segment::DistanceFromPoint(const glm::vec3& point) const
     
 glm::vec3 Segment::NearestPoint(const glm::vec3 &testPoint) const
 {
-    const glm::vec3 A = testPoint - mStart;
-    const glm::vec3 u = glm::normalize((mStart-mEnd));
-    return mStart + glm::dot(A, u) * u;
+    const glm::vec3 A = testPoint - start();
+    const glm::vec3 u = glm::normalize((start()-end()));
+    return start() + glm::dot(A, u) * u;
 };
     
 Segment Segment::ShortestSegmentFromLine(const Segment& segment) const
 {
-    glm::vec3   u = mEnd - mStart;
-    glm::vec3   v = segment.mEnd - segment.mStart;
-    glm::vec3   w = mStart - segment.mStart;
+    glm::vec3   u = end() - start();
+    glm::vec3   v = segment.end() - segment.start();
+    glm::vec3   w = start() - segment.start();
     float    a = glm::dot(u,u);         // always >= 0
     float    b = glm::dot(u,v);
     float    c = glm::dot(v,v);         // always >= 0
@@ -41,22 +48,22 @@ Segment Segment::ShortestSegmentFromLine(const Segment& segment) const
         sc = (b*e - c*d) / D;
         tc = (a*e - b*d) / D;
     }
-    return Segment(mStart + (sc * u), segment.mStart + (tc * v));
+    return Segment(start() + (sc * u), segment.start() + (tc * v));
 
 }
     
 float Segment::DistanceFromLine(const Segment& segment) const
 {
     const Segment& shortestSegment = ShortestSegmentFromLine(segment);
-    return glm::length(shortestSegment.mStart - shortestSegment.mEnd);
+    return glm::length(shortestSegment.start() - shortestSegment.end());
 }
     
     
 float Segment::DistanceFromSegment(const Segment& segment) const
 {
-    glm::vec3   u = mEnd - mStart;
-    glm::vec3   v = segment.mEnd - segment.mStart;
-    glm::vec3   w = mStart - segment.mStart;
+    glm::vec3   u = end() - start();
+    glm::vec3   v = segment.end() - segment.start();
+    glm::vec3   w = start() - segment.start();
     float    a = glm::dot(u,u);         // always >= 0
     float    b = glm::dot(u,v);
     float    c = glm::dot(v,v);         // always >= 0
@@ -128,13 +135,13 @@ bool Segment::IntersectsBox(const Box& box) const
     glm::vec3 BoxExtents, Diff;
     const glm::vec3& Dir = Direction();
     
-	Diff.x = mStart.x - box.mCenter[0];
+	Diff.x = start().x - box.mCenter[0];
 	BoxExtents.x = box.mHalfDimension[0];
     
-	Diff.y = mStart.y - box.mCenter[1];
+	Diff.y = start().y - box.mCenter[1];
 	BoxExtents.y = box.mHalfDimension[1];
     
-	Diff.z = mStart.z - box.mCenter[2];
+	Diff.z = start().z - box.mCenter[2];
     BoxExtents.z = box.mHalfDimension[2];
     
 	float fAWdU[3];
@@ -167,7 +174,7 @@ Segment::IntersectionSituation Segment::IntersectionWithTriangle(const Triangle&
     }
     
     dir = Direction();              // ray direction vector
-    w0 = mStart - T[0];
+    w0 = start() - T[0];
     a = -glm::dot(n,w0);
     b = glm::dot(n,dir);
     if (fabs(b) < kEpsilon) {     // ray is  parallel to triangle plane
@@ -182,7 +189,7 @@ Segment::IntersectionSituation Segment::IntersectionWithTriangle(const Triangle&
     }
     // for a segment, also test if (r > 1.0) => no intersect
     
-    I = mStart + r * dir;            // intersect point of ray and plane
+    I = start() + r * dir;            // intersect point of ray and plane
     
     // is I inside T?
     float    uu, uv, vv, wu, wv, D;

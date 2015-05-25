@@ -104,7 +104,7 @@ void Camera::ZoomBy(const float delta, const glm::vec2& toViewportPoint)
     glm::vec2 viewportCenter = glm::vec2(mViewport.frame[2] * 0.5f,
                                          mViewport.frame[3] * 0.5f);
     const Segment& segment = mViewport.RayAtPoint(viewportCenter);
-    glm::vec3 start = segment.mStart;
+    glm::vec3 start = segment.start();
     glm::vec3 forward = glm::normalize(scenePoint - start);
     
     float distance = glm::length(scenePoint - start);

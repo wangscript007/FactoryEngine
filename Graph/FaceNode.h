@@ -13,6 +13,7 @@ class LineNode;
 class PointNode;
 class Edge;
 class Vertex;
+class LinePrimitive;
 
 class FaceNode : public Node
 {
@@ -44,6 +45,7 @@ public:
     
 private:
     PolygonPrimitive mPolygonPrimitive;
+    std::vector<LinePrimitive*> mLinePrimitives;
     std::vector<Vertex*> mVertexes;
 };
 

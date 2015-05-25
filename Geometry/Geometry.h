@@ -28,12 +28,11 @@ public:
     
     void Clear() { mPoints.clear(); }
     void Reverse() { std::reverse(mPoints.begin(), mPoints.end()); };
-protected:
     
+protected:
     std::vector<glm::vec3> mPoints;
 };
-    
-    
+        
     
 }
 

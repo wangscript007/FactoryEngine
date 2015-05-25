@@ -54,7 +54,7 @@ bool Viewport::InFront(const glm::vec3& coords) const
 {
     Segment ray = RayAtPoint(Center());
     glm::vec3 dirA = ray.Direction();
-    glm::vec3 dirB = coords - ray.mStart;
+    glm::vec3 dirB = coords - ray.start();
     float angle = glm::angle(glm::normalize(dirA), glm::normalize(dirB));
     return angle < 90.0f;
     

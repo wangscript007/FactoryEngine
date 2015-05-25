@@ -29,6 +29,7 @@ void LineNode::Render(Layer& layer)
         layer.AddPrimitive(mLinePrimitive);
     }
     
+    
     Node::Render(layer);
 }
     
