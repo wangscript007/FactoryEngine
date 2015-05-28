@@ -10,6 +10,7 @@
 #include <Workspace/Workspace.h>
 #include <Lighting/LightingCollection.h>
 #include <ImportExport/ModelImporter.h>
+#include <Query/Query.h>
 
 namespace ftr {
 
@@ -58,6 +59,9 @@ Scene::Scene() :
 
     mWorkspace->setOctree(*mModelEditor->modelTree()->Octree());
     mWorkspace->setModelTree(mModelEditor->modelTree());
+    
+    mQuery = new Query(*mModelEditor->modelTree());
+    
 #ifdef LEAP_ENABLED
     mLeapController.addListener(mleapListener);
 #endif

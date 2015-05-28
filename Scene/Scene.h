@@ -21,6 +21,7 @@ class ShadingLibrary;
 class Workspace;
 class LightingCollection;
 class Picker;
+class Query;
     
 class Scene
 {
@@ -55,6 +56,7 @@ public:
     Framebuffer*        colorMarkingFramebuffer() const { return mSceneRenderer->colorMarkingFramebuffer(); }
     const Viewport&     viewport() const { return mViewport; }
     const Picker&       picker() const { return *mPicker; }
+    const Query&        query() const { return *mQuery; }
     ShadingLibrary*     shadingLibrary() const { return mShadingLibrary; }
     
 
@@ -72,6 +74,7 @@ private:
     LightingCollection* mLightingCollection;
     Viewport            mViewport;
     Picker*             mPicker;
+    Query*              mQuery;
     
 #ifdef LEAP_ENABLED
     Leap::Controller    mLeapController;

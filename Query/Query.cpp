@@ -11,9 +11,10 @@ Query::Query(ModelTree& modelTree)
     
 }
     
-void Query::Points(std::vector<Query::Point*>& points)
+void Query::Points(std::vector<Query::Point*>& points) const
 {
     std::vector<PointNode*> pointNodes;
+    mModelTree.PointNodes(pointNodes);
     for (PointNode* node : pointNodes) {
         Point* point = new Point();
         point->name = node->mName;

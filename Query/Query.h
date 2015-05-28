@@ -16,7 +16,7 @@ public:
     Query(ModelTree& modelTree);
     virtual ~Query() {}
     
-    void Points(std::vector<Point*>& points);
+    void Points(std::vector<Point*>& points) const;
     
 private:
     ModelTree& mModelTree;
