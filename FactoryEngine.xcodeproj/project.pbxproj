@@ -256,6 +256,8 @@
 		D16D270318D5E8FB0095B177 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D16D270118D5E8FB0095B177 /* Triangle.cpp */; };
 		D16D270418D5E8FB0095B177 /* Triangle.h in Headers */ = {isa = PBXBuildFile; fileRef = D16D270218D5E8FB0095B177 /* Triangle.h */; };
 		D17086871A6BF32B00A679D8 /* TestFaceTraversal.mm in Sources */ = {isa = PBXBuildFile; fileRef = D17086861A6BF32B00A679D8 /* TestFaceTraversal.mm */; };
+		D17B5E8F1B17B28A003C8F7B /* Query.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D17B5E8D1B17B28A003C8F7B /* Query.cpp */; };
+		D17B5E901B17B28A003C8F7B /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = D17B5E8E1B17B28A003C8F7B /* Query.h */; };
 		D17C76651583BF440083E2B0 /* FactoryEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76641583BF440083E2B0 /* FactoryEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D17C76AC1584E3900083E2B0 /* GLError.h in Headers */ = {isa = PBXBuildFile; fileRef = D17C76AB1584E3900083E2B0 /* GLError.h */; };
 		D185302218F145D5001A7AB1 /* ExtrudeInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D185302018F145D5001A7AB1 /* ExtrudeInteraction.cpp */; };
@@ -507,6 +509,8 @@
 		D16D270518D5F1980095B177 /* TestTriangle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestTriangle.mm; sourceTree = "<group>"; };
 		D17086861A6BF32B00A679D8 /* TestFaceTraversal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestFaceTraversal.mm; sourceTree = "<group>"; };
 		D178BEDE19FD333800B6C4C0 /* TestNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestNode.mm; path = ../../factoryengine/Tests/TestNode.mm; sourceTree = "<group>"; };
+		D17B5E8D1B17B28A003C8F7B /* Query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Query.cpp; sourceTree = "<group>"; };
+		D17B5E8E1B17B28A003C8F7B /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Query.h; sourceTree = "<group>"; };
 		D17C76641583BF440083E2B0 /* FactoryEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FactoryEngine.h; sourceTree = "<group>"; };
 		D17C76AB1584E3900083E2B0 /* GLError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLError.h; sourceTree = "<group>"; };
 		D185302018F145D5001A7AB1 /* ExtrudeInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtrudeInteraction.cpp; sourceTree = "<group>"; };
@@ -863,6 +867,7 @@
 				D11D1D6A18E04CF70091521F /* Processing */,
 				606BC0041808639500EC4F37 /* Snapping */,
 				6047DB8F16B46A5D0012286F /* Interaction */,
+				D17B5E8C1B17B28A003C8F7B /* Query */,
 				D13DC914157AA03200C84006 /* Workspace */,
 				6056C56D15DC5522008F8E92 /* Scene */,
 				60607E1117E63CF600708358 /* Tests */,
@@ -893,6 +898,16 @@
 				D1F44F4B157FE79600566119 /* Workspace.h */,
 			);
 			path = Workspace;
+			sourceTree = "<group>";
+		};
+		D17B5E8C1B17B28A003C8F7B /* Query */ = {
+			isa = PBXGroup;
+			children = (
+				D17B5E8D1B17B28A003C8F7B /* Query.cpp */,
+				D17B5E8E1B17B28A003C8F7B /* Query.h */,
+			);
+			name = Query;
+			path = ../factoryengine/Query;
 			sourceTree = "<group>";
 		};
 		D17C766B1583C1580083E2B0 /* Main */ = {
@@ -1154,6 +1169,7 @@
 				D18ECC6F190517A400189A01 /* BodyNode.h in Headers */,
 				605FFDFC17DFDD3400DE90A9 /* LeapListener.h in Headers */,
 				D18ECC92190517A400189A01 /* PointNode.h in Headers */,
+				D17B5E901B17B28A003C8F7B /* Query.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1393,6 +1409,7 @@
 				D1F44F51157FE91900566119 /* Pad.cpp in Sources */,
 				D189C66E19165F0B00E9FB1A /* Pivot.cpp in Sources */,
 				D18ACE7B1A4D8F7E00CCCDD5 /* Batch.cpp in Sources */,
+				D17B5E8F1B17B28A003C8F7B /* Query.cpp in Sources */,
 				D11D1CC218DF4FBA0091521F /* Description.cpp in Sources */,
 				6056C57015DC554C008F8E92 /* Scene.cpp in Sources */,
 				606BC00F1808639500EC4F37 /* SnappingQueue.cpp in Sources */,
