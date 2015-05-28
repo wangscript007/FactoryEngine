@@ -33,6 +33,7 @@ public:
     void UpdatePoint(PointNode* pPoint);
     Node* NodeContainingPoint(const glm::vec3& point);
     void PointNodesInBox(const Box& sBox, std::vector<PointNode*>& pointsVector) const;
+    void PointNodes(std::vector<PointNode*>& pointsVector) const;
     void PointNodesInCylinder(const Cylinder& cylinder, std::vector<PointNode*>& pointsVector) const;
     
     enum Type { kBranch, kLeaf };
@@ -63,6 +64,7 @@ public:
         SIndex& Index() { return mIndex; }
         void setIndex(SIndex sIndex) { mIndex = sIndex; }
         Node* NodeContainingPoint(const glm::vec3& point);
+        void PointNodes(std::vector<PointNode*>& pointsVector) const;
         void PointNodesInBox(const ftr::Box& sBox, std::vector<PointNode*>& pointsVector) const;
         void PointNodesInCylinder(const Cylinder& cylinder, std::vector<PointNode*>& pointsVector) const;
         void setDepth(int iDepth) { mDepth = iDepth; }

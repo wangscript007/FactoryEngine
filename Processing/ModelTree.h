@@ -34,6 +34,9 @@ public:
     void PointNodesInCylinder(const Cylinder& cylinder, std::vector<PointNode*>& pointsVector) const {
         mOctree->PointNodesInCylinder(cylinder, pointsVector);
     }
+    void PointNodes(std::vector<PointNode*>& pointsVector) const {
+        mOctree->PointNodes(pointsVector);
+    }
 
     unsigned long Size() { return mOctree->Size(); }
     
