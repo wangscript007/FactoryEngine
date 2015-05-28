@@ -18,7 +18,6 @@ public:
     void RotateBy(const glm::vec2 deltaRotation);
     void ZoomBy(const GLfloat times, const glm::vec2& toViewportPoint);
     void Zoom(const GLfloat times);
-    void Look();
     
 private:
     Camera& mCamera;

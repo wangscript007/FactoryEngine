@@ -15,6 +15,7 @@ CameraInteraction::CameraInteraction(Camera& camera)
 void CameraInteraction::MoveBy(const glm::vec2 deltaMove)
 {
     mCamera.MoveBy(deltaMove);
+    mCamera.CreateTransformations();
 }
 
 void CameraInteraction::Move(const glm::vec2 motion)
@@ -25,11 +26,13 @@ void CameraInteraction::Move(const glm::vec2 motion)
 void CameraInteraction::RotateBy(const glm::vec2 deltaRotation)
 {
     mCamera.RotateBy(deltaRotation);
+    mCamera.CreateTransformations();
 }
     
 void CameraInteraction::ZoomBy(const GLfloat times, const glm::vec2& toViewportPoint)
 {
     mCamera.ZoomBy(times, toViewportPoint);
+    mCamera.CreateTransformations();
 }
     
 void CameraInteraction::Zoom(const GLfloat times)
@@ -37,11 +40,6 @@ void CameraInteraction::Zoom(const GLfloat times)
     
 }
     
-void CameraInteraction::Look()
-{
-    mCamera.CreateTransformations();
-}
-
    
     
     
