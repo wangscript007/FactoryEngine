@@ -57,8 +57,14 @@ bool Viewport::InFront(const glm::vec3& coords) const
     glm::vec3 dirB = coords - ray.start();
     float angle = glm::angle(glm::normalize(dirA), glm::normalize(dirB));
     return angle < 90.0f;
-    
 }
+    
+    
+bool Viewport::IsVisible(const glm::vec3& coords) const
+{
+    return true;// glm::isNull(SceneCoordsAt(CoordsAt(coords)) - coords, 0.1f);
+}
+    
     
 glm::vec2 Viewport::Center() const
 {

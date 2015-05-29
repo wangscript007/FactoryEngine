@@ -39,7 +39,7 @@ Triangle::Triangle(const std::vector<glm::vec3>& points)
     : Geometry(points)
 {
     // points can't be in one line
-    assert(!glm::isNull(Cross(), 0.0000001f));
+    assert(!glm::isNull(Cross(), kEpsilonMedium));
 
 }
     
@@ -50,7 +50,7 @@ Triangle::Triangle(const glm::vec3& p1, const glm::vec3& p2, const glm::vec3&  p
     mPoints.push_back(p3);
     
     // points can't be in one line
-    assert(!glm::isNull(Cross(), 0.0000001f));
+    assert(!glm::isNull(Cross(), kEpsilonMedium));
     
 }
     
