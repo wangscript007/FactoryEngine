@@ -37,6 +37,8 @@ public:
     
 private:
     glm::vec3 RotateVector(const glm::vec3& vec) const;
+    glm::vec3 ZoomTargetPoint(const glm::vec2& toViewportPoint);
+    
     glm::mat4 RotationMatrix();
     glm::mat4 TranslationMatrix();
     glm::mat4 InitialMatrix();
@@ -46,6 +48,10 @@ private:
     glm::vec3 mRotation;
     Projection mProjection;
     glm::vec3 mPivot;
+    
+    glm::vec3 mZoomTargetPoint;
+    glm::vec2 mZoomViewportPoint;
+    bool mZoomPointNeedsUpdate;
     
     Viewport& mViewport;
     ShadingInterface* mShadingInterface;

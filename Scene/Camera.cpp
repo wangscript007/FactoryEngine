@@ -10,7 +10,8 @@ const float Camera::kViewportScale = 0.3;
 
 Camera::Camera(Viewport& viewport)
     :mShadingInterface(NULL),
-    mViewport(viewport)
+    mViewport(viewport),
+    mZoomPointNeedsUpdate(true)
 {
     mEyePosition = glm::vec3(0.0f, 0.0f, 10.0f);
     mTranslation = glm::vec3(-3.74917746, -2.3571105, -2.03182578);
@@ -96,11 +97,13 @@ void Camera::RotateBy(const glm::vec2 deltaRotation)
     modf(mRotation.y/360, &ip);
     mRotation.y = mRotation.y - ip*360;
     
+    mZoomPointNeedsUpdate = true;
+    
 }
 
 void Camera::ZoomBy(const float delta, const glm::vec2& toViewportPoint)
 {
-    glm::vec3 scenePoint = mViewport.SceneCoordsAt(toViewportPoint);
+    glm::vec3 scenePoint = ZoomTargetPoint(toViewportPoint);
     glm::vec2 viewportCenter = glm::vec2(mViewport.frame[2] * 0.5f,
                                          mViewport.frame[3] * 0.5f);
     const Segment& segment = mViewport.RayAtPoint(viewportCenter);
@@ -122,6 +125,17 @@ void Camera::ZoomBy(const float delta, const glm::vec2& toViewportPoint)
     }
     
     mTranslation += forward * delta * (coef + extra);
+    
+}
+    
+glm::vec3 Camera::ZoomTargetPoint(const glm::vec2& toViewportPoint)
+{
+    if (mZoomPointNeedsUpdate || (mZoomViewportPoint != toViewportPoint)) {
+        mZoomPointNeedsUpdate = false;
+        mZoomTargetPoint = mViewport.SceneCoordsAt(toViewportPoint);
+        mZoomViewportPoint = toViewportPoint;
+    }
+    return mZoomTargetPoint;
 }
 
 void Camera::setProjection(Projection projectionMode)
