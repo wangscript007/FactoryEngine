@@ -39,4 +39,9 @@ void SelectInteraction::Render(Layer& layer)
     Node::Render(layer);
 }
     
+void SelectInteraction::SelectNodeWithID(int nodeID)
+{
+    mModelEditor.SelectNodeWithID(nodeID);
+}
+    
 }

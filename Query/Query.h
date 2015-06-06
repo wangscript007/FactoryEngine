@@ -15,6 +15,7 @@ public:
     
     struct Face {
         std::string name;
+        int mID;
         //glm::vec3 sceneCoords;
     };
 

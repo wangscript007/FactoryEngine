@@ -42,6 +42,11 @@ Node* Picker::PickNode(const glm::vec2& atPoint) const
     return mColorPickingMapper->NodeForColor(glm::vec3(color.x, color.y, color.z));
 }
     
+Node* Picker::PickNodeWithID(int nodeID) const
+{
+    return mColorPickingMapper->NodeForID(nodeID);
+}
+    
 glm::vec3 Picker::PickSceneCoordinates(const glm::vec2& atPoint) const
 {
     Node* node = PickNode(atPoint);

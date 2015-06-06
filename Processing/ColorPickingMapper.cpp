@@ -51,6 +51,14 @@ Node* ColorPickingMapper::NodeForColor(const glm::vec3& color)
     return NULL;
 }
     
+Node* ColorPickingMapper::NodeForID(int nodeID)
+{
+    if (Exist(nodeID)) {
+        return mIntToNodeMap[nodeID];
+    }
+    return NULL;
+}
+    
 bool ColorPickingMapper::Exist(int pickingId)
 {
     return mIntToNodeMap.find(pickingId) != mIntToNodeMap.end();

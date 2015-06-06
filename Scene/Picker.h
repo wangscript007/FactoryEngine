@@ -18,7 +18,10 @@ public:
     virtual ~Picker();
     
     Node* PickNode(const glm::vec2& atPoint) const;
+    Node* PickNodeWithID(int nodeID) const;
+    Node* NodeWith(const glm::vec2& atPoint) const;
     glm::vec3 PickSceneCoordinates(const glm::vec2& atPoint) const;
+    
     
     bool isOn() const { return mIsOn; }
     void setOn(bool on);

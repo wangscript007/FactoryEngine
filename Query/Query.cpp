@@ -33,6 +33,7 @@ void Query::Faces(std::vector<Face*>& faces) const
     for (FaceNode* node : faceNodes) {
         Face* face = new Face();
         face->name = node->Description();
+        face->mID = node->pickingId();
         faces.push_back(face);
     }
 }

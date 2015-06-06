@@ -141,15 +141,17 @@ void ModelEditor::Select(Node* node)
 Node* ModelEditor::Select(const glm::vec2& point)
 {
     Node* node = mPicker->PickNode(point);
-    if (node && node != mSelectedNode) {
-        if (mSelectedNode) {
-            mSelectedNode->setSelected(false);
-        }
-        mSelectedNode = node;
-        mSelectedNode->setSelected(true);
-    }
+    Select(node);
     return mSelectedNode;
 }
+    
+Node* ModelEditor::SelectNodeWithID(int nodeID)
+{
+    Node* node = mPicker->PickNodeWithID(nodeID);
+    Select(node);
+    return mSelectedNode;
+}
+
     
 void ModelEditor::Move(const glm::vec3 &offset)
 {

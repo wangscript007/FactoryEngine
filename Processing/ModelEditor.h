@@ -42,6 +42,7 @@ public:
     
     void            Select(Node* node);
     Node*           Select(const glm::vec2& point);
+    Node*           SelectNodeWithID(int nodeID);
     void            Move(const glm::vec3 &offset);
     
     ModelFactory*   modelFactory() const { return mModelFactory; }

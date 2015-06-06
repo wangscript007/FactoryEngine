@@ -20,6 +20,7 @@ public:
     
     void MapPickingColors(enum Node::Type nodeType);
     Node* NodeForColor(const glm::vec3& color);
+    Node* NodeForID(int nodeID);
     
     
     

@@ -16,7 +16,8 @@ public:
     virtual ~SelectInteraction();
     void Render(Layer& layer);
     
-    void Select(const glm::vec2& point);    
+    void Select(const glm::vec2& point);
+    void SelectNodeWithID(int nodeID);
     void TurnOn();
     void TurnOff();
     
