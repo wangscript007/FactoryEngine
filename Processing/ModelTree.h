@@ -10,6 +10,7 @@ namespace ftr {
 //
     
 class GroupNode;
+class FaceNode;
 
 class ModelTree
 {
@@ -37,6 +38,10 @@ public:
     void PointNodes(std::vector<PointNode*>& pointsVector) const {
         mOctree->PointNodes(pointsVector);
     }
+    
+    void FaceNodes(std::vector<FaceNode*>& faceNodes) const;
+  
+
 
     unsigned long Size() { return mOctree->Size(); }
     

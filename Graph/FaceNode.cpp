@@ -175,8 +175,11 @@ glm::vec3 FaceNode::IntersectionPoint(const Segment& segment) const
 std::string FaceNode::Description() const
 {
     std::stringstream ss;
-    for (Vertex *vertex : mVertexes) {
-        ss << vertex->mName << " - ";
+    for (int i = 0; i < mVertexes.size(); i++) {
+        ss << mVertexes[i]->mName;
+        if (i < mVertexes.size() -1) {
+            ss << " - ";
+        }
     }
     return ss.str();
 }

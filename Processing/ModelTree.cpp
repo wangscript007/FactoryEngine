@@ -4,6 +4,7 @@
 #include <Processing/ModelTree.h>
 #include <Graph/PointNode.h>
 #include <Graph/GroupNode.h>
+#include <Graph/FaceNode.h>
 
 namespace ftr {
 
@@ -64,6 +65,14 @@ void ModelTree::RemoveNode(Node* pNode)
     Node* supernode = pNode->Supernode();
     assert(supernode);
     supernode->RemoveNode(pNode);
+}
+    
+    
+void ModelTree::FaceNodes(std::vector<FaceNode*>& faceNodes) const
+{
+    for (GroupNode* group : mGroups) {
+        group->SubnodesWithType(Node::kFace, reinterpret_cast<std::vector<Node*>&>(faceNodes));
+    }
 }
     
 

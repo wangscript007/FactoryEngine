@@ -23,7 +23,7 @@ PointNode* ModelFactory::CreatePoint(glm::vec3 origin) const
     index++;
     std::ostringstream convert;
     convert << index;
-    pPoint->mName = convert.str();
+    pPoint->vertex().mName = convert.str();
     return pPoint;
 }
     
