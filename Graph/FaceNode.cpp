@@ -58,18 +58,21 @@ void FaceNode::Render(Layer& layer)
         mPolygonPrimitive.Clear();
         for (Vertex *vertex : mVertexes) mPolygonPrimitive.AddPoint(vertex->mOrigin);
         
-        { // debug arrows
-            FT_DELETE_VECTOR(mLinePrimitives);
-            for (int i = 0; i < mVertexes.size() - 1; i++) {
-                mLinePrimitives.push_back(ArrowForSegment(Segment(mVertexes[i]->mOrigin, mVertexes[i+1]->mOrigin)));
-                layer.AddPrimitive(*mLinePrimitives.back());
-            }
-            mLinePrimitives.push_back(ArrowForSegment(Segment((*mVertexes.back()).mOrigin, (*mVertexes.begin())->mOrigin)));
-            layer.AddPrimitive(*mLinePrimitives.back());
+        
+        FT_DELETE_VECTOR(mLinePrimitives);
+        for (int i = 0; i < mVertexes.size() - 1; i++) {
+            mLinePrimitives.push_back(ArrowForSegment(Segment(mVertexes[i]->mOrigin, mVertexes[i+1]->mOrigin)));
+    
         }
+        mLinePrimitives.push_back(ArrowForSegment(Segment((*mVertexes.back()).mOrigin, (*mVertexes.begin())->mOrigin)));
         
         mPolygonPrimitive.setOption(Primitive::kUseDepth, true);
     }
+    
+    for (LinePrimitive* lp : mLinePrimitives) {
+        layer.AddPrimitive(*lp);
+    }
+    
     layer.AddPrimitive(mPolygonPrimitive);
     Node::Render(layer);
 }
