@@ -61,10 +61,6 @@ Scene::Scene() :
     mWorkspace->setModelTree(mModelEditor->modelTree());
     
     mQuery = new Query(*mModelEditor->modelTree());
-    
-#ifdef LEAP_ENABLED
-    mLeapController.addListener(mleapListener);
-#endif
 }
     
 Scene::~Scene()

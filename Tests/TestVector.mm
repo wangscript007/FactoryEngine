@@ -11,18 +11,6 @@ using namespace ftr;
 
 @implementation TestVector
 
-- (void)setUp
-{
-    [super setUp];
-    // Put setup code here; it will be run once, before the first test case.
-}
-
-- (void)tearDown
-{
-    // Put teardown code here; it will be run once, after the last test case.
-    [super tearDown];
-}
-
 - (void)testIsCWInXYPlane
 {
     glm::vec3 p1 = glm::vec3(0.0);

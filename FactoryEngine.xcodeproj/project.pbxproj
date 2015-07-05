@@ -38,9 +38,6 @@
 		605CD4FD16FDE992005CCAA2 /* MoveInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 605CD4FB16FDE992005CCAA2 /* MoveInteraction.h */; };
 		605CD4FE16FDF820005CCAA2 /* LineInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60F2406C16B5BCA700291ED0 /* LineInteraction.cpp */; };
 		605CD4FF16FDF824005CCAA2 /* RectangleInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = 6047DB9216B46A890012286F /* RectangleInteraction.h */; };
-		605FFDF317DFDC4C00DE90A9 /* Leap.h in Headers */ = {isa = PBXBuildFile; fileRef = 605FFDF117DFDC4C00DE90A9 /* Leap.h */; };
-		605FFDF417DFDC4C00DE90A9 /* LeapMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 605FFDF217DFDC4C00DE90A9 /* LeapMath.h */; };
-		605FFDFC17DFDD3400DE90A9 /* LeapListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 605FFDFA17DFDD3400DE90A9 /* LeapListener.h */; };
 		60607E1017E63CF600708358 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60607E0F17E63CF600708358 /* XCTest.framework */; };
 		60607E1617E63CF600708358 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60607E1417E63CF600708358 /* InfoPlist.strings */; };
 		606BC00B1808639500EC4F37 /* AxisSnap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 606BC0051808639500EC4F37 /* AxisSnap.cpp */; };
@@ -392,10 +389,6 @@
 		6056C56F15DC5522008F8E92 /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		605CD4FA16FDE992005CCAA2 /* MoveInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveInteraction.cpp; sourceTree = "<group>"; };
 		605CD4FB16FDE992005CCAA2 /* MoveInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveInteraction.h; sourceTree = "<group>"; };
-		605FFDF117DFDC4C00DE90A9 /* Leap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leap.h; sourceTree = "<group>"; };
-		605FFDF217DFDC4C00DE90A9 /* LeapMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeapMath.h; sourceTree = "<group>"; };
-		605FFDF917DFDD3400DE90A9 /* LeapListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LeapListener.cpp; sourceTree = "<group>"; };
-		605FFDFA17DFDD3400DE90A9 /* LeapListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeapListener.h; sourceTree = "<group>"; };
 		60607E0E17E63CF600708358 /* FactoryEngine Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FactoryEngine Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60607E0F17E63CF600708358 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		60607E1317E63CF600708358 /* FactoryEngine Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FactoryEngine Tests-Info.plist"; sourceTree = "<group>"; };
@@ -671,17 +664,6 @@
 			path = Scene;
 			sourceTree = "<group>";
 		};
-		605FFDF017DFDC4C00DE90A9 /* Leap */ = {
-			isa = PBXGroup;
-			children = (
-				605FFDF117DFDC4C00DE90A9 /* Leap.h */,
-				605FFDF217DFDC4C00DE90A9 /* LeapMath.h */,
-				605FFDF917DFDD3400DE90A9 /* LeapListener.cpp */,
-				605FFDFA17DFDD3400DE90A9 /* LeapListener.h */,
-			);
-			path = Leap;
-			sourceTree = "<group>";
-		};
 		60607E1117E63CF600708358 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -854,7 +836,6 @@
 			isa = PBXGroup;
 			children = (
 				D17C76641583BF440083E2B0 /* FactoryEngine.h */,
-				605FFDF017DFDC4C00DE90A9 /* Leap */,
 				D1C708B915B3495400D64823 /* External */,
 				D1E0122B1A2218D100583D0A /* ImportExport */,
 				D17C766B1583C1580083E2B0 /* Main */,
@@ -1160,14 +1141,11 @@
 				601EC86C175B2901003DE2B8 /* CameraInteraction.h in Headers */,
 				60CE9A5117EC646E00A775C0 /* ShadingInterface.h in Headers */,
 				D15A7DDE18FB15B1004CB791 /* ColorPickingMapper.h in Headers */,
-				605FFDF317DFDC4C00DE90A9 /* Leap.h in Headers */,
 				D18ECC88190517A400189A01 /* ModelFactory.h in Headers */,
 				D11D1D5118DF70980091521F /* shapes.h in Headers */,
-				605FFDF417DFDC4C00DE90A9 /* LeapMath.h in Headers */,
 				60EB2F671812C385008DCA37 /* Cylinder.h in Headers */,
 				D1C15CDF1A6B17A500E4CC45 /* FaceTraversal.h in Headers */,
 				D18ECC6F190517A400189A01 /* BodyNode.h in Headers */,
-				605FFDFC17DFDD3400DE90A9 /* LeapListener.h in Headers */,
 				D18ECC92190517A400189A01 /* PointNode.h in Headers */,
 				D17B5E901B17B28A003C8F7B /* Query.h in Headers */,
 			);
@@ -1611,10 +1589,7 @@
 					"${SRCROOT}/External",
 					"${SRCROOT}",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../Desktop/LeapDeveloperKit/LeapSDK/lib\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = FactoryEngineIOS;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1640,10 +1615,7 @@
 					"${SRCROOT}/External",
 					"${SRCROOT}",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../Desktop/LeapDeveloperKit/LeapSDK/lib\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = FactoryEngineIOS;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1705,7 +1677,6 @@
 				);
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/External/Leap",
 					"${SRCROOT}/External",
 					"${SRCROOT}",
 				);
@@ -1742,10 +1713,7 @@
 					"${SRCROOT}/External",
 					"${SRCROOT}",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../Desktop/LeapDeveloperKit/LeapSDK/lib\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = FactoryEngineIOS;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1885,7 +1853,6 @@
 				GCC_PREFIX_HEADER = Main/Prefix.pch;
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/External/Leap",
 					"${SRCROOT}/External",
 					"${SRCROOT}",
 				);
@@ -1912,7 +1879,6 @@
 				GCC_PREFIX_HEADER = Main/Prefix.pch;
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					"${SRCROOT}/External/Leap",
 					"${SRCROOT}/External",
 					"${SRCROOT}",
 				);
