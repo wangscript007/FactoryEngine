@@ -36,7 +36,7 @@ bool Vector::IsCWOrder(const glm::vec3& v1, const glm::vec3& v2, const glm::vec3
 bool Vector::IsParallel(const glm::vec3& v1, const glm::vec3& v2)
 {
     glm::vec3 cross = glm::cross(v1, v2);
-    return (glm::isNull(cross, kEpsilonSmall));
+    return (glm::isNull(cross, kEpsilonBig));
 }
     
 glm::vec3 Vector::XYZClosestAxis(glm::vec3 v)
