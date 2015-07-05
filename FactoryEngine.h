@@ -22,6 +22,8 @@
 #include <queue>
 
 #include <glm/glm.hpp>
+#include <glm/ext.hpp>
+
 //
 // Platform macros.
 //

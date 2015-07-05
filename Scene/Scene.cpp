@@ -40,7 +40,7 @@ Scene::Scene() :
     mWorkspace = new Workspace(mLayer);
 
     mModelEditor = new ModelEditor();
-    mModelEditor->DebugCreateCube();
+//    mModelEditor->DebugCreateCube();
     
     mPicker = new Picker(*mModelEditor->modelTree(), *mSceneRenderer, *mLayer);
     mModelEditor->setPicker(mPicker);

@@ -7,7 +7,6 @@
 #include <Graph/PointNode.h>
 #include <Graph/LineNode.h>
 #include <Graph/GroupNode.h>
-
 using namespace ftr;
 
 @interface TestMoveInteraction : XCTestCase

@@ -50,7 +50,6 @@ void FaceTraversal::Find(Result& result)
         mVertexes.clear();
     } else {
         FaceTraversal::EdgesConnectingVertexes(mResult->mEdges, mVertexes);
-        //std::cout << Description(mResult) << "\n";
     }
 }
  
