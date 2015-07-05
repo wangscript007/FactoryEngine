@@ -20,11 +20,13 @@ void Pad::Render(Layer& layer)
     GLfloat x = -a2;
     for(i = 0; i <= linesCount; i++) {
         if ((i%((int)mfA/2) != 0)  || (i == 0) || (i == mfA)) {
-            linePrimitive[index].mBegin = glm::vec3(x, offset, -a2);
-            linePrimitive[index].mEnd = glm::vec3(x, 0, a2);
-            linePrimitive[index].mColor = glm::vec4(0.8f, 0.8f, 0.8f, 1.0);
-            linePrimitive[index].setOption(Primitive::kUseDepth, true);
-            linePrimitive[index].setOption(Primitive::kUseLighting, false);
+            if (mInvalid) {
+                linePrimitive[index].mBegin = glm::vec3(x, offset, -a2);
+                linePrimitive[index].mEnd = glm::vec3(x, 0, a2);
+                linePrimitive[index].mColor = glm::vec4(0.8f, 0.8f, 0.8f, 1.0);
+                linePrimitive[index].setOption(Primitive::kUseDepth, true);
+                linePrimitive[index].setOption(Primitive::kUseLighting, false);
+            }
             layer.AddPrimitive(linePrimitive[index++]);
         }
 		x += mfScale;
@@ -35,11 +37,13 @@ void Pad::Render(Layer& layer)
 	GLfloat z = -a2;
     for(i = 0; i <= linesCount; i++) {
         if ((i%((int)mfA/2) != 0) || (i == 0) || (i == mfA)) {
-            linePrimitive[index].mBegin = glm::vec3(-a2, offset, z);
-            linePrimitive[index].mEnd = glm::vec3(a2, offset, z);
-            linePrimitive[index].mColor = glm::vec4(0.8f, 0.8f, 0.8f, 1.0);
-            linePrimitive[index].setOption(Primitive::kUseDepth, true);
-            linePrimitive[index].setOption(Primitive::kUseLighting, false);
+            if (mInvalid) {
+                linePrimitive[index].mBegin = glm::vec3(-a2, offset, z);
+                linePrimitive[index].mEnd = glm::vec3(a2, offset, z);
+                linePrimitive[index].mColor = glm::vec4(0.8f, 0.8f, 0.8f, 1.0);
+                linePrimitive[index].setOption(Primitive::kUseDepth, true);
+                linePrimitive[index].setOption(Primitive::kUseLighting, false);
+            }
             layer.AddPrimitive(linePrimitive[index++]);
         }
 		z += mfScale;
@@ -49,11 +53,13 @@ void Pad::Render(Layer& layer)
     //
     float a = mfA;
 	// x
-    linePrimitive[index].mBegin = glm::vec3(-a/2, offset, 0);
-    linePrimitive[index].mEnd = glm::vec3(a/2+1, offset, 0);
-    linePrimitive[index].mColor = glm::vec4(1.0f, 0.0f, 0.0f, 1.0);
-    linePrimitive[index].setOption(Primitive::kUseDepth, true);
-    linePrimitive[index].setOption(Primitive::kUseLighting, false);
+    if (mInvalid) {
+        linePrimitive[index].mBegin = glm::vec3(-a/2, offset, 0);
+        linePrimitive[index].mEnd = glm::vec3(a/2+1, offset, 0);
+        linePrimitive[index].mColor = glm::vec4(1.0f, 0.0f, 0.0f, 1.0);
+        linePrimitive[index].setOption(Primitive::kUseDepth, true);
+        linePrimitive[index].setOption(Primitive::kUseLighting, false);
+    }
     layer.AddPrimitive(linePrimitive[index++]);
 //    // y
 //    linePrimitive[index].mBegin = glm::vec3(0, 0, 0);
@@ -63,11 +69,13 @@ void Pad::Render(Layer& layer)
 //    linePrimitive[index].setOption(Primitive::kUseLighting, false);
 //    layer.AddPrimitive(linePrimitive[index++]);
     // z
-    linePrimitive[index].mBegin = glm::vec3(0, offset, -a/2);
-    linePrimitive[index].mEnd = glm::vec3(0, offset, a/2+1);
-    linePrimitive[index].mColor = glm::vec4(0.0f, 0.0f, 1.0f, 1.0);
-    linePrimitive[index].setOption(Primitive::kUseDepth, true);
-    linePrimitive[index].setOption(Primitive::kUseLighting, false);
+    if (mInvalid) {
+        linePrimitive[index].mBegin = glm::vec3(0, offset, -a/2);
+        linePrimitive[index].mEnd = glm::vec3(0, offset, a/2+1);
+        linePrimitive[index].mColor = glm::vec4(0.0f, 0.0f, 1.0f, 1.0);
+        linePrimitive[index].setOption(Primitive::kUseDepth, true);
+        linePrimitive[index].setOption(Primitive::kUseLighting, false);
+    }
     layer.AddPrimitive(linePrimitive[index++]);
     
     static const glm::vec4 color = glm::vec4(0.1f, 0.3f, 0.1f, 0.1f);
