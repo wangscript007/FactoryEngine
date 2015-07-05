@@ -63,14 +63,6 @@ Copyright (C) 2012 Apple Inc. All Rights Reserved.
 //#define RECTANGLE_TEST
 //#define USE_BLOCK_BUFFER
 
-#if GLES
-
-#import <OpenGLES/ES3/gl.h>
-#import <OpenGLES/ES3/glext.h>
-#define FTDouble float
-
-#else
-
 #define FTDouble GLdouble
 #import <OpenGL/OpenGL.h>
 // OpenGL 3.2 is only supported on MacOS X Lion and later
@@ -88,16 +80,11 @@ Copyright (C) 2012 Apple Inc. All Rights Reserved.
 #import <OpenGL/gl.h>
 #endif //!ESSENTIAL_GL_PRACTICES_SUPPORT_GL3
 
-#endif // !GLES
 
 
 //The name of the VertexArrayObject are slightly different in
 // OpenGLES, OpenGL Core Profile, and OpenGL Legacy
 // The arguments are exactly the same across these APIs however
-#if GLES
-
-#else
-
 #if ESSENTIAL_GL_PRACTICES_SUPPORT_GL3
 #define glBindVertexArray glBindVertexArray
 #define glGenVertexArrays glGenVertexArrays
@@ -111,7 +98,6 @@ Copyright (C) 2012 Apple Inc. All Rights Reserved.
 
 #endif //!ESSENTIAL_GL_PRACTICES_SUPPORT_GL3
 
-#endif //!ESSENTIAL_GL_PRACTICES_IOS
 
 static inline const char * GetGLErrorString(GLenum error)
 {
@@ -130,25 +116,6 @@ static inline const char * GetGLErrorString(GLenum error)
         case GL_INVALID_OPERATION:
             str = "GL_INVALID_OPERATION";
             break;
-#if defined __gl_h_ || defined __gl3_h_
-        case GL_OUT_OF_MEMORY:
-            str = "GL_OUT_OF_MEMORY";
-            break;
-        case GL_INVALID_FRAMEBUFFER_OPERATION:
-            str = "GL_INVALID_FRAMEBUFFER_OPERATION";
-            break;
-#endif
-#if defined __gl_h_
-        case GL_STACK_OVERFLOW:
-            str = "GL_STACK_OVERFLOW";
-            break;
-        case GL_STACK_UNDERFLOW:
-            str = "GL_STACK_UNDERFLOW";
-            break;
-        case GL_TABLE_TOO_LARGE:
-            str = "GL_TABLE_TOO_LARGE";
-            break;
-#endif
         default:
             str = "(ERROR: Unknown Error Enum)";
             break;
