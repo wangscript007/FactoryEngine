@@ -31,6 +31,12 @@ using namespace ftr;
     activeBody->SubnodesWithType(Node::kLine, lineNodes);
     activeBody->SubnodesWithType(Node::kFace, faceNodes);
     
+    Layer layer;
+    for (auto& point : pointNodes) point->Render(layer);
+    for (auto& line : lineNodes) line->Render(layer);
+    for (auto& face : faceNodes) face->Render(layer);
+
+    
     LineNode* lineNode = reinterpret_cast<LineNode*>(lineNodes[0]);
     
     lineNode->Invalidate(true);
@@ -45,11 +51,11 @@ using namespace ftr;
     
     int invalidLinesCount = 0;
     for (auto& line : lineNodes) invalidLinesCount += line->invalid();
-    XCTAssertEqual(invalidLinesCount, 5);
+    XCTAssertEqual(invalidLinesCount, 1);
     
     int invalidFacesCount = 0;
     for (auto& face : faceNodes) invalidFacesCount += face->invalid();
-    XCTAssertEqual(invalidFacesCount, 4);
+    XCTAssertEqual(invalidFacesCount, 2);
 }
 
 

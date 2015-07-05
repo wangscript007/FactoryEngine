@@ -64,6 +64,11 @@ using namespace ftr;
     activeBody->SubnodesWithType(Node::kLine, lineNodes);
     activeBody->SubnodesWithType(Node::kFace, faceNodes);
     
+    Layer layer;
+    for (auto& point : pointNodes) point->Render(layer);
+    for (auto& line : lineNodes) line->Render(layer);
+    for (auto& face : faceNodes) face->Render(layer);
+    
     PointNode* pointNode = reinterpret_cast<PointNode*>(pointNodes[0]);
     
     pointNode->Invalidate(true);

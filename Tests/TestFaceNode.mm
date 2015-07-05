@@ -4,6 +4,7 @@
 #import <Graph/FaceNode.h>
 #import <Geometry/Vector.h>
 #include <Geometry/Constants.h>
+#include <Render/Layer.h>
 
 using namespace ftr;
 
@@ -30,8 +31,12 @@ using namespace ftr;
     activeBody->SubnodesWithType(Node::kLine, lineNodes);
     activeBody->SubnodesWithType(Node::kFace, faceNodes);
     
-    FaceNode* faceNode = reinterpret_cast<FaceNode*>(faceNodes[0]);
+    Layer layer;
+    for (auto& point : pointNodes) point->Render(layer);
+    for (auto& line : lineNodes) line->Render(layer);
+    for (auto& face : faceNodes) face->Render(layer);
     
+    FaceNode* faceNode = reinterpret_cast<FaceNode*>(faceNodes[0]);
     faceNode->Invalidate(true);
     
     XCTAssertEqual(pointNodes.size(), 8);
