@@ -131,7 +131,6 @@
 		D11FC7001A546B84006355E7 /* PolygonRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 607BFB0F172C7F3500357B47 /* PolygonRenderer.cpp */; };
 		D131ABC51A869EA400A17434 /* TestVertex.mm in Sources */ = {isa = PBXBuildFile; fileRef = D131ABC41A869EA400A17434 /* TestVertex.mm */; };
 		D1376AB21A23EA8800C7EA8E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1376AB11A23EA8800C7EA8E /* libz.dylib */; };
-		D1376AB31A23ECAF00C7EA8E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1376AB11A23EA8800C7EA8E /* libz.dylib */; };
 		D13DC913157A9FF500C84006 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13DC912157A9FF500C84006 /* OpenGL.framework */; };
 		D146CAD31A559C170068C82C /* LineBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D146CAD11A559C170068C82C /* LineBatch.cpp */; };
 		D146CAD51A559C170068C82C /* LineBatch.h in Headers */ = {isa = PBXBuildFile; fileRef = D146CAD21A559C170068C82C /* LineBatch.h */; };
@@ -356,6 +355,7 @@
 		D16D270218D5E8FB0095B177 /* Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangle.h; sourceTree = "<group>"; };
 		D16D270518D5F1980095B177 /* TestTriangle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestTriangle.mm; sourceTree = "<group>"; };
 		D17086861A6BF32B00A679D8 /* TestFaceTraversal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestFaceTraversal.mm; sourceTree = "<group>"; };
+		D1740EF51B61272B003A36A9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		D178BEDE19FD333800B6C4C0 /* TestNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestNode.mm; path = ../../factoryengine/Tests/TestNode.mm; sourceTree = "<group>"; };
 		D17B5E8D1B17B28A003C8F7B /* Query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Query.cpp; sourceTree = "<group>"; };
 		D17B5E8E1B17B28A003C8F7B /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Query.h; sourceTree = "<group>"; };
@@ -439,7 +439,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1376AB31A23ECAF00C7EA8E /* libz.dylib in Frameworks */,
 				D1B883F51A2E729A00D6D0EA /* libassimp.a in Frameworks */,
 				D13DC913157A9FF500C84006 /* OpenGL.framework in Frameworks */,
 			);
@@ -827,6 +826,7 @@
 		D1E75032157BC4DB005C4CCF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1740EF51B61272B003A36A9 /* libz.tbd */,
 				D1D1C9A91A25359500BE3057 /* libassimpd.a */,
 				D1376AB11A23EA8800C7EA8E /* libz.dylib */,
 				D1376AAF1A23E97B00C7EA8E /* Cocoa.framework */,
@@ -1285,7 +1285,7 @@
 				MACOSX_DEPLOYMENT_TARGET = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include;
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 			};
 			name = DebugTest;
 		};
@@ -1400,7 +1400,7 @@
 				MACOSX_DEPLOYMENT_TARGET = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include;
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -1436,7 +1436,7 @@
 				MACOSX_DEPLOYMENT_TARGET = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include;
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
