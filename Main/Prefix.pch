@@ -26,5 +26,7 @@
 #include <glm/ext.hpp>
 
 #include <Geometry/Segment.h>
+#include <Main/FTTypes.h>
 #include <Main/Constants.h>
+
 

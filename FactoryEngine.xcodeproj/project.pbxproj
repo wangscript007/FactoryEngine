@@ -178,6 +178,7 @@
 		D18ECC92190517A400189A01 /* PointNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC69190517A400189A01 /* PointNode.h */; };
 		D18ECC94190517A400189A01 /* PolylineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D18ECC6A190517A400189A01 /* PolylineNode.cpp */; };
 		D18ECC97190517A400189A01 /* PolylineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D18ECC6B190517A400189A01 /* PolylineNode.h */; };
+		D19B3D291B6A1F22001E1B1D /* FTTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = D19B3D281B6A1F22001E1B1D /* FTTypes.h */; };
 		D19B99D01902F003000BF781 /* GroupInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D19B99CE1902F003000BF781 /* GroupInteraction.cpp */; };
 		D19B99D31902F003000BF781 /* GroupInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = D19B99CF1902F003000BF781 /* GroupInteraction.h */; };
 		D1A920FF18E1876A0034336A /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
@@ -391,6 +392,7 @@
 		D18ECC69190517A400189A01 /* PointNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointNode.h; sourceTree = "<group>"; };
 		D18ECC6A190517A400189A01 /* PolylineNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolylineNode.cpp; sourceTree = "<group>"; };
 		D18ECC6B190517A400189A01 /* PolylineNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolylineNode.h; sourceTree = "<group>"; };
+		D19B3D281B6A1F22001E1B1D /* FTTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTTypes.h; path = ../../factoryengine/Main/FTTypes.h; sourceTree = "<group>"; };
 		D19B99CE1902F003000BF781 /* GroupInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GroupInteraction.cpp; sourceTree = "<group>"; };
 		D19B99CF1902F003000BF781 /* GroupInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupInteraction.h; sourceTree = "<group>"; };
 		D1A920FD18E1876A0034336A /* Geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Geometry.cpp; sourceTree = "<group>"; };
@@ -743,6 +745,7 @@
 				D17C76AB1584E3900083E2B0 /* GLError.h */,
 				604E93D116A1D14C00143522 /* Macros.h */,
 				D116459819FC29DC0015ED78 /* Constants.h */,
+				D19B3D281B6A1F22001E1B1D /* FTTypes.h */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -882,6 +885,7 @@
 				D18ECC97190517A400189A01 /* PolylineNode.h in Headers */,
 				D146CAD51A559C170068C82C /* LineBatch.h in Headers */,
 				60A4ED6816FE59D50083DCD2 /* ScaleInteraction.h in Headers */,
+				D19B3D291B6A1F22001E1B1D /* FTTypes.h in Headers */,
 				D11D1D5218DF70980091521F /* utils.h in Headers */,
 				D189C67119165F0B00E9FB1A /* Pivot.h in Headers */,
 				6032716417EB08E700249562 /* Framebuffer.h in Headers */,

@@ -25,16 +25,6 @@
 #include <glm/ext.hpp>
 
 //
-// Platform macros.
-//
-#define _ALIGN(n) __attribute__((aligned(n)))
-
-typedef unsigned char           Byte;             // 1 byte
-typedef unsigned short int      Word;             // 2 bytes
-typedef unsigned int            Doubleword;       // 4 bytes
-typedef unsigned long long int  Quadrupleword;    // 8 bytes
-
-//
 // Main
 //
 #include "Main/GLError.h"
