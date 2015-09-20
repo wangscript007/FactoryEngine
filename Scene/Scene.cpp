@@ -9,7 +9,7 @@
 #include <Shading/ShadingLibrary.h>
 #include <Workspace/Workspace.h>
 #include <Lighting/LightingCollection.h>
-#include <ImportExport/ModelImporter.h>
+//#include <ImportExport/ModelImporter.h>
 #include <Query/Query.h>
 
 namespace ftr {
@@ -47,7 +47,7 @@ Scene::Scene() :
     mInteractionProvider = new class InteractionProvider(*mModelEditor, *mCamera);
 
     
-    ModelImporter modelImporter(*mModelEditor);
+//    ModelImporter modelImporter(*mModelEditor);
 
     //modelImporter.Import("/Users/edvinassarkus/factory/factoryengine/Tests/Models/HMP/terrain_withtexture.hmp");
     

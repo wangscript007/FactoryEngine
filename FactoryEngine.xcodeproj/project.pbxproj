@@ -183,14 +183,12 @@
 		D19B99D31902F003000BF781 /* GroupInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = D19B99CF1902F003000BF781 /* GroupInteraction.h */; };
 		D1A920FF18E1876A0034336A /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1A920FD18E1876A0034336A /* Geometry.cpp */; };
 		D1A9210018E1876A0034336A /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = D1A920FE18E1876A0034336A /* Geometry.h */; };
-		D1B883F51A2E729A00D6D0EA /* libassimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E0121D1A22116900583D0A /* libassimp.a */; };
 		D1BE952818F721C40022D7C7 /* SelectInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */; };
 		D1BE952918F721C40022D7C7 /* SelectInteraction.h in Headers */ = {isa = PBXBuildFile; fileRef = D1BE952718F721C40022D7C7 /* SelectInteraction.h */; };
 		D1C15CD61A6B175D00E4CC45 /* Edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1C15CD41A6B175D00E4CC45 /* Edge.cpp */; };
 		D1C15CD71A6B175D00E4CC45 /* Edge.h in Headers */ = {isa = PBXBuildFile; fileRef = D1C15CD51A6B175D00E4CC45 /* Edge.h */; };
 		D1C15CDE1A6B17A500E4CC45 /* FaceTraversal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1C15CDC1A6B17A500E4CC45 /* FaceTraversal.cpp */; };
 		D1C15CDF1A6B17A500E4CC45 /* FaceTraversal.h in Headers */ = {isa = PBXBuildFile; fileRef = D1C15CDD1A6B17A500E4CC45 /* FaceTraversal.h */; };
-		D1E0122E1A2218D100583D0A /* ModelImporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1E0122C1A2218D100583D0A /* ModelImporter.cpp */; };
 		D1E0122F1A2218D100583D0A /* ModelImporter.h in Headers */ = {isa = PBXBuildFile; fileRef = D1E0122D1A2218D100583D0A /* ModelImporter.h */; };
 		D1F44F4C157FE79600566119 /* Workspace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1F44F4A157FE79600566119 /* Workspace.cpp */; };
 		D1F44F4D157FE79600566119 /* Workspace.h in Headers */ = {isa = PBXBuildFile; fileRef = D1F44F4B157FE79600566119 /* Workspace.h */; };
@@ -441,7 +439,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1B883F51A2E729A00D6D0EA /* libassimp.a in Frameworks */,
 				D13DC913157A9FF500C84006 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1065,7 +1062,6 @@
 				D185302618F148A8001A7AB1 /* FaceExtruder.cpp in Sources */,
 				D11D1D5718DF70980091521F /* cdt.cc in Sources */,
 				606BC013180863C100EC4F37 /* PointSnap.cpp in Sources */,
-				D1E0122E1A2218D100583D0A /* ModelImporter.cpp in Sources */,
 				D11D1D4F18DF70980091521F /* shapes.cc in Sources */,
 				60DFE3A81825389500A32D7A /* Vector.cpp in Sources */,
 				D1F44F4C157FE79600566119 /* Workspace.cpp in Sources */,
