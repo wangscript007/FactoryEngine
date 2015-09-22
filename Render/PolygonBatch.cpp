@@ -45,37 +45,37 @@ void PolygonBatch::CreateRenderData(ShadingInterface& shadingInterface)
         }
     }
     
-    const GLuint vertexLoc = shadingInterface.vertexLocation();
-    const GLuint normalLoc = shadingInterface.normalLocation();
-    const GLuint colorLoc = ShadingInterface::kColorAttributeIndex;
-    const GLuint pickingColorLoc = ShadingInterface::kPickingColorAttributeIndex;
-    
-    glGenVertexArrays(1, &mVertexArrayObjectId);
-    glBindVertexArray(mVertexArrayObjectId);
-    
-    mBuffersCount = 4;
-    glGenBuffers(mBuffersCount, mBuffers);
-    
-    glBindBuffer(GL_ARRAY_BUFFER, mBuffers[0]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*3*mTrianglesCount, vertices, GL_STATIC_DRAW);
-    glEnableVertexAttribArray(vertexLoc);
-    glVertexAttribPointer(vertexLoc, 4, GL_FLOAT, 0, 0, 0);
-    
-    glBindBuffer(GL_ARRAY_BUFFER, mBuffers[1]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*3*mTrianglesCount, normals, GL_STATIC_DRAW);
-    glEnableVertexAttribArray(normalLoc);
-    glVertexAttribPointer(normalLoc, 4, GL_FLOAT, 0, 0, 0);
-    
-    glBindBuffer(GL_ARRAY_BUFFER, mBuffers[2]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*3*mTrianglesCount, colors, GL_STATIC_DRAW);
-    glEnableVertexAttribArray(colorLoc);
-    glVertexAttribPointer(colorLoc, 4, GL_FLOAT, 0, 0, 0);
-    
-    glBindBuffer(GL_ARRAY_BUFFER, mBuffers[3]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*3*mTrianglesCount, pickingColors, GL_STATIC_DRAW);
-    glEnableVertexAttribArray(pickingColorLoc);
-    glVertexAttribPointer(pickingColorLoc, 4, GL_FLOAT, 0, 0, 0);
-    
+//    const GLuint vertexLoc = shadingInterface.vertexLocation();
+//    const GLuint normalLoc = shadingInterface.normalLocation();
+//    const GLuint colorLoc = ShadingInterface::kColorAttributeIndex;
+//    const GLuint pickingColorLoc = ShadingInterface::kPickingColorAttributeIndex;
+//    
+//    glGenVertexArrays(1, &mVertexArrayObjectId);
+//    glBindVertexArray(mVertexArrayObjectId);
+//    
+//    mBuffersCount = 4;
+//    glGenBuffers(mBuffersCount, mBuffers);
+//    
+//    glBindBuffer(GL_ARRAY_BUFFER, mBuffers[0]);
+//    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*3*mTrianglesCount, vertices, GL_STATIC_DRAW);
+//    glEnableVertexAttribArray(vertexLoc);
+//    glVertexAttribPointer(vertexLoc, 4, GL_FLOAT, 0, 0, 0);
+//    
+//    glBindBuffer(GL_ARRAY_BUFFER, mBuffers[1]);
+//    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*3*mTrianglesCount, normals, GL_STATIC_DRAW);
+//    glEnableVertexAttribArray(normalLoc);
+//    glVertexAttribPointer(normalLoc, 4, GL_FLOAT, 0, 0, 0);
+//    
+//    glBindBuffer(GL_ARRAY_BUFFER, mBuffers[2]);
+//    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*3*mTrianglesCount, colors, GL_STATIC_DRAW);
+//    glEnableVertexAttribArray(colorLoc);
+//    glVertexAttribPointer(colorLoc, 4, GL_FLOAT, 0, 0, 0);
+//    
+//    glBindBuffer(GL_ARRAY_BUFFER, mBuffers[3]);
+//    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*3*mTrianglesCount, pickingColors, GL_STATIC_DRAW);
+//    glEnableVertexAttribArray(pickingColorLoc);
+//    glVertexAttribPointer(pickingColorLoc, 4, GL_FLOAT, 0, 0, 0);
+//    
     mRenderData = reinterpret_cast<char*>(data);
     
 }

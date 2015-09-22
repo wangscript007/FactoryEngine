@@ -9,8 +9,8 @@ namespace ftr {
 void PolygonRenderer::Begin(Batch& batch)
 {
     PrimitiveRenderer::Begin(batch);
-    glEnable(GL_POLYGON_OFFSET_FILL);
-    glPolygonOffset(1.0, 1.0);
+//    glEnable(GL_POLYGON_OFFSET_FILL);
+//    glPolygonOffset(1.0, 1.0);
 }
     
 void PolygonRenderer::Render(Batch& batch)
@@ -18,12 +18,12 @@ void PolygonRenderer::Render(Batch& batch)
     PolygonBatch& polygonBatch = reinterpret_cast<PolygonBatch&>(batch);
     polygonBatch.CreateRenderData(mShadingInterface);
     assert(!polygonBatch.IsZombie()); // Invalidating polygon during rendering
-    GLint count = static_cast<GLint>(polygonBatch.trianglesCount());
-    if (count > 0) {
-        glBindVertexArray(polygonBatch.vertexArrayObjectId());
-        glDrawArrays(GL_TRIANGLES, 0, 3*count);
-        glGetError();
-    }
+//    GLint count = static_cast<GLint>(polygonBatch.trianglesCount());
+//    if (count > 0) {
+//        glBindVertexArray(polygonBatch.vertexArrayObjectId());
+//        glDrawArrays(GL_TRIANGLES, 0, 3*count);
+//        glGetError();
+//    }
 
 }
     

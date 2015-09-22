@@ -25,24 +25,24 @@ void LineBatch::CreateRenderData(ShadingInterface& shadingInterface)
 
     }
     
-    const GLuint colorLoc = shadingInterface.colorLocation();
-    const GLuint vertexLoc = shadingInterface.vertexLocation();
-    
-    glGenVertexArrays(1, &mVertexArrayObjectId);
-    glBindVertexArray(mVertexArrayObjectId);
-    
-    mBuffersCount = 2;
-    glGenBuffers(mBuffersCount, mBuffers);
-    
-    glBindBuffer(GL_ARRAY_BUFFER, mBuffers[0]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*2*size(), vertices, GL_STATIC_DRAW);
-    glEnableVertexAttribArray(vertexLoc);
-    glVertexAttribPointer(vertexLoc, 4, GL_FLOAT, 0, 0, 0);
-    
-    glBindBuffer(GL_ARRAY_BUFFER, mBuffers[1]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*2*size(), colors, GL_STATIC_DRAW);
-    glEnableVertexAttribArray(colorLoc);
-    glVertexAttribPointer(colorLoc, 4, GL_FLOAT, 0, 0, 0);
+//    const GLuint colorLoc = shadingInterface.colorLocation();
+//    const GLuint vertexLoc = shadingInterface.vertexLocation();
+//    
+//    glGenVertexArrays(1, &mVertexArrayObjectId);
+//    glBindVertexArray(mVertexArrayObjectId);
+//    
+//    mBuffersCount = 2;
+//    glGenBuffers(mBuffersCount, mBuffers);
+//    
+//    glBindBuffer(GL_ARRAY_BUFFER, mBuffers[0]);
+//    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*2*size(), vertices, GL_STATIC_DRAW);
+//    glEnableVertexAttribArray(vertexLoc);
+//    glVertexAttribPointer(vertexLoc, 4, GL_FLOAT, 0, 0, 0);
+//    
+//    glBindBuffer(GL_ARRAY_BUFFER, mBuffers[1]);
+//    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec4)*2*size(), colors, GL_STATIC_DRAW);
+//    glEnableVertexAttribArray(colorLoc);
+//    glVertexAttribPointer(colorLoc, 4, GL_FLOAT, 0, 0, 0);
     
     mRenderData = reinterpret_cast<char*>(data);
 }

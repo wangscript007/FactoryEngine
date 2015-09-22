@@ -2,6 +2,7 @@
 #pragma once
 
 #include <Render/Primitive.h>
+#include "FTTypes.h"
 
 namespace ftr {
     
@@ -13,8 +14,8 @@ public:
     virtual void AddPrimitive(Primitive& primitive);
     virtual void CreateRenderData(ShadingInterface& shadingInterface) {}
     
-    GLuint size() const { return  static_cast<GLuint>(mPrimitives.size()); }
-    GLuint vertexArrayObjectId() const { return mVertexArrayObjectId; }
+    FTUnsigned size() const { return  static_cast<FTUnsigned>(mPrimitives.size()); }
+    FTUnsigned vertexArrayObjectId() const { return mVertexArrayObjectId; }
     std::string Description() const;
     bool IsZombie() { return mRenderData && mIsInvalid; }
     bool AcceptsPrimitives() { return mIsInvalid && !IsZombie(); };
@@ -24,9 +25,9 @@ protected:
     
     std::vector<Primitive*> mPrimitives;
     
-    GLuint mVertexArrayObjectId;
-    GLuint mBuffers[4];
-    GLuint mBuffersCount;
+    FTUnsigned mVertexArrayObjectId;
+    FTUnsigned mBuffers[4];
+    FTUnsigned mBuffersCount;
     char* mRenderData;
 };
     

@@ -3,15 +3,14 @@
 
 namespace ftr {
     
-SceneRenderer::SceneRenderer(ShadingLibrary& shadingLibrary, Camera& camera)
-    : LayerRenderer(shadingLibrary.interface()),
-    mCamera(camera),
-    mShadingLibrary(shadingLibrary)
+SceneRenderer::SceneRenderer(Camera& camera)
+    : LayerRenderer(*(new ShadingInterface())),
+    mCamera(camera)
 {
     setMarkingBufferVisible(false);
     
-    mProgramTypeForMarkingBuffer = ShadingProgram::kColor;
-    mProgramTypeForVisibleBuffer = ShadingProgram::kMain;
+//    mProgramTypeForMarkingBuffer = ShadingProgram::kColor;
+//    mProgramTypeForVisibleBuffer = ShadingProgram::kMain;
 }
     
 SceneRenderer::~SceneRenderer()
@@ -24,14 +23,14 @@ void SceneRenderer::setMarkingBufferVisible(bool visible)
     
     mMarkingBufferVisible = visible;
     
-    if (mMarkingBufferVisible) {
-        mProgramTypeForMarkingBuffer = ShadingProgram::kMain;
-        mProgramTypeForVisibleBuffer = ShadingProgram::kColor;
-    }
-    else {
-        mProgramTypeForMarkingBuffer = ShadingProgram::kColor;
-        mProgramTypeForVisibleBuffer = ShadingProgram::kMain;
-    }
+//    if (mMarkingBufferVisible) {
+//        mProgramTypeForMarkingBuffer = ShadingProgram::kMain;
+//        mProgramTypeForVisibleBuffer = ShadingProgram::kColor;
+//    }
+//    else {
+//        mProgramTypeForMarkingBuffer = ShadingProgram::kColor;
+//        mProgramTypeForVisibleBuffer = ShadingProgram::kMain;
+//    }
 }
     
 void SceneRenderer::Render(Layer &layer)
@@ -42,21 +41,21 @@ void SceneRenderer::Render(Layer &layer)
     
 void SceneRenderer::RenderMainContent(Layer &layer)
 {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    mShadingLibrary.UseProgramWithType(mProgramTypeForVisibleBuffer);
-    mCamera.CommitTransformations();
-    mRenderLines = mProgramTypeForVisibleBuffer != ShadingProgram::kColor;
-    RenderInternal(layer);
+//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//    mShadingLibrary.UseProgramWithType(mProgramTypeForVisibleBuffer);
+//    mCamera.CommitTransformations();
+//    mRenderLines = mProgramTypeForVisibleBuffer != ShadingProgram::kColor;
+//    RenderInternal(layer);
 }
     
 void SceneRenderer::RenderMarkingContent(Layer &layer)
 {
     
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    mShadingLibrary.UseProgramWithType(mProgramTypeForMarkingBuffer);
-    mCamera.CommitTransformations();
-    mRenderLines = mProgramTypeForMarkingBuffer != ShadingProgram::kColor;
-    LayerRenderer::RenderInternal(layer);
+//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//    mShadingLibrary.UseProgramWithType(mProgramTypeForMarkingBuffer);
+//    mCamera.CommitTransformations();
+//    mRenderLines = mProgramTypeForMarkingBuffer != ShadingProgram::kColor;
+//    LayerRenderer::RenderInternal(layer);
     
 }
 

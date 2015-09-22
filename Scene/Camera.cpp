@@ -56,9 +56,6 @@ glm::mat4 Camera::TranslationMatrix()
     
 void Camera::CommitTransformations()
 {
-    if (mShadingInterface) {
-        mShadingInterface->InputViewport(mViewport);
-    }
 }
     
 glm::vec3 Camera::RotateVector(const glm::vec3& vec) const
@@ -157,11 +154,8 @@ void Camera::setViewport(const glm::vec4& frame)
     float width = fabsf(frame[0] - frame[2]);
     float height = fabsf(frame[1] - frame[3]);
     float size = std::max(width, height);
-    glViewport(0.0f, 0.0f, size, size);
+//    glViewport(0.0f, 0.0f, size, size);
     mViewport.frame =  glm::vec4(glm::vec2(), glm::vec2(size, size));
-#ifndef GLES
-    mShadingInterface->InputWindowSize(glm::vec2(size, size));
-#endif
 }
     
     

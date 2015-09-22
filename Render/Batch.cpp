@@ -30,8 +30,8 @@ void Batch::ClearRenderData()
     if (mRenderData) {
         delete[] mRenderData;
         mRenderData = NULL;
-        glDeleteBuffers(mBuffersCount, mBuffers);
-        glDeleteVertexArrays(1, &mVertexArrayObjectId);
+//        glDeleteBuffers(mBuffersCount, mBuffers);
+//        glDeleteVertexArrays(1, &mVertexArrayObjectId);
     }
 }
 

@@ -16,9 +16,6 @@ void LineRenderer::Render(Batch& batch)
     lineBatch.CreateRenderData(mShadingInterface);
     assert(!lineBatch.IsZombie()); // Invalidating line during rendering
     if (lineBatch.size()) {
-        glBindVertexArray(lineBatch.vertexArrayObjectId());
-        glDrawArrays(GL_LINES, 0, 2*lineBatch.size());
-        glGetError();
     }
 }
 

@@ -6,9 +6,7 @@
 #include <Render/Layer.h>
 #include <Render/LayerRenderer.h>
 #include <Scene/Viewport.h>
-#include <Shading/ShadingLibrary.h>
 #include <Workspace/Workspace.h>
-#include <Lighting/LightingCollection.h>
 //#include <ImportExport/ModelImporter.h>
 #include <Query/Query.h>
 
@@ -23,18 +21,15 @@ Scene::Scene() :
     mFramesCount(0),
     mOptions(kOptionShowNone)
 {
-    mShadingLibrary = new ShadingLibrary();
-    ShadingInterface& shadingInterface = mShadingLibrary->interface();
+
+    ShadingInterface& shadingInterface = *new ShadingInterface();
     
     
     mCamera = new class Camera(mViewport);
     mCamera->setShadingInterface(&shadingInterface);
     
-    mSceneRenderer = new SceneRenderer(*mShadingLibrary, *mCamera);
+    mSceneRenderer = new SceneRenderer(*mCamera);
 
-    mLightingCollection = new LightingCollection();
-    mLightingCollection->activeModel()->setShadingInterface(&shadingInterface);
-    mLightingCollection->activeModel()->SetupLights();
     
     mLayer = new Layer();
     mWorkspace = new Workspace(mLayer);
@@ -71,8 +66,6 @@ Scene::~Scene()
     FT_DELETE(mInteractionProvider);
     FT_DELETE(mSceneRenderer);
     FT_DELETE(mLayer);
-    FT_DELETE(mShadingLibrary);
-    FT_DELETE(mLightingCollection);
     FT_DELETE(mPicker);
 }
     
@@ -88,19 +81,18 @@ void Scene::setOption(Option option, bool value)
 void Scene::Reset()
 {
     mLayer->Clear();
-    mShadingLibrary->clear();
+//    mShadingLibrary->clear();
 }
     
 void Scene::Prepare()
 {
-    glClearColor(0.1f, 0.3f, 0.1f,1.0);
-    mShadingLibrary->BuildProgramWithType(ShadingProgram::kMain);
-    mShadingLibrary->BuildProgramWithType(ShadingProgram::kColor);
-    mShadingLibrary->UseProgramWithType(ShadingProgram::kMain);
+//    glClearColor(0.1f, 0.3f, 0.1f,1.0);
+//    mShadingLibrary->BuildProgramWithType(ShadingProgram::kMain);
+//    mShadingLibrary->BuildProgramWithType(ShadingProgram::kColor);
+//    mShadingLibrary->UseProgramWithType(ShadingProgram::kMain);
     
     mCamera->setProjection(kProjectionPerspective);
     
-    mLightingCollection->activeModel()->SendDataToShader();
 }
 
 #pragma mark Workspace
