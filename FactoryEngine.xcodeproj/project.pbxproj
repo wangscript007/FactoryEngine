@@ -18,8 +18,6 @@
 		6021AFC817232B8F001EAEBE /* PrimitiveRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFC617232B8F001EAEBE /* PrimitiveRenderer.h */; };
 		6021AFCB172332F6001EAEBE /* LineRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6021AFC9172332F6001EAEBE /* LineRenderer.cpp */; };
 		6021AFCC172332F6001EAEBE /* LineRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6021AFCA172332F6001EAEBE /* LineRenderer.h */; };
-		6032716117EB08E700249562 /* Framebuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6032715F17EB08E700249562 /* Framebuffer.cpp */; };
-		6032716417EB08E700249562 /* Framebuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6032716017EB08E700249562 /* Framebuffer.h */; };
 		6032717617EB17C700249562 /* SceneRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6032717417EB17C700249562 /* SceneRenderer.cpp */; };
 		6032717917EB17C700249562 /* SceneRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6032717517EB17C700249562 /* SceneRenderer.h */; };
 		6047DB9316B46A890012286F /* RectangleInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6047DB9116B46A890012286F /* RectangleInteraction.cpp */; };
@@ -226,8 +224,6 @@
 		6021AFC9172332F6001EAEBE /* LineRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineRenderer.cpp; sourceTree = "<group>"; };
 		6021AFCA172332F6001EAEBE /* LineRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineRenderer.h; sourceTree = "<group>"; };
 		602A43A31800A59600EC071F /* glm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = glm; sourceTree = "<group>"; };
-		6032715F17EB08E700249562 /* Framebuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Framebuffer.cpp; sourceTree = "<group>"; };
-		6032716017EB08E700249562 /* Framebuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framebuffer.h; sourceTree = "<group>"; };
 		6032717417EB17C700249562 /* SceneRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneRenderer.cpp; sourceTree = "<group>"; };
 		6032717517EB17C700249562 /* SceneRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneRenderer.h; sourceTree = "<group>"; };
 		60379DD518678813009A9EBC /* TestFaceNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestFaceNode.mm; sourceTree = "<group>"; };
@@ -396,7 +392,6 @@
 		D1A920FD18E1876A0034336A /* Geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Geometry.cpp; sourceTree = "<group>"; };
 		D1A920FE18E1876A0034336A /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
 		D1AA003E1A05585E0040FA70 /* TestLineNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TestLineNode.mm; path = ../../factoryengine/Tests/TestLineNode.mm; sourceTree = "<group>"; };
-		D1B0650019CF4327008CB25D /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Shaders; path = ../factoryengine/Shaders; sourceTree = "<group>"; };
 		D1BE952618F721C40022D7C7 /* SelectInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectInteraction.cpp; sourceTree = "<group>"; };
 		D1BE952718F721C40022D7C7 /* SelectInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectInteraction.h; sourceTree = "<group>"; };
 		D1C15CD41A6B175D00E4CC45 /* Edge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Edge.cpp; sourceTree = "<group>"; };
@@ -586,8 +581,6 @@
 		60D74584172298B30062CDF1 /* Render */ = {
 			isa = PBXGroup;
 			children = (
-				6032715F17EB08E700249562 /* Framebuffer.cpp */,
-				6032716017EB08E700249562 /* Framebuffer.h */,
 				60D745891722994B0062CDF1 /* Primitive.cpp */,
 				60D7458A1722994B0062CDF1 /* Primitive.h */,
 				6021AFC517232B8E001EAEBE /* PrimitiveRenderer.cpp */,
@@ -699,7 +692,6 @@
 				60607E1117E63CF600708358 /* Tests */,
 				D1E75032157BC4DB005C4CCF /* Frameworks */,
 				D13DC90C157A9F8C00C84006 /* Products */,
-				D1B0650019CF4327008CB25D /* Shaders */,
 				602055C418A6BE790005F379 /* Docs */,
 				D1FBBC88197AD187001A38C3 /* Scripts */,
 			);
@@ -885,7 +877,6 @@
 				D19B3D291B6A1F22001E1B1D /* FTTypes.h in Headers */,
 				D11D1D5218DF70980091521F /* utils.h in Headers */,
 				D189C67119165F0B00E9FB1A /* Pivot.h in Headers */,
-				6032716417EB08E700249562 /* Framebuffer.h in Headers */,
 				60CE9A5717EC646E00A775C0 /* Shader.h in Headers */,
 				60D7457D17228DC40062CDF1 /* InteractionProvider.h in Headers */,
 				60D74588172299390062CDF1 /* LayerRenderer.h in Headers */,
@@ -1078,7 +1069,6 @@
 				606BC00B1808639500EC4F37 /* AxisSnap.cpp in Sources */,
 				D11FC6FE1A546B41006355E7 /* PolygonBatch.cpp in Sources */,
 				60C41BB41691BF5600DD0C09 /* GeometryPrimitives.cpp in Sources */,
-				6032716117EB08E700249562 /* Framebuffer.cpp in Sources */,
 				D1BE952818F721C40022D7C7 /* SelectInteraction.cpp in Sources */,
 				6047DB9316B46A890012286F /* RectangleInteraction.cpp in Sources */,
 				D1FFDC021A6B16BB00DD77CB /* Vertex.cpp in Sources */,

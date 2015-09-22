@@ -50,7 +50,6 @@ public:
     void                Step(float dTime);
     float               FPS() const { return mFPS; }
     
-    Framebuffer*        colorMarkingFramebuffer() const { return mSceneRenderer->colorMarkingFramebuffer(); }
     const Viewport&     viewport() const { return mViewport; }
     const Picker&       picker() const { return *mPicker; }
     const Query&        query() const { return *mQuery; }

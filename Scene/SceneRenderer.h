@@ -2,7 +2,6 @@
 #pragma once
 
 #include <Render/LayerRenderer.h>
-#include <Render/Framebuffer.h>
 #include <Shading/ShadingLibrary.h>
 #include <Scene/Camera.h>
 
@@ -20,7 +19,6 @@ public:
     
     void setFrame(const  glm::vec4& frame);
     
-    Framebuffer* colorMarkingFramebuffer() const { return mColorMarkingFramebuffer; }
     
     void setMarkingBufferVisible(bool visible);
     void RenderMarkingContent(Layer &layer);
@@ -32,8 +30,6 @@ private:
     
     void RenderMainContent(Layer &layer);
     
-    
-    Framebuffer* mColorMarkingFramebuffer;
     glm::vec4 mFrame;
     ShadingLibrary& mShadingLibrary;
     Camera& mCamera;

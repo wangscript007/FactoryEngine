@@ -5,7 +5,6 @@ namespace ftr {
     
 SceneRenderer::SceneRenderer(ShadingLibrary& shadingLibrary, Camera& camera)
     : LayerRenderer(shadingLibrary.interface()),
-    mColorMarkingFramebuffer(NULL),
     mCamera(camera),
     mShadingLibrary(shadingLibrary)
 {
@@ -17,7 +16,6 @@ SceneRenderer::SceneRenderer(ShadingLibrary& shadingLibrary, Camera& camera)
     
 SceneRenderer::~SceneRenderer()
 {
-    FT_DELETE(mColorMarkingFramebuffer);
 }
     
 void SceneRenderer::setMarkingBufferVisible(bool visible)
@@ -54,25 +52,17 @@ void SceneRenderer::RenderMainContent(Layer &layer)
 void SceneRenderer::RenderMarkingContent(Layer &layer)
 {
     
-    assert(mColorMarkingFramebuffer);
-    mColorMarkingFramebuffer->Bind();
-    
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     mShadingLibrary.UseProgramWithType(mProgramTypeForMarkingBuffer);
     mCamera.CommitTransformations();
     mRenderLines = mProgramTypeForMarkingBuffer != ShadingProgram::kColor;
     LayerRenderer::RenderInternal(layer);
-    mColorMarkingFramebuffer->Unbind();
     
 }
 
 void SceneRenderer::setFrame(const  glm::vec4& frame)
 {
     mFrame = frame;
-    if (mColorMarkingFramebuffer) {
-        FT_DELETE(mColorMarkingFramebuffer);
-    }
-    mColorMarkingFramebuffer = new Framebuffer(glm::vec2(frame[2], frame[3]));
 }
     
 }
